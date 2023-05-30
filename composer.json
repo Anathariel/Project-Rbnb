@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "classmap": ["controller","model","view","class"]
+    },
+    "require": {
+        "altorouter/altorouter": "1.1.0",
+        "twig/twig":"^3.0",
+        "symfony/asset": "^6.0"
+    }
+}
