@@ -10,6 +10,9 @@ $router->setBasePath('/projet/project-rbnb');
 // ROUTES 
 $router->map('GET','/', 'HomeController#home', 'home');
 
+// Register
+$router->map('GET|POST','/registration', 'UserController#register', 'register');
+
 
 // MATCH :
 $match = $router->match();
