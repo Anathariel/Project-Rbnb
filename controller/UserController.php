@@ -27,7 +27,7 @@ class UserController extends Controller {
 
     public function login(){
         if (!$_POST) {
-            echo self::getRender('login.html.twig', []);
+            echo self::getRender('register.html.twig', []);
         } else {
             $email = $_POST['email'];
             $password = $_POST['password'];

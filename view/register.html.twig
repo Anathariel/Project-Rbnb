@@ -8,7 +8,7 @@
     <fieldset>
         <legend>Register</legend>
 
-        <form method="POST" action="{{ register }}">
+        <form method="POST" action="{{ path('register') }}">
 
             <label for="firstName">firstName :</label>
             <input type="text" id="firstName" name="firstName" placeholder="Your firstName here">
@@ -23,6 +23,23 @@
             <input type="password" id="password" name="password" placeholder="password">
 
             <input type="submit" value="Sign Up">
+        </form>
+    </fieldset>
+</div>
+
+<div id="connect">
+    <fieldset>
+        <legend>Sign In</legend>
+
+        <form action="{{ path('login') }}" method="POST">
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Your email adress here">
+
+            <label for="password">Password :</label>
+            <input type="password" id="password" name="password" placeholder="password">
+
+            <input type="submit" value="Sign In">
         </form>
     </fieldset>
 </div>

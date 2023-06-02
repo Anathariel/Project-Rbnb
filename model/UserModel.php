@@ -19,7 +19,7 @@ class UserModel extends Model {
     }
 
     public function getUserByEmail(string $email){
-        $req = $this->getDb()->prepare("SELECT `uid`, `username`, `password`, `email`, `favoris`, `joined_date` FROM `user` WHERE `email` = :email");
+        $req = $this->getDb()->prepare("SELECT `uid`, `email`, `password` FROM `user` WHERE `email` = :email");
         $req->bindParam(":email", $email, PDO::PARAM_STR);
         $req->execute();
 
