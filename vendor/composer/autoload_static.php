@@ -66,6 +66,8 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
         'Reservation' => __DIR__ . '/../..' . '/class/Reservation.php',
         'Tag' => __DIR__ . '/../..' . '/class/Tag.php',
         'User' => __DIR__ . '/../..' . '/class/User.php',
+        'UserController' => __DIR__ . '/../..' . '/controller/UserController.php',
+        'UserModel' => __DIR__ . '/../..' . '/model/UserModel.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
