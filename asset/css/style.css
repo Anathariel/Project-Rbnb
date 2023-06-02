@@ -1,1 +1,62 @@
-/*# sourceMappingURL=style.css.map */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.limit-size {
+  max-width: 1900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+body {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  background-color: #f8f8f8;
+}
+
+p,
+a {
+  font-family: "Quicksand";
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Quicksand";
+}
+
+header {
+  background-color: #B9E6FE;
+}
+header #nav-menu {
+  display: flex;
+  flex-direction: column;
+}
+header nav ul {
+  display: flex;
+  align-items: center;
+}
+header nav li a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  color: #f8f8f8;
+  font-size: 1rem;
+  font-family: "Quicksand";
+  padding: 0 10px;
+  transition: all 0.8s ease;
+  font-weight: 600;
+}
+header nav li:hover a {
+  color: #B9E6FE;
+  background-color: #f8f8f8;
+}/*# sourceMappingURL=style.css.map */

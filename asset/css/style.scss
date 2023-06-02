@@ -1,0 +1,83 @@
+//& -------------------- SCSS VARIABLES -------------------- //
+
+//^ --------- COLORS --------- //
+$maincolor: #B9E6FE;
+$white :  #f8f8f8;
+$secondary : #FAC515;
+//* --------- FONT --------- //
+
+$mainfont: 'Quicksand';
+
+//? -------------------- RESETS -------------------- //
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.limit-size {
+    max-width: 1900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+body {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    background-color: #f8f8f8;
+}
+
+p,
+a {
+    font-family: 'Quicksand';
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Quicksand';
+}
+
+//? -------------------- STYLING -------------------- //
+
+header {
+    background-color: $maincolor;
+    #nav-menu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav {
+        ul {
+            display: flex;
+            align-items: center;
+        }
+
+        li {
+            a {
+                display: block;
+                height: 50px;
+                line-height: 50px;
+                color: $white;
+                font-size: 1rem;
+                font-family: $mainfont;
+                padding: 0 10px;
+                transition: all .8s ease;
+                font-weight: 600;
+            }
+
+            &:hover a {
+                color: $maincolor;
+                background-color: $white;
+            }
+        }
+    }
+}

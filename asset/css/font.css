@@ -7,3 +7,8 @@ Rappel de la syntaxe :
 }
 
 */
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url(../font/static/Quicksand-SemiBold.ttf);
+}

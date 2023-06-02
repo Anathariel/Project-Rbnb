@@ -44,10 +44,28 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
     );
 
     public static $classMap = array (
+        'AccomodationType' => __DIR__ . '/../..' . '/class/AccomodationType.php',
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
+        'CancellationPolicy' => __DIR__ . '/../..' . '/class/CancellationPolicy.php',
+        'Comment' => __DIR__ . '/../..' . '/class/Comment.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Controller' => __DIR__ . '/../..' . '/controller/Controller.php',
+        'Conversation' => __DIR__ . '/../..' . '/class/Conversation.php',
+        'Favorite' => __DIR__ . '/../..' . '/class/Favorite.php',
+        'HomeController' => __DIR__ . '/../..' . '/controller/HomeController.php',
+        'HostLanguage' => __DIR__ . '/../..' . '/class/HostLanguage.php',
+        'HouseRules' => __DIR__ . '/../..' . '/class/HouseRules.php',
+        'Invoice' => __DIR__ . '/../..' . '/class/Invoice.php',
+        'Message' => __DIR__ . '/../..' . '/class/Message.php',
+        'MessageStatus' => __DIR__ . '/../..' . '/class/MessageStatus.php',
         'Model' => __DIR__ . '/../..' . '/model/Model.php',
+        'Payment' => __DIR__ . '/../..' . '/class/Payment.php',
+        'Property' => __DIR__ . '/../..' . '/class/Property.php',
+        'PropertyAmenities' => __DIR__ . '/../..' . '/class/PropertyAmenities.php',
+        'PropertyImages' => __DIR__ . '/../..' . '/class/PropertyImages.php',
+        'Reservation' => __DIR__ . '/../..' . '/class/Reservation.php',
+        'Tag' => __DIR__ . '/../..' . '/class/Tag.php',
+        'User' => __DIR__ . '/../..' . '/class/User.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
