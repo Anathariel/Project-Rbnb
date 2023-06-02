@@ -27,7 +27,7 @@ abstract class Controller {
             // Add the asset function to Twig environment
             self::$twig->addFunction(new \Twig\TwigFunction('asset', function ($assetPath) {
                 // Modify this logic according to your asset setup
-                $basePath = '/projets/project-rbnb/asset'; // Update with your base asset path
+                $basePath = '/projet/project-rbnb/asset'; // Update with your base asset path
                 return $basePath . $assetPath;
             }));
         }
