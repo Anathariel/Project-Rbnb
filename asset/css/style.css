@@ -55,8 +55,4 @@ header nav li a {
   padding: 0 10px;
   transition: all 0.8s ease;
   font-weight: 600;
-}
-header nav li:hover a {
-  color: #8ACCEC;
-  background-color: #f8f8f8;
 }/*# sourceMappingURL=style.css.map */
