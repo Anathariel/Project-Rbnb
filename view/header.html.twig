@@ -5,10 +5,20 @@
 			<ul>
 				<a href="{{ path('home') }}"><img src="{{ asset('/media/logo.svg') }}"></a>
 
-				<li><a href="#">Notre Catalogue</a></li>
-				<li><a href="#">Notre Journal</a></li>
-
+			<div id="searchbar">
+				<form action="" method="GET">
+					<input type="search" name="search-location" placeholder="Où ?">
+					<input type="search" name="search-calendar" placeholder="Quand ?">
+					<input type="search" name="search-guest" placeholder="Ajouter des voyageurs">
+					<input type="submit">
+				</form>
+			</div>
+				{% if session.connect %}
+				<li><a href="#"><img src="{{ asset('/media/logout.svg') }}" alt="Se déconnecter"></a></li>
+				{% else %}
 				<li><a href="{{ path('register') }}"><img src="{{ asset('/media/user.svg') }}" alt="Se connecter ou s'inscrire "></a></li>
+				{% endif %}
+        
 			</ul>
 		</nav>
 	</div>
