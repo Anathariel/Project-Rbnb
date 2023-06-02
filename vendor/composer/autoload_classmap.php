@@ -28,4 +28,6 @@ return array(
     'Reservation' => $baseDir . '/class/Reservation.php',
     'Tag' => $baseDir . '/class/Tag.php',
     'User' => $baseDir . '/class/User.php',
+    'UserController' => $baseDir . '/controller/UserController.php',
+    'UserModel' => $baseDir . '/model/UserModel.php',
 );

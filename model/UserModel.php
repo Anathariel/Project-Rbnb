@@ -3,7 +3,7 @@ class UserModel extends Model {
 
     public function createUser(User $user){
         $firstName = $user->getFirstName();
-        $lastName = $user->getFirstName();
+        $lastName = $user->getLastName();
         $password = $user->getPassword();
         $email = $user->getEmail();
 

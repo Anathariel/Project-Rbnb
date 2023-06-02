@@ -6,7 +6,7 @@ class UserController extends Controller {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $firstName = $_POST['firstName'];
-            $lastName = $_POST['username'];
+            $lastName = $_POST['lastName'];
             $rawPass = $_POST['password'];
             $password = password_hash($rawPass, PASSWORD_DEFAULT);
             $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
