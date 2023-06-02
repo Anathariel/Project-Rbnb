@@ -35,7 +35,7 @@ h6 {
 }
 
 header {
-  background-color: #B9E6FE;
+  background-color: #8ACCEC;
 }
 header #nav-menu {
   display: flex;
@@ -57,6 +57,6 @@ header nav li a {
   font-weight: 600;
 }
 header nav li:hover a {
-  color: #B9E6FE;
+  color: #8ACCEC;
   background-color: #f8f8f8;
 }/*# sourceMappingURL=style.css.map */
