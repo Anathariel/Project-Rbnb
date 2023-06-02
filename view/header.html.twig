@@ -14,7 +14,7 @@
 				</form>
 			</div>
 				{% if session.connect %}
-				<li><a href="#"><img src="{{ asset('/media/logout.svg') }}" alt="Se déconnecter"></a></li>
+				<li><a href="{{ path('logout') }}"><img src="{{ asset('/media/logout.svg') }}" alt="Se déconnecter"></a></li>
 				{% else %}
 				<li><a href="{{ path('register') }}"><img src="{{ asset('/media/user.svg') }}" alt="Se connecter ou s'inscrire "></a></li>
 				{% endif %}
