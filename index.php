@@ -4,7 +4,7 @@ require_once './vendor/altorouter/altorouter/AltoRouter.php';
 require_once './vendor/autoload.php';
 
 $router = new AltoRouter();
-$router->setBasePath('projets/project-airbnb');
+$router->setBasePath('projet/project-airbnb');
 
 // Si le router vous pose problèmes ou semble trop confus, n'hésitez pas à allez lire le fichier index.php dans l'exemple dans le vendor/altorouter ou demander de l'aide
 // ROUTES 
