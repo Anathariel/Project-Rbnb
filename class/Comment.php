@@ -51,7 +51,7 @@ class Comment
     }
 
     //SETTERS
-    public function setcommentId(int $commentId)
+    public function setCommentId(int $commentId)
     {
         $this->commentId = $commentId;
     }
