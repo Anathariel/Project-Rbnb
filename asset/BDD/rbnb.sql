@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 01 juin 2023 à 11:55
+-- Généré le : lun. 05 juin 2023 à 09:34
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -32,7 +32,35 @@ CREATE TABLE IF NOT EXISTS `accommodationtype` (
   `accommodationTypeId` int NOT NULL AUTO_INCREMENT,
   `type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`accommodationTypeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `accommodationtype`
+--
+
+INSERT INTO `accommodationtype` (`accommodationTypeId`, `type`) VALUES
+(1, 'Piscine'),
+(2, 'Parking gratuit'),
+(3, 'Jacuzzi'),
+(4, 'Wifi'),
+(5, 'Cuisine'),
+(6, 'Lave-linge'),
+(7, 'Sèche-linge'),
+(8, 'Climatisation'),
+(9, 'Chauffage'),
+(10, 'Espace de travail dédié'),
+(11, 'Télévision'),
+(12, 'Sèche-cheveux'),
+(13, 'Fer à repasser'),
+(14, 'Station de recharge pour véhicules électriques'),
+(15, 'Lit pour bébé'),
+(16, 'Salle de sport'),
+(17, 'Barbecue'),
+(18, 'Petit déjeuner'),
+(19, 'Cheminée'),
+(20, 'Logement fumeur'),
+(21, 'Détecteur de fumée'),
+(22, 'Détecteur de monoxyde de carbone');
 
 -- --------------------------------------------------------
 
@@ -165,9 +193,9 @@ DROP TABLE IF EXISTS `message`;
 CREATE TABLE IF NOT EXISTS `message` (
   `messageId` int NOT NULL AUTO_INCREMENT,
   `conversationId` int NOT NULL,
-  `SenderId` int NOT NULL,
+  `senderId` int NOT NULL,
   `content` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`messageId`),
   KEY `messageId` (`messageId`,`conversationId`),
   KEY `conversationId` (`conversationId`)
@@ -184,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `messagestatus` (
   `messageStatusId` int NOT NULL AUTO_INCREMENT,
   `messageId` int NOT NULL,
   `uid` int NOT NULL,
-  `Status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`messageStatusId`),
   KEY `USER` (`uid`),
   KEY `MESSAGE` (`messageId`)
@@ -221,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `property` (
   `title` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `description` text COLLATE utf8mb4_general_ci NOT NULL,
   `propertyType` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `PriceNight` decimal(10,0) NOT NULL,
+  `priceNight` decimal(10,0) NOT NULL,
   `accommodationTypeId` int NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `latitude` decimal(10,0) NOT NULL,
@@ -229,11 +257,21 @@ CREATE TABLE IF NOT EXISTS `property` (
   `availability` tinyint(1) NOT NULL,
   `publicationdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `reservationOption` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `Owner` int NOT NULL,
+  `owner` int NOT NULL,
   PRIMARY KEY (`propertyId`),
   KEY `PROPERTYTYPE` (`accommodationTypeId`),
-  KEY `USER` (`Owner`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  KEY `USER` (`owner`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `property`
+--
+
+INSERT INTO `property` (`propertyId`, `title`, `description`, `propertyType`, `priceNight`, `accommodationTypeId`, `address`, `latitude`, `longitude`, `availability`, `publicationdate`, `reservationOption`, `owner`) VALUES
+(3, 'Belle villa avec piscine privée', 'Une magnifique villa avec une piscine privée pour des vacances relaxantes. Profitez du cadre luxueux et du confort moderne.', 'Villa', '200', 1, '123 Rue du Soleil, Ville', '49', '2', 1, '2023-06-02 14:39:17', 'Instant', 3),
+(4, 'test 2', 'Une magnifique villa avec une piscine privée pour des vacances relaxantes. Profitez du cadre luxueux et du confort moderne.', 'Villa', '200', 1, '123 Rue du Soleil, Ville', '51', '2', 1, '2023-06-02 14:39:17', 'Instant', 3),
+(5, 'test 3', 'Une magnifique villa avec une piscine privée pour des vacances relaxantes. Profitez du cadre luxueux et du confort moderne.', 'Villa', '200', 1, '123 Rue du Soleil, Ville', '51', '2', 1, '2023-06-02 14:39:17', 'Instant', 3),
+(6, 'test 4', 'Une magnifique villa avec une piscine privée pour des vacances relaxantes. Profitez du cadre luxueux et du confort moderne.', 'Villa', '200', 1, '123 Rue du Soleil, Ville', '51', '2', 1, '2023-06-02 14:39:17', 'Instant', 3);
 
 -- --------------------------------------------------------
 
@@ -251,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `propertyamenities` (
   `toilets` int NOT NULL,
   PRIMARY KEY (`propertyAmenitiesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -263,7 +301,7 @@ DROP TABLE IF EXISTS `propertyimages`;
 CREATE TABLE IF NOT EXISTS `propertyimages` (
   `propertyImagesId` int NOT NULL AUTO_INCREMENT,
   `propertyId` int NOT NULL,
-  `ImageURL` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `imageURL` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`propertyImagesId`),
   KEY `PROPERTY` (`propertyId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -324,7 +362,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `uId` int NOT NULL AUTO_INCREMENT,
+  `uid` int NOT NULL AUTO_INCREMENT,
   `firstName` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `lastName` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `birthDate` date NOT NULL,
@@ -332,8 +370,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `phoneNumber` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
   `role` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`uId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`uid`, `firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`, `role`) VALUES
+(2, 'Frédéric', 'Favreau', '0000-00-00', 'fred@gmail.com', '$2y$10$GaZ/gznrAdDs9Ax9NUc7Q.782X9AzSevwHe5D78txYhFnxhFKu9b.', '', ''),
+(3, 'demo', 'demo', '0000-00-00', 'demo@rbnb.com', '$2y$10$YpOsI8takAJZtp.B5phhZO./N0aL9FFsT4T3N6ltIl/UvGNmCHl8K', '', ''),
+(5, 'toto', 'robert', '0000-00-00', 'toto@gmail.com', '$2y$10$E8SiOsulhDiZuQXCRgm1xe8a1i2O0cRa5/K79aHTooVtSa9YXbwti', '', '');
 
 --
 -- Contraintes pour les tables déchargées
@@ -349,14 +396,14 @@ ALTER TABLE `cancellationpolicy`
 -- Contraintes pour la table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `favorite`
 --
 ALTER TABLE `favorite`
-  ADD CONSTRAINT `favorite_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `favorite_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `favorite_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -375,7 +422,7 @@ ALTER TABLE `houserules`
 -- Contraintes pour la table `invoice`
 --
 ALTER TABLE `invoice`
-  ADD CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `invoice_ibfk_2` FOREIGN KEY (`reservationId`) REFERENCES `reservation` (`reservationId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -389,20 +436,20 @@ ALTER TABLE `message`
 --
 ALTER TABLE `messagestatus`
   ADD CONSTRAINT `messagestatus_ibfk_1` FOREIGN KEY (`messageId`) REFERENCES `message` (`messageId`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `messagestatus_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`uId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `messagestatus_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `payment`
 --
 ALTER TABLE `payment`
-  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`reservationId`) REFERENCES `reservation` (`reservationId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `property`
 --
 ALTER TABLE `property`
-  ADD CONSTRAINT `property_ibfk_1` FOREIGN KEY (`Owner`) REFERENCES `user` (`uId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `property_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `property_ibfk_2` FOREIGN KEY (`accommodationTypeId`) REFERENCES `accommodationtype` (`accommodationTypeId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -428,7 +475,7 @@ ALTER TABLE `propertytag`
 -- Contraintes pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
