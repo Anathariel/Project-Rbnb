@@ -18,9 +18,10 @@ $router->map('GET|POST','/login', 'UserController#login', 'login');
 $router->map('GET','/logout', 'UserController#logout', 'logout');
 
 
+
 // MATCH :
 $match = $router->match();
-// var_dump($match);
+var_dump($match);
 
 if (is_array($match)) {
     list($controller, $action) = explode('#', $match['target']);
