@@ -1,11 +1,36 @@
-{% extends "template.html.twig" %}
-
-{% block title %}Bienvenue sur Rbnb
-{% endblock %}
-
-{% block content %}
+{% extends "template.html.twig" %} {% block title %}Bienvenue sur Rbnb {%
+endblock %} {% block content %}
 <section>
-<h1>Lorem ipsum dolor sit amet.</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsum totam placeat sunt quaerat eligendi.</p>
+  <h1>Lorem ipsum dolor sit amet.</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsum totam
+    placeat sunt quaerat eligendi.
+  </p>
+</section>
+
+
+{# ---------- New destinations sections ---------- #}
+<section id="last-property-section">
+  <h2 id="title-last-property-section">Nouvelles Destinations</h2>
+  <div id="container-card-last-property">
+    {% for property in propertys %}
+    {# <a href="{{ path('baseProperty') }}{{ property.propertyId }}"> #}
+      <div id="card-last-property">
+        <figcaption>
+          <img src="{{ asset('/media/pict-default.webp') }}" alt="location" />
+        </figcaption>
+        <div class="description-card">
+          <h3 id="title-description-card">{{ property.title }}</h3>
+          <p>
+            {{ property.PriceNight }}
+          </p>
+          <p>
+            {{ property.address }}
+          </p>
+        </div>
+      </div>
+    {# </a> #}
+    {% endfor %}
+  </div>
 </section>
 {% endblock %}
