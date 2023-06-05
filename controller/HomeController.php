@@ -1,10 +1,15 @@
 <?php
 
-class HomeController extends Controller {
+class HomeController extends Controller
+{
     public function home()
     {
         $propertyModel = new PropertyModel();
         $propertys = $propertyModel->getLastPropertys();
-        echo self::getRender('homepage.html.twig',['propertys' => $propertys]);
+
+        $tagModel = new TagModel();
+        $tags = $tagModel->getAllTags();
+
+        echo self::getRender('homepage.html.twig', ['propertys' => $propertys, 'tags' => $tags]);
     }
 }

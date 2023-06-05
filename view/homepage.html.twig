@@ -8,13 +8,13 @@ endblock %} {% block content %}
   </p>
 </section>
 
-
 {# ---------- New destinations sections ---------- #}
 <section id="last-property-section">
   <h2 id="title-last-property-section">Nouvelles Destinations</h2>
   <div id="container-card-last-property">
-    {% for property in propertys %}
-    {# <a href="{{ path('baseProperty') }}{{ property.propertyId }}"> #}
+    {% for property in propertys %} {#
+    <a href="{{ path('baseProperty') }}{{ property.propertyId }}">
+      #}
       <div id="card-last-property">
         <figcaption>
           <img src="{{ asset('/media/pict-default.webp') }}" alt="location" />
@@ -29,7 +29,25 @@ endblock %} {% block content %}
           </p>
         </div>
       </div>
-    {# </a> #}
+      {#
+    </a>
+    #} {% endfor %}
+  </div>
+</section>
+
+{# ---------- best-tags sections ---------- #}
+<section id="best-tags-section">
+  <h2 id="title-best-tags-section">Catégories Phares</h2>
+  <div id="container-card-best-tags">
+    {% for tag in tags %}
+    <div id="card-best-tags">
+      <figcaption>
+        <img src="{{ asset('/media/pict-default.webp') }}" alt="location" />
+      </figcaption>
+      <div class="description-card">
+        <h3 id="title-description-card">{{ tag.type }}</h3>
+      </div>
+    </div>
     {% endfor %}
   </div>
 </section>
