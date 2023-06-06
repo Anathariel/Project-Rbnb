@@ -48,6 +48,10 @@ h6 {
     font-family: 'Quicksand';
 }
 
+section {
+    margin-top: 5rem;
+}
+
 //^ --------- CLASSES --------- //
 
 .poppins {
@@ -148,5 +152,12 @@ header {
     .user {
         margin-left: auto;
         margin-right: 5rem;
+    }
+
+    #sub-nav{
+        display: flex;
+        align-content: space-between;
+        align-items: center;
+        background-color: $white;
     }
 }

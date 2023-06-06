@@ -8,7 +8,7 @@
 				</a>
 			</li>
 
-<div id="searchbar">
+			<div id="searchbar">
 				<form action="" method="GET">
 					<div
 						class=" input-group location">
@@ -22,9 +22,9 @@
 						<input
 						type="text" id="check-in" name="search-calendar" placeholder="Une semaine">
 					{# <div class="input-group check-out">
-					        				<label for="check-out">Check-out</label>
-					    					<input type="text" id="check-out" placeholder="Add dates">
-					  					</div> #}
+															        				<label for="check-out">Check-out</label>
+															    					<input type="text" id="check-out" placeholder="Add dates">
+															  					</div> #}
 					</div>
 
 					<div class="input-group guests">
@@ -46,12 +46,14 @@
 			</li>
 		</ul>
 		<div id="sub-nav">
-		{% for tag in tags %}
-      <ul>
-		<li> {{ tag.type }} </li>
-	  </ul>
-	  {% endfor %}
-    </div>
+			{% for tag in tags %}
+				<ul>
+					<li>
+						<a href="#">{{ tag.type }}</a>
+					</li>
+				</ul>
+			{% endfor %}
+		</div>
 	</nav>
 
 </header>
