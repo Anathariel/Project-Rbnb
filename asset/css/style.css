@@ -4,8 +4,8 @@
 }
 
 .limit-size {
-  max-width: 1900px;
   width: 100%;
+  max-width: 1900px;
   margin: 0 auto;
 }
 
@@ -38,8 +38,8 @@ h6 {
   font-family: "Poppins";
 }
 
-.darkblue {
-  color: #1A253B;
+.darkerblue {
+  color: #1B1D21;
 }
 
 .white {
@@ -51,7 +51,11 @@ h6 {
 }
 
 header {
+  height: 100px;
   background-color: #8ACCEC;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 header nav ul {
   display: flex;
@@ -63,18 +67,19 @@ header nav ul li a {
 }
 header .logo {
   margin-right: auto;
-  margin-left: 3rem;
+  margin-left: 5rem;
 }
 header #searchbar {
-  width: 50%;
-  background: #F8F8F8;
-  box-shadow: 0 0 5px hsl(0, 0%, 78%);
+  width: 30%;
   height: 55px;
   border-radius: 100vw;
+  margin: 0 auto;
+  cursor: pointer;
+  background: #F8F8F8;
+  box-shadow: 0 0 5px hsl(0, 0%, 78%);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
 }
 header #searchbar form {
   display: flex;
@@ -84,14 +89,26 @@ header #searchbar .location,
 header #searchbar .check-in,
 header #searchbar .guests {
   margin-right: 1rem;
+  width: 25%;
 }
 header #searchbar button {
   height: 40px;
   width: 40px;
-  border-radius: 100%;
-  background-color: #1A253B;
+  border-radius: 50%;
+  background-color: #0B4A6F;
+}
+header #searchbar input[type=text] {
+  background: none;
+  border: none;
+  width: 100%;
+}
+header #searchbar input[type=text]:hover {
+  border-radius: inherit;
+  padding: 0.8rem 1.5rem;
+  transition: background 250ms ease;
+  background: hsl(0, 0%, 94%);
 }
 header .user {
   margin-left: auto;
-  margin-right: 3rem;
+  margin-right: 5rem;
 }/*# sourceMappingURL=style.css.map */

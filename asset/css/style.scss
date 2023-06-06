@@ -4,7 +4,8 @@
 $maincolor: #8ACCEC;
 $white : #F8F8F8;
 $secondary : #FAC515;
-$darkblue : #1A253B;
+$darkblue : #0B4A6F;
+$darkerblue : #1B1D21;
 //* --------- FONT --------- //
 
 $font: 'Quicksand';
@@ -17,8 +18,8 @@ $font: 'Quicksand';
 }
 
 .limit-size {
-    max-width: 1900px;
     width: 100%;
+    max-width: 1900px;
     margin: 0 auto;
 }
 
@@ -55,8 +56,8 @@ h6 {
 
 //* --------- COLORS CLASSES --------- //
 
-.darkblue {
-    color: $darkblue;
+.darkerblue {
+    color: $darkerblue;
 }
 
 .white {
@@ -70,7 +71,11 @@ h6 {
 //~ -------------------- STYLING -------------------- //
 
 header {
+    height: 100px;
     background-color: $maincolor;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
     nav ul {
         display: flex;
@@ -84,42 +89,61 @@ header {
 
     .logo {
         margin-right: auto;
-        margin-left: 3rem;
+        margin-left: 5rem;
     }
 
 
     #searchbar {
-        width: 50%;
-        background: $white;
-        box-shadow: 0 0 5px hsl(0 0% 78%);
+        width: 30%;
         height: 55px;
         border-radius: 100vw;
-        display:flex;
-        justify-content:center;
-        align-items:center;
         margin: 0 auto;
+
+        cursor: pointer;
+        background: $white;
+        box-shadow: 0 0 5px hsl(0 0% 78%);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
 
         form {
             display: flex;
             align-items: center;
-          }
-        
-          .location,
-          .check-in,
-          .guests {
-            margin-right: 1rem;
-          }
+        }
 
-          button {
+        .location,
+        .check-in,
+        .guests {
+            margin-right: 1rem;
+            width: 25%;
+        }
+
+        button {
             height: 40px;
             width: 40px;
-            border-radius: 100%;
+            border-radius: 50%;
             background-color: $darkblue;
-          }
+        }
+
+        input[type="text"] {
+            background: none;
+            border: none;
+            width: 100%;
+        }
+
+        input[type="text"]:hover {
+            border-radius: inherit;
+            padding: 0.8rem 1.5rem;
+            transition: background 250ms ease;
+            background:hsl(0 0% 94%);
+        }
     }
 
     .user {
         margin-left: auto;
-        margin-right: 3rem;
+        margin-right: 5rem;
     }
 }
