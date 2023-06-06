@@ -2,17 +2,12 @@
 
 class TagController extends Controller
 {
+    public function showAllTags()
+    {
 
-    public function tag()
-    { 
+        $tagModel = new TagModel();
+        $tags = $tagModel->getAllTags();
 
-        
-
-            $tagModel = new TagModel();
-
-            $tag = $tagModel->tag();
-
-
-        echo self::getTwig()->render('tag.html.twig', ['tag' => $tag]);
+        echo self::getRender('header.html.twig', ['toto' => 'toto','tags' => $tags]);
     }
 }
