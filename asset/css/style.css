@@ -32,6 +32,15 @@ h4,
 h5,
 h6 {
   font-family: "Quicksand";
+  color: #1b1d21;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 52px;
+  text-align: right;
+  letter-spacing: 0.2px;
 }
 
 section {
@@ -47,15 +56,15 @@ section {
 }
 
 .darkerblue {
-  color: #1B1D21;
+  color: #1b1d21;
 }
 
 .white {
-  color: #F8F8F8;
+  color: #f8f8f8;
 }
 
 .maincolor {
-  color: #8ACCEC;
+  color: #8accec;
 }
 
 header {
@@ -63,7 +72,10 @@ header {
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #8ACCEC;
+  background-color: #8accec;
+}
+header nav {
+  overflow: hidden;
 }
 header nav ul {
   display: flex;
@@ -83,7 +95,7 @@ header #searchbar {
   border-radius: 100vw;
   margin: 0 auto;
   cursor: pointer;
-  background: #F8F8F8;
+  background: #f8f8f8;
   box-shadow: 0 0 5px hsl(0, 0%, 78%);
   display: flex;
   justify-content: center;
@@ -114,7 +126,7 @@ header #searchbar button {
   width: 40px;
   border-radius: 50%;
   margin-left: 5rem;
-  background-color: #0B4A6F;
+  background-color: #0b4a6f;
 }
 header .user {
   margin-left: auto;
@@ -124,5 +136,35 @@ header #sub-nav {
   display: flex;
   align-content: space-between;
   align-items: center;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
+}
+
+section#new-destinations-section {
+  margin-bottom: 1100px;
+}
+section#new-destinations-section p#description-new-destinations {
+  font-size: 15px;
+  line-height: 36px;
+  text-align: right;
+  color: #1b1d21;
+}
+section#new-destinations-section div#container-card-new-destinations {
+  width: 240px;
+  height: 256px;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations {
+  position: relative;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figcaption img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations div.description-card-new-destinations {
+  position: absolute;
+  bottom: 10px;
+  right: 45px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #ffffff;
 }/*# sourceMappingURL=style.css.map */
