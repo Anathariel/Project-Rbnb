@@ -54,6 +54,10 @@ h6 {
     font-family: 'Poppins';
 }
 
+.quicksand  {
+    font-family: 'Quicksand';
+}
+
 //* --------- COLORS CLASSES --------- //
 
 .darkerblue {
@@ -72,10 +76,10 @@ h6 {
 
 header {
     height: 100px;
-    background-color: $maincolor;
     position: sticky;
     top: 0;
     z-index: 1;
+    background-color: $maincolor;
 
     nav ul {
         display: flex;
@@ -108,10 +112,10 @@ header {
         align-items: center;
 
 
-
         form {
             display: flex;
             align-items: center;
+            margin: 2rem 2rem;
         }
 
         .location,
@@ -121,13 +125,6 @@ header {
             width: 25%;
         }
 
-        button {
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            background-color: $darkblue;
-        }
-
         input[type="text"] {
             background: none;
             border: none;
@@ -135,10 +132,16 @@ header {
         }
 
         input[type="text"]:hover {
-            border-radius: inherit;
-            padding: 0.8rem 1.5rem;
             transition: background 250ms ease;
             background:hsl(0 0% 94%);
+        }
+
+        button {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            margin-left: 5rem;
+            background-color: $darkblue;
         }
     }
 

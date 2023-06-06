@@ -38,6 +38,10 @@ h6 {
   font-family: "Poppins";
 }
 
+.quicksand {
+  font-family: "Quicksand";
+}
+
 .darkerblue {
   color: #1B1D21;
 }
@@ -52,10 +56,10 @@ h6 {
 
 header {
   height: 100px;
-  background-color: #8ACCEC;
   position: sticky;
   top: 0;
   z-index: 1;
+  background-color: #8ACCEC;
 }
 header nav ul {
   display: flex;
@@ -84,6 +88,7 @@ header #searchbar {
 header #searchbar form {
   display: flex;
   align-items: center;
+  margin: 2rem 2rem;
 }
 header #searchbar .location,
 header #searchbar .check-in,
@@ -91,22 +96,21 @@ header #searchbar .guests {
   margin-right: 1rem;
   width: 25%;
 }
-header #searchbar button {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: #0B4A6F;
-}
 header #searchbar input[type=text] {
   background: none;
   border: none;
   width: 100%;
 }
 header #searchbar input[type=text]:hover {
-  border-radius: inherit;
-  padding: 0.8rem 1.5rem;
   transition: background 250ms ease;
   background: hsl(0, 0%, 94%);
+}
+header #searchbar button {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-left: 5rem;
+  background-color: #0B4A6F;
 }
 header .user {
   margin-left: auto;
