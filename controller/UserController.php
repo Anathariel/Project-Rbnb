@@ -40,12 +40,13 @@ class UserController extends Controller {
                     $_SESSION['uid'] = $user->getUid();
                     $_SESSION['email'] = $user->getEmail();
                     $_SESSION['connect'] = true;
+                    
 
                 global $router;
                 header('Location: ' . $router->generate('home'));
                 exit();
                 } else {
-                    echo 'ECLATAX';
+                    echo 'ERREUR MOT PASSE OU EMAIL';
                 }
             } else {
                 $message = "Email / password incorrect !";

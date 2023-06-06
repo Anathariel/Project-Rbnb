@@ -17,10 +17,13 @@ $router->map('GET|POST','/registration', 'UserController#register', 'register');
 $router->map('GET|POST','/login', 'UserController#login', 'login');
 $router->map('GET','/logout', 'UserController#logout', 'logout');
 
+$router->map('GET','/tag', 'TagController#tag', 'tag');
+
 
 // MATCH :
 $match = $router->match();
-// var_dump($match);
+var_dump($match);
+// var_dump($_SESSION);
 
 if (is_array($match)) {
     list($controller, $action) = explode('#', $match['target']);

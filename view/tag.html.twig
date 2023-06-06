@@ -1,0 +1,19 @@
+{% extends "template.html.twig" %}
+{% include 'header.html.twig' %}
+
+
+
+{% endblock %}
+<link rel="stylesheet" href="{{ asset('/css/font.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h2>les maison</h2>
+<ul>
+    {% for tag in tags %}
+        <li><a href="{{ tag }}">{{ tag }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endfor %}
