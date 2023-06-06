@@ -51,4 +51,66 @@ endblock %} {% block content %}
     {% endfor %}
   </div>
 </section>
+
+{# ---------- New destinations sections ---------- #}
+<section id="last-property-section">
+    <h2 id="title-last-property-section">Nouvelles Destinations</h2>
+    <div id="container-card-last-property">
+      {% for property in propertys %} {#
+      <a href="{{ path('baseProperty') }}{{ property.propertyId }}">
+        #}
+        <div id="card-last-property">
+          <figcaption>
+            <img src="{{ asset('/media/pict-default.webp') }}" alt="location" />
+          </figcaption>
+          <div class="description-card">
+            <h3 id="title-description-card">{{ property.title }}</h3>
+            <p>
+              {{ property.PriceNight }}
+            </p>
+            <p>
+              {{ property.address }}
+            </p>
+          </div>
+        </div>
+        {#
+      </a>
+      #} {% endfor %}
+    </div>
+  </section>
+  
+  {# ---------- features-sections ---------- #}
+  <section id="features-section">
+    <h2 id="title-features-section">Something Something</h2>
+    <div id="container-card-features" class="limit-size">
+      <figcaption class="pict-banner-features"></figcaption>
+      <div id="container-description-features">
+        <div class="item-featrues-commun">
+          <img src="{{ asset('/media/picto/featured-icon.svg') }}" alt="" />
+          <h3>Share team inboxes</h3>
+          <p>Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.</p>
+        </div>
+        <div class="item-featrues-commun">
+          <img src="{{ asset('/media/picto/featured-icon.svg') }}" alt="" />
+          <h3>Deliver instant answers</h3>
+          <p>An all-in-one customer service platform that helps you balance everything your customers need to be happy.</p>
+        </div>
+        <div class="item-featrues-commun">
+          <img src="{{ asset('/media/picto/featured-icon.svg') }}" alt="" />
+          <h3>Manage your team with reports</h3>
+          <p>Measure what matters with Untitled’s easy-to-use reports. You can filter, export, and drilldown on the data in a couple clicks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  {# ---------- join-us-sections ---------- #}
+  <section id="join-us-section">
+    <h2 id="title-join-us-section">Rejoignez nos hôtes</h2>
+    <div id="container-card-join-us" class="limit-size">
+      <figcaption class="pict-banner">
+          <a href="#"></a>
+      </figcaption>
+    </div>
+  </section>
 {% endblock %}
