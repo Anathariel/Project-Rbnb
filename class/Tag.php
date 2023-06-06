@@ -4,6 +4,7 @@ class Tag
 {
     private $tagId;
     private $type;
+    private $slug;
 
     public function __construct(array $post)
     {
@@ -32,6 +33,11 @@ class Tag
         return $this->type;
     }
 
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
     //SETTERS
     public function setTagId(int $tagId)
     {
@@ -41,5 +47,10 @@ class Tag
     public function setType(String $type)
     {
         $this->type = $type;
+    }
+
+    public function setSlug(String $slug)
+    {
+        $this->slug = $slug;
     }
 }
