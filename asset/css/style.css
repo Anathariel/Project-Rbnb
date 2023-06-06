@@ -34,25 +34,64 @@ h6 {
   font-family: "Quicksand";
 }
 
+.poppins {
+  font-family: "Poppins";
+}
+
+.darkblue {
+  color: #1A253B;
+}
+
+.white {
+  color: #F8F8F8;
+}
+
+.maincolor {
+  color: #8ACCEC;
+}
+
 header {
   background-color: #8ACCEC;
-}
-header #nav-menu {
-  display: flex;
-  flex-direction: column;
 }
 header nav ul {
   display: flex;
   align-items: center;
 }
-header nav li a {
-  display: block;
-  height: 50px;
-  line-height: 50px;
-  color: #f8f8f8;
-  font-size: 1rem;
-  font-family: "Quicksand";
-  padding: 0 10px;
-  transition: all 0.8s ease;
-  font-weight: 600;
+header nav ul li a {
+  display: flex;
+  align-items: center;
+}
+header .logo {
+  margin-right: auto;
+  margin-left: 3rem;
+}
+header #searchbar {
+  width: 50%;
+  background: #F8F8F8;
+  box-shadow: 0 0 5px hsl(0, 0%, 78%);
+  height: 55px;
+  border-radius: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+header #searchbar form {
+  display: flex;
+  align-items: center;
+}
+header #searchbar .location,
+header #searchbar .check-in,
+header #searchbar .guests {
+  margin-right: 1rem;
+}
+header #searchbar button {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  background-color: #1A253B;
+}
+header .user {
+  margin-left: auto;
+  margin-right: 3rem;
 }/*# sourceMappingURL=style.css.map */

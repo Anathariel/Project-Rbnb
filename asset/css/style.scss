@@ -2,11 +2,12 @@
 
 //^ --------- COLORS --------- //
 $maincolor: #8ACCEC;
-$white :  #f8f8f8; 
+$white : #F8F8F8;
 $secondary : #FAC515;
+$darkblue : #1A253B;
 //* --------- FONT --------- //
 
-$mainfont: 'Quicksand';
+$font: 'Quicksand';
 
 //? -------------------- RESETS -------------------- //
 
@@ -46,33 +47,79 @@ h6 {
     font-family: 'Quicksand';
 }
 
-//? -------------------- STYLING -------------------- //
+//^ --------- CLASSES --------- //
+
+.poppins {
+    font-family: 'Poppins';
+}
+
+//* --------- COLORS CLASSES --------- //
+
+.darkblue {
+    color: $darkblue;
+}
+
+.white {
+    color: $white;
+}
+
+.maincolor {
+    color: $maincolor;
+}
+
+//~ -------------------- STYLING -------------------- //
 
 header {
     background-color: $maincolor;
-    #nav-menu {
-        display: flex;
-        flex-direction: column;
-    }
 
-    nav {
-        ul {
+    nav ul {
+        display: flex;
+        align-items: center;
+
+        li a {
             display: flex;
             align-items: center;
         }
+    }
 
-        li {
-            a {
-                display: block;
-                height: 50px;
-                line-height: 50px;
-                color: $white;
-                font-size: 1rem;
-                font-family: $mainfont;
-                padding: 0 10px;
-                transition: all .8s ease;
-                font-weight: 600;
-            }
-        }
+    .logo {
+        margin-right: auto;
+        margin-left: 3rem;
+    }
+
+
+    #searchbar {
+        width: 50%;
+        background: $white;
+        box-shadow: 0 0 5px hsl(0 0% 78%);
+        height: 55px;
+        border-radius: 100vw;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        margin: 0 auto;
+
+        form {
+            display: flex;
+            align-items: center;
+          }
+        
+          .location,
+          .check-in,
+          .guests {
+            margin-right: 1rem;
+          }
+
+          button {
+            height: 40px;
+            width: 40px;
+            border-radius: 100%;
+            background-color: $darkblue;
+          }
+    }
+
+    .user {
+        margin-left: auto;
+        margin-right: 3rem;
     }
 }
