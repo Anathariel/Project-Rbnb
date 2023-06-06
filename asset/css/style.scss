@@ -2,11 +2,13 @@
 
 //^ --------- COLORS --------- //
 $maincolor: #8ACCEC;
-$white :  #f8f8f8; 
+$white : #F8F8F8;
 $secondary : #FAC515;
+$darkblue : #0B4A6F;
+$darkerblue : #1B1D21;
 //* --------- FONT --------- //
 
-$mainfont: 'Quicksand';
+$font: 'Quicksand';
 
 //? -------------------- RESETS -------------------- //
 
@@ -16,8 +18,8 @@ $mainfont: 'Quicksand';
 }
 
 .limit-size {
-    max-width: 1900px;
     width: 100%;
+    max-width: 1900px;
     margin: 0 auto;
 }
 
@@ -46,38 +48,102 @@ h6 {
     font-family: 'Quicksand';
 }
 
-//? -------------------- STYLING -------------------- //
+//^ --------- CLASSES --------- //
+
+.poppins {
+    font-family: 'Poppins';
+}
+
+//* --------- COLORS CLASSES --------- //
+
+.darkerblue {
+    color: $darkerblue;
+}
+
+.white {
+    color: $white;
+}
+
+.maincolor {
+    color: $maincolor;
+}
+
+//~ -------------------- STYLING -------------------- //
 
 header {
+    height: 100px;
     background-color: $maincolor;
-    #nav-menu {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    nav ul {
         display: flex;
-        flex-direction: column;
+        align-items: center;
+
+        li a {
+            display: flex;
+            align-items: center;
+        }
     }
 
-    nav {
-        ul {
+    .logo {
+        margin-right: auto;
+        margin-left: 5rem;
+    }
+
+
+    #searchbar {
+        width: 30%;
+        height: 55px;
+        border-radius: 100vw;
+        margin: 0 auto;
+
+        cursor: pointer;
+        background: $white;
+        box-shadow: 0 0 5px hsl(0 0% 78%);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+
+        form {
             display: flex;
             align-items: center;
         }
 
-        li {
-            a {
-                display: block;
-                height: 50px;
-                line-height: 50px;
-                color: $white;
-                font-size: 1rem;
-                font-family: $mainfont;
-                padding: 0 10px;
-                transition: all .8s ease;
-                font-weight: 600;
-            }
-
-            &:hover a {
-                color: $maincolor;
-                background-color: $white;
-            }
+        .location,
+        .check-in,
+        .guests {
+            margin-right: 1rem;
+            width: 25%;
         }
+
+        button {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-color: $darkblue;
+        }
+
+        input[type="text"] {
+            background: none;
+            border: none;
+            width: 100%;
+        }
+
+        input[type="text"]:hover {
+            border-radius: inherit;
+            padding: 0.8rem 1.5rem;
+            transition: background 250ms ease;
+            background:hsl(0 0% 94%);
+        }
+    }
+
+    .user {
+        margin-left: auto;
+        margin-right: 5rem;
     }
 }

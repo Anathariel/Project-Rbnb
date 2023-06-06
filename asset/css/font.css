@@ -12,3 +12,8 @@ Rappel de la syntaxe :
     font-family: 'Quicksand';
     src: url(../font/static/Quicksand-SemiBold.ttf);
 }
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(../font/Poppins-Black.ttf);
+}
