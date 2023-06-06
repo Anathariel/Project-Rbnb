@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 05 juin 2023 à 09:34
+-- Généré le : mar. 06 juin 2023 à 09:07
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -352,7 +352,74 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `tagId` int NOT NULL AUTO_INCREMENT,
   `type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`tagId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `tag`
+--
+
+INSERT INTO `tag` (`tagId`, `type`) VALUES
+(1, 'Avec vue'),
+(2, 'Chambres'),
+(3, 'Campagne'),
+(4, 'Wow !'),
+(5, 'Sur l\'eau'),
+(6, 'Espaces de jeu'),
+(7, 'Piscines'),
+(8, 'Bord de mer'),
+(9, 'Cabanes perchées'),
+(10, 'Bateaux'),
+(11, 'Luxe'),
+(12, 'Dômes'),
+(13, 'Tiny houses'),
+(14, 'Tendance'),
+(15, 'Bord de lac'),
+(16, 'Fermes'),
+(17, 'Châteaux'),
+(18, 'Cabanes'),
+(19, 'Design'),
+(20, 'Grandes demeures'),
+(21, 'Séjours déconnectés'),
+(22, 'Lacs'),
+(23, 'Camping'),
+(24, 'Parcs nationaux'),
+(25, 'Sous les tropiques'),
+(26, 'Maisons troglodytes'),
+(27, 'Vignobles'),
+(28, 'Ski'),
+(29, 'Nouveautés'),
+(30, 'Îles'),
+(31, 'Maisons organiques'),
+(32, 'Patrimoine'),
+(33, 'Villes emblématiques'),
+(34, 'Chambres d\'hôtes'),
+(35, 'Yourtes'),
+(36, 'Art et créativité'),
+(37, 'Maisons cycladiques'),
+(38, 'Riads'),
+(39, 'Granges'),
+(40, 'Au pied des pistes'),
+(41, 'Chalets tipi'),
+(42, 'Cabanes de berger'),
+(43, 'Dammusi'),
+(44, 'Surf'),
+(45, 'Toit du monde'),
+(46, 'Arctique'),
+(47, 'Conteneurs maritimes'),
+(48, 'Ryokans'),
+(49, 'Désert'),
+(50, 'Moulins à vent'),
+(51, 'Casas particulares'),
+(52, 'Pianos à queue'),
+(53, 'Tours'),
+(54, 'Cuisines équipées'),
+(55, 'Hanoks'),
+(56, 'Trulli'),
+(57, 'Minsus'),
+(58, 'Golf'),
+(59, 'Logements adaptés'),
+(60, 'Caravanes'),
+(61, 'Plages');
 
 -- --------------------------------------------------------
 
