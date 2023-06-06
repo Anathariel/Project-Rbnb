@@ -6,7 +6,7 @@ class TagModel extends Model
     {
         $tags = [];
 
-        $req = $this->getDb()->query('SELECT `tagId`, `type`, `slug` FROM `tag`');
+        $req = $this->getDb()->query('SELECT `tagId`, `type`, `picto` FROM `tag`');
 
         while ($tag = $req->fetch(PDO::FETCH_ASSOC)) {
             $tags[] = new Tag($tag);
@@ -19,7 +19,7 @@ class TagModel extends Model
     {
         $bestTags = [];
 
-        $req = $this->getDb()->query('SELECT `tagId`, `type`, `slug` FROM `tag` ORDER BY `tagId` DESC LIMIT 5');
+        $req = $this->getDb()->query('SELECT `tagId`, `type`, `picto` FROM `tag` ORDER BY `tagId` DESC LIMIT 5');
 
         while ($bestTag = $req->fetch(PDO::FETCH_ASSOC)) {
             $bestTags[] = new Tag($bestTag);

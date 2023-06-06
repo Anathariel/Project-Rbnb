@@ -10,7 +10,12 @@ $router->setBasePath('/projet/project-rbnb');
 // ROUTES 
 $router->map('GET','/', 'HomeController#home', 'home');
 
+$router->map('GET', '/property/', '', 'baseProperty');
+$router->map('GET', '/property/[i:id]', 'PropertyController#getOne', '');
+
 $router->map('GET','/tags','','baseTags');
+
+
 
 
 // Register

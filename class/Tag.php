@@ -4,7 +4,7 @@ class Tag
 {
     private $tagId;
     private $type;
-    private $slug;
+    private $picto;
 
     public function __construct(array $post)
     {
@@ -33,9 +33,9 @@ class Tag
         return $this->type;
     }
 
-    public function getSlug()
+    public function getPicto()
     {
-        return $this->slug;
+        return $this->picto;
     }
 
     //SETTERS
@@ -49,8 +49,8 @@ class Tag
         $this->type = $type;
     }
 
-    public function setSlug(String $slug)
+    public function setPicto(String $picto)
     {
-        $this->slug = $slug;
+        $this->picto = $picto;
     }
 }

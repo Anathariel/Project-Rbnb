@@ -12,8 +12,18 @@ class PropertyModel extends Model
             $propertys[] = new Property($property);
         }
 
-        $req->closeCursor();
-
         return $propertys;
+    }
+
+    public function getOneProperty(int $id)
+    {
+
+        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address` FROM `property` WHERE `propertyId` = :id');
+        $req->bindParam('id', $id, PDO::PARAM_INT);
+        $req->execute();
+
+        $property = new Property($req->fetch(PDO::FETCH_ASSOC));
+
+        return $property;
     }
 }

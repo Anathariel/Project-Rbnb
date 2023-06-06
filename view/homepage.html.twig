@@ -17,9 +17,8 @@
 <section id="last-property-section">
   <h2 id="title-last-property-section">Nouvelles Destinations</h2>
   <div id="container-card-last-property">
-    {% for property in propertys %} {#
+    {% for property in propertys %} 
     <a href="{{ path('baseProperty') }}{{ property.propertyId }}">
-      #}
       <div id="card-last-property">
         <figcaption>
           <img src="{{ asset('/media/pict-default.webp') }}" alt="location" />
@@ -34,9 +33,8 @@
           </p>
         </div>
       </div>
-      {#
     </a>
-    #} {% endfor %}
+ {% endfor %}
   </div>
 </section>
 
