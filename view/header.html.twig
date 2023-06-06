@@ -46,14 +46,16 @@
 			</li>
 		</ul>
 		<div id="sub-nav">
+
 			{% for tag in tags %}
 				<ul>
 					<li>
-						<a href="#">{{ tag.type }}</a>
+						<a href="#">{{ tag.slug }}{{ tag.type }}</a>
 					</li>
 				</ul>
 			{% endfor %}
 		</div>
+
 	</nav>
 
 </header>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 06 juin 2023 à 09:07
+-- Généré le : mar. 06 juin 2023 à 13:22
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -323,6 +323,24 @@ CREATE TABLE IF NOT EXISTS `propertytag` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `rating`
+--
+
+DROP TABLE IF EXISTS `rating`;
+CREATE TABLE IF NOT EXISTS `rating` (
+  `ratingId` int NOT NULL AUTO_INCREMENT,
+  `uid` int NOT NULL,
+  `propertyId` int NOT NULL,
+  `rating` int NOT NULL,
+  `comment` text COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`ratingId`),
+  KEY `USER` (`uid`),
+  KEY `PROPERTY` (`propertyId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `reservation`
 --
 
@@ -351,75 +369,76 @@ DROP TABLE IF EXISTS `tag`;
 CREATE TABLE IF NOT EXISTS `tag` (
   `tagId` int NOT NULL AUTO_INCREMENT,
   `type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `picto` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`tagId`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=376 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `tag`
 --
 
-INSERT INTO `tag` (`tagId`, `type`) VALUES
-(1, 'Avec vue'),
-(2, 'Chambres'),
-(3, 'Campagne'),
-(4, 'Wow !'),
-(5, 'Sur l\'eau'),
-(6, 'Espaces de jeu'),
-(7, 'Piscines'),
-(8, 'Bord de mer'),
-(9, 'Cabanes perchées'),
-(10, 'Bateaux'),
-(11, 'Luxe'),
-(12, 'Dômes'),
-(13, 'Tiny houses'),
-(14, 'Tendance'),
-(15, 'Bord de lac'),
-(16, 'Fermes'),
-(17, 'Châteaux'),
-(18, 'Cabanes'),
-(19, 'Design'),
-(20, 'Grandes demeures'),
-(21, 'Séjours déconnectés'),
-(22, 'Lacs'),
-(23, 'Camping'),
-(24, 'Parcs nationaux'),
-(25, 'Sous les tropiques'),
-(26, 'Maisons troglodytes'),
-(27, 'Vignobles'),
-(28, 'Ski'),
-(29, 'Nouveautés'),
-(30, 'Îles'),
-(31, 'Maisons organiques'),
-(32, 'Patrimoine'),
-(33, 'Villes emblématiques'),
-(34, 'Chambres d\'hôtes'),
-(35, 'Yourtes'),
-(36, 'Art et créativité'),
-(37, 'Maisons cycladiques'),
-(38, 'Riads'),
-(39, 'Granges'),
-(40, 'Au pied des pistes'),
-(41, 'Chalets tipi'),
-(42, 'Cabanes de berger'),
-(43, 'Dammusi'),
-(44, 'Surf'),
-(45, 'Toit du monde'),
-(46, 'Arctique'),
-(47, 'Conteneurs maritimes'),
-(48, 'Ryokans'),
-(49, 'Désert'),
-(50, 'Moulins à vent'),
-(51, 'Casas particulares'),
-(52, 'Pianos à queue'),
-(53, 'Tours'),
-(54, 'Cuisines équipées'),
-(55, 'Hanoks'),
-(56, 'Trulli'),
-(57, 'Minsus'),
-(58, 'Golf'),
-(59, 'Logements adaptés'),
-(60, 'Caravanes'),
-(61, 'Plages');
+INSERT INTO `tag` (`tagId`, `type`, `picto`) VALUES
+(315, 'Avec vue', 'avecvue.svg'),
+(316, 'Chambres', 'chambres.svg'),
+(317, 'Campagne', 'campagne.svg'),
+(318, 'Wow !', 'wow.svg'),
+(319, 'Sur l\'eau', 'surleau.svg'),
+(320, 'Espaces de jeu', 'espacesdejeu.svg'),
+(321, 'Piscines', 'piscines.svg'),
+(322, 'Bord de mer', 'borddemer.svg'),
+(323, 'Cabanes perchées', 'cabanesperchees.svg'),
+(324, 'Bateaux', 'bateaux.svg'),
+(325, 'Luxe', 'luxe.svg'),
+(326, 'Dômes', 'domes.svg'),
+(327, 'Tiny houses', 'tinyhouses.svg'),
+(328, 'Tendance', 'tendance.svg'),
+(329, 'Bord de lac', 'borddelac.svg'),
+(330, 'Fermes', 'fermes.svg'),
+(331, 'Châteaux', 'chateaux.svg'),
+(332, 'Cabanes', 'cabanes.svg'),
+(333, 'Design', 'design.svg'),
+(334, 'Grandes demeures', 'grandesdemeures.svg'),
+(335, 'Séjours déconnectés', 'sejoursdeconnectes.svg'),
+(336, 'Lacs', 'lacs.svg'),
+(337, 'Camping', 'camping.svg'),
+(338, 'Parcs nationaux', 'parcsnationaux.svg'),
+(339, 'Sous les tropiques', 'souslestropiques.svg'),
+(340, 'Maisons troglodytes', 'maisonstroglodytes.svg'),
+(341, 'Vignobles', 'vignobles.svg'),
+(342, 'Ski', 'ski.svg'),
+(343, 'Nouveautés', 'nouveautes.svg'),
+(344, 'Îles', 'iles.svg'),
+(345, 'Maisons organiques', 'maisonsorganiques.svg'),
+(346, 'Patrimoine', 'patrimoine.svg'),
+(347, 'Villes emblématiques', 'villesemblematiques.svg'),
+(348, 'Chambres d\'hôtes', 'chambresdhotes.svg'),
+(349, 'Yourtes', 'yourtes.svg'),
+(350, 'Art et créativité', 'artetcreativite.svg'),
+(351, 'Maisons cycladiques', 'maisonscycladiques.svg'),
+(352, 'Riads', 'riads.svg'),
+(353, 'Granges', 'granges.svg'),
+(354, 'Au pied des pistes', 'aupieddespistes.svg'),
+(355, 'Chalets tipi', 'chaletstipi.svg'),
+(356, 'Cabanes de berger', 'cabanesdeberger.svg'),
+(357, 'Dammusi', 'dammusi.svg'),
+(358, 'Surf', 'surf.svg'),
+(359, 'Toit du monde', 'toitdumonde.svg'),
+(360, 'Arctique', 'arctique.svg'),
+(361, 'Conteneurs maritimes', 'conteneursmaritimes.svg'),
+(362, 'Ryokans', 'ryokans.svg'),
+(363, 'Désert', 'desert.svg'),
+(364, 'Moulins à vent', 'moulinsavent.svg'),
+(365, 'Casas particulares', 'casasparticulares.svg'),
+(366, 'Pianos à queue', 'pianosaqueue.svg'),
+(367, 'Tours', 'tours.svg'),
+(368, 'Cuisines équipées', 'cuisinesequipees.svg'),
+(369, 'Hanoks', 'hanoks.svg'),
+(370, 'Trulli', 'trulli.svg'),
+(371, 'Minsus', 'minsus.svg'),
+(372, 'Golf', 'golf.svg'),
+(373, 'Logements adaptés', 'logementsadaptes.svg'),
+(374, 'Caravanes', 'caravanes.svg'),
+(375, 'Plages', 'plages.svg');
 
 -- --------------------------------------------------------
 
@@ -537,6 +556,13 @@ ALTER TABLE `propertyimages`
 ALTER TABLE `propertytag`
   ADD CONSTRAINT `propertytag_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `propertytag_ibfk_2` FOREIGN KEY (`tagId`) REFERENCES `tag` (`tagId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `rating`
+--
+ALTER TABLE `rating`
+  ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `reservation`

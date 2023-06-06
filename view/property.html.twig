@@ -1,15 +1,16 @@
-{% extends "template.html.twig" %}
+{% extends "template.html.twig" %} 
 
-{% block headerblock %}{% include 'header.html.twig' %}{% endblock %}
-
-{% block title %}{{ property.title }}{% endblock %}
+{% block title %}{{ property.title }} {% endblock %} 
 
 {% block content %}
-    {% if recipe.thumbnail is defined and recipe.thumbnail is not empty %}
-    	<img src="{{ asset('/media/images/' ~ recipe.thumbnail) }}" alt="{{ recipe.thumbnail }}">
-	{% endif %}
-    <h1>{{ property.title }}</h1>
+<figcaption>
+    <img src="{{ asset('/media/pict-default.webp') }}" alt="" />
+    <img src="{{ asset('/media/pict-default.webp') }}" alt="" />
+    <img src="{{ asset('/media/pict-default.webp') }}" alt="" />
+    <img src="{{ asset('/media/pict-default.webp') }}" alt="" />
+</figcaption>
+<h1>{{ property.title }}</h1>
 
-    <p>{{ property.content }}</p>
+<p>{{ property.content }}</p>
 
 {% endblock %}
