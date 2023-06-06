@@ -29,6 +29,7 @@ return array(
     'PropertyModel' => $baseDir . '/model/PropertyModel.php',
     'Reservation' => $baseDir . '/class/Reservation.php',
     'Tag' => $baseDir . '/class/Tag.php',
+    'TagController' => $baseDir . '/controller/TagController.php',
     'TagModel' => $baseDir . '/model/TagModel.php',
     'User' => $baseDir . '/class/User.php',
     'UserController' => $baseDir . '/controller/UserController.php',

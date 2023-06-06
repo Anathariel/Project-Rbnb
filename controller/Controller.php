@@ -36,8 +36,20 @@ abstract class Controller {
     
 
     protected static function setRender(string $template, $datas){
-        
-        echo self::getTwig()->render($template, $datas);
+
+        global $router;
+
+        //LINKS
+        $tagslink = $router->generate('baseTags');
+
+        // TAGS
+        $tags = new TagModel();
+        $allTags  = $tags->getAllTags();
+
+        // LINKS TABLE + NEW ONES
+        $new = [
+            'tags' => $allTags, 'tagslink' => $tagslink,] + $datas;
+        echo self::getTwig()->render($template, $new);
     }
 
     protected static function getRender($template, $datas){
