@@ -34,13 +34,14 @@
         </li>
         {% endif %}
       </ul>
-	  <div id="sub-nav">
-		{% for tag in tags %}
-      <ul>
-		<li> {{ tag.type }} </li>
-	  </ul>
-	  {% endfor %}
-    </div>
+      <div id="sub-nav">
+        <ul>
+          {% for tag in tags %}
+          <li>{{ tag.type }}</li>
+          {% endfor %}
+		  
+        </ul><p>{{ toto }}</p>
+      </div>
     </nav>
   </div>
 </header>

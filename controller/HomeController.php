@@ -8,8 +8,8 @@ class HomeController extends Controller
         $propertys = $propertyModel->getLastPropertys();
 
         $tagModel = new TagModel();
-        $tags = $tagModel->getAllTags();
+        $bestTags = $tagModel->getBestTags();
 
-        echo self::getRender('homepage.html.twig', ['propertys' => $propertys, 'tags' => $tags]);
+        echo self::getRender('homepage.html.twig', ['propertys' => $propertys, 'bestTags' => $bestTags]);
     }
 }

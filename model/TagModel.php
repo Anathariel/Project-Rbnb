@@ -12,23 +12,19 @@ class TagModel extends Model
             $tags[] = new Tag($tag);
         }
 
-        $req->closeCursor();
-
         return $tags;
     }
 
     public function getBestTags()
     {
-        $tags = [];
+        $bestTags = [];
 
         $req = $this->getDb()->query('SELECT `tagId`, `type` FROM `tag` ORDER BY `tagId` DESC LIMIT 5');
 
-        while ($tag = $req->fetch(PDO::FETCH_ASSOC)) {
-            $tags[] = new Tag($tag);
+        while ($bestTag = $req->fetch(PDO::FETCH_ASSOC)) {
+            $bestTags[] = new Tag($bestTag);
         }
 
-        $req->closeCursor();
-
-        return $tags;
+        return $bestTags;
     }
 }

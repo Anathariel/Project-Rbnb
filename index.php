@@ -10,6 +10,9 @@ $router->setBasePath('/projet/project-rbnb');
 // ROUTES 
 $router->map('GET','/', 'HomeController#home', 'home');
 
+$router->map('GET','/tags','','baseTags');
+
+
 // Register
 $router->map('GET|POST','/registration', 'UserController#register', 'register');
 
@@ -21,7 +24,7 @@ $router->map('GET','/logout', 'UserController#logout', 'logout');
 
 // MATCH :
 $match = $router->match();
-var_dump($match);
+// var_dump($match);
 
 if (is_array($match)) {
     list($controller, $action) = explode('#', $match['target']);
