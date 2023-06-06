@@ -6,7 +6,7 @@ require_once './vendor/autoload.php';
 $router = new AltoRouter();
 $router->setBasePath('/projet/project-rbnb');
 
-// Si le router vous pose problèmes ou semble trop confus, n'hésitez pas à allez lire le fichier index.php dans l'exemple dans le vendor/altorouter ou demander de l'aide
+// Si le router vous pose problèmes ou semble trop confus, n'hésitez pas à allez lire le fichier index.php dans l'exemple dans le vendor/altorouter
 // ROUTES 
 $router->map('GET','/', 'HomeController#home', 'home');
 
