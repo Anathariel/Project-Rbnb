@@ -167,6 +167,7 @@ header {
         .taglist {
             width: 50%;
             overflow: hidden;
+
             a {
                 display: flex;
                 flex-direction: column;
@@ -217,7 +218,7 @@ header {
             }
         }
 
-        .filter{
+        .filter {
             padding: .9rem;
             display: flex;
             flex-direction: row;
@@ -230,7 +231,7 @@ header {
             border-radius: 5rem;
             cursor: pointer;
 
-            img{
+            img {
                 margin: auto .5rem;
             }
         }
@@ -330,13 +331,15 @@ section#new-destinations-section {
             }
         }
     }
-  //~ -------------------- PROPERTY -------------------- //
-
-section#property-section {
-  figcaption {
-    img {
-      width: 261px;
-      height: auto;
-    }
-  }
 }
+
+    //~ -------------------- PROPERTY -------------------- //
+
+    section#property-section {
+        figcaption {
+            img {
+                width: 261px;
+                height: auto;
+            }
+        }
+    }
