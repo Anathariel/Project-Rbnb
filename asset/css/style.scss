@@ -174,10 +174,13 @@ header {
   }
 }
 
+//~ -------------------- HOMEPAGE -------------------- //
+
 //~ -------------------- New destinations sections -------------------- //
 
 section#new-destinations-section {
   margin-bottom: 1100px;
+  
   p#description-new-destinations {
     font-size: 15px;
     line-height: 36px;
@@ -209,6 +212,17 @@ section#new-destinations-section {
           background-color: $white-default;
         }
       }
+    }
+  }
+}
+
+//~ -------------------- PROPERTY -------------------- //
+
+section#property-section {
+  figcaption {
+    img {
+      width: 261px;
+      height: auto;
     }
   }
 }

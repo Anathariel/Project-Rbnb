@@ -167,4 +167,9 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
   border-radius: 10px;
   padding: 10px;
   background-color: #ffffff;
+}
+
+section#property-section figcaption img {
+  width: 261px;
+  height: auto;
 }/*# sourceMappingURL=style.css.map */
