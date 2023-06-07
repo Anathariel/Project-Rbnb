@@ -125,6 +125,7 @@ header #sub-nav {
   align-items: center;
   background-color: #f8f8f8;
   overflow: scroll;
+  display: none;
 }
 header #sub-nav .taglist {
   width: 50%;
@@ -192,18 +193,24 @@ header #sub-nav .filter img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 760px;
+  width: 100%;
   background-color: #8aecab;
 }
 #registration .form-container {
   position: relative;
+  padding: 3rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+#registration #register,
+#registration #connect {
+  margin: 0px 5rem;
   width: 50%;
-  text-align: center;
 }
 #registration form {
   display: flex;
   flex-direction: column;
-  margin: 0px 30px;
+  margin: 0px 1.5rem;
 }
 #registration form input {
   margin: 10px 0px;
@@ -212,7 +219,7 @@ header #sub-nav .filter img {
   background-color: #efefef;
   border-radius: 5px;
 }
-#registration form button {
+#registration button {
   border: none;
   padding: 20px;
   margin-top: 5px;
@@ -221,10 +228,18 @@ header #sub-nav .filter img {
   color: #fff;
   cursor: pointer;
 }
+#registration .intros-container {
+  display: none;
+  background-color: #1b1d21;
+  position: absolute;
+  width: 50%;
+  padding: 2rem;
+}
 
 footer {
   position: fixed;
   bottom: 0;
+  background-color: #8accec;
 }
 
 section#new-destinations-section {
