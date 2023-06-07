@@ -2,19 +2,19 @@
 
 class Property
 {
-    private $propertyId ;
+    private $propertyId;
     private $title;
     private $description;
     private $propertyType;
     private $priceNight;
-    private $accommodationTypeId ;
+    private $accommodationTypeId;
     private $address;
     private $latitude;
     private $longitude;
     private $availability;
     private $publicationdate;
     private $reservationOption;
-    private $owner ;
+    private $owner;
 
     public function __construct(array $post)
     {
@@ -163,4 +163,5 @@ class Property
     {
         $this->owner = $owner;
     }
+
 }

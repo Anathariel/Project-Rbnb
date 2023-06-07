@@ -286,7 +286,6 @@ footer {
 //? --------- New Destination Section --------- //
 
 section#new-destinations-section {
-
     h2 {
         font-weight: 600;
         font-size: 30px;
@@ -331,4 +330,13 @@ section#new-destinations-section {
             }
         }
     }
+  //~ -------------------- PROPERTY -------------------- //
+
+section#property-section {
+  figcaption {
+    img {
+      width: 261px;
+      height: auto;
+    }
+  }
 }
