@@ -1,47 +1,53 @@
 {% extends "template.html.twig" %}
 
-{% block title %} Rbnb {% endblock %}
+{% block title %}
+	Rbnb
+{% endblock %}
 
 {% block content %}
+	<section id="registration" class="limit-size">
+		<div class="form-container">
+			<div id="register">
+				<h2>Inscrivez-vous</h2>
+				<form method="POST" action="{{ path('register') }}">
 
-<div id="register">
-    <fieldset>
-        <legend>Inscrivez-vous</legend>
+					<label for="firstName">Prénom*</label>
+					<input type="text" id="firstName" name="firstName" placeholder="Your firstName here">
 
-        <form method="POST" action="{{ path('register') }}">
+					<label for="lastName">Nom*</label>
+					<input type="text" id="lastName" name="lastName" placeholder="Your lastName here">
 
-            <label for="firstName"></label>
-            <input type="text" id="firstName" name="firstName" placeholder="Your firstName here">
+					<label for="email">Email*</label>
+					<input type="email" id="email" name="email" placeholder="Your email adress here">
 
-            <label for="lastName"></label>
-            <input type="text" id="lastName" name="lastName" placeholder="Your lastName here">
+					<label for="password">Mot de passe*</label>
+					<input type="password" id="password" name="password" placeholder="password">
 
-            <label for="email"></label>
-            <input type="email" id="email" name="email" placeholder="Your email adress here">
+					<button type="submit">S'inscrire</button>
+				</form>
+			</div>
 
-            <label for="password"></label>
-            <input type="password" id="password" name="password" placeholder="password">
+			<div id="connect">
+				<h2>Bienvenue</h2>
+				<form action="{{ path('login') }}" method="POST">
 
-            <input type="submit" value="Sign Up">
-        </form>
-    </fieldset>
-</div>
+					<label for="email">Email :</label>
+					<input type="email" id="email" name="email" placeholder="Your email adress here">
 
-<div id="connect">
-    <fieldset>
-        <legend>Sign In</legend>
+					<label for="password">Password :</label>
+					<input type="password" id="password" name="password" placeholder="password">
 
-        <form action="{{ path('login') }}" method="POST">
+					<input type="checkbox">
+					<p>Se souvenir de cet ordinateur pendant 30 jours</p>
+					<a href="#">Mot de passe oublié ?</a>
 
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" placeholder="Your email adress here">
+					<button type="submit">Se connecter</button>
+				</form>
+			</div>
+		</div>
 
-            <label for="password">Password :</label>
-            <input type="password" id="password" name="password" placeholder="password">
-
-            <input type="submit" value="Sign In">
-        </form>
-    </fieldset>
-</div>
-	
-{% endblock %}
+    <div class="intros-container">
+		<div class="intro-control signin-intro"></div>
+		<div class="intro-control signup-intro"></div>
+	</div>
+</section>{% endblock %}
