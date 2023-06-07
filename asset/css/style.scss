@@ -1,42 +1,43 @@
 //& -------------------- SCSS VARIABLES -------------------- //
 
 //^ --------- COLORS --------- //
-$maincolor: #8ACCEC;
-$white : #F8F8F8;
-$secondary : #FAC515;
-$darkblue : #0B4A6F;
-$darkerblue : #1B1D21;
+$maincolor: #8accec;
+$white: #f8f8f8;
+$white-default: #ffffff;
+$secondary: #fac515;
+$darkblue: #0b4a6f;
+$darkerblue: #1b1d21;
 //* --------- FONT --------- //
 
-$font: 'Quicksand';
+$font: "Quicksand";
 
 //? -------------------- RESETS -------------------- //
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .limit-size {
-    width: 100%;
-    max-width: 1900px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1900px;
+  margin: 0 auto;
 }
 
 body {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    background-color: #f8f8f8;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  background-color: #f8f8f8;
 }
 
 p,
 a {
-    font-family: 'Quicksand';
-    text-decoration: none;
+  font-family: "Quicksand";
+  text-decoration: none;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 h1,
@@ -45,119 +46,169 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Quicksand';
+  font-family: "Quicksand";
+  color: $darkerblue;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 52px;
+  text-align: right;
+  letter-spacing: 0.2px;
 }
 
 section {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 //^ --------- CLASSES --------- //
 
 .poppins {
-    font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
-.quicksand  {
-    font-family: 'Quicksand';
+.quicksand {
+  font-family: "Quicksand";
 }
 
 //* --------- COLORS CLASSES --------- //
 
 .darkerblue {
-    color: $darkerblue;
+  color: $darkerblue;
 }
 
 .white {
-    color: $white;
+  color: $white;
 }
 
 .maincolor {
-    color: $maincolor;
+  color: $maincolor;
 }
 
 //~ -------------------- STYLING -------------------- //
 
 header {
-    height: 100px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: $maincolor;
+  height: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: $maincolor;
 
-    nav ul {
-        display: flex;
-        align-items: center;
+  nav {
+    overflow: hidden;
+  }
 
-        li a {
-            display: flex;
-            align-items: center;
-        }
+  nav ul {
+    display: flex;
+    align-items: center;
+
+    li a {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .logo {
+    margin-right: auto;
+    margin-left: 5rem;
+  }
+
+  #searchbar {
+    width: 30%;
+    height: 55px;
+    border-radius: 100vw;
+    margin: 0 auto;
+
+    cursor: pointer;
+    background: $white;
+    box-shadow: 0 0 5px hsl(0 0% 78%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      display: flex;
+      align-items: center;
+      margin: 2rem 2rem;
     }
 
-    .logo {
-        margin-right: auto;
-        margin-left: 5rem;
+    .location,
+    .check-in,
+    .guests {
+      margin-right: 1rem;
+      width: 25%;
     }
 
-
-    #searchbar {
-        width: 30%;
-        height: 55px;
-        border-radius: 100vw;
-        margin: 0 auto;
-
-        cursor: pointer;
-        background: $white;
-        box-shadow: 0 0 5px hsl(0 0% 78%);
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-
-        form {
-            display: flex;
-            align-items: center;
-            margin: 2rem 2rem;
-        }
-
-        .location,
-        .check-in,
-        .guests {
-            margin-right: 1rem;
-            width: 25%;
-        }
-
-        input[type="text"] {
-            background: none;
-            border: none;
-            width: 100%;
-        }
-
-        input[type="text"]:hover {
-            transition: background 250ms ease;
-            background:hsl(0 0% 94%);
-        }
-
-        button {
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            margin-left: 5rem;
-            background-color: $darkblue;
-        }
+    input[type="text"] {
+      background: none;
+      border: none;
+      width: 100%;
     }
 
-    .user {
-        margin-left: auto;
-        margin-right: 5rem;
+    input[type="text"]:hover {
+      transition: background 250ms ease;
+      background: hsl(0 0% 94%);
     }
 
-    #sub-nav{
-        display: flex;
-        align-content: space-between;
-        align-items: center;
-        background-color: $white;
+    button {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      margin-left: 5rem;
+      background-color: $darkblue;
     }
+  }
+
+  .user {
+    margin-left: auto;
+    margin-right: 5rem;
+  }
+
+  #sub-nav {
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    background-color: $white;
+  }
+}
+
+//~ -------------------- New destinations sections -------------------- //
+
+section#new-destinations-section {
+  margin-bottom: 1100px;
+  p#description-new-destinations {
+    font-size: 15px;
+    line-height: 36px;
+    text-align: right;
+    color: $darkerblue;
+  }
+
+  div#container-card-new-destinations {
+    width: 240px;
+    height: 256px;
+
+    a {
+      div.card-new-destinations {
+        position: relative;
+        figcaption {
+          img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+          }
+        }
+
+        div.description-card-new-destinations {
+          position: absolute;
+          bottom: 10px;
+          right: 45px;
+          border-radius: 10px;
+          padding: 10px;
+          background-color: $white-default;
+        }
+      }
+    }
+  }
 }
