@@ -22,9 +22,9 @@
 						<input
 						type="text" id="check-in" name="search-calendar" placeholder="Une semaine">
 					{# <div class="input-group check-out">
-															        				<label for="check-out">Check-out</label>
-															    					<input type="text" id="check-out" placeholder="Add dates">
-															  					</div> #}
+																																			        				<label for="check-out">Check-out</label>
+																																			    					<input type="text" id="check-out" placeholder="Add dates">
+																																			  					</div> #}
 					</div>
 
 					<div class="input-group guests">
@@ -46,14 +46,23 @@
 			</li>
 		</ul>
 		<div id="sub-nav">
-
-			{% for tag in tags %}
-				<ul>
-					<li>
-						<a href="#">{{ tag.slug }}{{ tag.type }}</a>
+			<ul>
+				{% for tag in tags %}
+					<li class="taglist">
+						<a href="#">
+							<img src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
+							<p class="darkerblue">{{ tag.type }}</p>
+						</a>
 					</li>
-				</ul>
-			{% endfor %}
+				{% endfor %}
+				<li>
+					<a href="#" class="arrow left"></a>
+					<a href="#" class="arrow right"></a>
+				</li>
+				<li>
+					<button class="filter"><img src="{{asset('/media/icons/filter.svg')}}" alt="filter">Filtres</button>
+				</li>
+			</ul>
 		</div>
 
 	</nav>
