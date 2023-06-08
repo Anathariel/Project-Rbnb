@@ -42,7 +42,7 @@ class UserController extends Controller {
                     $_SESSION['connect'] = true;
 
                 global $router;
-                header('Location: ' . $router->generate('home'));
+                header('Location: ' . $router->generate('dashboard'));
                 exit();
                 } else {
                     echo 'ECLATAX';
@@ -61,5 +61,10 @@ class UserController extends Controller {
         global $router;
         header('Location: ' . $router->generate('home'));
         exit();
+    }
+
+    public function dashboard(){
+        $_SESSION['connect'] = true;
+        echo self::getRender('dashboard.html.twig', []); 
     }
 }

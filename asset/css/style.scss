@@ -7,6 +7,8 @@ $white-default: #ffffff;
 $secondary: #fac515;
 $darkblue: #0b4a6f;
 $darkerblue: #1b1d21;
+
+$dashboard-brg: #E1E7EA;
 //* --------- FONT --------- //
 
 $font: "Quicksand";
@@ -83,7 +85,7 @@ h6 {
 //~ -------------------- STYLING -------------------- //
 //? --------- HEADER --------- //
 
-header {
+.header-main {
     height: 100px;
     position: sticky;
     top: 0;
@@ -163,6 +165,7 @@ header {
         align-items: center;
         background-color: $white;
         overflow: scroll;
+        display: none;
 
         .taglist {
             width: 50%;
@@ -238,24 +241,104 @@ header {
     }
 }
 
+.dashboard-header {
+    height: 100px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: $white;
+    border-bottom: solid 1px $darkblue;
+    display: flex;
+    justify-content: center;
+
+
+    ul {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-dashboard {
+        display: flex;
+        justify-content: center;
+        border: solid .1rem $darkblue;
+        padding: 1rem 2rem;
+        margin: 5rem;
+        border-radius: 5rem;
+
+        img {
+            margin: 0 1rem 0 0;
+        }
+
+        input[type="text"] {
+            background: none;
+            border: none;
+            border-radius: 5rem;
+        }
+
+        input[type="text"]:hover {
+            transition: background 250ms ease;
+            background: hsl(0 0% 94%);
+        }
+    }
+
+    .app {
+        max-height: 50px;
+        display: flex;
+        flex-direction: row;
+        border-right: solid .1rem $darkerblue;
+
+        img {
+            padding: 1rem;
+        }
+    }
+
+    .user-menu {
+        display: flex;
+
+        img:first-child {
+            height: 50px;
+            width: 50px;
+            border-radius: 5rem;
+            margin-right: 5px;
+        }
+
+        .user-data {
+            display: flex;
+            flex-direction: column;
+        }
+
+        img:last-child {
+            margin-left: 2rem;
+        }
+    }
+
+}
+
 //? --------- REGISTER --------- //
 #registration {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 760px;
+    width: 100%;
     background-color: #8aecab;
 
     .form-container {
         position: relative;
+        padding: 3rem;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    #register,
+    #connect {
+        margin: 0px 5rem;
         width: 50%;
-        text-align: center;
     }
 
     form {
         display: flex;
         flex-direction: column;
-        margin: 0px 30px;
+        margin: 0px 1.5rem;
     }
 
     form input {
@@ -266,7 +349,7 @@ header {
         border-radius: 5px;
     }
 
-    form button {
+    button {
         border: none;
         padding: 20px;
         margin-top: 5px;
@@ -275,12 +358,21 @@ header {
         color: #fff;
         cursor: pointer;
     }
+
+    .intros-container {
+        display: none;
+        background-color: #1b1d21;
+        position: absolute;
+        width: 50%;
+        padding: 2rem;
+    }
 }
 
 //? --------- FOOTER --------- //
 footer {
     position: fixed;
     bottom: 0;
+    background-color: $maincolor;
 }
 
 //~ -------------------- HOMEPAGE -------------------- //
@@ -333,13 +425,30 @@ section#new-destinations-section {
     }
 }
 
-    //~ -------------------- PROPERTY -------------------- //
+//~ -------------------- PROPERTY -------------------- //
 
-    section#property-section {
-        figcaption {
-            img {
-                width: 261px;
-                height: auto;
-            }
+section#property-section {
+    figcaption {
+        img {
+            width: 261px;
+            height: auto;
         }
     }
+}
+
+//~ -------------------- DASHBOARD -------------------- //
+
+.dash-menu {
+    height: 100px;
+    background-color: #059669;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    .add a {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}

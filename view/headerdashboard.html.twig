@@ -1,0 +1,32 @@
+<header class="limit-size">
+	<nav class="dashboard-header">
+		<ul>
+			<li>
+				<a href="{{ path('home') }}">
+					<img src="{{ asset('/media/icons/home.svg') }}" alt="Logo">
+				</a>
+			</li>
+			<div class="search-dashboard">
+				<img src="{{ asset('/media/icons/dashboard-search.svg') }}" alt="Search">
+				<input type="text" name="search-dashboard" id="search-dashboard">
+			</div>
+			<div class="app">
+				<img src="{{ asset('/media/icons/notification.svg') }}" alt="Icon de notification">
+				<img src="{{ asset('/media/icons/messagerie.svg') }}" alt="Icon Messagerie">
+			</div>
+			<div class="user-menu">
+				<a href="#">
+					<img src="{{ asset('/media/pict-default.webp') }}" alt="Image de profil">
+				</a>
+				<div class="user-data">
+					<h3>User</h3>
+					<p>email@gmail.com</p>
+				</div>
+				<img src="{{ asset('/media/icons/arrow-down.svg') }}" alt="Flèche menu">
+			</div>
+			<a href="{{ path('dashboard') }}">Account</a>
+			<a href="{{ path('logout') }}">LogOut</a>
+		</ul>
+	</nav>
+
+</header>

@@ -11,13 +11,11 @@ class User
     private $phoneNumber;
     private $role;
 
-    public function __construct(array $post)
-    {
+    public function __construct(array $post){
         $this->hydrate($post);
     }
 
-    private function hydrate(array $post)
-    {
+    private function hydrate(array $post){
         foreach ($post as $key => $value) {
             $method = 'set' . ucfirst($key);
 
