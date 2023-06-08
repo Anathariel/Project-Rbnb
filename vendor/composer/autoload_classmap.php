@@ -17,6 +17,7 @@ return array(
     'Favorite' => $baseDir . '/class/Favorite.php',
     'HomeController' => $baseDir . '/controller/HomeController.php',
     'HostLanguage' => $baseDir . '/class/HostLanguage.php',
+    'HostLanguageModel' => $baseDir . '/model/HostLanguageModel.php',
     'HouseRules' => $baseDir . '/class/HouseRules.php',
     'HouseRulesModel' => $baseDir . '/model/HouseRulesModel.php',
     'Invoice' => $baseDir . '/class/Invoice.php',

@@ -55,6 +55,7 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
         'Favorite' => __DIR__ . '/../..' . '/class/Favorite.php',
         'HomeController' => __DIR__ . '/../..' . '/controller/HomeController.php',
         'HostLanguage' => __DIR__ . '/../..' . '/class/HostLanguage.php',
+        'HostLanguageModel' => __DIR__ . '/../..' . '/model/HostLanguageModel.php',
         'HouseRules' => __DIR__ . '/../..' . '/class/HouseRules.php',
         'HouseRulesModel' => __DIR__ . '/../..' . '/model/HouseRulesModel.php',
         'Invoice' => __DIR__ . '/../..' . '/class/Invoice.php',

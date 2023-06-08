@@ -14,7 +14,7 @@ class AccomodationTypeModel extends Model
             return null;
         }
 
-        $accomodationType = new PropertyAmenities($accomodationTypeData);
+        $accomodationType = new AccomodationType($accomodationTypeData);
 
         return $accomodationType;
     }
