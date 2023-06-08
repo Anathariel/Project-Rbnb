@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AccomodationType' => $baseDir . '/class/AccomodationType.php',
+    'AccomodationTypeModel' => $baseDir . '/model/AccomodationTypeModel.php',
     'AltoRouter' => $vendorDir . '/altorouter/altorouter/AltoRouter.php',
     'CancellationPolicy' => $baseDir . '/class/CancellationPolicy.php',
     'Comment' => $baseDir . '/class/Comment.php',

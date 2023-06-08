@@ -45,6 +45,7 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
 
     public static $classMap = array (
         'AccomodationType' => __DIR__ . '/../..' . '/class/AccomodationType.php',
+        'AccomodationTypeModel' => __DIR__ . '/../..' . '/model/AccomodationTypeModel.php',
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'CancellationPolicy' => __DIR__ . '/../..' . '/class/CancellationPolicy.php',
         'Comment' => __DIR__ . '/../..' . '/class/Comment.php',
