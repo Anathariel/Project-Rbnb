@@ -1,7 +1,12 @@
-{% extends "template.html.twig" %} {% block title %}{{ property.title }} {%
-endblock %} {% block content %} {# ---------- property-section ---------- #}
+{% extends "template.html.twig" %} 
 
+{% block title %}{{ property.title }} {% endblock %} 
+
+{% block content %} 
+
+{# ---------- property-section ---------- #}
 <section id="property-section">
+    <br><br><br><br><br><br><br><br>
   <h1>{{ property.title }}</h1>
   <span>{{ property.address }}{{ property.comment }}</span>
   <figcaption>
@@ -13,6 +18,8 @@ endblock %} {% block content %} {# ---------- property-section ---------- #}
   </figcaption>  
   <div class="container-description-property">
     {# ---------- Property ---------- #}
+    <p>Informations importantes : </p>
+    <br>
     <p>{{ property.description }}</p>
     <p>Type de location : {{ property.propertyType }}</p>
     <p>{{ property.priceNight }} €/nuit</p>
@@ -50,7 +57,7 @@ endblock %} {% block content %} {# ---------- property-section ---------- #}
     <br><br>
 
     {# ---------- AccommodationTypes ---------- #} 
-    <p><strong>Ce que propose ce logement :</strong></p>
+    <p>Ce que propose ce logement :</p>
     <br>
     {% if accommodationType.piscine == 1 %}
     <p>Piscine</p>
@@ -99,7 +106,7 @@ endblock %} {% block content %} {# ---------- property-section ---------- #}
 
 
 {# ---------- Host Languages ---------- #}
-<p><strong>Langues parlées par l'hôte :</strong></p>
+<p>Langues parlées par l'hôte :</p>
 <br>
 {% if hostLanguage.anglais == 1 %}
   <p>Anglais</p>
@@ -129,6 +136,19 @@ endblock %} {% block content %} {# ---------- property-section ---------- #}
   <p>Arabe</p>
 {% endif %}
 <br><br>
+
+{# ---------- Cancellation Policy ---------- #}
+<p>Conditions d'annulation :</p>
+<br>
+{% if cancellationPolicy %}
+  <p>Temps d'annulation : {{ cancellationPolicy.cancellationTime }} heures</p>
+  <p>Politique de remboursement : {{ cancellationPolicy.refundPolicy }}</p>
+  <p>Frais d'annulation : {{ cancellationPolicy.cancellationFees }} €</p>
+{% else %}
+  <p>Aucune politique d'annulation définie pour cette propriété.</p>
+{% endif %}
+<br><br>
+
 
 
   </div>

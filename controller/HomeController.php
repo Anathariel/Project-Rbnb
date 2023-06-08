@@ -6,10 +6,18 @@ class HomeController extends Controller
     {
         $propertyModel = new PropertyModel();
         $propertys = $propertyModel->getLastPropertys();
+        $propertyImagesModel = new PropertyImagesModel();
 
         $tagModel = new TagModel();
         $bestTags = $tagModel->getBestTags();
 
-        echo self::getRender('homepage.html.twig', ['propertys' => $propertys, 'bestTags' => $bestTags]);
+        $propertysWithImages = [];
+        foreach ($propertys as $property) {
+            $propertyImages = $propertyImagesModel->getPropertyImagesModel($property->getPropertyId());
+            $propertysWithImages[] = $property;
+        }
+
+        echo self::getRender('homepage.html.twig', ['propertys' => $propertysWithImages, 'bestTags' => $bestTags, 'propertyImages' => $propertyImages]);
     }
 }
+

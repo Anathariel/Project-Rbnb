@@ -9,17 +9,18 @@ class PropertyController extends Controller
         $houseRulesModel = new HouseRulesModel();
         $accommodationTypeModel = new AccomodationTypeModel();
         $hostLanguageModel = new HostLanguageModel();
-        $PropertyImagesModel = new PropertyImagesModel();
+        $propertyImagesModel = new PropertyImagesModel();
+        $cancellationPolicyModel = new CancellationPolicyModel();
 
         $property = $propertyModel->getOneProperty($id);
         $propertyAmenities = $propertyAmenitiesModel->getPropertyAmenities($id);
         $houseRules = $houseRulesModel->getHouseRules($id);
         $accommodationType = $accommodationTypeModel->getAccomodationTypeModel($id);
         $hostLanguage = $hostLanguageModel->getHostLanguageModel($id);
-        $PropertyImages = $PropertyImagesModel->getPropertyImagesModel($id);
-        // var_dump($PropertyImages);
+        $propertyImages = $propertyImagesModel->getPropertyImagesModel($id);
+        $cancellationPolicy = $cancellationPolicyModel->getCancellationPolicyModel($id);
 
         $oneProperty = $router->generate('baseProperty');
-        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'PropertyImages' => $PropertyImages]);
+        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy]);
     }
 }
