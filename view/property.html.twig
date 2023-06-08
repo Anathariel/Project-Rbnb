@@ -1,16 +1,55 @@
 {% extends "template.html.twig" %} 
-
 {% block title %}{{ property.title }} {% endblock %} 
+{% block content %} 
 
-{% block content %}
-<figcaption>
-    <img src="{{ asset('/media/pict-default.webp') }}" alt="" />
-    <img src="{{ asset('/media/pict-default.webp') }}" alt="" />
-    <img src="{{ asset('/media/pict-default.webp') }}" alt="" />
-    <img src="{{ asset('/media/pict-default.webp') }}" alt="" />
-</figcaption>
-<h1>{{ property.title }}</h1>
+{# ---------- property-section ---------- #}
 
-<p>{{ property.content }}</p>
+<section id="property-section">
+  <h1>{{ property.title }}</h1>
+  <span>{{ property.address }}{{ property.comment }}</span>
+  <figcaption>
+    <img src="{{ asset('/media/pict-default.webp') }}" alt="" />
+  </figcaption>
+  <div class="container-description-property">
 
+    {# ---------- Property ---------- #}
+    <p>{{ property.description }}</p>
+    <p>Type de location : {{ property.propertyType }}</p>
+    <p>{{ property.priceNight }} €/nuit</p>
+
+    {# ---------- PropertyAmenities ---------- #}
+    <p>
+      {{ propertyAmenities.beds }}
+      {{ propertyAmenities.beds == 1 ? "lit" : "lits" }}
+    </p>
+    <p>
+      {{ propertyAmenities.bedrooms }}
+      {{ propertyAmenities.bedrooms == 1 ? "chambre" : "chambres" }}
+    </p>
+    <p>
+      {{ propertyAmenities.bathrooms }}
+      {{
+        propertyAmenities.bathrooms == 1 ? "salle de bain" : "salles de bain"
+      }}
+    </p>
+    <p>
+      {{ propertyAmenities.toilets }}
+      {{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}
+    </p>
+
+
+    {# ---------- HouseRules ---------- #}
+    <p>
+    Heure d'arrivée : {{ houseRules.checkInTime|slice(0, 5) }}
+    </p>
+    <p>
+    Heure de départ : {{ houseRules.checkOutTime|slice(0, 5) }}
+    </p>
+    <p>
+    Maximum de personne : {{ houseRules.maxGuests }}
+    </p>
+  </div>
+
+  <p>{{ property.content }}</p>
+</section>
 {% endblock %}

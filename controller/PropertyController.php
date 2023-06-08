@@ -1,13 +1,23 @@
 <?php
-
-class PropertyController extends Controller
+    class PropertyController extends Controller
 {
     public function getOne($id)
     {
         global $router;
-        $model = new PropertyModel();
-        $property = $model->getOneProperty($id);
+        $propertyModel = new PropertyModel();
+        $propertyAmenitiesModel = new PropertyAmenitiesModel();
+        $houseRulesModel = new HouseRulesModel();
+
+        $property = $propertyModel->getOneProperty($id);
+        $propertyAmenities = $propertyAmenitiesModel->getPropertyAmenities($id);
+        $houseRules = $houseRulesModel -> getHouseRules($id);
+
         $oneProperty = $router->generate('baseProperty');
-        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty]);
+        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules]);
     }
 }
+
+
+
+
+

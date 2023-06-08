@@ -168,6 +168,7 @@ header {
         .taglist {
             width: 50%;
             overflow: hidden;
+
             a {
                 display: flex;
                 flex-direction: column;
@@ -218,7 +219,7 @@ header {
             }
         }
 
-        .filter{
+        .filter {
             padding: .9rem;
             display: flex;
             flex-direction: row;
@@ -231,7 +232,7 @@ header {
             border-radius: 5rem;
             cursor: pointer;
 
-            img{
+            img {
                 margin: auto .5rem;
             }
         }
@@ -303,7 +304,6 @@ footer {
 //? --------- New Destination Section --------- //
 
 section#new-destinations-section {
-
     h2 {
         font-weight: 600;
         font-size: 30px;
@@ -349,3 +349,14 @@ section#new-destinations-section {
         }
     }
 }
+
+    //~ -------------------- PROPERTY -------------------- //
+
+    section#property-section {
+        figcaption {
+            img {
+                width: 261px;
+                height: auto;
+            }
+        }
+    }
