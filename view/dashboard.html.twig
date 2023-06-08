@@ -1,7 +1,29 @@
-{% extends "template.html.twig" %}
+{% extends "templatedashboard.html.twig" %}
 
-{% block title %}Bienvenue sur Loca'R
+{% block title %}Bienvenue 
 {% endblock %}
 
 {% block content %}
+<h2>Bienvenue {{ session.firstname }}</h2>
+
+<div class="dash-menu">
+    <div class="add">
+        <a href="#">
+            <img src="{{ asset('/media/icons/plus.svg') }}" alt="Ajouter">
+            <p>Ajouter</p>
+        </a>
+    </div>
+    <div class="add favoris">
+        <a href="#">
+            <img src="{{ asset('/media/icons/heart.svg') }}" alt="Mes Favoris">
+            <p>Favoris</p>
+        </a>
+    </div>
+    <div class="add property">
+        <a href="#">
+            <img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
+            <p>Propriétés</p>
+        </a>
+    </div>
+</div>
 {% endblock %}

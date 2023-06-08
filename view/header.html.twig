@@ -1,4 +1,4 @@
-<header class="limit-size">
+<header class="limit-size header-main">
 	<nav>
 		<ul>
 			<li class="logo">
@@ -22,9 +22,9 @@
 						<input
 						type="text" id="check-in" name="search-calendar" placeholder="Une semaine">
 					{# <div class="input-group check-out">
-																																			        				<label for="check-out">Check-out</label>
-																																			    					<input type="text" id="check-out" placeholder="Add dates">
-																																			  					</div> #}
+							<label for="check-out">Check-out</label>
+							<input type="text" id="check-out" placeholder="Add dates">
+						</div> #}
 					</div>
 
 					<div class="input-group guests">
@@ -39,7 +39,8 @@
 
 			<li class="user">
 				{% if session.connect %}
-					<a href="{{ path('logout') }}"><img src="{{ asset('/media/icons/logout.svg') }}" alt="Se déconnecter"></a>
+					<a href="{{ path('dashboard') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Dashboard utilisateur"></a>
+					{# <a href="{{ path('logout') }}"><img src="{{ asset('/media/icons/logout.svg') }}" alt="Se déconnecter"></a> #}
 				{% else %}
 					<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Se connecter ou s'inscrire "></a>
 				{% endif %}

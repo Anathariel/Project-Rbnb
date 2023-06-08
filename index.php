@@ -26,6 +26,10 @@ $router->map('GET|POST','/login', 'UserController#login', 'login');
 $router->map('GET','/logout', 'UserController#logout', 'logout');
 
 
+// Dashboard Utilisateur
+$router->map('GET','/account','UserController#dashboard','dashboard');
+
+
 
 // MATCH :
 $match = $router->match();

@@ -57,26 +57,26 @@ h6 {
   color: #8accec;
 }
 
-header {
+.header-main {
   height: 100px;
   position: sticky;
   top: 0;
   z-index: 1;
   background-color: #8accec;
 }
-header nav ul {
+.header-main nav ul {
   display: flex;
   align-items: center;
 }
-header nav ul li a {
+.header-main nav ul li a {
   display: flex;
   align-items: center;
 }
-header .logo {
+.header-main .logo {
   margin-right: auto;
   margin-left: 5rem;
 }
-header #searchbar {
+.header-main #searchbar {
   width: 30%;
   height: 55px;
   border-radius: 100vw;
@@ -88,38 +88,38 @@ header #searchbar {
   justify-content: center;
   align-items: center;
 }
-header #searchbar form {
+.header-main #searchbar form {
   display: flex;
   align-items: center;
   margin: 2rem 2rem;
 }
-header #searchbar .location,
-header #searchbar .check-in,
-header #searchbar .guests {
+.header-main #searchbar .location,
+.header-main #searchbar .check-in,
+.header-main #searchbar .guests {
   margin-right: 1rem;
   width: 25%;
 }
-header #searchbar input[type=text] {
+.header-main #searchbar input[type=text] {
   background: none;
   border: none;
   width: 100%;
 }
-header #searchbar input[type=text]:hover {
+.header-main #searchbar input[type=text]:hover {
   transition: background 250ms ease;
   background: hsl(0, 0%, 94%);
 }
-header #searchbar button {
+.header-main #searchbar button {
   height: 40px;
   width: 40px;
   border-radius: 50%;
   margin-left: 5rem;
   background-color: #0b4a6f;
 }
-header .user {
+.header-main .user {
   margin-left: auto;
   margin-right: 5rem;
 }
-header #sub-nav {
+.header-main #sub-nav {
   display: flex;
   align-content: space-between;
   align-items: center;
@@ -127,21 +127,21 @@ header #sub-nav {
   overflow: scroll;
   display: none;
 }
-header #sub-nav .taglist {
+.header-main #sub-nav .taglist {
   width: 50%;
   overflow: hidden;
 }
-header #sub-nav .taglist a {
+.header-main #sub-nav .taglist a {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: space-between;
   margin: auto 1.5rem;
 }
-header #sub-nav .taglist img {
+.header-main #sub-nav .taglist img {
   height: 60px;
 }
-header #sub-nav .arrow {
+.header-main #sub-nav .arrow {
   position: absolute;
   width: 2rem;
   height: 2rem;
@@ -151,19 +151,19 @@ header #sub-nav .arrow {
   box-shadow: 0 0 0 lightgray;
   transition: all 200ms ease;
 }
-header #sub-nav .arrow.left {
+.header-main #sub-nav .arrow.left {
   left: 0;
   transform: translate3d(0, -50%, 0) rotate(-135deg);
 }
-header #sub-nav .arrow.right {
+.header-main #sub-nav .arrow.right {
   right: 0;
   transform: translate3d(0, -50%, 0) rotate(45deg);
 }
-header #sub-nav .arrow:hover {
+.header-main #sub-nav .arrow:hover {
   border-color: #8accec;
   box-shadow: 0.5rem -0.5rem 0 #0b4a6f;
 }
-header #sub-nav .arrow:before {
+.header-main #sub-nav .arrow:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -172,7 +172,7 @@ header #sub-nav .arrow:before {
   width: 200%;
   height: 200%;
 }
-header #sub-nav .filter {
+.header-main #sub-nav .filter {
   padding: 0.9rem;
   display: flex;
   flex-direction: row;
@@ -185,8 +185,68 @@ header #sub-nav .filter {
   border-radius: 5rem;
   cursor: pointer;
 }
-header #sub-nav .filter img {
+.header-main #sub-nav .filter img {
   margin: auto 0.5rem;
+}
+
+.dashboard-header {
+  height: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #f8f8f8;
+  border-bottom: solid 1px #0b4a6f;
+  display: flex;
+  justify-content: center;
+}
+.dashboard-header ul {
+  display: flex;
+  align-items: center;
+}
+.dashboard-header .search-dashboard {
+  display: flex;
+  justify-content: center;
+  border: solid 0.1rem #0b4a6f;
+  padding: 1rem 2rem;
+  margin: 5rem;
+  border-radius: 5rem;
+}
+.dashboard-header .search-dashboard img {
+  margin: 0 1rem 0 0;
+}
+.dashboard-header .search-dashboard input[type=text] {
+  background: none;
+  border: none;
+  border-radius: 5rem;
+}
+.dashboard-header .search-dashboard input[type=text]:hover {
+  transition: background 250ms ease;
+  background: hsl(0, 0%, 94%);
+}
+.dashboard-header .app {
+  max-height: 50px;
+  display: flex;
+  flex-direction: row;
+  border-right: solid 0.1rem #1b1d21;
+}
+.dashboard-header .app img {
+  padding: 1rem;
+}
+.dashboard-header .user-menu {
+  display: flex;
+}
+.dashboard-header .user-menu img:first-child {
+  height: 50px;
+  width: 50px;
+  border-radius: 5rem;
+  margin-right: 5px;
+}
+.dashboard-header .user-menu .user-data {
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-header .user-menu img:last-child {
+  margin-left: 2rem;
 }
 
 #registration {
@@ -282,4 +342,18 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
 section#property-section figcaption img {
   width: 261px;
   height: auto;
+}
+
+.dash-menu {
+  height: 100px;
+  background-color: #059669;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.dash-menu .add a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=style.css.map */
