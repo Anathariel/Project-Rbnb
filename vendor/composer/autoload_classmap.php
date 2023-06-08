@@ -30,6 +30,7 @@ return array(
     'PropertyAmenitiesModel' => $baseDir . '/model/PropertyAmenitiesModel.php',
     'PropertyController' => $baseDir . '/controller/PropertyController.php',
     'PropertyImages' => $baseDir . '/class/PropertyImages.php',
+    'PropertyImagesModel' => $baseDir . '/model/PropertyImagesModel.php',
     'PropertyModel' => $baseDir . '/model/PropertyModel.php',
     'Reservation' => $baseDir . '/class/Reservation.php',
     'Tag' => $baseDir . '/class/Tag.php',

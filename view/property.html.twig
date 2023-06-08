@@ -5,8 +5,12 @@ endblock %} {% block content %} {# ---------- property-section ---------- #}
   <h1>{{ property.title }}</h1>
   <span>{{ property.address }}{{ property.comment }}</span>
   <figcaption>
-    <img src="{{ asset('/media/pict-default.webp') }}" alt="" />
-  </figcaption>
+    <img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}" />
+    <img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}" />
+    <img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}" />
+    <img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}" />
+    <img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}" />
+  </figcaption>  
   <div class="container-description-property">
     {# ---------- Property ---------- #}
     <p>{{ property.description }}</p>
@@ -15,6 +19,8 @@ endblock %} {% block content %} {# ---------- property-section ---------- #}
     <br><br>
 
     {# ---------- PropertyAmenities ---------- #}
+    <p>Chambres et lits : </p>
+    <br>
     <p>
       {{ propertyAmenities.beds }}
       {{ propertyAmenities.beds == 1 ? "lit" : "lits" }}
@@ -36,9 +42,11 @@ endblock %} {% block content %} {# ---------- property-section ---------- #}
     <br><br>
 
     {# ---------- HouseRules ---------- #}
+    <p>Règlement intérieur :</p>
+    <br>
     <p>Heure d'arrivée : {{ houseRules.checkInTime|slice(0, 5) }}</p>
     <p>Heure de départ : {{ houseRules.checkOutTime|slice(0, 5) }}</p>
-    <p>Maximum de personne : {{ houseRules.maxGuests }}</p>
+    <p>Maximum de voyageurs : {{ houseRules.maxGuests }}</p>
     <br><br>
 
     {# ---------- AccommodationTypes ---------- #} 

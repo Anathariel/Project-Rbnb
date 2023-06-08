@@ -68,6 +68,7 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
         'PropertyAmenitiesModel' => __DIR__ . '/../..' . '/model/PropertyAmenitiesModel.php',
         'PropertyController' => __DIR__ . '/../..' . '/controller/PropertyController.php',
         'PropertyImages' => __DIR__ . '/../..' . '/class/PropertyImages.php',
+        'PropertyImagesModel' => __DIR__ . '/../..' . '/model/PropertyImagesModel.php',
         'PropertyModel' => __DIR__ . '/../..' . '/model/PropertyModel.php',
         'Reservation' => __DIR__ . '/../..' . '/class/Reservation.php',
         'Tag' => __DIR__ . '/../..' . '/class/Tag.php',
