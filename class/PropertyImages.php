@@ -4,7 +4,11 @@ class PropertyImages
 {
     private $propertyImagesId ;
     private $propertyId;
-    private $imageURL;
+    private $imageMainURL;
+    private $image1URL;
+    private $image2URL;
+    private $image3URL;
+    private $image4URL;
 
     public function __construct(array $post)
     {
@@ -33,9 +37,29 @@ class PropertyImages
         return $this->propertyId;
     }
 
-    public function getImageURL()
+    public function getImageMainURL()
     {
-        return $this->imageURL;
+        return $this->imageMainURL;
+    }
+
+    public function getImage1URL()
+    {
+        return $this->image1URL;
+    }
+
+    public function getImage2URL()
+    {
+        return $this->image2URL;
+    }
+
+    public function getImage3URL()
+    {
+        return $this->image3URL;
+    }
+
+    public function getImage4URL()
+    {
+        return $this->image4URL;
     }
 
     //SETTERS
@@ -49,8 +73,28 @@ class PropertyImages
         $this->propertyId = $propertyId;
     }
 
-    public function setImageURL(String $imageURL)
+    public function setImageMainURL(String $imageMainURL)
     {
-        $this->imageURL = $imageURL;
+        $this->imageMainURL = $imageMainURL;
+    }
+
+    public function setImage1URL(String $image1URL)
+    {
+        $this->image1URL = $image1URL;
+    }
+
+    public function setImage2URL(String $image2URL)
+    {
+        $this->image2URL = $image2URL;
+    }
+
+    public function setImage3URL(String $image3URL)
+    {
+        $this->image3URL = $image3URL;
+    }
+
+    public function setImage4URL(String $image4URL)
+    {
+        $this->image4URL = $image4URL;
     }
 }

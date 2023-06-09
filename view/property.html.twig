@@ -1,23 +1,33 @@
 {% extends "template.html.twig" %} 
+
 {% block title %}{{ property.title }} {% endblock %} 
+
 {% block content %} 
 
 {# ---------- property-section ---------- #}
-
 <section id="property-section">
+    <br><br><br><br><br><br><br><br>
   <h1>{{ property.title }}</h1>
   <span>{{ property.address }}{{ property.comment }}</span>
   <figcaption>
-    <img src="{{ asset('/media/pict-default.webp') }}" alt="" />
-  </figcaption>
+    <img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}" />
+    <img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}" />
+    <img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}" />
+    <img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}" />
+    <img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}" />
+  </figcaption>  
   <div class="container-description-property">
-
     {# ---------- Property ---------- #}
+    <p>Informations importantes : </p>
+    <br>
     <p>{{ property.description }}</p>
     <p>Type de location : {{ property.propertyType }}</p>
     <p>{{ property.priceNight }} €/nuit</p>
+    <br><br>
 
     {# ---------- PropertyAmenities ---------- #}
+    <p>Chambres et lits : </p>
+    <br>
     <p>
       {{ propertyAmenities.beds }}
       {{ propertyAmenities.beds == 1 ? "lit" : "lits" }}
@@ -36,18 +46,111 @@
       {{ propertyAmenities.toilets }}
       {{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}
     </p>
-
+    <br><br>
 
     {# ---------- HouseRules ---------- #}
-    <p>
-    Heure d'arrivée : {{ houseRules.checkInTime|slice(0, 5) }}
-    </p>
-    <p>
-    Heure de départ : {{ houseRules.checkOutTime|slice(0, 5) }}
-    </p>
-    <p>
-    Maximum de personne : {{ houseRules.maxGuests }}
-    </p>
+    <p>Règlement intérieur :</p>
+    <br>
+    <p>Heure d'arrivée : {{ houseRules.checkInTime|slice(0, 5) }}</p>
+    <p>Heure de départ : {{ houseRules.checkOutTime|slice(0, 5) }}</p>
+    <p>Maximum de voyageurs : {{ houseRules.maxGuests }}</p>
+    <br><br>
+
+    {# ---------- AccommodationTypes ---------- #} 
+    <p>Ce que propose ce logement :</p>
+    <br>
+    {% if accommodationType.piscine == 1 %}
+    <p>Piscine</p>
+    {% endif %} {% if accommodationType.parkingGratuit == 1 %}
+    <p>Parking gratuit</p>
+    {% endif %} {% if accommodationType.jacuzzi == 1 %}
+    <p>Jacuzzi</p>
+    {% endif %} {% if accommodationType.wifi == 1 %}
+    <p>Wifi</p>
+    {% endif %} {% if accommodationType.laveLinge == 1 %}
+    <p>Lave-linge</p>
+    {% endif %} {% if accommodationType.secheLinge == 1 %}
+    <p>Sèche-linge</p>
+    {% endif %} {% if accommodationType.climatisation == 1 %}
+    <p>Climatisation</p>
+    {% endif %} {% if accommodationType.chauffage == 1 %}
+    <p>Chauffage</p>
+    {% endif %} {% if accommodationType.espaceTravailDedie == 1 %}
+    <p>Espace de travail dédié</p>
+    {% endif %} {% if accommodationType.television == 1 %}
+    <p>Télévision</p>
+    {% endif %} {% if accommodationType.secheCheveux == 1 %}
+    <p>Sèche-cheveux</p>
+    {% endif %} {% if accommodationType.ferRepasser == 1 %}
+    <p>Fer à repasser</p>
+    {% endif %} {% if accommodationType.stationRechargeVehiElectriques == 1 %}
+    <p>Station de recharge pour véhicules électriques</p>
+    {% endif %} {% if accommodationType.litBebe == 1 %}
+    <p>Lit pour bébé</p>
+    {% endif %} {% if accommodationType.salleSport == 1 %}
+    <p>Salle de sport</p>
+    {% endif %} {% if accommodationType.barbecue == 1 %}
+    <p>Barbecue</p>
+    {% endif %} {% if accommodationType.petitDejeuner == 1 %}
+    <p>Petit déjeuner</p>
+    {% endif %} {% if accommodationType.cheminee == 1 %}
+    <p>Cheminée</p>
+    {% endif %} {% if accommodationType.logementFumeur == 1 %}
+    <p>Logement fumeur</p>
+    {% endif %} {% if accommodationType.detecteurFumee == 1 %}
+    <p>Détecteur de fumée</p>
+    {% endif %} {% if accommodationType.detecteurMonoxyDeCarbone == 1 %}
+    <p>Détecteur de monoxyde de carbone</p>
+    {% endif %}
+    <br><br>
+
+
+{# ---------- Host Languages ---------- #}
+<p>Langues parlées par l'hôte :</p>
+<br>
+{% if hostLanguage.anglais == 1 %}
+  <p>Anglais</p>
+{% endif %}
+{% if hostLanguage.français == 1 %}
+  <p>Français</p>
+{% endif %}
+{% if hostLanguage.allemand == 1 %}
+  <p>Allemand</p>
+{% endif %}
+{% if hostLanguage.japonais == 1 %}
+  <p>Japonais</p>
+{% endif %}
+{% if hostLanguage.italien == 1 %}
+  <p>Italien</p>
+{% endif %}
+{% if hostLanguage.russe == 1 %}
+  <p>Russe</p>
+{% endif %}
+{% if hostLanguage.espagnol == 1 %}
+  <p>Espagnol</p>
+{% endif %}
+{% if hostLanguage.chinois == 1 %}
+  <p>Chinois</p>
+{% endif %}
+{% if hostLanguage.arabe == 1 %}
+  <p>Arabe</p>
+{% endif %}
+<br><br>
+
+{# ---------- Cancellation Policy ---------- #}
+<p>Conditions d'annulation :</p>
+<br>
+{% if cancellationPolicy %}
+  <p>Temps d'annulation : {{ cancellationPolicy.cancellationTime }} heures</p>
+  <p>Politique de remboursement : {{ cancellationPolicy.refundPolicy }}</p>
+  <p>Frais d'annulation : {{ cancellationPolicy.cancellationFees }} €</p>
+{% else %}
+  <p>Aucune politique d'annulation définie pour cette propriété.</p>
+{% endif %}
+<br><br>
+
+
+
   </div>
 
   <p>{{ property.content }}</p>

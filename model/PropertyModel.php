@@ -28,6 +28,9 @@ class PropertyModel extends Model
         return $property;
     }
     
-    
-
+    public function getPropertyId($property)
+    {
+        return $property->getPropertyId();
+    }
 }
+

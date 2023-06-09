@@ -25,7 +25,7 @@
 				<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
 					<div class="card-new-destinations">
 						<figcaption>
-							<img src="{{ asset('/media/pict-default.webp') }}" alt="location"/>
+							<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}" />
 						</figcaption>
 						<div class="description-card-new-destinations">
 							<h3 id="title-description-card">{{ property.title }}</h3>
