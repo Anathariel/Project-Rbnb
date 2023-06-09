@@ -15,14 +15,16 @@ $font: "Quicksand";
 
 //? -------------------- RESETS -------------------- //
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
 }
 
 .limit-size {
-    max-width: 1900px;
     width: 100%;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -30,6 +32,7 @@ body {
     box-sizing: border-box;
     scroll-behavior: smooth;
     background-color: #f8f8f8;
+    line-height: 1.5;
 }
 
 p,
@@ -37,7 +40,7 @@ a,
 label {
     font-family: "Quicksand";
     text-decoration: none;
-    font-size: 14px;
+    font-size: .8rem;
 }
 
 ul {
@@ -53,10 +56,6 @@ h6 {
     font-family: "Quicksand";
     color: $darkerblue;
 }
-
-// section {
-//     margin-top: 5rem;
-// }
 
 //^ --------- CLASSES --------- //
 
@@ -86,7 +85,7 @@ h6 {
 //? --------- HEADER --------- //
 
 .header-main {
-    height: 100px;
+    width: 100%;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -242,29 +241,24 @@ h6 {
 }
 
 .dashboard-header {
-    height: 100px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: $white;
+    width: 100%;
     border-bottom: solid 1px $darkblue;
-    display: flex;
-    justify-content: center;
-
 
     ul {
         display: flex;
         align-items: center;
     }
 
+    .logo-header{
+        margin-right: auto;
+    }
+
     .search-dashboard {
         display: flex;
-        justify-content: center;
         border: solid .1rem $darkblue;
-        padding: 1rem 2rem;
-        margin: 5rem;
         border-radius: 5rem;
-
+        margin-right: auto;
+        margin-left: 1rem;
         img {
             margin: 0 1rem 0 0;
         }
@@ -370,8 +364,7 @@ h6 {
 
 //? --------- FOOTER --------- //
 footer {
-    position: fixed;
-    bottom: 0;
+    margin-top: auto;
     background-color: $maincolor;
 }
 
@@ -437,18 +430,22 @@ section#property-section {
 }
 
 //~ -------------------- DASHBOARD -------------------- //
-
-.dash-menu {
-    height: 100px;
+.section-dashboard {
+    width: 100%;
     background-color: #059669;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
 
-    .add a {
+    .dash-menu {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        flex: 1 1 10ch;
+
+        .add a {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }

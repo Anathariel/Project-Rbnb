@@ -1,10 +1,12 @@
 {% extends "templatedashboard.html.twig" %}
 
-{% block title %}Bienvenue 
+{% block title %}Bienvenue, {{session.firstname}}
 {% endblock %}
 
 {% block content %}
-<h2>Bienvenue {{ session.firstname }}</h2>
+
+<section class="limit-size section-dashboard">
+<h2>Bienvenue, {{ session.firstname }} !</h2>
 
 <div class="dash-menu">
     <div class="add">
@@ -26,4 +28,5 @@
         </a>
     </div>
 </div>
+</section>
 {% endblock %}
