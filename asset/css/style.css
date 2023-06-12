@@ -223,6 +223,7 @@ h3 {
   border-bottom: solid 1px #0b4a6f;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 .dashboard-header .logo-header {
   margin: 1rem;
@@ -260,19 +261,18 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-right: auto;
 }
 .dashboard-header .right-menu .app {
-  max-height: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   border-right: solid 0.1rem #1b1d21;
-  margin-right: auto;
 }
 .dashboard-header .right-menu .app img {
   padding: 1rem;
 }
 .dashboard-header .right-menu .user-menu {
   display: flex;
-  margin-right: auto;
 }
 .dashboard-header .right-menu .user-menu img:first-child {
   height: 50px;
@@ -285,7 +285,32 @@ h3 {
   flex-direction: column;
 }
 .dashboard-header .right-menu .user-menu img:last-child {
-  margin-left: 2rem;
+  margin-left: 1rem;
+}
+.dashboard-header .submenu-dashboard {
+  display: none;
+}
+@media screen and (max-width: 500px) {
+  .dashboard-header .right-menu {
+    display: none;
+  }
+  .dashboard-header .logo-header {
+    margin-left: 1rem;
+  }
+  .dashboard-header .search-dashboard {
+    width: 100%;
+    margin: 0 1rem;
+  }
+}
+@media screen and (max-width: 850px) {
+  .dashboard-header .logo-header {
+    margin: 1rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .dashboard-header .right-menu > .app {
+    display: none;
+  }
 }
 
 #registration {
@@ -520,10 +545,17 @@ section#googlemaps-property-section div#map {
   margin-left: auto;
   align-self: flex-end;
 }
+@media screen and (max-width: 800px) {
+  .dashboard .welcome-dashboard .user-menu .add.filter {
+    margin-left: 0;
+    align-self: flex-end;
+  }
+}
 .dashboard .dashboard-cards {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  justify-content: center;
 }
 .dashboard .dashboard-cards .card {
   display: flex;
@@ -618,4 +650,9 @@ section#googlemaps-property-section div#map {
 }
 .dashboard .dashboard-cards .card .card-details button:hover:before {
   width: 100%;
+}
+@media screen and (max-width: 800px) {
+  .dashboard .dashboard-cards .dashboard-cards .card {
+    margin: 0;
+  }
 }/*# sourceMappingURL=style.css.map */
