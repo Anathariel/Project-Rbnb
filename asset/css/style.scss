@@ -2,15 +2,18 @@
 
 //^ --------- COLORS --------- //
 $maincolor: #8accec;
+$secondary: #fac515;
+
 $white: #f8f8f8;
 $white-default: #ffffff;
-$secondary: #fac515;
+
 $darkblue: #0b4a6f;
 $darkerblue: #1b1d21;
 $title-color: #e55039;
 $bg-card: #eaeef3;
 
 $dashboard-brg: #e1e7ea;
+$dash-maincolor : #0E9384;
 //* --------- FONT --------- //
 
 $font: "Quicksand";
@@ -20,29 +23,29 @@ $font: "Quicksand";
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .limit-size {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 body {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    background-color: #f8f8f8;
-    line-height: 1.5;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  background-color: #f8f8f8;
+  line-height: 1.5;
 }
 
 p,
 a,
 label {
-    font-family: "Quicksand";
-    text-decoration: none;
-    font-size: .8rem;
+  font-family: "Quicksand";
+  text-decoration: none;
+  font-size: .8rem;
 }
 
 ul {
@@ -103,11 +106,11 @@ h3 {
 //? --------- HEADER --------- //
 
 .header-main {
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: $maincolor;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: $maincolor;
 
   nav ul {
     display: flex;
@@ -121,6 +124,7 @@ h3 {
 
   .logo {
     margin-left: 1rem;
+
     @media screen and (min-width: 950px) {
       margin-right: auto;
       margin-left: 5rem;
@@ -171,7 +175,7 @@ h3 {
       button {
         height: 40px;
         width: 40px;
-        border-radius: 50%;
+        border-radius: 10px;
         margin-left: 5rem;
         background-color: $darkblue;
       }
@@ -266,77 +270,89 @@ h3 {
 }
 
 .dashboard-header {
-    width: 100%;
-    border-bottom: solid 1px $darkblue;
+  width: 100%;
+  border-bottom: solid 1px $darkblue;
+  display: flex;
+  align-items: center;
 
-    ul {
-        display: flex;
-        align-items: center;
+  .logo-header {
+    margin: 1rem;
+    margin-left: 5rem;
+  }
+
+  .search-dashboard {
+    display: flex;
+    width: 30%;
+    border: solid .1rem $darkblue;
+    border-radius: 5rem;
+    margin: 0 2rem;
+
+    img {
+      margin: 1rem;
     }
 
-    .logo-header{
-        margin-right: auto;
-    }
-
-    .search-dashboard {
-        display: flex;
-        border: solid .1rem $darkblue;
-        border-radius: 5rem;
-        margin-right: auto;
-        margin-left: 1rem;
-        img {
-            margin: 0 1rem 0 0;
-        }
-
-        input[type="text"] {
-            background: none;
-            border: none;
-            border-radius: 5rem;
-        }
-
-        input[type="text"]:hover {
-            transition: background 250ms ease;
-            background: hsl(0 0% 94%);
-        }
+    input[type="text"] {
+      background: none;
+      border: none;
+      border-radius: 5rem;
+      margin-right: auto;
+      padding: 1rem;
     }
 
     input[type="text"]:hover {
       transition: background 250ms ease;
       background: hsl(0 0% 94%);
     }
+
+    input[type="text"]:focus {
+      outline: transparent;
+    }
   }
 
-  .app {
-    max-height: 50px;
+  .search-dashboard:hover {
+    transition: background 250ms ease;
+    background: hsl(0 0% 94%);
+  }
+
+  .right-menu {
     display: flex;
     flex-direction: row;
-    border-right: solid 0.1rem $darkerblue;
+    justify-content: space-evenly;
+    margin-right: auto;
 
-    img {
-      padding: 1rem;
-    }
-  }
+    .app {
+      max-height: 50px;
+      border-right: solid 0.1rem $darkerblue;
+      margin-right: auto;
 
-  .user-menu {
-    display: flex;
-
-    img:first-child {
-      height: 50px;
-      width: 50px;
-      border-radius: 5rem;
-      margin-right: 5px;
+      img {
+        padding: 1rem;
+      }
     }
 
-    .user-data {
+    .user-menu {
       display: flex;
-      flex-direction: column;
-    }
+      margin-right: auto;
 
-    img:last-child {
-      margin-left: 2rem;
+      img:first-child {
+        height: 50px;
+        width: 50px;
+        border-radius: 5rem;
+        margin-right: 5px;
+      }
+
+      .user-data {
+        display: flex;
+        flex-direction: column;
+      }
+
+      img:last-child {
+        margin-left: 2rem;
+      }
     }
   }
 
+}
 
 //? --------- REGISTER --------- //
 #registration {
@@ -370,7 +386,7 @@ h3 {
     border: none;
     padding: 15px;
     background-color: #efefef;
-    border-radius: 5px;
+    border-radius: .5rem;
   }
 
   button {
@@ -378,7 +394,7 @@ h3 {
     padding: 20px;
     margin-top: 5px;
     background-color: #059669;
-    border-radius: 10px;
+    border-radius: .5rem;
     color: #fff;
     cursor: pointer;
   }
@@ -394,8 +410,8 @@ h3 {
 
 //? --------- FOOTER --------- //
 footer {
-    margin-top: auto;
-    background-color: $maincolor;
+  margin-top: auto;
+  background-color: $maincolor;
 }
 
 //~ -------------------- HOMEPAGE -------------------- //
@@ -490,6 +506,7 @@ section#features-section {
         height: 100px;
       }
     }
+
     div#container-description-features {
       width: 90%;
       margin: 0 auto;
@@ -510,7 +527,7 @@ section#features-section {
 
 // --------- join-us-sections --------- //
 section#join-us-section {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 
   div#container-card-join-us {
     figcaption {
@@ -551,22 +568,170 @@ section#property-section {
 }
 
 //~ -------------------- DASHBOARD -------------------- //
-.section-dashboard {
-    width: 100%;
-    background-color: #059669;
+.dashboard {
+  background-color: #E1E7EA;
 
-    .dash-menu {
+  .welcome-dashboard {
+    text-align: left;
+
+    h1 {
+      color: #111;
+      margin: 0 5rem;
+      padding-top: 1rem;
+    }
+
+    .user-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 5rem;
+      margin-bottom: 0;
+
+      .add a {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
-        gap: 2rem;
-        flex: 1 1 10ch;
+        justify-content: center;
+        align-items: center;
+        background: #3d7af512;
+        border-radius: 5rem;
+        padding: .5rem;
+        padding-right: 2rem;
 
-        .add a {
+        img {
+          padding: .5rem;
+          margin: 0 .5rem 0 0;
+          background-color: #f3f3f3;
+          border-radius: 5rem;
+        }
+      }
+
+      .add.first-link a {
+        background-color: #0E9384;
+        color: $white;
+      }
+
+      .add.filter {
+        margin-left: auto;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 100%;
+      max-width: 280px;
+      margin: 2rem;
+      background-color: $white;
+      border-radius: .5rem;
+
+      figure {
+        position: relative;
+        padding: 1rem 0;
+
+        img {
+          width: 261px;
+          height: auto;
+          border-radius: .5rem;
+        }
+
+        figcaption {
+          position: absolute;
+          top: 1.5rem;
+          left: 7.5rem;
+
+          img {
+            height: 30px;
+          }
+        }
+      }
+
+      .card-details {
+        padding: 0 1rem;
+
+        .pricing {
+          display: flex;
+          flex-direction: row;
+          margin-right: auto;
+
+          span {
+            font-size: 2rem;
+          }
+
+          .rating {
             display: flex;
             flex-direction: row;
-            justify-content: center;
             align-items: center;
+            margin-left: auto;
+          }
         }
+
+        .location {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 1rem 0;
+
+          img {
+            margin: .2rem;
+          }
+        }
+
+        .description {
+          h3 {
+            text-align: left;
+          }
+
+          text-align: left;
+        }
+
+        button {
+          width: 100%;
+          position: relative;
+          margin: 1rem 0;
+          border: solid 1px $dash-maincolor;
+          background-color: transparent;
+          border-radius: .5rem;
+          cursor: pointer;
+          overflow: hidden;
+
+          span {
+            display: block;
+            width: 100%;
+            padding: 1rem 0;
+            color: $dash-maincolor;
+            position: relative;
+            z-index: 1;
+          }
+
+          span:hover {
+            color: $white;
+          }
+        }
+
+        button:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0%;
+          height: 100%;
+          background-color: $dash-maincolor;
+          transition: all .5s ease-out;
+          z-index: 0;
+        }
+
+        button:hover:before {
+          width: 100%;
+        }
+      }
     }
+  }
 }
