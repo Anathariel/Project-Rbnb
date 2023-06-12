@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 12 juin 2023 à 06:48
+-- Généré le : lun. 12 juin 2023 à 14:31
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -286,10 +286,10 @@ CREATE TABLE IF NOT EXISTS `property` (
   `title` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `description` text COLLATE utf8mb4_general_ci NOT NULL,
   `propertyType` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `priceNight` decimal(10,0) NOT NULL,
+  `priceNight` decimal(10,2) NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `latitude` decimal(10,0) NOT NULL,
-  `longitude` decimal(10,0) NOT NULL,
+  `latitude` decimal(12,9) NOT NULL,
+  `longitude` decimal(12,9) NOT NULL,
   `availability` tinyint(1) NOT NULL,
   `publicationdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `reservationOption` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
@@ -303,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `property` (
 --
 
 INSERT INTO `property` (`propertyId`, `title`, `description`, `propertyType`, `priceNight`, `address`, `latitude`, `longitude`, `availability`, `publicationdate`, `reservationOption`, `owner`) VALUES
-(9, 'Belle maison avec vue sur la mer', 'Une superbe maison spacieuse avec une vue imprenable sur la mer', 'Maison', '200', '123 Rue de la Plage', '49', '2', 0, '2023-06-09 14:00:26', '', 9);
+(9, 'Belle maison avec vue sur la mer', 'Une superbe maison spacieuse avec une vue imprenable sur la mer', 'Maison', '200.00', '123 Rue de la Plage', '46.190558700', '5.207445700', 0, '2023-06-09 14:00:26', '', 9);
 
 -- --------------------------------------------------------
 
@@ -369,6 +369,13 @@ CREATE TABLE IF NOT EXISTS `propertytag` (
   KEY `PROPERTY` (`propertyId`),
   KEY `TAG` (`tagId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `propertytag`
+--
+
+INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES
+(9, 392);
 
 -- --------------------------------------------------------
 
