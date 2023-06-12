@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 06 juin 2023 à 13:22
+-- Généré le : lun. 12 juin 2023 à 06:48
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -30,37 +30,38 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `accommodationtype`;
 CREATE TABLE IF NOT EXISTS `accommodationtype` (
   `accommodationTypeId` int NOT NULL AUTO_INCREMENT,
-  `type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`accommodationTypeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `propertyId` int NOT NULL,
+  `piscine` tinyint(1) NOT NULL,
+  `parkingGratuit` tinyint(1) NOT NULL,
+  `jacuzzi` tinyint(1) NOT NULL,
+  `wifi` tinyint(1) NOT NULL,
+  `laveLinge` tinyint(1) NOT NULL,
+  `secheLinge` tinyint(1) NOT NULL,
+  `climatisation` tinyint(1) NOT NULL,
+  `chauffage` tinyint(1) NOT NULL,
+  `espaceTravailDedie` tinyint(1) NOT NULL,
+  `television` tinyint(1) NOT NULL,
+  `secheCheveux` tinyint(1) NOT NULL,
+  `ferRepasser` tinyint(1) NOT NULL,
+  `stationRechargeVehiElectriques` tinyint(1) NOT NULL,
+  `litBebe` tinyint(1) NOT NULL,
+  `salleSport` tinyint(1) NOT NULL,
+  `barbecue` tinyint(1) NOT NULL,
+  `petitDejeuner` tinyint(1) NOT NULL,
+  `cheminee` tinyint(1) NOT NULL,
+  `logementFumeur` tinyint(1) NOT NULL,
+  `detecteurFumee` tinyint(1) NOT NULL,
+  `detecteurMonoxyDeCarbone` tinyint(1) NOT NULL,
+  PRIMARY KEY (`accommodationTypeId`),
+  KEY `PROPERTY` (`propertyId`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `accommodationtype`
 --
 
-INSERT INTO `accommodationtype` (`accommodationTypeId`, `type`) VALUES
-(1, 'Piscine'),
-(2, 'Parking gratuit'),
-(3, 'Jacuzzi'),
-(4, 'Wifi'),
-(5, 'Cuisine'),
-(6, 'Lave-linge'),
-(7, 'Sèche-linge'),
-(8, 'Climatisation'),
-(9, 'Chauffage'),
-(10, 'Espace de travail dédié'),
-(11, 'Télévision'),
-(12, 'Sèche-cheveux'),
-(13, 'Fer à repasser'),
-(14, 'Station de recharge pour véhicules électriques'),
-(15, 'Lit pour bébé'),
-(16, 'Salle de sport'),
-(17, 'Barbecue'),
-(18, 'Petit déjeuner'),
-(19, 'Cheminée'),
-(20, 'Logement fumeur'),
-(21, 'Détecteur de fumée'),
-(22, 'Détecteur de monoxyde de carbone');
+INSERT INTO `accommodationtype` (`accommodationTypeId`, `propertyId`, `piscine`, `parkingGratuit`, `jacuzzi`, `wifi`, `laveLinge`, `secheLinge`, `climatisation`, `chauffage`, `espaceTravailDedie`, `television`, `secheCheveux`, `ferRepasser`, `stationRechargeVehiElectriques`, `litBebe`, `salleSport`, `barbecue`, `petitDejeuner`, `cheminee`, `logementFumeur`, `detecteurFumee`, `detecteurMonoxyDeCarbone`) VALUES
+(24, 9, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -73,11 +74,18 @@ CREATE TABLE IF NOT EXISTS `cancellationpolicy` (
   `cancellationPolicyId` int NOT NULL AUTO_INCREMENT,
   `propertyId` int NOT NULL,
   `cancellationTime` int NOT NULL,
-  `refundPolicy` text COLLATE utf8mb4_general_ci NOT NULL,
+  `refundPolicy` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `cancellationFees` decimal(10,0) NOT NULL,
   PRIMARY KEY (`cancellationPolicyId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `cancellationpolicy`
+--
+
+INSERT INTO `cancellationpolicy` (`cancellationPolicyId`, `propertyId`, `cancellationTime`, `refundPolicy`, `cancellationFees`) VALUES
+(1, 9, 24, 'Avant de réserver, assurez-vous que les conditions dannulation de cet hôte vous conviennent. Gardez à lesprit que la Politique relative aux cas de force majeure de LocaR ne couvre pas les annulations dues à une maladie ou à des perturbations de voyage causées par le Covid-19.', '50');
 
 -- --------------------------------------------------------
 
@@ -95,7 +103,14 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`commentId`),
   KEY `USER` (`uid`),
   KEY `property` (`propertyId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `comment`
+--
+
+INSERT INTO `comment` (`commentId`, `uid`, `propertyId`, `rating`, `commentText`) VALUES
+(2, 9, 9, 5, 'Si vous avez un beau temps, comme nous l\'avons fait , ce sera la cerise sur le gâteau.\r\nUn logement charmant et agréable . Soooo paisible .\r\nNature ,couchers de soleil ,faune et un court trajet en ferry vers Mull.\r\nParfait');
 
 -- --------------------------------------------------------
 
@@ -141,10 +156,25 @@ DROP TABLE IF EXISTS `hostlanguage`;
 CREATE TABLE IF NOT EXISTS `hostlanguage` (
   `hostLanguageId` int NOT NULL AUTO_INCREMENT,
   `propertyId` int NOT NULL,
-  `language` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `anglais` tinyint(1) NOT NULL,
+  `français` tinyint(1) NOT NULL,
+  `allemand` tinyint(1) NOT NULL,
+  `japonais` tinyint(1) NOT NULL,
+  `italien` tinyint(1) NOT NULL,
+  `russe` tinyint(1) NOT NULL,
+  `espagnol` tinyint(1) NOT NULL,
+  `chinois` tinyint(1) NOT NULL,
+  `arabe` tinyint(1) NOT NULL,
   PRIMARY KEY (`hostLanguageId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `hostlanguage`
+--
+
+INSERT INTO `hostlanguage` (`hostLanguageId`, `propertyId`, `anglais`, `français`, `allemand`, `japonais`, `italien`, `russe`, `espagnol`, `chinois`, `arabe`) VALUES
+(2, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -161,7 +191,14 @@ CREATE TABLE IF NOT EXISTS `houserules` (
   `maxGuests` int NOT NULL,
   PRIMARY KEY (`houseRulesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `houserules`
+--
+
+INSERT INTO `houserules` (`houseRulesId`, `propertyId`, `checkInTime`, `checkOutTime`, `maxGuests`) VALUES
+(3, 9, '10:00:00', '14:00:00', 5);
 
 -- --------------------------------------------------------
 
@@ -250,7 +287,6 @@ CREATE TABLE IF NOT EXISTS `property` (
   `description` text COLLATE utf8mb4_general_ci NOT NULL,
   `propertyType` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `priceNight` decimal(10,0) NOT NULL,
-  `accommodationTypeId` int NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `latitude` decimal(10,0) NOT NULL,
   `longitude` decimal(10,0) NOT NULL,
@@ -259,19 +295,15 @@ CREATE TABLE IF NOT EXISTS `property` (
   `reservationOption` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `owner` int NOT NULL,
   PRIMARY KEY (`propertyId`),
-  KEY `PROPERTYTYPE` (`accommodationTypeId`),
   KEY `USER` (`owner`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `property`
 --
 
-INSERT INTO `property` (`propertyId`, `title`, `description`, `propertyType`, `priceNight`, `accommodationTypeId`, `address`, `latitude`, `longitude`, `availability`, `publicationdate`, `reservationOption`, `owner`) VALUES
-(3, 'Belle villa avec piscine privée', 'Une magnifique villa avec une piscine privée pour des vacances relaxantes. Profitez du cadre luxueux et du confort moderne.', 'Villa', '200', 1, '123 Rue du Soleil, Ville', '49', '2', 1, '2023-06-02 14:39:17', 'Instant', 3),
-(4, 'test 2', 'Une magnifique villa avec une piscine privée pour des vacances relaxantes. Profitez du cadre luxueux et du confort moderne.', 'Villa', '200', 1, '123 Rue du Soleil, Ville', '51', '2', 1, '2023-06-02 14:39:17', 'Instant', 3),
-(5, 'test 3', 'Une magnifique villa avec une piscine privée pour des vacances relaxantes. Profitez du cadre luxueux et du confort moderne.', 'Villa', '200', 1, '123 Rue du Soleil, Ville', '51', '2', 1, '2023-06-02 14:39:17', 'Instant', 3),
-(6, 'test 4', 'Une magnifique villa avec une piscine privée pour des vacances relaxantes. Profitez du cadre luxueux et du confort moderne.', 'Villa', '200', 1, '123 Rue du Soleil, Ville', '51', '2', 1, '2023-06-02 14:39:17', 'Instant', 3);
+INSERT INTO `property` (`propertyId`, `title`, `description`, `propertyType`, `priceNight`, `address`, `latitude`, `longitude`, `availability`, `publicationdate`, `reservationOption`, `owner`) VALUES
+(9, 'Belle maison avec vue sur la mer', 'Une superbe maison spacieuse avec une vue imprenable sur la mer', 'Maison', '200', '123 Rue de la Plage', '49', '2', 0, '2023-06-09 14:00:26', '', 9);
 
 -- --------------------------------------------------------
 
@@ -289,7 +321,14 @@ CREATE TABLE IF NOT EXISTS `propertyamenities` (
   `toilets` int NOT NULL,
   PRIMARY KEY (`propertyAmenitiesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `propertyamenities`
+--
+
+INSERT INTO `propertyamenities` (`propertyAmenitiesId`, `propertyId`, `bedrooms`, `beds`, `bathrooms`, `toilets`) VALUES
+(3, 9, 2, 3, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -301,10 +340,21 @@ DROP TABLE IF EXISTS `propertyimages`;
 CREATE TABLE IF NOT EXISTS `propertyimages` (
   `propertyImagesId` int NOT NULL AUTO_INCREMENT,
   `propertyId` int NOT NULL,
-  `imageURL` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `imageMainURL` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `image1URL` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `image2URL` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `image3URL` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `image4URL` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`propertyImagesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `propertyimages`
+--
+
+INSERT INTO `propertyimages` (`propertyImagesId`, `propertyId`, `imageMainURL`, `image1URL`, `image2URL`, `image3URL`, `image4URL`) VALUES
+(2, 9, 'defaultMainpicture.jpg', 'default1urlpicture.jpg', 'default2urlpicture.jpg', 'default3urlpicture.jpg', 'default4urlpicture.jpg');
 
 -- --------------------------------------------------------
 
@@ -318,24 +368,6 @@ CREATE TABLE IF NOT EXISTS `propertytag` (
   `tagId` int NOT NULL,
   KEY `PROPERTY` (`propertyId`),
   KEY `TAG` (`tagId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `rating`
---
-
-DROP TABLE IF EXISTS `rating`;
-CREATE TABLE IF NOT EXISTS `rating` (
-  `ratingId` int NOT NULL AUTO_INCREMENT,
-  `uid` int NOT NULL,
-  `propertyId` int NOT NULL,
-  `rating` int NOT NULL,
-  `comment` text COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`ratingId`),
-  KEY `USER` (`uid`),
-  KEY `PROPERTY` (`propertyId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -371,74 +403,65 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `picto` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`tagId`)
-) ENGINE=InnoDB AUTO_INCREMENT=376 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=428 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `tag`
 --
 
 INSERT INTO `tag` (`tagId`, `type`, `picto`) VALUES
-(315, 'Avec vue', 'avecvue.svg'),
-(316, 'Chambres', 'chambres.svg'),
-(317, 'Campagne', 'campagne.svg'),
-(318, 'Wow !', 'wow.svg'),
-(319, 'Sur l\'eau', 'surleau.svg'),
-(320, 'Espaces de jeu', 'espacesdejeu.svg'),
-(321, 'Piscines', 'piscines.svg'),
-(322, 'Bord de mer', 'borddemer.svg'),
-(323, 'Cabanes perchées', 'cabanesperchees.svg'),
-(324, 'Bateaux', 'bateaux.svg'),
-(325, 'Luxe', 'luxe.svg'),
-(326, 'Dômes', 'domes.svg'),
-(327, 'Tiny houses', 'tinyhouses.svg'),
-(328, 'Tendance', 'tendance.svg'),
-(329, 'Bord de lac', 'borddelac.svg'),
-(330, 'Fermes', 'fermes.svg'),
-(331, 'Châteaux', 'chateaux.svg'),
-(332, 'Cabanes', 'cabanes.svg'),
-(333, 'Design', 'design.svg'),
-(334, 'Grandes demeures', 'grandesdemeures.svg'),
-(335, 'Séjours déconnectés', 'sejoursdeconnectes.svg'),
-(336, 'Lacs', 'lacs.svg'),
-(337, 'Camping', 'camping.svg'),
-(338, 'Parcs nationaux', 'parcsnationaux.svg'),
-(339, 'Sous les tropiques', 'souslestropiques.svg'),
-(340, 'Maisons troglodytes', 'maisonstroglodytes.svg'),
-(341, 'Vignobles', 'vignobles.svg'),
-(342, 'Ski', 'ski.svg'),
-(343, 'Nouveautés', 'nouveautes.svg'),
-(344, 'Îles', 'iles.svg'),
-(345, 'Maisons organiques', 'maisonsorganiques.svg'),
-(346, 'Patrimoine', 'patrimoine.svg'),
-(347, 'Villes emblématiques', 'villesemblematiques.svg'),
-(348, 'Chambres d\'hôtes', 'chambresdhotes.svg'),
-(349, 'Yourtes', 'yourtes.svg'),
-(350, 'Art et créativité', 'artetcreativite.svg'),
-(351, 'Maisons cycladiques', 'maisonscycladiques.svg'),
-(352, 'Riads', 'riads.svg'),
-(353, 'Granges', 'granges.svg'),
-(354, 'Au pied des pistes', 'aupieddespistes.svg'),
-(355, 'Chalets tipi', 'chaletstipi.svg'),
-(356, 'Cabanes de berger', 'cabanesdeberger.svg'),
-(357, 'Dammusi', 'dammusi.svg'),
-(358, 'Surf', 'surf.svg'),
-(359, 'Toit du monde', 'toitdumonde.svg'),
-(360, 'Arctique', 'arctique.svg'),
-(361, 'Conteneurs maritimes', 'conteneursmaritimes.svg'),
-(362, 'Ryokans', 'ryokans.svg'),
-(363, 'Désert', 'desert.svg'),
-(364, 'Moulins à vent', 'moulinsavent.svg'),
-(365, 'Casas particulares', 'casasparticulares.svg'),
-(366, 'Pianos à queue', 'pianosaqueue.svg'),
-(367, 'Tours', 'tours.svg'),
-(368, 'Cuisines équipées', 'cuisinesequipees.svg'),
-(369, 'Hanoks', 'hanoks.svg'),
-(370, 'Trulli', 'trulli.svg'),
-(371, 'Minsus', 'minsus.svg'),
-(372, 'Golf', 'golf.svg'),
-(373, 'Logements adaptés', 'logementsadaptes.svg'),
-(374, 'Caravanes', 'caravanes.svg'),
-(375, 'Plages', 'plages.svg');
+(376, 'Avec vue', 'avecvue'),
+(377, 'Chambres', 'chambres'),
+(378, 'Campagne', 'campagne'),
+(379, 'Wow !', 'wow'),
+(380, 'Sur l\'eau', 'surleau'),
+(381, 'Espaces de jeu', 'espacesdejeu'),
+(382, 'Piscines', 'piscines'),
+(383, 'Bord de mer', 'borddemer'),
+(384, 'Cabanes perchées', 'cabanesperchees'),
+(385, 'Bateaux', 'bateaux'),
+(386, 'Luxe', 'luxe'),
+(387, 'Dômes', 'domes'),
+(388, 'Tiny houses', 'tinyhouses'),
+(389, 'Tendance', 'tendance'),
+(390, 'Bord de lac', 'borddelac'),
+(391, 'Fermes', 'fermes'),
+(392, 'Châteaux', 'chateaux'),
+(393, 'Cabanes', 'cabanes'),
+(394, 'Design', 'design'),
+(395, 'Grandes demeures', 'grandesdemeures'),
+(396, 'Séjours déconnectés', 'sejoursdeconnectes'),
+(397, 'Lacs', 'lacs'),
+(398, 'Camping', 'camping'),
+(399, 'Parcs nationaux', 'parcsnationaux'),
+(400, 'Maisons troglodytes', 'maisonstroglodytes'),
+(401, 'Vignobles', 'vignobles'),
+(402, 'Ski', 'ski'),
+(403, 'Nouveautés', 'nouveautes'),
+(404, 'Maisons organiques', 'maisonsorganiques'),
+(405, 'Patrimoine', 'patrimoine'),
+(406, 'Villes emblématiques', 'villesemblematiques'),
+(407, 'Chambres d\'hôtes', 'chambresdhotes'),
+(408, 'Yourtes', 'yourtes'),
+(409, 'Art et créativité', 'artetcreativite'),
+(410, 'Maisons cycladiques', 'maisonscycladiques'),
+(411, 'Riads', 'riads'),
+(412, 'Granges', 'granges'),
+(413, 'Au pied des pistes', 'aupieddespistes'),
+(414, 'Chalets tipi', 'chaletstipi'),
+(415, 'Cabanes de berger', 'cabanesdeberger'),
+(416, 'Dammusi', 'dammusi'),
+(417, 'Surf', 'surf'),
+(418, 'Toit du monde', 'toitdumonde'),
+(419, 'Conteneurs maritimes', 'conteneursmaritimes'),
+(420, 'Moulins à vent', 'moulinsavent'),
+(421, 'Casas particulares', 'casasparticulares'),
+(422, 'Tours', 'tours'),
+(423, 'Cuisines équipées', 'cuisinesequipees'),
+(424, 'Hanoks', 'hanoks'),
+(425, 'Logements adaptés', 'logementsadaptes'),
+(426, 'Caravanes', 'caravanes'),
+(427, 'Plages', 'plages');
 
 -- --------------------------------------------------------
 
@@ -457,26 +480,26 @@ CREATE TABLE IF NOT EXISTS `user` (
   `phoneNumber` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
   `role` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`uid`, `firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`, `role`) VALUES
-(2, 'Frédéric', 'Favreau', '0000-00-00', 'fred@gmail.com', '$2y$10$GaZ/gznrAdDs9Ax9NUc7Q.782X9AzSevwHe5D78txYhFnxhFKu9b.', '', ''),
-(3, 'demo', 'demo', '0000-00-00', 'demo@rbnb.com', '$2y$10$YpOsI8takAJZtp.B5phhZO./N0aL9FFsT4T3N6ltIl/UvGNmCHl8K', '', ''),
-(5, 'toto', 'robert', '0000-00-00', 'toto@gmail.com', '$2y$10$E8SiOsulhDiZuQXCRgm1xe8a1i2O0cRa5/K79aHTooVtSa9YXbwti', '', '');
+(8, 'Frédéric', 'Favreau', '0000-00-00', 'fred@gmail.com', '$2y$10$GaZ/gznrAdDs9Ax9NUc7Q.782X9AzSevwHe5D78txYhFnxhFKu9b.', '', ''),
+(9, 'demo', 'demo', '0000-00-00', 'demo@rbnb.com', '$2y$10$YpOsI8takAJZtp.B5phhZO./N0aL9FFsT4T3N6ltIl/UvGNmCHl8K', '', ''),
+(10, 'toto', 'robert', '0000-00-00', 'toto@gmail.com', '$2y$10$E8SiOsulhDiZuQXCRgm1xe8a1i2O0cRa5/K79aHTooVtSa9YXbwti', '', '');
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `cancellationpolicy`
+-- Contraintes pour la table `accommodationtype`
 --
-ALTER TABLE `cancellationpolicy`
-  ADD CONSTRAINT `cancellationpolicy_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `accommodationtype`
+  ADD CONSTRAINT `accommodationtype_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `comment`
@@ -535,8 +558,7 @@ ALTER TABLE `payment`
 -- Contraintes pour la table `property`
 --
 ALTER TABLE `property`
-  ADD CONSTRAINT `property_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `property_ibfk_2` FOREIGN KEY (`accommodationTypeId`) REFERENCES `accommodationtype` (`accommodationTypeId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `property_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `propertyamenities`
@@ -556,13 +578,6 @@ ALTER TABLE `propertyimages`
 ALTER TABLE `propertytag`
   ADD CONSTRAINT `propertytag_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `propertytag_ibfk_2` FOREIGN KEY (`tagId`) REFERENCES `tag` (`tagId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `rating`
---
-ALTER TABLE `rating`
-  ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `reservation`
