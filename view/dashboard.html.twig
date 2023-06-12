@@ -1,29 +1,283 @@
 {% extends "templatedashboard.html.twig" %}
 
-{% block title %}Bienvenue 
+{% block title %}Bienvenue,
+	{{session.firstname}}
 {% endblock %}
 
 {% block content %}
-<h2>Bienvenue {{ session.firstname }}</h2>
 
-<div class="dash-menu">
-    <div class="add">
-        <a href="#">
-            <img src="{{ asset('/media/icons/plus.svg') }}" alt="Ajouter">
-            <p>Ajouter</p>
-        </a>
-    </div>
-    <div class="add favoris">
-        <a href="#">
-            <img src="{{ asset('/media/icons/heart.svg') }}" alt="Mes Favoris">
-            <p>Favoris</p>
-        </a>
-    </div>
-    <div class="add property">
-        <a href="#">
-            <img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
-            <p>Propriétés</p>
-        </a>
-    </div>
-</div>
+	<section class="limit-size dashboard">
+		<section class="welcome-dashboard">
+			<h1>Bienvenue,{{ session.firstname }}!</h1>
+
+			<div class="user-menu">
+				<div class="add first-link">
+					<a href="#">
+						<img src="{{ asset('/media/icons/plus.svg') }}" alt="Ajouter">
+						<p>Ajouter</p>
+					</a>
+				</div>
+				<div class="add favoris">
+					<a href="#">
+						<img src="{{ asset('/media/icons/heart.svg') }}" alt="Mes Favoris">
+						<p>Mes Favoris</p>
+					</a>
+				</div>
+				<div class="add property">
+					<a href="#">
+						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
+						<p>Mes Propriétés</p>
+					</a>
+				</div>
+
+				<div class="add filter">
+					<a href="#">
+						<img src="{{ asset('/media/icons/filter-dashboard.svg') }}" alt="Mes Propriétés">
+						<p>Filtrer</p>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="dashboard-cards limit-size">
+			<div class="card">
+				<figure>
+					<img src="{{ asset('/media/locations/defaultMainpicture.jpg') }}" alt="Main image property">
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+				</figure>
+
+				<div class="card-details">
+					<div class="pricing">
+						<h3>
+							<span>15€</span>/nuit</h3>
+
+						<div class="rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+							<p>5.0</p>
+						</div>
+					</div>
+
+					<div class="location">
+						<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+						<p>Property.region</p>
+					</div>
+
+					<div class="description">
+						<h3>Luxury Room Mid Space</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, repudiandae.</p>
+					</div>
+
+					<button><span>Réserver</span></button>
+				</div>
+			</div>
+            <div class="card">
+				<figure>
+					<img src="{{ asset('/media/locations/defaultMainpicture.jpg') }}" alt="Main image property">
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+				</figure>
+
+				<div class="card-details">
+					<div class="pricing">
+						<h3>
+							<span>15€</span>/nuit</h3>
+
+						<div class="rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+							<p>5.0</p>
+						</div>
+					</div>
+
+					<div class="location">
+						<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+						<p>Property.region</p>
+					</div>
+                    
+					<div class="description">
+						<h3>Luxury Room Mid Space</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, repudiandae.</p>
+					</div>
+
+					<button><span>Réserver</span></button>
+				</div>
+			</div>
+            <div class="card">
+				<figure>
+					<img src="{{ asset('/media/locations/defaultMainpicture.jpg') }}" alt="Main image property">
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+				</figure>
+
+				<div class="card-details">
+					<div class="pricing">
+						<h3>
+							<span>15€</span>/nuit</h3>
+
+						<div class="rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+							<p>5.0</p>
+						</div>
+					</div>
+
+					<div class="location">
+						<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+						<p>Property.region</p>
+					</div>
+                    
+					<div class="description">
+						<h3>Luxury Room Mid Space</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, repudiandae.</p>
+					</div>
+
+					<button><span>Réserver</span></button>
+				</div>
+			</div>
+            <div class="card">
+				<figure>
+					<img src="{{ asset('/media/locations/defaultMainpicture.jpg') }}" alt="Main image property">
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+				</figure>
+
+				<div class="card-details">
+					<div class="pricing">
+						<h3>
+							<span>15€</span>/nuit</h3>
+
+						<div class="rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+							<p>5.0</p>
+						</div>
+					</div>
+
+					<div class="location">
+						<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+						<p>Property.region</p>
+					</div>
+                    
+					<div class="description">
+						<h3>Luxury Room Mid Space</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, repudiandae.</p>
+					</div>
+
+					<button><span>Réserver</span></button>
+				</div>
+			</div>
+            <div class="card">
+				<figure>
+					<img src="{{ asset('/media/locations/defaultMainpicture.jpg') }}" alt="Main image property">
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+				</figure>
+
+				<div class="card-details">
+					<div class="pricing">
+						<h3>
+							<span>15€</span>/nuit</h3>
+
+						<div class="rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+							<p>5.0</p>
+						</div>
+					</div>
+
+					<div class="location">
+						<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+						<p>Property.region</p>
+					</div>
+                    
+					<div class="description">
+						<h3>Luxury Room Mid Space</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, repudiandae.</p>
+					</div>
+
+					<button><span>Réserver</span></button>
+				</div>
+			</div>
+            <div class="card">
+				<figure>
+					<img src="{{ asset('/media/locations/defaultMainpicture.jpg') }}" alt="Main image property">
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+				</figure>
+
+				<div class="card-details">
+					<div class="pricing">
+						<h3>
+							<span>15€</span>/nuit</h3>
+
+						<div class="rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+							<p>5.0</p>
+						</div>
+					</div>
+
+					<div class="location">
+						<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+						<p>Property.region</p>
+					</div>
+                    
+					<div class="description">
+						<h3>Luxury Room Mid Space</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, repudiandae.</p>
+					</div>
+
+					<button><span>Réserver</span></button>
+				</div>
+			</div>
+            <div class="card">
+				<figure>
+					<img src="{{ asset('/media/locations/defaultMainpicture.jpg') }}" alt="Main image property">
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+				</figure>
+
+				<div class="card-details">
+					<div class="pricing">
+						<h3>
+							<span>15€</span>/nuit</h3>
+
+						<div class="rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+							<p>5.0</p>
+						</div>
+					</div>
+
+					<div class="location">
+						<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+						<p>Property.region</p>
+					</div>
+                    
+					<div class="description">
+						<h3>Luxury Room Mid Space</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, repudiandae.</p>
+					</div>
+
+					<button><span>Réserver</span></button>
+				</div>
+			</div>
+		</section>
+	</section>
 {% endblock %}
