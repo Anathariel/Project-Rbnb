@@ -6,28 +6,47 @@
 
 {# ---------- property-section ---------- #}
 <section id="property-section">
-    <br><br><br><br><br><br><br><br>
+  <br /><br /><br /><br /><br /><br /><br /><br />
   <h1>{{ property.title }}</h1>
   <span>{{ property.address }}{{ property.comment }}</span>
+  <br>
   <figcaption>
-    <img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}" />
-    <img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}" />
-    <img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}" />
-    <img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}" />
-    <img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}" />
-  </figcaption>  
+    <img
+      src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}"
+      alt="{{ property.title }}"
+
+    />
+    <img
+      src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}"
+      alt="{{ property.title }}"
+    />
+    <img
+      src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}"
+      alt="{{ property.title }}"
+    />
+    <img
+      src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}"
+      alt="{{ property.title }}"
+    />
+    <img
+      src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}"
+      alt="{{ property.title }}"
+    />
+  </figcaption>
+  <br>
   <div class="container-description-property">
+
     {# ---------- Property ---------- #}
-    <p>Informations importantes : </p>
-    <br>
+    <p>Informations importantes :</p>
+    <br />
     <p>{{ property.description }}</p>
     <p>Type de location : {{ property.propertyType }}</p>
     <p>{{ property.priceNight }} €/nuit</p>
-    <br><br>
+    <br /><br />
 
     {# ---------- PropertyAmenities ---------- #}
-    <p>Chambres et lits : </p>
-    <br>
+    <p>Chambres et lits :</p>
+    <br />
     <p>
       {{ propertyAmenities.beds }}
       {{ propertyAmenities.beds == 1 ? "lit" : "lits" }}
@@ -46,19 +65,19 @@
       {{ propertyAmenities.toilets }}
       {{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}
     </p>
-    <br><br>
+    <br /><br />
 
     {# ---------- HouseRules ---------- #}
     <p>Règlement intérieur :</p>
-    <br>
+    <br />
     <p>Heure d'arrivée : {{ houseRules.checkInTime|slice(0, 5) }}</p>
     <p>Heure de départ : {{ houseRules.checkOutTime|slice(0, 5) }}</p>
     <p>Maximum de voyageurs : {{ houseRules.maxGuests }}</p>
-    <br><br>
+    <br /><br />
 
-    {# ---------- AccommodationTypes ---------- #} 
+    {# ---------- AccommodationTypes ---------- #}
     <p>Ce que propose ce logement :</p>
-    <br>
+    <br />
     {% if accommodationType.piscine == 1 %}
     <p>Piscine</p>
     {% endif %} {% if accommodationType.parkingGratuit == 1 %}
@@ -102,55 +121,51 @@
     {% endif %} {% if accommodationType.detecteurMonoxyDeCarbone == 1 %}
     <p>Détecteur de monoxyde de carbone</p>
     {% endif %}
-    <br><br>
+    <br /><br />
 
+    {# ---------- Host Languages ---------- #}
+    <p>Langues parlées par l'hôte :</p>
+    <br />
+    {% if hostLanguage.anglais == 1 %}
+    <p>Anglais</p>
+    {% endif %} {% if hostLanguage.français == 1 %}
+    <p>Français</p>
+    {% endif %} {% if hostLanguage.allemand == 1 %}
+    <p>Allemand</p>
+    {% endif %} {% if hostLanguage.japonais == 1 %}
+    <p>Japonais</p>
+    {% endif %} {% if hostLanguage.italien == 1 %}
+    <p>Italien</p>
+    {% endif %} {% if hostLanguage.russe == 1 %}
+    <p>Russe</p>
+    {% endif %} {% if hostLanguage.espagnol == 1 %}
+    <p>Espagnol</p>
+    {% endif %} {% if hostLanguage.chinois == 1 %}
+    <p>Chinois</p>
+    {% endif %} {% if hostLanguage.arabe == 1 %}
+    <p>Arabe</p>
+    {% endif %}
+    <br /><br />
 
-{# ---------- Host Languages ---------- #}
-<p>Langues parlées par l'hôte :</p>
-<br>
-{% if hostLanguage.anglais == 1 %}
-  <p>Anglais</p>
-{% endif %}
-{% if hostLanguage.français == 1 %}
-  <p>Français</p>
-{% endif %}
-{% if hostLanguage.allemand == 1 %}
-  <p>Allemand</p>
-{% endif %}
-{% if hostLanguage.japonais == 1 %}
-  <p>Japonais</p>
-{% endif %}
-{% if hostLanguage.italien == 1 %}
-  <p>Italien</p>
-{% endif %}
-{% if hostLanguage.russe == 1 %}
-  <p>Russe</p>
-{% endif %}
-{% if hostLanguage.espagnol == 1 %}
-  <p>Espagnol</p>
-{% endif %}
-{% if hostLanguage.chinois == 1 %}
-  <p>Chinois</p>
-{% endif %}
-{% if hostLanguage.arabe == 1 %}
-  <p>Arabe</p>
-{% endif %}
-<br><br>
+    {# ---------- Comment ---------- #}
+    <p>Commentaires :</p>
+    <br />
+    <p>{{ user.firstName }}</p>
+    <p>{{ comment.rating }} étoiles</p>
+    <p>{{ comment.commentText }}</p>
+    <br /><br />
 
-{# ---------- Cancellation Policy ---------- #}
-<p>Conditions d'annulation :</p>
-<br>
-{% if cancellationPolicy %}
-  <p>Temps d'annulation : {{ cancellationPolicy.cancellationTime }} heures</p>
-  <p>Politique de remboursement : {{ cancellationPolicy.refundPolicy }}</p>
-  <p>Frais d'annulation : {{ cancellationPolicy.cancellationFees }} €</p>
-{% else %}
-  <p>Aucune politique d'annulation définie pour cette propriété.</p>
-{% endif %}
-<br><br>
-
-
-
+    {# ---------- Cancellation Policy ---------- #}
+    <p>Conditions d'annulation :</p>
+    <br />
+    {% if cancellationPolicy %}
+    <p>Temps d'annulation : {{ cancellationPolicy.cancellationTime }} heures</p>
+    <p>Politique de remboursement : {{ cancellationPolicy.refundPolicy }}</p>
+    <p>Frais d'annulation : {{ cancellationPolicy.cancellationFees }} €</p>
+    {% else %}
+    <p>Aucune politique d'annulation définie pour cette propriété.</p>
+    {% endif %}
+    <br /><br />
   </div>
 
   <p>{{ property.content }}</p>
