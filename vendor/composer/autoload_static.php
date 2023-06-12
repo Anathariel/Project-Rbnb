@@ -50,6 +50,7 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
         'CancellationPolicy' => __DIR__ . '/../..' . '/class/CancellationPolicy.php',
         'CancellationPolicyModel' => __DIR__ . '/../..' . '/model/CancellationPolicyModel.php',
         'Comment' => __DIR__ . '/../..' . '/class/Comment.php',
+        'CommentModel' => __DIR__ . '/../..' . '/model/CommentModel.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Controller' => __DIR__ . '/../..' . '/controller/Controller.php',
         'Conversation' => __DIR__ . '/../..' . '/class/Conversation.php',

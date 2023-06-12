@@ -1,6 +1,9 @@
-* {
+*,
+::after,
+::before {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .limit-size {
@@ -34,6 +37,22 @@ h4,
 h5,
 h6 {
   font-family: "Quicksand";
+  color: #1b1d21;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 52px;
+  text-align: center;
+  color: #e55039;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
   color: #1b1d21;
 }
 
@@ -73,51 +92,61 @@ h6 {
   align-items: center;
 }
 .header-main .logo {
-  margin-right: auto;
-  margin-left: 5rem;
+  margin-left: 1rem;
+}
+@media screen and (min-width: 950px) {
+  .header-main .logo {
+    margin-right: auto;
+    margin-left: 5rem;
+  }
 }
 .header-main #searchbar {
-  width: 30%;
-  height: 55px;
-  border-radius: 100vw;
-  margin: 0 auto;
-  cursor: pointer;
-  background: #f8f8f8;
-  box-shadow: 0 0 5px hsl(0, 0%, 78%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
 }
-.header-main #searchbar form {
-  display: flex;
-  align-items: center;
-  margin: 2rem 2rem;
-}
-.header-main #searchbar .location,
-.header-main #searchbar .check-in,
-.header-main #searchbar .guests {
-  margin-right: 1rem;
-  width: 25%;
-}
-.header-main #searchbar input[type=text] {
-  background: none;
-  border: none;
-  width: 100%;
-}
-.header-main #searchbar input[type=text]:hover {
-  transition: background 250ms ease;
-  background: hsl(0, 0%, 94%);
-}
-.header-main #searchbar button {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  margin-left: 5rem;
-  background-color: #0b4a6f;
+@media screen and (min-width: 650px) {
+  .header-main #searchbar {
+    width: 30%;
+    height: 55px;
+    border-radius: 100vw;
+    margin: 0 auto;
+    cursor: pointer;
+    background: #f8f8f8;
+    box-shadow: 0 0 5px hsl(0, 0%, 78%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-main #searchbar form {
+    display: flex;
+    align-items: center;
+    margin: 2rem 2rem;
+  }
+  .header-main #searchbar .location,
+  .header-main #searchbar .check-in,
+  .header-main #searchbar .guests {
+    margin-right: 1rem;
+    width: 25%;
+  }
+  .header-main #searchbar input[type=text] {
+    background: none;
+    border: none;
+    width: 100%;
+  }
+  .header-main #searchbar input[type=text]:hover {
+    transition: background 250ms ease;
+    background: hsl(0, 0%, 94%);
+  }
+  .header-main #searchbar button {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 5rem;
+    background-color: #0b4a6f;
+  }
 }
 .header-main .user {
-  margin-left: auto;
-  margin-right: 5rem;
+  margin-left: 5rem;
+  margin-right: auto;
 }
 .header-main #sub-nav {
   display: flex;
@@ -303,27 +332,30 @@ footer {
 }
 
 section#new-destinations-section {
-  margin-bottom: 1100px;
-}
-section#new-destinations-section h2 {
-  font-weight: 600;
-  font-size: 30px;
-  line-height: 52px;
-  text-align: right;
-  letter-spacing: 0.2px;
+  margin-bottom: 40px;
 }
 section#new-destinations-section p#description-new-destinations {
   font-size: 15px;
-  line-height: 36px;
+  line-height: 25px;
   text-align: right;
   color: #1b1d21;
+  margin-bottom: 20px;
 }
 section#new-destinations-section div#container-card-new-destinations {
-  width: 240px;
-  height: 256px;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
 }
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations {
+  width: 240px;
+  height: 256px;
+  padding: 20px;
   position: relative;
+  background: #eaeef3;
+  border-radius: 10px;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figcaption {
+  text-align: center;
 }
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figcaption img {
   width: 200px;
@@ -332,11 +364,83 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
 }
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations div.description-card-new-destinations {
   position: absolute;
-  bottom: 10px;
-  right: 45px;
+  bottom: 5px;
+  right: 20px;
+  max-width: 200px;
   border-radius: 10px;
   padding: 10px;
   background-color: #ffffff;
+}
+
+section#best-tags-section {
+  margin-bottom: 40px;
+}
+section#best-tags-section div#container-card-best-tags {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+section#best-tags-section div#container-card-best-tags div#card-best-tags {
+  width: 240px;
+  height: 256px;
+  padding: 20px;
+  position: relative;
+  background: #eaeef3;
+  border-radius: 10px;
+  margin-bottom: 80px;
+}
+section#best-tags-section div#container-card-best-tags div#card-best-tags figcaption {
+  text-align: center;
+}
+section#best-tags-section div#container-card-best-tags div#card-best-tags figcaption img {
+  width: auto;
+  height: 200px;
+  border-radius: 10px;
+}
+
+section#features-section div#container-card-features figcaption {
+  margin-bottom: 25px;
+}
+section#features-section div#container-card-features figcaption img {
+  width: 100%;
+  height: 100px;
+}
+section#features-section div#container-card-features div#container-description-features {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+section#features-section div#container-card-features div#container-description-features div.item-featrues-commun {
+  margin-bottom: 20px;
+}
+section#features-section div#container-card-features div#container-description-features div.item-featrues-commun p {
+  font-size: 14px;
+  line-height: 24px;
+  color: #475467;
+}
+
+section#join-us-section {
+  margin-bottom: 40px;
+}
+section#join-us-section div#container-card-join-us figcaption {
+  position: relative;
+  margin-bottom: 25px;
+}
+section#join-us-section div#container-card-join-us figcaption img {
+  width: 100%;
+  height: 100px;
+}
+section#join-us-section div#container-card-join-us figcaption a#btn-list-property {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  padding: 5px 25px;
+  color: #53389e;
+  background-color: #f4ebff;
+  border-radius: 10px;
 }
 
 section#property-section figcaption img {

@@ -12,6 +12,7 @@ return array(
     'CancellationPolicy' => $baseDir . '/class/CancellationPolicy.php',
     'CancellationPolicyModel' => $baseDir . '/model/CancellationPolicyModel.php',
     'Comment' => $baseDir . '/class/Comment.php',
+    'CommentModel' => $baseDir . '/model/CommentModel.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Controller' => $baseDir . '/controller/Controller.php',
     'Conversation' => $baseDir . '/class/Conversation.php',
