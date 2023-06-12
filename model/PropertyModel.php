@@ -17,7 +17,7 @@ class PropertyModel extends Model
 
     public function getOneProperty(int $id)
     {
-        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description`, `propertyType` FROM `property` WHERE `propertyId` = :id');
+        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description`, `propertyType`, `latitude`, `longitude`  FROM `property` WHERE `propertyId` = :id');
         $req->bindParam('id', $id, PDO::PARAM_INT);
         $req->execute();
     

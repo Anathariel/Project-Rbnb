@@ -486,10 +486,20 @@ section#best-tags-section {
         text-align: center;
 
         img {
-          width: auto;
+          width: 100%;
           height: 200px;
           border-radius: 10px;
         }
+      }
+
+      div.description-card {
+        position: absolute;
+        bottom: 5px;
+        right: 20px;
+        max-width: 200px;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: $white-default;
       }
     }
   }
@@ -566,6 +576,18 @@ section#property-section {
     }
   }
 }
+
+
+//? --------- Gogglemap-property Section --------- //
+section#googlemaps-property-section {
+  div#map {
+    width: 70%;
+    height: 400px;
+    margin: 0 auto;
+  }
+
+}
+
 
 //~ -------------------- DASHBOARD -------------------- //
 .dashboard {
