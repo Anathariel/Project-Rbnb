@@ -491,16 +491,11 @@ section#property-section figcaption img {
   height: auto;
 }
 
-
 section#googlemaps-property-section div#map {
   width: 70%;
   height: 400px;
   margin: 0 auto;
 }
-
-.dash-menu {
-  height: 100px;
-  background-color: #059669;
 
 .dashboard {
   background-color: #E1E7EA;
@@ -514,7 +509,6 @@ section#googlemaps-property-section div#map {
   padding-top: 1rem;
 }
 .dashboard .welcome-dashboard .user-menu {
-
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
