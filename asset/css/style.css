@@ -1,14 +1,13 @@
 *,
-::after,
-::before {
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 .limit-size {
-  max-width: 1900px;
   width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -16,6 +15,7 @@ body {
   box-sizing: border-box;
   scroll-behavior: smooth;
   background-color: #f8f8f8;
+  line-height: 1.5;
 }
 
 p,
@@ -23,7 +23,7 @@ a,
 label {
   font-family: "Quicksand";
   text-decoration: none;
-  font-size: 14px;
+  font-size: 0.8rem;
 }
 
 ul {
@@ -77,7 +77,7 @@ h3 {
 }
 
 .header-main {
-  height: 100px;
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -139,7 +139,7 @@ h3 {
   .header-main #searchbar button {
     height: 40px;
     width: 40px;
-    border-radius: 50%;
+    border-radius: 10px;
     margin-left: 5rem;
     background-color: #0b4a6f;
   }
@@ -219,62 +219,72 @@ h3 {
 }
 
 .dashboard-header {
-  height: 100px;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background-color: #f8f8f8;
+  width: 100%;
   border-bottom: solid 1px #0b4a6f;
-  display: flex;
-  justify-content: center;
-}
-.dashboard-header ul {
   display: flex;
   align-items: center;
 }
+.dashboard-header .logo-header {
+  margin: 1rem;
+  margin-left: 5rem;
+}
 .dashboard-header .search-dashboard {
   display: flex;
-  justify-content: center;
+  width: 30%;
   border: solid 0.1rem #0b4a6f;
-  padding: 1rem 2rem;
-  margin: 5rem;
   border-radius: 5rem;
+  margin: 0 2rem;
 }
 .dashboard-header .search-dashboard img {
-  margin: 0 1rem 0 0;
+  margin: 1rem;
 }
 .dashboard-header .search-dashboard input[type=text] {
   background: none;
   border: none;
   border-radius: 5rem;
+  margin-right: auto;
+  padding: 1rem;
 }
 .dashboard-header .search-dashboard input[type=text]:hover {
   transition: background 250ms ease;
   background: hsl(0, 0%, 94%);
 }
-.dashboard-header .app {
-  max-height: 50px;
+.dashboard-header .search-dashboard input[type=text]:focus {
+  outline: transparent;
+}
+.dashboard-header .search-dashboard:hover {
+  transition: background 250ms ease;
+  background: hsl(0, 0%, 94%);
+}
+.dashboard-header .right-menu {
   display: flex;
   flex-direction: row;
-  border-right: solid 0.1rem #1b1d21;
+  justify-content: space-evenly;
+  margin-right: auto;
 }
-.dashboard-header .app img {
+.dashboard-header .right-menu .app {
+  max-height: 50px;
+  border-right: solid 0.1rem #1b1d21;
+  margin-right: auto;
+}
+.dashboard-header .right-menu .app img {
   padding: 1rem;
 }
-.dashboard-header .user-menu {
+.dashboard-header .right-menu .user-menu {
   display: flex;
+  margin-right: auto;
 }
-.dashboard-header .user-menu img:first-child {
+.dashboard-header .right-menu .user-menu img:first-child {
   height: 50px;
   width: 50px;
   border-radius: 5rem;
   margin-right: 5px;
 }
-.dashboard-header .user-menu .user-data {
+.dashboard-header .right-menu .user-menu .user-data {
   display: flex;
   flex-direction: column;
 }
-.dashboard-header .user-menu img:last-child {
+.dashboard-header .right-menu .user-menu img:last-child {
   margin-left: 2rem;
 }
 
@@ -306,14 +316,14 @@ h3 {
   border: none;
   padding: 15px;
   background-color: #efefef;
-  border-radius: 5px;
+  border-radius: 0.5rem;
 }
 #registration button {
   border: none;
   padding: 20px;
   margin-top: 5px;
   background-color: #059669;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   color: #fff;
   cursor: pointer;
 }
@@ -326,8 +336,7 @@ h3 {
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
+  margin-top: auto;
   background-color: #8accec;
 }
 
@@ -457,6 +466,7 @@ section#property-section figcaption img {
   height: auto;
 }
 
+
 section#googlemaps-property-section div#map {
   width: 70%;
   height: 400px;
@@ -466,13 +476,146 @@ section#googlemaps-property-section div#map {
 .dash-menu {
   height: 100px;
   background-color: #059669;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+
+.dashboard {
+  background-color: #E1E7EA;
 }
-.dash-menu .add a {
+.dashboard .welcome-dashboard {
+  text-align: left;
+}
+.dashboard .welcome-dashboard h1 {
+  color: #111;
+  margin: 0 5rem;
+  padding-top: 1rem;
+}
+.dashboard .welcome-dashboard .user-menu {
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 5rem;
+  margin-bottom: 0;
+}
+.dashboard .welcome-dashboard .user-menu .add a {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background: rgba(61, 122, 245, 0.0705882353);
+  border-radius: 5rem;
+  padding: 0.5rem;
+  padding-right: 2rem;
+}
+.dashboard .welcome-dashboard .user-menu .add a img {
+  padding: 0.5rem;
+  margin: 0 0.5rem 0 0;
+  background-color: #f3f3f3;
+  border-radius: 5rem;
+}
+.dashboard .welcome-dashboard .user-menu .add.first-link a {
+  background-color: #0E9384;
+  color: #f8f8f8;
+}
+.dashboard .welcome-dashboard .user-menu .add.filter {
+  margin-left: auto;
+  align-self: flex-end;
+}
+.dashboard .dashboard-cards {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.dashboard .dashboard-cards .card {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  max-width: 280px;
+  margin: 2rem;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+}
+.dashboard .dashboard-cards .card figure {
+  position: relative;
+  padding: 1rem 0;
+}
+.dashboard .dashboard-cards .card figure img {
+  width: 261px;
+  height: auto;
+  border-radius: 0.5rem;
+}
+.dashboard .dashboard-cards .card figure figcaption {
+  position: absolute;
+  top: 1.5rem;
+  left: 7.5rem;
+}
+.dashboard .dashboard-cards .card figure figcaption img {
+  height: 30px;
+}
+.dashboard .dashboard-cards .card .card-details {
+  padding: 0 1rem;
+}
+.dashboard .dashboard-cards .card .card-details .pricing {
+  display: flex;
+  flex-direction: row;
+  margin-right: auto;
+}
+.dashboard .dashboard-cards .card .card-details .pricing span {
+  font-size: 2rem;
+}
+.dashboard .dashboard-cards .card .card-details .pricing .rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+}
+.dashboard .dashboard-cards .card .card-details .location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 0;
+}
+.dashboard .dashboard-cards .card .card-details .location img {
+  margin: 0.2rem;
+}
+.dashboard .dashboard-cards .card .card-details .description {
+  text-align: left;
+}
+.dashboard .dashboard-cards .card .card-details .description h3 {
+  text-align: left;
+}
+.dashboard .dashboard-cards .card .card-details button {
+  width: 100%;
+  position: relative;
+  margin: 1rem 0;
+  border: solid 1px #0E9384;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+.dashboard .dashboard-cards .card .card-details button span {
+  display: block;
+  width: 100%;
+  padding: 1rem 0;
+  color: #0E9384;
+  position: relative;
+  z-index: 1;
+}
+.dashboard .dashboard-cards .card .card-details button span:hover {
+  color: #f8f8f8;
+}
+.dashboard .dashboard-cards .card .card-details button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0E9384;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+.dashboard .dashboard-cards .card .card-details button:hover:before {
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */
