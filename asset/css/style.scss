@@ -363,12 +363,11 @@ h3 {
     }
 
     .logo-header {
-      margin-left: 1rem;
+      margin-left: .2rem;
     }
 
     .search-dashboard {
       width: 100%;
-      margin: 0 1rem;
     }
   }
 
@@ -617,7 +616,6 @@ section#googlemaps-property-section {
     height: 400px;
     margin: 0 auto;
   }
-
 }
 
 
@@ -800,8 +798,8 @@ section#googlemaps-property-section {
     }
 
     @media screen and (max-width: 800px) {
-      .dashboard-cards{
-        .card{
+      .dashboard-cards {
+        .card {
           margin: 0;
         }
       }
