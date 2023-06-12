@@ -1,0 +1,12 @@
+<section id="googlemaps-property-section">
+  <!--The div element for the map -->
+  <div
+    id="map"
+    data-latitude="{{ property.latitude }}"
+    data-longitude="{{ property.longitude }}"
+  ></div>
+</section>
+
+{% block javascript %}
+<script src="{{ asset('/js/map.js') }}"></script>
+{% endblock %}

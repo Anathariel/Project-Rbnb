@@ -134,12 +134,12 @@ class Property
         $this->address = $address;
     }
 
-    public function setLatitude(String $latitude)
+    public function setLatitude($latitude)
     {
         $this->latitude = $latitude;
     }
 
-    public function setLongitude(String $longitude)
+    public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
     }
@@ -149,7 +149,7 @@ class Property
         $this->availability = $availability;
     }
 
-    public function setPublicationdate(String $publicationdate)
+    public function setPublicationdate($publicationdate)
     {
         $this->publicationdate = $publicationdate;
     }

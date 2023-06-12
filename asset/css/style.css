@@ -457,6 +457,12 @@ section#property-section figcaption img {
   height: auto;
 }
 
+section#googlemaps-property-section div#map {
+  width: 70%;
+  height: 400px;
+  margin: 0 auto;
+}
+
 .dash-menu {
   height: 100px;
   background-color: #059669;
