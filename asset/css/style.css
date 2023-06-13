@@ -300,9 +300,6 @@ h3 {
   padding: 0.5rem;
   width: 18px;
 }
-.dashboard-header .right-menu .user-menu .submenu-dashboard ul li .submenu-text {
-  margin-top: 0.5rem;
-}
 .dashboard-header .right-menu .user-menu .submenu-dashboard ul li > a {
   display: flex;
   justify-content: center;
@@ -315,12 +312,6 @@ h3 {
 .dashboard-header .right-menu .user-menu .submenu-dashboard ul li > a:hover {
   background-color: rgba(14, 147, 131, 0.262745098);
   color: #f8f8f8;
-}
-.dashboard-header .right-menu .user-menu .submenu-dashboard.show {
-  display: block;
-}
-.dashboard-header .right-menu .user-menu .submenu.show {
-  display: block;
 }
 @media screen and (max-width: 500px) {
   .dashboard-header .right-menu {

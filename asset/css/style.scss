@@ -360,12 +360,8 @@ h3 {
             }
       
             .submenu-icon {
-              padding: 0.5rem;
+              padding: .5rem;
               width: 18px;
-            }
-      
-            .submenu-text {
-              margin-top: 0.5rem;
             }
       
             & > a {
@@ -384,14 +380,6 @@ h3 {
             }
           }
         }
-      
-        &.show {
-          display: block;
-        }
-      }
-
-      .submenu.show {
-        display: block;
       }
     }
   }
