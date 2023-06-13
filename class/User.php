@@ -9,7 +9,6 @@ class User
     private $email;
     private $password;
     private $phoneNumber;
-    private $role;
 
     public function __construct(array $post){
         $this->hydrate($post);
@@ -61,11 +60,6 @@ class User
         return $this->phoneNumber;
     }
 
-    public function getRole()
-    {
-        return $this->role;
-    }
-
     //SETTERS
     public function setUid(int $uid)
     {
@@ -102,8 +96,4 @@ class User
         $this->phoneNumber = $phoneNumber;
     }
 
-    public function setRole(String $role)
-    {
-        $this->role = $role;
-    }
 }

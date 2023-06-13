@@ -75,10 +75,11 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
         'PropertyType' => __DIR__ . '/../..' . '/class/propertyType.php',
         'PropertyTypeModel' => __DIR__ . '/../..' . '/model/PropertyTypeModel.php',
         'Reservation' => __DIR__ . '/../..' . '/class/Reservation.php',
+        'Role' => __DIR__ . '/../..' . '/class/role.php',
         'Tag' => __DIR__ . '/../..' . '/class/Tag.php',
         'TagController' => __DIR__ . '/../..' . '/controller/TagController.php',
         'TagModel' => __DIR__ . '/../..' . '/model/TagModel.php',
-        'User' => __DIR__ . '/../..' . '/class/role.php',
+        'User' => __DIR__ . '/../..' . '/class/User.php',
         'UserController' => __DIR__ . '/../..' . '/controller/UserController.php',
         'UserModel' => __DIR__ . '/../..' . '/model/UserModel.php',
     );
