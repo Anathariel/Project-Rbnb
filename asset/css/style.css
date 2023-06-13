@@ -225,19 +225,11 @@ h3 {
   align-items: center;
   justify-content: space-evenly;
 }
-.dashboard-header .logo-header {
-  margin: 1rem;
-  margin-left: 5rem;
-}
 .dashboard-header .search-dashboard {
   display: flex;
   width: 30%;
   border: solid 0.1rem #0b4a6f;
   border-radius: 5rem;
-  margin: 0 2rem;
-}
-.dashboard-header .search-dashboard img {
-  margin: 1rem;
 }
 .dashboard-header .search-dashboard input[type=text] {
   background: none;
@@ -278,7 +270,6 @@ h3 {
   height: 50px;
   width: 50px;
   border-radius: 5rem;
-  margin-right: 5px;
 }
 .dashboard-header .right-menu .user-menu .user-data {
   display: flex;
@@ -294,11 +285,8 @@ h3 {
   .dashboard-header .right-menu {
     display: none;
   }
-  .dashboard-header .logo-header {
-    margin-left: 0.2rem;
-  }
   .dashboard-header .search-dashboard {
-    width: 100%;
+    width: 90%;
   }
 }
 @media screen and (max-width: 850px) {
@@ -538,6 +526,10 @@ section#googlemaps-property-section div#map {
   margin-left: auto;
   align-self: flex-end;
 }
+.dashboard .welcome-dashboard .user-menu .add a:hover {
+  background: rgba(14, 147, 131, 0.5803921569);
+  transition: all 0.5s ease-out;
+}
 @media screen and (max-width: 800px) {
   .dashboard .welcome-dashboard .user-menu .add.filter {
     margin-left: 0;
@@ -556,7 +548,7 @@ section#googlemaps-property-section div#map {
   height: auto;
   width: 100%;
   max-width: 280px;
-  margin: 2rem;
+  margin: 2rem auto;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
 }
@@ -570,12 +562,13 @@ section#googlemaps-property-section div#map {
   border-radius: 0.5rem;
 }
 .dashboard .dashboard-cards .card figure figcaption {
+  width: 30px;
   position: absolute;
-  top: 1.5rem;
-  left: 7.5rem;
+  top: 2rem;
+  left: 14.5rem;
 }
-.dashboard .dashboard-cards .card figure figcaption img {
-  height: 30px;
+.dashboard .dashboard-cards .card figure figcaption a > img {
+  width: 30px;
 }
 .dashboard .dashboard-cards .card .card-details {
   padding: 0 1rem;
@@ -647,5 +640,6 @@ section#googlemaps-property-section div#map {
 @media screen and (max-width: 800px) {
   .dashboard .dashboard-cards .dashboard-cards .card {
     margin: 0;
+    max-width: 180px;
   }
 }/*# sourceMappingURL=style.css.map */

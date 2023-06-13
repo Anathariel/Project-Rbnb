@@ -276,21 +276,11 @@ h3 {
   align-items: center;
   justify-content: space-evenly;
 
-  .logo-header {
-    margin: 1rem;
-    margin-left: 5rem;
-  }
-
   .search-dashboard {
     display: flex;
     width: 30%;
     border: solid .1rem $darkblue;
     border-radius: 5rem;
-    margin: 0 2rem;
-
-    img {
-      margin: 1rem;
-    }
 
     input[type="text"] {
       background: none;
@@ -338,7 +328,6 @@ h3 {
         height: 50px;
         width: 50px;
         border-radius: 5rem;
-        margin-right: 5px;
       }
 
       .user-data {
@@ -362,12 +351,8 @@ h3 {
       display: none;
     }
 
-    .logo-header {
-      margin-left: .2rem;
-    }
-
     .search-dashboard {
-      width: 100%;
+      width: 90%;
     }
   }
 
@@ -666,6 +651,11 @@ section#googlemaps-property-section {
         margin-left: auto;
         align-self: flex-end;
       }
+
+      .add a:hover {
+        background: #0e938394;
+        transition: all .5s ease-out;
+      }
     }
 
     @media screen and (max-width: 800px) {
@@ -691,7 +681,7 @@ section#googlemaps-property-section {
       height: auto;
       width: 100%;
       max-width: 280px;
-      margin: 2rem;
+      margin: 2rem auto;
       background-color: $white;
       border-radius: .5rem;
 
@@ -706,12 +696,13 @@ section#googlemaps-property-section {
         }
 
         figcaption {
+          width: 30px;
           position: absolute;
-          top: 1.5rem;
-          left: 7.5rem;
+          top: 2rem;
+          left: 14.5rem;
 
-          img {
-            height: 30px;
+         a > img {
+            width: 30px;
           }
         }
       }
@@ -801,6 +792,7 @@ section#googlemaps-property-section {
       .dashboard-cards {
         .card {
           margin: 0;
+          max-width: 180px;
         }
       }
     }
