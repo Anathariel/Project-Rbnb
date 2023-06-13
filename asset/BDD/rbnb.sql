@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 12 juin 2023 à 14:31
+-- Généré le : mar. 13 juin 2023 à 13:55
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -285,7 +285,6 @@ CREATE TABLE IF NOT EXISTS `property` (
   `propertyId` int NOT NULL AUTO_INCREMENT,
   `title` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `description` text COLLATE utf8mb4_general_ci NOT NULL,
-  `propertyType` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `priceNight` decimal(10,2) NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `latitude` decimal(12,9) NOT NULL,
@@ -296,14 +295,15 @@ CREATE TABLE IF NOT EXISTS `property` (
   `owner` int NOT NULL,
   PRIMARY KEY (`propertyId`),
   KEY `USER` (`owner`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `property`
 --
 
-INSERT INTO `property` (`propertyId`, `title`, `description`, `propertyType`, `priceNight`, `address`, `latitude`, `longitude`, `availability`, `publicationdate`, `reservationOption`, `owner`) VALUES
-(9, 'Belle maison avec vue sur la mer', 'Une superbe maison spacieuse avec une vue imprenable sur la mer', 'Maison', '200.00', '123 Rue de la Plage', '46.190558700', '5.207445700', 0, '2023-06-09 14:00:26', '', 9);
+INSERT INTO `property` (`propertyId`, `title`, `description`, `priceNight`, `address`, `latitude`, `longitude`, `availability`, `publicationdate`, `reservationOption`, `owner`) VALUES
+(9, 'Belle maison avec vue sur la mer', 'Une superbe maison spacieuse avec une vue imprenable sur la mer', '200.00', '123 Rue de la Plage', '46.190558700', '5.207445700', 0, '2023-06-09 14:00:26', '', 9),
+(10, 'test insert', 'blablablabla', '22.00', '', '0.000000000', '0.000000000', 0, '2023-06-13 15:45:11', '', 8);
 
 -- --------------------------------------------------------
 
@@ -380,6 +380,31 @@ INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `propertytype`
+--
+
+DROP TABLE IF EXISTS `propertytype`;
+CREATE TABLE IF NOT EXISTS `propertytype` (
+  `PropertyTypeId` int NOT NULL AUTO_INCREMENT,
+  `propertyId` int NOT NULL,
+  `house` tinyint(1) NOT NULL,
+  `flat` tinyint(1) NOT NULL,
+  `guesthouse` tinyint(1) NOT NULL,
+  `hotel` tinyint(1) NOT NULL,
+  PRIMARY KEY (`PropertyTypeId`),
+  KEY `PROPERTY` (`propertyId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `propertytype`
+--
+
+INSERT INTO `propertytype` (`PropertyTypeId`, `propertyId`, `house`, `flat`, `guesthouse`, `hotel`) VALUES
+(1, 9, 1, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `reservation`
 --
 
@@ -395,6 +420,22 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`reservationId`),
   KEY `PROPERTY` (`propertyId`),
+  KEY `USER` (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `role`
+--
+
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
+  `roleId` int NOT NULL,
+  `uid` int NOT NULL,
+  `user` tinyint(1) NOT NULL,
+  `owner` tinyint(1) NOT NULL,
+  `administrator` tinyint(1) NOT NULL,
   KEY `USER` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -485,7 +526,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `phoneNumber` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `role` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -493,10 +533,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`uid`, `firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`, `role`) VALUES
-(8, 'Frédéric', 'Favreau', '0000-00-00', 'fred@gmail.com', '$2y$10$GaZ/gznrAdDs9Ax9NUc7Q.782X9AzSevwHe5D78txYhFnxhFKu9b.', '', ''),
-(9, 'demo', 'demo', '0000-00-00', 'demo@rbnb.com', '$2y$10$YpOsI8takAJZtp.B5phhZO./N0aL9FFsT4T3N6ltIl/UvGNmCHl8K', '', ''),
-(10, 'toto', 'robert', '0000-00-00', 'toto@gmail.com', '$2y$10$E8SiOsulhDiZuQXCRgm1xe8a1i2O0cRa5/K79aHTooVtSa9YXbwti', '', '');
+INSERT INTO `user` (`uid`, `firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`) VALUES
+(8, 'Frédéric', 'Favreau', '0000-00-00', 'fred@gmail.com', '$2y$10$GaZ/gznrAdDs9Ax9NUc7Q.782X9AzSevwHe5D78txYhFnxhFKu9b.', ''),
+(9, 'demo', 'demo', '0000-00-00', 'demo@rbnb.com', '$2y$10$YpOsI8takAJZtp.B5phhZO./N0aL9FFsT4T3N6ltIl/UvGNmCHl8K', ''),
+(10, 'toto', 'robert', '0000-00-00', 'toto@gmail.com', '$2y$10$E8SiOsulhDiZuQXCRgm1xe8a1i2O0cRa5/K79aHTooVtSa9YXbwti', '');
 
 --
 -- Contraintes pour les tables déchargées
@@ -507,6 +547,12 @@ INSERT INTO `user` (`uid`, `firstName`, `lastName`, `birthDate`, `email`, `passw
 --
 ALTER TABLE `accommodationtype`
   ADD CONSTRAINT `accommodationtype_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `cancellationpolicy`
+--
+ALTER TABLE `cancellationpolicy`
+  ADD CONSTRAINT `cancellationpolicy_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `comment`
@@ -587,11 +633,23 @@ ALTER TABLE `propertytag`
   ADD CONSTRAINT `propertytag_ibfk_2` FOREIGN KEY (`tagId`) REFERENCES `tag` (`tagId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Contraintes pour la table `propertytype`
+--
+ALTER TABLE `propertytype`
+  ADD CONSTRAINT `propertytype_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Contraintes pour la table `reservation`
 --
 ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `role`
+--
+ALTER TABLE `role`
+  ADD CONSTRAINT `role_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

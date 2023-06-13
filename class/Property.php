@@ -5,7 +5,6 @@ class Property
     private $propertyId;
     private $title;
     private $description;
-    private $propertyType;
     private $priceNight;
     private $accommodationTypeId;
     private $address;
@@ -46,11 +45,6 @@ class Property
     public function getDescription()
     {
         return $this->description;
-    }
-
-    public function getPropertyType()
-    {
-        return $this->propertyType;
     }
 
     public function getPriceNight()
@@ -112,11 +106,6 @@ class Property
     public function setDescription(string $description)
     {
         $this->description = $description;
-    }
-
-    public function setPropertyType(string $propertyType)
-    {
-        $this->propertyType = $propertyType;
     }
 
     public function setPriceNight(string $priceNight)

@@ -29,6 +29,9 @@ $router->map('GET','/logout', 'UserController#logout', 'logout');
 // Dashboard Utilisateur
 $router->map('GET','/account','UserController#dashboard','dashboard');
 
+// CRUD Property
+$router->map('GET|POST', '/addproperty', 'PropertyController#createProperty', 'propertyAdd');
+
 
 
 // MATCH :
