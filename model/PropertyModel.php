@@ -20,27 +20,26 @@ class PropertyModel extends Model
         $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description`, `latitude`, `longitude`  FROM `property` WHERE `propertyId` = :id');
         $req->bindParam('id', $id, PDO::PARAM_INT);
         $req->execute();
-    
+
         $propertyData = $req->fetch(PDO::FETCH_ASSOC);
-    
+
         $property = new Property($propertyData);
-    
+
         return $property;
     }
-    
+
     public function getPropertyId($property)
     {
         return $property->getPropertyId();
     }
 
-    public function addProperty (Property $property){
+    public function addProperty(Property $property)
+    {
         $owner = $property->getOwner();
         $title = $property->getTitle();
         $description = $property->getDescription();
         $priceNight = $property->getPriceNight();
 
-
-        // $propertyType = $property->getPropertyType();
 
         $req = $this->getDb()->prepare('INSERT INTO `property`(`owner`, `title`, `description`, `priceNight`) VALUES (:owner, :title, :description, :priceNight)');
 
@@ -51,6 +50,4 @@ class PropertyModel extends Model
 
         $req->execute();
     }
-
 }
-

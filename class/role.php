@@ -1,6 +1,6 @@
 <?php
 
-class User
+class Role
 {
     private $roleId;
     private $uid;

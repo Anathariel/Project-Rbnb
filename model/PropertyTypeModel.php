@@ -18,4 +18,24 @@ class PropertyTypeModel extends Model
 
         return $propertyType;
     }
+
+    public function addPropertyType(PropertyType $propertyType)
+    {
+        $propertyId = $propertyType->getPropertyId();
+        $house = $propertyType->getHouse();
+        $flat = $propertyType->getFlat();
+        $guesthouse = $propertyType->getGuesthouse();
+        $hotel = $propertyType->getHotel();
+
+
+        $req = $this->getDb()->prepare('INSERT INTO `propertyType`(`propertyId`, `house`, `flat`, `guesthouse`, `hotel`) VALUES (:propertyId, :house, :flat, :guesthouse, :hotel)');
+
+        $req->bindParam('propertyId', $propertyId, PDO::PARAM_INT);
+        $req->bindParam('house', $house, PDO::PARAM_STR);
+        $req->bindParam('flat', $flat, PDO::PARAM_STR);
+        $req->bindParam('guesthouse', $guesthouse, PDO::PARAM_STR);
+        $req->bindParam('hotel', $hotel, PDO::PARAM_STR);
+
+        $req->execute();
+    }
 }
