@@ -313,6 +313,9 @@ h3 {
   background-color: rgba(14, 147, 131, 0.262745098);
   color: #f8f8f8;
 }
+.dashboard-header .right-menu .user-menu .submenu-dashboard.show {
+  display: block;
+}
 @media screen and (max-width: 500px) {
   .dashboard-header .right-menu {
     display: none;
