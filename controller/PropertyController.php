@@ -39,7 +39,10 @@ class PropertyController extends Controller
                     $title = $_POST['title'];
                     $description = $_POST['description'];
                     $priceNight = $_POST['price-night'];
-                    // $propertyType = $_POST['property-type'];
+                    $house = $_POST['house'];
+                    $flat = $_POST['flat'];
+                    $guesthouse = $_POST['guesthouse'];
+                    $hotel = $_POST['hotel'];
 
 
                     $owner = $_SESSION['uid'];
@@ -51,17 +54,20 @@ class PropertyController extends Controller
                         'owner' => $owner,
                     ]);
 
-                    // $propertyType = new PropertyType([
-                    //     'propertyId ' => $owner,
-                    //     'house' => $house,
-                    //     'flat' => $flat,
-                    //     'guesthouse' => $guesthouse,
-                    //     'hotel' => $hotel,
-                    // ]);
+                    $propertyType = new PropertyType([
+                        'propertyId ' => $owner,
+                        'house' => $house,
+                        'flat' => $flat,
+                        'guesthouse' => $guesthouse,
+                        'hotel' => $hotel,
+                    ]);
     
-                    $model = new PropertyModel();
-                    $model->addProperty($property);
-                    header('Location: ' . $router->generate('dashboard'));
+                    $propertyModel = new PropertyModel();
+                    $propertyTypeModel = new PropertyTypeModel();
+
+                    $propertyModel->addProperty($property);
+                    $propertyModel->addProperty($property);
+                    header('Location: ' . $router->generate('home'));
                 } else {
                     $message = 'Oops, something went wrong sorry. Try again later';
                     echo self::getrender('addproperty.html.twig', ['message' => $message]);

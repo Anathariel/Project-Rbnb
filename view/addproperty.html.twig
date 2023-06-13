@@ -26,15 +26,14 @@
             <input type="text" id="address" name="address" placeholder="Entrer l'adresse de la propriété">
             <br> #}
 
-            {# <label for="property-type">Choisissez le type de propriété</label>
+            <label for="property-type">Choisissez le type de propriété</label>
             <br>
             <select id="property-type" name="property-type">
-                <option value="house">Maison</option>
-                <option value="flat">Appartement</option>
-                <option value="guesthouse">Maison d'hôte</option>
-                <option value="hotel">Hôtel</option>
+              {% for propertyType in propertyTypes %}
+              <option value="{{ propertyType }}">{{ propertyType }}</option>
+          {% endfor %}
             </select>
-            <br> #}
+            <br>
 
             <label for="price-night">Déterminez le prix d'une nuit</label>
             <br>
@@ -46,7 +45,7 @@
     </fieldset>
 </div>
 
-<script>
+{# <script>
   document.addEventListener("DOMContentLoaded", function () {
     const addressInput = document.getElementById("address");
 
@@ -70,5 +69,5 @@
       console.log("Coordonnées enregistrées :", latitude, longitude);
     });
   });
-</script>
+</script> #}
 {% endblock %}

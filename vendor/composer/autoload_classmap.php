@@ -37,10 +37,11 @@ return array(
     'PropertyType' => $baseDir . '/class/propertyType.php',
     'PropertyTypeModel' => $baseDir . '/model/PropertyTypeModel.php',
     'Reservation' => $baseDir . '/class/Reservation.php',
+    'Role' => $baseDir . '/class/role.php',
     'Tag' => $baseDir . '/class/Tag.php',
     'TagController' => $baseDir . '/controller/TagController.php',
     'TagModel' => $baseDir . '/model/TagModel.php',
-    'User' => $baseDir . '/class/role.php',
+    'User' => $baseDir . '/class/User.php',
     'UserController' => $baseDir . '/controller/UserController.php',
     'UserModel' => $baseDir . '/model/UserModel.php',
 );
