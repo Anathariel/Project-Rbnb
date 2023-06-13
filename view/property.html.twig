@@ -1,6 +1,6 @@
 {% extends "template.html.twig" %} 
 
-{% block title %}{{ property.title }} {% endblock %} 
+{% block title %}{{ property.title }}{% endblock %} 
 
 {% block content %} 
 
@@ -39,8 +39,21 @@
     {# ---------- Property ---------- #}
     <p>Informations importantes :</p>
     <br />
+
     <p>{{ property.description }}</p>
-    <p>Type de location : {{ property.propertyType }}</p>
+    <br>
+
+    <p>Type de location : {% if propertyType.house == 1 %}
+      <p>Maison</p>
+      {% endif %} {% if propertyType.guesthouse == 1 %}
+      <p>Maison d'hôte</p>
+      {% endif %} {% if propertyType.flat == 1 %}
+      <p>Appartement</p>
+      {% endif %} {% if propertyType.hotel == 1 %}
+      <p>Hôtel</p></p>
+      {% endif %}
+      <br>
+
     <p>{{ property.priceNight }} €/nuit</p>
     <br /><br />
 
@@ -49,27 +62,37 @@
     {% include 'googlemaps.html.twig' %}
 
     {# ---------- PropertyAmenities ---------- #}
-    <p>Chambres et lits :</p>
-    <br />
-    <p>
-      {{ propertyAmenities.beds }}
-      {{ propertyAmenities.beds == 1 ? "lit" : "lits" }}
-    </p>
-    <p>
-      {{ propertyAmenities.bedrooms }}
-      {{ propertyAmenities.bedrooms == 1 ? "chambre" : "chambres" }}
-    </p>
-    <p>
-      {{ propertyAmenities.bathrooms }}
-      {{
-        propertyAmenities.bathrooms == 1 ? "salle de bain" : "salles de bain"
-      }}
-    </p>
-    <p>
-      {{ propertyAmenities.toilets }}
-      {{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}
-    </p>
-    <br /><br />
+<p>Chambres et lits :</p>
+<br />
+{% if propertyAmenities.beds > 0 %}
+  <p>
+    {{ propertyAmenities.beds }}
+    {{ propertyAmenities.beds == 1 ? "lit" : "lits" }}
+  </p>
+{% endif %}
+
+{% if propertyAmenities.bedrooms > 0 %}
+  <p>
+    {{ propertyAmenities.bedrooms }}
+    {{ propertyAmenities.bedrooms == 1 ? "chambre" : "chambres" }}
+  </p>
+{% endif %}
+
+{% if propertyAmenities.bathrooms > 0 %}
+  <p>
+    {{ propertyAmenities.bathrooms }}
+    {{ propertyAmenities.bathrooms == 1 ? "salle de bain" : "salles de bain" }}
+  </p>
+{% endif %}
+
+{% if propertyAmenities.toilets > 0 %}
+  <p>
+    {{ propertyAmenities.toilets }}
+    {{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}
+  </p>
+{% endif %}
+
+<br /><br />
 
     {# ---------- HouseRules ---------- #}
     <p>Règlement intérieur :</p>
