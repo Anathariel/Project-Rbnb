@@ -323,11 +323,13 @@ h3 {
 
     .user-menu {
       display: flex;
+      margin: 1rem;
 
-      img:first-child {
+      .profilepic {
         height: 50px;
         width: 50px;
         border-radius: 5rem;
+
       }
 
       .user-data {
@@ -335,18 +337,68 @@ h3 {
         flex-direction: column;
       }
 
-      img:last-child {
-        margin-left: 1rem;
+      .arrow-dropdown {
+        margin: 1rem;
+      }
+
+      .submenu-dashboard {
+        position: absolute;
+        display: none;
+        background-color: $white;
+        border-radius: 5px;
+      
+        ul {
+          list-style-type: none;
+          padding: 0;
+      
+          li {
+            border-bottom: dashed 0.5px #0e938342;
+            text-align: center;
+      
+            &:last-child {
+              border-bottom: none;
+            }
+      
+            .submenu-icon {
+              padding: 0.5rem;
+              width: 18px;
+            }
+      
+            .submenu-text {
+              margin-top: 0.5rem;
+            }
+      
+            & > a {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 0.5rem;
+              color: #111;
+              font-size: 1rem;
+              cursor: pointer;
+            }
+      
+            & > a:hover {
+              background-color: #0e938343;
+              color: $white;
+            }
+          }
+        }
+      
+        &.show {
+          display: block;
+        }
+      }
+
+      .submenu.show {
+        display: block;
       }
     }
   }
 
-  .submenu-dashboard {
-    display: none;
-  }
+
 
   @media screen and (max-width: 500px) {
-
     .right-menu {
       display: none;
     }
@@ -357,7 +409,6 @@ h3 {
   }
 
   @media screen and (max-width: 850px) {
-
     .logo-header {
       margin: 1rem;
     }
@@ -369,6 +420,7 @@ h3 {
     }
   }
 }
+
 
 //? --------- REGISTER --------- //
 #registration {
@@ -701,7 +753,7 @@ section#googlemaps-property-section {
           top: 2rem;
           left: 14.5rem;
 
-         a > img {
+          a>img {
             width: 30px;
           }
         }
