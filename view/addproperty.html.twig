@@ -1,0 +1,74 @@
+{% extends "template.html.twig" %} 
+
+{% block title %}Louer votre location{% endblock %}
+
+{% block content %} 
+<div id="addpropertyForm">
+    <fieldset>
+
+        {% if message %} <p> {{ message }} </p> {% endif %}
+
+        <legend>Ajout d'une propriété</legend>
+
+        <form method="POST" action="{{ path('propertyAdd') }}">
+            <label for="title">Titre de la propriété</label>
+            <br>
+            <input type="text" id="title" name="title" placeholder="Entrer le nom de la propriété">
+            <br>
+
+            <label for="description">Décrivez votre propriété</label>
+            <br>
+            <input type="text" id="description" name="description" placeholder="Entrer la description de la propriété">
+            <br>
+
+            {# <label for="address">Adresse de la propriété</label>
+            <br>
+            <input type="text" id="address" name="address" placeholder="Entrer l'adresse de la propriété">
+            <br> #}
+
+            {# <label for="property-type">Choisissez le type de propriété</label>
+            <br>
+            <select id="property-type" name="property-type">
+                <option value="house">Maison</option>
+                <option value="flat">Appartement</option>
+                <option value="guesthouse">Maison d'hôte</option>
+                <option value="hotel">Hôtel</option>
+            </select>
+            <br> #}
+
+            <label for="price-night">Déterminez le prix d'une nuit</label>
+            <br>
+            <input type="text" id="price-night" name="price-night" placeholder="Déterminez le prix d'une nuit">
+            <br>
+
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </fieldset>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const addressInput = document.getElementById("address");
+
+    // Configuration de l'autocomplétion Google Maps
+    const autocomplete = new google.maps.places.Autocomplete(addressInput);
+
+    // Événement déclenché lorsqu'une adresse est sélectionnée
+    autocomplete.addListener("place_changed", function () {
+      const place = autocomplete.getPlace();
+      if (!place.geometry) {
+        console.log("Aucune adresse sélectionnée.");
+        return;
+      }
+
+      // Récupération des coordonnées de l'adresse sélectionnée
+      const latitude = place.geometry.location.lat();
+      const longitude = place.geometry.location.lng();
+
+      // Ajoutez ici le code pour enregistrer les coordonnées dans la base de données
+
+      console.log("Coordonnées enregistrées :", latitude, longitude);
+    });
+  });
+</script>
+{% endblock %}
