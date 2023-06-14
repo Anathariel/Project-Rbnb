@@ -19,33 +19,32 @@ class HostLanguageModel extends Model
         return $hostLanguage;
     }
 
-    public function setHostLanguage(HostLanguage $hostLanguage)
-{
-    $propertyId = $hostLanguage->getPropertyId();
-    $anglais = $hostLanguage->getAnglais();
-    $français = $hostLanguage->getFrançais();
-    $allemand = $hostLanguage->getAllemand();
-    $japonais = $hostLanguage->getJaponais();
-    $italien = $hostLanguage->getItalien();
-    $russe = $hostLanguage->getRusse();
-    $espagnol = $hostLanguage->getEspagnol();
-    $chinois = $hostLanguage->getChinois();
-    $arabe = $hostLanguage->getArabe();
+    public function setHostLanguageModel(HostLanguage $hostLanguage)
+    {
+        $propertyId = $hostLanguage->getPropertyId();
+        $anglais = $hostLanguage->getAnglais();
+        $français = $hostLanguage->getFrançais();
+        $allemand = $hostLanguage->getAllemand();
+        $japonais = $hostLanguage->getJaponais();
+        $italien = $hostLanguage->getItalien();
+        $russe = $hostLanguage->getRusse();
+        $espagnol = $hostLanguage->getEspagnol();
+        $chinois = $hostLanguage->getChinois();
+        $arabe = $hostLanguage->getArabe();
 
-    $req = $this->getDb()->prepare('INSERT INTO `hostLanguage`(`propertyId`, `anglais`, `français`, `allemand`, `japonais`, `italien`, `russe`, `espagnol`, `chinois`, `arabe`) VALUES (:propertyId, :anglais, :francais, :allemand, :japonais, :italien, :russe, :espagnol, :chinois, :arabe)');
+        $req = $this->getDb()->prepare('INSERT INTO `hostLanguage`(`propertyId`, `anglais`, `français`, `allemand`, `japonais`, `italien`, `russe`, `espagnol`, `chinois`, `arabe`) VALUES (:propertyId, :anglais, :francais, :allemand, :japonais, :italien, :russe, :espagnol, :chinois, :arabe)');
 
-    $req->bindParam('propertyId', $propertyId, PDO::PARAM_INT);
-    $req->bindParam('anglais', $anglais, PDO::PARAM_BOOL);
-    $req->bindParam('francais', $français, PDO::PARAM_BOOL);
-    $req->bindParam('allemand', $allemand, PDO::PARAM_BOOL);
-    $req->bindParam('japonais', $japonais, PDO::PARAM_BOOL);
-    $req->bindParam('italien', $italien, PDO::PARAM_BOOL);
-    $req->bindParam('russe', $russe, PDO::PARAM_BOOL);
-    $req->bindParam('espagnol', $espagnol, PDO::PARAM_BOOL);
-    $req->bindParam('chinois', $chinois, PDO::PARAM_BOOL);
-    $req->bindParam('arabe', $arabe, PDO::PARAM_BOOL);
+        $req->bindParam('propertyId', $propertyId, PDO::PARAM_INT);
+        $req->bindParam('anglais', $anglais, PDO::PARAM_BOOL);
+        $req->bindParam('francais', $français, PDO::PARAM_BOOL);
+        $req->bindParam('allemand', $allemand, PDO::PARAM_BOOL);
+        $req->bindParam('japonais', $japonais, PDO::PARAM_BOOL);
+        $req->bindParam('italien', $italien, PDO::PARAM_BOOL);
+        $req->bindParam('russe', $russe, PDO::PARAM_BOOL);
+        $req->bindParam('espagnol', $espagnol, PDO::PARAM_BOOL);
+        $req->bindParam('chinois', $chinois, PDO::PARAM_BOOL);
+        $req->bindParam('arabe', $arabe, PDO::PARAM_BOOL);
 
-    $req->execute();
-}
-
+        $req->execute();
+    }
 }

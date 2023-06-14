@@ -42,6 +42,8 @@ class PropertyController extends Controller
                 $priceNight = $_POST['price-night'];
                 $propertyType = $_POST['property-type'];
                 $hostLanguages = isset($_POST['host-languages']) ? $_POST['host-languages'] : [];
+                $accomodationTypes = isset($_POST['accommodation-types']) ? $_POST['accommodation-types'] : [];
+
 
                 $owner = $_SESSION['uid'];
 
@@ -66,7 +68,7 @@ class PropertyController extends Controller
                 ]);
 
                 $propertyTypeModel = new PropertyTypeModel();
-                $propertyTypeModel->setPropertyType($propertyType);
+                $propertyTypeModel->setPropertyTypeModel($propertyType);
 
                 $hostLanguage = new HostLanguage([
                     'propertyId' => $lastInsertedId,
@@ -82,7 +84,37 @@ class PropertyController extends Controller
                 ]);
 
                 $hostLanguageModel = new HostLanguageModel();
-                $hostLanguageModel->setHostLanguage($hostLanguage);
+                $hostLanguageModel->setHostLanguageModel($hostLanguage);
+
+
+                $accomodationType = new AccomodationType([
+                    'propertyId' => $lastInsertedId,
+                    'piscine' => in_array('piscine', (array) $accomodationTypes) ? 1 : 0,
+                    'parkingGratuit' => in_array('parkingGratuit', (array) $accomodationTypes) ? 1 : 0,
+                    'jacuzzi' => in_array('jacuzzi', (array) $accomodationTypes) ? 1 : 0,
+                    'wifi' => in_array('wifi', (array) $accomodationTypes) ? 1 : 0,
+                    'laveLinge' => in_array('laveLinge', (array) $accomodationTypes) ? 1 : 0,
+                    'secheLinge' => in_array('secheLinge', (array) $accomodationTypes) ? 1 : 0,
+                    'climatisation' => in_array('climatisation', (array) $accomodationTypes) ? 1 : 0,
+                    'chauffage' => in_array('chauffage', (array) $accomodationTypes) ? 1 : 0,
+                    'espaceTravailDedie' => in_array('espaceTravailDedie', (array) $accomodationTypes) ? 1 : 0,
+                    'television' => in_array('television', (array) $accomodationTypes) ? 1 : 0,
+                    'secheCheveux' => in_array('secheCheveux', (array) $accomodationTypes) ? 1 : 0,
+                    'ferRepasser' => in_array('ferRepasser', (array) $accomodationTypes) ? 1 : 0,
+                    'stationRechargeVehiElectriques' => in_array('stationRechargeVehiElectriques', (array) $accomodationTypes) ? 1 : 0,
+                    'litBebe' => in_array('litBebe', (array) $accomodationTypes) ? 1 : 0,
+                    'salleSport' => in_array('salleSport', (array) $accomodationTypes) ? 1 : 0,
+                    'barbecue' => in_array('barbecue', (array) $accomodationTypes) ? 1 : 0,
+                    'petitDejeuner' => in_array('petitDejeuner', (array) $accomodationTypes) ? 1 : 0,
+                    'cheminee' => in_array('cheminee', (array) $accomodationTypes) ? 1 : 0,
+                    'logementFumeur' => in_array('logementFumeur', (array) $accomodationTypes) ? 1 : 0,
+                    'detecteurFumee' => in_array('detecteurFumee', (array) $accomodationTypes) ? 1 : 0,
+                    'detecteurMonoxyDeCarbone' => in_array('detecteurMonoxyDeCarbone', (array) $accomodationTypes) ? 1 : 0
+                ]);
+
+                $accomodationTypeModel = new AccomodationTypeModel();
+                $accomodationTypeModel->setAccomodationTypeModel($accomodationType);
+
 
                 header('Location: ' . $router->generate('home'));
             } else {
