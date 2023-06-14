@@ -19,7 +19,7 @@ class PropertyTypeModel extends Model
         return $propertyType;
     }
 
-    public function addPropertyType(PropertyType $propertyType)
+    public function setPropertyType(PropertyType $propertyType)
     {
         $propertyId = $propertyType->getPropertyId();
         $house = $propertyType->getHouse();

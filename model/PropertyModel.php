@@ -33,6 +33,12 @@ class PropertyModel extends Model
         return $property->getPropertyId();
     }
 
+    public function getLastInsertedId()
+    {
+        $req = $this->getDb()->query('SELECT LAST_INSERT_ID()');
+        return $req->fetchColumn();
+    }
+
     public function addProperty(Property $property)
     {
         $owner = $property->getOwner();

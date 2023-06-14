@@ -29,9 +29,10 @@
             <label for="property-type">Choisissez le type de propriété</label>
             <br>
             <select id="property-type" name="property-type">
-              {% for propertyType in propertyTypes %}
-              <option value="{{ propertyType }}">{{ propertyType }}</option>
-          {% endfor %}
+                <option value="house">Maison</option>
+                <option value="flat">Appartement</option>
+                <option value="guesthouse">Maison d'hôte</option>
+                <option value="hotel">Hôtel</option>
             </select>
             <br>
 
