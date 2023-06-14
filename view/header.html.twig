@@ -40,32 +40,11 @@
 			<li class="user">
 				{% if session.connect %}
 					<a href="{{ path('dashboard') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Dashboard utilisateur"></a>
-					{# <a href="{{ path('logout') }}"><img src="{{ asset('/media/icons/logout.svg') }}" alt="Se déconnecter"></a> #}
 				{% else %}
 					<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Se connecter ou s'inscrire "></a>
 				{% endif %}
 			</li>
 		</ul>
-		<div id="sub-nav">
-			<ul>
-				{% for tag in tags %}
-					<li class="taglist">
-						<a href="#">
-							<img src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
-							<p class="darkerblue">{{ tag.type }}</p>
-						</a>
-					</li>
-				{% endfor %}
-				<li>
-					<a href="#" class="arrow left"></a>
-					<a href="#" class="arrow right"></a>
-				</li>
-				<li>
-					<button class="filter"><img src="{{asset('/media/icons/filter.svg')}}" alt="filter">Filtres</button>
-				</li>
-			</ul>
-		</div>
-
 	</nav>
 
 </header>

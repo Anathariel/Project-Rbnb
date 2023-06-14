@@ -14,14 +14,21 @@
 
   <body>
     {% include 'header.html.twig' %}
-    <main>{% block content %}{% endblock %}</main>
+    <main class="limit-size">
+    {% block content %}
+
+    {% endblock %}
+    </main>
 
     {% block javascript %}{% endblock %}
     <script src="{{ asset('/js/main.js') }}"></script>
+    
     {% include 'footer.html.twig' %}
+
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTkV0SRCLJ9DnzywThlI_HwT8W6-KRL_Q&callback=initMap&v=weekly"
       defer
     ></script>
+
   </body>
 </html>

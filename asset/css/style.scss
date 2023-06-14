@@ -1,11 +1,15 @@
 //& -------------------- SCSS VARIABLES -------------------- //
 
 //^ --------- COLORS --------- //
-$maincolor: #8accec;
-$secondary: #fac515;
+// $maincolor: #8accec;
+// $secondary: #fac515;
+$maincolor: #b3e8b0;
+$secondary: #fdf1ed;
+$accent : #a0e29c;
 
 $white: #f8f8f8;
 $white-default: #ffffff;
+$orange: #EE923F;
 
 $darkblue: #0b4a6f;
 $darkerblue: #1b1d21;
@@ -37,7 +41,12 @@ body {
   box-sizing: border-box;
   scroll-behavior: smooth;
   background-color: #f8f8f8;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 p,
@@ -59,7 +68,6 @@ h4,
 h5,
 h6 {
   font-family: "Quicksand";
-  color: $darkerblue;
 }
 
 h2 {
@@ -186,87 +194,6 @@ h3 {
     margin-left: 5rem;
     margin-right: auto;
   }
-
-  #sub-nav {
-    display: flex;
-    align-content: space-between;
-    align-items: center;
-    background-color: $white;
-    overflow: scroll;
-    display: none;
-
-    .taglist {
-      width: 50%;
-      overflow: hidden;
-
-      a {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-content: space-between;
-        margin: auto 1.5rem;
-      }
-
-      img {
-        height: 60px;
-      }
-    }
-
-    .arrow {
-      position: absolute;
-      width: 2rem;
-      height: 2rem;
-      background: transparent;
-      border-top: 0.5rem solid $darkblue;
-      border-right: 0.5rem solid $darkblue;
-      box-shadow: 0 0 0 lightgray;
-      transition: all 200ms ease;
-
-      &.left {
-        left: 0;
-        transform: translate3d(0, -50%, 0) rotate(-135deg);
-      }
-
-      &.right {
-        right: 0;
-        transform: translate3d(0, -50%, 0) rotate(45deg);
-      }
-
-      &:hover {
-        border-color: $maincolor;
-        box-shadow: 0.5rem -0.5rem 0 $darkblue;
-      }
-
-      &:before {
-        // for better hit area
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-40%, -60%) rotate(45deg);
-        width: 200%;
-        height: 200%;
-      }
-    }
-
-    .filter {
-      padding: 0.9rem;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      background-color: $white;
-      font-family: "Quicksand";
-      font-size: 1rem;
-      border: transparent;
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 5rem;
-      cursor: pointer;
-
-      img {
-        margin: auto 0.5rem;
-      }
-    }
-  }
 }
 
 .dashboard-header {
@@ -346,25 +273,25 @@ h3 {
         display: none;
         background-color: $white;
         border-radius: 5px;
-      
+
         ul {
           list-style-type: none;
           padding: 0;
-      
+
           li {
             border-bottom: dashed 0.5px #0e938342;
             text-align: center;
-      
+
             &:last-child {
               border-bottom: none;
             }
-      
+
             .submenu-icon {
               padding: .5rem;
               width: 18px;
             }
-      
-            & > a {
+
+            &>a {
               display: flex;
               justify-content: center;
               align-items: center;
@@ -373,14 +300,14 @@ h3 {
               font-size: 1rem;
               cursor: pointer;
             }
-      
-            & > a:hover {
+
+            &>a:hover {
               background-color: #0e938343;
               color: $white;
             }
           }
         }
-      
+
         &.show {
           display: block;
         }
@@ -473,6 +400,218 @@ footer {
 }
 
 //~ -------------------- HOMEPAGE -------------------- //
+//? --------- Hero Section --------- //
+
+#hero {
+  margin: 0 1rem;
+
+  #call {
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+
+    h1 {
+      color: $title-color;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    span {
+      color: $orange;
+    }
+
+    p {
+      text-align: right;
+    }
+  }
+
+  figure {
+    position: relative;
+
+    img {
+      object-fit: cover;
+      height: 160px;
+      width: 100%;
+      border-radius: 15px 15px 0 0;
+      opacity: 70%;
+    }
+
+    figcaption {
+      position: absolute;
+      bottom: 2rem;
+      right: 1rem;
+
+      button {
+        background-color: $orange;
+        color: $white;
+        padding: .5rem 1rem;
+        border: none;
+        border-radius: .5rem;
+        cursor: pointer;
+        font-size: 1rem;
+        outline: transparent;
+        font-family: 'Quicksand';
+      }
+
+      button:hover {
+        background-color: #ee913fe3;
+        filter: brightness(110%);
+        transition: .5s ease;
+      }
+
+      button:active {
+        transform: translate(0, 0.3rem);
+        box-shadow: 0 0.1rem rgba(255, 255, 255, 0.70);
+      }
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    #call {
+      margin-bottom: 3rem;
+
+      h1 {
+        margin-bottom: 5rem;
+      }
+    }
+
+    figure {
+      img {
+        height: 350px;
+      }
+
+      figcaption {
+        bottom: 3rem;
+        right: 3rem;
+
+        button {
+          width: 285px;
+          font-size: 1.2rem;
+          padding: 1rem 2rem;
+        }
+      }
+    }
+  }
+}
+
+//? --------- Tag Nav' Menu Section --------- //
+
+#tag-nav {
+  overflow: scroll;
+
+  #tag-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+
+    .left-corner {
+      position: absolute;
+      left: 0;
+      background-color: $white;
+    }
+
+    .container-tag-list {
+      display: flex;
+      flex: 1;
+
+      .tag-item {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin: 15px 1px;
+          padding: .5rem;
+          height: 80px;
+
+          #icon-tag {
+            width: 30px;
+          }
+
+          img {
+            width: 30px;
+            margin: 0 auto;
+          }
+
+          p {
+            min-width: 50px;
+            font-size: .6rem;
+            text-align: center;
+          }
+        }
+
+        a:hover{
+          background-color: #a7a7a76f;
+          border-bottom: 1px solid #000000;
+        }
+      }
+    }
+
+    .right-corner{
+      // position: absolute;
+      // right: 0;
+      background: $white;
+    }
+  }
+
+  // .arrow {
+  //   z-index: 1;
+  //   position: absolute;
+  //   width: 2rem;
+  //   height: 2rem;
+  //   background: transparent;
+  //   border-top: 0.5rem solid $darkblue;
+  //   border-right: 0.5rem solid $darkblue;
+  //   box-shadow: 0 0 0 lightgray;
+  //   transition: all 200ms ease;
+
+  //   &.left {
+  //     left: 15;
+  //     bottom: 1;
+  //     transform: translate3d(0, -50%, 0) rotate(-135deg);
+  //   }
+
+  //   &.right {
+  //     right: 15;
+  //     bottom: 5rem;
+  //     transform: translate3d(0, -50%, 0) rotate(45deg);
+  //   }
+
+  //   &:hover {
+  //     border-color: $maincolor;
+  //     box-shadow: 0.5rem -0.5rem 0 $darkblue;
+  //   }
+
+  //   &:before {
+  //     content: "";
+  //     position: absolute;
+  //     top: 50%;
+  //     left: 50%;
+  //     transform: translate(-40%, -60%) rotate(45deg);
+  //     width: 200%;
+  //     height: 200%;
+  //   }
+  // }
+
+  // .filter {
+  //   position: absolute;
+  //   bottom: 1rem;
+  //   right: 1rem;
+  //   width: 150px;
+  //   padding: .5rem 2rem;
+  //   display: flex;
+  //   flex-direction: row;
+  //   cursor: pointer;
+  //   text-align: center;
+  // }
+}
+
+
 //? --------- New Destination Section --------- //
 
 section#new-destinations-section {
@@ -523,7 +662,7 @@ section#new-destinations-section {
   }
 }
 
-// --------- best-tags sections --------- //
+//? --------- best-tags sections --------- //
 section#best-tags-section {
   margin-bottom: 40px;
 
@@ -563,7 +702,7 @@ section#best-tags-section {
   }
 }
 
-// --------- features-sections --------- //
+//? --------- features-sections --------- //
 section#features-section {
   div#container-card-features {
     figcaption {
@@ -593,7 +732,7 @@ section#features-section {
   }
 }
 
-// --------- join-us-sections --------- //
+//? --------- join-us-sections --------- //
 section#join-us-section {
   margin-bottom: 40px;
 

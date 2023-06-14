@@ -14,7 +14,7 @@
 	</head>
 
 	<body>
-		<main>
+		<main class="limit-size">
 			{% include 'headerdashboard.html.twig' %}
 
 			{% block content %}{% endblock %}
@@ -23,6 +23,5 @@
 		{% block javascript %}{% endblock %}
 		<script src="{{ asset('/js/main.js') }}"></script>
 
-		{# {% include 'footer.html.twig' %} #}
 	</body>
 </html>
