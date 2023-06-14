@@ -41,6 +41,7 @@ class PropertyController extends Controller
                 $description = $_POST['description'];
                 $priceNight = $_POST['price-night'];
                 $propertyType = $_POST['property-type'];
+                $hostLanguages = isset($_POST['host-languages']) ? $_POST['host-languages'] : [];
 
                 $owner = $_SESSION['uid'];
 
@@ -67,10 +68,26 @@ class PropertyController extends Controller
                 $propertyTypeModel = new PropertyTypeModel();
                 $propertyTypeModel->setPropertyType($propertyType);
 
+                $hostLanguage = new HostLanguage([
+                    'propertyId' => $lastInsertedId,
+                    'anglais' => in_array('anglais', (array) $hostLanguages) ? 1 : 0,
+                    'français' => in_array('français', (array) $hostLanguages) ? 1 : 0,
+                    'allemand' => in_array('allemand', (array) $hostLanguages) ? 1 : 0,
+                    'japonais' => in_array('japonais', (array) $hostLanguages) ? 1 : 0,
+                    'italien' => in_array('italien', (array) $hostLanguages) ? 1 : 0,
+                    'russe' => in_array('russe', (array) $hostLanguages) ? 1 : 0,
+                    'espagnol' => in_array('espagnol', (array) $hostLanguages) ? 1 : 0,
+                    'chinois' => in_array('chinois', (array) $hostLanguages) ? 1 : 0,
+                    'arabe' => in_array('arabe', (array) $hostLanguages) ? 1 : 0,
+                ]);
+
+                $hostLanguageModel = new HostLanguageModel();
+                $hostLanguageModel->setHostLanguage($hostLanguage);
+
                 header('Location: ' . $router->generate('home'));
             } else {
                 $message = 'Oops, something went wrong sorry. Try again later';
-                echo self::getrender('addproperty.html.twig', ['message' => $message]);
+                echo self::getRender('addproperty.html.twig', ['message' => $message]);
             }
         }
     }

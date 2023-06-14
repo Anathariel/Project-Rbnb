@@ -1,52 +1,100 @@
-{% extends "template.html.twig" %} 
-
-{% block title %}Louer votre location{% endblock %}
-
-{% block content %} 
+{% extends "template.html.twig" %} {% block title %}Louer votre location{%
+endblock %} {% block content %}
 <div id="addpropertyForm">
-    <fieldset>
+  <fieldset>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
 
-        {% if message %} <p> {{ message }} </p> {% endif %}
+    <legend>Ajout d'une propriété</legend>
 
-        <legend>Ajout d'une propriété</legend>
+    <form method="POST" action="{{ path('propertyAdd') }}">
+      <label for="title">Titre de la propriété</label>
+      <br />
+      <input
+        type="text"
+        id="title"
+        name="title"
+        placeholder="Entrer le nom de la propriété"
+      />
+      <br />
 
-        <form method="POST" action="{{ path('propertyAdd') }}">
-            <label for="title">Titre de la propriété</label>
-            <br>
-            <input type="text" id="title" name="title" placeholder="Entrer le nom de la propriété">
-            <br>
+      <label for="description">Décrivez votre propriété</label>
+      <br />
+      <input
+        type="text"
+        id="description"
+        name="description"
+        placeholder="Entrer la description de la propriété"
+      />
+      <br />
 
-            <label for="description">Décrivez votre propriété</label>
-            <br>
-            <input type="text" id="description" name="description" placeholder="Entrer la description de la propriété">
-            <br>
+      {# <label for="address">Adresse de la propriété</label>
+      <br />
+      <input
+        type="text"
+        id="address"
+        name="address"
+        placeholder="Entrer l'adresse de la propriété"
+      />
+      <br />
+      #}
 
-            {# <label for="address">Adresse de la propriété</label>
-            <br>
-            <input type="text" id="address" name="address" placeholder="Entrer l'adresse de la propriété">
-            <br> #}
+      <label for="property-type">Choisissez le type de propriété</label>
+      <br />
+      <select id="property-type" name="property-type">
+        <option value="house">Maison</option>
+        <option value="flat">Appartement</option>
+        <option value="guesthouse">Maison d'hôte</option>
+        <option value="hotel">Hôtel</option>
+      </select>
+      <br />
 
-            <label for="property-type">Choisissez le type de propriété</label>
-            <br>
-            <select id="property-type" name="property-type">
-                <option value="house">Maison</option>
-                <option value="flat">Appartement</option>
-                <option value="guesthouse">Maison d'hôte</option>
-                <option value="hotel">Hôtel</option>
-            </select>
-            <br>
+      <label for="price-night">Déterminez le prix d'une nuit</label>
+      <br />
+      <input
+        type="text"
+        id="price-night"
+        name="price-night"
+        placeholder="Déterminez le prix d'une nuit"
+      />
+      <br />
 
-            <label for="price-night">Déterminez le prix d'une nuit</label>
-            <br>
-            <input type="text" id="price-night" name="price-night" placeholder="Déterminez le prix d'une nuit">
-            <br>
+      <label for="host-languages">Langues parlées par l'hôte</label>
+      <br />
+      <input type="checkbox" id="english" name="host-languages[]" value="anglais" />
+      <label for="english">Anglais</label>
+      <br />
+      <input type="checkbox" id="french" name="host-languages[]" value="français" />
+      <label for="french">Français</label>
+      <br />
+      <input type="checkbox" id="german" name="host-languages[]" value="allemand" />
+      <label for="german">Allemand</label>
+      <br />
+      <input type="checkbox" id="japanese" name="host-languages[]" value="japonais" />
+      <label for="japanese">Japonais</label>
+      <br />
+      <input type="checkbox" id="italian" name="host-languages[]" value="italien" />
+      <label for="italian">Italien</label>
+      <br />
+      <input type="checkbox" id="russian" name="host-languages[]" value="russe" />
+      <label for="russian">Russe</label>
+      <br />
+      <input type="checkbox" id="spanish" name="host-languages[]" value="espagnol" />
+      <label for="spanish">Espagnol</label>
+      <br />
+      <input type="checkbox" id="chinese" name="host-languages[]" value="chinois" />
+      <label for="chinese">Chinois</label>
+      <br />
+      <input type="checkbox" id="arabic" name="host-languages[]" value="arabe" />
+      <label for="arabic">Arabe</label>
+      <br><br>
+      
+      <input type="submit" name="submit" value="Submit" />
+      
 
-            <input type="submit" name="submit" value="Submit">
-        </form>
-    </fieldset>
-</div>
-
-{# <script>
+{#
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     const addressInput = document.getElementById("address");
 
@@ -70,5 +118,5 @@
       console.log("Coordonnées enregistrées :", latitude, longitude);
     });
   });
-</script> #}
-{% endblock %}
+</script>
+#} {% endblock %}
