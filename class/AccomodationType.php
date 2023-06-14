@@ -265,6 +265,11 @@ class AccomodationType
         $this->logementFumeur = $logementFumeur;
     }
 
+    public function setDetecteurFumee(bool $detecteurFumee)
+    {
+        $this->detecteurFumee = $detecteurFumee;
+    }
+
     public function setDetecteurMonoxyDeCarbone(bool $detecteurMonoxyDeCarbone)
     {
         $this->detecteurMonoxyDeCarbone = $detecteurMonoxyDeCarbone;
