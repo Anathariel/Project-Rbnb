@@ -122,7 +122,17 @@ class HostLanguage
         $this->italien = $italien;
     }
 
-    public function setChinois(bool$chinois)
+    public function setRusse(bool $russe)
+    {
+        $this->russe = $russe;
+    }
+
+    public function setEspagnol(bool $espagnol)
+    {
+        $this->espagnol = $espagnol;
+    }
+
+    public function setChinois(bool $chinois)
     {
         $this->chinois = $chinois;
     }

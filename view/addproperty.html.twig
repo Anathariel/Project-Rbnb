@@ -1,73 +1,310 @@
 {% extends "template.html.twig" %} 
 
-{% block title %}Louer votre location{% endblock %}
+{% block title %}Louer votre location{% endblock %} 
 
-{% block content %} 
+{% block content %}
 <div id="addpropertyForm">
-    <fieldset>
+  <fieldset>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
 
-        {% if message %} <p> {{ message }} </p> {% endif %}
+    <legend>Ajout d'une propriété</legend>
 
-        <legend>Ajout d'une propriété</legend>
+    <form method="POST" action="{{ path('propertyAdd') }}">
+      <label for="title">Titre de la propriété</label>
+      <br />
+      <input
+        type="text"
+        id="title"
+        name="title"
+        placeholder="Entrer le nom de la propriété"
+      />
+      <br />
 
-        <form method="POST" action="{{ path('propertyAdd') }}">
-            <label for="title">Titre de la propriété</label>
-            <br>
-            <input type="text" id="title" name="title" placeholder="Entrer le nom de la propriété">
-            <br>
+      <label for="description">Décrivez votre propriété</label>
+      <br />
+      <input
+        type="text"
+        id="description"
+        name="description"
+        placeholder="Entrer la description de la propriété"
+      />
+      <br />
 
-            <label for="description">Décrivez votre propriété</label>
-            <br>
-            <input type="text" id="description" name="description" placeholder="Entrer la description de la propriété">
-            <br>
+      <label for="price-night">Déterminez le prix d'une nuit</label>
+      <br />
+      <input
+        type="text"
+        id="price-night"
+        name="price-night"
+        placeholder="Déterminez le prix d'une nuit"
+      />
+      <br><br>
 
-            {# <label for="address">Adresse de la propriété</label>
-            <br>
-            <input type="text" id="address" name="address" placeholder="Entrer l'adresse de la propriété">
-            <br> #}
+      <label for="property-type">Choisissez le type de propriété :</label>
+      <br />
+      <select id="property-type" name="property-type">
+        <option value="house">Maison</option>
+        <option value="flat">Appartement</option>
+        <option value="guesthouse">Maison d'hôte</option>
+        <option value="hotel">Hôtel</option>
+      </select>
+      <br /><br>
 
-            <label for="property-type">Choisissez le type de propriété</label>
-            <br>
-            <select id="property-type" name="property-type">
-              {% for propertyType in propertyTypes %}
-              <option value="{{ propertyType }}">{{ propertyType }}</option>
-          {% endfor %}
-            </select>
-            <br>
+      <label for="host-languages">Langues parlées par l'hôte :</label>
+      <br />
+      <input
+        type="checkbox"
+        id="english"
+        name="host-languages[]"
+        value="anglais"
+      />
+      <label for="english">Anglais</label>
+      <br />
+      <input
+        type="checkbox"
+        id="french"
+        name="host-languages[]"
+        value="français"
+      />
+      <label for="french">Français</label>
+      <br />
+      <input
+        type="checkbox"
+        id="german"
+        name="host-languages[]"
+        value="allemand"
+      />
+      <label for="german">Allemand</label>
+      <br />
+      <input
+        type="checkbox"
+        id="japanese"
+        name="host-languages[]"
+        value="japonais"
+      />
+      <label for="japanese">Japonais</label>
+      <br />
+      <input
+        type="checkbox"
+        id="italian"
+        name="host-languages[]"
+        value="italien"
+      />
+      <label for="italian">Italien</label>
+      <br />
+      <input
+        type="checkbox"
+        id="russian"
+        name="host-languages[]"
+        value="russe"
+      />
+      <label for="russian">Russe</label>
+      <br />
+      <input
+        type="checkbox"
+        id="spanish"
+        name="host-languages[]"
+        value="espagnol"
+      />
+      <label for="spanish">Espagnol</label>
+      <br />
+      <input
+        type="checkbox"
+        id="chinese"
+        name="host-languages[]"
+        value="chinois"
+      />
+      <label for="chinese">Chinois</label>
+      <br />
+      <input
+        type="checkbox"
+        id="arabic"
+        name="host-languages[]"
+        value="arabe"
+      />
+      <label for="arabic">Arabe</label>
+      <br /><br />
 
-            <label for="price-night">Déterminez le prix d'une nuit</label>
-            <br>
-            <input type="text" id="price-night" name="price-night" placeholder="Déterminez le prix d'une nuit">
-            <br>
+      <label for="accommodation-types">Equipements disponibles :</label>
+      <br />
+      <input
+        type="checkbox"
+        id="piscine"
+        name="accommodation-types[]"
+        value="piscine"
+      />
+      <label for="piscine">Piscine</label>
+      <br />
+      <input
+        type="checkbox"
+        id="parkingGratuit"
+        name="accommodation-types[]"
+        value="parkingGratuit"
+      />
+      <label for="parkingGratuit">Parking gratuit</label>
+      <br />
+      <input
+        type="checkbox"
+        id="jacuzzi"
+        name="accommodation-types[]"
+        value="jacuzzi"
+      />
+      <label for="jacuzzi">Jacuzzi</label>
+      <br />
+      <input
+        type="checkbox"
+        id="wifi"
+        name="accommodation-types[]"
+        value="wifi"
+      />
+      <label for="wifi">Wifi</label>
+      <br />
+      <input
+        type="checkbox"
+        id="laveLinge"
+        name="accommodation-types[]"
+        value="laveLinge"
+      />
+      <label for="laveLinge">Lave-linge</label>
+      <br />
+      <input
+        type="checkbox"
+        id="secheLinge"
+        name="accommodation-types[]"
+        value="secheLinge"
+      />
+      <label for="secheLinge">Sèche-linge</label>
+      <br />
+      <input
+        type="checkbox"
+        id="climatisation"
+        name="accommodation-types[]"
+        value="climatisation"
+      />
+      <label for="climatisation">Climatisation</label>
+      <br />
+      <input
+        type="checkbox"
+        id="chauffage"
+        name="accommodation-types[]"
+        value="chauffage"
+      />
+      <label for="chauffage">Chauffage</label>
+      <br />
+      <input
+        type="checkbox"
+        id="espaceTravailDedie"
+        name="accommodation-types[]"
+        value="espaceTravailDedie"
+      />
+      <label for="espaceTravailDedie">Espace de travail dédié</label>
+      <br />
+      <input
+        type="checkbox"
+        id="television"
+        name="accommodation-types[]"
+        value="television"
+      />
+      <label for="television">Télévision</label>
+      <br />
+      <input
+        type="checkbox"
+        id="secheCheveux"
+        name="accommodation-types[]"
+        value="secheCheveux"
+      />
+      <label for="secheCheveux">Sèche-cheveux</label>
+      <br />
+      <input
+        type="checkbox"
+        id="ferRepasser"
+        name="accommodation-types[]"
+        value="ferRepasser"
+      />
+      <label for="ferRepasser">Fer à repasser</label>
+      <br />
+      <input
+        type="checkbox"
+        id="stationRechargeVehiElectriques"
+        name="accommodation-types[]"
+        value="stationRechargeVehiElectriques"
+      />
+      <label for="stationRechargeVehiElectriques"
+        >Station de recharge pour véhicules électriques</label
+      >
+      <br />
+      <input
+        type="checkbox"
+        id="litBebe"
+        name="accommodation-types[]"
+        value="litBebe"
+      />
+      <label for="litBebe">Lit bébé</label>
+      <br />
+      <input
+        type="checkbox"
+        id="salleSport"
+        name="accommodation-types[]"
+        value="salleSport"
+      />
+      <label for="salleSport">Salle de sport</label>
+      <br />
+      <input
+        type="checkbox"
+        id="barbecue"
+        name="accommodation-types[]"
+        value="barbecue"
+      />
+      <label for="barbecue">Barbecue</label>
+      <br />
+      <input
+        type="checkbox"
+        id="petitDejeuner"
+        name="accommodation-types[]"
+        value="petitDejeuner"
+      />
+      <label for="petitDejeuner">Petit déjeuner</label>
+      <br />
+      <input
+        type="checkbox"
+        id="cheminee"
+        name="accommodation-types[]"
+        value="cheminee"
+      />
+      <label for="cheminee">Cheminée</label>
+      <br />
+      <input
+        type="checkbox"
+        id="logementFumeur"
+        name="accommodation-types[]"
+        value="logementFumeur"
+      />
+      <label for="logementFumeur">Logement fumeur</label>
+      <br />
+      <input
+        type="checkbox"
+        id="detecteurFumee"
+        name="accommodation-types[]"
+        value="detecteurFumee"
+      />
+      <label for="detecteurFumee">Détecteur de fumée</label>
+      <br />
+      <input
+        type="checkbox"
+        id="detecteurMonoxyDeCarbone"
+        name="accommodation-types[]"
+        value="detecteurMonoxyDeCarbone"
+      />
+      <label for="detecteurMonoxyDeCarbone"
+        >Détecteur de monoxyde de carbone</label
+      >
+      <br /><br />
 
-            <input type="submit" name="submit" value="Submit">
-        </form>
-    </fieldset>
+      <input type="submit" name="submit" value="Submit" />
+
+    </form>
+  </fieldset>
 </div>
-
-{# <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const addressInput = document.getElementById("address");
-
-    // Configuration de l'autocomplétion Google Maps
-    const autocomplete = new google.maps.places.Autocomplete(addressInput);
-
-    // Événement déclenché lorsqu'une adresse est sélectionnée
-    autocomplete.addListener("place_changed", function () {
-      const place = autocomplete.getPlace();
-      if (!place.geometry) {
-        console.log("Aucune adresse sélectionnée.");
-        return;
-      }
-
-      // Récupération des coordonnées de l'adresse sélectionnée
-      const latitude = place.geometry.location.lat();
-      const longitude = place.geometry.location.lng();
-
-      // Ajoutez ici le code pour enregistrer les coordonnées dans la base de données
-
-      console.log("Coordonnées enregistrées :", latitude, longitude);
-    });
-  });
-</script> #}
 {% endblock %}
