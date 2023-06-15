@@ -16,6 +16,8 @@ $bg-card: #eaeef3;
 
 $dashboard-brg: #e1e7ea;
 $dash-maincolor : #0E9384;
+
+$gradient: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
 //* --------- FONT --------- //
 
 $font: "Quicksand";
@@ -86,10 +88,6 @@ h3 {
 
 //^ --------- CLASSES --------- //
 
-.poppins {
-  font-family: "Poppins";
-}
-
 .quicksand {
   font-family: "Quicksand";
 }
@@ -112,6 +110,10 @@ h3 {
   color: $darkblue;
 }
 
+.grey {
+  color: rgb(67, 65, 65);
+}
+
 //~ -------------------- STYLING -------------------- //
 //? --------- HEADER --------- //
 
@@ -123,22 +125,80 @@ h3 {
   padding: 1rem;
 
   .header-content {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
 
     #logo {
       margin-right: auto;
+      margin-left: 3rem;
     }
 
-    // #searchbar{
+    #container-searchbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 1rem;
 
-    // }
+      #searchbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $darkerblue;
+        border-radius: 5rem;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        padding: 0 1.5rem;
+        background-color: $white;
 
-    // .user {
-    // }
+        .search-element {
+          margin: 1rem;
+          color: rgb(48, 46, 46);
+
+          p {
+            font-size: .8rem;
+          }
+        }
+
+        .separation {
+          position: relative;
+        }
+
+        .separation:after {
+          content: '';
+          position: absolute;
+          right: -1rem;
+          top: 2px;
+          height: 80%;
+          border-left: 1px solid rgba(48, 46, 46, 0.306);
+        }
+      }
+
+      #searchbar:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        transition: background 250ms ease;
+        background: hsl(0 0% 94%);
+      }
+
+      button {
+        background-color: $accent;
+        border-radius: 5rem;
+        padding: .5rem;
+        outline: transparent;
+        border: none;
+        transition: background 250ms ease-in-out;
+      }
+
+      button:hover {
+        background: $gradient;
+      }
+    }
+
+    #user {
+      margin-right: 3rem;
+    }
   }
-
 }
+
 
 .dashboard-header {
   width: 100%;
@@ -342,16 +402,16 @@ footer {
   margin-top: auto;
   background-color: $maincolor;
 
-  .footer-desktop{
+  .footer-desktop {
     display: flex;
     justify-content: center;
   }
 
-  .footer-mobile{
+  .footer-mobile {
     display: flex;
     justify-content: center;
 
-    a{
+    a {
       margin: 2rem;
     }
   }
@@ -417,7 +477,7 @@ footer {
       }
 
       button:active {
-        transform: translate(0, 0.3rem);
+        transform: translate(0, 0.5rem);
         box-shadow: 0 0.1rem rgba(255, 255, 255, 0.70);
       }
     }

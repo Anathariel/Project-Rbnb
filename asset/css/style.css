@@ -60,10 +60,6 @@ h3 {
   color: #1b1d21;
 }
 
-.poppins {
-  font-family: "Poppins";
-}
-
 .quicksand {
   font-family: "Quicksand";
 }
@@ -84,6 +80,10 @@ h3 {
   color: #0b4a6f;
 }
 
+.grey {
+  color: rgb(67, 65, 65);
+}
+
 .header-main {
   position: sticky;
   top: 0;
@@ -92,11 +92,66 @@ h3 {
   padding: 1rem;
 }
 .header-main .header-content {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
 }
 .header-main .header-content #logo {
   margin-right: auto;
+  margin-left: 3rem;
+}
+.header-main .header-content #container-searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+}
+.header-main .header-content #container-searchbar #searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1b1d21;
+  border-radius: 5rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 0 1.5rem;
+  background-color: #f8f8f8;
+}
+.header-main .header-content #container-searchbar #searchbar .search-element {
+  margin: 1rem;
+  color: rgb(48, 46, 46);
+}
+.header-main .header-content #container-searchbar #searchbar .search-element p {
+  font-size: 0.8rem;
+}
+.header-main .header-content #container-searchbar #searchbar .separation {
+  position: relative;
+}
+.header-main .header-content #container-searchbar #searchbar .separation:after {
+  content: "";
+  position: absolute;
+  right: -1rem;
+  top: 2px;
+  height: 80%;
+  border-left: 1px solid rgba(48, 46, 46, 0.306);
+}
+.header-main .header-content #container-searchbar #searchbar:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: background 250ms ease;
+  background: hsl(0, 0%, 94%);
+}
+.header-main .header-content #container-searchbar button {
+  background-color: #395EA2;
+  border-radius: 5rem;
+  padding: 0.5rem;
+  outline: transparent;
+  border: none;
+  transition: background 250ms ease-in-out;
+}
+.header-main .header-content #container-searchbar button:hover {
+  background: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
+}
+.header-main .header-content #user {
+  margin-right: 3rem;
 }
 
 .dashboard-header {
@@ -330,7 +385,7 @@ footer .footer-mobile a {
   transition: 0.5s ease;
 }
 #hero figure figcaption button:active {
-  transform: translate(0, 0.3rem);
+  transform: translate(0, 0.5rem);
   box-shadow: 0 0.1rem rgba(255, 255, 255, 0.7);
 }
 @media screen and (min-width: 700px) {
