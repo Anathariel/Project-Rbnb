@@ -1,50 +1,37 @@
-<header class="limit-size header-main">
-	<nav>
-		<ul>
-			<li class="logo">
-				<a href="{{ path('home') }}">
-					<img src="{{ asset('/media/icons/logo.svg') }}" alt="Logo">
-					<p class="poppins darkerblue">Loca'R</p>
-				</a>
-			</li>
+<header class="header-main">
 
-			<div id="searchbar">
-				<form action="" method="GET">
-					<div
-						class=" input-group location">
-						{# <label for="location">N'importe où</label> #}
-						<input type="text" id="location" name="search-location" placeholder="N'importe où">
-					</div>
+	<div class="limit-size header-content">
+		<div id="logo">
+			<a href="{{ path('home') }}">
+				<img src="{{ asset('/media/icons/logoname.svg') }}" alt="Logo">
+			</a>
+		</div>
 
-					<div
-						class="input-group check-in">
-						{# <label for="check-in">Une semaine</label> #}
-						<input
-						type="text" id="check-in" name="search-calendar" placeholder="Une semaine">
-					{# <div class="input-group check-out">
-							<label for="check-out">Check-out</label>
-							<input type="text" id="check-out" placeholder="Add dates">
-						</div> #}
+		<div id="container-searchbar">
+			<a href="#">
+				<div id="searchbar">
+					<div class="search-element separation">
+						<p>N'importe où</p>
 					</div>
-
-					<div class="input-group guests">
-						<label for="guests"></label>
-						<input type="text" id="guests" name="search-guest" placeholder="Ajouter des voyageurs">
+					<div class="search-element separation">
+						<p>Une semaine</p>
 					</div>
-					<button type="submit">
-						<img src="{{ asset('/media/icons/search.svg') }}" alt="Icône rechercher">
+					<div class="search-element">
+						<p class="grey">Ajouter des voyageurs</p>
+					</div>
+					<button>
+						<img src="{{ asset('/media/icons/search.svg') }}" alt="Icône recherche">
 					</button>
-				</form>
-			</div>
+				</div>
+			</a>
+		</div>
 
-			<li class="user">
-				{% if session.connect %}
-					<a href="{{ path('dashboard') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Dashboard utilisateur"></a>
-				{% else %}
-					<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Se connecter ou s'inscrire "></a>
-				{% endif %}
-			</li>
-		</ul>
-	</nav>
-
+		<div id="user">
+			{% if session.connect %}
+				<a href="{{ path('dashboard') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Dashboard utilisateur"></a>
+			{% else %}
+				<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Se connecter ou s'inscrire "></a>
+			{% endif %}
+		</div>
+	</div>
 </header>
