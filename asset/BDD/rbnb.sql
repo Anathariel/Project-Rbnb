@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 14 juin 2023 à 14:03
+-- Généré le : jeu. 15 juin 2023 à 08:14
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `accommodationtype` (
   `detecteurMonoxyDeCarbone` tinyint(1) NOT NULL,
   PRIMARY KEY (`accommodationTypeId`),
   KEY `PROPERTY` (`propertyId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `accommodationtype`
@@ -62,7 +62,8 @@ CREATE TABLE IF NOT EXISTS `accommodationtype` (
 
 INSERT INTO `accommodationtype` (`accommodationTypeId`, `propertyId`, `piscine`, `parkingGratuit`, `jacuzzi`, `wifi`, `laveLinge`, `secheLinge`, `climatisation`, `chauffage`, `espaceTravailDedie`, `television`, `secheCheveux`, `ferRepasser`, `stationRechargeVehiElectriques`, `litBebe`, `salleSport`, `barbecue`, `petitDejeuner`, `cheminee`, `logementFumeur`, `detecteurFumee`, `detecteurMonoxyDeCarbone`) VALUES
 (24, 9, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(25, 43, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(25, 43, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(39, 57, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -168,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `hostlanguage` (
   `arabe` tinyint(1) NOT NULL,
   PRIMARY KEY (`hostLanguageId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `hostlanguage`
@@ -176,7 +177,8 @@ CREATE TABLE IF NOT EXISTS `hostlanguage` (
 
 INSERT INTO `hostlanguage` (`hostLanguageId`, `propertyId`, `anglais`, `français`, `allemand`, `japonais`, `italien`, `russe`, `espagnol`, `chinois`, `arabe`) VALUES
 (2, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-(12, 43, 1, 1, 1, 1, 0, 0, 0, 0, 0);
+(12, 43, 1, 1, 1, 1, 0, 0, 0, 0, 0),
+(26, 57, 0, 0, 1, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -193,14 +195,15 @@ CREATE TABLE IF NOT EXISTS `houserules` (
   `maxGuests` int NOT NULL,
   PRIMARY KEY (`houseRulesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `houserules`
 --
 
 INSERT INTO `houserules` (`houseRulesId`, `propertyId`, `checkInTime`, `checkOutTime`, `maxGuests`) VALUES
-(3, 9, '10:00:00', '14:00:00', 5);
+(3, 9, '10:00:00', '14:00:00', 5),
+(10, 57, '16:00:00', '11:00:00', 3);
 
 -- --------------------------------------------------------
 
@@ -297,7 +300,7 @@ CREATE TABLE IF NOT EXISTS `property` (
   `owner` int NOT NULL,
   PRIMARY KEY (`propertyId`),
   KEY `USER` (`owner`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `property`
@@ -306,7 +309,8 @@ CREATE TABLE IF NOT EXISTS `property` (
 INSERT INTO `property` (`propertyId`, `title`, `description`, `priceNight`, `address`, `latitude`, `longitude`, `availability`, `publicationdate`, `reservationOption`, `owner`) VALUES
 (9, 'Belle maison avec vue sur la mer', 'Une superbe maison spacieuse avec une vue imprenable sur la mer', '200.00', '123 Rue de la Plage', '46.190558700', '5.207445700', 0, '2023-06-09 14:00:26', '', 9),
 (10, 'test insert', 'blablablabla', '22.00', '', '0.000000000', '0.000000000', 0, '2023-06-13 15:45:11', '', 8),
-(43, 'equipements', 'sdfghj', '22.00', '', '0.000000000', '0.000000000', 0, '2023-06-14 16:01:47', '', 8);
+(43, 'equipements', 'sdfghj', '22.00', '', '0.000000000', '0.000000000', 0, '2023-06-14 16:01:47', '', 8),
+(57, 'time', 'time', '55.00', '', '0.000000000', '0.000000000', 0, '2023-06-15 09:45:41', '', 8);
 
 -- --------------------------------------------------------
 
@@ -396,7 +400,7 @@ CREATE TABLE IF NOT EXISTS `propertytype` (
   `hotel` tinyint(1) NOT NULL,
   PRIMARY KEY (`PropertyTypeId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `propertytype`
@@ -404,7 +408,8 @@ CREATE TABLE IF NOT EXISTS `propertytype` (
 
 INSERT INTO `propertytype` (`PropertyTypeId`, `propertyId`, `house`, `flat`, `guesthouse`, `hotel`) VALUES
 (1, 9, 1, 0, 0, 0),
-(33, 43, 0, 0, 1, 0);
+(33, 43, 0, 0, 1, 0),
+(47, 57, 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
