@@ -77,79 +77,25 @@ h3 {
 }
 
 .maincolor {
-  color: #b3e8b0;
+  color: #73C0CE;
+}
+
+.darkblue {
+  color: #0b4a6f;
 }
 
 .header-main {
-  width: 100%;
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #b3e8b0;
+  background-color: #73C0CE;
+  padding: 1rem;
 }
-.header-main nav ul {
+.header-main .header-content {
   display: flex;
   align-items: center;
 }
-.header-main nav ul li a {
-  display: flex;
-  align-items: center;
-}
-.header-main .logo {
-  margin-left: 1rem;
-}
-@media screen and (min-width: 950px) {
-  .header-main .logo {
-    margin-right: auto;
-    margin-left: 5rem;
-  }
-}
-.header-main #searchbar {
-  display: none;
-}
-@media screen and (min-width: 650px) {
-  .header-main #searchbar {
-    width: 30%;
-    height: 55px;
-    border-radius: 100vw;
-    margin: 0 auto;
-    cursor: pointer;
-    background: #f8f8f8;
-    box-shadow: 0 0 5px hsl(0, 0%, 78%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .header-main #searchbar form {
-    display: flex;
-    align-items: center;
-    margin: 2rem 2rem;
-  }
-  .header-main #searchbar .location,
-  .header-main #searchbar .check-in,
-  .header-main #searchbar .guests {
-    margin-right: 1rem;
-    width: 25%;
-  }
-  .header-main #searchbar input[type=text] {
-    background: none;
-    border: none;
-    width: 100%;
-  }
-  .header-main #searchbar input[type=text]:hover {
-    transition: background 250ms ease;
-    background: hsl(0, 0%, 94%);
-  }
-  .header-main #searchbar button {
-    height: 40px;
-    width: 40px;
-    border-radius: 10px;
-    margin-left: 5rem;
-    background-color: #0b4a6f;
-  }
-}
-.header-main .user {
-  margin-left: 5rem;
+.header-main .header-content #logo {
   margin-right: auto;
 }
 
@@ -319,7 +265,18 @@ h3 {
 
 footer {
   margin-top: auto;
-  background-color: #b3e8b0;
+  background-color: #73C0CE;
+}
+footer .footer-desktop {
+  display: flex;
+  justify-content: center;
+}
+footer .footer-mobile {
+  display: flex;
+  justify-content: center;
+}
+footer .footer-mobile a {
+  margin: 2rem;
 }
 
 #hero {
@@ -357,8 +314,8 @@ footer {
   right: 1rem;
 }
 #hero figure figcaption button {
-  background-color: #EE923F;
-  color: #f8f8f8;
+  background-color: #D5DFF0;
+  color: #395EA2;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.5rem;
@@ -368,7 +325,7 @@ footer {
   font-family: "Quicksand";
 }
 #hero figure figcaption button:hover {
-  background-color: rgba(238, 145, 63, 0.8901960784);
+  background-color: rgba(213, 223, 240, 0.831372549);
   filter: brightness(110%);
   transition: 0.5s ease;
 }
