@@ -8,7 +8,7 @@ endblock %} {% block content %}
 
     <legend>Ajout d'une propriété</legend>
 
-    <form method="POST" action="{{ path('propertyAdd') }}">
+    <form method="POST" enctype="multipart/form-data" action="{{ path('propertyAdd') }}">
       <label for="title">Titre de la propriété</label>
       <br />
       <input
@@ -27,7 +27,66 @@ endblock %} {% block content %}
         name="description"
         placeholder="Entrer la description de la propriété"
       />
+      <br /><br>
+
+      <label for="propertyImage">Importer les images de la location :</label><br>
+
+      <label for="imageMain">Image principale :</label>
+      <input
+        type="file"
+        id="imageMain"
+        name="imageMain"
+        accept="image/*"
+        required
+        onchange="previewImage(event, 'imageMainPreview')"
+      />
+      <img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 200px; display: none;">
       <br />
+      
+      <label for="image1">Image 1 :</label>
+      <input
+        type="file"
+        id="image1"
+        name="image1"
+        accept="image/*"
+        onchange="previewImage(event, 'image1Preview')"
+      />
+      <img id="image1Preview" src="#" alt="Aperçu de l'image 1" style="max-width: 200px; display: none;">
+      <br />
+      
+      <label for="image2">Image 2 :</label>
+      <input
+        type="file"
+        id="image2"
+        name="image2"
+        accept="image/*"
+        onchange="previewImage(event, 'image2Preview')"
+      />
+      <img id="image2Preview" src="#" alt="Aperçu de l'image 2" style="max-width: 200px; display: none;">
+      <br />
+      
+      <label for="image3">Image 3 :</label>
+      <input
+        type="file"
+        id="image3"
+        name="image3"
+        accept="image/*"
+        onchange="previewImage(event, 'image3Preview')"
+      />
+      <img id="image3Preview" src="#" alt="Aperçu de l'image 3" style="max-width: 200px; display: none;">
+      <br />
+      
+      <label for="image4">Image 4 :</label>
+      <input
+        type="file"
+        id="image4"
+        name="image4"
+        accept="image/*"
+        onchange="previewImage(event, 'image4Preview')"
+      />
+      <img id="image4Preview" src="#" alt="Aperçu de l'image 4" style="max-width: 200px; display: none;">
+      <br /><br>
+      
 
       <label for="price-night">Déterminez le prix d'une nuit</label>
       <br />
@@ -860,10 +919,14 @@ endblock %} {% block content %}
         <img src="{{ asset('/media/icons/tag/plages.jpg') }}" alt="Plages" />
         Plages
       </label>
-      <br><br>
+      <br /><br />
 
       <input type="submit" name="submit" value="Proposer ma location" />
     </form>
   </fieldset>
 </div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{{ asset('/js/fred.js') }}"></script>
 {% endblock %}
