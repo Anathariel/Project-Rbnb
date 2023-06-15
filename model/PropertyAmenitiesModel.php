@@ -18,4 +18,23 @@ class PropertyAmenitiesModel extends Model
 
         return $amenities;
     }
+
+    public function setPropertyAmenitiesModel(PropertyAmenities $propertyAmenities)
+    {
+        $propertyId = $propertyAmenities->getPropertyId();
+        $bedrooms = $propertyAmenities->getBedrooms();
+        $beds = $propertyAmenities->getBeds();
+        $bathrooms = $propertyAmenities->getBathrooms();
+        $toilets = $propertyAmenities->getToilets();
+
+        $req = $this->getDb()->prepare('INSERT INTO `propertyamenities` (`propertyId`, `bedrooms`, `beds`, `bathrooms`, `toilets`) VALUES (:propertyId, :bedrooms, :beds, :bathrooms, :toilets)');
+
+        $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+        $req->bindParam(':bedrooms', $bedrooms, PDO::PARAM_INT);
+        $req->bindParam(':beds', $beds, PDO::PARAM_INT);
+        $req->bindParam(':bathrooms', $bathrooms, PDO::PARAM_INT);
+        $req->bindParam(':toilets', $toilets, PDO::PARAM_INT);
+
+        $req->execute();
+    }
 }

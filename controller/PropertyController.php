@@ -48,12 +48,10 @@ class PropertyController extends Controller
                 $accomodationTypes = isset($_POST['accommodation-types']) ? $_POST['accommodation-types'] : [];
 
                 $checkInTime = $_POST['check-in-time'];
-                var_dump($checkInTime);
                 $checkOutTime = $_POST['check-out-time'];
-                var_dump($checkOutTime);
-
                 $maxGuests = $_POST['max-guests'];
-                var_dump($maxGuests);
+
+                $tags = isset($_POST['tags']) ? $_POST['tags'] : [];
 
 
                 $owner = $_SESSION['uid'];
@@ -136,6 +134,20 @@ class PropertyController extends Controller
 
                 $houseRulesModel = new HouseRulesModel();
                 $houseRulesModel->setHouseRulesModel($houseRules);
+
+                $propertyAmenities = new PropertyAmenities([
+                    'propertyId' => $lastInsertedId,
+                    'bedrooms' => $_POST['bedrooms'],
+                    'beds' => $_POST['beds'],
+                    'bathrooms' => $_POST['bathrooms'],
+                    'toilets' => $_POST['toilets']
+                ]);
+
+                $propertyAmenitiesModel = new PropertyAmenitiesModel();
+                $propertyAmenitiesModel->setPropertyAmenitiesModel($propertyAmenities);
+
+                $tagModel = new TagModel();
+                $tagModel->setTagsModel($lastInsertedId, $tags);
 
 
                 header('Location: ' . $router->generate('home'));

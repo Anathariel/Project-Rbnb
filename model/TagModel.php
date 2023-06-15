@@ -40,4 +40,16 @@ class TagModel extends Model
 
         return $lastTags;
     }
+
+    public function setTagsModel($propertyId, $tags)
+    {
+        $sql = 'INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES (:propertyId, :tagId)';
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':propertyId', $propertyId, PDO::PARAM_INT);
+
+        foreach ($tags as $tagId) {
+            $stmt->bindValue(':tagId', $tagId, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+    }
 }
