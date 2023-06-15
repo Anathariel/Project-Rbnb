@@ -165,11 +165,9 @@ h3 {
 }
 @media screen and (max-width: 700px) {
   .header-main .header-content #logo,
-  .header-main .header-content #user {
+  .header-main .header-content #user,
+  .header-main .header-content #desktop-searchbar {
     display: none;
-  }
-  .header-main .header-content #container-searchbar {
-    margin: 0;
   }
 }
 
