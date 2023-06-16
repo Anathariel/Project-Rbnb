@@ -47,7 +47,7 @@
 					<img src="{{asset('/media/icons/filter.svg')}}" alt="filter">Filtres</button>
 				<a href="#" class="arrow right"></a>
 			</div>
-      
+
 		</div>
 	</section>
 
@@ -62,16 +62,19 @@
 			{% for property in propertys %}
 				<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
 					<div class="card-new-destinations">
-						<figcaption>
+						<figure>
 							<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-						</figcaption>
-						<div class="description-card-new-destinations">
-							<h3 id="title-description-card">{{ property.title }}</h3>
-							<p>{{ property.PriceNight }}€/nuit</p>
-							<p>
-								{{ property.address }}
-							</p>
-						</div>
+
+							<figcaption>
+								<div class="description-card-new-destinations">
+									<h3 id="title-description-card">{{ property.title }}</h3>
+									<p>{{ property.PriceNight }}€/nuit</p>
+									<p>
+										{{ property.address }}
+									</p>
+								</div>
+							</figcaption>
+						</figure>
 					</div>
 				</a>
 			{% endfor %}
@@ -117,7 +120,7 @@
 					<h3>Share team inboxes</h3>
 					<p>
 						Whether you have a team of 2 or 200, our shared team inboxes keep
-																								          everyone on the same page and in the loop.
+																														          everyone on the same page and in the loop.
 					</p>
 				</div>
 				<div class="item-featrues-commun">
@@ -125,7 +128,7 @@
 					<h3>Deliver instant answers</h3>
 					<p>
 						An all-in-one customer service platform that helps you balance
-																								          everything your customers need to be happy.
+																														          everything your customers need to be happy.
 					</p>
 				</div>
 				<div class="item-featrues-commun">
@@ -134,7 +137,7 @@
 					<h3>Manage your team with reports</h3>
 					<p>
 						Measure what matters with Untitled’s easy-to-use reports. You can
-																								          filter, export, and drilldown on the data in a couple clicks.
+																														          filter, export, and drilldown on the data in a couple clicks.
 					</p>
 				</div>
 			</div>
