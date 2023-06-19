@@ -704,14 +704,80 @@ section#new-destinations-section {
   div#container-card-new-destinations {
     width: fit-content;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
 
-    a {
-      div.card-new-destinations {
-        width: 240px;
-        height: 256px;
+    div.flex-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      background-color: #395EA2;
+
+      a {
+        padding-top: 1.5rem;
+
+        div.card-new-destinations {
+          width: 240px;
+          height: 256px;
+          position: relative;
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+          margin-bottom: 2rem;
+
+          figure {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 10px;
+            }
+
+            figcaption {
+              position: absolute;
+              bottom: 0;
+              left: 1rem;
+              width: 80%;
+              transform: translate(0, 20%);
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              background-color: rgba(255, 255, 255, 0.948);
+              padding: 10px;
+              border-radius: 10px;
+              transition: opacity 0.3s;
+            }
+
+            &:hover figcaption {
+              background-color: $white;
+            }
+          }
+        }
+      }
+    }
+
+    div.bigger-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 100%;
+      background-color: #53389e;
+
+      .main-card {
+        width: 480px;
+        height: 500px;
+        padding: 1rem;
         position: relative;
         border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         margin-bottom: 2rem;
 
         figure {
@@ -723,6 +789,8 @@ section#new-destinations-section {
           margin: 0;
           padding: 0;
           position: relative;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
 
           img {
             width: 100%;
@@ -748,15 +816,27 @@ section#new-destinations-section {
           }
 
           &:hover figcaption {
-background-color: $white;          }
+            background-color: $white;
+          }
         }
+
+        // @media screen and (max-width: 800px) {
+        //   .dashboard-cards {
+        //     .card {
+        //       margin: 0;
+        //       max-width: 180px;
+        //     }
+        //   }
+        // }
+
       }
     }
+
+    // @media screen and (max-width: 850px) {
+    //   ... I hate this
+    // }
   }
 }
-
-
-
 
 //? --------- best-tags sections --------- //
 section#best-tags-section {
@@ -769,30 +849,47 @@ section#best-tags-section {
     div#card-best-tags {
       width: 240px;
       height: 256px;
-      padding: 20px;
       position: relative;
-      background: $bg-card;
       border-radius: 10px;
-      margin-bottom: 80px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      margin-bottom: 2rem;
 
-      figcaption {
-        text-align: center;
+      figure {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
 
         img {
           width: 100%;
-          height: 200px;
+          height: 100%;
+          object-fit: cover;
           border-radius: 10px;
         }
-      }
 
-      div.description-card {
-        position: absolute;
-        bottom: 5px;
-        right: 20px;
-        max-width: 200px;
-        border-radius: 10px;
-        padding: 10px;
-        background-color: $white-default;
+        figcaption>div.description-card {
+          position: absolute;
+          bottom: 0;
+          left: 1rem;
+          width: 80%;
+          transform: translate(0, 20%);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          background-color: rgba(255, 255, 255, 0.948);
+          padding: 10px;
+          border-radius: 10px;
+          transition: opacity 0.3s;
+        }
+
+        &:hover figcaption {
+          background-color: $white;
+        }
       }
     }
   }
