@@ -52,7 +52,8 @@ a,
 label {
   font-family: "Quicksand";
   text-decoration: none;
-  font-size: .8rem;
+  font-size: .9rem;
+  line-height: 1.3rem;
 }
 
 ul {
@@ -70,7 +71,7 @@ h6 {
 
 h2 {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 30px;
   line-height: 52px;
   text-align: center;
   color: $title-color;
@@ -691,93 +692,52 @@ footer {
 //? --------- New Destination Section --------- //
 
 section#new-destinations-section {
+  margin-top: 40px;
   margin-bottom: 40px;
 
   p#description-new-destinations {
-    font-size: 15px;
-    line-height: 25px;
     text-align: right;
     color: $darkerblue;
-    margin-bottom: 20px;
+    margin: .5rem 0;
   }
 
   div#container-card-new-destinations {
-    width: fit-content;
-    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 
-    div.flex-cards {
+    div.new-destination-flex-cards {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      background-color: #395EA2;
-
-      a {
-        padding-top: 1.5rem;
-
-        div.card-new-destinations {
-          width: 240px;
-          height: 256px;
-          position: relative;
-          border-radius: 10px;
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-          margin-bottom: 2rem;
-
-          figure {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            position: relative;
-
-            img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              border-radius: 10px;
-            }
-
-            figcaption {
-              position: absolute;
-              bottom: 0;
-              left: 1rem;
-              width: 80%;
-              transform: translate(0, 20%);
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              background-color: rgba(255, 255, 255, 0.948);
-              padding: 10px;
-              border-radius: 10px;
-              transition: opacity 0.3s;
-            }
-
-            &:hover figcaption {
-              background-color: $white;
-            }
-          }
-        }
-      }
+      // background-color: #395EA2;
     }
 
-    div.bigger-card {
+    div.new-destination-main-card {
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-basis: 100%;
-      background-color: #53389e;
+      // background-color: #53389e;
 
       .main-card {
-        width: 480px;
+        max-width: 480px;
+        width: 100%;
         height: 500px;
-        padding: 1rem;
         position: relative;
         border-radius: 10px;
+        margin-bottom: 2rem;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      }
+    }
+
+    a {
+      padding-top: 1.5rem;
+
+      div.card-new-destinations {
+        width: 240px;
+        height: 256px;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         margin-bottom: 2rem;
 
         figure {
@@ -789,8 +749,6 @@ section#new-destinations-section {
           margin: 0;
           padding: 0;
           position: relative;
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
 
           img {
             width: 100%;
@@ -819,21 +777,14 @@ section#new-destinations-section {
             background-color: $white;
           }
         }
-
-        // @media screen and (max-width: 800px) {
-        //   .dashboard-cards {
-        //     .card {
-        //       margin: 0;
-        //       max-width: 180px;
-        //     }
-        //   }
-        // }
-
       }
     }
 
     // @media screen and (max-width: 850px) {
-    //   ... I hate this
+    //   div.new-destination-main-card {
+    //     width: 240px;
+    //     height: 256px;
+    //   }
     // }
   }
 }
@@ -845,6 +796,9 @@ section#best-tags-section {
   div#container-card-best-tags {
     width: fit-content;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 
     div#card-best-tags {
       width: 240px;
@@ -898,7 +852,7 @@ section#best-tags-section {
 //? --------- features-sections --------- //
 section#features-section {
   div#container-card-features {
-    figcaption {
+    figure {
       margin-bottom: 25px;
 
       img {
@@ -912,8 +866,20 @@ section#features-section {
       margin: 0 auto;
       text-align: center;
 
-      div.item-featrues-commun {
+      div.item-features-commun {
         margin-bottom: 20px;
+
+        figure{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          img{
+            width: 30px;
+            height: 30px;
+          }
+        }
 
         p {
           font-size: 14px;
@@ -948,7 +914,7 @@ section#join-us-section {
         font-size: 18px;
         line-height: 28px;
         padding: 5px 25px;
-        color: #53389e;
+        color: $accent;
         background-color: #f4ebff;
         border-radius: 10px;
       }
