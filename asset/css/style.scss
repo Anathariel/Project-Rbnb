@@ -38,7 +38,7 @@ $font: "Quicksand";
 body {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  background-color: #f8f8f8;
+  background-color: rgba(241, 244, 246, 0.722);
   line-height: 1.6;
 }
 
@@ -53,7 +53,6 @@ label {
   font-family: "Quicksand";
   text-decoration: none;
   font-size: .9rem;
-  line-height: 1.3rem;
 }
 
 ul {
@@ -67,18 +66,16 @@ h4,
 h5,
 h6 {
   font-family: "Quicksand";
+  color: $accent;
 }
 
 h2 {
-  font-weight: 700;
   font-size: 30px;
   line-height: 52px;
   text-align: center;
-  color: $title-color;
 }
 
 h3 {
-  font-weight: 700;
   font-size: 16px;
   line-height: 26px;
   text-align: center;
@@ -491,7 +488,7 @@ footer {
     margin-bottom: 1.5rem;
 
     h1 {
-      color: $title-color;
+      color: $accent;
       font-size: 2rem;
       margin-bottom: 1rem;
     }
@@ -719,8 +716,10 @@ section#new-destinations-section {
       // background-color: #53389e;
 
       .main-card {
+        margin: 0 auto;
         max-width: 480px;
-        width: 100%;
+        width: calc(100% - 1rem);
+        height: auto;
         height: 500px;
         position: relative;
         border-radius: 10px;
@@ -869,13 +868,13 @@ section#features-section {
       div.item-features-commun {
         margin-bottom: 20px;
 
-        figure{
+        figure {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
 
-          img{
+          img {
             width: 30px;
             height: 30px;
           }

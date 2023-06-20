@@ -14,7 +14,7 @@
 body {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  background-color: #f8f8f8;
+  background-color: rgba(241, 244, 246, 0.722);
   line-height: 1.6;
 }
 
@@ -29,7 +29,6 @@ label {
   font-family: "Quicksand";
   text-decoration: none;
   font-size: 0.9rem;
-  line-height: 1.3rem;
 }
 
 ul {
@@ -43,18 +42,16 @@ h4,
 h5,
 h6 {
   font-family: "Quicksand";
+  color: #395EA2;
 }
 
 h2 {
-  font-weight: 700;
   font-size: 30px;
   line-height: 52px;
   text-align: center;
-  color: #e55039;
 }
 
 h3 {
-  font-weight: 700;
   font-size: 16px;
   line-height: 26px;
   text-align: center;
@@ -360,7 +357,7 @@ footer .footer-mobile a {
   margin-bottom: 1.5rem;
 }
 #hero #call h1 {
-  color: #e55039;
+  color: #395EA2;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -501,8 +498,10 @@ section#new-destinations-section div#container-card-new-destinations div.new-des
   align-items: center;
 }
 section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card .main-card {
+  margin: 0 auto;
   max-width: 480px;
-  width: 100%;
+  width: calc(100% - 1rem);
+  height: auto;
   height: 500px;
   position: relative;
   border-radius: 10px;
