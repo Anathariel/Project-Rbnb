@@ -28,7 +28,8 @@ a,
 label {
   font-family: "Quicksand";
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
 }
 
 ul {
@@ -46,7 +47,7 @@ h6 {
 
 h2 {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 30px;
   line-height: 52px;
   text-align: center;
   color: #e55039;
@@ -76,12 +77,12 @@ h3 {
   color: #73C0CE;
 }
 
-.darkblue {
-  color: #0b4a6f;
-}
-
 .grey {
   color: rgb(67, 65, 65);
+}
+
+.lightgrey {
+  color: rgba(91, 88, 88, 0.721);
 }
 
 .header-main {
@@ -106,7 +107,7 @@ h3 {
   align-items: center;
   margin: 0 1rem;
 }
-.header-main .header-content #container-searchbar #searchbar {
+.header-main .header-content #container-searchbar #desktop-searchbar #searchbar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,17 +117,17 @@ h3 {
   padding: 0 1.5rem;
   background-color: #f8f8f8;
 }
-.header-main .header-content #container-searchbar #searchbar .search-element {
+.header-main .header-content #container-searchbar #desktop-searchbar #searchbar .search-element {
   margin: 1rem;
   color: rgb(48, 46, 46);
 }
-.header-main .header-content #container-searchbar #searchbar .search-element p {
+.header-main .header-content #container-searchbar #desktop-searchbar #searchbar .search-element p {
   font-size: 0.8rem;
 }
-.header-main .header-content #container-searchbar #searchbar .separation {
+.header-main .header-content #container-searchbar #desktop-searchbar #searchbar .separation {
   position: relative;
 }
-.header-main .header-content #container-searchbar #searchbar .separation:after {
+.header-main .header-content #container-searchbar #desktop-searchbar #searchbar .separation:after {
   content: "";
   position: absolute;
   right: -1rem;
@@ -134,12 +135,13 @@ h3 {
   height: 80%;
   border-left: 1px solid rgba(48, 46, 46, 0.306);
 }
-.header-main .header-content #container-searchbar #searchbar:hover {
+.header-main .header-content #container-searchbar #desktop-searchbar #searchbar:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: background 250ms ease;
   background: hsl(0, 0%, 94%);
 }
-.header-main .header-content #container-searchbar button {
+.header-main .header-content #container-searchbar #desktop-searchbar button {
+  width: 35px;
   background-color: #395EA2;
   border-radius: 5rem;
   padding: 0.5rem;
@@ -147,16 +149,32 @@ h3 {
   border: none;
   transition: background 250ms ease-in-out;
 }
-.header-main .header-content #container-searchbar button:hover {
+.header-main .header-content #container-searchbar #desktop-searchbar button:hover {
   background: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
 }
 .header-main .header-content #user {
   margin-right: 3rem;
 }
+@media screen and (max-width: 900px) {
+  .header-main .header-content #logo {
+    margin-right: auto;
+    margin-left: 0;
+  }
+  .header-main .header-content #user {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  .header-main .header-content #logo,
+  .header-main .header-content #user,
+  .header-main .header-content #desktop-searchbar {
+    display: none;
+  }
+}
 
 .dashboard-header {
   width: 100%;
-  border-bottom: solid 1px #0b4a6f;
+  border-bottom: solid 1px #1b1d21;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -164,7 +182,7 @@ h3 {
 .dashboard-header .search-dashboard {
   display: flex;
   width: 30%;
-  border: solid 0.1rem #0b4a6f;
+  border: solid 0.1rem #1b1d21;
   border-radius: 5rem;
 }
 .dashboard-header .search-dashboard input[type=text] {
@@ -346,9 +364,6 @@ footer .footer-mobile a {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-#hero #call span {
-  color: #EE923F;
-}
 #hero #call p {
   text-align: right;
 }
@@ -463,44 +478,82 @@ footer .footer-mobile a {
 }
 
 section#new-destinations-section {
+  margin-top: 40px;
   margin-bottom: 40px;
 }
 section#new-destinations-section p#description-new-destinations {
-  font-size: 15px;
-  line-height: 25px;
   text-align: right;
   color: #1b1d21;
-  margin-bottom: 20px;
+  margin: 0.5rem 0;
 }
 section#new-destinations-section div#container-card-new-destinations {
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+section#new-destinations-section div#container-card-new-destinations div.new-destination-flex-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card .main-card {
+  max-width: 480px;
+  width: 100%;
+  height: 500px;
+  position: relative;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+section#new-destinations-section div#container-card-new-destinations a {
+  padding-top: 1.5rem;
 }
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations {
   width: 240px;
   height: 256px;
-  padding: 20px;
   position: relative;
-  background: #eaeef3;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-bottom: 2rem;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 10px;
 }
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figcaption {
-  text-align: center;
-}
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figcaption img {
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
-}
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations div.description-card-new-destinations {
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption {
   position: absolute;
-  bottom: 5px;
-  right: 20px;
-  max-width: 200px;
-  border-radius: 10px;
+  bottom: 0;
+  left: 1rem;
+  width: 80%;
+  transform: translate(0, 20%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.948);
   padding: 10px;
-  background-color: #ffffff;
+  border-radius: 10px;
+  transition: opacity 0.3s;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure:hover figcaption {
+  background-color: #f8f8f8;
 }
 
 section#best-tags-section {
@@ -510,38 +563,58 @@ section#best-tags-section div#container-card-best-tags {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 section#best-tags-section div#container-card-best-tags div#card-best-tags {
   width: 240px;
   height: 256px;
-  padding: 20px;
   position: relative;
-  background: #eaeef3;
   border-radius: 10px;
-  margin-bottom: 80px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-bottom: 2rem;
 }
-section#best-tags-section div#container-card-best-tags div#card-best-tags figcaption {
-  text-align: center;
-}
-section#best-tags-section div#container-card-best-tags div#card-best-tags figcaption img {
+section#best-tags-section div#container-card-best-tags div#card-best-tags figure {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   width: 100%;
-  height: 200px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+section#best-tags-section div#container-card-best-tags div#card-best-tags figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 10px;
 }
-section#best-tags-section div#container-card-best-tags div#card-best-tags div.description-card {
+section#best-tags-section div#container-card-best-tags div#card-best-tags figure figcaption > div.description-card {
   position: absolute;
-  bottom: 5px;
-  right: 20px;
-  max-width: 200px;
-  border-radius: 10px;
+  bottom: 0;
+  left: 1rem;
+  width: 80%;
+  transform: translate(0, 20%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.948);
   padding: 10px;
-  background-color: #ffffff;
+  border-radius: 10px;
+  transition: opacity 0.3s;
+}
+section#best-tags-section div#container-card-best-tags div#card-best-tags figure:hover figcaption {
+  background-color: #f8f8f8;
 }
 
-section#features-section div#container-card-features figcaption {
+section#features-section div#container-card-features figure {
   margin-bottom: 25px;
 }
-section#features-section div#container-card-features figcaption img {
+section#features-section div#container-card-features figure img {
   width: 100%;
   height: 100px;
 }
@@ -550,10 +623,20 @@ section#features-section div#container-card-features div#container-description-f
   margin: 0 auto;
   text-align: center;
 }
-section#features-section div#container-card-features div#container-description-features div.item-featrues-commun {
+section#features-section div#container-card-features div#container-description-features div.item-features-commun {
   margin-bottom: 20px;
 }
-section#features-section div#container-card-features div#container-description-features div.item-featrues-commun p {
+section#features-section div#container-card-features div#container-description-features div.item-features-commun figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section#features-section div#container-card-features div#container-description-features div.item-features-commun figure img {
+  width: 30px;
+  height: 30px;
+}
+section#features-section div#container-card-features div#container-description-features div.item-features-commun p {
   font-size: 14px;
   line-height: 24px;
   color: #475467;
@@ -578,7 +661,7 @@ section#join-us-section div#container-card-join-us figcaption a#btn-list-propert
   font-size: 18px;
   line-height: 28px;
   padding: 5px 25px;
-  color: #53389e;
+  color: #395EA2;
   background-color: #f4ebff;
   border-radius: 10px;
 }
@@ -667,9 +750,10 @@ section#googlemaps-property-section div#map {
   padding: 1rem 0;
 }
 .dashboard .dashboard-cards .card figure img {
-  width: 261px;
+  width: 260px;
   height: auto;
   border-radius: 0.5rem;
+  display: inline-block;
 }
 .dashboard .dashboard-cards .card figure figcaption {
   width: 30px;

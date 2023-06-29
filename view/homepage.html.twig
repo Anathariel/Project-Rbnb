@@ -48,7 +48,7 @@
 					<img src="{{asset('/media/icons/filter.svg')}}" alt="filter">Filtres</button>
 				<a href="#" class="arrow right"></a>
 			</div>
-      
+
 		</div>
 	</section>
 
@@ -59,23 +59,44 @@
 		<p id="description-new-destinations">
 			The sky was cloudless and of a deep dark blue the spectacle before us was indeed.
 		</p>
+
 		<div id="container-card-new-destinations">
-			{% for property in propertys %}
-				<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
-					<div class="card-new-destinations">
-						<figcaption>
-							<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-						</figcaption>
-						<div class="description-card-new-destinations">
-							<h3 id="title-description-card">{{ property.title }}</h3>
-							<p>{{ property.PriceNight }}€/nuit</p>
-							<p>
-								{{ property.address }}
-							</p>
-						</div>
+
+			<div class="new-destination-main-card">
+				<a href="{{ path('baseProperty') }}{{ propertys[0].propertyId }}">
+					<div class="card-new-destinations main-card">
+						<figure>
+							<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ propertys[0].title }}"/>
+							<figcaption>
+								<div class="description-card-new-destinations">
+									<h3 id="title-description-card">{{ propertys[0].title }}</h3>
+									<p>{{ propertys[0].PriceNight }}€/nuit</p>
+									<p>{{ propertys[0].address }}</p>
+								</div>
+							</figcaption>
+						</figure>
 					</div>
 				</a>
-			{% endfor %}
+			</div>
+
+			<div class="new-destination-flex-cards">
+				{% for property in propertys[1:] %}
+					<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
+						<div class="card-new-destinations">
+							<figure>
+								<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+								<figcaption>
+									<div class="description-card-new-destinations">
+										<h3 id="title-description-card">{{ property.title }}</h3>
+										<p>{{ property.PriceNight }}€/nuit</p>
+										<p>{{ property.address }}</p>
+									</div>
+								</figcaption>
+							</figure>
+						</div>
+					</a>
+				{% endfor %}
+			</div>
 		</div>
 	</section>
 
@@ -88,14 +109,17 @@
 				{% for property in propertys %}
 					<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
 						<div id="card-best-tags">
-							<figcaption>
+							<figure>
 								<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-							</figcaption>
-							<div class="description-card">
-								<h3 id="title-description-card">{{ property.title }}</h3>
-								<p>{{ property.PriceNight }}€/nuit</p>
-								<p>{{ property.address }}</p>
-							</div>
+
+								<figcaption>
+									<div class="description-card">
+										<h3 id="title-description-card">{{ property.title }}</h3>
+										<p>{{ property.PriceNight }}€/nuit</p>
+										<p>{{ property.address }}</p>
+									</div>
+								</figcaption>
+							</figure>
 						</div>
 					</a>
 				{% endfor %}
@@ -108,35 +132,46 @@
 	<section id="features-section">
 		<h2 id="title-features-section">Something Something</h2>
 		<div id="container-card-features" class="limit-size">
-			<figcaption>
+			<figure>
 				<img src="{{ asset('/media/banners/pexels-bagus-pangestu-1440476.png') }}" alt="banner"/>
-			</figcaption>
+			</figure>
 			<div id="container-description-features">
-				<div class="item-featrues-commun">
+				<div class="item-features-commun">
+					<figure>
+						<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
 
-					<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
-					<h3>Share team inboxes</h3>
-					<p>
-						Whether you have a team of 2 or 200, our shared team inboxes keep
-																								          everyone on the same page and in the loop.
-					</p>
+						<figcaption>
+							<h3>Share team inboxes</h3>
+							<p>
+								Whether you have a team of 2 or 200, our shared team inboxes keep
+																																												          everyone on the same page and in the loop.
+							</p>
+						</figcaption>
+					</figure>
 				</div>
-				<div class="item-featrues-commun">
-					<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
-					<h3>Deliver instant answers</h3>
-					<p>
-						An all-in-one customer service platform that helps you balance
-																								          everything your customers need to be happy.
-					</p>
+				<div class="item-features-commun">
+					<figure>
+						<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
+						<figcaption>
+							<h3>Deliver instant answers</h3>
+							<p>
+								An all-in-one customer service platform that helps you balance
+																																														          everything your customers need to be happy.
+							</p>
+						</figcaption>
+					</figure>
 				</div>
-				<div class="item-featrues-commun">
-
+				<div class="item-features-commun">
+					<figure>
 					<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
+					<figcaption>
 					<h3>Manage your team with reports</h3>
 					<p>
 						Measure what matters with Untitled’s easy-to-use reports. You can
-																								          filter, export, and drilldown on the data in a couple clicks.
+																																										          filter, export, and drilldown on the data in a couple clicks.
 					</p>
+					</figcaption>
+					</figure>
 				</div>
 			</div>
 		</div>
