@@ -1,8 +1,5 @@
-{% extends "template.html.twig" %} 
-
-{% block title %}Louer votre location{% endblock %} 
-
-{% block content %}
+{% extends "template.html.twig" %} {% block title %}Louer votre location{%
+endblock %} {% block content %}
 <div id="addpropertyForm">
   <fieldset>
     {% if message %}
@@ -40,7 +37,7 @@
         name="price-night"
         placeholder="Déterminez le prix d'une nuit"
       />
-      <br><br>
+      <br /><br />
 
       <label for="property-type">Choisissez le type de propriété :</label>
       <br />
@@ -50,7 +47,7 @@
         <option value="guesthouse">Maison d'hôte</option>
         <option value="hotel">Hôtel</option>
       </select>
-      <br /><br>
+      <br /><br />
 
       <label for="host-languages">Langues parlées par l'hôte :</label>
       <br />
@@ -302,8 +299,21 @@
       >
       <br /><br />
 
-      <input type="submit" name="submit" value="Submit" />
+      <label for="accommodation-types">Règlement intérieur :</label>
+      <br />
+      <label for="check-in-time">Heure d'arrivée :</label>
+      <input type="time" id="check-in-time" name="check-in-time" required />
+      <br />
 
+      <label for="check-out-time">Heure de départ :</label>
+      <input type="time" id="check-out-time" name="check-out-time" required />
+      <br />
+
+      <label for="max-guests">Nombre maximum d'invités :</label>
+      <input type="number" id="max-guests" name="max-guests" required />
+      <br /><br />
+
+      <input type="submit" name="submit" value="Submit" />
     </form>
   </fieldset>
 </div>
