@@ -42,7 +42,7 @@ h4,
 h5,
 h6 {
   font-family: "Quicksand";
-  color: #395EA2;
+  color: #404e87;
 }
 
 h2 {
@@ -71,7 +71,7 @@ h3 {
 }
 
 .maincolor {
-  color: #73C0CE;
+  color: #92aad3;
 }
 
 .grey {
@@ -86,7 +86,7 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #73C0CE;
+  background-color: #92aad3;
   padding: 1rem;
 }
 .header-main .header-content {
@@ -139,7 +139,7 @@ h3 {
 }
 .header-main .header-content #container-searchbar #desktop-searchbar button {
   width: 35px;
-  background-color: #395EA2;
+  background-color: #404e87;
   border-radius: 5rem;
   padding: 0.5rem;
   outline: transparent;
@@ -335,7 +335,7 @@ h3 {
 
 footer {
   margin-top: auto;
-  background-color: #73C0CE;
+  background-color: #92aad3;
 }
 footer .footer-desktop {
   display: flex;
@@ -349,96 +349,32 @@ footer .footer-mobile a {
   margin: 2rem;
 }
 
-#hero {
-  margin: 0 1rem;
-}
-#hero #call {
-  margin-top: 5rem;
-  margin-bottom: 1.5rem;
-}
-#hero #call h1 {
-  color: #395EA2;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-#hero #call p {
-  text-align: right;
-}
-#hero figure {
-  position: relative;
-}
 #hero figure img {
   -o-object-fit: cover;
      object-fit: cover;
-  height: 160px;
   width: 100%;
-  border-radius: 15px 15px 0 0;
+  max-height: 300px;
   opacity: 70%;
 }
-#hero figure figcaption {
-  position: absolute;
-  bottom: 2rem;
-  right: 1rem;
-}
-#hero figure figcaption button {
-  background-color: #D5DFF0;
-  color: #395EA2;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  outline: transparent;
-  font-family: "Quicksand";
-}
-#hero figure figcaption button:hover {
-  background-color: rgba(213, 223, 240, 0.831372549);
-  filter: brightness(110%);
-  transition: 0.5s ease;
-}
-#hero figure figcaption button:active {
-  transform: translate(0, 0.5rem);
-  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.7);
-}
-@media screen and (min-width: 700px) {
-  #hero #call {
-    margin-bottom: 3rem;
-  }
-  #hero #call h1 {
-    margin-bottom: 5rem;
-  }
-  #hero figure img {
-    height: 350px;
-  }
-  #hero figure figcaption {
-    bottom: 3rem;
-    right: 3rem;
-  }
-  #hero figure figcaption button {
-    width: 285px;
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
-  }
-}
 
-#tag-nav {
-  overflow: scroll;
-}
 #tag-nav #tag-container {
   position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 100%;
-  height: 100px;
 }
 #tag-nav #tag-container .left-corner {
+  width: 10%;
+  height: 100%;
   position: absolute;
   left: 0;
-  background-color: #f8f8f8;
+  background-color: #404e87;
 }
 #tag-nav #tag-container .container-tag-list {
   display: flex;
-  flex: 1;
+  overflow: scroll;
+  width: 80%;
 }
 #tag-nav #tag-container .container-tag-list .tag-item {
   flex: 1;
@@ -471,7 +407,20 @@ footer .footer-mobile a {
   border-bottom: 1px solid #000000;
 }
 #tag-nav #tag-container .right-corner {
-  background: #f8f8f8;
+  width: 10%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  background-color: #404e87;
+}
+#tag-nav button.filter {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  text-align: center;
+  align-items: center;
+  padding: 0.8rem;
+  border-radius: 100%;
 }
 
 section#new-destinations-section {
@@ -660,9 +609,18 @@ section#join-us-section div#container-card-join-us figcaption a#btn-list-propert
   font-size: 18px;
   line-height: 28px;
   padding: 5px 25px;
-  color: #395EA2;
+  color: #404e87;
   background-color: #f4ebff;
   border-radius: 10px;
+}
+section#join-us-section div#container-card-join-us figcaption a#btn-list-property a#btn-list-property:hover {
+  background-color: rgba(213, 223, 240, 0.831372549);
+  filter: brightness(110%);
+  transition: 0.5s ease;
+}
+section#join-us-section div#container-card-join-us figcaption a#btn-list-property a#btn-list-property:active {
+  transform: translate(0, 0.5rem);
+  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.7);
 }
 
 section#property-section figcaption img {

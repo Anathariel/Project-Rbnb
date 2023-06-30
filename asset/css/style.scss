@@ -1,15 +1,14 @@
 //& -------------------- SCSS VARIABLES -------------------- //
 
 //^ --------- COLORS --------- //
-$maincolor: #73C0CE;
+$maincolor: #92aad3;
 $secondary: #D5DFF0;
-$accent : #395EA2;
+$accent : #404e87;
 
 $white: #f8f8f8;
 $white-default: #ffffff;
 
 $darkerblue: #1b1d21;
-$title-color: #e55039;
 $bg-card: #eaeef3;
 
 $dashboard-brg: #e1e7ea;
@@ -480,89 +479,14 @@ footer {
 //~ -------------------- HOMEPAGE -------------------- //
 //? --------- Hero Section --------- //
 
+//Faire un carousel/slider d'images, voir si ajout d'un slogan
 #hero {
-  margin: 0 1rem;
-
-  #call {
-    margin-top: 5rem;
-    margin-bottom: 1.5rem;
-
-    h1 {
-      color: $accent;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      text-align: right;
-    }
-  }
-
   figure {
-    position: relative;
-
     img {
       object-fit: cover;
-      height: 160px;
       width: 100%;
-      border-radius: 15px 15px 0 0;
+      max-height: 300px;
       opacity: 70%;
-    }
-
-    figcaption {
-      position: absolute;
-      bottom: 2rem;
-      right: 1rem;
-
-      button {
-        background-color: $secondary;
-        color: $accent;
-        padding: .5rem 1rem;
-        border: none;
-        border-radius: .5rem;
-        cursor: pointer;
-        font-size: 1rem;
-        outline: transparent;
-        font-family: 'Quicksand';
-      }
-
-      button:hover {
-        background-color: #d5dff0d4;
-        filter: brightness(110%);
-        transition: .5s ease;
-      }
-
-      button:active {
-        transform: translate(0, 0.5rem);
-        box-shadow: 0 0.1rem rgba(255, 255, 255, 0.70);
-      }
-    }
-  }
-
-  @media screen and (min-width: 700px) {
-    #call {
-      margin-bottom: 3rem;
-
-      h1 {
-        margin-bottom: 5rem;
-      }
-    }
-
-    figure {
-      img {
-        height: 350px;
-      }
-
-      figcaption {
-        bottom: 3rem;
-        right: 3rem;
-
-        button {
-          width: 285px;
-          font-size: 1.2rem;
-          padding: 1rem 2rem;
-        }
-      }
     }
   }
 }
@@ -570,24 +494,26 @@ footer {
 //? --------- Tag Nav' Menu Section --------- //
 
 #tag-nav {
-  overflow: scroll;
 
   #tag-container {
     position: relative;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: 100%;
-    height: 100px;
 
     .left-corner {
+      width: 10%;
+      height: 100%;
       position: absolute;
       left: 0;
-      background-color: $white;
+      background-color: $accent;
     }
 
     .container-tag-list {
       display: flex;
-      flex: 1;
+      overflow: scroll;
+      width: 80%;
 
       .tag-item {
         flex: 1;
@@ -627,62 +553,23 @@ footer {
     }
 
     .right-corner {
-      // position: absolute;
-      // right: 0;
-      background: $white;
+      width: 10%;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      background-color: $accent;
     }
   }
 
-  // .arrow {
-  //   z-index: 1;
-  //   position: absolute;
-  //   width: 2rem;
-  //   height: 2rem;
-  //   background: transparent;
-  //   border-top: 0.5rem solid $darkerblue;
-  //   border-right: 0.5rem solid $darkerblue;
-  //   box-shadow: 0 0 0 lightgray;
-  //   transition: all 200ms ease;
-
-  //   &.left {
-  //     left: 15;
-  //     bottom: 1;
-  //     transform: translate3d(0, -50%, 0) rotate(-135deg);
-  //   }
-
-  //   &.right {
-  //     right: 15;
-  //     bottom: 5rem;
-  //     transform: translate3d(0, -50%, 0) rotate(45deg);
-  //   }
-
-  //   &:hover {
-  //     border-color: $maincolor;
-  //     box-shadow: 0.5rem -0.5rem 0 $darkerblue;
-  //   }
-
-  //   &:before {
-  //     content: "";
-  //     position: absolute;
-  //     top: 50%;
-  //     left: 50%;
-  //     transform: translate(-40%, -60%) rotate(45deg);
-  //     width: 200%;
-  //     height: 200%;
-  //   }
-  // }
-
-  // .filter {
-  //   position: absolute;
-  //   bottom: 1rem;
-  //   right: 1rem;
-  //   width: 150px;
-  //   padding: .5rem 2rem;
-  //   display: flex;
-  //   flex-direction: row;
-  //   cursor: pointer;
-  //   text-align: center;
-  // }
+  button.filter {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    padding: .8rem;
+    border-radius: 100%;
+  }
 }
 
 
@@ -916,6 +803,17 @@ section#join-us-section {
         color: $accent;
         background-color: #f4ebff;
         border-radius: 10px;
+
+        a#btn-list-property:hover {
+          background-color: #d5dff0d4;
+          filter: brightness(110%);
+          transition: .5s ease;
+        }
+
+        a#btn-list-property:active {
+          transform: translate(0, 0.5rem);
+          box-shadow: 0 0.1rem rgba(255, 255, 255, 0.70);
+        }
       }
     }
   }
