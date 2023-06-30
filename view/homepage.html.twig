@@ -36,6 +36,7 @@
 					<div class="tag-item">
 						<a href="#">
 							<img id="icon-tag" src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
+							<img src="../asset/media/locations/" alt="">
 							<p class="darkerblue">{{ tag.type }}</p>
 						</a>
 					</div>
@@ -60,12 +61,11 @@
 		</p>
 
 		<div id="container-card-new-destinations">
-
 			<div class="new-destination-main-card">
 				<a href="{{ path('baseProperty') }}{{ propertys[0].propertyId }}">
 					<div class="card-new-destinations main-card">
 						<figure>
-							<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ propertys[0].title }}"/>
+							<img src="{{ asset('/media/locations/' ~ propertys[0].propertyImages.imageMainURL) }}" alt="{{ propertys[0].title }}"/>
 							<figcaption>
 								<div class="description-card-new-destinations">
 									<h3 id="title-description-card">{{ propertys[0].title }}</h3>
@@ -77,115 +77,116 @@
 					</div>
 				</a>
 			</div>
-
-			<div class="new-destination-flex-cards">
-				{% for property in propertys[1:] %}
-					<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
-						<div class="card-new-destinations">
-							<figure>
-								<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-								<figcaption>
-									<div class="description-card-new-destinations">
-										<h3 id="title-description-card">{{ property.title }}</h3>
-										<p>{{ property.PriceNight }}€/nuit</p>
-										<p>{{ property.address }}</p>
-									</div>
-								</figcaption>
-							</figure>
-						</div>
-					</a>
-				{% endfor %}
-			</div>
 		</div>
-	</section>
 
-	{# ---------- best-tags sections ---------- #}
 
-	<section id="best-tags-section">
-		<h2 id="title-best-tags-section">Catégorie Châteaux</h2>
-		<div id="container-card-best-tags">
-			{% for lastTag in lastTagsChateaux %}
-				{% for property in propertys %}
-					<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
-						<div id="card-best-tags">
-							<figure>
-								<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-
-								<figcaption>
-									<div class="description-card">
-										<h3 id="title-description-card">{{ property.title }}</h3>
-										<p>{{ property.PriceNight }}€/nuit</p>
-										<p>{{ property.address }}</p>
-									</div>
-								</figcaption>
-							</figure>
-						</div>
-					</a>
-				{% endfor %}
+		<div class="new-destination-flex-cards">
+			{% for property in propertys[1:] %}
+				<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
+					<div class="card-new-destinations">
+						<figure>
+							<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+							<figcaption>
+								<div class="description-card-new-destinations">
+									<h3 id="title-description-card">{{ property.title }}</h3>
+									<p>{{ property.PriceNight }}€/nuit</p>
+									<p>{{ property.address }}</p>
+								</div>
+							</figcaption>
+						</figure>
+					</div>
+				</a>
 			{% endfor %}
 		</div>
-	</section>
 
-	{# ---------- features-sections ---------- #}
+	</div>
+</section>
 
-	<section id="features-section">
-		<h2 id="title-features-section">Something Something</h2>
-		<div id="container-card-features" class="limit-size">
-			<figure>
-				<img src="{{ asset('/media/banners/pexels-bagus-pangestu-1440476.png') }}" alt="banner"/>
-			</figure>
-			<div id="container-description-features">
-				<div class="item-features-commun">
-					<figure>
-						<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
+{# ---------- best-tags sections ---------- #}
 
-						<figcaption>
-							<h3>Share team inboxes</h3>
-							<p>
-								Whether you have a team of 2 or 200, our shared team inboxes keep
-																																												          everyone on the same page and in the loop.
-							</p>
-						</figcaption>
-					</figure>
-				</div>
-				<div class="item-features-commun">
-					<figure>
-						<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
-						<figcaption>
-							<h3>Deliver instant answers</h3>
-							<p>
-								An all-in-one customer service platform that helps you balance
-																																														          everything your customers need to be happy.
-							</p>
-						</figcaption>
-					</figure>
-				</div>
-				<div class="item-features-commun">
-					<figure>
+<section id="best-tags-section">
+	<h2 id="title-best-tags-section">Catégorie Châteaux</h2>
+	<div id="container-card-best-tags">
+		{% for lastTag in lastTagsChateaux %}
+			{% for property in propertys %}
+				<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
+					<div id="card-best-tags">
+						<figure>
+							<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+
+							<figcaption>
+								<div class="description-card">
+									<h3 id="title-description-card">{{ property.title }}</h3>
+									<p>{{ property.PriceNight }}€/nuit</p>
+									<p>{{ property.address }}</p>
+								</div>
+							</figcaption>
+						</figure>
+					</div>
+				</a>
+			{% endfor %}
+		{% endfor %}
+	</div>
+</section>
+
+{# ---------- features-sections ---------- #}
+
+<section id="features-section">
+	<h2 id="title-features-section">Something Something</h2>
+	<div id="container-card-features" class="limit-size">
+		<figure>
+			<img src="{{ asset('/media/banners/pexels-bagus-pangestu-1440476.png') }}" alt="banner"/>
+		</figure>
+		<div id="container-description-features">
+			<div class="item-features-commun">
+				<figure>
+					<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
+
+					<figcaption>
+						<h3>Share team inboxes</h3>
+						<p>
+							Whether you have a team of 2 or 200, our shared team inboxes keep
+																																																			          everyone on the same page and in the loop.
+						</p>
+					</figcaption>
+				</figure>
+			</div>
+			<div class="item-features-commun">
+				<figure>
 					<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
 					<figcaption>
-					<h3>Manage your team with reports</h3>
-					<p>
-						Measure what matters with Untitled’s easy-to-use reports. You can
-																																										          filter, export, and drilldown on the data in a couple clicks.
-					</p>
+						<h3>Deliver instant answers</h3>
+						<p>
+							An all-in-one customer service platform that helps you balance
+																																																					          everything your customers need to be happy.
+						</p>
 					</figcaption>
-					</figure>
-				</div>
+				</figure>
+			</div>
+			<div class="item-features-commun">
+				<figure>
+					<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
+					<figcaption>
+						<h3>Manage your team with reports</h3>
+						<p>
+							Measure what matters with Untitled’s easy-to-use reports. You can
+																																																	          filter, export, and drilldown on the data in a couple clicks.
+						</p>
+					</figcaption>
+				</figure>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
-	{# ---------- join-us-sections ---------- #}
+{# ---------- join-us-sections ---------- #}
 
-	<section id="join-us-section">
-		<h2 id="title-join-us-section">Rejoignez nos hôtes</h2>
-		<div id="container-card-join-us" class="limit-size">
-			<figcaption>
-				<img src="{{ asset('/media/banners/join-us-banner.png') }}" alt="banner"/>
-				<a href="#" id="btn-list-property">Lister votre propriété</a>
-			</figcaption>
-		</div>
-	</section>
-
-{% endblock %}
+<section id="join-us-section">
+	<h2 id="title-join-us-section">Rejoignez nos hôtes</h2>
+	<div id="container-card-join-us" class="limit-size">
+		<figcaption>
+			<img src="{{ asset('/media/banners/join-us-banner.png') }}" alt="banner"/>
+			<a href="#" id="btn-list-property">Lister votre propriété</a>
+		</figcaption>
+	</div>
+</section>{% endblock %}

@@ -1,4 +1,7 @@
 <?php
+
+require_once 'uploadFile.php';
+
 class PropertyController extends Controller
 {
     public function getOne($id)
@@ -48,12 +51,10 @@ class PropertyController extends Controller
                 $accomodationTypes = isset($_POST['accommodation-types']) ? $_POST['accommodation-types'] : [];
 
                 $checkInTime = $_POST['check-in-time'];
-                var_dump($checkInTime);
                 $checkOutTime = $_POST['check-out-time'];
-                var_dump($checkOutTime);
-
                 $maxGuests = $_POST['max-guests'];
-                var_dump($maxGuests);
+
+                $tags = isset($_POST['tags']) ? $_POST['tags'] : [];
 
 
                 $owner = $_SESSION['uid'];
@@ -69,6 +70,42 @@ class PropertyController extends Controller
                 $propertyModel->addProperty($property);
 
                 $lastInsertedId = $propertyModel->getLastInsertedId(); // Récupérer l'ID de la dernière insertion
+
+
+                $imageMainURL = '';
+                $image1URL = '';
+                $image2URL = '';
+                $image3URL = '';
+                $image4URL = '';
+
+                if (isset($_FILES['imageMain']['name']) && !empty($_FILES['imageMain']['name'])) {
+                    $uploadDir = 'asset/media/locations/';
+                    $imageMainURL = uploadFile($_FILES['imageMain'], $uploadDir);
+                }
+
+                if (isset($_FILES['image1']['name']) && !empty($_FILES['image1']['name'])) {
+                    $uploadDir = 'asset/media/locations/';
+                    $image1URL = uploadFile($_FILES['image1'], $uploadDir);
+                }
+
+                if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
+                    $uploadDir = 'asset/media/locations/';
+                    $image2URL = uploadFile($_FILES['image2'], $uploadDir);
+                }
+
+                if (isset($_FILES['image3']['name']) && !empty($_FILES['image3']['name'])) {
+                    $uploadDir = 'asset/media/locations/';
+                    $image3URL = uploadFile($_FILES['image3'], $uploadDir);
+                }
+
+                if (isset($_FILES['image4']['name']) && !empty($_FILES['image4']['name'])) {
+                    $uploadDir = 'asset/media/locations/';
+                    $image4URL = uploadFile($_FILES['image4'], $uploadDir);
+                }
+
+                $propertyImagesModel = new PropertyImagesModel();
+                $propertyImagesModel->setPropertyImagesModel($lastInsertedId, $imageMainURL, $image1URL, $image2URL, $image3URL, $image4URL);
+
 
                 $propertyType = new PropertyType([
                     'propertyId' => $lastInsertedId,
@@ -136,6 +173,20 @@ class PropertyController extends Controller
 
                 $houseRulesModel = new HouseRulesModel();
                 $houseRulesModel->setHouseRulesModel($houseRules);
+
+                $propertyAmenities = new PropertyAmenities([
+                    'propertyId' => $lastInsertedId,
+                    'bedrooms' => $_POST['bedrooms'],
+                    'beds' => $_POST['beds'],
+                    'bathrooms' => $_POST['bathrooms'],
+                    'toilets' => $_POST['toilets']
+                ]);
+
+                $propertyAmenitiesModel = new PropertyAmenitiesModel();
+                $propertyAmenitiesModel->setPropertyAmenitiesModel($propertyAmenities);
+
+                $tagModel = new TagModel();
+                $tagModel->setTagsModel($lastInsertedId, $tags);
 
 
                 header('Location: ' . $router->generate('home'));

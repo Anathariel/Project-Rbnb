@@ -56,34 +56,36 @@ class PropertyAmenities
         return $this->toilets;
     }
 
-    //SETTERS
-    public function setPropertyAmenitiesId(int $propertyAmenitiesId)
-    {
-        $this->propertyAmenitiesId = $propertyAmenitiesId;
-    }
+       // Setters
 
-    public function setPropertyId(int $propertyId)
-    {
-        $this->propertyId = $propertyId;
-    }
+       public function setPropertyAmenitiesId($propertyAmenitiesId)
+       {
+           $this->propertyAmenitiesId = $propertyAmenitiesId;
+       }
 
-    public function setBedrooms(int $bedrooms)
-    {
-        $this->bedrooms = $bedrooms;
-    }
-
-    public function setBeds(int $beds)
-    {
-        $this->beds = $beds;
-    }
-
-    public function setBathrooms(int $bathrooms)
-    {
-        $this->bathrooms = $bathrooms;
-    }
-
-    public function setToilets(int $toilets)
-    {
-        $this->toilets = $toilets;
-    }
+       public function setPropertyId($propertyId)
+       {
+           $this->propertyId = $propertyId;
+       }
+   
+       public function setBedrooms($bedrooms)
+       {
+           $this->bedrooms = intval($bedrooms);
+       }
+   
+       public function setBeds($beds)
+       {
+           $this->beds = intval($beds);
+       }
+   
+       public function setBathrooms($bathrooms)
+       {
+           $this->bathrooms = intval($bathrooms);
+       }
+   
+       public function setToilets($toilets)
+       {
+           $this->toilets = intval($toilets);
+       }
+   
 }
