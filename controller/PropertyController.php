@@ -1,4 +1,7 @@
 <?php
+
+require_once 'uploadFile.php';
+
 class PropertyController extends Controller
 {
     public function getOne($id)
@@ -76,47 +79,32 @@ class PropertyController extends Controller
                 $image4URL = '';
 
                 if (isset($_FILES['imageMain']['name']) && !empty($_FILES['imageMain']['name'])) {
-                    $uploadDir = 'projet/project-rbnb/asset/media/locations/';
+                    $uploadDir = 'asset/media/locations/';
                     $imageMainURL = uploadFile($_FILES['imageMain'], $uploadDir);
                 }
 
                 if (isset($_FILES['image1']['name']) && !empty($_FILES['image1']['name'])) {
-                    $uploadDir = 'projet/project-rbnb/asset/media/locations/';
+                    $uploadDir = 'asset/media/locations/';
                     $image1URL = uploadFile($_FILES['image1'], $uploadDir);
                 }
 
                 if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
-                    $uploadDir = 'projet/project-rbnb/asset/media/locations/';
+                    $uploadDir = 'asset/media/locations/';
                     $image2URL = uploadFile($_FILES['image2'], $uploadDir);
                 }
 
                 if (isset($_FILES['image3']['name']) && !empty($_FILES['image3']['name'])) {
-                    $uploadDir = 'projet/project-rbnb/asset/media/locations/';
+                    $uploadDir = 'asset/media/locations/';
                     $image3URL = uploadFile($_FILES['image3'], $uploadDir);
                 }
 
                 if (isset($_FILES['image4']['name']) && !empty($_FILES['image4']['name'])) {
-                    $uploadDir = 'projet/project-rbnb/asset/media/locations/';
+                    $uploadDir = 'asset/media/locations/';
                     $image4URL = uploadFile($_FILES['image4'], $uploadDir);
                 }
 
                 $propertyImagesModel = new PropertyImagesModel();
                 $propertyImagesModel->setPropertyImagesModel($lastInsertedId, $imageMainURL, $image1URL, $image2URL, $image3URL, $image4URL);
-
-                function uploadFile($file, $uploadDir)
-                {
-                    $fileName = $file['name'];
-                    $tmpFilePath = $file['tmp_name'];
-                    $uploadPath = $uploadDir . $fileName;
-
-                    if (move_uploaded_file($tmpFilePath, $uploadPath)) {
-                        return $uploadPath;
-                    } else {
-                        // Gérer l'erreur lors du déplacement du fichier
-                        return '';
-                    }
-                }
-
 
 
                 $propertyType = new PropertyType([
