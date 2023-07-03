@@ -365,6 +365,9 @@ footer .footer-mobile a {
   width: 100%;
 }
 #tag-nav #tag-container .left-corner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 10%;
   height: 100%;
   position: absolute;
@@ -386,8 +389,8 @@ footer .footer-mobile a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 15px 1px;
-  padding: 0.5rem;
+  margin: 0 0.2rem;
+  padding: 0 0.5rem;
   height: 80px;
 }
 #tag-nav #tag-container .container-tag-list .tag-item a #icon-tag {
@@ -407,6 +410,9 @@ footer .footer-mobile a {
   border-bottom: 1px solid #000000;
 }
 #tag-nav #tag-container .right-corner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 10%;
   height: 100%;
   position: absolute;
@@ -414,12 +420,14 @@ footer .footer-mobile a {
   background-color: #404e87;
 }
 #tag-nav button.filter {
-  display: flex;
-  flex-direction: row;
   cursor: pointer;
-  text-align: center;
-  align-items: center;
-  padding: 0.8rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+#tag-nav button.arrow {
+  cursor: pointer;
+  padding: 0.5rem;
   border-radius: 100%;
 }
 

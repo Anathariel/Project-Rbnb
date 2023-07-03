@@ -503,6 +503,9 @@ footer {
     width: 100%;
 
     .left-corner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 10%;
       height: 100%;
       position: absolute;
@@ -525,8 +528,8 @@ footer {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          margin: 15px 1px;
-          padding: .5rem;
+          margin: 0 .2rem;
+          padding: 0 .5rem;
           height: 80px;
 
           #icon-tag {
@@ -553,6 +556,9 @@ footer {
     }
 
     .right-corner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 10%;
       height: 100%;
       position: absolute;
@@ -562,12 +568,15 @@ footer {
   }
 
   button.filter {
-    display: flex;
-    flex-direction: row;
     cursor: pointer;
-    text-align: center;
-    align-items: center;
-    padding: .8rem;
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: 100%;
+  }
+
+  button.arrow {
+    cursor: pointer;
+    padding: .5rem;
     border-radius: 100%;
   }
 }
