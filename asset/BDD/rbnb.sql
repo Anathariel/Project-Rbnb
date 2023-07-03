@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 15 juin 2023 à 08:14
+-- Généré le : lun. 03 juil. 2023 à 06:35
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -54,16 +54,15 @@ CREATE TABLE IF NOT EXISTS `accommodationtype` (
   `detecteurMonoxyDeCarbone` tinyint(1) NOT NULL,
   PRIMARY KEY (`accommodationTypeId`),
   KEY `PROPERTY` (`propertyId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `accommodationtype`
 --
 
 INSERT INTO `accommodationtype` (`accommodationTypeId`, `propertyId`, `piscine`, `parkingGratuit`, `jacuzzi`, `wifi`, `laveLinge`, `secheLinge`, `climatisation`, `chauffage`, `espaceTravailDedie`, `television`, `secheCheveux`, `ferRepasser`, `stationRechargeVehiElectriques`, `litBebe`, `salleSport`, `barbecue`, `petitDejeuner`, `cheminee`, `logementFumeur`, `detecteurFumee`, `detecteurMonoxyDeCarbone`) VALUES
-(24, 9, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(25, 43, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(39, 57, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(61, 90, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(62, 91, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -82,13 +81,6 @@ CREATE TABLE IF NOT EXISTS `cancellationpolicy` (
   KEY `PROPERTY` (`propertyId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `cancellationpolicy`
---
-
-INSERT INTO `cancellationpolicy` (`cancellationPolicyId`, `propertyId`, `cancellationTime`, `refundPolicy`, `cancellationFees`) VALUES
-(1, 9, 24, 'Avant de réserver, assurez-vous que les conditions dannulation de cet hôte vous conviennent. Gardez à lesprit que la Politique relative aux cas de force majeure de LocaR ne couvre pas les annulations dues à une maladie ou à des perturbations de voyage causées par le Covid-19.', '50');
-
 -- --------------------------------------------------------
 
 --
@@ -101,18 +93,11 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `uid` int NOT NULL,
   `propertyId` int NOT NULL,
   `rating` int NOT NULL,
-  `commentText` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `commentText` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`commentId`),
   KEY `USER` (`uid`),
   KEY `property` (`propertyId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `comment`
---
-
-INSERT INTO `comment` (`commentId`, `uid`, `propertyId`, `rating`, `commentText`) VALUES
-(2, 9, 9, 5, 'Si vous avez un beau temps, comme nous l\'avons fait , ce sera la cerise sur le gâteau.\r\nUn logement charmant et agréable . Soooo paisible .\r\nNature ,couchers de soleil ,faune et un court trajet en ferry vers Mull.\r\nParfait');
 
 -- --------------------------------------------------------
 
@@ -169,16 +154,15 @@ CREATE TABLE IF NOT EXISTS `hostlanguage` (
   `arabe` tinyint(1) NOT NULL,
   PRIMARY KEY (`hostLanguageId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `hostlanguage`
 --
 
 INSERT INTO `hostlanguage` (`hostLanguageId`, `propertyId`, `anglais`, `français`, `allemand`, `japonais`, `italien`, `russe`, `espagnol`, `chinois`, `arabe`) VALUES
-(2, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-(12, 43, 1, 1, 1, 1, 0, 0, 0, 0, 0),
-(26, 57, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+(48, 90, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(49, 91, 1, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -195,15 +179,15 @@ CREATE TABLE IF NOT EXISTS `houserules` (
   `maxGuests` int NOT NULL,
   PRIMARY KEY (`houseRulesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `houserules`
 --
 
 INSERT INTO `houserules` (`houseRulesId`, `propertyId`, `checkInTime`, `checkOutTime`, `maxGuests`) VALUES
-(3, 9, '10:00:00', '14:00:00', 5),
-(10, 57, '16:00:00', '11:00:00', 3);
+(32, 90, '13:34:00', '13:34:00', 4),
+(33, 91, '14:32:00', '14:32:00', 5);
 
 -- --------------------------------------------------------
 
@@ -219,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `invoice` (
   `amount` decimal(10,0) NOT NULL,
   `billingDate` date NOT NULL,
   `dueDate` date NOT NULL,
-  `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`invoiceId`),
   KEY `USER` (`uid`),
   KEY `RESERVATION` (`reservationId`)
@@ -236,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `message` (
   `messageId` int NOT NULL AUTO_INCREMENT,
   `conversationId` int NOT NULL,
   `senderId` int NOT NULL,
-  `content` text COLLATE utf8mb4_general_ci NOT NULL,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`messageId`),
   KEY `messageId` (`messageId`,`conversationId`),
@@ -273,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `reservationId` int NOT NULL,
   `paymentAmount` decimal(10,0) NOT NULL,
   `paymentDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `paymentstatus` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `paymentstatus` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`paymentId`),
   KEY `USER` (`uid`),
   KEY `RESERVATION` (`reservationId`)
@@ -288,29 +272,27 @@ CREATE TABLE IF NOT EXISTS `payment` (
 DROP TABLE IF EXISTS `property`;
 CREATE TABLE IF NOT EXISTS `property` (
   `propertyId` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `priceNight` decimal(10,2) NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `latitude` decimal(12,9) NOT NULL,
   `longitude` decimal(12,9) NOT NULL,
   `availability` tinyint(1) NOT NULL,
   `publicationdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `reservationOption` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `reservationOption` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `owner` int NOT NULL,
   PRIMARY KEY (`propertyId`),
   KEY `USER` (`owner`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `property`
 --
 
 INSERT INTO `property` (`propertyId`, `title`, `description`, `priceNight`, `address`, `latitude`, `longitude`, `availability`, `publicationdate`, `reservationOption`, `owner`) VALUES
-(9, 'Belle maison avec vue sur la mer', 'Une superbe maison spacieuse avec une vue imprenable sur la mer', '200.00', '123 Rue de la Plage', '46.190558700', '5.207445700', 0, '2023-06-09 14:00:26', '', 9),
-(10, 'test insert', 'blablablabla', '22.00', '', '0.000000000', '0.000000000', 0, '2023-06-13 15:45:11', '', 8),
-(43, 'equipements', 'sdfghj', '22.00', '', '0.000000000', '0.000000000', 0, '2023-06-14 16:01:47', '', 8),
-(57, 'time', 'time', '55.00', '', '0.000000000', '0.000000000', 0, '2023-06-15 09:45:41', '', 8);
+(90, 'Upload images', 'ceci est un test', '22.00', '', '0.000000000', '0.000000000', 0, '2023-06-30 13:34:51', '', 8),
+(91, 'dede', 'ededed', '69.00', '', '0.000000000', '0.000000000', 0, '2023-06-30 14:32:21', '', 8);
 
 -- --------------------------------------------------------
 
@@ -328,14 +310,15 @@ CREATE TABLE IF NOT EXISTS `propertyamenities` (
   `toilets` int NOT NULL,
   PRIMARY KEY (`propertyAmenitiesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `propertyamenities`
 --
 
 INSERT INTO `propertyamenities` (`propertyAmenitiesId`, `propertyId`, `bedrooms`, `beds`, `bathrooms`, `toilets`) VALUES
-(3, 9, 2, 3, 2, 2);
+(25, 90, 3, 2, 5, 2),
+(26, 91, 2, 3, 6, 8);
 
 -- --------------------------------------------------------
 
@@ -348,20 +331,21 @@ CREATE TABLE IF NOT EXISTS `propertyimages` (
   `propertyImagesId` int NOT NULL AUTO_INCREMENT,
   `propertyId` int NOT NULL,
   `imageMainURL` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `image1URL` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `image2URL` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `image3URL` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `image4URL` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `image1URL` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `image2URL` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `image3URL` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `image4URL` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`propertyImagesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `propertyimages`
 --
 
 INSERT INTO `propertyimages` (`propertyImagesId`, `propertyId`, `imageMainURL`, `image1URL`, `image2URL`, `image3URL`, `image4URL`) VALUES
-(2, 9, 'defaultMainpicture.jpg', 'default1urlpicture.jpg', 'default2urlpicture.jpg', 'default3urlpicture.jpg', 'default4urlpicture.jpg');
+(24, 90, '649ebddb88db0.jpg', '649ebddb88f41.jpg', '649ebddb8908a.jpg', '649ebddb8919c.jpg', '649ebddb892f3.jpg'),
+(25, 91, '649ecb5543fa3.jpg', '649ecb5544184.jpg', '649ecb55442c2.jpg', '649ecb554442c.jpg', '649ecb5544594.jpg');
 
 -- --------------------------------------------------------
 
@@ -382,7 +366,14 @@ CREATE TABLE IF NOT EXISTS `propertytag` (
 --
 
 INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES
-(9, 392);
+(90, 376),
+(90, 377),
+(90, 378),
+(90, 379),
+(91, 376),
+(91, 378),
+(91, 379),
+(91, 380);
 
 -- --------------------------------------------------------
 
@@ -400,16 +391,15 @@ CREATE TABLE IF NOT EXISTS `propertytype` (
   `hotel` tinyint(1) NOT NULL,
   PRIMARY KEY (`PropertyTypeId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `propertytype`
 --
 
 INSERT INTO `propertytype` (`PropertyTypeId`, `propertyId`, `house`, `flat`, `guesthouse`, `hotel`) VALUES
-(1, 9, 1, 0, 0, 0),
-(33, 43, 0, 0, 1, 0),
-(47, 57, 0, 1, 0, 0);
+(69, 90, 1, 0, 0, 0),
+(70, 91, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -426,7 +416,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `checkoutDate` date NOT NULL,
   `numAdults` int NOT NULL,
   `numberChildren` int NOT NULL,
-  `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`reservationId`),
   KEY `PROPERTY` (`propertyId`),
   KEY `USER` (`uid`)
@@ -457,7 +447,7 @@ CREATE TABLE IF NOT EXISTS `role` (
 DROP TABLE IF EXISTS `tag`;
 CREATE TABLE IF NOT EXISTS `tag` (
   `tagId` int NOT NULL AUTO_INCREMENT,
-  `type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `picto` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`tagId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=428 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -529,12 +519,12 @@ INSERT INTO `tag` (`tagId`, `type`, `picto`) VALUES
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `uid` int NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `lastName` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `firstName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `lastName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `birthDate` date NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `phoneNumber` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `phoneNumber` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

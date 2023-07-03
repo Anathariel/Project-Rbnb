@@ -18,4 +18,17 @@ class PropertyImagesModel extends Model
 
         return $propertyImages;
     }
+
+    public function setPropertyImagesModel($propertyId, $imageMainURL, $image1URL, $image2URL, $image3URL, $image4URL)
+    {
+        $sql = 'INSERT INTO `propertyimages` (`propertyId`, `imageMainURL`, `image1URL`, `image2URL`, `image3URL`, `image4URL`) VALUES (:propertyId, :imageMainURL, :image1URL, :image2URL, :image3URL, :image4URL)';
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':propertyId', $propertyId, PDO::PARAM_INT);
+        $stmt->bindValue(':imageMainURL', $imageMainURL, PDO::PARAM_STR);
+        $stmt->bindValue(':image1URL', $image1URL, PDO::PARAM_STR);
+        $stmt->bindValue(':image2URL', $image2URL, PDO::PARAM_STR);
+        $stmt->bindValue(':image3URL', $image3URL, PDO::PARAM_STR);
+        $stmt->bindValue(':image4URL', $image4URL, PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }

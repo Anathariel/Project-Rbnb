@@ -14,7 +14,6 @@
     <img
       src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}"
       alt="{{ property.title }}"
-
     />
     <img
       src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}"
@@ -38,8 +37,6 @@
 
     {# ---------- Property ---------- #}
     <p>Informations importantes :</p>
-    <br />
-
     <p>{{ property.description }}</p>
     <br>
 
@@ -63,7 +60,6 @@
 
     {# ---------- PropertyAmenities ---------- #}
 <p>Chambres et lits :</p>
-<br />
 {% if propertyAmenities.beds > 0 %}
   <p>
     {{ propertyAmenities.beds }}
@@ -96,7 +92,6 @@
 
     {# ---------- HouseRules ---------- #}
     <p>Règlement intérieur :</p>
-    <br />
     <p>Heure d'arrivée : {{ houseRules.checkInTime|slice(0, 5) }}</p>
     <p>Heure de départ : {{ houseRules.checkOutTime|slice(0, 5) }}</p>
     <p>Maximum de voyageurs : {{ houseRules.maxGuests }}</p>
@@ -104,7 +99,6 @@
 
     {# ---------- AccommodationTypes ---------- #}
     <p>Ce que propose ce logement :</p>
-    <br />
     {% if accommodationType.piscine == 1 %}
     <p>Piscine</p>
     {% endif %} {% if accommodationType.parkingGratuit == 1 %}
@@ -152,7 +146,6 @@
 
     {# ---------- Host Languages ---------- #}
     <p>Langues parlées par l'hôte :</p>
-    <br />
     {% if hostLanguage.anglais == 1 %}
     <p>Anglais</p>
     {% endif %} {% if hostLanguage.français == 1 %}
@@ -176,7 +169,6 @@
 
     {# ---------- Comment ---------- #}
     <p>Commentaires :</p>
-    <br />
     <p>{{ user.firstName }}</p>
     <p>{{ comment.rating }} étoiles</p>
     <p>{{ comment.commentText }}</p>
@@ -184,7 +176,6 @@
 
     {# ---------- Cancellation Policy ---------- #}
     <p>Conditions d'annulation :</p>
-    <br />
     {% if cancellationPolicy %}
     <p>Temps d'annulation : {{ cancellationPolicy.cancellationTime }} heures</p>
     <p>Politique de remboursement : {{ cancellationPolicy.refundPolicy }}</p>
