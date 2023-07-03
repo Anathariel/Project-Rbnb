@@ -83,10 +83,6 @@ h3 {
 
 //^ --------- CLASSES --------- //
 
-.quicksand {
-  font-family: "Quicksand";
-}
-
 //* --------- COLORS CLASSES --------- //
 
 .darkerblue {
@@ -585,8 +581,7 @@ footer {
 //? --------- New Destination Section --------- //
 
 section#new-destinations-section {
-  margin-top: 40px;
-  margin-bottom: 40px;
+margin: 40px 0;
 
   p#description-new-destinations {
     text-align: right;
@@ -596,27 +591,25 @@ section#new-destinations-section {
 
   div#container-card-new-destinations {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
     div.new-destination-flex-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      // background-color: #395EA2;
+      width: 50%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
 
     div.new-destination-main-card {
+      width: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      // background-color: #53389e;
 
       .main-card {
         margin: 0 auto;
-        max-width: 480px;
+        max-width: 450px;
         width: calc(100% - 1rem);
-        height: auto;
-        height: 500px;
+        height: 450px;
         position: relative;
         border-radius: 10px;
         margin-bottom: 2rem;
@@ -628,8 +621,8 @@ section#new-destinations-section {
       padding-top: 1.5rem;
 
       div.card-new-destinations {
-        width: 240px;
-        height: 256px;
+        width: 220px;
+        height: 236px;
         position: relative;
         border-radius: 10px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
