@@ -18,8 +18,8 @@
 		<div id="tag-container">
 			<div class="left-corner">
 				<button class="arrow left-arrow">
-				<img src="{{ asset('/media/icons/arrow.svg')}}" alt="Left arrow icon">
-			</button>
+					<img src="{{ asset('/media/icons/arrow.svg')}}" alt="Left arrow icon">
+				</button>
 			</div>
 
 			<div class="container-tag-list">
@@ -35,9 +35,9 @@
 			</div>
 
 			<div class="right-corner">
-			<button class="arrow right-arrow">
-				<img src="{{ asset('/media/icons/arrowleft.svg')}}" alt="Right arrow icon">
-			</button>
+				<button class="arrow right-arrow">
+					<img src="{{ asset('/media/icons/arrowleft.svg')}}" alt="Right arrow icon">
+				</button>
 				<button class="filter">
 					<img src="{{asset('/media/icons/filter.svg')}}" alt="filter">
 				</button>
@@ -54,74 +54,69 @@
 		</p>
 
 		<div id="container-card-new-destinations">
+
 			<div class="new-destination-main-card">
 				<a href="{{ path('baseProperty') }}{{ propertys[0].propertyId }}">
 					<div class="card-new-destinations main-card">
 						<figure>
 							<img src="{{ asset('/media/locations/' ~ propertys[0].propertyImages.imageMainURL) }}" alt="{{ propertys[0].title }}"/>
 							<figcaption>
-								<div class="description-card-new-destinations">
-									<h3 id="title-description-card">{{ propertys[0].title }}</h3>
-									<p>{{ propertys[0].PriceNight }}€/nuit</p>
-									<p>{{ propertys[0].address }}</p>
-								</div>
+								<h3 id="title-description-card">{{ propertys[0].title }}</h3>
+								<p>{{ propertys[0].PriceNight }}€/nuit</p>
+								<p>{{ propertys[0].address }}</p>
 							</figcaption>
 						</figure>
 					</div>
 				</a>
 			</div>
-		</div>
 
-
-		<div class="new-destination-flex-cards">
-			{% for property in propertys[1:] %}
-				<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
-					<div class="card-new-destinations">
-						<figure>
-							<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-							<figcaption>
-								<div class="description-card-new-destinations">
+			<div class="new-destination-flex-cards">
+				{% for property in propertys[1:] %}
+					<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
+						<div class="card-new-destinations">
+							<figure>
+								<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+								<figcaption>
 									<h3 id="title-description-card">{{ property.title }}</h3>
 									<p>{{ property.PriceNight }}€/nuit</p>
 									<p>{{ property.address }}</p>
-								</div>
-							</figcaption>
-						</figure>
-					</div>
-				</a>
-			{% endfor %}
+								</figcaption>
+							</figure>
+						</div>
+					</a>
+				{% endfor %}
+			</div>
 		</div>
 
-	</div>
 </section>
 
 {# ---------- best-tags sections ---------- #}
 
-	<section id="best-tags-section">
-		<h2 id="title-best-tags-section">Catégorie Châteaux</h2>
-		
-		<div id="container-card-best-tags">
+<section id="best-tags-section">
+	<h2 id="title-best-tags-section">Catégorie Châteaux</h2>
 
-			<div class="best-tags-main-card">
-				<a href="{{ path('baseProperty') }}{{ property[0].propertyId }}">
-					<div class="card-best-tags main-card">
-						<figure>
-							<img src="{{ asset('/media/locations/' ~ property[0].propertyImages.imageMainURL) }}" alt="{{ property[0].title }}"/>
+	<div id="container-card-best-tags">
 
-							<figcaption>
-								<div class="description-card">
-									<h3 id="title-description-card">{{ property[0].title }}</h3>
-									<p>{{ property[0].PriceNight }}€/nuit</p>
-									<p>{{ property[0].address }}</p>
-								</div>
-							</figcaption>
-						</figure>
-					</div>
-				</a>
-			</div>
-	
-			<div class="best-tags-flex-cards">
-				{% for lastTag in lastTagsChateaux %}
+		<div class="best-tags-main-card">
+			<a href="{{ path('baseProperty') }}{{ property[0].propertyId }}">
+				<div class="card-best-tags main-card">
+					<figure>
+						<img src="{{ asset('/media/locations/' ~ property[0].propertyImages.imageMainURL) }}" alt="{{ property[0].title }}"/>
+
+						<figcaption>
+							<div class="description-card">
+								<h3 id="title-description-card">{{ property[0].title }}</h3>
+								<p>{{ property[0].PriceNight }}€/nuit</p>
+								<p>{{ property[0].address }}</p>
+							</div>
+						</figcaption>
+					</figure>
+				</div>
+			</a>
+		</div>
+
+		<div class="best-tags-flex-cards">
+			{% for lastTag in lastTagsChateaux %}
 				{% for property in propertys[1:] %}
 					<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
 						<div class="card-best-tags">
@@ -139,64 +134,64 @@
 						</div>
 					</a>
 				{% endfor %}
-				{% endfor %}
-			</div>
-
+			{% endfor %}
 		</div>
-	</section>
+
+	</div>
+</section>
 
 {# ---------- features-sections ---------- #}
 
-	<section id="features-section">
-		<h2 id="title-features-section">Something Something</h2>
+<section id="features-section">
+	<h2 id="title-features-section">Something Something</h2>
 
-		<div id="container-card-features" class="limit-size">
-			<figure>
-				<img src="{{ asset('/media/banners/pexels-bagus-pangestu-1440476.png') }}" alt="banner"/>
-			</figure>
+	<div id="container-card-features" class="limit-size">
+		<figure>
+			<img src="{{ asset('/media/banners/pexels-bagus-pangestu-1440476.png') }}" alt="banner"/>
+		</figure>
 
-			<div id="container-description-features">
+		<div id="container-description-features">
 
-				<div class="item-features-commun">
-					<figure>
-						<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
+			<div class="item-features-commun">
+				<figure>
+					<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
 
-						<figcaption>
-							<h3>Share team inboxes</h3>
-							<p>
-								Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.
-							</p>
-						</figcaption>
-					</figure>
-				</div>
-
-				<div class="item-features-commun">
-					<figure>
-						<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
-						<figcaption>
-							<h3>Deliver instant answers</h3>
-							<p>
-								An all-in-one customer service platform that helps you balance everything your customers need to be happy.
-							</p>
-						</figcaption>
-					</figure>
-				</div>
-
-				<div class="item-features-commun">
-					<figure>
-						<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
-						<figcaption>
-							<h3>Manage your team with reports</h3>
-							<p>
-								Measure what matters with Untitled’s easy-to-use reports. You can filter, export, and drilldown on the data in a couple clicks.
-							</p>
-						</figcaption>
-					</figure>
-				</div>
-				
+					<figcaption>
+						<h3>Share team inboxes</h3>
+						<p>
+							Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.
+						</p>
+					</figcaption>
+				</figure>
 			</div>
+
+			<div class="item-features-commun">
+				<figure>
+					<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
+					<figcaption>
+						<h3>Deliver instant answers</h3>
+						<p>
+							An all-in-one customer service platform that helps you balance everything your customers need to be happy.
+						</p>
+					</figcaption>
+				</figure>
+			</div>
+
+			<div class="item-features-commun">
+				<figure>
+					<img src="{{ asset('/media/icons/message-chat-circle.svg') }}" alt="icon"/>
+					<figcaption>
+						<h3>Manage your team with reports</h3>
+						<p>
+							Measure what matters with Untitled’s easy-to-use reports. You can filter, export, and drilldown on the data in a couple clicks.
+						</p>
+					</figcaption>
+				</figure>
+			</div>
+
 		</div>
-	</section>
+	</div>
+</section>
 
 {# ---------- join-us-sections ---------- #}
 
