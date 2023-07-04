@@ -52,6 +52,7 @@ label {
   font-family: "Quicksand";
   text-decoration: none;
   font-size: .9rem;
+  color: $darkerblue;
 }
 
 ul {
@@ -506,7 +507,7 @@ footer {
       height: 100%;
       position: absolute;
       left: 0;
-      background-color: $accent;
+      // background-color: $accent;
     }
 
     .container-tag-list {
@@ -559,7 +560,7 @@ footer {
       height: 100%;
       position: absolute;
       right: 0;
-      background-color: $accent;
+      // background-color: $accent;
     }
   }
 
@@ -568,12 +569,14 @@ footer {
     margin: .5rem;
     padding: .5rem;
     border-radius: 100%;
+    border: 1px solid $darkerblue;
   }
 
   button.arrow {
     cursor: pointer;
     padding: .5rem;
     border-radius: 100%;
+    border: .5px solid $darkerblue;
   }
 }
 
@@ -581,7 +584,7 @@ footer {
 //? --------- New Destination Section --------- //
 
 section#new-destinations-section {
-margin: 40px 0;
+  margin: 40px 0;
 
   p#description-new-destinations {
     text-align: right;
@@ -594,7 +597,8 @@ margin: 40px 0;
     flex-direction: row;
 
     div.new-destination-flex-cards {
-      width: 50%;
+      width: 40%;
+      margin-right: 1rem;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
     }
@@ -667,96 +671,159 @@ margin: 40px 0;
         }
       }
     }
+  }
 
-    // @media screen and (max-width: 850px) {
-    //   div.new-destination-main-card {
-    //     width: 240px;
-    //     height: 256px;
-    //   }
-    // }
+  @media screen and (max-width: 850px) {
+    div#container-card-new-destinations {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      div.new-destination-flex-cards {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      div.new-destination-main-card {
+        width: 100%;
+      }
+    }
+
   }
 }
 
 //? --------- best-tags sections --------- //
 section#best-tags-section {
-  margin-bottom: 40px;
+  margin-bottom: 40px 0;
 
   div#container-card-best-tags {
-    width: fit-content;
-    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    flex-direction: row-reverse;
     flex-wrap: wrap;
+    align-items: center;
 
-    div#card-best-tags {
-      width: 240px;
-      height: 256px;
-      position: relative;
-      border-radius: 10px;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      margin-bottom: 2rem;
+    div.best-tags-flex-cards {
+      width: 40%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-left: 1rem;
+    }
 
-      figure {
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
+    a {
+      padding-top: 1.5rem;
+
+      div.card-best-tags {
+        width: 220px;
+        height: 236px;
         position: relative;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        margin-bottom: 2rem;
 
-        img {
+        figure {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          border-radius: 10px;
-        }
+          margin: 0;
+          padding: 0;
+          position: relative;
 
-        figcaption>div.description-card {
-          position: absolute;
-          bottom: 0;
-          left: 1rem;
-          width: 80%;
-          transform: translate(0, 20%);
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          background-color: rgba(255, 255, 255, 0.948);
-          padding: 10px;
-          border-radius: 10px;
-          transition: opacity 0.3s;
-        }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+          }
 
-        &:hover figcaption {
-          background-color: $white;
+          figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 1rem;
+            width: 80%;
+            transform: translate(0, 20%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.948);
+            padding: 10px;
+            border-radius: 10px;
+            transition: opacity 0.3s;
+          }
+
+          &:hover figcaption {
+            background-color: $white;
+          }
         }
       }
     }
+
+    div.best-tags-main-card {
+      width: 50%;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      // background-color: aquamarine;
+
+      .main-card {
+        margin: 0 auto;
+        max-width: 450px;
+        width: calc(100% - 1rem);
+        height: 450px;
+        position: relative;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      }
+    }
   }
+
+  @media screen and (max-width: 850px) {
+    div#container-card-best-tags {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      div.best-tags-flex-cards {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      div.best-tags-main-card {
+        width: 100%;
+      }
+    }
+
+  }
+
 }
 
 //? --------- features-sections --------- //
 section#features-section {
+  margin-bottom: 3rem;
   div#container-card-features {
     figure {
-      margin-bottom: 25px;
-
       img {
         width: 100%;
-        height: 100px;
+        min-height: 100px;
       }
     }
 
     div#container-description-features {
       width: 90%;
-      margin: 0 auto;
       text-align: center;
 
       div.item-features-commun {
-        margin-bottom: 20px;
-
         figure {
           display: flex;
           flex-direction: column;
@@ -772,7 +839,6 @@ section#features-section {
         p {
           font-size: 14px;
           line-height: 24px;
-          color: #475467;
         }
       }
     }
@@ -781,23 +847,20 @@ section#features-section {
 
 //? --------- join-us-sections --------- //
 section#join-us-section {
-  margin-bottom: 40px;
 
   div#container-card-join-us {
     figcaption {
       position: relative;
-      margin-bottom: 25px;
 
       img {
         width: 100%;
-        height: 100px;
+        min-height: 100px;
       }
 
       a#btn-list-property {
         position: absolute;
-        top: 60%;
-        left: 0;
-        // transform: translate(-50%, -50%);
+        bottom: 10%;
+        right: 10%;
         font-weight: 600;
         font-size: 18px;
         line-height: 28px;
