@@ -61,7 +61,7 @@ class PropertyModel extends Model
     {
         $propertys = [];
 
-        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address` FROM `property` WHERE `owner` = :userId');
+        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description` FROM `property` WHERE `owner` = :userId');
         $req->bindParam('userId', $userId, PDO::PARAM_INT);
         $req->execute();
 
