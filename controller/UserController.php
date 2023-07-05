@@ -82,10 +82,17 @@ class UserController extends Controller
         $userModel = new UserModel();
         $user = $userModel->getUserById($userId);
         $firstName = $user->getFirstName();
+        $email = $user->getEmail();
 
-        // Ajoutez la variable $firstName à l'array associatif passé à la méthode setRender()
+        // Récupérez les propriétés de l'utilisateur à partir de la base de données
+        $propertyModel = new PropertyModel();
+        $userProperties = $propertyModel->getUserProperties($userId);
+
+        // Ajoutez les variables $firstName et $userProperties à l'array associatif passé à la méthode setRender()
         $data = [
-            'firstName' => $firstName
+            'firstName' => $firstName,
+            'email' => $email,
+            'userProperties' => $userProperties
         ];
         echo self::getRender('dashboard.html.twig', $data);
     }
