@@ -887,12 +887,32 @@ section#join-us-section {
 //~ -------------------- PROPERTY -------------------- //
 
 section#property-section {
-  figcaption {
+  h1{
+    font-size: 55px;
+  }
+  figure {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
     img {
-      width: 261px;
+      width: 30%;
       height: auto;
     }
   }
+  h3{
+    text-align: left;
+    font-size: 1.5rem;
+    color: $accent;
+  }
+  .property-amenities{
+    display: flex;
+    flex-direction: row;
+
+    p{
+      padding-right: 1rem;
+    }
+    }
 }
 
 
