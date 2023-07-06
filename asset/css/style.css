@@ -675,15 +675,70 @@ section#join-us-section div#container-card-join-us figcaption a#btn-list-propert
   box-shadow: 0 0.1rem rgba(255, 255, 255, 0.7);
 }
 
-section#property-section figcaption img {
-  width: 261px;
+section#property-section {
+  text-align: left;
+}
+section#property-section h1 {
+  font-size: 55px;
+}
+section#property-section figure {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+}
+section#property-section figure img {
+  width: 30%;
   height: auto;
+}
+section#property-section h3 {
+  font-size: 1.5rem;
+  color: #404e87;
+  text-align: left;
+}
+section#property-section .container-description-property {
+  width: 50%;
+}
+section#property-section .container-description-property .property-amenities {
+  display: flex;
+  flex-direction: row;
+}
+section#property-section .container-description-property .property-amenities p {
+  padding-right: 0.5rem;
+}
+section#property-section .container-description-property .property-description p {
+  font-weight: lighter;
+  font-family: "Poppins";
+}
+section#property-section .container-description-property .property-description #description-details {
+  color: #404e87;
+}
+section#property-section .container-description-property .property-description #description-details:hover {
+  text-decoration: underline;
+}
+section#property-section .container-description-property .property-equipment .equipment-list {
+  display: flex;
+  flex-direction: row;
+}
+section#property-section .container-description-property .property-equipment .equipment-list figure {
+  margin: 1.5rem 1rem;
+  margin-left: 0;
+  overflow: hidden;
+}
+section#property-section .container-description-property .property-equipment .equipment-list figure img {
+  margin-right: 0.5rem;
+  width: 25px;
+}
+section#property-section .container-description-property .container-comment figure {
+  overflow: hidden;
+}
+section#property-section div {
+  margin-bottom: 1rem;
 }
 
 section#googlemaps-property-section div#map {
-  width: 70%;
+  width: 100%;
   height: 400px;
-  margin: 0 auto;
 }
 
 .dashboard {
