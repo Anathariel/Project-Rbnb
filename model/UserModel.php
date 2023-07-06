@@ -1,7 +1,6 @@
 <?php
 class UserModel extends Model
 {
-
     public function createUser(User $user)
     {
         $firstName = $user->getFirstName();
@@ -29,7 +28,7 @@ class UserModel extends Model
 
     public function getUserById($userId)
     {
-        $req = $this->getDb()->prepare('SELECT `firstName` FROM `user` WHERE `userId` = :userId');
+        $req = $this->getDb()->prepare('SELECT `firstName`, `lastName`, `email`, `password` FROM `user` WHERE `uid` = :userId');
         $req->bindParam('userId', $userId, PDO::PARAM_INT);
         $req->execute();
 
@@ -44,4 +43,6 @@ class UserModel extends Model
 
         return $user;
     }
+
+    
 }

@@ -1,5 +1,6 @@
 {% extends "template.html.twig" %} {% block title %}Louer votre location{%
 endblock %} {% block content %}
+
 <div id="addpropertyForm">
   <fieldset>
     {% if message %}
@@ -9,6 +10,9 @@ endblock %} {% block content %}
     <legend>Ajout d'une propriété</legend>
 
     <form method="POST" enctype="multipart/form-data" action="{{ path('propertyAdd') }}">
+
+    <input type="hidden" name="idUser" value="<?php echo $_SESSION['idUser']; ?>">
+
       <label for="title">Titre de la propriété</label>
       <br />
       <input

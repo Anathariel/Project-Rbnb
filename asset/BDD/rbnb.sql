@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 03 juil. 2023 à 06:35
+-- Généré le : mer. 05 juil. 2023 à 10:27
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -526,7 +526,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `phoneNumber` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `user`
@@ -535,7 +535,26 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`uid`, `firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`) VALUES
 (8, 'Frédéric', 'Favreau', '0000-00-00', 'fred@gmail.com', '$2y$10$GaZ/gznrAdDs9Ax9NUc7Q.782X9AzSevwHe5D78txYhFnxhFKu9b.', ''),
 (9, 'demo', 'demo', '0000-00-00', 'demo@rbnb.com', '$2y$10$YpOsI8takAJZtp.B5phhZO./N0aL9FFsT4T3N6ltIl/UvGNmCHl8K', ''),
-(10, 'toto', 'robert', '0000-00-00', 'toto@gmail.com', '$2y$10$E8SiOsulhDiZuQXCRgm1xe8a1i2O0cRa5/K79aHTooVtSa9YXbwti', '');
+(10, 'toto', 'robert', '0000-00-00', 'toto@gmail.com', '$2y$10$E8SiOsulhDiZuQXCRgm1xe8a1i2O0cRa5/K79aHTooVtSa9YXbwti', ''),
+(11, 'session', 'robert', '0000-00-00', 'session@gmail.com', '$2y$10$rjq1fFDlPURcJ59Px4XgVO6B5g/mpx0tRjvq8F/izBPeFJsvLfeUm', ''),
+(12, 'debug', 'lol', '0000-00-00', 'debug@gmail.com', '$2y$10$2lkCyvCBDvsGO02MCPvtWueNgqZOtixFyhJ7j/i2bZ1WWEKlhmDES', ''),
+(13, 'zaza', 'zaza', '0000-00-00', 'zaza@gmail.com', '$2y$10$3.2nyNMAMJX1hcE/W7AqOOQSUF1Vy/FZG4X7FPzxDF6Eq3k5/lw32', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user_properties`
+--
+
+DROP TABLE IF EXISTS `user_properties`;
+CREATE TABLE IF NOT EXISTS `user_properties` (
+  `userPropertyId` int NOT NULL AUTO_INCREMENT,
+  `uid` int NOT NULL,
+  `propertyId` int NOT NULL,
+  PRIMARY KEY (`userPropertyId`),
+  KEY `USER` (`uid`),
+  KEY `PROPERTY` (`propertyId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Contraintes pour les tables déchargées
@@ -649,6 +668,13 @@ ALTER TABLE `reservation`
 --
 ALTER TABLE `role`
   ADD CONSTRAINT `role_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `user_properties`
+--
+ALTER TABLE `user_properties`
+  ADD CONSTRAINT `user_properties_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_properties_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

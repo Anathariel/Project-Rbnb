@@ -1,6 +1,8 @@
 <?php
-class UserController extends Controller {
-    public function register(){
+class UserController extends Controller
+{
+    public function register()
+    {
         global $router;
         $model = new UserModel();
 
@@ -25,9 +27,10 @@ class UserController extends Controller {
         }
     }
 
-    public function login(){
+    public function login()
+    {
         if (!$_POST) {
-            echo self::getRender('register.html.twig', []);
+            echo self::getRender('login.html.twig', []);
         } else {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -40,22 +43,23 @@ class UserController extends Controller {
                     $_SESSION['uid'] = $user->getUid();
                     $_SESSION['email'] = $user->getEmail();
                     $_SESSION['connect'] = true;
-
-                global $router;
-                header('Location: ' . $router->generate('dashboard'));
-                exit();
+                    $_SESSION['firstName'] = $user->getFirstName();
+                    global $router;
+                    header('Location: ' . $router->generate('dashboard'));
+                    exit();
                 } else {
-                    echo 'ECLATAX';
+                    $message = "Email / mot de passe incorrect!";
+                    echo self::getRender('login.html.twig', ['message' => $message]);
                 }
             } else {
-                $message = "Email / password incorrect !";
-                echo self::getRender('register.html.twig', ['message' => $message]);
+                $message = "Email / mot de passe incorrect!";
+                echo self::getRender('login.html.twig', ['message' => $message]);
             }
         }
     }
 
-    public function logout(){
-        session_start();
+    public function logout()
+    {
         session_destroy();
 
         global $router;
@@ -63,8 +67,42 @@ class UserController extends Controller {
         exit();
     }
 
-    public function dashboard(){
-        $_SESSION['connect'] = true;
-        echo self::getRender('dashboard.html.twig', []); 
+    public function dashboard()
+    {
+        // Vérifiez si l'utilisateur est connecté
+        if (!isset($_SESSION['connect']) || $_SESSION['connect'] !== true) {
+            // Redirigez l'utilisateur vers la page de connexion si nécessaire
+            global $router;
+            header('Location: ' . $router->generate('login'));
+            exit();
+        }
+
+        // Récupérez le prénom de l'utilisateur à partir de la base de données
+        $userId = $_SESSION['uid'];
+        $userModel = new UserModel();
+        $user = $userModel->getUserById($userId);
+        $firstName = $user->getFirstName();
+        $email = $user->getEmail();
+        $propertyImagesModel = new PropertyImagesModel();
+
+        // Récupérez les propriétés de l'utilisateur à partir de la base de données
+        $propertyModel = new PropertyModel();
+        $userProperties = $propertyModel->getUserProperties($userId);
+
+        $propertysWithImages = [];
+        foreach ($userProperties as $property) {
+            $propertyImages = $propertyImagesModel->getPropertyImagesModel($property->getPropertyId());
+            $property->propertyImages = $propertyImages;
+            $propertysWithImages[] = $property;
+        }
+
+        // Ajoutez les variables $firstName et $userProperties à l'array associatif passé à la méthode setRender()
+        $data = [
+            'firstName' => $firstName,
+            'email' => $email,
+            'userProperties' => $userProperties,
+            'propertys' => $propertysWithImages,
+        ];
+        echo self::getRender('dashboard.html.twig', $data);
     }
 }
