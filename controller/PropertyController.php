@@ -197,7 +197,49 @@ class PropertyController extends Controller
         }
     }
 
-    // DASHBOARD
+    public function editProperty($id)
+    {
+        global $router;
+        $propertyModel = new PropertyModel();
+        $property = $propertyModel->getOneProperty($id);
 
-   
+        if ($property instanceof Property) {
+            if (!$_POST) {
+                echo self::getRender('editproperty.html.twig', [
+                    'property' => $property,
+                    'id' => $id,
+                ]);
+            } else {
+                if (isset($_POST['submit'])) {
+                    $title = $_POST['title'];
+                    $description = $_POST['description'];
+                    $priceNight = $_POST['price-night'];
+                    $propertyType = $_POST['property-type'];
+
+                    $propertyModel->editPropertyModel($id, $title, $description, $priceNight);
+
+                    $propertyType = new PropertyType([
+                        'propertyId' => $id,
+                        'house' => ($propertyType === 'house') ? 1 : 0,
+                        'flat' => ($propertyType === 'flat') ? 1 : 0,
+                        'guesthouse' => ($propertyType === 'guesthouse') ? 1 : 0,
+                        'hotel' => ($propertyType === 'hotel') ? 1 : 0,
+                    ]);
+
+                    $propertyTypeModel = new PropertyTypeModel();
+                    $propertyTypeModel->editPropertyTypeModel($propertyType);
+
+                    header('Location: ' . $router->generate('home'));
+                } else {
+                    echo self::getRender('editproperty.html.twig', [
+                        'property' => $property,
+                        'id' => $id,
+                    ]);
+                }
+            }
+        } else {
+            $message = 'Oops, something went wrong sorry. Try again later';
+            echo self::getRender('editproperty.html.twig', ['message' => $message]);
+        }
+    }
 }

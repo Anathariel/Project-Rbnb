@@ -88,6 +88,7 @@ class UserController extends Controller
         // Récupérez les propriétés de l'utilisateur à partir de la base de données
         $propertyModel = new PropertyModel();
         $userProperties = $propertyModel->getUserProperties($userId);
+        var_dump($userProperties);
 
         $propertysWithImages = [];
         foreach ($userProperties as $property) {

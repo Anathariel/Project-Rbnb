@@ -56,6 +56,16 @@ class PropertyModel extends Model
 
         $req->execute();
     }
+    public function editPropertyModel(int $propertyId, string $title, string $description, float $priceNight)
+    {
+        $db = $this->getDb();
+        $stmt = $db->prepare('UPDATE `property` SET `title` = :title, `description` = :description, `priceNight` = :priceNight WHERE `propertyId` = :propertyId');
+        $stmt->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+        $stmt->bindParam(':priceNight', $priceNight, PDO::PARAM_STR);
+        $stmt->execute();
+    }
 
     public function getUserProperties($userId)
     {

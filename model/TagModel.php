@@ -1,6 +1,14 @@
 <?php
 class TagModel extends Model
 {
+    public function getTagsId($tags)
+    {
+        $tagIds = [];
+        foreach ($tags as $tag) {
+            $tagIds[] = $tag->tagId;
+        }
+        return $tagIds;
+    }
 
     public function getAllTags()
     {
@@ -48,6 +56,25 @@ class TagModel extends Model
         $stmt->bindValue(':propertyId', $propertyId, PDO::PARAM_INT);
 
         foreach ($tags as $tagId) {
+            $stmt->bindValue(':tagId', $tagId, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+    }
+
+    public function editTagsModel($propertyId, $newTags)
+    {
+        // Supprime toutes les étiquettes existantes de la propriété
+        $sql = 'DELETE FROM `propertytag` WHERE `propertyId` = :propertyId';
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':propertyId', $propertyId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Ajoute les nouvelles étiquettes à la propriété
+        $sql = 'INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES (:propertyId, :tagId)';
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':propertyId', $propertyId, PDO::PARAM_INT);
+
+        foreach ($newTags as $tagId) {
             $stmt->bindValue(':tagId', $tagId, PDO::PARAM_INT);
             $stmt->execute();
         }
