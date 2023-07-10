@@ -80,7 +80,10 @@
 					{% if accommodationType.piscine == 1 %}
 					<figure>
 						<img src="{{ asset('/media/icons/piscine.svg') }}" alt="Icon piscine">
-					</figure><p>Piscine</p>
+						<figcaption>
+							<p>Piscine</p>
+						</figcaption>
+					</figure>
 					{% endif %}
 					{% if accommodationType.parkingGratuit == 1 %}
 						<figure>
@@ -264,17 +267,22 @@
 			</div>
 			<div class="property-comments">
 				<h3>Ce qu'ils en disent :</h3>
-				<p>The sky was cloudless and of a deep dark blue the spectacle before us was indeed. </p>
 				<button><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
 				<button><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
 
 				<div class="container-comment">
+				<div class="stars-rating">
 					<p>{{ comment.rating }}étoiles</p>
-					<p>{{ comment.commentText }}</p>
+				</div>
+
+					<p>{{ comment.commentText }} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
+
 					<figure>
-						<img src="" alt="">
+						<div id="profile-picture">
+							<img src="" alt="">
+						</div>
 						<figcaption>
-							<p>{{ user.firstName }}</p>
+							<p>{{ user.firstName }} @User</p>
 						</figcaption>
 					</figure>
 				</div>
