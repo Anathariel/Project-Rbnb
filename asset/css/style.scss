@@ -43,7 +43,7 @@ body {
 
 img {
   max-width: 100%;
-  display: block;
+  display: block; 
 }
 
 p,
@@ -958,35 +958,135 @@ section#property-section {
       }
     }
 
-    .container-comment {
+    .property-comments {
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      padding: 0 1rem;
-      width: 350px;
-      height: 250px;
-      background-color: #fff;
-      border-radius: .5rem;
-      box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 
+      .nav-arrows {
+        align-self: flex-end;
 
-      figure {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        overflow: hidden;
-
-        #profile-picture {
-          background-color: grey;
-          width: 50px;
-          height: 50px;
+        button {
+          outline: transparent;
+          border: 1px solid $darkerblue;
           border-radius: 50%;
+          padding: .5rem;
+        }
+      }
+
+      .container-comments-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        overflow: scroll;
+
+        .container-comment {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          padding: 0 1.5rem;
+          margin: .5rem 1.5rem;
+          min-width: 300px;
+          height: 250px;
+          background-color: #fff;
+          border-radius: .5rem;
+          box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+
+          .stars-rating {
+            figure {
+              img {
+                width: 25px;
+              }
+            }
+          }
+
+          figure {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            overflow: hidden;
+
+            #profile-picture {
+              background-color: grey;
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+            }
+
+            figcaption {
+              margin: 0 .5rem;
+            }
+          }
+        }
+      }
+
+    }
+
+    .property-host {
+      h3 {
+        margin: 1rem 0;
+      }
+
+      .container-host-info {
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+        padding: 2rem;
+        border-radius: 1rem;
+        width: 60%;
+
+
+        figure {
+          overflow: hidden;
+
+          .profile-picture {
+            background-color: grey;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+          }
+
+          figcaption {
+            padding: .5rem 1rem;
+
+            h4 {
+              font-size: 1.3rem;
+            }
+          }
         }
 
-        figcaption {
-          margin: 0 .5rem;
+        .stars-rating {
+          img {
+            width: 15px;
+          }
         }
+
+        .host-details{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .center-button{
+          display: flex;
+          justify-content: center;
+
+          button.hote-contact{
+          border: 1px solid $accent;
+          background-color: transparent;
+          padding: 1rem;
+          border-radius: .5rem;
+          cursor: pointer;
+          color: $accent;
+        }
+        
+        button.hote-contact:hover{
+          background-color: $accent;
+          color: $white;
+          border: 1px solid $white;
+          transition: 200ms ease-in;
+        }
+        }
+
       }
     }
   }
