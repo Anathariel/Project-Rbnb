@@ -448,26 +448,35 @@
 
 			<div class="property-conditions">
 				{# ---------- HouseRules ---------- #}
-				<p>Règlement intérieur :</p>
-				<p>Heure d'arrivée :
+				<div class="reglement">
+				<h4>Règlement intérieur :</h4>
+				<p>Arrivée à partir de 
 					{{ houseRules.checkInTime|slice(0, 5) }}</p>
-				<p>Heure de départ :
+				<p>Départ avant
 					{{ houseRules.checkOutTime|slice(0, 5) }}</p>
+				<p>{{ houseRules.maxGuests }} voyageurs maximum</p>
+
+				<a id="description-details" href="#"> En savoir plus →</a>
+				</div>
+				
 
 				{# ---------- Cancellation Policy ---------- #}
-				<p>Conditions d'annulation :</p>
-				{% if cancellationPolicy %}
-					<p>Temps d'annulation :
-						{{ cancellationPolicy.cancellationTime }}
-						heures</p>
-					<p>Politique de remboursement :
-						{{ cancellationPolicy.refundPolicy }}</p>
-					<p>Frais d'annulation :
-						{{ cancellationPolicy.cancellationFees }}
-						€</p>
-				{% else %}
-					<p>Aucune politique d'annulation définie pour cette propriété.</p>
-				{% endif %}
+				<div class="annulation">
+					<h4>Conditions d'annulation :</h4>
+					{% if cancellationPolicy %}
+						<p>Annulation gratuite avant 
+							{{ cancellationPolicy.cancellationTime }}</p>
+						<p>Politique de remboursement :
+							{{ cancellationPolicy.refundPolicy }}</p>
+						<p>Frais d'annulation :
+							{{ cancellationPolicy.cancellationFees }}
+							€</p>
+							<a id="description-details" href="#"> En savoir plus →</a>
+					{% else %}
+						<p>Aucune politique d'annulation définie pour cette propriété.</p>
+					{% endif %}
+				</div>
+				
 			</div>
 		</div>
 
