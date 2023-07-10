@@ -37,4 +37,23 @@ class PropertyAmenitiesModel extends Model
 
         $req->execute();
     }
+
+    public function editPropertyAmenitiesModel(PropertyAmenities $propertyAmenities)
+    {
+        $propertyId = $propertyAmenities->getPropertyId();
+        $bedrooms = $propertyAmenities->getBedrooms();
+        $beds = $propertyAmenities->getBeds();
+        $bathrooms = $propertyAmenities->getBathrooms();
+        $toilets = $propertyAmenities->getToilets();
+
+        $req = $this->getDb()->prepare('UPDATE `propertyamenities` SET `bedrooms` = :bedrooms, `beds` = :beds, `bathrooms` = :bathrooms, `toilets` = :toilets WHERE `propertyId` = :propertyId');
+
+        $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+        $req->bindParam(':bedrooms', $bedrooms, PDO::PARAM_INT);
+        $req->bindParam(':beds', $beds, PDO::PARAM_INT);
+        $req->bindParam(':bathrooms', $bathrooms, PDO::PARAM_INT);
+        $req->bindParam(':toilets', $toilets, PDO::PARAM_INT);
+
+        $req->execute();
+    }
 }

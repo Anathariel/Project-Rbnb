@@ -55,29 +55,31 @@
 										<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
 									</a>
 								</figcaption>
-							</a>
-						</figure>
+							</figure>
 
-						<div class="card-details">
-							<div class="pricing">
-								<h3>
-									<span>{{ property.priceNight }}€</span>/nuit</h3>
-								<div class="rating">
-									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-									<p>5.0</p>
+							<div class="card-details">
+								<div class="pricing">
+									<h3>
+										<span>{{ property.priceNight }}€</span>/nuit</h3>
+									<div class="rating">
+										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+										<p>5.0</p>
+									</div>
 								</div>
+								<div class="location">
+									<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+									<p>{{ property.address }}</p>
+								</div>
+								<div class="description">
+									<h3>{{ property.title }}</h3>
+									<p>{{ property.description }}</p>
+								</div>
+								<a href="{{ path('baseEditproperty') }}{{ property.propertyId }}">
+									<div class="button">
+										<p>Voir la propriété</p>
+									</div>
+								</a>
 							</div>
-							<div class="location">
-								<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-								<p>{{ property.address }}</p>
-							</div>
-							<div class="description">
-								<h3>{{ property.title }}</h3>
-								<p>{{ property.description }}</p>
-							</div>
-							<button>
-								<span>Réserver</span>
-							</button>
 						</div>
 					</a>
 				{% endif %}

@@ -38,4 +38,23 @@ class PropertyTypeModel extends Model
 
         $req->execute();
     }
+
+    public function editPropertyTypeModel(PropertyType $propertyType)
+    {
+        $propertyId = $propertyType->getPropertyId();
+        $house = $propertyType->getHouse();
+        $flat = $propertyType->getFlat();
+        $guesthouse = $propertyType->getGuesthouse();
+        $hotel = $propertyType->getHotel();
+
+        $req = $this->getDb()->prepare('UPDATE `propertytype` SET `house` = :house, `flat` = :flat, `guesthouse` = :guesthouse, `hotel` = :hotel WHERE `propertyId` = :propertyId');
+
+        $req->bindParam('propertyId', $propertyId, PDO::PARAM_INT);
+        $req->bindParam('house', $house, PDO::PARAM_INT);
+        $req->bindParam('flat', $flat, PDO::PARAM_INT);
+        $req->bindParam('guesthouse', $guesthouse, PDO::PARAM_INT);
+        $req->bindParam('hotel', $hotel, PDO::PARAM_INT);
+
+        $req->execute();
+    }
 }
