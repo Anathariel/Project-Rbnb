@@ -786,7 +786,7 @@ section#property-section .container-description-property .property-host .contain
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   padding: 2rem;
   border-radius: 1rem;
-  width: 60%;
+  max-width: 60%;
 }
 section#property-section .container-description-property .property-host .container-host-info figure {
   overflow: hidden;
@@ -828,7 +828,23 @@ section#property-section .container-description-property .property-host .contain
   background-color: #404e87;
   color: #f8f8f8;
   border: 1px solid #f8f8f8;
-  transition: 200ms ease-in;
+  transition: 500ms ease-in;
+}
+section#property-section .property-conditions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+section#property-section .property-conditions .annulation, section#property-section .property-conditions .reglement {
+  max-width: 300px;
+}
+section#property-section .property-conditions a {
+  font-size: 1.1rem;
+}
+section#property-section .property-conditions a:hover {
+  color: #404e87;
+  text-decoration: underline;
+  transition: 250ms ease-in;
 }
 section#property-section div {
   margin-bottom: 1rem;

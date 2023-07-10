@@ -1031,7 +1031,7 @@ section#property-section {
         box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
         padding: 2rem;
         border-radius: 1rem;
-        width: 60%;
+        max-width: 60%;
 
 
         figure {
@@ -1083,15 +1083,31 @@ section#property-section {
           background-color: $accent;
           color: $white;
           border: 1px solid $white;
-          transition: 200ms ease-in;
+          transition: 500ms ease-in;
         }
         }
-
       }
     }
   }
 
+  .property-conditions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
+    .annulation,.reglement{
+      max-width: 300px;
+    }
+
+    a{
+      font-size: 1.1rem;
+    }
+    a:hover{
+      color: $accent;
+      text-decoration: underline;
+      transition: 250ms ease-in;
+    }
+  }
 
   div {
     margin-bottom: 1rem;
