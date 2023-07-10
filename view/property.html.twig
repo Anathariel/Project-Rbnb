@@ -267,25 +267,106 @@
 			</div>
 			<div class="property-comments">
 				<h3>Ce qu'ils en disent :</h3>
-				<button><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
-				<button><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
-
-				<div class="container-comment">
-				<div class="stars-rating">
-					<p>{{ comment.rating }}étoiles</p>
+				<div class="nav-arrows">
+					<button><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
+					<button><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
 				</div>
-
-					<p>{{ comment.commentText }} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
-
-					<figure>
-						<div id="profile-picture">
-							<img src="" alt="">
+				
+				<div class="container-comments-row">
+					<div class="container-comment">
+						<div class="stars-rating">
+							{# <p>{{ comment.rating }}étoiles</p> #}
+							<figure>
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							</figure>
 						</div>
-						<figcaption>
-							<p>{{ user.firstName }} @User</p>
-						</figcaption>
-					</figure>
+
+						<p>{{ comment.commentText }} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
+
+						<figure>
+							<div id="profile-picture">
+								<img src="" alt="">
+							</div>
+							<figcaption>
+								<p>{{ user.firstName }} @User</p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="container-comment">
+						<div class="stars-rating">
+							{# <p>{{ comment.rating }}étoiles</p> #}
+							<figure>
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							</figure>
+						</div>
+
+						<p>{{ comment.commentText }} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
+
+						<figure>
+							<div id="profile-picture">
+								<img src="" alt="">
+							</div>
+							<figcaption>
+								<p>{{ user.firstName }} @User</p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="container-comment">
+						<div class="stars-rating">
+							{# <p>{{ comment.rating }}étoiles</p> #}
+							<figure>
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							</figure>
+						</div>
+
+						<p>{{ comment.commentText }} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
+
+						<figure>
+							<div id="profile-picture">
+								<img src="" alt="">
+							</div>
+							<figcaption>
+								<p>{{ user.firstName }} @User</p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="container-comment">
+						<div class="stars-rating">
+							{# <p>{{ comment.rating }}étoiles</p> #}
+							<figure>
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							</figure>
+						</div>
+
+						<p>{{ comment.commentText }} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
+
+						<figure>
+							<div id="profile-picture">
+								<img src="" alt="">
+							</div>
+							<figcaption>
+								<p>{{ user.firstName }} @User</p>
+							</figcaption>
+						</figure>
+					</div>
 				</div>
+				
 
 			</div>
 
@@ -298,34 +379,71 @@
 
 			<div class="property-host">
 				{# ---------- Host Languages ---------- #}
-				<p>Langues parlées par l'hôte :</p>
-				{% if hostLanguage.anglais == 1 %}
-					<p>Anglais</p>
-				{% endif %}
-				{% if hostLanguage.français == 1 %}
-					<p>Français</p>
-				{% endif %}
-				{% if hostLanguage.allemand == 1 %}
-					<p>Allemand</p>
-				{% endif %}
-				{% if hostLanguage.japonais == 1 %}
-					<p>Japonais</p>
-				{% endif %}
-				{% if hostLanguage.italien == 1 %}
-					<p>Italien</p>
-				{% endif %}
-				{% if hostLanguage.russe == 1 %}
-					<p>Russe</p>
-				{% endif %}
-				{% if hostLanguage.espagnol == 1 %}
-					<p>Espagnol</p>
-				{% endif %}
-				{% if hostLanguage.chinois == 1 %}
-					<p>Chinois</p>
-				{% endif %}
-				{% if hostLanguage.arabe == 1 %}
-					<p>Arabe</p>
-				{% endif %}
+				<h3>A propos de votre Hôte</h3>
+
+				<div class="container-host-info">
+					<figure>
+						<div class="profile-picture">
+							<img src="" alt="">
+						</div>
+						<figcaption>
+							<h4>@User</h4>
+							<p>Membre depuis : 2020 • Particulier</p>
+							<div class="host-rating">
+								<div class="stars-rating">
+									{# <p>{{ comment.rating }}étoiles</p> #}
+									<figure>
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									</figure>
+								</div>
+							</div>
+						</figcaption>
+					</figure>
+
+					<div class="host-details">
+						<div class="host-language">
+							<p>Langues parlées par l'hôte :</p>
+							{% if hostLanguage.anglais == 1 %}
+								<p>Anglais</p>
+							{% endif %}
+							{% if hostLanguage.français == 1 %}
+								<p>Français</p>
+							{% endif %}
+							{% if hostLanguage.allemand == 1 %}
+								<p>Allemand</p>
+							{% endif %}
+							{% if hostLanguage.japonais == 1 %}
+								<p>Japonais</p>
+							{% endif %}
+							{% if hostLanguage.italien == 1 %}
+								<p>Italien</p>
+							{% endif %}
+							{% if hostLanguage.russe == 1 %}
+								<p>Russe</p>
+							{% endif %}
+							{% if hostLanguage.espagnol == 1 %}
+								<p>Espagnol</p>
+							{% endif %}
+							{% if hostLanguage.chinois == 1 %}
+								<p>Chinois</p>
+							{% endif %}
+							{% if hostLanguage.arabe == 1 %}
+								<p>Arabe</p>
+							{% endif %}
+						</div>
+
+						<p>Nombre de Logements : 1</p>
+					</div>
+					<div class="center-button">
+						<button class="hote-contact">Contacter l'Hôte</button>
+					</div>
+					
+				</div>
+				
 			</div>
 
 			<div class="property-conditions">
