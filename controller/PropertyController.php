@@ -215,6 +215,7 @@ class PropertyController extends Controller
                     $description = $_POST['description'];
                     $priceNight = $_POST['price-night'];
                     $propertyType = $_POST['property-type'];
+                    $hostLanguages = $_POST['host-languages'];
 
                     $propertyModel->editPropertyModel($id, $title, $description, $priceNight);
 
@@ -228,6 +229,25 @@ class PropertyController extends Controller
 
                     $propertyTypeModel = new PropertyTypeModel();
                     $propertyTypeModel->editPropertyTypeModel($propertyType);
+                    
+
+                    $hostLanguage = new HostLanguage([
+                        'propertyId' => $id,
+                        'anglais' => in_array('anglais', (array) $hostLanguages) ? 1 : 0,
+                        'français' => in_array('français', (array) $hostLanguages) ? 1 : 0,
+                        'allemand' => in_array('allemand', (array) $hostLanguages) ? 1 : 0,
+                        'japonais' => in_array('japonais', (array) $hostLanguages) ? 1 : 0,
+                        'italien' => in_array('italien', (array) $hostLanguages) ? 1 : 0,
+                        'russe' => in_array('russe', (array) $hostLanguages) ? 1 : 0,
+                        'espagnol' => in_array('espagnol', (array) $hostLanguages) ? 1 : 0,
+                        'chinois' => in_array('chinois', (array) $hostLanguages) ? 1 : 0,
+                        'arabe' => in_array('arabe', (array) $hostLanguages) ? 1 : 0,
+                    ]);
+    
+                    $hostLanguageModel = new HostLanguageModel();
+                    $hostLanguageModel->setHostLanguageModel($hostLanguage);
+
+
 
                     header('Location: ' . $router->generate('home'));
                 } else {

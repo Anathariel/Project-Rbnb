@@ -1,6 +1,7 @@
 {% extends "templatedashboard.html.twig" %}
 
-{% block title %}Louer votre location{% endblock %}
+{% block title %}Louer votre location
+{% endblock %}
 
 {% block content %}
 	<div>
@@ -28,6 +29,37 @@
 					<option value="hotel" {% if property.propertyType == 'hotel' %} selected {% endif %}>Hôtel</option>
 				</select>
 				<br/><br/>
+
+				<label for="host-languages">Langues parlées par l'hôte :</label>
+				<br/>
+				<input type="checkbox" id="english" name="host-languages[]" value="anglais"/>
+				<label for="english">Anglais</label>
+				<br/>
+				<input type="checkbox" id="french" name="host-languages[]" value="français"/>
+				<label for="french">Français</label>
+				<br/>
+				<input type="checkbox" id="german" name="host-languages[]" value="allemand"/>
+				<label for="german">Allemand</label>
+				<br/>
+				<input type="checkbox" id="japanese" name="host-languages[]" value="japonais"/>
+				<label for="japanese">Japonais</label>
+				<br/>
+				<input type="checkbox" id="italian" name="host-languages[]" value="italien"/>
+				<label for="italian">Italien</label>
+				<br/>
+				<input type="checkbox" id="russian" name="host-languages[]" value="russe"/>
+				<label for="russian">Russe</label>
+				<br/>
+				<input type="checkbox" id="spanish" name="host-languages[]" value="espagnol"/>
+				<label for="spanish">Espagnol</label>
+				<br/>
+				<input type="checkbox" id="chinese" name="host-languages[]" value="chinois"/>
+				<label for="chinese">Chinois</label>
+				<br/>
+				<input type="checkbox" id="arabic" name="host-languages[]" value="arabe"/>
+				<label for="arabic">Arabe</label>
+				<br/><br/>
+
 				<input type="submit" name="submit" value="Modifier"/>
 			</form>
 		</fieldset>
