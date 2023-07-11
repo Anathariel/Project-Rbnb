@@ -81,4 +81,11 @@ class PropertyModel extends Model
 
         return $propertys;
     }
+
+    public function deletePropertyModel($propertyId)
+    {
+        $req = $this->getDb()->prepare('DELETE FROM `property` WHERE `propertyId` = :propertyId');
+        $req->bindParam('propertyId', $propertyId, PDO::PARAM_INT);
+        $req->execute();
+    }
 }

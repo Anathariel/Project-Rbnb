@@ -203,6 +203,12 @@ class PropertyController extends Controller
         $propertyModel = new PropertyModel();
         $property = $propertyModel->getOneProperty($id);
 
+        $hostLanguageModel = new HostLanguageModel();
+        $hostLanguage = $hostLanguageModel->getHostLanguageModel($id);
+
+        $propertyTypeModel = new PropertyTypeModel();
+        $propertyType = $propertyTypeModel->getPropertyTypeModel($id);
+
         if ($property instanceof Property) {
             if (!$_POST) {
                 echo self::getRender('editproperty.html.twig', [
@@ -214,7 +220,14 @@ class PropertyController extends Controller
                     $title = $_POST['title'];
                     $description = $_POST['description'];
                     $priceNight = $_POST['price-night'];
+                    var_dump($_POST);
                     $propertyType = $_POST['property-type'];
+                    $hostLanguages = isset($_POST['host-languages']) ? $_POST['host-languages'] : [];
+                    $accomodationTypes = isset($_POST['accommodation-types']) ? $_POST['accommodation-types'] : [];
+
+                    $checkInTime = $_POST['check-in-time'];
+                    $checkOutTime = $_POST['check-out-time'];
+                    $maxGuests = $_POST['max-guests'];
 
                     $propertyModel->editPropertyModel($id, $title, $description, $priceNight);
 
@@ -226,8 +239,112 @@ class PropertyController extends Controller
                         'hotel' => ($propertyType === 'hotel') ? 1 : 0,
                     ]);
 
-                    $propertyTypeModel = new PropertyTypeModel();
                     $propertyTypeModel->editPropertyTypeModel($propertyType);
+
+
+                    $hostLanguage = new HostLanguage([
+                        'propertyId' => $id,
+                        'anglais' => in_array('anglais', (array) $hostLanguages) ? 1 : 0,
+                        'français' => in_array('français', (array) $hostLanguages) ? 1 : 0,
+                        'allemand' => in_array('allemand', (array) $hostLanguages) ? 1 : 0,
+                        'japonais' => in_array('japonais', (array) $hostLanguages) ? 1 : 0,
+                        'italien' => in_array('italien', (array) $hostLanguages) ? 1 : 0,
+                        'russe' => in_array('russe', (array) $hostLanguages) ? 1 : 0,
+                        'espagnol' => in_array('espagnol', (array) $hostLanguages) ? 1 : 0,
+                        'chinois' => in_array('chinois', (array) $hostLanguages) ? 1 : 0,
+                        'arabe' => in_array('arabe', (array) $hostLanguages) ? 1 : 0,
+                    ]);
+
+                    $hostLanguageModel = new HostLanguageModel();
+                    $hostLanguageModel->editHostLanguageModel($hostLanguage);
+
+
+                    $propertyAmenities = new PropertyAmenities([
+                        'propertyId' => $id,
+                        'bedrooms' => $_POST['bedrooms'],
+                        'beds' => $_POST['beds'],
+                        'bathrooms' => $_POST['bathrooms'],
+                        'toilets' => $_POST['toilets']
+                    ]);
+
+                    $propertyAmenitiesModel = new PropertyAmenitiesModel();
+                    $propertyAmenitiesModel->editPropertyAmenitiesModel($propertyAmenities);
+
+
+                    $houseRules = new HouseRules([
+                        'propertyId' => $id,
+                        'checkInTime' => $checkInTime,
+                        'checkOutTime' => $checkOutTime,
+                        'maxGuests' => $maxGuests
+                    ]);
+
+                    $houseRulesModel = new HouseRulesModel();
+                    $houseRulesModel->editHouseRulesModel($houseRules);
+
+                    $accomodationType = new AccomodationType([
+                        'propertyId' => $id,
+                        'piscine' => in_array('piscine', (array) $accomodationTypes) ? 1 : 0,
+                        'parkingGratuit' => in_array('parkingGratuit', (array) $accomodationTypes) ? 1 : 0,
+                        'jacuzzi' => in_array('jacuzzi', (array) $accomodationTypes) ? 1 : 0,
+                        'wifi' => in_array('wifi', (array) $accomodationTypes) ? 1 : 0,
+                        'laveLinge' => in_array('laveLinge', (array) $accomodationTypes) ? 1 : 0,
+                        'secheLinge' => in_array('secheLinge', (array) $accomodationTypes) ? 1 : 0,
+                        'climatisation' => in_array('climatisation', (array) $accomodationTypes) ? 1 : 0,
+                        'chauffage' => in_array('chauffage', (array) $accomodationTypes) ? 1 : 0,
+                        'espaceTravailDedie' => in_array('espaceTravailDedie', (array) $accomodationTypes) ? 1 : 0,
+                        'television' => in_array('television', (array) $accomodationTypes) ? 1 : 0,
+                        'secheCheveux' => in_array('secheCheveux', (array) $accomodationTypes) ? 1 : 0,
+                        'ferRepasser' => in_array('ferRepasser', (array) $accomodationTypes) ? 1 : 0,
+                        'stationRechargeVehiElectriques' => in_array('stationRechargeVehiElectriques', (array) $accomodationTypes) ? 1 : 0,
+                        'litBebe' => in_array('litBebe', (array) $accomodationTypes) ? 1 : 0,
+                        'salleSport' => in_array('salleSport', (array) $accomodationTypes) ? 1 : 0,
+                        'barbecue' => in_array('barbecue', (array) $accomodationTypes) ? 1 : 0,
+                        'petitDejeuner' => in_array('petitDejeuner', (array) $accomodationTypes) ? 1 : 0,
+                        'cheminee' => in_array('cheminee', (array) $accomodationTypes) ? 1 : 0,
+                        'logementFumeur' => in_array('logementFumeur', (array) $accomodationTypes) ? 1 : 0,
+                        'detecteurFumee' => in_array('detecteurFumee', (array) $accomodationTypes) ? 1 : 0,
+                        'detecteurMonoxyDeCarbone' => in_array('detecteurMonoxyDeCarbone', (array) $accomodationTypes) ? 1 : 0
+                    ]);
+
+                    $accomodationTypeModel = new AccomodationTypeModel();
+                    $accomodationTypeModel->editAccomodationTypeModel($accomodationType);
+
+
+
+                    $image1URL = '';
+                    $image2URL = '';
+                    $image3URL = '';
+                    $image4URL = '';
+
+                    $imageMainURL = '';
+                    if (isset($_FILES['imageMain']['name']) && !empty($_FILES['imageMain']['name'])) {
+                        $uploadDir = 'asset/media/locations/';
+                        $imageMainURL = uploadFile($_FILES['imageMain'], $uploadDir);
+                    }
+
+                    if (isset($_FILES['image1']['name']) && !empty($_FILES['image1']['name'])) {
+                        $uploadDir = 'asset/media/locations/';
+                        $image1URL = uploadFile($_FILES['image1'], $uploadDir);
+                    }
+
+                    if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
+                        $uploadDir = 'asset/media/locations/';
+                        $image2URL = uploadFile($_FILES['image2'], $uploadDir);
+                    }
+
+                    if (isset($_FILES['image3']['name']) && !empty($_FILES['image3']['name'])) {
+                        $uploadDir = 'asset/media/locations/';
+                        $image3URL = uploadFile($_FILES['image3'], $uploadDir);
+                    }
+
+                    if (isset($_FILES['image4']['name']) && !empty($_FILES['image4']['name'])) {
+                        $uploadDir = 'asset/media/locations/';
+                        $image4URL = uploadFile($_FILES['image4'], $uploadDir);
+                    }
+
+                    $propertyImagesModel = new PropertyImagesModel();
+                    $propertyImagesModel->editPropertyImagesModel($id, $imageMainURL, $image1URL, $image2URL, $image3URL, $image4URL);
+
 
                     header('Location: ' . $router->generate('home'));
                 } else {
@@ -241,5 +358,13 @@ class PropertyController extends Controller
             $message = 'Oops, something went wrong sorry. Try again later';
             echo self::getRender('editproperty.html.twig', ['message' => $message]);
         }
+    }
+
+    public function deleteProperty($id)
+    {
+        global $router;
+        $propertyModel = new PropertyModel();
+        $propertyModel->deletePropertyModel($id);
+        header('Location: ' . $router->generate('home'));
     }
 }
