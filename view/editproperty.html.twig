@@ -20,44 +20,266 @@
 				<br/>
 				<input type="number" id="price-night" name="price-night" value="{{ property.priceNight }}" placeholder="Entrer le prix de la location"/>
 				<br/><br>
+
+				<label for="propertyImage">Importer les images de la location :</label><br>
+
+				<label for="imageMain">Image principale :</label>
+				<input type="file" id="imageMain" name="imageMain" accept="image/*" required onchange="previewImage(event, 'imageMainPreview')"/>
+				<img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 200px; display: none;">
+				<br/>
+
+				<label for="image1">Image 1 :</label>
+				<input type="file" id="image1" name="image1" accept="image/*" onchange="previewImage(event, 'image1Preview')"/>
+				<img id="image1Preview" src="#" alt="Aperçu de l'image 1" style="max-width: 200px; display: none;">
+				<br/>
+
+				<label for="image2">Image 2 :</label>
+				<input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(event, 'image2Preview')"/>
+				<img id="image2Preview" src="#" alt="Aperçu de l'image 2" style="max-width: 200px; display: none;">
+				<br/>
+
+				<label for="image3">Image 3 :</label>
+				<input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(event, 'image3Preview')"/>
+				<img id="image3Preview" src="#" alt="Aperçu de l'image 3" style="max-width: 200px; display: none;">
+				<br/>
+
+				<label for="image4">Image 4 :</label>
+				<input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(event, 'image4Preview')"/>
+				<img id="image4Preview" src="#" alt="Aperçu de l'image 4" style="max-width: 200px; display: none;">
+				<br/><br>
+
 				<label for="property-type">Choisissez le type de propriété :</label>
 				<br/>
 				<select id="property-type" name="property-type">
-					<option value="house" {% if property.propertyType == 'house' %} selected {% endif %}>Maison</option>
-					<option value="flat" {% if property.propertyType == 'flat' %} selected {% endif %}>Appartement</option>
-					<option value="guesthouse" {% if property.propertyType == 'guesthouse' %} selected {% endif %}>Maison d'hôte</option>
-					<option value="hotel" {% if property.propertyType == 'hotel' %} selected {% endif %}>Hôtel</option>
+					<option value="house" {% if property.propertyType.house %} selected {% endif %}>Maison</option>
+					<option value="flat" {% if property.propertyType.flat %} selected {% endif %}>Appartement</option>
+					<option value="guesthouse" {% if property.propertyType.guesthouse %} selected {% endif %}>Maison d'hôte</option>
+					<option value="hotel" {% if property.propertyType.hotel %} selected {% endif %}>Hôtel</option>
 				</select>
+
 				<br/><br/>
 
 				<label for="host-languages">Langues parlées par l'hôte :</label>
 				<br/>
-				<input type="checkbox" id="english" name="host-languages[]" value="anglais"/>
+				<input type="checkbox" id="english" name="host-languages[]" value="anglais" {% if property.host_languages is defined and 'english' in property.host_languages %} checked {% endif %}/>
 				<label for="english">Anglais</label>
 				<br/>
-				<input type="checkbox" id="french" name="host-languages[]" value="français"/>
+				<input type="checkbox" id="french" name="host-languages[]" value="français" {% if property.host_languages is defined and 'french' in property.host_languages %} checked {% endif %}/>
 				<label for="french">Français</label>
 				<br/>
-				<input type="checkbox" id="german" name="host-languages[]" value="allemand"/>
+				<input type="checkbox" id="german" name="host-languages[]" value="allemand" {% if property.host_languages is defined and 'german' in property.host_languages %} checked {% endif %}/>
 				<label for="german">Allemand</label>
 				<br/>
-				<input type="checkbox" id="japanese" name="host-languages[]" value="japonais"/>
+				<input type="checkbox" id="japanese" name="host-languages[]" value="japonais" {% if property.host_languages is defined and 'japanese' in property.host_languages %} checked {% endif %}/>
 				<label for="japanese">Japonais</label>
 				<br/>
-				<input type="checkbox" id="italian" name="host-languages[]" value="italien"/>
+				<input type="checkbox" id="italian" name="host-languages[]" value="italien" {% if property.host_languages is defined and 'italian' in property.host_languages %} checked {% endif %}/>
 				<label for="italian">Italien</label>
 				<br/>
-				<input type="checkbox" id="russian" name="host-languages[]" value="russe"/>
+				<input type="checkbox" id="russian" name="host-languages[]" value="russe" {% if property.host_languages is defined and 'russian' in property.host_languages %} checked {% endif %}/>
 				<label for="russian">Russe</label>
 				<br/>
-				<input type="checkbox" id="spanish" name="host-languages[]" value="espagnol"/>
+				<input type="checkbox" id="spanish" name="host-languages[]" value="espagnol" {% if property.host_languages is defined and 'panish' in property.host_languages %} checked {% endif %}/>
 				<label for="spanish">Espagnol</label>
 				<br/>
-				<input type="checkbox" id="chinese" name="host-languages[]" value="chinois"/>
+				<input type="checkbox" id="chinese" name="host-languages[]" value="chinois" {% if property.host_languages is defined and 'chinese' in property.host_languages %} checked {% endif %}/>
 				<label for="chinese">Chinois</label>
 				<br/>
-				<input type="checkbox" id="arabic" name="host-languages[]" value="arabe"/>
+				<input type="checkbox" id="arabic" name="host-languages[]" value="arabe" {% if property.host_languages is defined and 'arabic' in property.host_languages %} checked {% endif %}/>
 				<label for="arabic">Arabe</label>
+				<br/><br/>
+
+				<label for="accommodation-types">Règlement intérieur :</label>
+				<br/>
+				<label for="check-in-time">Heure d'arrivée :</label>
+				<input type="time" id="check-in-time" name="check-in-time" required/>
+				<br/>
+
+				<label for="check-out-time">Heure de départ :</label>
+				<input type="time" id="check-out-time" name="check-out-time" required/>
+				<br/>
+
+				<label for="max-guests">Nombre maximum d'invités :</label>
+				<input type="number" id="max-guests" name="max-guests" required/>
+				<br/><br/>
+
+				<label for="property-amenities">Pièces clées de la propriété :</label>
+				<br/>
+				<label for="bedrooms">Nombre de chambres :</label>
+				<br/>
+				<input type="radio" id="bedroom-1" name="bedrooms" value="1"/>
+				<label for="bedroom-1">1</label>
+				<br/>
+				<input type="radio" id="bedroom-2" name="bedrooms" value="2"/>
+				<label for="bedroom-2">2</label>
+				<br/>
+				<input type="radio" id="bedroom-3" name="bedrooms" value="3"/>
+				<label for="bedroom-3">3</label>
+				<br/>
+				<input type="radio" id="bedroom-4" name="bedrooms" value="4"/>
+				<label for="bedroom-4">4</label>
+				<br/>
+				<input type="radio" id="bedroom-5" name="bedrooms" value="5"/>
+				<label for="bedroom-5">5</label>
+				<br/>
+				<input type="radio" id="bedroom-6" name="bedrooms" value="6"/>
+				<label for="bedroom-6">6</label>
+				<br/>
+				<input type="radio" id="bedroom-7" name="bedrooms" value="7"/>
+				<label for="bedroom-7">7</label>
+				<br/>
+				<input type="radio" id="bedroom-8+" name="bedrooms" value="8+"/>
+				<label for="bedroom-8+">8+</label>
+
+				<br/><br/>
+
+				<label for="beds">Nombre de lits :</label>
+				<br/>
+				<input type="radio" id="bed-1" name="beds" value="1"/>
+				<label for="bed-1">1</label>
+				<br/>
+				<input type="radio" id="bed-2" name="beds" value="2"/>
+				<label for="bed-2">2</label>
+				<br/>
+				<input type="radio" id="bed-3" name="beds" value="3"/>
+				<label for="bed-3">3</label>
+				<br/>
+				<input type="radio" id="bed-4" name="beds" value="4"/>
+				<label for="bed-4">4</label>
+				<br/>
+				<input type="radio" id="bed-5" name="beds" value="5"/>
+				<label for="bed-5">5</label>
+				<br/>
+				<input type="radio" id="bed-6" name="beds" value="6"/>
+				<label for="bed-6">6</label>
+				<br/>
+				<input type="radio" id="bed-7" name="beds" value="7"/>
+				<label for="bed-7">7</label>
+				<br/>
+				<input type="radio" id="bed-8+" name="beds" value="8+"/>
+				<label for="bed-8+">8+</label>
+
+				<br/><br/>
+
+				<label for="bathrooms">Nombre de salles de bain :</label>
+				<br/>
+				<input type="radio" id="bathroom-1" name="bathrooms" value="1"/>
+				<label for="bathroom-1">1</label>
+				<br/>
+				<input type="radio" id="bathroom-2" name="bathrooms" value="2"/>
+				<label for="bathroom-2">2</label>
+				<br/>
+				<input type="radio" id="bathroom-3" name="bathrooms" value="3"/>
+				<label for="bathroom-3">3</label>
+				<br/>
+				<input type="radio" id="bathroom-4" name="bathrooms" value="4"/>
+				<label for="bathroom-4">4</label>
+				<br/>
+				<input type="radio" id="bathroom-5" name="bathrooms" value="5"/>
+				<label for="bathroom-5">5</label>
+				<br/>
+				<input type="radio" id="bathroom-6" name="bathrooms" value="6"/>
+				<label for="bathroom-6">6</label>
+				<br/>
+				<input type="radio" id="bathroom-7" name="bathrooms" value="7"/>
+				<label for="bathroom-7">7</label>
+				<br/>
+				<input type="radio" id="bathroom-8+" name="bathrooms" value="8+"/>
+				<label for="bathroom-8+">8+</label>
+
+				<br/><br/>
+
+				<label for="toilets">Nombre de toilettes :</label>
+				<br/>
+				<input type="radio" id="toilet-1" name="toilets" value="1"/>
+				<label for="toilet-1">1</label>
+				<br/>
+				<input type="radio" id="toilet-2" name="toilets" value="2"/>
+				<label for="toilet-2">2</label>
+				<br/>
+				<input type="radio" id="toilet-3" name="toilets" value="3"/>
+				<label for="toilet-3">3</label>
+				<br/>
+				<input type="radio" id="toilet-4" name="toilets" value="4"/>
+				<label for="toilet-4">4</label>
+				<br/>
+				<input type="radio" id="toilet-5" name="toilets" value="5"/>
+				<label for="toilet-5">5</label>
+				<br/>
+				<input type="radio" id="toilet-6" name="toilets" value="6"/>
+				<label for="toilet-6">6</label>
+				<br/>
+				<input type="radio" id="toilet-7" name="toilets" value="7"/>
+				<label for="toilet-7">7</label>
+				<br/>
+				<input type="radio" id="toilet-8+" name="toilets" value="8+"/>
+				<label for="toilet-8+">8+</label>
+				<br/><br/>
+
+				<label for="accommodation-types">Equipements disponibles :</label>
+				<br/>
+				<input type="checkbox" id="piscine" name="accommodation-types[]" value="piscine"/>
+				<label for="piscine">Piscine</label>
+				<br/>
+				<input type="checkbox" id="parkingGratuit" name="accommodation-types[]" value="parkingGratuit"/>
+				<label for="parkingGratuit">Parking gratuit</label>
+				<br/>
+				<input type="checkbox" id="jacuzzi" name="accommodation-types[]" value="jacuzzi"/>
+				<label for="jacuzzi">Jacuzzi</label>
+				<br/>
+				<input type="checkbox" id="wifi" name="accommodation-types[]" value="wifi"/>
+				<label for="wifi">Wifi</label>
+				<br/>
+				<input type="checkbox" id="laveLinge" name="accommodation-types[]" value="laveLinge"/>
+				<label for="laveLinge">Lave-linge</label>
+				<br/>
+				<input type="checkbox" id="secheLinge" name="accommodation-types[]" value="secheLinge"/>
+				<label for="secheLinge">Sèche-linge</label>
+				<br/>
+				<input type="checkbox" id="climatisation" name="accommodation-types[]" value="climatisation"/>
+				<label for="climatisation">Climatisation</label>
+				<br/>
+				<input type="checkbox" id="chauffage" name="accommodation-types[]" value="chauffage"/>
+				<label for="chauffage">Chauffage</label>
+				<br/>
+				<input type="checkbox" id="espaceTravailDedie" name="accommodation-types[]" value="espaceTravailDedie"/>
+				<label for="espaceTravailDedie">Espace de travail dédié</label>
+				<br/>
+				<input type="checkbox" id="television" name="accommodation-types[]" value="television"/>
+				<label for="television">Télévision</label>
+				<br/>
+				<input type="checkbox" id="secheCheveux" name="accommodation-types[]" value="secheCheveux"/>
+				<label for="secheCheveux">Sèche-cheveux</label>
+				<br/>
+				<input type="checkbox" id="ferRepasser" name="accommodation-types[]" value="ferRepasser"/>
+				<label for="ferRepasser">Fer à repasser</label>
+				<br/>
+				<input type="checkbox" id="stationRechargeVehiElectriques" name="accommodation-types[]" value="stationRechargeVehiElectriques"/>
+				<label for="stationRechargeVehiElectriques">Station de recharge pour véhicules électriques</label>
+				<br/>
+				<input type="checkbox" id="litBebe" name="accommodation-types[]" value="litBebe"/>
+				<label for="litBebe">Lit bébé</label>
+				<br/>
+				<input type="checkbox" id="salleSport" name="accommodation-types[]" value="salleSport"/>
+				<label for="salleSport">Salle de sport</label>
+				<br/>
+				<input type="checkbox" id="barbecue" name="accommodation-types[]" value="barbecue"/>
+				<label for="barbecue">Barbecue</label>
+				<br/>
+				<input type="checkbox" id="petitDejeuner" name="accommodation-types[]" value="petitDejeuner"/>
+				<label for="petitDejeuner">Petit déjeuner</label>
+				<br/>
+				<input type="checkbox" id="cheminee" name="accommodation-types[]" value="cheminee"/>
+				<label for="cheminee">Cheminée</label>
+				<br/>
+				<input type="checkbox" id="logementFumeur" name="accommodation-types[]" value="logementFumeur"/>
+				<label for="logementFumeur">Logement fumeur</label>
+				<br/>
+				<input type="checkbox" id="detecteurFumee" name="accommodation-types[]" value="detecteurFumee"/>
+				<label for="detecteurFumee">Détecteur de fumée</label>
+				<br/>
+				<input type="checkbox" id="detecteurMonoxyDeCarbone" name="accommodation-types[]" value="detecteurMonoxyDeCarbone"/>
+				<label for="detecteurMonoxyDeCarbone">Détecteur de monoxyde de carbone</label>
 				<br/><br/>
 
 				<input type="submit" name="submit" value="Modifier"/>
