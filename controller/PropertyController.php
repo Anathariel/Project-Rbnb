@@ -217,17 +217,18 @@ class PropertyController extends Controller
                 ]);
             } else {
                 if (isset($_POST['submit'])) {
-                    $title = $_POST['title'];
-                    $description = $_POST['description'];
-                    $priceNight = $_POST['price-night'];
-                    var_dump($_POST);
+                    $title = isset($_POST['title']) ? $_POST['title'] : '';
+                    $description = isset($_POST['description']) ? $_POST['description'] : '';
+                    $priceNight = isset($_POST['price-night']) ? $_POST['price-night'] : '';
                     $propertyType = $_POST['property-type'];
                     $hostLanguages = isset($_POST['host-languages']) ? $_POST['host-languages'] : [];
                     $accomodationTypes = isset($_POST['accommodation-types']) ? $_POST['accommodation-types'] : [];
 
-                    $checkInTime = $_POST['check-in-time'];
-                    $checkOutTime = $_POST['check-out-time'];
-                    $maxGuests = $_POST['max-guests'];
+                    $checkInTime = isset($_POST['check-in-time']) ? $_POST['check-in-time'] : [];
+                    $checkOutTime = isset($_POST['check-out-time']) ? $_POST['check-out-time'] : [];
+                    $maxGuests = isset($_POST['max-guests']) ? $_POST['max-guests'] : [] ;
+
+                    $tags = isset($_POST['tags']) ? $_POST['tags'] : [];
 
                     $propertyModel->editPropertyModel($id, $title, $description, $priceNight);
 
@@ -310,13 +311,13 @@ class PropertyController extends Controller
                     $accomodationTypeModel->editAccomodationTypeModel($accomodationType);
 
 
-
+                    $imageMainURL = '';
                     $image1URL = '';
                     $image2URL = '';
                     $image3URL = '';
                     $image4URL = '';
 
-                    $imageMainURL = '';
+
                     if (isset($_FILES['imageMain']['name']) && !empty($_FILES['imageMain']['name'])) {
                         $uploadDir = 'asset/media/locations/';
                         $imageMainURL = uploadFile($_FILES['imageMain'], $uploadDir);
@@ -344,6 +345,10 @@ class PropertyController extends Controller
 
                     $propertyImagesModel = new PropertyImagesModel();
                     $propertyImagesModel->editPropertyImagesModel($id, $imageMainURL, $image1URL, $image2URL, $image3URL, $image4URL);
+
+
+                    $tagModel = new TagModel();
+                    $tagModel->editTagsModel($id, $tags);
 
 
                     header('Location: ' . $router->generate('home'));
