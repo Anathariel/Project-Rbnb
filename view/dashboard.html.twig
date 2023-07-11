@@ -76,18 +76,16 @@
 								</div>
 								<a href="{{ path('baseEditproperty') }}{{ property.propertyId }}">
 									<div class="button">
-										<p>Voir la propriété</p>
+										<p>Modifier</p>
 									</div>
 								</a>
-								{# <form action="{{ path('deleteproperty') }}{{ property.propertyId }}">
-									<div class="button">
-										<input type="hidden" name="_method" value="DELETE">
-										<input type="submit" value="Supprimer la propriété">
-									</div>
-								</form> #}
+								<form action="{{ path('baseDeleteproperty') }}{{ property.propertyId }}" method="POST">
+									<input type="hidden" name="_method" value="DELETE">
+									<input type="submit" value="Supprimer la propriété">
+								</form>
 							</div>
 						</div>
-					</form>
+					</a>
 				{% endif %}
 			{% endfor %}
 		</div>
