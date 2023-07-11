@@ -14,6 +14,8 @@ $router->map('GET', '/property/[i:id]', 'PropertyController#getOne', '');
 
 $router->map('GET', '/tags', '', 'baseTags');
 
+$router->map('GET', '/blog', 'HomeController#blog', 'blog');
+
 // Register
 $router->map('GET|POST', '/registration', 'UserController#register', 'register');
 
