@@ -56,7 +56,7 @@ class PropertyModel extends Model
 
         $req->execute();
     }
-    public function editPropertyModel(int $propertyId, string $title, string $description, float $priceNight)
+    public function editPropertyModel(int $propertyId, string $title, string $description, $priceNight)
     {
         $db = $this->getDb();
         $stmt = $db->prepare('UPDATE `property` SET `title` = :title, `description` = :description, `priceNight` = :priceNight WHERE `propertyId` = :propertyId');

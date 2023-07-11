@@ -76,6 +76,8 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
         'PropertyTypeModel' => __DIR__ . '/../..' . '/model/PropertyTypeModel.php',
         'Reservation' => __DIR__ . '/../..' . '/class/Reservation.php',
         'Role' => __DIR__ . '/../..' . '/class/role.php',
+        'SearchController' => __DIR__ . '/../..' . '/controller/SearchController.php',
+        'SearchModel' => __DIR__ . '/../..' . '/model/SearchModel.php',
         'Tag' => __DIR__ . '/../..' . '/class/Tag.php',
         'TagController' => __DIR__ . '/../..' . '/controller/TagController.php',
         'TagModel' => __DIR__ . '/../..' . '/model/TagModel.php',

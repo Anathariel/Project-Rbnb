@@ -1,7 +1,31 @@
 {% extends "template.html.twig" %}
 
-{% block title %}Bienvenue sur Loca'R
+{% block title %}Résultat de votre recherche
 {% endblock %}
 
 {% block content %}
+		<form action="{{ path('search') }}" method="GET" id="search-form">
+			<input type="text" name="search" placeholder="Rechercher une location . . ." id="input-search">
+			<button type="submit">X</button>
+		</form>
+<section>
+<h2>Résultat de votre recherche</h2>
+
+<div id="response"></div>
+			<ul>
+				{% for property in propertys %}
+					<div id="recipe-card">
+						<li>
+							<a href="{{ path('baseProperty') }}{{ property.propertyId }}">{{ property.title }}</a>
+						</li>
+						<li>
+							<p>{{ recipe.duration }}</p>
+						</li>
+					</div>
+				{% endfor %}
+			</ul>
+
+		{% if message %}<p>{{ message }}</p>{% endif %}	
+
+		</section>
 {% endblock %}
