@@ -43,7 +43,7 @@ body {
 
 img {
   max-width: 100%;
-  display: block;
+  display: block; 
 }
 
 p,
@@ -596,7 +596,7 @@ section#new-destinations-section {
     display: flex;
     flex-direction: row;
 
-        a {
+    a {
       padding-top: 1.5rem;
 
       div.card-new-destinations {
@@ -811,6 +811,7 @@ section#best-tags-section {
 //? --------- features-sections --------- //
 section#features-section {
   margin-bottom: 3rem;
+
   div#container-card-features {
     figure {
       img {
@@ -887,11 +888,229 @@ section#join-us-section {
 //~ -------------------- PROPERTY -------------------- //
 
 section#property-section {
-  figcaption {
+  text-align: left;
+
+  h1 {
+    font-size: 55px;
+  }
+
+  figure {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+
     img {
-      width: 261px;
+      width: 30%;
       height: auto;
     }
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: $accent;
+    text-align: left;
+
+  }
+
+  .container-description-property {
+    width: 50%;
+
+    .property-amenities {
+      display: flex;
+      flex-direction: row;
+
+      p {
+        padding-right: .5rem;
+      }
+    }
+
+    .property-description {
+      p {
+        font-weight: lighter;
+        font-family: 'Poppins';
+      }
+
+      #description-details {
+        color: $accent;
+      }
+
+      #description-details:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .property-equipment {
+      .equipment-list {
+        display: flex;
+        flex-direction: row;
+
+        figure {
+          margin: 1.5rem 1rem;
+          margin-left: 0;
+          overflow: hidden;
+
+          img {
+            margin-right: .5rem;
+            width: 25px;
+          }
+        }
+      }
+    }
+
+    .property-comments {
+      display: flex;
+      flex-direction: column;
+
+      .nav-arrows {
+        align-self: flex-end;
+
+        button {
+          outline: transparent;
+          border: 1px solid $darkerblue;
+          border-radius: 50%;
+          padding: .5rem;
+        }
+      }
+
+      .container-comments-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        overflow: scroll;
+
+        .container-comment {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          padding: 0 1.5rem;
+          margin: .5rem 1.5rem;
+          min-width: 300px;
+          height: 250px;
+          background-color: #fff;
+          border-radius: .5rem;
+          box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+
+          .stars-rating {
+            figure {
+              img {
+                width: 25px;
+              }
+            }
+          }
+
+          figure {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            overflow: hidden;
+
+            #profile-picture {
+              background-color: grey;
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+            }
+
+            figcaption {
+              margin: 0 .5rem;
+            }
+          }
+        }
+      }
+
+    }
+
+    .property-host {
+      h3 {
+        margin: 1rem 0;
+      }
+
+      .container-host-info {
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+        padding: 2rem;
+        border-radius: 1rem;
+        max-width: 60%;
+
+
+        figure {
+          overflow: hidden;
+
+          .profile-picture {
+            background-color: grey;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+          }
+
+          figcaption {
+            padding: .5rem 1rem;
+
+            h4 {
+              font-size: 1.3rem;
+            }
+          }
+        }
+
+        .stars-rating {
+          img {
+            width: 15px;
+          }
+        }
+
+        .host-details{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .center-button{
+          display: flex;
+          justify-content: center;
+
+          button.hote-contact{
+          border: 1px solid $accent;
+          background-color: transparent;
+          padding: 1rem;
+          border-radius: .5rem;
+          cursor: pointer;
+          color: $accent;
+        }
+        
+        button.hote-contact:hover{
+          background-color: $accent;
+          color: $white;
+          border: 1px solid $white;
+          transition: 500ms ease-in;
+        }
+        }
+      }
+    }
+  }
+
+  .property-conditions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .annulation,.reglement{
+      max-width: 300px;
+    }
+
+    a{
+      font-size: 1.1rem;
+    }
+    a:hover{
+      color: $accent;
+      text-decoration: underline;
+      transition: 250ms ease-in;
+    }
+  }
+
+  div {
+    margin-bottom: 1rem;
   }
 }
 
@@ -899,9 +1118,8 @@ section#property-section {
 //? --------- Gogglemap-property Section --------- //
 section#googlemaps-property-section {
   div#map {
-    width: 70%;
+    width: 100%;
     height: 400px;
-    margin: 0 auto;
   }
 }
 

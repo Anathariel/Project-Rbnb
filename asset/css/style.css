@@ -675,15 +675,184 @@ section#join-us-section div#container-card-join-us figcaption a#btn-list-propert
   box-shadow: 0 0.1rem rgba(255, 255, 255, 0.7);
 }
 
-section#property-section figcaption img {
-  width: 261px;
+section#property-section {
+  text-align: left;
+}
+section#property-section h1 {
+  font-size: 55px;
+}
+section#property-section figure {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+}
+section#property-section figure img {
+  width: 30%;
   height: auto;
+}
+section#property-section h3 {
+  font-size: 1.5rem;
+  color: #404e87;
+  text-align: left;
+}
+section#property-section .container-description-property {
+  width: 50%;
+}
+section#property-section .container-description-property .property-amenities {
+  display: flex;
+  flex-direction: row;
+}
+section#property-section .container-description-property .property-amenities p {
+  padding-right: 0.5rem;
+}
+section#property-section .container-description-property .property-description p {
+  font-weight: lighter;
+  font-family: "Poppins";
+}
+section#property-section .container-description-property .property-description #description-details {
+  color: #404e87;
+}
+section#property-section .container-description-property .property-description #description-details:hover {
+  text-decoration: underline;
+}
+section#property-section .container-description-property .property-equipment .equipment-list {
+  display: flex;
+  flex-direction: row;
+}
+section#property-section .container-description-property .property-equipment .equipment-list figure {
+  margin: 1.5rem 1rem;
+  margin-left: 0;
+  overflow: hidden;
+}
+section#property-section .container-description-property .property-equipment .equipment-list figure img {
+  margin-right: 0.5rem;
+  width: 25px;
+}
+section#property-section .container-description-property .property-comments {
+  display: flex;
+  flex-direction: column;
+}
+section#property-section .container-description-property .property-comments .nav-arrows {
+  align-self: flex-end;
+}
+section#property-section .container-description-property .property-comments .nav-arrows button {
+  outline: transparent;
+  border: 1px solid #1b1d21;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+section#property-section .container-description-property .property-comments .container-comments-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow: scroll;
+}
+section#property-section .container-description-property .property-comments .container-comments-row .container-comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 1.5rem;
+  margin: 0.5rem 1.5rem;
+  min-width: 300px;
+  height: 250px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+section#property-section .container-description-property .property-comments .container-comments-row .container-comment .stars-rating figure img {
+  width: 25px;
+}
+section#property-section .container-description-property .property-comments .container-comments-row .container-comment figure {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+}
+section#property-section .container-description-property .property-comments .container-comments-row .container-comment figure #profile-picture {
+  background-color: grey;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+section#property-section .container-description-property .property-comments .container-comments-row .container-comment figure figcaption {
+  margin: 0 0.5rem;
+}
+section#property-section .container-description-property .property-host h3 {
+  margin: 1rem 0;
+}
+section#property-section .container-description-property .property-host .container-host-info {
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 60%;
+}
+section#property-section .container-description-property .property-host .container-host-info figure {
+  overflow: hidden;
+}
+section#property-section .container-description-property .property-host .container-host-info figure .profile-picture {
+  background-color: grey;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+section#property-section .container-description-property .property-host .container-host-info figure figcaption {
+  padding: 0.5rem 1rem;
+}
+section#property-section .container-description-property .property-host .container-host-info figure figcaption h4 {
+  font-size: 1.3rem;
+}
+section#property-section .container-description-property .property-host .container-host-info .stars-rating img {
+  width: 15px;
+}
+section#property-section .container-description-property .property-host .container-host-info .host-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+section#property-section .container-description-property .property-host .container-host-info .center-button {
+  display: flex;
+  justify-content: center;
+}
+section#property-section .container-description-property .property-host .container-host-info .center-button button.hote-contact {
+  border: 1px solid #404e87;
+  background-color: transparent;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: #404e87;
+}
+section#property-section .container-description-property .property-host .container-host-info .center-button button.hote-contact:hover {
+  background-color: #404e87;
+  color: #f8f8f8;
+  border: 1px solid #f8f8f8;
+  transition: 500ms ease-in;
+}
+section#property-section .property-conditions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+section#property-section .property-conditions .annulation, section#property-section .property-conditions .reglement {
+  max-width: 300px;
+}
+section#property-section .property-conditions a {
+  font-size: 1.1rem;
+}
+section#property-section .property-conditions a:hover {
+  color: #404e87;
+  text-decoration: underline;
+  transition: 250ms ease-in;
+}
+section#property-section div {
+  margin-bottom: 1rem;
 }
 
 section#googlemaps-property-section div#map {
-  width: 70%;
+  width: 100%;
   height: 400px;
-  margin: 0 auto;
 }
 
 .dashboard {
