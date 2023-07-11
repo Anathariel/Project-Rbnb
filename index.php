@@ -33,8 +33,9 @@ $router->map('GET|POST', '/addproperty', 'PropertyController#createProperty', 'p
 $router->map('GET|POST', '/editproperty/', '', 'baseEditproperty');
 $router->map('GET|POST', '/editproperty/[i:id]', 'PropertyController#editProperty', 'propertyEdit');
 
+$router->map('GET|POST', '/deleteproperty/', '', 'baseDeleteproperty');
+$router->map('POST', '/deleteproperty/[i:id]', 'PropertyController#deleteProperty', 'propertyDelete');
 
-// $router->map('GET|DELETE', '/deleteproperty/[i:id]', 'PropertyController#deletePropertyModel', 'propertyDelete');
 
 
 // MATCH :

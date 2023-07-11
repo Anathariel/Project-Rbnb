@@ -360,11 +360,16 @@ class PropertyController extends Controller
         }
     }
 
-    public function deleteProperty($id)
+    public function deleteProperty(int $id)
     {
-        global $router;
-        $propertyModel = new PropertyModel();
-        $propertyModel->deletePropertyModel($id);
-        header('Location: ' . $router->generate('home'));
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['_method'] === 'DELETE') {
+            $propertyModel = new PropertyModel();
+            $propertyModel->deletePropertyModel($id);
+    
+            global $router;
+            header('Location: ' . $router->generate('home'));
+            exit;
+        }
     }
+    
 }
