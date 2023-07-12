@@ -98,20 +98,20 @@
 		<div id="container-card-best-tags">
 
 			<div class="best-tags-main-card">
-				<a href="{{ path('baseProperty') }}{{ property[0].propertyId }}">
-					<div class="card-best-tags main-card">
-						<figure>
-							<img src="{{ asset('/media/locations/' ~ propertys[0].propertyImages.imageMainURL) }}" alt="{{ propertys[0].title }}"/>
-							<figcaption>
-								<div class="description-card">
-									<h3 id="title-description-card">{{ property[0].title }}</h3>
-									<p>{{ property[0].PriceNight }}€/nuit</p>
-									<p>{{ property[0].address }}</p>
-								</div>
-							</figcaption>
-						</figure>
-					</div>
-				</a>
+					<a href="{{ path('baseProperty') }}{{ propertys[0].propertyId }}">
+						<div class="card-best-tags main-card">
+							<figure>
+								<img src="{{ asset('/media/locations/' ~ propertys[0].propertyImages.imageMainURL) }}" alt="{{ propertys[0].title }}"/>
+								<figcaption>
+									<div class="description-card">
+										<h3 id="title-description-card">{{ propertys[0].title }}</h3>
+										<p>{{ propertys[0].PriceNight }}€/nuit</p>
+										<p>{{ propertys[0].address }}</p>
+									</div>
+								</figcaption>
+							</figure>
+						</div>
+					</a>
 			</div>
 
 			<div class="best-tags-flex-cards">
@@ -120,7 +120,7 @@
 						<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
 							<div class="card-best-tags">
 								<figure>
-									<img src="{{ asset('/media/locations/' ~ propertys[1].propertyImages.imageMainURL) }}" alt="{{ propertys[1].title }}"/>
+									<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
 									<figcaption>
 										<div class="description-card">
 											<h3 id="title-description-card">{{ property.title }}</h3>

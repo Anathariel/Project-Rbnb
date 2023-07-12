@@ -7,7 +7,7 @@
 	<div>
 		<fieldset>
 			<legend>Modification de votre propriété</legend>
-			<form method="POST" action="{{ router.generate('propertyEdit', {'id': property.id}) }}">
+			<form method="POST" enctype="multipart/form-data" action="{{ router.generate('propertyEdit', {'id': property.id}) }}">
 				<label for="title">Titre de la propriété</label>
 				<br/>
 				<input type="text" id="title" name="title" value="{{ property.title }}" placeholder="Entrer le nom de la propriété"/>
