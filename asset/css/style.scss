@@ -1448,10 +1448,6 @@ section#googlemaps-property-section {
   background-color: $dashboard-brg;
 
   fieldset {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 1rem 3rem;
   }
 
@@ -1460,36 +1456,94 @@ section#googlemaps-property-section {
     font-size: 1.2rem;
   }
 
-  .selection-accomodation{
+  h5 {
+    font-size: 1rem;
+    color: $dash-maincolor;
+  }
+
+  .flex-form {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    label{
-      width: 80px;
-      img{
-        width: 20px;
+    justify-content: center;
+    align-items: center;
+
+    .left-property-details {
+      width: 50%;
+
+      .input-flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .property-title,
+        .property-price,
+        .property-type {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+
+    .right-property-images {
+      width: 50%;
+      max-height: 400px;
+      overflow: scroll;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .host-languages {
+      label {
+        margin: 1.5rem;
       }
     }
   }
 
-  .add-rules{
-    label{
+
+
+  .selection-accomodation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .equipement {
+      width: 100px;
+      text-align: center;
+
+      label {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 20px;
+        }
+      }
+    }
+
+  }
+
+  .add-rules {
+    label {
       margin: 1rem;
     }
   }
 
-  .add-amenities{
+  .add-amenities {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    .amenity{
+    .amenity {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
 
-      label{
+      label {
         padding: .5rem;
       }
     }
