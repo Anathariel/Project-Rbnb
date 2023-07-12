@@ -38,6 +38,8 @@ return array(
     'PropertyTypeModel' => $baseDir . '/model/PropertyTypeModel.php',
     'Reservation' => $baseDir . '/class/Reservation.php',
     'Role' => $baseDir . '/class/role.php',
+    'SearchController' => $baseDir . '/controller/SearchController.php',
+    'SearchModel' => $baseDir . '/model/SearchModel.php',
     'Tag' => $baseDir . '/class/Tag.php',
     'TagController' => $baseDir . '/controller/TagController.php',
     'TagModel' => $baseDir . '/model/TagModel.php',
