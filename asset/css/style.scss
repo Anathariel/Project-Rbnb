@@ -1102,16 +1102,24 @@ section#property-section {
       .annulation,
       .reglement {
         max-width: 300px;
-      }
 
-      a {
-        font-size: 1.1rem;
-      }
+        h4{
+          font-size: 1.3rem;
+        }
 
-      a:hover {
-        color: $accent;
-        text-decoration: underline;
-        transition: 250ms ease-in;
+        p{
+          margin: 1rem;
+        }
+
+        a {
+          font-size: 1.1rem;
+        }
+
+        a:hover {
+          color: $accent;
+          text-decoration: underline;
+          transition: 250ms ease-in;
+        }
       }
     }
 
@@ -1121,12 +1129,14 @@ section#property-section {
       margin: 1rem 5rem;
       background: #d9d9d960;
       width: 30%;
-      max-height: 500px;
+      max-height: 505px;
       padding: 1.5rem;
       border-radius: 1.5rem;
 
       p {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        margin: 1rem;
+        margin-top: 0;
 
         span {
           font-family: 'Quicksand-bold';
@@ -1140,31 +1150,42 @@ section#property-section {
         align-items: center;
 
         .reservation-options {
-          width: 80%;
+          width: 90%;
           background-color: #fff;
           border-radius: 1rem;
-          padding: 1rem;
+          padding: .5rem;
+
           .calendar {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
 
-            input[type="date"]{
+            input[type="date"] {
               border: none;
               outline: transparent;
               font-family: 'Quicksand';
+              text-transform: uppercase;
+            }
+
+            .arrival,
+            .departure {
+              width: 50%;
+              padding-bottom: .5rem;
+              border-bottom: 1px solid $darkerblue;
+            }
+
+            .arrival {
+              border-right: 1px solid $darkerblue;
+            }
+
+            .departure {
+              padding-left: 1rem;
             }
           }
 
           .traveler {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            input[type="date"]{
-              border: none;
-              outline: transparent;
-              font-family: 'Quicksand';
-            }
           }
         }
 
@@ -1176,8 +1197,15 @@ section#property-section {
           outline: transparent;
           border-radius: .5rem;
           padding: .5rem 1rem;
-          width: 80%;
+          width: 90%;
           cursor: pointer;
+          font-size: 1.3rem;
+        }
+
+        button:hover{
+          background-color: $maincolor;
+          border: .5px solid white;
+          transition: 500ms ease;
         }
 
         p {
@@ -1192,6 +1220,13 @@ section#property-section {
 
         p {
           font-size: 1rem;
+        }
+
+        h4 {
+          font-size: 1.3rem;
+          margin: 1rem 0;
+          padding-top: .5rem;
+          border-top: 1px solid $darkerblue;
         }
       }
     }

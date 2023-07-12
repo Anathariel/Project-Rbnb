@@ -843,10 +843,20 @@ section#property-section .property-details .property-conditions .annulation,
 section#property-section .property-details .property-conditions .reglement {
   max-width: 300px;
 }
-section#property-section .property-details .property-conditions a {
+section#property-section .property-details .property-conditions .annulation h4,
+section#property-section .property-details .property-conditions .reglement h4 {
+  font-size: 1.3rem;
+}
+section#property-section .property-details .property-conditions .annulation p,
+section#property-section .property-details .property-conditions .reglement p {
+  margin: 1rem;
+}
+section#property-section .property-details .property-conditions .annulation a,
+section#property-section .property-details .property-conditions .reglement a {
   font-size: 1.1rem;
 }
-section#property-section .property-details .property-conditions a:hover {
+section#property-section .property-details .property-conditions .annulation a:hover,
+section#property-section .property-details .property-conditions .reglement a:hover {
   color: #404e87;
   text-decoration: underline;
   transition: 250ms ease-in;
@@ -857,12 +867,14 @@ section#property-section .property-details .container-pricing {
   margin: 1rem 5rem;
   background: rgba(217, 217, 217, 0.3764705882);
   width: 30%;
-  max-height: 500px;
+  max-height: 505px;
   padding: 1.5rem;
   border-radius: 1.5rem;
 }
 section#property-section .property-details .container-pricing p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  margin: 1rem;
+  margin-top: 0;
 }
 section#property-section .property-details .container-pricing p span {
   font-family: "Quicksand-bold";
@@ -874,10 +886,10 @@ section#property-section .property-details .container-pricing .container-calenda
   align-items: center;
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options {
-  width: 80%;
+  width: 90%;
   background-color: #fff;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar {
   display: flex;
@@ -888,16 +900,23 @@ section#property-section .property-details .container-pricing .container-calenda
   border: none;
   outline: transparent;
   font-family: "Quicksand";
+  text-transform: uppercase;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .arrival,
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .departure {
+  width: 50%;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #1b1d21;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .arrival {
+  border-right: 1px solid #1b1d21;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .departure {
+  padding-left: 1rem;
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler input[type=date] {
-  border: none;
-  outline: transparent;
-  font-family: "Quicksand";
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler button {
   background-color: #404e87;
@@ -906,8 +925,14 @@ section#property-section .property-details .container-pricing .container-calenda
   outline: transparent;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
-  width: 80%;
+  width: 90%;
   cursor: pointer;
+  font-size: 1.3rem;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler button:hover {
+  background-color: #92aad3;
+  border: 0.5px solid white;
+  transition: 500ms ease;
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler p {
   font-size: 0.7rem;
@@ -919,6 +944,12 @@ section#property-section .property-details .container-pricing .price-details {
 }
 section#property-section .property-details .container-pricing .price-details p {
   font-size: 1rem;
+}
+section#property-section .property-details .container-pricing .price-details h4 {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid #1b1d21;
 }
 section#property-section div {
   margin-bottom: 1rem;
