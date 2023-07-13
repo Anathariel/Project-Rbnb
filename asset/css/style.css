@@ -1021,7 +1021,6 @@ section#googlemaps-property-section div#map {
 .dashboard .dashboard-cards .card {
   display: flex;
   flex-direction: column;
-  height: auto;
   width: 100%;
   max-width: 280px;
   margin: 2rem auto;
@@ -1033,8 +1032,13 @@ section#googlemaps-property-section div#map {
   padding: 1rem 0;
 }
 .dashboard .dashboard-cards .card figure img {
-  width: 260px;
-  height: auto;
+  width: 90%;
+  max-width: 260px;
+  max-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
   border-radius: 0.5rem;
   display: inline-block;
 }
@@ -1130,6 +1134,7 @@ section#googlemaps-property-section div#map {
 #addpropertyForm h4 {
   color: #0E9384;
   font-size: 1.2rem;
+  margin: 1rem 0;
 }
 #addpropertyForm h5 {
   font-size: 1rem;
@@ -1171,6 +1176,7 @@ section#googlemaps-property-section div#map {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 #addpropertyForm .selection-accomodation .equipement {
   width: 100px;
@@ -1185,25 +1191,22 @@ section#googlemaps-property-section div#map {
 #addpropertyForm .selection-accomodation .equipement label img {
   width: 20px;
 }
+#addpropertyForm .selection-accomodation .equipement label:hover {
+  cursor: pointer;
+}
+#addpropertyForm .selection-accomodation .equipement:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.3568627451);
+  border-bottom: 1px solid #1b1d21;
+  transition: 500ms ease-in;
+}
 #addpropertyForm .add-rules label {
   margin: 1rem;
-}
-#addpropertyForm .add-amenities {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#addpropertyForm .add-amenities .amenity {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 #addpropertyForm .add-amenities .amenity label {
   padding: 0.5rem;
 }
 #addpropertyForm .selection-tags {
-  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: center;
