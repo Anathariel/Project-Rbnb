@@ -211,9 +211,17 @@ class PropertyController extends Controller
 
         if ($property instanceof Property) {
             if (!$_POST) {
+                $userId = $_SESSION['uid'];
+                $userModel = new UserModel();
+                $user = $userModel->getUserById($userId);
+                $firstName = $user->getFirstName();
+                $email = $user->getEmail();
+
                 echo self::getRender('editproperty.html.twig', [
                     'property' => $property,
                     'id' => $id,
+                    'firstName' => $firstName,
+                    'email' => $email,
                 ]);
             } else {
                 if (isset($_POST['submit'])) {
@@ -226,7 +234,7 @@ class PropertyController extends Controller
 
                     $checkInTime = isset($_POST['check-in-time']) ? $_POST['check-in-time'] : [];
                     $checkOutTime = isset($_POST['check-out-time']) ? $_POST['check-out-time'] : [];
-                    $maxGuests = isset($_POST['max-guests']) ? $_POST['max-guests'] : [] ;
+                    $maxGuests = isset($_POST['max-guests']) ? $_POST['max-guests'] : [];
 
                     $tags = isset($_POST['tags']) ? $_POST['tags'] : [];
 
@@ -370,11 +378,10 @@ class PropertyController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['_method'] === 'DELETE') {
             $propertyModel = new PropertyModel();
             $propertyModel->deletePropertyModel($id);
-    
+
             global $router;
             header('Location: ' . $router->generate('home'));
             exit;
         }
     }
-    
 }
