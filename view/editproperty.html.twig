@@ -51,547 +51,187 @@
 				<label for="property-type">Choisissez le type de propriété :</label>
 				<br/>
 				<select id="property-type" name="property-type">
-					<option value="house" {% if property.propertyType.house %} selected {% endif %}>Maison</option>
-					<option value="flat" {% if property.propertyType.flat %} selected {% endif %}>Appartement</option>
-					<option value="guesthouse" {% if property.propertyType.guesthouse %} selected {% endif %}>Maison d'hôte</option>
-					<option value="hotel" {% if property.propertyType.hotel %} selected {% endif %}>Hôtel</option>
+					<option value="house" {% if propertyType.house %} selected {% endif %}>Maison</option>
+					<option value="flat" {% if propertyType.flat %} selected {% endif %}>Appartement</option>
+					<option value="guesthouse" {% if propertyType.guesthouse %} selected {% endif %}>Maison d'hôte</option>
+					<option value="hotel" {% if propertyType.hotel %} selected {% endif %}>Hôtel</option>
 				</select>
 
 				<br/><br/>
 
 				<label for="host-languages">Langues parlées par l'hôte :</label>
 				<br/>
-				<input type="checkbox" id="english" name="host-languages[]" value="anglais" {% if property.host_languages is defined and 'english' in property.host_languages %} checked {% endif %}/>
+				<input type="checkbox" id="english" name="host-languages[]" value="anglais" {% if hostLanguage.anglais == true %} checked {% endif %}/>
 				<label for="english">Anglais</label>
 				<br/>
-				<input type="checkbox" id="french" name="host-languages[]" value="français" {% if property.host_languages is defined and 'french' in property.host_languages %} checked {% endif %}/>
+				<input type="checkbox" id="french" name="host-languages[]" value="français" {% if hostLanguage.français == true %} checked {% endif %}/>
 				<label for="french">Français</label>
 				<br/>
-				<input type="checkbox" id="german" name="host-languages[]" value="allemand" {% if property.host_languages is defined and 'german' in property.host_languages %} checked {% endif %}/>
+				<input type="checkbox" id="german" name="host-languages[]" value="allemand" {% if hostLanguage.allemand == true %} checked {% endif %}/>
 				<label for="german">Allemand</label>
 				<br/>
-				<input type="checkbox" id="japanese" name="host-languages[]" value="japonais" {% if property.host_languages is defined and 'japanese' in property.host_languages %} checked {% endif %}/>
+				<input type="checkbox" id="japanese" name="host-languages[]" value="japonais" {% if hostLanguage.japonais == true %} checked {% endif %}/>
 				<label for="japanese">Japonais</label>
 				<br/>
-				<input type="checkbox" id="italian" name="host-languages[]" value="italien" {% if property.host_languages is defined and 'italian' in property.host_languages %} checked {% endif %}/>
+				<input type="checkbox" id="italian" name="host-languages[]" value="italien" {% if hostLanguage.italien == true %} checked {% endif %}/>
 				<label for="italian">Italien</label>
 				<br/>
-				<input type="checkbox" id="russian" name="host-languages[]" value="russe" {% if property.host_languages is defined and 'russian' in property.host_languages %} checked {% endif %}/>
+				<input type="checkbox" id="russian" name="host-languages[]" value="russe" {% if hostLanguage.russe == true %} checked {% endif %}/>
 				<label for="russian">Russe</label>
 				<br/>
-				<input type="checkbox" id="spanish" name="host-languages[]" value="espagnol" {% if property.host_languages is defined and 'panish' in property.host_languages %} checked {% endif %}/>
+				<input type="checkbox" id="spanish" name="host-languages[]" value="espagnol" {% if hostLanguage.espagnol == true %} checked {% endif %}/>
 				<label for="spanish">Espagnol</label>
 				<br/>
-				<input type="checkbox" id="chinese" name="host-languages[]" value="chinois" {% if property.host_languages is defined and 'chinese' in property.host_languages %} checked {% endif %}/>
+				<input type="checkbox" id="chinese" name="host-languages[]" value="chinois" {% if hostLanguage.chinois == true %} checked {% endif %}/>
 				<label for="chinese">Chinois</label>
 				<br/>
-				<input type="checkbox" id="arabic" name="host-languages[]" value="arabe" {% if property.host_languages is defined and 'arabic' in property.host_languages %} checked {% endif %}/>
+				<input type="checkbox" id="arabic" name="host-languages[]" value="arabe" {% if hostLanguage.arabe == true %} checked {% endif %}/>
 				<label for="arabic">Arabe</label>
 				<br/><br/>
 
-				<label for="accommodation-types">Règlement intérieur :</label>
+				<label for="house-rules">Règlement intérieur :</label>
 				<br/>
 				<label for="check-in-time">Heure d'arrivée :</label>
-				<input type="time" id="check-in-time" name="check-in-time" required/>
+				<input type="time" id="check-in-time" name="check-in-time" value="{{ houseRules.checkInTime|date('H:i') }}" required/>
 				<br/>
 
 				<label for="check-out-time">Heure de départ :</label>
-				<input type="time" id="check-out-time" name="check-out-time" required/>
+				<input type="time" id="check-out-time" name="check-out-time" value="{{ houseRules.checkOutTime|date('H:i') }}" required/>
 				<br/>
 
 				<label for="max-guests">Nombre maximum d'invités :</label>
-				<input type="number" id="max-guests" name="max-guests" required/>
+				<input type="number" id="max-guests" name="max-guests" value="{{ houseRules.maxGuests }}" required/>
 				<br/><br/>
+
 
 				<label for="property-amenities">Pièces clées de la propriété :</label>
 				<br/>
 				<label for="bedrooms">Nombre de chambres :</label>
 				<br/>
-				<input type="radio" id="bedroom-1" name="bedrooms" value="1"/>
-				<label for="bedroom-1">1</label>
-				<br/>
-				<input type="radio" id="bedroom-2" name="bedrooms" value="2"/>
-				<label for="bedroom-2">2</label>
-				<br/>
-				<input type="radio" id="bedroom-3" name="bedrooms" value="3"/>
-				<label for="bedroom-3">3</label>
-				<br/>
-				<input type="radio" id="bedroom-4" name="bedrooms" value="4"/>
-				<label for="bedroom-4">4</label>
-				<br/>
-				<input type="radio" id="bedroom-5" name="bedrooms" value="5"/>
-				<label for="bedroom-5">5</label>
-				<br/>
-				<input type="radio" id="bedroom-6" name="bedrooms" value="6"/>
-				<label for="bedroom-6">6</label>
-				<br/>
-				<input type="radio" id="bedroom-7" name="bedrooms" value="7"/>
-				<label for="bedroom-7">7</label>
-				<br/>
-				<input type="radio" id="bedroom-8+" name="bedrooms" value="8+"/>
+				{% for i in 1..8 %}
+					<input type="radio" id="bedroom-{{ i }}" name="bedrooms" value="{{ i }}" {{ propertyAmenities.bedrooms == i ? 'checked' : '' }}/>
+					<label for="bedroom-{{ i }}">{{ i }}</label>
+					<br/>
+				{% endfor %}
+				<input type="radio" id="bedroom-8+" name="bedrooms" value="8+" {{ propertyAmenities.bedrooms >= 8 ? 'checked' : '' }}/>
 				<label for="bedroom-8+">8+</label>
 
 				<br/><br/>
 
 				<label for="beds">Nombre de lits :</label>
 				<br/>
-				<input type="radio" id="bed-1" name="beds" value="1"/>
-				<label for="bed-1">1</label>
-				<br/>
-				<input type="radio" id="bed-2" name="beds" value="2"/>
-				<label for="bed-2">2</label>
-				<br/>
-				<input type="radio" id="bed-3" name="beds" value="3"/>
-				<label for="bed-3">3</label>
-				<br/>
-				<input type="radio" id="bed-4" name="beds" value="4"/>
-				<label for="bed-4">4</label>
-				<br/>
-				<input type="radio" id="bed-5" name="beds" value="5"/>
-				<label for="bed-5">5</label>
-				<br/>
-				<input type="radio" id="bed-6" name="beds" value="6"/>
-				<label for="bed-6">6</label>
-				<br/>
-				<input type="radio" id="bed-7" name="beds" value="7"/>
-				<label for="bed-7">7</label>
-				<br/>
-				<input type="radio" id="bed-8+" name="beds" value="8+"/>
+				{% for i in 1..8 %}
+					<input type="radio" id="bed-{{ i }}" name="beds" value="{{ i }}" {{ propertyAmenities.beds == i ? 'checked' : '' }}/>
+					<label for="bed-{{ i }}">{{ i }}</label>
+					<br/>
+				{% endfor %}
+				<input type="radio" id="bed-8+" name="beds" value="8+" {{ propertyAmenities.beds >= 8 ? 'checked' : '' }}/>
 				<label for="bed-8+">8+</label>
 
 				<br/><br/>
 
 				<label for="bathrooms">Nombre de salles de bain :</label>
 				<br/>
-				<input type="radio" id="bathroom-1" name="bathrooms" value="1"/>
-				<label for="bathroom-1">1</label>
-				<br/>
-				<input type="radio" id="bathroom-2" name="bathrooms" value="2"/>
-				<label for="bathroom-2">2</label>
-				<br/>
-				<input type="radio" id="bathroom-3" name="bathrooms" value="3"/>
-				<label for="bathroom-3">3</label>
-				<br/>
-				<input type="radio" id="bathroom-4" name="bathrooms" value="4"/>
-				<label for="bathroom-4">4</label>
-				<br/>
-				<input type="radio" id="bathroom-5" name="bathrooms" value="5"/>
-				<label for="bathroom-5">5</label>
-				<br/>
-				<input type="radio" id="bathroom-6" name="bathrooms" value="6"/>
-				<label for="bathroom-6">6</label>
-				<br/>
-				<input type="radio" id="bathroom-7" name="bathrooms" value="7"/>
-				<label for="bathroom-7">7</label>
-				<br/>
-				<input type="radio" id="bathroom-8+" name="bathrooms" value="8+"/>
+				{% for i in 1..8 %}
+					<input type="radio" id="bathroom-{{ i }}" name="bathrooms" value="{{ i }}" {{ propertyAmenities.bathrooms == i ? 'checked' : '' }}/>
+					<label for="bathroom-{{ i }}">{{ i }}</label>
+					<br/>
+				{% endfor %}
+				<input type="radio" id="bathroom-8+" name="bathrooms" value="8+" {{ propertyAmenities.bathrooms >= 8 ? 'checked' : '' }}/>
 				<label for="bathroom-8+">8+</label>
 
 				<br/><br/>
 
 				<label for="toilets">Nombre de toilettes :</label>
 				<br/>
-				<input type="radio" id="toilet-1" name="toilets" value="1"/>
-				<label for="toilet-1">1</label>
-				<br/>
-				<input type="radio" id="toilet-2" name="toilets" value="2"/>
-				<label for="toilet-2">2</label>
-				<br/>
-				<input type="radio" id="toilet-3" name="toilets" value="3"/>
-				<label for="toilet-3">3</label>
-				<br/>
-				<input type="radio" id="toilet-4" name="toilets" value="4"/>
-				<label for="toilet-4">4</label>
-				<br/>
-				<input type="radio" id="toilet-5" name="toilets" value="5"/>
-				<label for="toilet-5">5</label>
-				<br/>
-				<input type="radio" id="toilet-6" name="toilets" value="6"/>
-				<label for="toilet-6">6</label>
-				<br/>
-				<input type="radio" id="toilet-7" name="toilets" value="7"/>
-				<label for="toilet-7">7</label>
-				<br/>
-				<input type="radio" id="toilet-8+" name="toilets" value="8+"/>
+				{% for i in 1..8 %}
+					<input type="radio" id="toilet-{{ i }}" name="toilets" value="{{ i }}" {{ propertyAmenities.toilets == i ? 'checked' : '' }}/>
+					<label for="toilet-{{ i }}">{{ i }}</label>
+					<br/>
+				{% endfor %}
+				<input type="radio" id="toilet-8+" name="toilets" value="8+" {{ propertyAmenities.toilets >= 8 ? 'checked' : '' }}/>
 				<label for="toilet-8+">8+</label>
 				<br/><br/>
 
+
 				<label for="accommodation-types">Equipements disponibles :</label>
 				<br/>
-				<input type="checkbox" id="piscine" name="accommodation-types[]" value="piscine"/>
+				<input type="checkbox" id="piscine" name="accommodation-types[]" value="piscine" {% if accommodationType.piscine == true %} checked {% endif %}/>
 				<label for="piscine">Piscine</label>
 				<br/>
-				<input type="checkbox" id="parkingGratuit" name="accommodation-types[]" value="parkingGratuit"/>
+				<input type="checkbox" id="parkingGratuit" name="accommodation-types[]" value="parkingGratuit" {% if accommodationType.parkingGratuit == true %} checked {% endif %}/>
 				<label for="parkingGratuit">Parking gratuit</label>
 				<br/>
-				<input type="checkbox" id="jacuzzi" name="accommodation-types[]" value="jacuzzi"/>
+				<input type="checkbox" id="jacuzzi" name="accommodation-types[]" value="jacuzzi" {% if accommodationType.jacuzzi == true %} checked {% endif %}/>
 				<label for="jacuzzi">Jacuzzi</label>
 				<br/>
-				<input type="checkbox" id="wifi" name="accommodation-types[]" value="wifi"/>
+				<input type="checkbox" id="wifi" name="accommodation-types[]" value="wifi" {% if accommodationType.wifi == true %} checked {% endif %}/>
 				<label for="wifi">Wifi</label>
 				<br/>
-				<input type="checkbox" id="laveLinge" name="accommodation-types[]" value="laveLinge"/>
+				<input type="checkbox" id="laveLinge" name="accommodation-types[]" value="laveLinge" {% if accommodationType.laveLinge == true %} checked {% endif %}/>
 				<label for="laveLinge">Lave-linge</label>
 				<br/>
-				<input type="checkbox" id="secheLinge" name="accommodation-types[]" value="secheLinge"/>
+				<input type="checkbox" id="secheLinge" name="accommodation-types[]" value="secheLinge" {% if accommodationType.secheLinge == true %} checked {% endif %}/>
 				<label for="secheLinge">Sèche-linge</label>
 				<br/>
-				<input type="checkbox" id="climatisation" name="accommodation-types[]" value="climatisation"/>
+				<input type="checkbox" id="climatisation" name="accommodation-types[]" value="climatisation" {% if accommodationType.climatisation == true %} checked {% endif %}/>
 				<label for="climatisation">Climatisation</label>
 				<br/>
-				<input type="checkbox" id="chauffage" name="accommodation-types[]" value="chauffage"/>
+				<input type="checkbox" id="chauffage" name="accommodation-types[]" value="chauffage" {% if accommodationType.chauffage == true %} checked {% endif %}/>
 				<label for="chauffage">Chauffage</label>
 				<br/>
-				<input type="checkbox" id="espaceTravailDedie" name="accommodation-types[]" value="espaceTravailDedie"/>
+				<input type="checkbox" id="espaceTravailDedie" name="accommodation-types[]" value="espaceTravailDedie" {% if accommodationType.espaceTravailDedie == true %} checked {% endif %}/>
 				<label for="espaceTravailDedie">Espace de travail dédié</label>
 				<br/>
-				<input type="checkbox" id="television" name="accommodation-types[]" value="television"/>
+				<input type="checkbox" id="television" name="accommodation-types[]" value="television" {% if accommodationType.television == true %} checked {% endif %}/>
 				<label for="television">Télévision</label>
 				<br/>
-				<input type="checkbox" id="secheCheveux" name="accommodation-types[]" value="secheCheveux"/>
+				<input type="checkbox" id="secheCheveux" name="accommodation-types[]" value="secheCheveux" {% if accommodationType.secheCheveux == true %} checked {% endif %}/>
 				<label for="secheCheveux">Sèche-cheveux</label>
 				<br/>
-				<input type="checkbox" id="ferRepasser" name="accommodation-types[]" value="ferRepasser"/>
+				<input type="checkbox" id="ferRepasser" name="accommodation-types[]" value="ferRepasser" {% if accommodationType.ferRepasser == true %} checked {% endif %}/>
 				<label for="ferRepasser">Fer à repasser</label>
 				<br/>
-				<input type="checkbox" id="stationRechargeVehiElectriques" name="accommodation-types[]" value="stationRechargeVehiElectriques"/>
+				<input type="checkbox" id="stationRechargeVehiElectriques" name="accommodation-types[]" value="stationRechargeVehiElectriques" {% if accommodationType.stationRechargeVehiElectriques == true %} checked {% endif %}/>
 				<label for="stationRechargeVehiElectriques">Station de recharge pour véhicules électriques</label>
 				<br/>
-				<input type="checkbox" id="litBebe" name="accommodation-types[]" value="litBebe"/>
+				<input type="checkbox" id="litBebe" name="accommodation-types[]" value="litBebe" {% if accommodationType.litBebe == true %} checked {% endif %}/>
 				<label for="litBebe">Lit bébé</label>
 				<br/>
-				<input type="checkbox" id="salleSport" name="accommodation-types[]" value="salleSport"/>
+				<input type="checkbox" id="salleSport" name="accommodation-types[]" value="salleSport" {% if accommodationType.salleSport == true %} checked {% endif %}/>
 				<label for="salleSport">Salle de sport</label>
 				<br/>
-				<input type="checkbox" id="barbecue" name="accommodation-types[]" value="barbecue"/>
+				<input type="checkbox" id="barbecue" name="accommodation-types[]" value="barbecue" {% if accommodationType.barbecue == true %} checked {% endif %}/>
 				<label for="barbecue">Barbecue</label>
 				<br/>
-				<input type="checkbox" id="petitDejeuner" name="accommodation-types[]" value="petitDejeuner"/>
+				<input type="checkbox" id="petitDejeuner" name="accommodation-types[]" value="petitDejeuner" {% if accommodationType.petitDejeuner == true %} checked {% endif %}/>
 				<label for="petitDejeuner">Petit déjeuner</label>
 				<br/>
-				<input type="checkbox" id="cheminee" name="accommodation-types[]" value="cheminee"/>
+				<input type="checkbox" id="cheminee" name="accommodation-types[]" value="cheminee" {% if accommodationType.cheminee == true %} checked {% endif %}/>
 				<label for="cheminee">Cheminée</label>
 				<br/>
-				<input type="checkbox" id="logementFumeur" name="accommodation-types[]" value="logementFumeur"/>
+				<input type="checkbox" id="logementFumeur" name="accommodation-types[]" value="logementFumeur" {% if accommodationType.logementFumeur == true %} checked {% endif %}/>
 				<label for="logementFumeur">Logement fumeur</label>
 				<br/>
-				<input type="checkbox" id="detecteurFumee" name="accommodation-types[]" value="detecteurFumee"/>
+				<input type="checkbox" id="detecteurFumee" name="accommodation-types[]" value="detecteurFumee" {% if accommodationType.detecteurFumee == true %} checked {% endif %}/>
 				<label for="detecteurFumee">Détecteur de fumée</label>
 				<br/>
-				<input type="checkbox" id="detecteurMonoxyDeCarbone" name="accommodation-types[]" value="detecteurMonoxyDeCarbone"/>
+				<input type="checkbox" id="detecteurMonoxyDeCarbone" name="accommodation-types[]" value="detecteurMonoxyDeCarbone" {% if accommodationType.detecteurMonoxyDeCarbone == true %} checked {% endif %}/>
 				<label for="detecteurMonoxyDeCarbone">Détecteur de monoxyde de carbone</label>
 				<br/><br/>
 
+
 				<label for="tags">Choisissez vos tags :</label>
 				<br/>
-				<input type="checkbox" id="avecvue" name="tags[]" value="376"/>
-				<label for="avecvue">
-					<img src="{{ asset('/media/icons/tag/avecvue.jpg') }}" alt="Avec vue"/>
-					Avec vue
-				</label>
-				<br/>
-				<input type="checkbox" id="chambres" name="tags[]" value="377"/>
-				<label for="chambres">
-					<img src="{{ asset('/media/icons/tag/chambres.jpg') }}" alt="Chambres"/>
-					Chambres
-				</label>
-				<br/>
-				<input type="checkbox" id="campagne" name="tags[]" value="378"/>
-				<label for="campagne">
-					<img src="{{ asset('/media/icons/tag/campagne.jpg') }}" alt="Campagne"/>
-					Campagne
-				</label>
-				<br/>
-				<input type="checkbox" id="wow" name="tags[]" value="379"/>
-				<label for="wow">
-					<img src="{{ asset('/media/icons/tag/wow.jpg') }}" alt="Wow!"/>
-					Wow!
-				</label>
-				<br/>
-				<input type="checkbox" id="surleau" name="tags[]" value="380"/>
-				<label for="surleau">
-					<img src="{{ asset('/media/icons/tag/surleau.jpg') }}" alt="Sur l'eau"/>
-					Sur l'eau
-				</label>
-				<br/>
-				<input type="checkbox" id="espacesdejeu" name="tags[]" value="381"/>
-				<label for="espacesdejeu">
-					<img src="{{ asset('/media/icons/tag/espacesdejeu.jpg') }}" alt="Espaces de jeu"/>
-					Espaces de jeu
-				</label>
-				<br/>
-				<input type="checkbox" id="piscines" name="tags[]" value="382"/>
-				<label for="piscines">
-					<img src="{{ asset('/media/icons/tag/piscines.jpg') }}" alt="Piscines"/>
-					Piscines
-				</label>
-				<br/>
-				<input type="checkbox" id="borddemer" name="tags[]" value="383"/>
-				<label for="borddemer">
-					<img src="{{ asset('/media/icons/tag/borddemer.jpg') }}" alt="Bord de mer"/>
-					Bord de mer
-				</label>
-				<br/>
-				<input type="checkbox" id="cabanesperchees" name="tags[]" value="384"/>
-				<label for="cabanesperchees">
-					<img src="{{ asset('/media/icons/tag/cabanesperchees.jpg') }}" alt="Cabanes perchées"/>
-					Cabanes perchées
-				</label>
-				<br/>
-				<input type="checkbox" id="bateaux" name="tags[]" value="385"/>
-				<label for="bateaux">
-					<img src="{{ asset('/media/icons/tag/bateaux.jpg') }}" alt="Bateaux"/>
-					Bateaux
-				</label>
-				<br/>
-				<input type="checkbox" id="luxe" name="tags[]" value="386"/>
-				<label for="luxe">
-					<img src="{{ asset('/media/icons/tag/luxe.jpg') }}" alt="Luxe"/>
-					Luxe
-				</label>
-				<br/>
-				<input type="checkbox" id="domes" name="tags[]" value="387"/>
-				<label for="domes">
-					<img src="{{ asset('/media/icons/tag/domes.jpg') }}" alt="Dômes"/>
-					Dômes
-				</label>
-				<br/>
-				<input type="checkbox" id="tinyhouses" name="tags[]" value="388"/>
-				<label for="tinyhouses">
-					<img src="{{ asset('/media/icons/tag/tinyhouses.jpg') }}" alt="Tiny houses"/>
-					Tiny houses
-				</label>
-				<br/>
-				<input type="checkbox" id="tendance" name="tags[]" value="389"/>
-				<label for="tendance">
-					<img src="{{ asset('/media/icons/tag/tendance.jpg') }}" alt="Tendance"/>
-					Tendance
-				</label>
-				<br/>
-				<input type="checkbox" id="borddelac" name="tags[]" value="390"/>
-				<label for="borddelac">
-					<img src="{{ asset('/media/icons/tag/borddelac.jpg') }}" alt="Bord de lac"/>
-					Bord de lac
-				</label>
-				<br/>
-				<input type="checkbox" id="fermes" name="tags[]" value="391"/>
-				<label for="fermes">
-					<img src="{{ asset('/media/icons/tag/fermes.jpg') }}" alt="Fermes"/>
-					Fermes
-				</label>
-				<br/>
-				<input type="checkbox" id="chateaux" name="tags[]" value="392"/>
-				<label for="chateaux">
-					<img src="{{ asset('/media/icons/tag/chateaux.jpg') }}" alt="Châteaux"/>
-					Châteaux
-				</label>
-				<br/>
-				<input type="checkbox" id="cabanes" name="tags[]" value="393"/>
-				<label for="cabanes">
-					<img src="{{ asset('/media/icons/tag/cabanes.jpg') }}" alt="Cabanes"/>
-					Cabanes
-				</label>
-				<br/>
-				<input type="checkbox" id="design" name="tags[]" value="394"/>
-				<label for="design">
-					<img src="{{ asset('/media/icons/tag/design.jpg') }}" alt="Design"/>
-					Design
-				</label>
-				<br/>
-				<input type="checkbox" id="grandesdemeures" name="tags[]" value="395"/>
-				<label for="grandesdemeures">
-					<img src="{{ asset('/media/icons/tag/grandesdemeures.jpg') }}" alt="Grandes demeures"/>
-					Grandes demeures
-				</label>
-				<br/>
-				<input type="checkbox" id="sejoursdeconnectes" name="tags[]" value="396"/>
-				<label for="sejoursdeconnectes">
-					<img src="{{ asset('/media/icons/tag/sejoursdeconnectes.jpg') }}" alt="Séjours déconnectés"/>
-					Séjours déconnectés
-				</label>
-				<br/>
-				<input type="checkbox" id="lacs" name="tags[]" value="397"/>
-				<label for="lacs">
-					<img src="{{ asset('/media/icons/tag/lacs.jpg') }}" alt="Lacs"/>
-					Lacs
-				</label>
-				<input type="checkbox" id="camping" name="tags[]" value="398"/>
-				<label for="camping">
-					<img src="{{ asset('/media/icons/tag/camping.jpg') }}" alt="Camping"/>
-					Camping
-				</label>
-				<br/>
-				<input type="checkbox" id="parcsnationaux" name="tags[]" value="399"/>
-				<label for="parcsnationaux">
-					<img src="{{ asset('/media/icons/tag/parcsnationaux.jpg') }}" alt="Parcs nationaux"/>
-					Parcs nationaux
-				</label>
-				<br/>
-				<input type="checkbox" id="maisonstroglodytes" name="tags[]" value="400"/>
-				<label for="maisonstroglodytes">
-					<img src="{{ asset('/media/icons/tag/maisonstroglodytes.jpg') }}" alt="Maisons troglodytes"/>
-					Maisons troglodytes
-				</label>
-				<br/>
-				<input type="checkbox" id="vignobles" name="tags[]" value="401"/>
-				<label for="vignobles">
-					<img src="{{ asset('/media/icons/tag/vignobles.jpg') }}" alt="Vignobles"/>
-					Vignobles
-				</label>
-				<br/>
-				<input type="checkbox" id="ski" name="tags[]" value="402"/>
-				<label for="ski">
-					<img src="{{ asset('/media/icons/tag/ski.jpg') }}" alt="Ski"/>
-					Ski
-				</label>
-				<br/>
-				<input type="checkbox" id="nouveautes" name="tags[]" value="403"/>
-				<label for="nouveautes">
-					<img src="{{ asset('/media/icons/tag/nouveautes.jpg') }}" alt="Nouveautés"/>
-					Nouveautés
-				</label>
-				<br/>
-				<input type="checkbox" id="maisonsorganiques" name="tags[]" value="404"/>
-				<label for="maisonsorganiques">
-					<img src="{{ asset('/media/icons/tag/maisonsorganiques.jpg') }}" alt="Maisons organiques"/>
-					Maisons organiques
-				</label>
-				<br/>
-				<input type="checkbox" id="patrimoine" name="tags[]" value="405"/>
-				<label for="patrimoine">
-					<img src="{{ asset('/media/icons/tag/patrimoine.jpg') }}" alt="Patrimoine"/>
-					Patrimoine
-				</label>
-				<br/>
-				<input type="checkbox" id="villesemblematiques" name="tags[]" value="406"/>
-				<label for="villesemblematiques">
-					<img src="{{ asset('/media/icons/tag/villesemblematiques.jpg') }}" alt="Villes emblématiques"/>
-					Villes emblématiques
-				</label>
-				<br/>
-				<input type="checkbox" id="chambresdhotes" name="tags[]" value="407"/>
-				<label for="chambresdhotes">
-					<img src="{{ asset('/media/icons/tag/chambresdhotes.jpg') }}" alt="Chambres d'hôtes"/>
-					Chambres d'hôtes
-				</label>
-				<br/>
-				<input type="checkbox" id="yourtes" name="tags[]" value="408"/>
-				<label for="yourtes">
-					<img src="{{ asset('/media/icons/tag/yourtes.jpg') }}" alt="Yourtes"/>
-					Yourtes
-				</label>
-				<br/>
-				<input type="checkbox" id="artetcreativite" name="tags[]" value="409"/>
-				<label for="artetcreativite">
-					<img src="{{ asset('/media/icons/tag/artetcreativite.jpg') }}" alt="Art et créativité"/>Art et créativité</label>
-				<input type="checkbox" id="maisonscycladiques" name="tags[]" value="410"/>
-				<label for="maisonscycladiques">
-					<img src="{{ asset('/media/icons/tag/maisonscycladiques.jpg') }}" alt="Maisons cycladiques"/>
-					Maisons cycladiques
-				</label>
-				<br/>
-				<input type="checkbox" id="riads" name="tags[]" value="411"/>
-				<label for="riads">
-					<img src="{{ asset('/media/icons/tag/riads.jpg') }}" alt="Riads"/>
-					Riads
-				</label>
-				<br/>
-				<input type="checkbox" id="granges" name="tags[]" value="412"/>
-				<label for="granges">
-					<img src="{{ asset('/media/icons/tag/granges.jpg') }}" alt="Granges"/>
-					Granges
-				</label>
-				<br/>
-				<input type="checkbox" id="aupieddespistes" name="tags[]" value="413"/>
-				<label for="aupieddespistes">
-					<img src="{{ asset('/media/icons/tag/aupieddespistes.jpg') }}" alt="Au pied des pistes"/>
-					Au pied des pistes
-				</label>
-				<br/>
-				<input type="checkbox" id="chaletstipi" name="tags[]" value="414"/>
-				<label for="chaletstipi">
-					<img src="{{ asset('/media/icons/tag/chaletstipi.jpg') }}" alt="Chalets tipi"/>
-					Chalets tipi
-				</label>
-				<br/>
-				<input type="checkbox" id="cabanesdeberger" name="tags[]" value="415"/>
-				<label for="cabanesdeberger">
-					<img src="{{ asset('/media/icons/tag/cabanesdeberger.jpg') }}" alt="Cabanes de berger"/>
-					Cabanes de berger
-				</label>
-				<br/>
-				<input type="checkbox" id="dammusi" name="tags[]" value="416"/>
-				<label for="dammusi">
-					<img src="{{ asset('/media/icons/tag/dammusi.jpg') }}" alt="Dammusi"/>
-					Dammusi
-				</label>
-				<br/>
-				<input type="checkbox" id="surf" name="tags[]" value="417"/>
-				<label for="surf">
-					<img src="{{ asset('/media/icons/tag/surf.jpg') }}" alt="Surf"/>
-					Surf
-				</label>
-				<br/>
-				<input type="checkbox" id="toitdumonde" name="tags[]" value="418"/>
-				<label for="toitdumonde">
-					<img src="{{ asset('/media/icons/tag/toitdumonde.jpg') }}" alt="Toit du monde"/>
-					Toit du monde
-				</label>
-				<br/>
-				<input type="checkbox" id="conteneursmaritimes" name="tags[]" value="419"/>
-				<label for="conteneursmaritimes">
-					<img src="{{ asset('/media/icons/tag/conteneursmaritimes.jpg') }}" alt="Conteneurs maritimes"/>
-					Conteneurs maritimes
-				</label>
-				<br/>
-				<input type="checkbox" id="moulinsavent" name="tags[]" value="420"/>
-				<label for="moulinsavent">
-					<img src="{{ asset('/media/icons/tag/moulinsavent.jpg') }}" alt="Moulins à vent"/>
-					Moulins à vent
-				</label>
-				<br/>
-				<input type="checkbox" id="casasparticulares" name="tags[]" value="421"/>
-				<label for="casasparticulares">
-					<img src="{{ asset('/media/icons/tag/casasparticulares.jpg') }}" alt="Casas particulares"/>
-					Casas particulares
-				</label>
-				<br/>
-				<input type="checkbox" id="tours" name="tags[]" value="422"/>
-				<label for="tours">
-					<img src="{{ asset('/media/icons/tag/tours.jpg') }}" alt="Tours"/>
-					Tours
-				</label>
-				<br/>
-				<input type="checkbox" id="cuisinesequipees" name="tags[]" value="423"/>
-				<label for="cuisinesequipees">
-					<img src="{{ asset('/media/icons/tag/cuisinesequipees.jpg') }}" alt="Cuisines équipées"/>
-					Cuisines équipées
-				</label>
-				<br/>
-				<input type="checkbox" id="hanoks" name="tags[]" value="424"/>
-				<label for="hanoks">
-					<img src="{{ asset('/media/icons/tag/hanoks.jpg') }}" alt="Hanoks"/>
-					Hanoks
-				</label>
-				<br/>
-				<input type="checkbox" id="logementsadaptes" name="tags[]" value="425"/>
-				<label for="logementsadaptes">
-					<img src="{{ asset('/media/icons/tag/logementsadaptes.jpg') }}" alt="Logements adaptés"/>
-					Logements adaptés
-				</label>
-				<br/>
-				<input type="checkbox" id="caravanes" name="tags[]" value="426"/>
-				<label for="caravanes">
-					<img src="{{ asset('/media/icons/tag/caravanes.jpg') }}" alt="Caravanes"/>
-					Caravanes
-				</label>
-				<br/>
-				<input type="checkbox" id="plages" name="tags[]" value="427"/>
-				<label for="plages">
-					<img src="{{ asset('/media/icons/tag/plages.jpg') }}" alt="Plages"/>
-					Plages
-				</label>
-				<br/><br/>
+				{% for tag in tags %}
+					<input type="checkbox" id="{{ tag.name|lower }}" name="tags[]" value="{{ tag.id }}" {% if tag.tagId in selectedTags %} checked {% endif %}/>
+					<label for="{{ tag.name|lower }}">
+						<img src="{{ asset('/media/icons/tag/' ~ tag.picto) }}" alt="{{ tag.type }}"/>
+						{{ tag.type }}
+					</label>
+					<br/>
+				{% endfor %}
+
 
 				<input type="submit" name="submit" value="Modifier"/>
 			</form>

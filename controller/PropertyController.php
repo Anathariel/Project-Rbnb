@@ -28,6 +28,7 @@ class PropertyController extends Controller
         $propertyType = $propertyTypeModel->getPropertyTypeModel($id);
 
 
+
         $oneProperty = $router->generate('baseProperty');
         echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comment' => $comment, 'propertyType' => $propertyType]);
     }
@@ -201,13 +202,24 @@ class PropertyController extends Controller
     {
         global $router;
         $propertyModel = new PropertyModel();
-        $property = $propertyModel->getOneProperty($id);
-
         $hostLanguageModel = new HostLanguageModel();
-        $hostLanguage = $hostLanguageModel->getHostLanguageModel($id);
-
+        $accommodationTypeModel = new AccomodationTypeModel();
         $propertyTypeModel = new PropertyTypeModel();
+        $houseRulesModel = new HouseRulesModel();
+        $propertyAmenitiesModel = new PropertyAmenitiesModel();
+        $tagModel = new TagModel();
+        $propertyImagesModel = new PropertyImagesModel();
+
+        $property = $propertyModel->getOneProperty($id);
+        $hostLanguage = $hostLanguageModel->getHostLanguageModel($id);
+        $accommodationType = $accommodationTypeModel->getAccomodationTypeModel($id);
         $propertyType = $propertyTypeModel->getPropertyTypeModel($id);
+        $houseRules = $houseRulesModel->getHouseRules($id);
+        $propertyAmenities = $propertyAmenitiesModel->getPropertyAmenities($id);
+        $tags = $tagModel->getAllTags();
+        $selectedTags = $tagModel->getSelectedTagsForProperty($id);
+        $propertyImages = $propertyImagesModel->getPropertyImagesModel($id);
+
 
         if ($property instanceof Property) {
             if (!$_POST) {
@@ -222,6 +234,14 @@ class PropertyController extends Controller
                     'id' => $id,
                     'firstName' => $firstName,
                     'email' => $email,
+                    'hostLanguage' => $hostLanguage,
+                    'propertyType' => $propertyType,
+                    'accommodationType' => $accommodationType,
+                    'houseRules' => $houseRules,
+                    'propertyAmenities' => $propertyAmenities,
+                    'tags' => $tags,
+                    'selectedTags' => $selectedTags,
+                    'propertyImages' => $propertyImages
                 ]);
             } else {
                 if (isset($_POST['submit'])) {
