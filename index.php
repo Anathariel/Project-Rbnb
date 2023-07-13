@@ -39,6 +39,7 @@ $router->map('POST', '/deleteproperty/[i:id]', 'PropertyController#deletePropert
 // SEARCH
 $router->map('GET|POST', '/search', 'SearchController#searchResult', 'search');
 
+
 // MATCH :
 $match = $router->match();
 
@@ -48,5 +49,16 @@ if (is_array($match)) {
 
     if (is_callable(array($obj, $action))) {
         call_user_func_array(array($obj, $action), $match['params']);
+    } else {
+        // Here is where you handle the case where the route was matched,
+        // but the controller or action don't exist.
+        // Replace ErrorController and handle404 with your actual controller and method.
+        $errorController = new ErrorController();
+        $errorController->handle404();
     }
+} else {
+    // No route was matched
+    // Replace ErrorController and handle404 with your actual controller and method.
+    $errorController = new ErrorController();
+    $errorController->handle404();
 }

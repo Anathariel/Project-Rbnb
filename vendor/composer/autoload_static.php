@@ -54,6 +54,7 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Controller' => __DIR__ . '/../..' . '/controller/Controller.php',
         'Conversation' => __DIR__ . '/../..' . '/class/Conversation.php',
+        'ErrorController' => __DIR__ . '/../..' . '/controller/ErrorController.php',
         'Favorite' => __DIR__ . '/../..' . '/class/Favorite.php',
         'HomeController' => __DIR__ . '/../..' . '/controller/HomeController.php',
         'HostLanguage' => __DIR__ . '/../..' . '/class/HostLanguage.php',

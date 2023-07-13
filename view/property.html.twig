@@ -23,24 +23,25 @@
 				class="container-description-property">
 
 				{# ---------- Property ---------- #}
-				<h3>Chez @User</h3>
+				<div class="inline-title">
+					{% if propertyType.house == 1 %}
+						<h3>Maison</h3>
+					{% endif %}
+					
+					{% if propertyType.guesthouse == 1 %}
+						<h3>Maison d'hôte</h3>
+					{% endif %}
+					
+					{% if propertyType.flat == 1 %}
+						<h3>Appartement</h3>
+					{% endif %}
+					
+					{% if propertyType.hotel == 1 %}
+						<h3>Hôtel</h3>
+					{% endif %}
+					<h3>• Chez @User</h3>				
+				</div>
 
-				{# <h3>Type de location :
-																				{% if propertyType.house == 1 %}
-																					<p>Maison</p>
-																				{% endif %}
-																				{% if propertyType.guesthouse == 1 %}
-																					<p>Maison d'hôte</p>
-																				{% endif %}
-																				{% if propertyType.flat == 1 %}
-																					<p>Appartement</p>
-																				{% endif %}
-																				{% if propertyType.hotel == 1 %}
-																					<p>Hôtel</p>
-																			</h3>
-																			{% endif %} #}
-
-				{# <p>{{ property.priceNight }}€/nuit</p> #}
 				<div class="property-amenities">
 					<p>{{ houseRules.maxGuests }}
 						voyageurs</p>
@@ -525,7 +526,7 @@
 							<input type="number" id="quantity" name="quantity" min="1" max="5" default="1">
 						</div>
 					</div>
-					<button>Réserver</button>
+					<button><span>Réserver</span></button>
 					<p>Aucun montant ne vous sera débité pour le moment</p>
 				</div>
 				<div class="price-details">
@@ -544,7 +545,6 @@
 				</div>
 			</div>
 		</div>
-
 
 	</section>
 {% endblock %}

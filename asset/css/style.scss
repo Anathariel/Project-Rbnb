@@ -656,9 +656,6 @@ section#new-destinations-section {
 
     div.new-destination-main-card {
       width: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
 
       .main-card {
         margin: 0 auto;
@@ -766,10 +763,6 @@ section#best-tags-section {
 
     div.best-tags-main-card {
       width: 50%;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
-      // background-color: aquamarine;
 
       .main-card {
         margin: 0 auto;
@@ -906,11 +899,14 @@ section#property-section {
     }
   }
 
+  .inline-title {
+    display: flex;
+  }
+
   h3 {
     font-size: 1.5rem;
     color: $accent;
     text-align: left;
-
   }
 
   .property-details {
@@ -925,15 +921,12 @@ section#property-section {
         flex-direction: row;
 
         p {
-          padding-right: .5rem;
+          padding-right: .8rem;
+          font-size: .8rem;
         }
       }
 
       .property-description {
-        p {
-          font-weight: lighter;
-          font-family: 'Poppins';
-        }
 
         #description-details {
           color: $accent;
@@ -1129,7 +1122,7 @@ section#property-section {
       margin: 1rem 5rem;
       background: #d9d9d960;
       width: 30%;
-      max-height: 505px;
+      max-height: 530px;
       padding: 1.5rem;
       border-radius: 1.5rem;
 
@@ -1191,21 +1184,45 @@ section#property-section {
 
 
         button {
-          background-color: $accent;
-          color: $white;
-          border: none;
-          outline: transparent;
+          width: 100%;
+          position: relative;
+          margin: .5rem 0;
+          border: solid 1px $accent;
+          background-color: transparent;
           border-radius: .5rem;
-          padding: .5rem 1rem;
-          width: 90%;
           cursor: pointer;
-          font-size: 1.3rem;
+          overflow: hidden;
+
+          span {
+            display: block;
+            font-family: 'Quicksand';
+            font-size: 1.5rem;
+            width: 100%;
+            padding: 1rem 0;
+            color: $accent;
+            position: relative;
+            z-index: 1;
+          }
+
+          span:hover {
+            color: $white;
+          }
         }
 
-        button:hover {
-          background-color: $maincolor;
-          border: .5px solid white;
-          transition: 500ms ease;
+        button:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0%;
+          height: 100%;
+          background-color: $accent;
+          transition: all .5s ease-out;
+          z-index: 0;
+        }
+
+        button:hover:before {
+          width: 100%;
         }
 
         p {
@@ -1231,7 +1248,6 @@ section#property-section {
       }
     }
   }
-
 
   div {
     margin-bottom: 1rem;
@@ -1389,49 +1405,29 @@ section#googlemaps-property-section {
         .description {
           h3 {
             text-align: left;
-          }
-
-          text-align: left;
-        }
-
-        button {
-          width: 100%;
-          position: relative;
-          margin: 1rem 0;
-          border: solid 1px $dash-maincolor;
-          background-color: transparent;
-          border-radius: .5rem;
-          cursor: pointer;
-          overflow: hidden;
-
-          span {
-            display: block;
-            width: 100%;
-            padding: 1rem 0;
-            color: $dash-maincolor;
-            position: relative;
-            z-index: 1;
-          }
-
-          span:hover {
-            color: $white;
+            font-size: 1.2rem;
           }
         }
 
-        button:before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 0%;
-          height: 100%;
-          background-color: $dash-maincolor;
-          transition: all .5s ease-out;
-          z-index: 0;
-        }
+        .property-buttons {
+          display: flex;
+          justify-content: space-evenly;
+          margin: .5rem;
 
-        button:hover:before {
-          width: 100%;
+          .button>p {
+            color: #059669;
+            font-family: 'Quicksand-bold';
+            font-size: 1rem;
+          }
+
+          .delete {
+            color: red;
+            font-family: 'Quicksand-bold';
+            font-size: 1rem;
+            border: none;
+            outline: transparent;
+            background-color: transparent;
+          }
         }
       }
     }
@@ -1452,6 +1448,8 @@ section#googlemaps-property-section {
 
   fieldset {
     padding: 1rem 3rem;
+    display: flex;
+    justify-content: center;
   }
 
   h4 {
@@ -1530,14 +1528,6 @@ section#googlemaps-property-section {
         cursor: pointer;
       }
     }
-
-    .equipement:hover {
-      cursor: pointer;
-      background-color: #ffffff5b;
-      border-bottom: 1px solid $darkerblue;
-      transition: 500ms ease-in;
-    }
-
   }
 
   .add-rules {
@@ -1556,19 +1546,90 @@ section#googlemaps-property-section {
 
   .selection-tags {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    align-items: center;
+
+
+
+    .tag-element {
+      display: flex;
+      flex-direction: column;
+
+    }
 
     label {
       width: 70px;
       margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
 
       img {
         width: 25px;
       }
     }
 
+  }
+}
+
+// #editpropertyform {
+//   background-color: $dashboard-brg;
+
+//   fieldset {
+//     padding: 1rem 3rem;
+//     display: flex;
+//     justify-content: center;
+
+//     .edit-tags {
+//       display: flex;
+//       justify-content: space-evenly;
+//       flex-wrap: wrap;
+
+//       label {
+//         width: 70px;
+//         margin: 1rem;
+
+//         img {
+//           width: 25px;
+//         }
+//       }
+//     }
+//   }
+// }
+
+//~ -------------------- 404 -------------------- //
+
+#error-page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .left-side {
+    margin: 5rem;
+
+    p:first-child {
+      color: $accent;
+      font-size: .9rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: $darkerblue;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    button {
+      margin: 1rem;
+    }
+
+    #button-return {
+      border: none;
+      display: flex;
+    }
   }
 }

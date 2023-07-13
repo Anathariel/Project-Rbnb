@@ -494,9 +494,6 @@ section#new-destinations-section div#container-card-new-destinations div.new-des
 }
 section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card {
   width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card .main-card {
   margin: 0 auto;
@@ -691,6 +688,9 @@ section#property-section figure img {
   width: 30%;
   height: auto;
 }
+section#property-section .inline-title {
+  display: flex;
+}
 section#property-section h3 {
   font-size: 1.5rem;
   color: #404e87;
@@ -708,11 +708,8 @@ section#property-section .property-details .container-description-property .prop
   flex-direction: row;
 }
 section#property-section .property-details .container-description-property .property-amenities p {
-  padding-right: 0.5rem;
-}
-section#property-section .property-details .container-description-property .property-description p {
-  font-weight: lighter;
-  font-family: "Poppins";
+  padding-right: 0.8rem;
+  font-size: 0.8rem;
 }
 section#property-section .property-details .container-description-property .property-description #description-details {
   color: #404e87;
@@ -867,7 +864,7 @@ section#property-section .property-details .container-pricing {
   margin: 1rem 5rem;
   background: rgba(217, 217, 217, 0.3764705882);
   width: 30%;
-  max-height: 505px;
+  max-height: 530px;
   padding: 1.5rem;
   border-radius: 1.5rem;
 }
@@ -919,20 +916,41 @@ section#property-section .property-details .container-pricing .container-calenda
   flex-direction: column;
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler button {
-  background-color: #404e87;
-  color: #f8f8f8;
-  border: none;
-  outline: transparent;
+  width: 100%;
+  position: relative;
+  margin: 0.5rem 0;
+  border: solid 1px #404e87;
+  background-color: transparent;
   border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  width: 90%;
   cursor: pointer;
-  font-size: 1.3rem;
+  overflow: hidden;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler button:hover {
-  background-color: #92aad3;
-  border: 0.5px solid white;
-  transition: 500ms ease;
+section#property-section .property-details .container-pricing .container-calendar-traveler button span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 1rem 0;
+  color: #404e87;
+  position: relative;
+  z-index: 1;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler button span:hover {
+  color: #f8f8f8;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #404e87;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler button:hover:before {
+  width: 100%;
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler p {
   font-size: 0.7rem;
@@ -1077,46 +1095,27 @@ section#googlemaps-property-section div#map {
 .dashboard .dashboard-cards .card .card-details .location img {
   margin: 0.2rem;
 }
-.dashboard .dashboard-cards .card .card-details .description {
-  text-align: left;
-}
 .dashboard .dashboard-cards .card .card-details .description h3 {
   text-align: left;
+  font-size: 1.2rem;
 }
-.dashboard .dashboard-cards .card .card-details button {
-  width: 100%;
-  position: relative;
-  margin: 1rem 0;
-  border: solid 1px #0E9384;
+.dashboard .dashboard-cards .card .card-details .property-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0.5rem;
+}
+.dashboard .dashboard-cards .card .card-details .property-buttons .button > p {
+  color: #059669;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+}
+.dashboard .dashboard-cards .card .card-details .property-buttons .delete {
+  color: red;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  border: none;
+  outline: transparent;
   background-color: transparent;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-.dashboard .dashboard-cards .card .card-details button span {
-  display: block;
-  width: 100%;
-  padding: 1rem 0;
-  color: #0E9384;
-  position: relative;
-  z-index: 1;
-}
-.dashboard .dashboard-cards .card .card-details button span:hover {
-  color: #f8f8f8;
-}
-.dashboard .dashboard-cards .card .card-details button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #0E9384;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-.dashboard .dashboard-cards .card .card-details button:hover:before {
-  width: 100%;
 }
 @media screen and (max-width: 800px) {
   .dashboard .dashboard-cards .dashboard-cards .card {
@@ -1130,6 +1129,8 @@ section#googlemaps-property-section div#map {
 }
 #addpropertyForm fieldset {
   padding: 1rem 3rem;
+  display: flex;
+  justify-content: center;
 }
 #addpropertyForm h4 {
   color: #0E9384;
@@ -1194,12 +1195,6 @@ section#googlemaps-property-section div#map {
 #addpropertyForm .selection-accomodation .equipement label:hover {
   cursor: pointer;
 }
-#addpropertyForm .selection-accomodation .equipement:hover {
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.3568627451);
-  border-bottom: 1px solid #1b1d21;
-  transition: 500ms ease-in;
-}
 #addpropertyForm .add-rules label {
   margin: 1rem;
 }
@@ -1208,15 +1203,49 @@ section#googlemaps-property-section div#map {
 }
 #addpropertyForm .selection-tags {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  align-items: center;
+}
+#addpropertyForm .selection-tags .tag-element {
+  display: flex;
+  flex-direction: column;
 }
 #addpropertyForm .selection-tags label {
   width: 70px;
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 #addpropertyForm .selection-tags label img {
   width: 25px;
+}
+
+#error-page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#error-page .left-side {
+  margin: 5rem;
+}
+#error-page .left-side p:first-child {
+  color: #404e87;
+  font-size: 0.9rem;
+}
+#error-page .left-side h1 {
+  font-size: 3rem;
+  color: #1b1d21;
+}
+#error-page .left-side p {
+  font-size: 1rem;
+}
+#error-page .left-side button {
+  margin: 1rem;
+}
+#error-page .left-side #button-return {
+  border: none;
+  display: flex;
 }/*# sourceMappingURL=style.css.map */
