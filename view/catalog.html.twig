@@ -1,6 +1,6 @@
 {% extends "template.html.twig" %}
 
-{% block title %}Résultat de votre recherche
+{% block title %}Catalogue
 {% endblock %}
 
 {% block content %}
@@ -9,9 +9,9 @@
 			<button type="submit">X</button>
 		</form>
 <section>
-<h2>Résultat de votre recherche</h2>
+	<h2>Résultat de votre recherche</h2>
 
-<div id="response"></div>
+	<div id="response"></div>
 			<ul>
 				{% for property in propertys %}
 					<div id="recipe-card">
@@ -27,5 +27,5 @@
 
 		{% if message %}<p>{{ message }}</p>{% endif %}	
 
-		</section>
+</section>
 {% endblock %}

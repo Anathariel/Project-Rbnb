@@ -6,15 +6,14 @@ require_once './vendor/autoload.php';
 $router = new AltoRouter();
 $router->setBasePath('/projet/project-rbnb');
 
-// ROUTES
+// MAIN ROUTES
 $router->map('GET', '/', 'HomeController#home', 'home');
+$router->map('GET', '/blog', 'HomeController#blog', 'blog');
+$router->map('GET', '/catalogue', 'HomeController#catalogue', 'catalogue');
+$router->map('GET', '/tags', '', 'baseTags');
 
 $router->map('GET', '/property/', '', 'baseProperty');
 $router->map('GET', '/property/[i:id]', 'PropertyController#getOne', '');
-
-$router->map('GET', '/tags', '', 'baseTags');
-
-$router->map('GET', '/blog', 'HomeController#blog', 'blog');
 
 // Register
 $router->map('GET|POST', '/registration', 'UserController#register', 'register');
@@ -26,15 +25,16 @@ $router->map('GET', '/logout', 'UserController#logout', 'logout');
 // Dashboard Utilisateur
 $router->map('GET', '/account', 'UserController#dashboard', 'dashboard');
 
+
 // CRUD Property
 $router->map('GET|POST', '/addproperty', 'PropertyController#createProperty', 'propertyAdd');
-
 
 $router->map('GET|POST', '/editproperty/', '', 'baseEditproperty');
 $router->map('GET|POST', '/editproperty/[i:id]', 'PropertyController#editProperty', 'propertyEdit');
 
 $router->map('GET|POST', '/deleteproperty/', '', 'baseDeleteproperty');
 $router->map('POST', '/deleteproperty/[i:id]', 'PropertyController#deleteProperty', 'propertyDelete');
+
 
 // SEARCH
 $router->map('GET|POST', '/search', 'SearchController#searchResult', 'search');
