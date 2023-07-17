@@ -455,12 +455,27 @@ h3 {
 
 //? --------- FOOTER --------- //
 footer {
-  margin-top: auto;
   background-color: $maincolor;
 
   .footer-desktop {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+
+    a {
+      font-size: 1.2rem;
+      margin: 1rem;
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: .5rem;
+
+      a {
+        margin: 0 .6rem;
+      }
+    }
   }
 
   .footer-mobile {
