@@ -12,12 +12,23 @@
 		<span>{{ property.comment }}○{{ property.address }}</span>
 
 		<figure>
-			<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-			<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
-			<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
-			<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
-			<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
+			{% if propertyImages.imageMainURL %}
+				<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+			{% endif %}
+			{% if propertyImages.image1URL %}
+				<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
+			{% endif %}
+			{% if propertyImages.image2URL %}
+				<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
+			{% endif %}
+			{% if propertyImages.image3URL %}
+				<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
+			{% endif %}
+			{% if propertyImages.image4URL %}
+				<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
+			{% endif %}
 		</figure>
+
 		<div class="property-details">
 			<div
 				class="container-description-property">
@@ -26,19 +37,19 @@
 				<h3>Chez @User</h3>
 
 				{# <h3>Type de location :
-																				{% if propertyType.house == 1 %}
-																					<p>Maison</p>
-																				{% endif %}
-																				{% if propertyType.guesthouse == 1 %}
-																					<p>Maison d'hôte</p>
-																				{% endif %}
-																				{% if propertyType.flat == 1 %}
-																					<p>Appartement</p>
-																				{% endif %}
-																				{% if propertyType.hotel == 1 %}
-																					<p>Hôtel</p>
-																			</h3>
-																			{% endif %} #}
+																								{% if propertyType.house == 1 %}
+																									<p>Maison</p>
+																								{% endif %}
+																								{% if propertyType.guesthouse == 1 %}
+																									<p>Maison d'hôte</p>
+																								{% endif %}
+																								{% if propertyType.flat == 1 %}
+																									<p>Appartement</p>
+																								{% endif %}
+																								{% if propertyType.hotel == 1 %}
+																									<p>Hôtel</p>
+																							</h3>
+																							{% endif %} #}
 
 				{# <p>{{ property.priceNight }}€/nuit</p> #}
 				<div class="property-amenities">
@@ -446,96 +457,95 @@
 						</div>
 
 
-							<p>Nombre de Logements : 1</p>
-						</div>
-						<div class="center-button">
-							<button class="hote-contact">Contacter l'Hôte</button>
-						</div>
-
+						<p>Nombre de Logements : 1</p>
+					</div>
+					<div class="center-button">
+						<button class="hote-contact">Contacter l'Hôte</button>
 					</div>
 
 				</div>
 
-				<div
-					class="property-conditions">
-					{# ---------- HouseRules ---------- #}
-					<div class="reglement">
-						<h4>Règlement intérieur :</h4>
-						<p>Arrivée à partir de
-							{{ houseRules.checkInTime|slice(0, 5) }}</p>
-						<p>Départ avant
-							{{ houseRules.checkOutTime|slice(0, 5) }}</p>
-						<p>{{ houseRules.maxGuests }}
-							voyageurs maximum</p>
-
-						<a id="description-details" href="#">
-							En savoir plus →</a>
-					</div>
-
-
-					{# ---------- Cancellation Policy ---------- #}
-					<div class="annulation">
-						<h4>Conditions d'annulation :</h4>
-						{% if cancellationPolicy %}
-							<p>Annulation gratuite avant
-								{{ cancellationPolicy.cancellationTime }}</p>
-							<p>Politique de remboursement :
-								{{ cancellationPolicy.refundPolicy }}</p>
-							<p>Frais d'annulation :
-								{{ cancellationPolicy.cancellationFees }}
-								€</p>
-							<a id="description-details" href="#">
-								En savoir plus →</a>
-						{% else %}
-							<p>Aucune politique d'annulation définie pour cette propriété.</p>
-						{% endif %}
-					</div>
-
-				</div>
 			</div>
 
-			<div class="container-pricing">
-				<p>
-					<span>{{ property.PriceNight }}€</span>
-					par nuit</p>
-				<div class="container-calendar-traveler">
-					<div class="reservation-options">
-						<div class="calendar">
-							<div class="arrival">
-								<h4>Arrivée</h4>
-								<input type="date">
-							</div>
-							<div class="departure">
-								<h4>Départ</h4>
-								<input type="date">
-							</div>
+			<div
+				class="property-conditions">
+				{# ---------- HouseRules ---------- #}
+				<div class="reglement">
+					<h4>Règlement intérieur :</h4>
+					<p>Arrivée à partir de
+						{{ houseRules.checkInTime|slice(0, 5) }}</p>
+					<p>Départ avant
+						{{ houseRules.checkOutTime|slice(0, 5) }}</p>
+					<p>{{ houseRules.maxGuests }}
+						voyageurs maximum</p>
 
-						</div>
-						<div class="traveler">
-							<h4>Voyageurs</h4>
-							<input type="number" id="quantity" name="quantity" min="1" max="5" default="1">
-						</div>
-					</div>
-					<button>Réserver</button>
-					<p>Aucun montant ne vous sera débité pour le moment</p>
+					<a id="description-details" href="#">
+						En savoir plus →</a>
 				</div>
-				<div class="price-details">
-					<div class="details">
-						<p>45€ x 5 nuits</p>
-						<p>Frais de service Loca'R</p>
-						<p>Taxes</p>
-						<h4>Total du sejour</h4>
-					</div>
-					<div class="prices">
-						<p>225€</p>
-						<p>38€</p>
-						<p>3€</p>
-						<h4>266€</h4>
-					</div>
+
+
+				{# ---------- Cancellation Policy ---------- #}
+				<div class="annulation">
+					<h4>Conditions d'annulation :</h4>
+					{% if cancellationPolicy %}
+						<p>Annulation gratuite avant
+							{{ cancellationPolicy.cancellationTime }}</p>
+						<p>Politique de remboursement :
+							{{ cancellationPolicy.refundPolicy }}</p>
+						<p>Frais d'annulation :
+							{{ cancellationPolicy.cancellationFees }}
+							€</p>
+						<a id="description-details" href="#">
+							En savoir plus →</a>
+					{% else %}
+						<p>Aucune politique d'annulation définie pour cette propriété.</p>
+					{% endif %}
 				</div>
+
 			</div>
 		</div>
 
+		<div class="container-pricing">
+			<p>
+				<span>{{ property.PriceNight }}€</span>
+				par nuit</p>
+			<div class="container-calendar-traveler">
+				<div class="reservation-options">
+					<div class="calendar">
+						<div class="arrival">
+							<h4>Arrivée</h4>
+							<input type="date">
+						</div>
+						<div class="departure">
+							<h4>Départ</h4>
+							<input type="date">
+						</div>
 
-	</section>
-{% endblock %}
+					</div>
+					<div class="traveler">
+						<h4>Voyageurs</h4>
+						<input type="number" id="quantity" name="quantity" min="1" max="5" default="1">
+					</div>
+				</div>
+				<button>Réserver</button>
+				<p>Aucun montant ne vous sera débité pour le moment</p>
+			</div>
+			<div class="price-details">
+				<div class="details">
+					<p>45€ x 5 nuits</p>
+					<p>Frais de service Loca'R</p>
+					<p>Taxes</p>
+					<h4>Total du sejour</h4>
+				</div>
+				<div class="prices">
+					<p>225€</p>
+					<p>38€</p>
+					<p>3€</p>
+					<h4>266€</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</section>{% endblock %}

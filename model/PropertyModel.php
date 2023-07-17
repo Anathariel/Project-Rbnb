@@ -69,18 +69,19 @@ class PropertyModel extends Model
 
     public function getUserProperties($userId)
     {
-        $propertys = [];
+        $properties = [];
 
-        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description` FROM `property` WHERE `owner` = :userId');
-        $req->bindParam('userId', $userId, PDO::PARAM_INT);
+        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description` FROM `property` WHERE `owner` = :userId ORDER BY `propertyId` DESC');
+        $req->bindParam(':userId', $userId, PDO::PARAM_INT);
         $req->execute();
 
         while ($property = $req->fetch(PDO::FETCH_ASSOC)) {
-            $propertys[] = new Property($property);
+            $properties[] = new Property($property);
         }
 
-        return $propertys;
+        return $properties;
     }
+
 
     public function deletePropertyModel($propertyId)
     {
