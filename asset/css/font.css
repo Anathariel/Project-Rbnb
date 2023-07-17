@@ -14,6 +14,21 @@ Rappel de la syntaxe :
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url(../font/Poppins-medium.ttf);
+    font-family: 'Quicksand-bold';
+    src: url(../font/static/Quicksand-Bold.ttf);
+}
+
+@font-face{
+    font-family: 'Quicksand-medium';
+    src: url(../font/static/Quicksand-Medium.ttf);
+}
+
+@font-face{
+    font-family: 'Quicksand-regular';
+    src: url(../font/static/Quicksand-Regular.ttf);
+}
+
+@font-face{
+    font-family: 'Quicksand-light';
+    src: url(../font/static/Quicksand-Light.ttf);
 }

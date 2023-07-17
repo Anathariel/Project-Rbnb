@@ -14,6 +14,8 @@ $router->map('GET', '/property/[i:id]', 'PropertyController#getOne', '');
 
 $router->map('GET', '/tags', '', 'baseTags');
 
+$router->map('GET', '/blog', 'HomeController#blog', 'blog');
+
 // Register
 $router->map('GET|POST', '/registration', 'UserController#register', 'register');
 
@@ -31,9 +33,11 @@ $router->map('GET|POST', '/addproperty', 'PropertyController#createProperty', 'p
 $router->map('GET|POST', '/editproperty/', '', 'baseEditproperty');
 $router->map('GET|POST', '/editproperty/[i:id]', 'PropertyController#editProperty', 'propertyEdit');
 
+$router->map('GET|POST', '/deleteproperty/', '', 'baseDeleteproperty');
+$router->map('POST', '/deleteproperty/[i:id]', 'PropertyController#deleteProperty', 'propertyDelete');
 
-$router->map('GET|DELETE', '/deleteproperty/[i:id]', 'PropertyController#deleteProperty', 'propertyDelete');
-
+// SEARCH
+$router->map('GET|POST', '/search', 'SearchController#searchResult', 'search');
 
 // MATCH :
 $match = $router->match();

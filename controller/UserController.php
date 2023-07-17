@@ -88,7 +88,6 @@ class UserController extends Controller
         // Récupérez les propriétés de l'utilisateur à partir de la base de données
         $propertyModel = new PropertyModel();
         $userProperties = $propertyModel->getUserProperties($userId);
-        var_dump($userProperties);
 
         $propertysWithImages = [];
         foreach ($userProperties as $property) {
@@ -97,7 +96,6 @@ class UserController extends Controller
             $propertysWithImages[] = $property;
         }
 
-        // Ajoutez les variables $firstName et $userProperties à l'array associatif passé à la méthode setRender()
         $data = [
             'firstName' => $firstName,
             'email' => $email,

@@ -20,5 +20,9 @@ class HomeController extends Controller
 
         echo self::getRender('homepage.html.twig', ['propertys' => $propertysWithImages, 'lastTagsChateaux' => $lastTagsChateaux, 'propertyImages' => $propertyImages]);
     }
+
+    public function blog(){
+        echo self::getRender('blog.html.twig', []);
+    }
 }
 
