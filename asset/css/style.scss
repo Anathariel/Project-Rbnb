@@ -15,6 +15,7 @@ $dashboard-brg: #e1e7ea;
 $dash-maincolor : #0E9384;
 
 $gradient: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
+
 //* --------- FONT --------- //
 
 $font: "Quicksand";
@@ -39,6 +40,9 @@ body {
   scroll-behavior: smooth;
   background-color: rgba(241, 244, 246, 0.722);
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
@@ -80,30 +84,6 @@ h3 {
   line-height: 26px;
   text-align: center;
   color: $darkerblue;
-}
-
-//^ --------- CLASSES --------- //
-
-//* --------- COLORS CLASSES --------- //
-
-.darkerblue {
-  color: $darkerblue;
-}
-
-.white {
-  color: $white;
-}
-
-.maincolor {
-  color: $maincolor;
-}
-
-.grey {
-  color: rgb(67, 65, 65);
-}
-
-.lightgrey {
-  color: rgba(91, 88, 88, 0.721);
 }
 
 //~ -------------------- STYLING -------------------- //
@@ -455,6 +435,7 @@ h3 {
 
 //? --------- FOOTER --------- //
 footer {
+  margin-top: auto;
   background-color: $maincolor;
 
   .footer-desktop {
@@ -1282,6 +1263,7 @@ section#googlemaps-property-section {
 //~ -------------------- DASHBOARD -------------------- //
 .dashboard {
   background-color: #E1E7EA;
+  min-height: 90vh;
 
   .welcome-dashboard {
     text-align: left;
@@ -1613,6 +1595,53 @@ section#googlemaps-property-section {
 //     }
 //   }
 // }
+
+#user-edit {
+  background-color: #E1E7EA;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    color: $dash-maincolor;
+  }
+
+  .user-names{
+    display: flex;
+    flex-direction: row;
+
+    input[type=text]{
+      margin: 0 .2rem;
+    }
+  }
+
+  .account-buttons{
+    input[type=submit]{
+      border: none;
+      background-color: transparent;
+      outline: transparent;
+      padding: 1rem;
+      font-family: 'Quicksand';
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: .5rem;
+      color: $dash-maincolor;
+    }
+
+    button{
+      border: none;
+      background-color: transparent;
+      outline: transparent;
+      padding: 1rem;
+      font-family: 'Quicksand';
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: .5rem;
+      color: red;
+    }
+  }
+}
 
 //~ -------------------- 404 -------------------- //
 
