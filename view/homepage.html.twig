@@ -96,17 +96,15 @@
 		<h2 id="title-best-tags-section">Catégorie Châteaux</h2>
 
 		<div id="container-card-best-tags">
-
 			<div class="best-tags-main-card">
-				<a href="{{ path('baseProperty') }}{{ property[0].propertyId }}">
+				<a href="{{ path('baseProperty') }}{{ getLastTagChateaux.propertyId }}">
 					<div class="card-best-tags main-card">
 						<figure>
-							<img src="{{ asset('/media/locations/' ~ propertys[0].propertyImages.imageMainURL) }}" alt="{{ propertys[0].title }}"/>
+							<img src="{{ asset('/media/locations/' ~ getLastTagChateaux.imageMainURL) }}" alt="{{ getLastTagChateaux.title }}"/>
 							<figcaption>
 								<div class="description-card">
-									<h3 id="title-description-card">{{ property[0].title }}</h3>
-									<p>{{ property[0].PriceNight }}€/nuit</p>
-									<p>{{ property[0].address }}</p>
+									<h3 id="title-description-card">{{ getLastTagChateaux.title }}</h3>
+									<p>{{ getLastTagChateaux.priceNight }}€/nuit</p>
 								</div>
 							</figcaption>
 						</figure>
@@ -115,23 +113,20 @@
 			</div>
 
 			<div class="best-tags-flex-cards">
-				{% for lastTag in lastTagsChateaux %}
-					{% for property in propertys[1:] %}
-						<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
-							<div class="card-best-tags">
-								<figure>
-									<img src="{{ asset('/media/locations/' ~ propertys[1].propertyImages.imageMainURL) }}" alt="{{ propertys[1].title }}"/>
-									<figcaption>
-										<div class="description-card">
-											<h3 id="title-description-card">{{ property.title }}</h3>
-											<p>{{ property.PriceNight }}€/nuit</p>
-											<p>{{ property.address }}</p>
-										</div>
-									</figcaption>
-								</figure>
-							</div>
-						</a>
-					{% endfor %}
+				{% for lastTagChateaux in lastFiveTagsChateaux %}
+					<a href="{{ path('baseProperty') }}{{ lastTagChateaux.propertyId }}">
+						<div class="card-best-tags">
+							<figure>
+								<img src="{{ asset('/media/locations/' ~ lastTagChateaux.imageMainURL) }}" alt="{{ propertys.title }}"/>
+								<figcaption>
+									<div class="description-card">
+										<h3 id="title-description-card">{{ lastTagChateaux.title }}</h3>
+										<p>{{ lastTagChateaux.priceNight }}€/nuit</p>
+									</div>
+								</figcaption>
+							</figure>
+						</div>
+					</a>
 				{% endfor %}
 			</div>
 
