@@ -92,7 +92,7 @@ h3 {
 .header-main {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 99;
   background-color: $maincolor;
   padding: 1rem;
 
@@ -444,7 +444,7 @@ footer {
     align-items: center;
 
     a {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin: 1rem;
     }
 
@@ -475,14 +475,69 @@ footer {
 //Faire un carousel/slider d'images, voir si ajout d'un slogan
 #hero {
   figure {
-    img {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+    
+    .slider-image {
       object-fit: cover;
       width: 100%;
-      max-height: 300px;
-      opacity: 70%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      
+      &:first-child {
+        opacity: 1;
+        z-index: 2;
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to bottom, transparentize(#0E1D33, 0.2), transparentize(#0E1D33, 0.8));
+      z-index: 3;
+    }
+    
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      z-index: 4;
+      
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    
+    .prev-arrow {
+      left: 10px;
+    }
+    
+    .next-arrow {
+      right: 10px;
     }
   }
 }
+
+
 
 //? --------- Tag Nav' Menu Section --------- //
 
@@ -1175,6 +1230,13 @@ section#property-section {
           .traveler {
             display: flex;
             flex-direction: column;
+
+            select#traveler-select {
+              font-family: 'Quicksand';
+              padding: .5rem .8rem;
+              border: none;
+              box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            }
           }
         }
 
@@ -1605,19 +1667,28 @@ section#googlemaps-property-section {
 
   h2 {
     color: $dash-maincolor;
+    margin-bottom: 2rem;
   }
 
-  .user-names{
+  .user-names {
     display: flex;
     flex-direction: row;
 
-    input[type=text]{
+    input[type=text] {
       margin: 0 .2rem;
     }
   }
 
-  .account-buttons{
-    input[type=submit]{
+  p {
+    margin-top: 1rem;
+  }
+
+  a {
+    margin: 2rem;
+  }
+
+  .account-buttons {
+    input[type=submit] {
       border: none;
       background-color: transparent;
       outline: transparent;
@@ -1629,7 +1700,7 @@ section#googlemaps-property-section {
       color: $dash-maincolor;
     }
 
-    button{
+    button {
       border: none;
       background-color: transparent;
       outline: transparent;
