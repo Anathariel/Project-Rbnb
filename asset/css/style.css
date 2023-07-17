@@ -14,8 +14,11 @@
 body {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  background-color: rgba(241, 244, 246, 0.722);
+  background-color: rgb(248, 248, 248);
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
@@ -59,30 +62,10 @@ h3 {
   color: #1b1d21;
 }
 
-.darkerblue {
-  color: #1b1d21;
-}
-
-.white {
-  color: #f8f8f8;
-}
-
-.maincolor {
-  color: #92aad3;
-}
-
-.grey {
-  color: rgb(67, 65, 65);
-}
-
-.lightgrey {
-  color: rgba(91, 88, 88, 0.721);
-}
-
 .header-main {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 99;
   background-color: #92aad3;
   padding: 1rem;
 }
@@ -336,7 +319,20 @@ footer {
 }
 footer .footer-desktop {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+footer .footer-desktop a {
+  font-size: 1rem;
+  margin: 1rem;
+}
+footer .footer-desktop .social-media {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 0.5rem;
+}
+footer .footer-desktop .social-media a {
+  margin: 0 0.6rem;
 }
 footer .footer-mobile {
   display: flex;
@@ -346,37 +342,129 @@ footer .footer-mobile a {
   margin: 2rem;
 }
 
-#hero figure img {
+#hero figure {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+}
+#hero figure .slider-image {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
-  max-height: 300px;
-  opacity: 70%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+#hero figure .slider-image:first-child {
+  opacity: 1;
+  z-index: 2;
+}
+#hero figure .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(14, 29, 51, 0.8), rgba(14, 29, 51, 0.2));
+  z-index: 3;
+}
+#hero figure .slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 4;
+}
+#hero figure .slider-arrow img {
+  display: block;
+  margin: 0 auto;
+}
+#hero figure .prev-arrow {
+  left: 10px;
+}
+#hero figure .next-arrow {
+  right: 10px;
 }
 
-#tag-nav #tag-container {
+#tag-nav {
   position: relative;
+  overflow: hidden;
+}
+#tag-nav #tag-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   width: 100%;
 }
-#tag-nav #tag-container .left-corner {
+#tag-nav #tag-container .arrow-container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 10%;
   height: 100%;
+}
+#tag-nav #tag-container .arrow-container.left-arrow-container {
   position: absolute;
   left: 0;
+  display: none;
+}
+#tag-nav #tag-container .arrow-container.left-arrow-container .left-arrow {
+  z-index: 2;
+}
+#tag-nav #tag-container .arrow-container.left-arrow-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgb(248, 248, 248), rgba(248, 248, 248, 0.8));
+  pointer-events: none;
+}
+#tag-nav #tag-container .arrow-container.right-arrow-container {
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+#tag-nav #tag-container .arrow-container.right-arrow-container .right-arrow {
+  z-index: 2;
+}
+#tag-nav #tag-container .arrow-container.right-arrow-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgb(248, 248, 248), rgba(248, 248, 248, 0.8));
+  pointer-events: none;
 }
 #tag-nav #tag-container .container-tag-list {
   display: flex;
-  overflow: scroll;
-  width: 80%;
+  overflow-x: scroll;
+  width: 100%;
+  padding-right: 10%;
+  scrollbar-width: none;
+  /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none;
+  /* Hide scrollbar for IE and Edge */
+}
+#tag-nav #tag-container .container-tag-list::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar for Chrome, Safari, and Opera */
 }
 #tag-nav #tag-container .container-tag-list .tag-item {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -405,27 +493,29 @@ footer .footer-mobile a {
   background-color: rgba(167, 167, 167, 0.4352941176);
   border-bottom: 1px solid #000000;
 }
-#tag-nav #tag-container .right-corner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10%;
-  height: 100%;
-  position: absolute;
-  right: 0;
-}
 #tag-nav button.filter {
   cursor: pointer;
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 100%;
   border: 1px solid #1b1d21;
+  z-index: 2;
 }
 #tag-nav button.arrow {
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 100%;
   border: 0.5px solid #1b1d21;
+}
+#tag-nav button.arrow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(248, 248, 248, 0.5);
+  pointer-events: none;
 }
 
 section#new-destinations-section {
@@ -494,9 +584,6 @@ section#new-destinations-section div#container-card-new-destinations div.new-des
 }
 section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card {
   width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card .main-card {
   margin: 0 auto;
@@ -691,6 +778,9 @@ section#property-section figure img {
   width: 30%;
   height: auto;
 }
+section#property-section .inline-title {
+  display: flex;
+}
 section#property-section h3 {
   font-size: 1.5rem;
   color: #404e87;
@@ -708,11 +798,8 @@ section#property-section .property-details .container-description-property .prop
   flex-direction: row;
 }
 section#property-section .property-details .container-description-property .property-amenities p {
-  padding-right: 0.5rem;
-}
-section#property-section .property-details .container-description-property .property-description p {
-  font-weight: lighter;
-  font-family: "Poppins";
+  padding-right: 0.8rem;
+  font-size: 0.8rem;
 }
 section#property-section .property-details .container-description-property .property-description #description-details {
   color: #404e87;
@@ -867,7 +954,7 @@ section#property-section .property-details .container-pricing {
   margin: 1rem 5rem;
   background: rgba(217, 217, 217, 0.3764705882);
   width: 30%;
-  max-height: 505px;
+  max-height: 530px;
   padding: 1.5rem;
   border-radius: 1.5rem;
 }
@@ -918,21 +1005,48 @@ section#property-section .property-details .container-pricing .container-calenda
   display: flex;
   flex-direction: column;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler button {
-  background-color: #404e87;
-  color: #f8f8f8;
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler select#traveler-select {
+  font-family: "Quicksand";
+  padding: 0.5rem 0.8rem;
   border: none;
-  outline: transparent;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  width: 90%;
-  cursor: pointer;
-  font-size: 1.3rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler button:hover {
-  background-color: #92aad3;
-  border: 0.5px solid white;
-  transition: 500ms ease;
+section#property-section .property-details .container-pricing .container-calendar-traveler button {
+  width: 100%;
+  position: relative;
+  margin: 0.5rem 0;
+  border: solid 1px #404e87;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler button span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 1rem 0;
+  color: #404e87;
+  position: relative;
+  z-index: 1;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler button span:hover {
+  color: #f8f8f8;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #404e87;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler button:hover:before {
+  width: 100%;
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler p {
   font-size: 0.7rem;
@@ -962,6 +1076,7 @@ section#googlemaps-property-section div#map {
 
 .dashboard {
   background-color: #E1E7EA;
+  min-height: 90vh;
 }
 .dashboard .welcome-dashboard {
   text-align: left;
@@ -1077,46 +1192,27 @@ section#googlemaps-property-section div#map {
 .dashboard .dashboard-cards .card .card-details .location img {
   margin: 0.2rem;
 }
-.dashboard .dashboard-cards .card .card-details .description {
-  text-align: left;
-}
 .dashboard .dashboard-cards .card .card-details .description h3 {
   text-align: left;
+  font-size: 1.2rem;
 }
-.dashboard .dashboard-cards .card .card-details button {
-  width: 100%;
-  position: relative;
-  margin: 1rem 0;
-  border: solid 1px #0E9384;
+.dashboard .dashboard-cards .card .card-details .property-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0.5rem;
+}
+.dashboard .dashboard-cards .card .card-details .property-buttons .button > p {
+  color: #059669;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+}
+.dashboard .dashboard-cards .card .card-details .property-buttons .delete {
+  color: red;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  border: none;
+  outline: transparent;
   background-color: transparent;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-.dashboard .dashboard-cards .card .card-details button span {
-  display: block;
-  width: 100%;
-  padding: 1rem 0;
-  color: #0E9384;
-  position: relative;
-  z-index: 1;
-}
-.dashboard .dashboard-cards .card .card-details button span:hover {
-  color: #f8f8f8;
-}
-.dashboard .dashboard-cards .card .card-details button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #0E9384;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-.dashboard .dashboard-cards .card .card-details button:hover:before {
-  width: 100%;
 }
 @media screen and (max-width: 800px) {
   .dashboard .dashboard-cards .dashboard-cards .card {
@@ -1130,6 +1226,8 @@ section#googlemaps-property-section div#map {
 }
 #addpropertyForm fieldset {
   padding: 1rem 3rem;
+  display: flex;
+  justify-content: center;
 }
 #addpropertyForm h4 {
   color: #0E9384;
@@ -1194,12 +1292,6 @@ section#googlemaps-property-section div#map {
 #addpropertyForm .selection-accomodation .equipement label:hover {
   cursor: pointer;
 }
-#addpropertyForm .selection-accomodation .equipement:hover {
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.3568627451);
-  border-bottom: 1px solid #1b1d21;
-  transition: 500ms ease-in;
-}
 #addpropertyForm .add-rules label {
   margin: 1rem;
 }
@@ -1208,15 +1300,234 @@ section#googlemaps-property-section div#map {
 }
 #addpropertyForm .selection-tags {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  align-items: center;
+}
+#addpropertyForm .selection-tags .tag-element {
+  display: flex;
+  flex-direction: column;
 }
 #addpropertyForm .selection-tags label {
   width: 70px;
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 #addpropertyForm .selection-tags label img {
   width: 25px;
+}
+
+#user-edit {
+  background-color: #E1E7EA;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#user-edit h2 {
+  color: #0E9384;
+  margin-bottom: 2rem;
+}
+#user-edit .user-names {
+  display: flex;
+  flex-direction: row;
+}
+#user-edit .user-names input[type=text] {
+  margin: 0 0.2rem;
+}
+#user-edit p {
+  margin-top: 1rem;
+}
+#user-edit a {
+  margin: 2rem;
+}
+#user-edit .account-buttons input[type=submit] {
+  border: none;
+  background-color: transparent;
+  outline: transparent;
+  padding: 1rem;
+  font-family: "Quicksand";
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: #0E9384;
+}
+#user-edit .account-buttons button {
+  border: none;
+  background-color: transparent;
+  outline: transparent;
+  padding: 1rem;
+  font-family: "Quicksand";
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: red;
+}
+
+#error-page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#error-page .left-side {
+  margin: 5rem;
+}
+#error-page .left-side p:first-child {
+  color: #404e87;
+  font-size: 0.9rem;
+}
+#error-page .left-side h1 {
+  font-size: 3rem;
+  color: #1b1d21;
+}
+#error-page .left-side p {
+  font-size: 1rem;
+}
+#error-page .left-side .button-error {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem;
+}
+#error-page .left-side .button-error #button-return {
+  border: 1px solid #1b1d21;
+  display: flex;
+  background-color: transparent;
+  outline: transparent;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+#error-page .left-side .button-error #button-return img {
+  padding: 0 0.5rem;
+}
+#error-page .left-side .button-error #home-redirection {
+  border: 1px solid #1b1d21;
+  display: flex;
+  background-color: #92aad3;
+  outline: transparent;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: #f8f8f8;
+  font-family: "Quicksand";
+  font-size: 1rem;
+}
+
+.catalog-cards {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-evenly;
+  margin: 1rem 5rem;
+}
+.catalog-cards .card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 280px;
+  margin: 2rem auto;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.catalog-cards .card figure {
+  position: relative;
+  padding: 1rem 0;
+}
+.catalog-cards .card figure img {
+  width: 90%;
+  max-width: 260px;
+  max-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+.catalog-cards .card figure figcaption {
+  width: 30px;
+  position: absolute;
+  top: 2rem;
+  left: 14.5rem;
+}
+.catalog-cards .card figure figcaption a > img {
+  width: 30px;
+}
+.catalog-cards .card .card-details {
+  padding: 0 1rem;
+}
+.catalog-cards .card .card-details .pricing {
+  display: flex;
+  flex-direction: row;
+  margin-right: auto;
+}
+.catalog-cards .card .card-details .pricing span {
+  font-size: 2rem;
+}
+.catalog-cards .card .card-details .pricing .rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+}
+.catalog-cards .card .card-details .location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 0;
+}
+.catalog-cards .card .card-details .location img {
+  margin: 0.2rem;
+}
+.catalog-cards .card .card-details .description h3 {
+  text-align: left;
+  font-size: 1.2rem;
+}
+.catalog-cards .card .card-details button {
+  width: 100%;
+  position: relative;
+  margin: 0.5rem 0;
+  border: solid 1px #404e87;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+.catalog-cards .card .card-details button span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #404e87;
+  position: relative;
+  z-index: 1;
+}
+.catalog-cards .card .card-details button span:hover {
+  color: #f8f8f8;
+}
+.catalog-cards .card .card-details button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #404e87;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+.catalog-cards .card .card-details button:hover:before {
+  width: 100%;
+}
+@media screen and (max-width: 800px) {
+  .catalog-cards .dashboard-cards .card {
+    margin: 0;
+    max-width: 180px;
+  }
 }/*# sourceMappingURL=style.css.map */

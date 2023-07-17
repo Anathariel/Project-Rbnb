@@ -27,5 +27,9 @@ class HomeController extends Controller
     public function blog(){
         echo self::getRender('blog.html.twig', []);
     }
+
+    public function catalogue(){
+        echo self::getRender('catalog.html.twig', []);
+    }
 }
 

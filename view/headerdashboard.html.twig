@@ -17,7 +17,7 @@
 		</div>
 
 		<div class="user-menu" id="user-menu">
-			<a href="#">
+			<a href="{{ path('dashboard') }}">
 				<img src="{{ asset('/media/pict-default.webp') }}" alt="Image de profil" class="profilepic">
 			</a>
 			<div class="user-data">
@@ -34,7 +34,7 @@
 					<li><a href="#"><img class="submenu-icon"src="{{ asset('/media/icons/plus.svg') }}" alt="Icône Ajouter">Ajouter</a></li>
 					<li><a href="#"><img class="submenu-icon"src="{{ asset('/media/icons/notification.svg') }}" alt="Icône Notification">Mes alertes</a></li>
 					<li><a href="#"><img class="submenu-icon"src="{{ asset('/media/icons/messagerie.svg') }}" alt="Icône Messagerie">Ma messagerie</a></li>
-					<li><a href="#"><img class="submenu-icon"src="{{ asset('/media/icons/setting.svg') }}" alt="Icône Option">Options</a></li>
+					<li><a href="{{ path('options') }}"><img class="submenu-icon"src="{{ asset('/media/icons/setting.svg') }}" alt="Icône Option">Options</a></li>
 					<li><a href="{{ path('logout') }}"><img class="submenu-icon"src="{{ asset('/media/icons/logout.svg') }}" alt="Icône se déconnecter">Se déconnecter</a></li>
 				</ul>
 			</div>
