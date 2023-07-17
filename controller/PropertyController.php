@@ -28,6 +28,7 @@ class PropertyController extends Controller
         $propertyType = $propertyTypeModel->getPropertyTypeModel($id);
 
 
+
         $oneProperty = $router->generate('baseProperty');
         echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comment' => $comment, 'propertyType' => $propertyType]);
     }
@@ -201,19 +202,46 @@ class PropertyController extends Controller
     {
         global $router;
         $propertyModel = new PropertyModel();
-        $property = $propertyModel->getOneProperty($id);
-
         $hostLanguageModel = new HostLanguageModel();
-        $hostLanguage = $hostLanguageModel->getHostLanguageModel($id);
-
+        $accommodationTypeModel = new AccomodationTypeModel();
         $propertyTypeModel = new PropertyTypeModel();
+        $houseRulesModel = new HouseRulesModel();
+        $propertyAmenitiesModel = new PropertyAmenitiesModel();
+        $tagModel = new TagModel();
+        $propertyImagesModel = new PropertyImagesModel();
+
+        $property = $propertyModel->getOneProperty($id);
+        $hostLanguage = $hostLanguageModel->getHostLanguageModel($id);
+        $accommodationType = $accommodationTypeModel->getAccomodationTypeModel($id);
         $propertyType = $propertyTypeModel->getPropertyTypeModel($id);
+        $houseRules = $houseRulesModel->getHouseRules($id);
+        $propertyAmenities = $propertyAmenitiesModel->getPropertyAmenities($id);
+        $tags = $tagModel->getAllTags();
+        $selectedTags = $tagModel->getSelectedTagsForProperty($id);
+        $propertyImages = $propertyImagesModel->getPropertyImagesModel($id);
+
 
         if ($property instanceof Property) {
             if (!$_POST) {
+                $userId = $_SESSION['uid'];
+                $userModel = new UserModel();
+                $user = $userModel->getUserById($userId);
+                $firstName = $user->getFirstName();
+                $email = $user->getEmail();
+
                 echo self::getRender('editproperty.html.twig', [
                     'property' => $property,
                     'id' => $id,
+                    'firstName' => $firstName,
+                    'email' => $email,
+                    'hostLanguage' => $hostLanguage,
+                    'propertyType' => $propertyType,
+                    'accommodationType' => $accommodationType,
+                    'houseRules' => $houseRules,
+                    'propertyAmenities' => $propertyAmenities,
+                    'tags' => $tags,
+                    'selectedTags' => $selectedTags,
+                    'propertyImages' => $propertyImages
                 ]);
             } else {
                 if (isset($_POST['submit'])) {
@@ -226,7 +254,7 @@ class PropertyController extends Controller
 
                     $checkInTime = isset($_POST['check-in-time']) ? $_POST['check-in-time'] : [];
                     $checkOutTime = isset($_POST['check-out-time']) ? $_POST['check-out-time'] : [];
-                    $maxGuests = isset($_POST['max-guests']) ? $_POST['max-guests'] : [] ;
+                    $maxGuests = isset($_POST['max-guests']) ? $_POST['max-guests'] : [];
 
                     $tags = isset($_POST['tags']) ? $_POST['tags'] : [];
 
@@ -370,11 +398,10 @@ class PropertyController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['_method'] === 'DELETE') {
             $propertyModel = new PropertyModel();
             $propertyModel->deletePropertyModel($id);
-    
+
             global $router;
             header('Location: ' . $router->generate('home'));
             exit;
         }
     }
-    
 }

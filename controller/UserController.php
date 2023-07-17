@@ -100,7 +100,31 @@ class UserController extends Controller
             'firstName' => $firstName,
             'email' => $email,
             'userProperties' => $userProperties,
-            'propertys' => $propertysWithImages,
+            'propertys' => $propertysWithImages
+        ];
+        echo self::getRender('dashboard.html.twig', $data);
+    }
+
+    public function editPropertySession()
+    {
+        // Vérifiez si l'utilisateur est connecté
+        if (!isset($_SESSION['connect']) || $_SESSION['connect'] !== true) {
+            // Redirigez l'utilisateur vers la page de connexion si nécessaire
+            global $router;
+            header('Location: ' . $router->generate('login'));
+            exit();
+        }
+
+        // Récupérez le prénom de l'utilisateur à partir de la base de données
+        $userId = $_SESSION['uid'];
+        $userModel = new UserModel();
+        $user = $userModel->getUserById($userId);
+        $firstName = $user->getFirstName();
+        $email = $user->getEmail();
+
+        $data = [
+            'firstName' => $firstName,
+            'email' => $email,
         ];
         echo self::getRender('dashboard.html.twig', $data);
     }
