@@ -24,6 +24,7 @@ $router->map('GET', '/logout', 'UserController#logout', 'logout');
 
 // Dashboard Utilisateur
 $router->map('GET', '/account', 'UserController#dashboard', 'dashboard');
+$router->map('GET', '/account/options', 'UserController#options', 'options');
 
 
 // CRUD Property
