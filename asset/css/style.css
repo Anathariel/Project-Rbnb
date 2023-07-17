@@ -762,6 +762,26 @@ section#join-us-section div#container-card-join-us figcaption a#btn-list-propert
   box-shadow: 0 0.1rem rgba(255, 255, 255, 0.7);
 }
 
+#scroll-to-top-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background-color: #404e87;
+  border: 1px solid #f8f8f8;
+  outline: transparent;
+  cursor: pointer;
+  transition: display 0.5s ease;
+  opacity: 1;
+  z-index: 9999;
+}
+
+.scroll-to-top-hidden {
+  display: none;
+}
+
 section#property-section {
   text-align: left;
 }

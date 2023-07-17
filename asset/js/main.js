@@ -109,3 +109,42 @@ function scrollToRight() {
 containerTagList.addEventListener('scroll', handleScroll);
 leftArrow.addEventListener('click', scrollToLeft);
 rightArrow.addEventListener('click', scrollToRight);
+
+
+// SCROLL TOP BUTTON HOMEPAGE
+
+const scrollToTopButton = document.getElementById('scroll-to-top-button');
+let isScrolled = false;
+
+function handleScroll() {
+  const scrollPosition = window.scrollY;
+  const halfPageHeight = window.innerHeight / 2;
+
+  if (scrollPosition > halfPageHeight && !isScrolled) {
+    isScrolled = true;
+    scrollToTopButton.classList.remove('scroll-to-top-hidden');
+  } else if (scrollPosition <= halfPageHeight && isScrolled) {
+    isScrolled = false;
+    scrollToTopButton.classList.add('scroll-to-top-hidden');
+  }
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
+
+// Check initial scroll position only after the first scroll event
+function checkInitialScrollPosition() {
+  if (window.scrollY > 0) {
+    isScrolled = true;
+    handleScroll();
+    window.removeEventListener('scroll', checkInitialScrollPosition);
+  }
+}
+
+scrollToTopButton.addEventListener('click', scrollToTop);
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('scroll', checkInitialScrollPosition);
