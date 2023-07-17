@@ -1242,10 +1242,33 @@ section#googlemaps-property-section div#map {
 #error-page .left-side p {
   font-size: 1rem;
 }
-#error-page .left-side button {
+#error-page .left-side .button-error {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   margin: 1rem;
 }
-#error-page .left-side #button-return {
-  border: none;
+#error-page .left-side .button-error #button-return {
+  border: 1px solid #1b1d21;
   display: flex;
+  background-color: transparent;
+  outline: transparent;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+#error-page .left-side .button-error #button-return img {
+  padding: 0 0.5rem;
+}
+#error-page .left-side .button-error #home-redirection {
+  border: 1px solid #1b1d21;
+  display: flex;
+  background-color: #92aad3;
+  outline: transparent;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: #f8f8f8;
+  font-family: "Quicksand";
+  font-size: 1rem;
 }/*# sourceMappingURL=style.css.map */

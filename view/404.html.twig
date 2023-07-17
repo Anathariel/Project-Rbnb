@@ -15,7 +15,9 @@
                 <img src="{{ asset('/media/icons/arrow-left.svg')}}" alt="Back arrow svg">
                 <p>Retour</p>
             </button>
-            <button id="home-redirection">Take me home, West Virginia </button>
+            <a href="{{ path('home') }}">
+                <button id="home-redirection" >Take me home, West Virginia </button>
+            </a>
         </div>
     </div>
 
