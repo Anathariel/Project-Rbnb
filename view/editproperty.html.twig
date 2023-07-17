@@ -62,33 +62,26 @@
 
 				<label for="host-languages">Langues parlées par l'hôte :</label>
 				<br/>
-				<input type="checkbox" id="english" name="host-languages[]" value="anglais" {% if hostLanguage.anglais == true %} checked {% endif %}/>
-				<label for="english">Anglais</label>
+				{% set languages = {
+					'anglais': 'english', 
+					'français': 'french', 
+					'allemand': 'german',
+					'japonais': 'japanese',
+					'italien': 'italian',
+					'russe': 'russian',
+					'espagnol': 'spanish',
+					'chinois': 'chinese',
+					'arabe': 'arabic'
+				} %}
+
+				{% for language, id in languages %}
+				<input type="checkbox" id="{{ id }}" name="host-languages[]" value="{{ language }}" {% if oldHostLanguage[id] == 1 %} checked {% endif %}/>
+				<label for="{{ id }}">{{ id|capitalize }}</label>
 				<br/>
-				<input type="checkbox" id="french" name="host-languages[]" value="français" {% if hostLanguage.français == true %} checked {% endif %}/>
-				<label for="french">Français</label>
-				<br/>
-				<input type="checkbox" id="german" name="host-languages[]" value="allemand" {% if hostLanguage.allemand == true %} checked {% endif %}/>
-				<label for="german">Allemand</label>
-				<br/>
-				<input type="checkbox" id="japanese" name="host-languages[]" value="japonais" {% if hostLanguage.japonais == true %} checked {% endif %}/>
-				<label for="japanese">Japonais</label>
-				<br/>
-				<input type="checkbox" id="italian" name="host-languages[]" value="italien" {% if hostLanguage.italien == true %} checked {% endif %}/>
-				<label for="italian">Italien</label>
-				<br/>
-				<input type="checkbox" id="russian" name="host-languages[]" value="russe" {% if hostLanguage.russe == true %} checked {% endif %}/>
-				<label for="russian">Russe</label>
-				<br/>
-				<input type="checkbox" id="spanish" name="host-languages[]" value="espagnol" {% if hostLanguage.espagnol == true %} checked {% endif %}/>
-				<label for="spanish">Espagnol</label>
-				<br/>
-				<input type="checkbox" id="chinese" name="host-languages[]" value="chinois" {% if hostLanguage.chinois == true %} checked {% endif %}/>
-				<label for="chinese">Chinois</label>
-				<br/>
-				<input type="checkbox" id="arabic" name="host-languages[]" value="arabe" {% if hostLanguage.arabe == true %} checked {% endif %}/>
-				<label for="arabic">Arabe</label>
+				{% endfor %}
 				<br/><br/>
+
+
 
 				<label for="house-rules">Règlement intérieur :</label>
 				<br/>
@@ -156,82 +149,50 @@
 
 
 				<label for="accommodation-types">Equipements disponibles :</label>
+				{% set equipmentList = {
+				'piscine': 'Piscine',
+				'parkingGratuit': 'Parking gratuit',
+				'jacuzzi': 'Jacuzzi',
+				'wifi': 'Wifi',
+				'laveLinge': 'Lave-linge',
+				'secheLinge': 'Sèche-linge',
+				'climatisation': 'Climatisation',
+				'chauffage': 'Chauffage',
+				'espaceTravailDedie': 'Espace de travail dédié',
+				'television': 'Télévision',
+				'secheCheveux': 'Sèche-cheveux',
+				'ferRepasser': 'Fer à repasser',
+				'stationRechargeVehiElectriques': 'Station de recharge pour véhicules électriques',
+				'litBebe': 'Lit bébé',
+				'salleSport': 'Salle de sport',
+				'barbecue': 'Barbecue',
+				'petitDejeuner': 'Petit déjeuner',
+				'cheminee': 'Cheminée',
+				'logementFumeur': 'Logement fumeur',
+				'detecteurFumee': 'Détecteur de fumée',
+				'detecteurMonoxyDeCarbone': 'Détecteur de monoxyde de carbone'
+				} %}
 				<br/>
-				<input type="checkbox" id="piscine" name="accommodation-types[]" value="piscine" {% if accommodationType.piscine == true %} checked {% endif %}/>
-				<label for="piscine">Piscine</label>
-				<br/>
-				<input type="checkbox" id="parkingGratuit" name="accommodation-types[]" value="parkingGratuit" {% if accommodationType.parkingGratuit == true %} checked {% endif %}/>
-				<label for="parkingGratuit">Parking gratuit</label>
-				<br/>
-				<input type="checkbox" id="jacuzzi" name="accommodation-types[]" value="jacuzzi" {% if accommodationType.jacuzzi == true %} checked {% endif %}/>
-				<label for="jacuzzi">Jacuzzi</label>
-				<br/>
-				<input type="checkbox" id="wifi" name="accommodation-types[]" value="wifi" {% if accommodationType.wifi == true %} checked {% endif %}/>
-				<label for="wifi">Wifi</label>
-				<br/>
-				<input type="checkbox" id="laveLinge" name="accommodation-types[]" value="laveLinge" {% if accommodationType.laveLinge == true %} checked {% endif %}/>
-				<label for="laveLinge">Lave-linge</label>
-				<br/>
-				<input type="checkbox" id="secheLinge" name="accommodation-types[]" value="secheLinge" {% if accommodationType.secheLinge == true %} checked {% endif %}/>
-				<label for="secheLinge">Sèche-linge</label>
-				<br/>
-				<input type="checkbox" id="climatisation" name="accommodation-types[]" value="climatisation" {% if accommodationType.climatisation == true %} checked {% endif %}/>
-				<label for="climatisation">Climatisation</label>
-				<br/>
-				<input type="checkbox" id="chauffage" name="accommodation-types[]" value="chauffage" {% if accommodationType.chauffage == true %} checked {% endif %}/>
-				<label for="chauffage">Chauffage</label>
-				<br/>
-				<input type="checkbox" id="espaceTravailDedie" name="accommodation-types[]" value="espaceTravailDedie" {% if accommodationType.espaceTravailDedie == true %} checked {% endif %}/>
-				<label for="espaceTravailDedie">Espace de travail dédié</label>
-				<br/>
-				<input type="checkbox" id="television" name="accommodation-types[]" value="television" {% if accommodationType.television == true %} checked {% endif %}/>
-				<label for="television">Télévision</label>
-				<br/>
-				<input type="checkbox" id="secheCheveux" name="accommodation-types[]" value="secheCheveux" {% if accommodationType.secheCheveux == true %} checked {% endif %}/>
-				<label for="secheCheveux">Sèche-cheveux</label>
-				<br/>
-				<input type="checkbox" id="ferRepasser" name="accommodation-types[]" value="ferRepasser" {% if accommodationType.ferRepasser == true %} checked {% endif %}/>
-				<label for="ferRepasser">Fer à repasser</label>
-				<br/>
-				<input type="checkbox" id="stationRechargeVehiElectriques" name="accommodation-types[]" value="stationRechargeVehiElectriques" {% if accommodationType.stationRechargeVehiElectriques == true %} checked {% endif %}/>
-				<label for="stationRechargeVehiElectriques">Station de recharge pour véhicules électriques</label>
-				<br/>
-				<input type="checkbox" id="litBebe" name="accommodation-types[]" value="litBebe" {% if accommodationType.litBebe == true %} checked {% endif %}/>
-				<label for="litBebe">Lit bébé</label>
-				<br/>
-				<input type="checkbox" id="salleSport" name="accommodation-types[]" value="salleSport" {% if accommodationType.salleSport == true %} checked {% endif %}/>
-				<label for="salleSport">Salle de sport</label>
-				<br/>
-				<input type="checkbox" id="barbecue" name="accommodation-types[]" value="barbecue" {% if accommodationType.barbecue == true %} checked {% endif %}/>
-				<label for="barbecue">Barbecue</label>
-				<br/>
-				<input type="checkbox" id="petitDejeuner" name="accommodation-types[]" value="petitDejeuner" {% if accommodationType.petitDejeuner == true %} checked {% endif %}/>
-				<label for="petitDejeuner">Petit déjeuner</label>
-				<br/>
-				<input type="checkbox" id="cheminee" name="accommodation-types[]" value="cheminee" {% if accommodationType.cheminee == true %} checked {% endif %}/>
-				<label for="cheminee">Cheminée</label>
-				<br/>
-				<input type="checkbox" id="logementFumeur" name="accommodation-types[]" value="logementFumeur" {% if accommodationType.logementFumeur == true %} checked {% endif %}/>
-				<label for="logementFumeur">Logement fumeur</label>
-				<br/>
-				<input type="checkbox" id="detecteurFumee" name="accommodation-types[]" value="detecteurFumee" {% if accommodationType.detecteurFumee == true %} checked {% endif %}/>
-				<label for="detecteurFumee">Détecteur de fumée</label>
-				<br/>
-				<input type="checkbox" id="detecteurMonoxyDeCarbone" name="accommodation-types[]" value="detecteurMonoxyDeCarbone" {% if accommodationType.detecteurMonoxyDeCarbone == true %} checked {% endif %}/>
-				<label for="detecteurMonoxyDeCarbone">Détecteur de monoxyde de carbone</label>
+
+				{% for id, label in equipmentList %}
+					<input type="checkbox" id="{{ id }}" name="accommodation-types[]" value="{{ id }}" {% if accommodationType[id] == 1 %} checked {% endif %}/>
+					<label for="{{ id }}">{{ label }}</label>
+					<br/>
+				{% endfor %}
 				<br/><br/>
 
 
 				<label for="tags">Choisissez vos tags :</label>
 				<br/>
 				{% for tag in tags %}
-					<input type="checkbox" id="{{ tag.name|lower }}" name="tags[]" value="{{ tag.id }}" {% if tag.tagId in selectedTags %} checked {% endif %}/>
-					<label for="{{ tag.name|lower }}">
+					<input type="checkbox" id="{{ tag.picto }}" name="tags[]" value="{{ tag.tagId }}" {% if tag.tagId in selectedTags %} checked {% endif %}/>
+					<label for="{{ tag.picto }}">
 						<img src="{{ asset('/media/icons/tag/' ~ tag.picto) }}" alt="{{ tag.type }}"/>
 						{{ tag.type }}
 					</label>
 					<br/>
 				{% endfor %}
+				<br/>
 
 
 				<input type="submit" name="submit" value="Modifier"/>

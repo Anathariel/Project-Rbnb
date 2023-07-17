@@ -38,7 +38,17 @@ class PropertyController extends Controller
     {
         global $router;
         if (!$_POST) {
-            echo self::getRender('addproperty.html.twig', []);
+            $userId = $_SESSION['uid'];
+            $userModel = new UserModel();
+            $user = $userModel->getUserById($userId);
+            $firstName = $user->getFirstName();
+            $email = $user->getEmail();
+
+            echo self::getRender('addproperty.html.twig', [
+                'id' => $user,
+                'firstName' => $firstName,
+                'email' => $email,
+            ]);
         } else {
             if (isset($_POST['submit'])) {
                 $title = $_POST['title'];
@@ -56,7 +66,7 @@ class PropertyController extends Controller
                 $maxGuests = $_POST['max-guests'];
 
                 $tags = isset($_POST['tags']) ? $_POST['tags'] : [];
-
+                var_dump($tags);
 
                 $owner = $_SESSION['uid'];
 
@@ -119,21 +129,22 @@ class PropertyController extends Controller
                 $propertyTypeModel = new PropertyTypeModel();
                 $propertyTypeModel->setPropertyTypeModel($propertyType);
 
-                $hostLanguage = new HostLanguage([
+                $hostLanguage = [
                     'propertyId' => $lastInsertedId,
-                    'anglais' => in_array('anglais', (array) $hostLanguages) ? 1 : 0,
-                    'français' => in_array('français', (array) $hostLanguages) ? 1 : 0,
-                    'allemand' => in_array('allemand', (array) $hostLanguages) ? 1 : 0,
-                    'japonais' => in_array('japonais', (array) $hostLanguages) ? 1 : 0,
-                    'italien' => in_array('italien', (array) $hostLanguages) ? 1 : 0,
-                    'russe' => in_array('russe', (array) $hostLanguages) ? 1 : 0,
-                    'espagnol' => in_array('espagnol', (array) $hostLanguages) ? 1 : 0,
-                    'chinois' => in_array('chinois', (array) $hostLanguages) ? 1 : 0,
-                    'arabe' => in_array('arabe', (array) $hostLanguages) ? 1 : 0,
-                ]);
+                    'english' => in_array('anglais', (array) $hostLanguages) ? 1 : 0,
+                    'french' => in_array('français', (array) $hostLanguages) ? 1 : 0,
+                    'german' => in_array('allemand', (array) $hostLanguages) ? 1 : 0,
+                    'japanese' => in_array('japonais', (array) $hostLanguages) ? 1 : 0,
+                    'italian' => in_array('italien', (array) $hostLanguages) ? 1 : 0,
+                    'russian' => in_array('russe', (array) $hostLanguages) ? 1 : 0,
+                    'spanish' => in_array('espagnol', (array) $hostLanguages) ? 1 : 0,
+                    'chinese' => in_array('chinois', (array) $hostLanguages) ? 1 : 0,
+                    'arabic' => in_array('arabe', (array) $hostLanguages) ? 1 : 0,
+                ];
 
                 $hostLanguageModel = new HostLanguageModel();
                 $hostLanguageModel->setHostLanguageModel($hostLanguage);
+
 
 
                 $accomodationType = new AccomodationType([
@@ -186,6 +197,7 @@ class PropertyController extends Controller
                 $propertyAmenitiesModel = new PropertyAmenitiesModel();
                 $propertyAmenitiesModel->setPropertyAmenitiesModel($propertyAmenities);
 
+                $tags = isset($_POST['tags']) ? $_POST['tags'] : [];
                 $tagModel = new TagModel();
                 $tagModel->setTagsModel($lastInsertedId, $tags);
 
@@ -211,7 +223,7 @@ class PropertyController extends Controller
         $propertyImagesModel = new PropertyImagesModel();
 
         $property = $propertyModel->getOneProperty($id);
-        $hostLanguage = $hostLanguageModel->getHostLanguageModel($id);
+        $oldHostLanguage = $hostLanguageModel->getHostLanguageModel($id);
         $accommodationType = $accommodationTypeModel->getAccomodationTypeModel($id);
         $propertyType = $propertyTypeModel->getPropertyTypeModel($id);
         $houseRules = $houseRulesModel->getHouseRules($id);
@@ -234,7 +246,7 @@ class PropertyController extends Controller
                     'id' => $id,
                     'firstName' => $firstName,
                     'email' => $email,
-                    'hostLanguage' => $hostLanguage,
+                    'oldHostLanguage' => $oldHostLanguage,
                     'propertyType' => $propertyType,
                     'accommodationType' => $accommodationType,
                     'houseRules' => $houseRules,
@@ -258,6 +270,7 @@ class PropertyController extends Controller
 
                     $tags = isset($_POST['tags']) ? $_POST['tags'] : [];
 
+
                     $propertyModel->editPropertyModel($id, $title, $description, $priceNight);
 
                     $propertyType = new PropertyType([
@@ -271,21 +284,20 @@ class PropertyController extends Controller
                     $propertyTypeModel->editPropertyTypeModel($propertyType);
 
 
-                    $hostLanguage = new HostLanguage([
+                    $newHostLanguage = [
                         'propertyId' => $id,
-                        'anglais' => in_array('anglais', (array) $hostLanguages) ? 1 : 0,
-                        'français' => in_array('français', (array) $hostLanguages) ? 1 : 0,
-                        'allemand' => in_array('allemand', (array) $hostLanguages) ? 1 : 0,
-                        'japonais' => in_array('japonais', (array) $hostLanguages) ? 1 : 0,
-                        'italien' => in_array('italien', (array) $hostLanguages) ? 1 : 0,
-                        'russe' => in_array('russe', (array) $hostLanguages) ? 1 : 0,
-                        'espagnol' => in_array('espagnol', (array) $hostLanguages) ? 1 : 0,
-                        'chinois' => in_array('chinois', (array) $hostLanguages) ? 1 : 0,
-                        'arabe' => in_array('arabe', (array) $hostLanguages) ? 1 : 0,
-                    ]);
+                        'english' => in_array('anglais', (array) $hostLanguages) ? 1 : 0,
+                        'french' => in_array('français', (array) $hostLanguages) ? 1 : 0,
+                        'german' => in_array('allemand', (array) $hostLanguages) ? 1 : 0,
+                        'japanese' => in_array('japonais', (array) $hostLanguages) ? 1 : 0,
+                        'italian' => in_array('italien', (array) $hostLanguages) ? 1 : 0,
+                        'russian' => in_array('russe', (array) $hostLanguages) ? 1 : 0,
+                        'spanish' => in_array('espagnol', (array) $hostLanguages) ? 1 : 0,
+                        'chinese' => in_array('chinois', (array) $hostLanguages) ? 1 : 0,
+                        'arabic' => in_array('arabe', (array) $hostLanguages) ? 1 : 0,
+                    ];
 
-                    $hostLanguageModel = new HostLanguageModel();
-                    $hostLanguageModel->editHostLanguageModel($hostLanguage);
+                    $hostLanguageModel->editHostLanguageModel($newHostLanguage);
 
 
                     $propertyAmenities = new PropertyAmenities([
@@ -337,7 +349,6 @@ class PropertyController extends Controller
 
                     $accomodationTypeModel = new AccomodationTypeModel();
                     $accomodationTypeModel->editAccomodationTypeModel($accomodationType);
-
 
 
                     $oldPropertyImages = $propertyImagesModel->getPropertyImagesModel($id);
@@ -411,15 +422,14 @@ class PropertyController extends Controller
                         $image4URL = $oldPropertyImages->getImage4URL();
                     }
 
-
-
                     $propertyImagesModel = new PropertyImagesModel();
                     $propertyImagesModel->editPropertyImagesModel($id, $imageMainURL, $image1URL, $image2URL, $image3URL, $image4URL);
 
 
 
                     $tagModel = new TagModel();
-                    $tagModel->editTagsModel($id, $tags);
+                    $tags = array_filter($tags); // Supprime les valeurs vides
+                    $tagModel->editSelectedTagsForProperty($id, $tags);
 
 
                     header('Location: ' . $router->generate('home'));

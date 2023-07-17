@@ -14,29 +14,32 @@ class HostLanguageModel extends Model
             return null;
         }
 
-        $hostLanguage = new HostLanguage($hostLanguageModelData);
+        // convert keys to english for compatibility with Twig template
+        $englishKeys = ['english', 'french', 'german', 'japanese', 'italian', 'russian', 'spanish', 'chinese', 'arabic'];
+        $hostLanguage = array_combine($englishKeys, array_values($hostLanguageModelData));
 
         return $hostLanguage;
     }
 
-    public function setHostLanguageModel(HostLanguage $hostLanguage)
+
+    public function setHostLanguageModel(array $hostLanguage)
     {
-        $propertyId = $hostLanguage->getPropertyId();
-        $anglais = $hostLanguage->getAnglais();
-        $français = $hostLanguage->getFrançais();
-        $allemand = $hostLanguage->getAllemand();
-        $japonais = $hostLanguage->getJaponais();
-        $italien = $hostLanguage->getItalien();
-        $russe = $hostLanguage->getRusse();
-        $espagnol = $hostLanguage->getEspagnol();
-        $chinois = $hostLanguage->getChinois();
-        $arabe = $hostLanguage->getArabe();
+        $propertyId = $hostLanguage['propertyId'];
+        $anglais = $hostLanguage['english'] ? 1 : 0;
+        $francais = $hostLanguage['french'] ? 1 : 0;
+        $allemand = $hostLanguage['german'] ? 1 : 0;
+        $japonais = $hostLanguage['japanese'] ? 1 : 0;
+        $italien = $hostLanguage['italian'] ? 1 : 0;
+        $russe = $hostLanguage['russian'] ? 1 : 0;
+        $espagnol = $hostLanguage['spanish'] ? 1 : 0;
+        $chinois = $hostLanguage['chinese'] ? 1 : 0;
+        $arabe = $hostLanguage['arabic'] ? 1 : 0;
 
         $req = $this->getDb()->prepare('INSERT INTO `hostLanguage`(`propertyId`, `anglais`, `français`, `allemand`, `japonais`, `italien`, `russe`, `espagnol`, `chinois`, `arabe`) VALUES (:propertyId, :anglais, :francais, :allemand, :japonais, :italien, :russe, :espagnol, :chinois, :arabe)');
 
         $req->bindParam('propertyId', $propertyId, PDO::PARAM_INT);
         $req->bindParam('anglais', $anglais, PDO::PARAM_BOOL);
-        $req->bindParam('francais', $français, PDO::PARAM_BOOL);
+        $req->bindParam('francais', $francais, PDO::PARAM_BOOL);
         $req->bindParam('allemand', $allemand, PDO::PARAM_BOOL);
         $req->bindParam('japonais', $japonais, PDO::PARAM_BOOL);
         $req->bindParam('italien', $italien, PDO::PARAM_BOOL);
@@ -48,18 +51,18 @@ class HostLanguageModel extends Model
         $req->execute();
     }
 
-    public function editHostLanguageModel(HostLanguage $hostLanguage)
+    public function editHostLanguageModel(array $hostLanguage)
     {
-        $propertyId = $hostLanguage->getPropertyId();
-        $anglais = $hostLanguage->getAnglais();
-        $francais = $hostLanguage->getFrançais();
-        $allemand = $hostLanguage->getAllemand();
-        $japonais = $hostLanguage->getJaponais();
-        $italien = $hostLanguage->getItalien();
-        $russe = $hostLanguage->getRusse();
-        $espagnol = $hostLanguage->getEspagnol();
-        $chinois = $hostLanguage->getChinois();
-        $arabe = $hostLanguage->getArabe();
+        $propertyId = $hostLanguage['propertyId'];
+        $anglais = $hostLanguage['english'] ? 1 : 0;
+        $francais = $hostLanguage['french'] ? 1 : 0;
+        $allemand = $hostLanguage['german'] ? 1 : 0;
+        $japonais = $hostLanguage['japanese'] ? 1 : 0;
+        $italien = $hostLanguage['italian'] ? 1 : 0;
+        $russe = $hostLanguage['russian'] ? 1 : 0;
+        $espagnol = $hostLanguage['spanish'] ? 1 : 0;
+        $chinois = $hostLanguage['chinese'] ? 1 : 0;
+        $arabe = $hostLanguage['arabic'] ? 1 : 0;
 
         $req = $this->getDb()->prepare('UPDATE `hostlanguage` SET `anglais` = :anglais, `français` = :francais, `allemand` = :allemand, `japonais` = :japonais, `italien` = :italien, `russe` = :russe, `espagnol` = :espagnol, `chinois` = :chinois, `arabe` = :arabe WHERE `propertyId` = :propertyId');
 
