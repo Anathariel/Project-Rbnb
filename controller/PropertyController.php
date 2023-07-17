@@ -339,6 +339,9 @@ class PropertyController extends Controller
                     $accomodationTypeModel->editAccomodationTypeModel($accomodationType);
 
 
+
+                    $oldPropertyImages = $propertyImagesModel->getPropertyImagesModel($id);
+
                     $imageMainURL = '';
                     $image1URL = '';
                     $image2URL = '';
@@ -346,33 +349,73 @@ class PropertyController extends Controller
                     $image4URL = '';
 
 
+                    $uploadDir = 'asset/media/locations/';
+
                     if (isset($_FILES['imageMain']['name']) && !empty($_FILES['imageMain']['name'])) {
-                        $uploadDir = 'asset/media/locations/';
+                        $oldImagePath = $uploadDir . $oldPropertyImages->getImageMainURL();
+                        if (file_exists($oldImagePath)) {
+                            if (!unlink($oldImagePath)) {
+                                error_log('Failed to delete ' . $oldImagePath . ': ' . print_r(error_get_last(), true));
+                            }
+                        }
                         $imageMainURL = uploadFile($_FILES['imageMain'], $uploadDir);
+                    } else {
+                        $imageMainURL = $oldPropertyImages->getImageMainURL();
                     }
 
                     if (isset($_FILES['image1']['name']) && !empty($_FILES['image1']['name'])) {
-                        $uploadDir = 'asset/media/locations/';
+                        $oldImagePath = $uploadDir . $oldPropertyImages->getImage1URL();
+                        if (file_exists($oldImagePath)) {
+                            if (!unlink($oldImagePath)) {
+                                error_log('Failed to delete ' . $oldImagePath . ': ' . print_r(error_get_last(), true));
+                            }
+                        }
                         $image1URL = uploadFile($_FILES['image1'], $uploadDir);
+                    } else {
+                        $image1URL = $oldPropertyImages->getImage1URL();
                     }
 
                     if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
-                        $uploadDir = 'asset/media/locations/';
+                        $oldImagePath = $uploadDir . $oldPropertyImages->getImage2URL();
+                        if (file_exists($oldImagePath)) {
+                            if (!unlink($oldImagePath)) {
+                                error_log('Failed to delete ' . $oldImagePath . ': ' . print_r(error_get_last(), true));
+                            }
+                        }
                         $image2URL = uploadFile($_FILES['image2'], $uploadDir);
+                    } else {
+                        $image2URL = $oldPropertyImages->getImage2URL();
                     }
 
                     if (isset($_FILES['image3']['name']) && !empty($_FILES['image3']['name'])) {
-                        $uploadDir = 'asset/media/locations/';
+                        $oldImagePath = $uploadDir . $oldPropertyImages->getImage3URL();
+                        if (file_exists($oldImagePath)) {
+                            if (!unlink($oldImagePath)) {
+                                error_log('Failed to delete ' . $oldImagePath . ': ' . print_r(error_get_last(), true));
+                            }
+                        }
                         $image3URL = uploadFile($_FILES['image3'], $uploadDir);
+                    } else {
+                        $image3URL = $oldPropertyImages->getImage3URL();
                     }
 
                     if (isset($_FILES['image4']['name']) && !empty($_FILES['image4']['name'])) {
-                        $uploadDir = 'asset/media/locations/';
+                        $oldImagePath = $uploadDir . $oldPropertyImages->getImage4URL();
+                        if (file_exists($oldImagePath)) {
+                            if (!unlink($oldImagePath)) {
+                                error_log('Failed to delete ' . $oldImagePath . ': ' . print_r(error_get_last(), true));
+                            }
+                        }
                         $image4URL = uploadFile($_FILES['image4'], $uploadDir);
+                    } else {
+                        $image4URL = $oldPropertyImages->getImage4URL();
                     }
+
+
 
                     $propertyImagesModel = new PropertyImagesModel();
                     $propertyImagesModel->editPropertyImagesModel($id, $imageMainURL, $image1URL, $image2URL, $image3URL, $image4URL);
+
 
 
                     $tagModel = new TagModel();
