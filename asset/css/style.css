@@ -16,6 +16,9 @@ body {
   scroll-behavior: smooth;
   background-color: rgba(241, 244, 246, 0.722);
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
@@ -57,26 +60,6 @@ h3 {
   line-height: 26px;
   text-align: center;
   color: #1b1d21;
-}
-
-.darkerblue {
-  color: #1b1d21;
-}
-
-.white {
-  color: #f8f8f8;
-}
-
-.maincolor {
-  color: #92aad3;
-}
-
-.grey {
-  color: rgb(67, 65, 65);
-}
-
-.lightgrey {
-  color: rgba(91, 88, 88, 0.721);
 }
 
 .header-main {
@@ -331,6 +314,7 @@ h3 {
 }
 
 footer {
+  margin-top: auto;
   background-color: #92aad3;
 }
 footer .footer-desktop {
@@ -992,6 +976,7 @@ section#googlemaps-property-section div#map {
 
 .dashboard {
   background-color: #E1E7EA;
+  min-height: 90vh;
 }
 .dashboard .welcome-dashboard {
   text-align: left;
@@ -1233,6 +1218,46 @@ section#googlemaps-property-section div#map {
 }
 #addpropertyForm .selection-tags label img {
   width: 25px;
+}
+
+#user-edit {
+  background-color: #E1E7EA;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#user-edit h2 {
+  color: #0E9384;
+}
+#user-edit .user-names {
+  display: flex;
+  flex-direction: row;
+}
+#user-edit .user-names input[type=text] {
+  margin: 0 0.2rem;
+}
+#user-edit .account-buttons input[type=submit] {
+  border: none;
+  background-color: transparent;
+  outline: transparent;
+  padding: 1rem;
+  font-family: "Quicksand";
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: #0E9384;
+}
+#user-edit .account-buttons button {
+  border: none;
+  background-color: transparent;
+  outline: transparent;
+  padding: 1rem;
+  font-family: "Quicksand";
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: red;
 }
 
 #error-page {
