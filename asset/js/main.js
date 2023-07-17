@@ -38,3 +38,37 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 // HERO SLIDER HOMEPAGE
+// Add this JavaScript code to your page
+
+const sliderImages = document.querySelectorAll('.slider-image');
+const prevArrow = document.querySelector('.prev-arrow');
+const nextArrow = document.querySelector('.next-arrow');
+let currentIndex = 0;
+
+function fadeInImage(index) {
+  sliderImages.forEach((image, i) => {
+    if (i === index) {
+      image.style.opacity = 1;
+      image.style.zIndex = 2;
+    } else {
+      image.style.opacity = 0;
+      image.style.zIndex = 1;
+    }
+  });
+}
+
+function showPreviousSlide() {
+  currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
+  fadeInImage(currentIndex);
+}
+
+function showNextSlide() {
+  currentIndex = (currentIndex + 1) % sliderImages.length;
+  fadeInImage(currentIndex);
+}
+
+prevArrow.addEventListener('click', showPreviousSlide);
+nextArrow.addEventListener('click', showNextSlide);
+
+// Change slide every 10 seconds (adjust as needed)
+setInterval(showNextSlide, 10000);

@@ -344,12 +344,24 @@ footer .footer-mobile a {
 
 #hero figure {
   position: relative;
+  height: 450px;
+  overflow: hidden;
 }
-#hero figure img {
+#hero figure .slider-image {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
-  max-height: 450px;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+#hero figure .slider-image:first-child {
+  opacity: 1;
+  z-index: 2;
 }
 #hero figure .overlay {
   position: absolute;
@@ -360,6 +372,30 @@ footer .footer-mobile a {
   left: 0;
   right: 0;
   background: linear-gradient(to bottom, rgba(14, 29, 51, 0.8), rgba(14, 29, 51, 0.2));
+  z-index: 3;
+}
+#hero figure .slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 4;
+}
+#hero figure .slider-arrow img {
+  display: block;
+  margin: 0 auto;
+}
+#hero figure .prev-arrow {
+  left: 10px;
+}
+#hero figure .next-arrow {
+  right: 10px;
 }
 
 #tag-nav #tag-container {

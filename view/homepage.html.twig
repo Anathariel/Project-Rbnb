@@ -6,15 +6,20 @@
 {% block content %}
 	{# ---------- HERO ---------- #}
 
-	<section id="hero">
-		<figure>
-			<img src="{{ asset('/media/hero-locar.webp') }}" alt="Hero Loca'R"/>
-			<figcaption>
-				<div class="overlay"></div>
-			</figcaption>
-			
-		</figure>
-	</section>
+<section id="hero">
+  <figure>
+    <img class="slider-image" src="{{ asset('/media/hero-locar.webp') }}" alt="Hero Loca'R Slide 1"/>
+    <img class="slider-image" src="{{ asset('/media/hero-locar2.webp') }}" alt="Hero Loca'R Slide 2">
+    <img class="slider-image" src="{{ asset('/media/hero-locar3.webp') }}" alt="Hero Loca'R Slide 3">
+    <figcaption>
+      <div class="overlay"></div>
+    </figcaption>
+    <button class="slider-arrow prev-arrow"><img src="{{ asset('/media/icons/arrow') }}" alt="Left arrow"></button>
+    <button class="slider-arrow next-arrow"><img src="{{ asset('/media/icons/arrowleft') }}" alt="Left right"></button>
+  </figure>
+</section>
+
+
 
 	{# ---------- Tag List Navigation Menu ---------- #}
 
