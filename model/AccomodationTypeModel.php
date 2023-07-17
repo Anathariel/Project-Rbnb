@@ -10,14 +10,13 @@ class AccomodationTypeModel extends Model
         $accomodationTypeData = $req->fetch(PDO::FETCH_ASSOC);
 
         if (!$accomodationTypeData) {
-            // Gérer le cas où aucune commodité n'est trouvée pour la propriété spécifiée
+            // Handle the case where no amenities are found for the specified property
             return null;
         }
 
-        $accomodationType = new AccomodationType($accomodationTypeData);
-
-        return $accomodationType;
+        return $accomodationTypeData;
     }
+
 
     public function setAccomodationTypeModel(AccomodationType $accomodationType)
     {

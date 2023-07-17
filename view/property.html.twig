@@ -427,34 +427,25 @@
 						<div class="host-details">
 							<div class="host-language">
 								<p>Langues parlées par l'hôte :</p>
-								{% if hostLanguage.anglais == 1 %}
-									<p>Anglais</p>
-								{% endif %}
-								{% if hostLanguage.français == 1 %}
-									<p>Français</p>
-								{% endif %}
-								{% if hostLanguage.allemand == 1 %}
-									<p>Allemand</p>
-								{% endif %}
-								{% if hostLanguage.japonais == 1 %}
-									<p>Japonais</p>
-								{% endif %}
-								{% if hostLanguage.italien == 1 %}
-									<p>Italien</p>
-								{% endif %}
-								{% if hostLanguage.russe == 1 %}
-									<p>Russe</p>
-								{% endif %}
-								{% if hostLanguage.espagnol == 1 %}
-									<p>Espagnol</p>
-								{% endif %}
-								{% if hostLanguage.chinois == 1 %}
-									<p>Chinois</p>
-								{% endif %}
-								{% if hostLanguage.arabe == 1 %}
-									<p>Arabe</p>
-								{% endif %}
+								{% set languages = {
+									'english': 'Anglais', 
+									'french': 'Français', 
+									'german': 'Allemand', 
+									'japanese': 'Japonais', 
+									'italian': 'Italien', 
+									'russian': 'Russe', 
+									'spanish': 'Espagnol', 
+									'chinese': 'Chinois', 
+									'arabic': 'Arabe'
+								} %}
+								{% for key, language in languages %}
+									{% if hostLanguage[key] == 1 %}
+										<p>{{ language }}</p>
+									{% endif %}
+								{% endfor %}
 							</div>
+						</div>
+
 
 							<p>Nombre de Logements : 1</p>
 						</div>
