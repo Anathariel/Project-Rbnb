@@ -342,12 +342,24 @@ footer .footer-mobile a {
   margin: 2rem;
 }
 
+#hero figure {
+  position: relative;
+}
 #hero figure img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
-  max-height: 300px;
-  opacity: 70%;
+  max-height: 450px;
+}
+#hero figure .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(14, 29, 51, 0.8), rgba(14, 29, 51, 0.2));
 }
 
 #tag-nav #tag-container {

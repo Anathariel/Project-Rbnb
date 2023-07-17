@@ -1,3 +1,4 @@
+//Dashboard Sous-menu
 document.addEventListener('DOMContentLoaded', function () {
     var submenuLink = document.getElementById('submenu');
     var userMenu = document.getElementById('user-menu');
@@ -34,4 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
         positionSubmenu(); // Update the position when window is resized
       }
     });
-  });  
+  });
+
+// HERO SLIDER HOMEPAGE
