@@ -1271,4 +1271,119 @@ section#googlemaps-property-section div#map {
   color: #f8f8f8;
   font-family: "Quicksand";
   font-size: 1rem;
+}
+
+.catalog-cards {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-evenly;
+  margin: 1rem 5rem;
+}
+.catalog-cards .card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 280px;
+  margin: 2rem auto;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.catalog-cards .card figure {
+  position: relative;
+  padding: 1rem 0;
+}
+.catalog-cards .card figure img {
+  width: 90%;
+  max-width: 260px;
+  max-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+.catalog-cards .card figure figcaption {
+  width: 30px;
+  position: absolute;
+  top: 2rem;
+  left: 14.5rem;
+}
+.catalog-cards .card figure figcaption a > img {
+  width: 30px;
+}
+.catalog-cards .card .card-details {
+  padding: 0 1rem;
+}
+.catalog-cards .card .card-details .pricing {
+  display: flex;
+  flex-direction: row;
+  margin-right: auto;
+}
+.catalog-cards .card .card-details .pricing span {
+  font-size: 2rem;
+}
+.catalog-cards .card .card-details .pricing .rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+}
+.catalog-cards .card .card-details .location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 0;
+}
+.catalog-cards .card .card-details .location img {
+  margin: 0.2rem;
+}
+.catalog-cards .card .card-details .description h3 {
+  text-align: left;
+  font-size: 1.2rem;
+}
+.catalog-cards .card .card-details button {
+  width: 100%;
+  position: relative;
+  margin: 0.5rem 0;
+  border: solid 1px #404e87;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+.catalog-cards .card .card-details button span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #404e87;
+  position: relative;
+  z-index: 1;
+}
+.catalog-cards .card .card-details button span:hover {
+  color: #f8f8f8;
+}
+.catalog-cards .card .card-details button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #404e87;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+.catalog-cards .card .card-details button:hover:before {
+  width: 100%;
+}
+@media screen and (max-width: 800px) {
+  .catalog-cards .dashboard-cards .card {
+    margin: 0;
+    max-width: 180px;
+  }
 }/*# sourceMappingURL=style.css.map */
