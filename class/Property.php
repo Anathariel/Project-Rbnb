@@ -2,19 +2,18 @@
 
 class Property
 {
-    private $propertyId ;
+    private $propertyId;
     private $title;
     private $description;
-    private $propertyType;
     private $priceNight;
-    private $accommodationTypeId ;
+    private $accommodationTypeId;
     private $address;
     private $latitude;
     private $longitude;
     private $availability;
     private $publicationdate;
     private $reservationOption;
-    private $owner ;
+    private $owner;
 
     public function __construct(array $post)
     {
@@ -46,11 +45,6 @@ class Property
     public function getDescription()
     {
         return $this->description;
-    }
-
-    public function getPropertyType()
-    {
-        return $this->propertyType;
     }
 
     public function getPriceNight()
@@ -114,11 +108,6 @@ class Property
         $this->description = $description;
     }
 
-    public function setPropertyType(string $propertyType)
-    {
-        $this->propertyType = $propertyType;
-    }
-
     public function setPriceNight(string $priceNight)
     {
         $this->priceNight = $priceNight;
@@ -134,12 +123,12 @@ class Property
         $this->address = $address;
     }
 
-    public function setLatitude(String $latitude)
+    public function setLatitude($latitude)
     {
         $this->latitude = $latitude;
     }
 
-    public function setLongitude(String $longitude)
+    public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
     }
@@ -149,7 +138,7 @@ class Property
         $this->availability = $availability;
     }
 
-    public function setPublicationdate(String $publicationdate)
+    public function setPublicationdate($publicationdate)
     {
         $this->publicationdate = $publicationdate;
     }
@@ -163,4 +152,5 @@ class Property
     {
         $this->owner = $owner;
     }
+
 }

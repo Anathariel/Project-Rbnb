@@ -1,0 +1,89 @@
+{% extends "templatedashboard.html.twig" %}
+
+{% block title %}
+	Bienvenue,
+	{{ firstName }}
+{% endblock %}
+
+{% block content %}
+	<section class="dashboard">
+		<section class="welcome-dashboard">
+			<h1>Bienvenue,
+				{{ firstName }}
+				!</h1>
+
+			<div class="user-menu">
+				<div class="add first-link">
+					<a href="{{ path('propertyAdd') }}">
+						<img src="{{ asset('/media/icons/plus.svg') }}" alt="Ajouter">
+						<p>Ajouter une propriété</p>
+					</a>
+				</div>
+				<div class="add favoris">
+					<a href="#">
+						<img src="{{ asset('/media/icons/heart.svg') }}" alt="Mes Favoris">
+						<p>Mes Favoris</p>
+					</a>
+				</div>
+				<div class="add property">
+					<a href="#">
+						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
+						<p>Mes Propriétés</p>
+					</a>
+				</div>
+
+				<div class="add filter">
+					<a href="#">
+						<img src="{{ asset('/media/icons/filter-dashboard.svg') }}" alt="Mes Propriétés">
+						<p>Filtrer</p>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="dashboard-cards">
+			{% for property in userProperties %}
+				{% if property is defined %}
+					<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
+						<div class="card">
+							<figure>
+								{% if property.propertyImages is defined %}
+									<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+								{% endif %}
+								<figcaption>
+									<a href="#">
+										<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+									</a>
+								</figcaption>
+							</figure>
+
+							<div class="card-details">
+								<div class="pricing">
+									<h3>
+										<span>{{ property.priceNight }}€</span>/nuit</h3>
+									<div class="rating">
+										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+										<p>5.0</p>
+									</div>
+								</div>
+								<div class="location">
+									<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+									<p>{{ property.address }}</p>
+								</div>
+								<div class="description">
+									<h3>{{ property.title }}</h3>
+									<p>{{ property.description }}</p>
+								</div>
+								<a href="{{ path('baseEditproperty') }}{{ property.propertyId }}">
+									<div class="button">
+										<p>Voir la propriété</p>
+									</div>
+								</a>
+							</div>
+						</div>
+					</a>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</section>
+</section>{% endblock %}

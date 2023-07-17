@@ -1,57 +1,60 @@
-<header class="limit-size">
-	<nav>
-		<ul>
-			<li class="logo">
-				<a href="{{ path('home') }}">
-					<img src="{{ asset('/media/icons/logo.svg') }}" alt="Logo">
-					<p class="poppins darkerblue">Rbnb</p>
+<header class="header-main">
+
+	<div class="limit-size header-content">
+		<div id="logo">
+			<a href="{{ path('home') }}">
+				<img src="{{ asset('/media/icons/logoname.svg') }}" alt="Logo">
+			</a>
+		</div>
+
+		<div id="container-searchbar">
+			<div id="desktop-searchbar">
+				<a href="#">
+					<div id="searchbar">
+						<div class="search-element separation">
+							<p>N'importe où</p>
+						</div>
+						<div class="search-element separation">
+							<p>Une semaine</p>
+						</div>
+						<div class="search-element">
+							<p class="grey">Ajouter des voyageurs</p>
+						</div>
+						<button>
+							<img src="{{ asset('/media/icons/search.svg') }}" alt="Icône recherche">
+						</button>
+					</div>
 				</a>
-			</li>
-
-<div id="searchbar">
-				<form action="" method="GET">
-					<div
-						class=" input-group location">
-						{# <label for="location">N'importe où</label> #}
-						<input type="text" id="location" name="search-location" placeholder="N'importe où">
-					</div>
-
-					<div
-						class="input-group check-in">
-						{# <label for="check-in">Une semaine</label> #}
-						<input
-						type="text" id="check-in" name="search-calendar" placeholder="Une semaine">
-					{# <div class="input-group check-out">
-					        				<label for="check-out">Check-out</label>
-					    					<input type="text" id="check-out" placeholder="Add dates">
-					  					</div> #}
-					</div>
-
-					<div class="input-group guests">
-						<label for="guests"></label>
-						<input type="text" id="guests" name="search-guest" placeholder="Ajouter des voyageurs">
-					</div>
-					<button type="submit">
-						<img src="{{ asset('/media/icons/search.svg') }}" alt="Icône rechercher">
-					</button>
-				</form>
 			</div>
+		</div>
 
-			<li class="user">
-				{% if session.connect %}
-					<a href="{{ path('logout') }}"><img src="{{ asset('/media/icons/logout.svg') }}" alt="Se déconnecter"></a>
-				{% else %}
-					<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Se connecter ou s'inscrire "></a>
-				{% endif %}
-			</li>
-		</ul>
-		<div id="sub-nav">
-		{% for tag in tags %}
-      <ul>
-		<li> {{ tag.type }} </li>
-	  </ul>
-	  {% endfor %}
-    </div>
-	</nav>
+		{# <div id="container-mobile-searchbar">
+			<a href="#">
+				<div id="mobile-searchbar">
+					<div class="search-icon mobile-element">
+						<img src="{{ asset('/media/icons/search-mobile.svg') }}" alt="Icône recherche">
+					</div>
+					<div class="text-search mobile-element">
+						<p>N'importe où</p>
+						<p class="lightgrey">
+							Une semaine • Ajouter des voyageurs
+						</p>
+					</div>
+					<div class="filter-icon mobile-element">
+						<button>
+							<img src="{{ asset('/media/icons/filter-mobile.svg') }}" alt="Icône filtres">
+						</button>
+					</div>
+				</div>
+			</a>
+		</div> #}
 
+		<div id="user">
+			{% if session.connect %}
+				<a href="{{ path('dashboard') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Dashboard utilisateur"></a>
+			{% else %}
+				<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Se connecter ou s'inscrire "></a>
+			{% endif %}
+		</div>
+	</div>
 </header>

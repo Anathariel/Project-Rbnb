@@ -1,7 +1,8 @@
 <?php
-class UserModel extends Model {
-
-    public function createUser(User $user){
+class UserModel extends Model
+{
+    public function createUser(User $user)
+    {
         $firstName = $user->getFirstName();
         $lastName = $user->getLastName();
         $password = $user->getPassword();
@@ -14,15 +15,34 @@ class UserModel extends Model {
         $req->bindParam(":email", $email, PDO::PARAM_STR);
 
         $req->execute();
-
-        $req->closeCursor();
     }
 
-    public function getUserByEmail(string $email){
+    public function getUserByEmail(string $email)
+    {
         $req = $this->getDb()->prepare("SELECT `uid`, `email`, `password` FROM `user` WHERE `email` = :email");
         $req->bindParam(":email", $email, PDO::PARAM_STR);
         $req->execute();
 
         return $req->rowCount() === 1 ? new User($req->fetch(PDO::FETCH_ASSOC)) : false;
     }
+
+    public function getUserById($userId)
+    {
+        $req = $this->getDb()->prepare('SELECT `firstName`, `lastName`, `email`, `password` FROM `user` WHERE `uid` = :userId');
+        $req->bindParam('userId', $userId, PDO::PARAM_INT);
+        $req->execute();
+
+        $userData = $req->fetch(PDO::FETCH_ASSOC);
+
+        if (!$userData) {
+            // Gérer le cas où aucun utilisateur n'est trouvé pour l'ID spécifié
+            return null;
+        }
+
+        $user = new User($userData);
+
+        return $user;
+    }
+
+    
 }

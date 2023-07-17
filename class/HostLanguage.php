@@ -4,7 +4,15 @@ class HostLanguage
 {
     private $hostLanguageId;
     private $propertyId;
-    private $language;
+    private $anglais;
+    private $français;
+    private $allemand;
+    private $japonais;
+    private $italien;
+    private $russe;
+    private $espagnol;
+    private $chinois;
+    private $arabe;
 
     public function __construct(array $post)
     {
@@ -33,9 +41,49 @@ class HostLanguage
         return $this->propertyId;
     }
 
-    public function getLanguage()
+    public function getAnglais()
     {
-        return $this->language;
+        return $this->anglais;
+    }
+
+    public function getFrançais()
+    {
+        return $this->français;
+    }
+
+    public function getAllemand()
+    {
+        return $this->allemand;
+    }
+
+    public function getJaponais()
+    {
+        return $this->japonais;
+    }
+
+    public function getItalien()
+    {
+        return $this->italien;
+    }
+
+    public function getRusse()
+    {
+        return $this->russe;
+    }
+
+    public function getEspagnol()
+    {
+        return $this->espagnol;
+    }
+
+    public function getChinois()
+    {
+        return $this->chinois;
+    }
+
+    public function getArabe()
+    {
+        return $this->arabe;
     }
 
     //SETTERS
@@ -49,8 +97,48 @@ class HostLanguage
         $this->propertyId = $propertyId;
     }
 
-    public function setLanguage(string $language)
+    public function setAnglais(bool $anglais)
     {
-        $this->language = $language;
+        $this->anglais = $anglais;
+    }
+
+    public function setFrançais(bool $français)
+    {
+        $this->français = $français;
+    }
+
+    public function setAllemand(bool $allemand)
+    {
+        $this->allemand = $allemand;
+    }
+
+    public function setJaponais(bool $japonais)
+    {
+        $this->japonais = $japonais;
+    }
+
+    public function setItalien(bool $italien)
+    {
+        $this->italien = $italien;
+    }
+
+    public function setRusse(bool $russe)
+    {
+        $this->russe = $russe;
+    }
+
+    public function setEspagnol(bool $espagnol)
+    {
+        $this->espagnol = $espagnol;
+    }
+
+    public function setChinois(bool $chinois)
+    {
+        $this->chinois = $chinois;
+    }
+
+    public function setArabe(bool $arabe)
+    {
+        $this->arabe = $arabe;
     }
 }

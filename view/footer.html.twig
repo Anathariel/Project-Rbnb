@@ -1,3 +1,23 @@
-<footer class="limit-size">
-    <p>© 2023. Rbnb. All rights reserved.</p>
-</footer>
+<footer>
+
+	<div class="limit-size footer-desktop">
+		<p>© 2023. Rbnb. All rights reserved.</p>
+	</div>
+
+	{# <div class="limit-size footer-mobile">
+		<a href="#">
+			<img src="{{ asset('/media/icons/catalog.svg') }}" alt="">
+		</a>
+		<a href="#">
+			<img src="{{ asset('/media/icons/heart-footer.svg') }}" alt="">
+		</a>
+		{% if session.connect %}
+			<a href="{{ path('dashboard') }}">
+				<img src="{{ asset('/media/icons/user-footer.svg') }}" alt="Dashboard Utilisateur">
+			</a>
+		{% else %}
+			<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/user-footer.svg') }}" alt="Se connecter ou s'inscrire">
+			{% endif %}
+	</div> #}
+
+	</footer>

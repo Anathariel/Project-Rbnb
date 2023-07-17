@@ -1,0 +1,39 @@
+{% extends "templatedashboard.html.twig" %}
+
+{% block title %}Louer votre location{% endblock %}
+
+{% block content %}
+	<div>
+		<fieldset>
+			<legend>Modification de votre propriété</legend>
+			<form method="POST" action="{{ router.generate('propertyEdit', {'id': property.id}) }}">
+				<label for="title">Titre de la propriété</label>
+				<br/>
+				<input type="text" id="title" name="title" value="{{ property.title }}" placeholder="Entrer le nom de la propriété"/>
+				<br/>
+				<label for="description">Décrivez votre propriété</label>
+				<br/>
+				<input type="text" id="description" name="description" value="{{ property.description }}" placeholder="Entrer la description de la propriété"/>
+				<br/>
+				<label for="price-night">Prix de la location</label>
+				<br/>
+				<input type="number" id="price-night" name="price-night" value="{{ property.priceNight }}" placeholder="Entrer le prix de la location"/>
+				<br/><br>
+				<label for="property-type">Choisissez le type de propriété :</label>
+				<br/>
+				<select id="property-type" name="property-type">
+					<option value="house" {% if property.propertyType == 'house' %} selected {% endif %}>Maison</option>
+					<option value="flat" {% if property.propertyType == 'flat' %} selected {% endif %}>Appartement</option>
+					<option value="guesthouse" {% if property.propertyType == 'guesthouse' %} selected {% endif %}>Maison d'hôte</option>
+					<option value="hotel" {% if property.propertyType == 'hotel' %} selected {% endif %}>Hôtel</option>
+				</select>
+				<br/><br/>
+				<input type="submit" name="submit" value="Modifier"/>
+			</form>
+		</fieldset>
+	</div>
+{% endblock %}
+
+{% block javascript %}
+	<script src="{{ asset('/js/fred.js') }}"></script>
+{% endblock %}

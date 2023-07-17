@@ -1,15 +1,484 @@
 {% extends "template.html.twig" %}
 
-{% block headerblock %}{% include 'header.html.twig' %}{% endblock %}
-
-{% block title %}{{ property.title }}{% endblock %}
+{% block title %} {{ property.title }} {% endblock %}
 
 {% block content %}
-    {% if recipe.thumbnail is defined and recipe.thumbnail is not empty %}
-    	<img src="{{ asset('/media/images/' ~ recipe.thumbnail) }}" alt="{{ recipe.thumbnail }}">
-	{% endif %}
-    <h1>{{ property.title }}</h1>
 
-    <p>{{ property.content }}</p>
+	{# ---------- property-section ---------- #}
+	<section id="property-section">
+		<h1>{{ property.title }}</h1>
+		<span>{{ property.comment }}○{{ property.address }}</span>
 
+		<figure>
+			<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
+		</figure>
+
+		<div class="container-description-property">
+
+			{# ---------- Property ---------- #}
+			<h3>Chez @User</h3>
+
+			{# <h3>Type de location :
+				{% if propertyType.house == 1 %}
+					<p>Maison</p>
+				{% endif %}
+				{% if propertyType.guesthouse == 1 %}
+					<p>Maison d'hôte</p>
+				{% endif %}
+				{% if propertyType.flat == 1 %}
+					<p>Appartement</p>
+				{% endif %}
+				{% if propertyType.hotel == 1 %}
+					<p>Hôtel</p>
+			</h3>
+			{% endif %} #}
+
+			{# <p>{{ property.priceNight }}€/nuit</p> #}
+			<div class="property-amenities">
+				<p>{{ houseRules.maxGuests }} voyageurs</p>
+				{# ---------- Amenities ---------- #}
+				{% if propertyAmenities.beds > 0 %}
+					<p>
+						{{ propertyAmenities.beds }}
+						{{ propertyAmenities.beds == 1 ? "lit" : "lits" }}
+					</p>
+				{% endif %}
+
+				{% if propertyAmenities.bedrooms > 0 %}
+					<p>
+						{{ propertyAmenities.bedrooms }}
+						{{ propertyAmenities.bedrooms == 1 ? "chambre" : "chambres" }}
+					</p>
+				{% endif %}
+
+				{% if propertyAmenities.bathrooms > 0 %}
+					<p>
+						{{ propertyAmenities.bathrooms }}
+						{{ propertyAmenities.bathrooms == 1 ? "salle de bain" : "salles de bain" }}
+					</p>
+				{% endif %}
+
+				{% if propertyAmenities.toilets > 0 %}
+					<p>
+						{{ propertyAmenities.toilets }}
+						{{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}
+					</p>
+				{% endif %}
+			</div>
+			<div class="property-description">
+				<p>{{ property.description }}</p>
+
+				<a id="description-details" href="#"> En savoir plus →</a>
+			</div>
+			<div class="property-equipment">
+				<h3>Ce que propose ce logement :</h3>
+				<div class="equipment-list">
+					{% if accommodationType.piscine == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/piscine.svg') }}" alt="Icon piscine">
+						<figcaption>
+							<p>Piscine</p>
+						</figcaption>
+					</figure>
+					{% endif %}
+					{% if accommodationType.parkingGratuit == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/parking.svg') }}" alt="Icon Parking">
+							<figcaption>
+								<p>Parking gratuit</p>
+							</figcaption>
+						</figure>
+					
+					{% endif %}
+					{% if accommodationType.jacuzzi == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/jacuzzi.svg') }}" alt="Icon Jacuzzi">
+							<figcaption>
+								<p>Jacuzzi</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.wifi == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/wifi.svg') }}" alt="Icon Wi-Fi">
+							
+							<figcaption>
+								<p>Wifi</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.laveLinge == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/lave-linge.svg') }}" alt="Icon lage-linge">
+						<figcaption>
+							<p>Lave-linge</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.secheLinge == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/seche-linge.svg') }}" alt="Icon Sèche-linge">
+						<figcaption>
+							<p>Sèche-linge</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.climatisation == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/climatisation.svg') }}" alt="Icon climatisation">
+						<figcaption>
+							<p>Climatisation</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.chauffage == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/chauffage.svg') }}" alt="Icon chauffage">
+						<figcaption>
+							<p>Chauffage</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.espaceTravailDedie == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/espace-travail.svg') }}" alt="Icon espace de travail">
+						<figcaption>
+							<p>Espace de travail dédié</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.television == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/television.svg') }}" alt="Icon Télévision">
+						<figcaption>
+							<p>Télévision</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.secheCheveux == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/seche-cheveux.svg') }}" alt="Icon Sèche-cheveux">
+						<figcaption>
+							<p>Sèche-cheveux</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.ferRepasser == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/fer-repasser.svg') }}" alt="Icon Fer à repasser">
+						<figcaption>
+							<p>Fer à repasser</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.stationRechargeVehiElectriques == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/recharge-vehicule.svg') }}" alt="Icon de station de recharge pour véhicules électrique">
+						<figcaption>
+							<p>Station de recharge pour véhicules électriques</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.litBebe == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/lit-bebe.svg') }}" alt="Icon de lit pour bébé">
+						<figcaption>
+							<p>Lit pour bébé</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.salleSport == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/salle-sport.svg') }}" alt="Icon de salle de sport">
+						<figcaption>
+							<p>Salle de sport</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.barbecue == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/barbecue.svg') }}" alt="Icon barbecue">
+						<figcaption>
+							<p>Barbecue</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.petitDejeuner == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/breakfast.svg') }}" alt="Icon petit déjeuner">
+						<figcaption>
+							<p>Petit déjeuner</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.cheminee == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/cheminee.svg') }}" alt="Icon cheminée">
+						<figcaption>
+							<p>Cheminée</p>
+						</figcaption>
+					</figure>
+					
+					{% endif %}
+					{% if accommodationType.logementFumeur == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/fumeur.svg') }}" alt="Icon logement fumeur">
+						<figcaption>
+							<p>Logement fumeur</p>
+						</figcaption>
+					</figure>
+						
+					{% endif %}
+					{% if accommodationType.detecteurFumee == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/detecteur-fumee.svg') }}" alt="Icon détecteur de fumée">
+						<figcaption>
+							<p>Détecteur de fumée</p>
+						</figcaption>
+					</figure>
+						
+					{% endif %}
+					{% if accommodationType.detecteurMonoxyDeCarbone == 1 %}
+					<figure>
+						<img src="{{ asset('/media/icons/detecteur-carbone.svg') }}" alt="Icon de détecteur de monoxyde de carbone">
+						<figcaption>
+							<p>Détecteur de monoxyde de carbone</p>
+						</figcaption>
+					</figure>
+					{% endif %}
+				</div>
+			</div>
+			<div class="property-comments">
+				<h3>Ce qu'ils en disent :</h3>
+				<div class="nav-arrows">
+					<button><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
+					<button><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
+				</div>
+				
+				<div class="container-comments-row">
+					<div class="container-comment">
+						<div class="stars-rating">
+							{# <p>{{ comment.rating }}étoiles</p> #}
+							<figure>
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							</figure>
+						</div>
+
+						<p>{{ comment.commentText }} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
+
+						<figure>
+							<div id="profile-picture">
+								<img src="" alt="">
+							</div>
+							<figcaption>
+								<p>{{ user.firstName }} @User</p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="container-comment">
+						<div class="stars-rating">
+							{# <p>{{ comment.rating }}étoiles</p> #}
+							<figure>
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							</figure>
+						</div>
+
+						<p>{{ comment.commentText }} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
+
+						<figure>
+							<div id="profile-picture">
+								<img src="" alt="">
+							</div>
+							<figcaption>
+								<p>{{ user.firstName }} @User</p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="container-comment">
+						<div class="stars-rating">
+							{# <p>{{ comment.rating }}étoiles</p> #}
+							<figure>
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							</figure>
+						</div>
+
+						<p>{{ comment.commentText }} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
+
+						<figure>
+							<div id="profile-picture">
+								<img src="" alt="">
+							</div>
+							<figcaption>
+								<p>{{ user.firstName }} @User</p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="container-comment">
+						<div class="stars-rating">
+							{# <p>{{ comment.rating }}étoiles</p> #}
+							<figure>
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+							</figure>
+						</div>
+
+						<p>{{ comment.commentText }} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
+
+						<figure>
+							<div id="profile-picture">
+								<img src="" alt="">
+							</div>
+							<figcaption>
+								<p>{{ user.firstName }} @User</p>
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+				
+
+			</div>
+
+			{# ---------- Google maps ---------- #}
+			<h3>Où se situe ce logement</h3>
+
+			{% include 'googlemaps.html.twig' %}
+			<p>Perthes, Île-de-France, France</p>
+			{# ----------------------------------- #}
+
+			<div class="property-host">
+				{# ---------- Host Languages ---------- #}
+				<h3>A propos de votre Hôte</h3>
+
+				<div class="container-host-info">
+					<figure>
+						<div class="profile-picture">
+							<img src="" alt="">
+						</div>
+						<figcaption>
+							<h4>@User</h4>
+							<p>Membre depuis : 2020 • Particulier</p>
+							<div class="host-rating">
+								<div class="stars-rating">
+									{# <p>{{ comment.rating }}étoiles</p> #}
+									<figure>
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									</figure>
+								</div>
+							</div>
+						</figcaption>
+					</figure>
+
+					<div class="host-details">
+						<div class="host-language">
+							<p>Langues parlées par l'hôte :</p>
+							{% if hostLanguage.anglais == 1 %}
+								<p>Anglais</p>
+							{% endif %}
+							{% if hostLanguage.français == 1 %}
+								<p>Français</p>
+							{% endif %}
+							{% if hostLanguage.allemand == 1 %}
+								<p>Allemand</p>
+							{% endif %}
+							{% if hostLanguage.japonais == 1 %}
+								<p>Japonais</p>
+							{% endif %}
+							{% if hostLanguage.italien == 1 %}
+								<p>Italien</p>
+							{% endif %}
+							{% if hostLanguage.russe == 1 %}
+								<p>Russe</p>
+							{% endif %}
+							{% if hostLanguage.espagnol == 1 %}
+								<p>Espagnol</p>
+							{% endif %}
+							{% if hostLanguage.chinois == 1 %}
+								<p>Chinois</p>
+							{% endif %}
+							{% if hostLanguage.arabe == 1 %}
+								<p>Arabe</p>
+							{% endif %}
+						</div>
+
+						<p>Nombre de Logements : 1</p>
+					</div>
+					<div class="center-button">
+						<button class="hote-contact">Contacter l'Hôte</button>
+					</div>
+					
+				</div>
+				
+			</div>
+
+			<div class="property-conditions">
+				{# ---------- HouseRules ---------- #}
+				<div class="reglement">
+				<h4>Règlement intérieur :</h4>
+				<p>Arrivée à partir de 
+					{{ houseRules.checkInTime|slice(0, 5) }}</p>
+				<p>Départ avant
+					{{ houseRules.checkOutTime|slice(0, 5) }}</p>
+				<p>{{ houseRules.maxGuests }} voyageurs maximum</p>
+
+				<a id="description-details" href="#"> En savoir plus →</a>
+				</div>
+				
+
+				{# ---------- Cancellation Policy ---------- #}
+				<div class="annulation">
+					<h4>Conditions d'annulation :</h4>
+					{% if cancellationPolicy %}
+						<p>Annulation gratuite avant 
+							{{ cancellationPolicy.cancellationTime }}</p>
+						<p>Politique de remboursement :
+							{{ cancellationPolicy.refundPolicy }}</p>
+						<p>Frais d'annulation :
+							{{ cancellationPolicy.cancellationFees }}
+							€</p>
+							<a id="description-details" href="#"> En savoir plus →</a>
+					{% else %}
+						<p>Aucune politique d'annulation définie pour cette propriété.</p>
+					{% endif %}
+				</div>
+				
+			</div>
+		</div>
+
+	</section>
 {% endblock %}
