@@ -25,27 +25,27 @@
 
 				<label for="imageMain">Image principale :</label>
 				<input type="file" id="imageMain" name="imageMain" accept="image/*" required onchange="previewImage(event, 'imageMainPreview')"/>
-				<img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 200px; display: none;">
+				<img id="imageMainPreview" src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="Aperçu de l'image principale" style="max-width: 200px;">
 				<br/>
 
 				<label for="image1">Image 1 :</label>
 				<input type="file" id="image1" name="image1" accept="image/*" onchange="previewImage(event, 'image1Preview')"/>
-				<img id="image1Preview" src="#" alt="Aperçu de l'image 1" style="max-width: 200px; display: none;">
+				<img id="image1Preview" src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="Aperçu de l'image 1" style="max-width: 200px;">
 				<br/>
 
 				<label for="image2">Image 2 :</label>
 				<input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(event, 'image2Preview')"/>
-				<img id="image2Preview" src="#" alt="Aperçu de l'image 2" style="max-width: 200px; display: none;">
+				<img id="image2Preview" src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="Aperçu de l'image 2" style="max-width: 200px;">
 				<br/>
 
 				<label for="image3">Image 3 :</label>
 				<input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(event, 'image3Preview')"/>
-				<img id="image3Preview" src="#" alt="Aperçu de l'image 3" style="max-width: 200px; display: none;">
+				<img id="image3Preview" src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="Aperçu de l'image 3" style="max-width: 200px;">
 				<br/>
 
 				<label for="image4">Image 4 :</label>
 				<input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(event, 'image4Preview')"/>
-				<img id="image4Preview" src="#" alt="Aperçu de l'image 4" style="max-width: 200px; display: none;">
+				<img id="image4Preview" src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="Aperçu de l'image 4" style="max-width: 200px;">
 				<br/><br>
 
 				<label for="property-type">Choisissez le type de propriété :</label>
