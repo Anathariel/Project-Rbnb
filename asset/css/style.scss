@@ -92,7 +92,7 @@ h3 {
 .header-main {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 99;
   background-color: $maincolor;
   padding: 1rem;
 
@@ -444,7 +444,7 @@ footer {
     align-items: center;
 
     a {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin: 1rem;
     }
 
@@ -1175,6 +1175,13 @@ section#property-section {
           .traveler {
             display: flex;
             flex-direction: column;
+
+            select#traveler-select {
+              font-family: 'Quicksand';
+              padding: .5rem .8rem;
+              border: none;
+              box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            }
           }
         }
 
@@ -1605,19 +1612,28 @@ section#googlemaps-property-section {
 
   h2 {
     color: $dash-maincolor;
+    margin-bottom: 2rem;
   }
 
-  .user-names{
+  .user-names {
     display: flex;
     flex-direction: row;
 
-    input[type=text]{
+    input[type=text] {
       margin: 0 .2rem;
     }
   }
 
-  .account-buttons{
-    input[type=submit]{
+  p {
+    margin-top: 1rem;
+  }
+
+  a {
+    margin: 2rem;
+  }
+
+  .account-buttons {
+    input[type=submit] {
       border: none;
       background-color: transparent;
       outline: transparent;
@@ -1629,7 +1645,7 @@ section#googlemaps-property-section {
       color: $dash-maincolor;
     }
 
-    button{
+    button {
       border: none;
       background-color: transparent;
       outline: transparent;

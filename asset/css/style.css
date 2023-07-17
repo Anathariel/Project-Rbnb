@@ -65,7 +65,7 @@ h3 {
 .header-main {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 99;
   background-color: #92aad3;
   padding: 1rem;
 }
@@ -323,7 +323,7 @@ footer .footer-desktop {
   align-items: center;
 }
 footer .footer-desktop a {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 1rem;
 }
 footer .footer-desktop .social-media {
@@ -911,6 +911,12 @@ section#property-section .property-details .container-pricing .container-calenda
   display: flex;
   flex-direction: column;
 }
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler select#traveler-select {
+  font-family: "Quicksand";
+  padding: 0.5rem 0.8rem;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
 section#property-section .property-details .container-pricing .container-calendar-traveler button {
   width: 100%;
   position: relative;
@@ -1229,6 +1235,7 @@ section#googlemaps-property-section div#map {
 }
 #user-edit h2 {
   color: #0E9384;
+  margin-bottom: 2rem;
 }
 #user-edit .user-names {
   display: flex;
@@ -1236,6 +1243,12 @@ section#googlemaps-property-section div#map {
 }
 #user-edit .user-names input[type=text] {
   margin: 0 0.2rem;
+}
+#user-edit p {
+  margin-top: 1rem;
+}
+#user-edit a {
+  margin: 2rem;
 }
 #user-edit .account-buttons input[type=submit] {
   border: none;
