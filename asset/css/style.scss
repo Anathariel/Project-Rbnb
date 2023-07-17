@@ -472,7 +472,6 @@ footer {
 //~ -------------------- HOMEPAGE -------------------- //
 //? --------- Hero Section --------- //
 
-//Faire un carousel/slider d'images, voir si ajout d'un slogan
 #hero {
   figure {
     position: relative;
@@ -536,8 +535,6 @@ footer {
     }
   }
 }
-
-
 
 //? --------- Tag Nav' Menu Section --------- //
 
@@ -976,6 +973,27 @@ section#join-us-section {
     }
   }
 }
+
+#scroll-to-top-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background-color: $accent;
+  border: 1px solid $white;
+  outline: transparent;
+  cursor: pointer;
+  transition: display 0.5s ease;
+  opacity: 1;
+  z-index: 9999;
+}
+
+.scroll-to-top-hidden {
+display: none;
+}
+
 
 //~ -------------------- PROPERTY -------------------- //
 
