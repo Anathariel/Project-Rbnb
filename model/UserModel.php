@@ -44,5 +44,20 @@ class UserModel extends Model
         return $user;
     }
 
-    
+    public function editUser(int $uid, string $firstName, string $lastName, string $email,string $password){
+        // Obtient la connexion à la base de données
+        $db = $this->getDb(); 
+         // Prépare la requête de mise à jour pour mettre à jour les données de l'utilisateur
+        $user = $db->prepare('UPDATE `user` SET `firstName` = :firstName,`lastName` = :lastName,`email` = :email,`password` = :password WHERE `uid` = :uid');
+         // Associe la valeur de $uid au paramètre :
+        $user->bindParam(':uid', $uid, PDO::PARAM_INT);
+        $user->bindParam(':firstName', $firstName, PDO::PARAM_STR);
+        $user->bindParam(':lastName', $lastName, PDO::PARAM_STR);
+        $user->bindParam(':email', $email, PDO::PARAM_STR);
+        $user->bindParam(':password', $password, PDO::PARAM_STR);
+      
+        $user->execute();
+        
+    }
+
 }

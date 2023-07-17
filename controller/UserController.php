@@ -128,4 +128,54 @@ class UserController extends Controller
         ];
         echo self::getRender('dashboard.html.twig', $data);
     }
+    
+    public function editUser($uid){
+
+        if(!$_POST){
+            $uid = $_SESSION['uid'];
+            //Récupérer les infos du user dans BDD
+            $userModel = new userModel();
+
+            $user = $userModel->getUserById($uid);
+
+            echo self::getRender('editUser.html.twig',['user'=>$user]); //info: user est un objet
+
+        }else{
+            // Récupérer les information du  formulaire
+
+            $userId = $_SESSION['uid'];
+            $firstName = $_POST['firstName'];
+            $lastName = $_POST['lastName'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $confirmation = $_POST['confirmation'];
+
+            if($password !=$confirmation){
+                $message = 'Mot de passe incorrecte';
+                echo self::getrender('editUser.html.twig', ['message' => $message]);
+
+            }else{
+
+            $user = new UserModel([
+                'userId' => $userId,
+                'firstName' => $firstName,
+                'lastName' => $lastName,
+                'email' => $email,
+            ]);
+
+            // $user->setFirstName($firstName);
+            // $user->setLastName($lastName);
+            // $user->setEmail($email);
+
+            $user->editUser(); 
+           
+            echo self::getRender('editUser.html.twig');
+            exit();
+
+            }
+            
+
+        }       
+    }
+   
 }
