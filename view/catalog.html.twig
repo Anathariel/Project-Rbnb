@@ -1,31 +1,306 @@
 {% extends "template.html.twig" %}
 
-{% block title %}Résultat de votre recherche
+{% block title %}Catalogue
 {% endblock %}
 
 {% block content %}
-		<form action="{{ path('search') }}" method="GET" id="search-form">
+		{# <form action="{{ path('search') }}" method="GET" id="search-form">
 			<input type="text" name="search" placeholder="Rechercher une location . . ." id="input-search">
 			<button type="submit">X</button>
-		</form>
-<section>
-<h2>Résultat de votre recherche</h2>
+		</form> #}
+		
+	{# <h2>Résultat de votre recherche</h2>
 
-<div id="response"></div>
-			<ul>
-				{% for property in propertys %}
-					<div id="recipe-card">
-						<li>
-							<a href="{{ path('baseProperty') }}{{ property.propertyId }}">{{ property.title }}</a>
-						</li>
-						<li>
-							<p>{{ property.description }}</p>
-						</li>
+	<div id="response"></div> #}
+	<section id="tag-nav">
+		<div id="tag-container">
+			<div class="left-corner">
+				<button class="arrow left-arrow">
+					<img src="{{ asset('/media/icons/arrow.svg')}}" alt="Left arrow icon">
+				</button>
+			</div>
+
+			<div class="container-tag-list">
+				{% for tag in tags %}
+					<div class="tag-item">
+						<a href="#">
+							<img id="icon-tag" src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
+							<img src="../asset/media/locations/" alt="">
+							<p class="darkerblue">{{ tag.type }}</p>
+						</a>
 					</div>
 				{% endfor %}
-			</ul>
+			</div>
 
-		{% if message %}<p>{{ message }}</p>{% endif %}	
+			<div class="right-corner">
+				<button class="arrow right-arrow">
+					<img src="{{ asset('/media/icons/arrowleft.svg')}}" alt="Right arrow icon">
+				</button>
+				<button class="filter">
+					<img src="{{asset('/media/icons/filter.svg')}}" alt="filter">
+				</button>
+			</div>
+		</div>
+	</section>
+<section id="property-catalog">
 
-		</section>
+<section class="catalog-cards">
+			
+	<a href="#">
+		<div class="card">
+			<figure>
+				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+			</figure>
+
+			<div class="card-details">
+				<div class="pricing">
+				<h3><span>60€</span>/nuit</h3>
+					<div class="rating">
+						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+						<p>5.0</p>
+					</div>
+				</div>
+				<div class="location">
+				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+				<p>Jakarta, Indonesia</p>
+				</div>
+				<div class="description">
+				<h3>User Experience Design</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
+				</div>
+				<button><span>Réserver</span></button>					
+			</div>
+		</div>
+	</a>
+
+	<a href="#">
+		<div class="card">
+			<figure>
+				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+			</figure>
+
+			<div class="card-details">
+				<div class="pricing">
+				<h3><span>60€</span>/nuit</h3>
+					<div class="rating">
+						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+						<p>5.0</p>
+					</div>
+				</div>
+				<div class="location">
+				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+				<p>Jakarta, Indonesia</p>
+				</div>
+				<div class="description">
+				<h3>User Experience Design</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
+				</div>
+				<button><span>Réserver</span></button>					
+			</div>
+		</div>
+	</a>
+
+	<a href="#">
+		<div class="card">
+			<figure>
+				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+			</figure>
+
+			<div class="card-details">
+				<div class="pricing">
+				<h3><span>60€</span>/nuit</h3>
+					<div class="rating">
+						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+						<p>5.0</p>
+					</div>
+				</div>
+				<div class="location">
+				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+				<p>Jakarta, Indonesia</p>
+				</div>
+				<div class="description">
+				<h3>User Experience Design</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
+				</div>
+				<button><span>Réserver</span></button>					
+			</div>
+		</div>
+	</a>
+
+	<a href="#">
+		<div class="card">
+			<figure>
+				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+			</figure>
+
+			<div class="card-details">
+				<div class="pricing">
+				<h3><span>60€</span>/nuit</h3>
+					<div class="rating">
+						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+						<p>5.0</p>
+					</div>
+				</div>
+				<div class="location">
+				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+				<p>Jakarta, Indonesia</p>
+				</div>
+				<div class="description">
+				<h3>User Experience Design</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
+				</div>
+				<button><span>Réserver</span></button>					
+			</div>
+		</div>
+	</a>
+
+	<a href="#">
+		<div class="card">
+			<figure>
+				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+			</figure>
+
+			<div class="card-details">
+				<div class="pricing">
+				<h3><span>60€</span>/nuit</h3>
+					<div class="rating">
+						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+						<p>5.0</p>
+					</div>
+				</div>
+				<div class="location">
+				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+				<p>Jakarta, Indonesia</p>
+				</div>
+				<div class="description">
+				<h3>User Experience Design</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
+				</div>
+				<button><span>Réserver</span></button>					
+			</div>
+		</div>
+	</a>
+
+	<a href="#">
+		<div class="card">
+			<figure>
+				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+			</figure>
+
+			<div class="card-details">
+				<div class="pricing">
+				<h3><span>60€</span>/nuit</h3>
+					<div class="rating">
+						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+						<p>5.0</p>
+					</div>
+				</div>
+				<div class="location">
+				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+				<p>Jakarta, Indonesia</p>
+				</div>
+				<div class="description">
+				<h3>User Experience Design</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
+				</div>
+				<button><span>Réserver</span></button>					
+			</div>
+		</div>
+	</a>
+
+	<a href="#">
+		<div class="card">
+			<figure>
+				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+			</figure>
+
+			<div class="card-details">
+				<div class="pricing">
+				<h3><span>60€</span>/nuit</h3>
+					<div class="rating">
+						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+						<p>5.0</p>
+					</div>
+				</div>
+				<div class="location">
+				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+				<p>Jakarta, Indonesia</p>
+				</div>
+				<div class="description">
+				<h3>User Experience Design</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
+				</div>
+				<button><span>Réserver</span></button>					
+			</div>
+		</div>
+	</a>
+
+	<a href="#">
+		<div class="card">
+			<figure>
+				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
+					<figcaption>
+						<a href="#">
+							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+						</a>
+					</figcaption>
+			</figure>
+
+			<div class="card-details">
+				<div class="pricing">
+				<h3><span>60€</span>/nuit</h3>
+					<div class="rating">
+						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+						<p>5.0</p>
+					</div>
+				</div>
+				<div class="location">
+				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+				<p>Jakarta, Indonesia</p>
+				</div>
+				<div class="description">
+				<h3>User Experience Design</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
+				</div>
+				<button><span>Réserver</span></button>					
+			</div>
+		</div>
+	</a>
+
+</section>
 {% endblock %}

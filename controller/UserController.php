@@ -128,4 +128,19 @@ class UserController extends Controller
         ];
         echo self::getRender('dashboard.html.twig', $data);
     }
+
+    public function options(){
+        $userId = $_SESSION['uid'];
+        $userModel = new UserModel();
+        $user = $userModel->getUserById($userId);
+        $firstName = $user->getFirstName();
+        $email = $user->getEmail();
+
+        $data = [
+            'firstName' => $firstName,
+            'email' => $email,
+        ];
+        
+        echo self::getRender('dashboard-options.html.twig', $data);
+    }
 }

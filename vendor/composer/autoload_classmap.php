@@ -16,6 +16,7 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Controller' => $baseDir . '/controller/Controller.php',
     'Conversation' => $baseDir . '/class/Conversation.php',
+    'ErrorController' => $baseDir . '/controller/ErrorController.php',
     'Favorite' => $baseDir . '/class/Favorite.php',
     'HomeController' => $baseDir . '/controller/HomeController.php',
     'HostLanguage' => $baseDir . '/class/HostLanguage.php',

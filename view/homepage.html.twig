@@ -6,44 +6,51 @@
 {% block content %}
 	{# ---------- HERO ---------- #}
 
-	<section id="hero">
-		<figure>
-			<img src="{{ asset('/media/hero-locar.webp') }}" alt="Hero Loca'R"/>
-		</figure>
-	</section>
+<section id="hero">
+  <figure>
+    <img class="slider-image" src="{{ asset('/media/hero-locar.webp') }}" alt="Hero Loca'R Slide 1"/>
+    <img class="slider-image" src="{{ asset('/media/hero-locar2.webp') }}" alt="Hero Loca'R Slide 2">
+    <img class="slider-image" src="{{ asset('/media/hero-locar3.webp') }}" alt="Hero Loca'R Slide 3">
+    <figcaption>
+      <div class="overlay"></div>
+    </figcaption>
+    <button class="slider-arrow prev-arrow"><img src="{{ asset('/media/icons/arrow') }}" alt="Left arrow"></button>
+    <button class="slider-arrow next-arrow"><img src="{{ asset('/media/icons/arrowleft') }}" alt="Left right"></button>
+  </figure>
+</section>
 
 	{# ---------- Tag List Navigation Menu ---------- #}
 
-	<section id="tag-nav">
-		<div id="tag-container">
-			<div class="left-corner">
-				<button class="arrow left-arrow">
-					<img src="{{ asset('/media/icons/arrow.svg')}}" alt="Left arrow icon">
-				</button>
-			</div>
+<section id="tag-nav">
+  <div id="tag-container">
+    <div class="arrow-container left-arrow-container">
+      <button class="arrow left-arrow">
+        <img src="{{ asset('/media/icons/arrow.svg')}}" alt="Left arrow icon">
+      </button>
+    </div>
 
-			<div class="container-tag-list">
-				{% for tag in tags %}
-					<div class="tag-item">
-						<a href="#">
-							<img id="icon-tag" src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
-							<img src="../asset/media/locations/" alt="">
-							<p class="darkerblue">{{ tag.type }}</p>
-						</a>
-					</div>
-				{% endfor %}
-			</div>
+    <div class="container-tag-list">
+      {% for tag in tags %}
+      <div class="tag-item">
+        <a href="#">
+          <img id="icon-tag" src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
+          <img src="../asset/media/locations/" alt="">
+          <p class="darkerblue">{{ tag.type }}</p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
 
-			<div class="right-corner">
-				<button class="arrow right-arrow">
-					<img src="{{ asset('/media/icons/arrowleft.svg')}}" alt="Right arrow icon">
-				</button>
-				<button class="filter">
-					<img src="{{asset('/media/icons/filter.svg')}}" alt="filter">
-				</button>
-			</div>
-		</div>
-	</section>
+    <div class="arrow-container right-arrow-container">
+      <button class="arrow right-arrow">
+        <img src="{{ asset('/media/icons/arrowleft.svg')}}" alt="Right arrow icon">
+      </button>
+      <button class="filter">
+        <img src="{{asset('/media/icons/filter.svg')}}" alt="filter">
+      </button>
+    </div>
+  </div>
+</section>
 
 	{# ---------- New destinations sections---------- #}
 
@@ -197,4 +204,8 @@
 			</figcaption>
 		</div>
 	</section>
+
+	<button id="scroll-to-top-button">
+  		<img src="{{ asset('/media/icons/arrow-top.svg')}}" alt="Scroll to top">
+	</button>
 {% endblock %}

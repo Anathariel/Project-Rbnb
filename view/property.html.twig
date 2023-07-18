@@ -34,8 +34,26 @@
 				class="container-description-property">
 
 				{# ---------- Property ---------- #}
-				<h3>Chez @User</h3>
+				<div class="inline-title">
+					{% if propertyType.house == 1 %}
+						<h3>Maison</h3>
+					{% endif %}
+					
+					{% if propertyType.guesthouse == 1 %}
+						<h3>Maison d'hôte</h3>
+					{% endif %}
+					
+					{% if propertyType.flat == 1 %}
+						<h3>Appartement</h3>
+					{% endif %}
+					
+					{% if propertyType.hotel == 1 %}
+						<h3>Hôtel</h3>
+					{% endif %}
+					<h3>• Chez @User</h3>				
+				</div>
 
+<<<<<<< HEAD
 				{# <h3>Type de location :
 																								{% if propertyType.house == 1 %}
 																									<p>Maison</p>
@@ -52,6 +70,8 @@
 																							{% endif %} #}
 
 				{# <p>{{ property.priceNight }}€/nuit</p> #}
+=======
+>>>>>>> f91671cea7374c26d3974eda17944f1a81b33bf3
 				<div class="property-amenities">
 					<p>{{ houseRules.maxGuests }}
 						voyageurs</p>
@@ -479,8 +499,28 @@
 					<p>{{ houseRules.maxGuests }}
 						voyageurs maximum</p>
 
+<<<<<<< HEAD
 					<a id="description-details" href="#">
 						En savoir plus →</a>
+=======
+						</div>
+						<div class="traveler">
+							<h4>Voyageurs</h4>
+							<select name="traveler-select" id="traveler-select">
+								<option value="1 Voyageur">1 Voyageur</option>
+								<option value="2 Voyageurs">2 Voyageurs</option>
+								<option value="3 Voyageurs">3 Voyageurs</option>
+								<option value="4 Voyageurs">4 Voyageurs</option>
+								<option value="5 Voyageurs">5 Voyageurs</option>
+								<option value="6 Voyageurs">6 Voyageurs</option>
+								<option value="7 Voyageurs">7 Voyageurs</option>
+								<option value="8+ Voyageurs">8+ Voyageurs</option>
+							</select>
+						</div>
+					</div>
+					<button><span>Réserver</span></button>
+					<p>Aucun montant ne vous sera débité pour le moment</p>
+>>>>>>> f91671cea7374c26d3974eda17944f1a81b33bf3
 				</div>
 
 
@@ -505,6 +545,7 @@
 			</div>
 		</div>
 
+<<<<<<< HEAD
 		<div class="container-pricing">
 			<p>
 				<span>{{ property.PriceNight }}€</span>
@@ -549,3 +590,7 @@
 
 
 </section>{% endblock %}
+=======
+	</section>
+{% endblock %}
+>>>>>>> f91671cea7374c26d3974eda17944f1a81b33bf3
