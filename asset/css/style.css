@@ -927,19 +927,42 @@ section#property-section .property-details .container-description-property .prop
   display: flex;
   justify-content: center;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button.hote-contact {
-  border: 1px solid #404e87;
+section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button {
+  width: 100%;
+  position: relative;
+  margin: 0.5rem 0;
+  border: solid 1px #404e87;
   background-color: transparent;
-  padding: 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  color: #404e87;
+  overflow: hidden;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button.hote-contact:hover {
-  background-color: #404e87;
+section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 1rem 0;
+  color: #404e87;
+  position: relative;
+  z-index: 1;
+}
+section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span:hover {
   color: #f8f8f8;
-  border: 1px solid #f8f8f8;
-  transition: 500ms ease-in;
+}
+section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #404e87;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:hover:before {
+  width: 100%;
 }
 section#property-section .property-details .property-conditions {
   display: flex;
@@ -1438,6 +1461,12 @@ section#googlemaps-property-section div#map {
   color: #f8f8f8;
   font-family: "Quicksand";
   font-size: 1rem;
+}
+#error-page figure {
+  margin: 1rem;
+}
+#error-page figure img {
+  border-radius: 0.5rem;
 }
 
 .catalog-cards {
