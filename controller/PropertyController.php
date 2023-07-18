@@ -16,6 +16,8 @@ class PropertyController extends Controller
         $cancellationPolicyModel = new CancellationPolicyModel();
         $commentModel = new CommentModel();
         $propertyTypeModel = new PropertyTypeModel();
+        $commentModel = new CommentModel();
+
 
         $property = $propertyModel->getOneProperty($id);
         $propertyAmenities = $propertyAmenitiesModel->getPropertyAmenities($id);
@@ -26,13 +28,13 @@ class PropertyController extends Controller
         $cancellationPolicy = $cancellationPolicyModel->getCancellationPolicyModel($id);
         $comment = $commentModel->getCommentModel($id);
         $propertyType = $propertyTypeModel->getPropertyTypeModel($id);
+        $comments = $commentModel->getCommentModel($id);
 
         $propertyCount = $propertyModel->countUserProperties($property->getOwner()['uid']);
-        var_dump($propertyCount);
 
 
         $oneProperty = $router->generate('baseProperty');
-        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyCount' => $propertyCount, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comment' => $comment, 'propertyType' => $propertyType]);
+        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyCount' => $propertyCount, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comments' => $comments, 'propertyType' => $propertyType,]);
     }
 
     // C R U D
