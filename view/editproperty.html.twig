@@ -49,6 +49,27 @@
 				<img id="image4Preview" src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ propertyImages.image4URL ? 'Aperçu de l\'image 4' : '' }}" style="max-width: 200px;">
 				<br/><br>
 
+				<section id="addgooglemaps-property-section">
+							<div class="card-container">
+								<div class="panel">
+									<div>
+										<img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
+										<span class="sb-title">Address Selection</span>
+									</div>
+									<input type="text" name="address" value="{{ property.address }}" placeholder="Addresse de la location" id="location-input"/>
+									<input type="text" name="city" value="{{ property.city }}" placeholder="ville" id="locality-input"/>
+									<div class="half-input-container">
+										<input type="text" name="region" value="{{ property.region }}" class="half-input" placeholder="Région" id="administrative_area_level_1-input"/>
+										<input type="text" name="postalCode" value="{{ property.postalCode }}" class="half-input" placeholder="Code postal" id="postal_code-input"/>
+									</div>
+									<input type="text" name="country" value="{{ property.country}}" placeholder="Country" id="country-input"/>
+									<input type="hidden" name="latitude" value="{{ property.latitude }}" id="latitude-input">
+									<input type="hidden" name="longitude" value="{{ property.longitude }}"  id="longitude-input">
+								</div>
+								<div class="map" id="gmp-map"></div>
+							</div>
+						</section>
+
 				<label for="property-type">Choisissez le type de propriété :</label>
 				<br/>
 				<select id="property-type" name="property-type">
