@@ -28,7 +28,6 @@ class PropertyController extends Controller
         $propertyType = $propertyTypeModel->getPropertyTypeModel($id);
 
 
-
         $oneProperty = $router->generate('baseProperty');
         echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comment' => $comment, 'propertyType' => $propertyType]);
     }

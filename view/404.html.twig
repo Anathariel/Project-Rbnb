@@ -1,7 +1,30 @@
 {% extends "template.html.twig" %}
 
-{% block title %}Bienvenue sur Loca'R{% endblock %}
+{% block title %}Erreur 404{% endblock %}
 
-{% block content %}7
+{% block content %}
+<section id="error-page">
+    <div class="left-side">
+        <p>Erreur 404</p>
+        <h1>Page non trouvé</h1>
+        <p>Désolé, nous n'avons pas pu trouver la page que vous recherchez.</p>
+        <p>Voici quelques liens utiles :</p>
+
+        <div class="button-error">
+            <button id="button-return">
+                <img src="{{ asset('/media/icons/arrow-left.svg')}}" alt="Back arrow svg">
+                <p>Retour</p>
+            </button>
+            <a href="{{ path('home') }}">
+                <button id="home-redirection" >Take me home, West Virginia </button>
+            </a>
+        </div>
+    </div>
+
+    <figure>
+        <img src="{{ asset('/media/takemehome.webp') }}" alt="">
+    </figure>
+
+</section>
 
 {% endblock %}

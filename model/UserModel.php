@@ -43,6 +43,4 @@ class UserModel extends Model
 
         return $user;
     }
-
-    
 }

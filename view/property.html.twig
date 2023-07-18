@@ -12,21 +12,11 @@
 		<span>{{ property.comment }}○{{ property.address }}</span>
 
 		<figure>
-			{% if propertyImages.imageMainURL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image1URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image2URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image3URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image4URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
+			<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
 		</figure>
 
 		<div class="property-details">
@@ -37,21 +27,20 @@
 				<h3>Chez @User</h3>
 
 				{# <h3>Type de location :
-																								{% if propertyType.house == 1 %}
-																									<p>Maison</p>
-																								{% endif %}
-																								{% if propertyType.guesthouse == 1 %}
-																									<p>Maison d'hôte</p>
-																								{% endif %}
-																								{% if propertyType.flat == 1 %}
-																									<p>Appartement</p>
-																								{% endif %}
-																								{% if propertyType.hotel == 1 %}
-																									<p>Hôtel</p>
-																							</h3>
-																							{% endif %} #}
+																				{% if propertyType.house == 1 %}
+																					<p>Maison</p>
+																				{% endif %}
+																				{% if propertyType.guesthouse == 1 %}
+																					<p>Maison d'hôte</p>
+																				{% endif %}
+																				{% if propertyType.flat == 1 %}
+																					<p>Appartement</p>
+																				{% endif %}
+																				{% if propertyType.hotel == 1 %}
+																					<p>Hôtel</p>
+																			</h3>
+																			{% endif %} #}
 
-				{# <p>{{ property.priceNight }}€/nuit</p> #}
 				<div class="property-amenities">
 					<p>{{ houseRules.maxGuests }}
 						voyageurs</p>
@@ -416,7 +405,7 @@
 								<img src="" alt="">
 							</div>
 							<figcaption>
-								<h4>@User</h4>
+								<h4>@{{ property.getOwnerFirstName() }}</h4>
 								<p>Membre depuis : 2020 • Particulier</p>
 								<div class="host-rating">
 									<div
@@ -457,11 +446,11 @@
 						</div>
 
 
-						<p>Nombre de Logements : 1</p>
-					</div>
-					<div class="center-button">
-						<button class="hote-contact">Contacter l'Hôte</button>
-					</div>
+							<p>Nombre de Logements : 1</p>
+						</div>
+						<div class="center-button">
+							<button class="hote-contact">Contacter l'Hôte</button>
+						</div>
 
 				</div>
 
@@ -521,31 +510,32 @@
 							<input type="date">
 						</div>
 
+						</div>
+						<div class="traveler">
+							<h4>Voyageurs</h4>
+							<input type="number" id="quantity" name="quantity" min="1" max="5" default="1">
+						</div>
 					</div>
-					<div class="traveler">
-						<h4>Voyageurs</h4>
-						<input type="number" id="quantity" name="quantity" min="1" max="5" default="1">
+					<button>Réserver</button>
+					<p>Aucun montant ne vous sera débité pour le moment</p>
+				</div>
+				<div class="price-details">
+					<div class="details">
+						<p>45€ x 5 nuits</p>
+						<p>Frais de service Loca'R</p>
+						<p>Taxes</p>
+						<h4>Total du sejour</h4>
 					</div>
-				</div>
-				<button>Réserver</button>
-				<p>Aucun montant ne vous sera débité pour le moment</p>
-			</div>
-			<div class="price-details">
-				<div class="details">
-					<p>45€ x 5 nuits</p>
-					<p>Frais de service Loca'R</p>
-					<p>Taxes</p>
-					<h4>Total du sejour</h4>
-				</div>
-				<div class="prices">
-					<p>225€</p>
-					<p>38€</p>
-					<p>3€</p>
-					<h4>266€</h4>
+					<div class="prices">
+						<p>225€</p>
+						<p>38€</p>
+						<p>3€</p>
+						<h4>266€</h4>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
 
-</section>{% endblock %}
+	</section>
+{% endblock %}
