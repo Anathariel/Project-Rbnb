@@ -20,6 +20,7 @@
 			{% block content %}{% endblock %}
 		</main>
 
+
 		{% block javascript %}
 			<script src="{{ asset('/js/main.js') }}"></script>
 			<script src="{{ asset('/js/map.js') }}"></script>
@@ -133,6 +134,9 @@
 			</script>
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOcambCQedSWiOWZsYd7LKrNoA8lXdCFk&libraries=places&callback=initMap&solution_channel=GMP_QB_addressselection_v1_cAB" async defer></script>
 		{% endblock %}
+
+		{% block javascript %}{% endblock %}
+		<script src="{{ asset('/js/dashboard.js') }}"></script>
 
 	</body>
 </html>

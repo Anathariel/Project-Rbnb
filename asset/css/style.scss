@@ -537,7 +537,7 @@ footer {
 
 //? --------- Tag Nav' Menu Section --------- //
 
-#tag-nav {
+.tag-nav {
   position: relative;
   overflow: hidden;
 
@@ -555,7 +555,6 @@ footer {
       &.left-arrow-container {
         position: absolute;
         left: 0;
-        display: none;
 
         .left-arrow {
           z-index: 2;
@@ -608,6 +607,7 @@ footer {
       overflow-x: scroll;
       width: 100%;
       padding-right: 10%;
+      padding-left: 10%;
       scrollbar-width: none;
       /* Hide scrollbar for Firefox */
       -ms-overflow-style: none;
@@ -796,6 +796,7 @@ section#new-destinations-section {
 }
 
 //? --------- best-tags sections --------- //
+
 section#best-tags-section {
   margin-bottom: 40px 0;
 
@@ -902,6 +903,7 @@ section#best-tags-section {
 }
 
 //? --------- features-sections --------- //
+
 section#features-section {
   margin-bottom: 3rem;
 
@@ -940,6 +942,7 @@ section#features-section {
 }
 
 //? --------- join-us-sections --------- //
+
 section#join-us-section {
   div#container-card-join-us {
     figcaption {
@@ -1092,7 +1095,7 @@ section#property-section {
           width: 100%;
           display: flex;
           justify-content: space-between;
-          overflow: scroll;
+          overflow: hidden;
 
           .container-comment {
             display: flex;
@@ -1183,20 +1186,46 @@ section#property-section {
             display: flex;
             justify-content: center;
 
-            button.hote-contact {
-              border: 1px solid $accent;
+            button {
+              width: 15rem;
+              position: relative;
+              border: solid 1px $accent;
               background-color: transparent;
               padding: 1rem;
               border-radius: 0.5rem;
               cursor: pointer;
-              color: $accent;
+              overflow: hidden;
+    
+              span {
+                display: block;
+                font-family: 'Quicksand';
+                font-size: 1.2rem;
+                width: 100%;
+                padding: .3rem 0;
+                color: $accent;
+                position: relative;
+                z-index: 1;
+              }
+    
+              span:hover {
+                color: $white;
+              }
             }
-
-            button.hote-contact:hover {
+    
+            button:before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0%;
+              height: 100%;
               background-color: $accent;
-              color: $white;
-              border: 1px solid $white;
-              transition: 500ms ease-in;
+              transition: all .5s ease-out;
+              z-index: 0;
+            }
+    
+            button:hover:before {
+              width: 100%;
             }
           }
         }
@@ -1236,9 +1265,9 @@ section#property-section {
       display: flex;
       flex-direction: column;
       margin: 1rem 5rem;
-      background: #d9d9d960;
+      background-color: #d9d9d960;
       width: 30%;
-      max-height: 530px;
+      max-height: 550px;
       padding: 1.5rem;
       border-radius: 1.5rem;
 
@@ -1377,12 +1406,14 @@ section#property-section {
 }
 
 //? --------- Gogglemap-property Section --------- //
+
 section#googlemaps-property-section {
   div#map {
     width: 100%;
     height: 400px;
   }
 }
+
 
 section#addgooglemaps-property-section {
   .sb-title {
@@ -1447,7 +1478,6 @@ section#addgooglemaps-property-section {
     color: white;
   }
 }
-
 //~ -------------------- DASHBOARD -------------------- //
 .dashboard {
   background-color: #e1e7ea;
@@ -1809,7 +1839,10 @@ section#addgooglemaps-property-section {
   }
 
   .account-buttons {
-    input[type="submit"] {
+
+    display: flex;
+
+    input[type=submit] {
       border: none;
       background-color: transparent;
       outline: transparent;
@@ -1821,7 +1854,7 @@ section#addgooglemaps-property-section {
       color: $dash-maincolor;
     }
 
-    button {
+    #delete-account {
       border: none;
       background-color: transparent;
       outline: transparent;
@@ -1891,6 +1924,13 @@ section#addgooglemaps-property-section {
         font-family: "Quicksand";
         font-size: 1rem;
       }
+    }
+  }
+
+  figure {
+    margin: 1rem;
+    img{
+      border-radius: .5rem;
     }
   }
 }
