@@ -17,7 +17,7 @@ class PropertyModel extends Model
 
     public function getOneProperty(int $id)
     {
-        $req = $this->getDb()->prepare('SELECT `property`.`propertyId`, `property`.`title`, `property`.`priceNight`, `property`.`address`, `property`.`description`, `property`.`latitude`, `property`.`longitude`, `user`.`firstName`, `property`.`owner`  FROM `property`
+        $req = $this->getDb()->prepare('SELECT `property`.`propertyId`, `property`.`title`, `property`.`priceNight`, `property`.`city`, `property`.`postalCode`, `property`.`department`, `property`.`region`, `property`.`country`, `property`.`address`, `property`.`description`, `property`.`latitude`, `property`.`longitude`, `user`.`firstName`, `property`.`owner`  FROM `property`
         JOIN `user` ON `property`.`owner` = `user`.`uid` WHERE `property`.`propertyId` = :id');
         $req->bindParam('id', $id, PDO::PARAM_INT);
         $req->execute();
@@ -82,14 +82,23 @@ class PropertyModel extends Model
         $req->execute();
     }
 
-    public function editPropertyModel(int $propertyId, string $title, string $description, $priceNight)
+    public function editPropertyModel(int $propertyId, string $title, string $description, $priceNight, $address, $city, $postalCode, $department, $region, $country, $latitude, $longitude)
     {
         $db = $this->getDb();
-        $stmt = $db->prepare('UPDATE `property` SET `title` = :title, `description` = :description, `priceNight` = :priceNight WHERE `propertyId` = :propertyId');
+        $stmt = $db->prepare('UPDATE `property` SET `title` = :title, `description` = :description, `priceNight` = :priceNight, `address` = :address, `city` = :city, `postalCode` = :postalCode, `department` = :department, `region` = :region, `country` = :country, `latitude` = :latitude, `longitude` = :longitude WHERE `propertyId` = :propertyId');
         $stmt->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
         $stmt->bindParam(':title', $title, PDO::PARAM_STR);
         $stmt->bindParam(':description', $description, PDO::PARAM_STR);
         $stmt->bindParam(':priceNight', $priceNight, PDO::PARAM_STR);
+        $stmt->bindParam(':address', $address, PDO::PARAM_STR);
+        $stmt->bindParam(':city', $city, PDO::PARAM_STR);
+        $stmt->bindParam(':postalCode', $postalCode, PDO::PARAM_INT);
+        $stmt->bindParam(':department', $department, PDO::PARAM_STR);
+        $stmt->bindParam(':region', $region, PDO::PARAM_STR);
+        $stmt->bindParam(':country', $country, PDO::PARAM_STR);
+        $stmt->bindParam(':latitude', $latitude, PDO::PARAM_STR);
+        $stmt->bindParam(':longitude', $longitude, PDO::PARAM_STR);
+
         $stmt->execute();
     }
 

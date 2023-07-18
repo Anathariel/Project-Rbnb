@@ -344,7 +344,7 @@
 				<h3>Où se situe ce logement</h3>
 
 				{% include 'googlemaps.html.twig' %}
-				<p>Perthes, Île-de-France, France</p>
+				<p>{{ property.city }}, {{ property.region }}, {{ property.country }}</p>
 				{# ----------------------------------- #}
 
 				<div class="property-host">
