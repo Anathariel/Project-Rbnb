@@ -6,7 +6,6 @@ class Property
     private $title;
     private $description;
     private $priceNight;
-    private $accommodationTypeId;
     private $address;
     private $latitude;
     private $longitude;
@@ -14,6 +13,7 @@ class Property
     private $publicationdate;
     private $reservationOption;
     private $owner;
+    private $ownerFirstName;
 
     public function __construct(array $post)
     {
@@ -52,11 +52,6 @@ class Property
         return $this->priceNight;
     }
 
-    public function getAccommodationTypeId()
-    {
-        return $this->accommodationTypeId;
-    }
-
     public function getAddress()
     {
         return $this->address;
@@ -89,7 +84,12 @@ class Property
 
     public function getOwner()
     {
+        var_dump($this->owner);
         return $this->owner;
+    }
+
+    public function getOwnerFirstName() {
+        return $this->ownerFirstName;
     }
 
     //SETTERS
@@ -111,11 +111,6 @@ class Property
     public function setPriceNight(string $priceNight)
     {
         $this->priceNight = $priceNight;
-    }
-
-    public function setAccommodationTypeId(int $accommodationTypeId)
-    {
-        $this->accommodationTypeId = $accommodationTypeId;
     }
 
     public function setAddress(string $address)
@@ -151,6 +146,10 @@ class Property
     public function setOwner(int $owner)
     {
         $this->owner = $owner;
+    }
+
+    public function setOwnerFirstName($firstName) {
+        $this->ownerFirstName = $firstName;
     }
 
 }
