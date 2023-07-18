@@ -1364,6 +1364,9 @@ section#googlemaps-property-section div#map {
 #user-edit a {
   margin: 2rem;
 }
+#user-edit .account-buttons {
+  display: flex;
+}
 #user-edit .account-buttons input[type=submit] {
   border: none;
   background-color: transparent;
@@ -1375,7 +1378,7 @@ section#googlemaps-property-section div#map {
   border-radius: 0.5rem;
   color: #0E9384;
 }
-#user-edit .account-buttons button {
+#user-edit .account-buttons #delete-account {
   border: none;
   background-color: transparent;
   outline: transparent;
