@@ -416,7 +416,6 @@ footer .footer-mobile a {
 #tag-nav #tag-container .arrow-container.left-arrow-container {
   position: absolute;
   left: 0;
-  display: none;
 }
 #tag-nav #tag-container .arrow-container.left-arrow-container .left-arrow {
   z-index: 2;
@@ -454,6 +453,7 @@ footer .footer-mobile a {
   overflow-x: scroll;
   width: 100%;
   padding-right: 10%;
+  padding-left: 10%;
   scrollbar-width: none;
   /* Hide scrollbar for Firefox */
   -ms-overflow-style: none;
