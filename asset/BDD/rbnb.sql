@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 18 juil. 2023 à 13:09
+-- Généré le : mar. 18 juil. 2023 à 21:37
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -106,7 +106,15 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`commentId`),
   KEY `USER` (`uid`),
   KEY `property` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `comment`
+--
+
+INSERT INTO `comment` (`commentId`, `uid`, `propertyId`, `rating`, `commentText`) VALUES
+(3, 13, 121, 4, 'ceci est un test de commentaire'),
+(4, 8, 121, 3, 'coucou');
 
 -- --------------------------------------------------------
 
@@ -303,11 +311,11 @@ CREATE TABLE IF NOT EXISTS `property` (
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `priceNight` decimal(10,2) NOT NULL,
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `city` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `city` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `postalCode` int NOT NULL,
-  `department` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
-  `region` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
-  `country` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `department` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `region` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `country` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `latitude` decimal(12,9) NOT NULL,
   `longitude` decimal(12,9) NOT NULL,
   `availability` tinyint(1) NOT NULL,
@@ -617,22 +625,6 @@ INSERT INTO `user` (`uid`, `firstName`, `lastName`, `birthDate`, `email`, `passw
 (12, 'debug', 'lol', '0000-00-00', 'debug@gmail.com', '$2y$10$2lkCyvCBDvsGO02MCPvtWueNgqZOtixFyhJ7j/i2bZ1WWEKlhmDES', ''),
 (13, 'zaza', 'zaza', '0000-00-00', 'zaza@gmail.com', '$2y$10$3.2nyNMAMJX1hcE/W7AqOOQSUF1Vy/FZG4X7FPzxDF6Eq3k5/lw32', '');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `user_properties`
---
-
-DROP TABLE IF EXISTS `user_properties`;
-CREATE TABLE IF NOT EXISTS `user_properties` (
-  `userPropertyId` int NOT NULL AUTO_INCREMENT,
-  `uid` int NOT NULL,
-  `propertyId` int NOT NULL,
-  PRIMARY KEY (`userPropertyId`),
-  KEY `USER` (`uid`),
-  KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Contraintes pour les tables déchargées
 --
@@ -745,13 +737,6 @@ ALTER TABLE `reservation`
 --
 ALTER TABLE `role`
   ADD CONSTRAINT `role_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `user_properties`
---
-ALTER TABLE `user_properties`
-  ADD CONSTRAINT `user_properties_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_properties_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
