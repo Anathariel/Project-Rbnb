@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 // HERO SLIDER HOMEPAGE
-// Add this JavaScript code to your page
 
 const sliderImages = document.querySelectorAll('.slider-image');
 const prevArrow = document.querySelector('.prev-arrow');
@@ -70,27 +69,18 @@ function showNextSlide() {
 prevArrow.addEventListener('click', showPreviousSlide);
 nextArrow.addEventListener('click', showNextSlide);
 
-// Change slide every 10 seconds (adjust as needed)
+// Change slide every 10 seconds
 setInterval(showNextSlide, 10000);
 
 
 
 // MENU NAVIGATION ICON
+
 const containerTagList = document.querySelector('.container-tag-list');
 const leftArrowContainer = document.querySelector('.left-arrow-container');
 const rightArrowContainer = document.querySelector('.right-arrow-container');
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
-
-function handleScroll() {
-  const scrollPosition = containerTagList.scrollLeft;
-
-  if (scrollPosition > 0) {
-    leftArrowContainer.style.display = 'flex';
-  } else {
-    leftArrowContainer.style.display = 'none';
-  }
-}
 
 function scrollToLeft() {
   containerTagList.scrollTo({
@@ -106,9 +96,9 @@ function scrollToRight() {
   });
 }
 
-containerTagList.addEventListener('scroll', handleScroll);
 leftArrow.addEventListener('click', scrollToLeft);
 rightArrow.addEventListener('click', scrollToRight);
+
 
 
 // SCROLL TOP BUTTON HOMEPAGE

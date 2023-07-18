@@ -556,7 +556,6 @@ footer {
       &.left-arrow-container {
         position: absolute;
         left: 0;
-        display: none;
 
         .left-arrow {
           z-index: 2;
@@ -601,6 +600,7 @@ footer {
       overflow-x: scroll;
       width: 100%;
       padding-right: 10%;
+      padding-left: 10%;
       scrollbar-width: none;
       /* Hide scrollbar for Firefox */
       -ms-overflow-style: none;
@@ -790,6 +790,7 @@ section#new-destinations-section {
 }
 
 //? --------- best-tags sections --------- //
+
 section#best-tags-section {
   margin-bottom: 40px 0;
 
@@ -898,6 +899,7 @@ section#best-tags-section {
 }
 
 //? --------- features-sections --------- //
+
 section#features-section {
   margin-bottom: 3rem;
 
@@ -936,6 +938,7 @@ section#features-section {
 }
 
 //? --------- join-us-sections --------- //
+
 section#join-us-section {
 
   div#container-card-join-us {
@@ -993,7 +996,6 @@ section#join-us-section {
 .scroll-to-top-hidden {
 display: none;
 }
-
 
 //~ -------------------- PROPERTY -------------------- //
 
@@ -1378,15 +1380,14 @@ section#property-section {
   }
 }
 
-
 //? --------- Gogglemap-property Section --------- //
+
 section#googlemaps-property-section {
   div#map {
     width: 100%;
     height: 400px;
   }
 }
-
 
 //~ -------------------- DASHBOARD -------------------- //
 .dashboard {
