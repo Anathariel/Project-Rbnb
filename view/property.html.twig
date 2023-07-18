@@ -11,18 +11,28 @@
 	<h1>{{ property.title }}</h1>
 	<span>{{ property.comment }}○{{ property.address }}</span>
 
-	<figure>
-		<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-		<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
-		<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
-		<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
-		<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
-	</figure>
+<figure>
+    {% if propertyImages.imageMainURL %}
+        <img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+    {% endif %}
+    {% if propertyImages.image1URL %}
+        <img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
+    {% endif %}
+    {% if propertyImages.image2URL %}
+        <img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
+    {% endif %}
+    {% if propertyImages.image3URL %}
+        <img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
+    {% endif %}
+    {% if propertyImages.image4URL %}
+        <img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
+    {% endif %}
+</figure>
 
 	<div class="property-details">
 	{# ----------------- CONTAINER LEFT -------------------------#}
 		<div class="container-description-property">
-			<h3>Chez @{{ property.getOwnerFirstName() }}</h3>
+			<h3>Chez @{{ property.owner.firstName }}</h3>
 
 
 			<div class="property-amenities">
@@ -395,7 +405,7 @@
 								{% endfor %}
 							</div>
 
-							<p>Nombre de Logements : 1</p>
+							<p>Nombre de Logements : {{ propertyCount }}</p>
 						</div>
 
 						<div class="center-button">

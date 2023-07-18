@@ -28,7 +28,7 @@ class PropertyModel extends Model
 
         $propertyOwner = $property->getOwner();
 
-        $req2 = $this->getDb()->prepare('SELECT `firstName`, `lastName`, `birthDate`, `email`, `phoneNumber` FROM `user` WHERE `uid` = :id');
+        $req2 = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `birthDate`, `email`, `phoneNumber` FROM `user` WHERE `uid` = :id');
         $req2->bindParam('id', $propertyOwner, PDO::PARAM_INT);
         $req2->execute();
 
@@ -48,6 +48,31 @@ class PropertyModel extends Model
         $req = $this->getDb()->query('SELECT LAST_INSERT_ID()');
         return $req->fetchColumn();
     }
+
+    public function getUserProperties($userId)
+    {
+        $properties = [];
+
+        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description` FROM `property` WHERE `owner` = :userId ORDER BY `propertyId` DESC');
+        $req->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $req->execute();
+
+        while ($property = $req->fetch(PDO::FETCH_ASSOC)) {
+            $properties[] = new Property($property);
+        }
+
+        return $properties;
+    }
+
+    public function countUserProperties($userId)
+    {
+        $req = $this->getDb()->prepare('SELECT COUNT(*) FROM `property` WHERE `owner` = :userId');
+        $req->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $req->execute();
+
+        return $req->fetchColumn();
+    }
+
 
     public function addProperty(Property $property)
     {
@@ -100,21 +125,6 @@ class PropertyModel extends Model
         $stmt->bindParam(':longitude', $longitude, PDO::PARAM_STR);
 
         $stmt->execute();
-    }
-
-    public function getUserProperties($userId)
-    {
-        $properties = [];
-
-        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description` FROM `property` WHERE `owner` = :userId ORDER BY `propertyId` DESC');
-        $req->bindParam(':userId', $userId, PDO::PARAM_INT);
-        $req->execute();
-
-        while ($property = $req->fetch(PDO::FETCH_ASSOC)) {
-            $properties[] = new Property($property);
-        }
-
-        return $properties;
     }
 
     public function deletePropertyModel($propertyId)
