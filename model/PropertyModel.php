@@ -69,19 +69,12 @@ class PropertyModel extends Model
         $stmt->execute();
     }
 
-    public function deletePropertyModel($propertyId)
-    {
-        $req = $this->getDb()->prepare('DELETE FROM `property` WHERE `propertyId` = :propertyId');
-        $req->bindParam('propertyId', $propertyId, PDO::PARAM_INT);
-        $req->execute();
-    }
-
     public function getUserProperties($userId)
     {
         $properties = [];
 
-        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description` FROM `property` WHERE `owner` = :userId');
-        $req->bindParam('userId', $userId, PDO::PARAM_INT);
+        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description` FROM `property` WHERE `owner` = :userId ORDER BY `propertyId` DESC');
+        $req->bindParam(':userId', $userId, PDO::PARAM_INT);
         $req->execute();
 
         while ($property = $req->fetch(PDO::FETCH_ASSOC)) {
@@ -90,4 +83,13 @@ class PropertyModel extends Model
 
         return $properties;
     }
+
+
+    public function deletePropertyModel($propertyId)
+    {
+        $req = $this->getDb()->prepare('DELETE FROM `property` WHERE `propertyId` = :propertyId');
+        $req->bindParam('propertyId', $propertyId, PDO::PARAM_INT);
+        $req->execute();
+    }
+
 }
