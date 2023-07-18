@@ -972,7 +972,7 @@ section#property-section .property-details .container-pricing {
   display: flex;
   flex-direction: column;
   margin: 1rem 5rem;
-  background: rgba(217, 217, 217, 0.3764705882);
+  background-color: rgba(217, 217, 217, 0.3764705882);
   width: 30%;
   max-height: 530px;
   padding: 1.5rem;

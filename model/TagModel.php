@@ -49,7 +49,6 @@ class TagModel extends Model
         return $lastTags;
     }
 
-
     public function getLastTagChateaux()
     {
         $query = "SELECT `property`.`propertyId`, `property`.`title`, `property`.`priceNight`, `propertyimages`.`propertyImagesId`, `propertyimages`.`propertyId`, `propertyimages`.`imageMainURL`, `propertyimages`.`image1URL`, `propertyimages`.`image2URL`, `propertyimages`.`image3URL`, `propertyimages`.`image4URL`, `tag`.`tagId` FROM `property` INNER JOIN `propertytag` ON `property`.`propertyId` = `propertytag`.`propertyId` INNER JOIN `tag` ON `propertytag`.`tagId` = `tag`.`tagId`
@@ -79,7 +78,36 @@ class TagModel extends Model
         return $tagIds;
     }
 
+    public function editSelectedTagsForProperty($propertyId, $newTags)
+    {
+        // Récupération des tags existants
+        $sql = 'SELECT `tagId` FROM `propertytag` WHERE `propertyId` = :propertyId';
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':propertyId', $propertyId, PDO::PARAM_INT);
+        $stmt->execute();
+        $existingTags = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
+        // Suppression des tags qui n'ont pas été cochés
+        $tagsToRemove = array_diff($existingTags, $newTags);
+        if (!empty($tagsToRemove)) {
+            $sql = 'DELETE FROM `propertytag` WHERE `propertyId` = :propertyId AND `tagId` IN (' . implode(',', $tagsToRemove) . ')';
+            $stmt = $this->getDb()->prepare($sql);
+            $stmt->bindValue(':propertyId', $propertyId, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+
+        // Ajout des tags qui ont été nouvellement cochés
+        $tagsToAdd = array_diff($newTags, $existingTags);
+        if (!empty($tagsToAdd)) {
+            $sql = 'INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES (:propertyId, :tagId)';
+            $stmt = $this->getDb()->prepare($sql);
+            foreach ($tagsToAdd as $tagId) {
+                $stmt->bindValue(':propertyId', $propertyId, PDO::PARAM_INT);
+                $stmt->bindValue(':tagId', $tagId, PDO::PARAM_INT);
+                $stmt->execute();
+            }
+        }
+    }
 
     public function setTagsModel($propertyId, $tags)
     {
@@ -88,25 +116,6 @@ class TagModel extends Model
         $stmt->bindValue(':propertyId', $propertyId, PDO::PARAM_INT);
 
         foreach ($tags as $tagId) {
-            $stmt->bindValue(':tagId', $tagId, PDO::PARAM_INT);
-            $stmt->execute();
-        }
-    }
-
-    public function editTagsModel($propertyId, $newTags)
-    {
-        // Supprime toutes les étiquettes existantes de la propriété
-        $sql = 'DELETE FROM `propertytag` WHERE `propertyId` = :propertyId';
-        $stmt = $this->getDb()->prepare($sql);
-        $stmt->bindValue(':propertyId', $propertyId, PDO::PARAM_INT);
-        $stmt->execute();
-
-        // Ajoute les nouvelles étiquettes à la propriété
-        $sql = 'INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES (:propertyId, :tagId)';
-        $stmt = $this->getDb()->prepare($sql);
-        $stmt->bindValue(':propertyId', $propertyId, PDO::PARAM_INT);
-
-        foreach ($newTags as $tagId) {
             $stmt->bindValue(':tagId', $tagId, PDO::PARAM_INT);
             $stmt->execute();
         }
