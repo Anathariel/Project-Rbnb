@@ -12,37 +12,7 @@
 	{# <h2>Résultat de votre recherche</h2>
 
 	<div id="response"></div> #}
-	<section id="tag-nav">
-		<div id="tag-container">
-			<div class="left-corner">
-				<button class="arrow left-arrow">
-					<img src="{{ asset('/media/icons/arrow.svg')}}" alt="Left arrow icon">
-				</button>
-			</div>
-
-			<div class="container-tag-list">
-				{% for tag in tags %}
-					<div class="tag-item">
-						<a href="#">
-							<img id="icon-tag" src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
-							<img src="../asset/media/locations/" alt="">
-							<p class="darkerblue">{{ tag.type }}</p>
-						</a>
-					</div>
-				{% endfor %}
-			</div>
-
-			<div class="right-corner">
-				<button class="arrow right-arrow">
-					<img src="{{ asset('/media/icons/arrowleft.svg')}}" alt="Right arrow icon">
-				</button>
-				<button class="filter">
-					<img src="{{asset('/media/icons/filter.svg')}}" alt="filter">
-				</button>
-			</div>
-		</div>
-	</section>
-<section id="property-catalog">
+{% include 'category-menu.html.twig' %}
 
 <section class="catalog-cards">
 			

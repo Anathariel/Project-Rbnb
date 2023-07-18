@@ -4,31 +4,35 @@
 {% endblock %}
 
 {% block content %}
-<section id="user-edit">
-<h2>Mon Compte</h2>
+	<section id="user-edit">
+		<h2>Mon Compte</h2>
+		<form action="#" method="POST">
+			<p>Nom Légal</p>
+			<div class="user-names">
+				<input type="text" name="firstname" value="{{ firstName }}">
+				<input type="text" name="lastname" value="{{ lastName }}">
+			</div>
 
-<p>Nom Légal</p>
-<div class="user-names">
-    <input type="text" name="firstname" value ="Prénom">
-    <input type="text" name="lastname" value ="Nom">
-</div>
+
+			<p>E-mail</p>
+			<input type="text" name="email" value="{{ email }}">
+
+			<p>Numéro de Téléphone</p>
+			<input type="text" name="phoneNumber" value="06 66 66 66 66">
+
+			<p>Date de Naissance</p>
+			<input type="date" name="birthdate">
 
 
-<p>E-mail</p>
-<input type="text" name="email" value="user@gmail.com">
+			<div class="account-buttons">
+				<input type="submit" name="submit" value="Modifier">
+		</form>
 
-<p>Numéro de Téléphone</p>
-<input type="text" name="phoneNumber" value="06 66 66 66 66">
+        <form action="" method="POST">
+			<input type="hidden" name="_method" value="DELETE">
+    	    <input type="submit" value="Delete" id="delete-account">
+        </form>
+		    </div>
 
-<p>Date de Naissance</p>
-<input type="date" name="birthdate">
-
-<a href="#">Rénitialiser mon mot de passe</a>
-
-<div class="account-buttons">
-    <input type="submit" value="Modifier">
-    <button><span>Supprimer mon compte</span></button>
-</div>
-
-</section>
+	</section>
 {% endblock %}
