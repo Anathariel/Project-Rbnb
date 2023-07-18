@@ -50,9 +50,17 @@ class PropertyController extends Controller
             ]);
         } else {
             if (isset($_POST['submit'])) {
-                $title = $_POST['title'];
-                $description = $_POST['description'];
-                $priceNight = $_POST['price-night'];
+                $title = isset($_POST['title'])? $_POST['title'] : ''; 
+                $description = isset($_POST['description'])? $_POST['description'] : '';
+                $priceNight = isset($_POST['price-night'])? $_POST['price-night'] : '';
+                $address = isset($_POST['address'])? $_POST['address'] : '';
+                $city = isset($_POST['city'])? $_POST['city'] : '';
+                $postalCode = isset($_POST['postalCode'])? $_POST['postalCode'] : '';
+                $department = isset($_POST['department'])? $_POST['department'] : '';
+                $region = isset($_POST['region'])? $_POST['region'] : '';
+                $country = isset($_POST['country'])? $_POST['country'] : '';
+                $latitude = isset($_POST['latitude']) ? $_POST['latitude'] : '';
+                $longitude = isset($_POST['longitude']) ? $_POST['longitude'] : '';
 
                 $propertyType = $_POST['property-type'];
 
@@ -65,7 +73,6 @@ class PropertyController extends Controller
                 $maxGuests = $_POST['max-guests'];
 
                 $tags = isset($_POST['tags']) ? $_POST['tags'] : [];
-                var_dump($tags);
 
                 $owner = $_SESSION['uid'];
 
@@ -73,6 +80,14 @@ class PropertyController extends Controller
                     'title' => $title,
                     'description' => $description,
                     'priceNight' => $priceNight,
+                    'address' => $address,
+                    'city' => $city,
+                    'postalCode' => $postalCode,
+                    'department' => $department,
+                    'region' => $region,
+                    'country' => $country,
+                    'latitude' => $latitude,
+                    'longitude' => $longitude,
                     'owner' => $owner,
                 ]);
 
