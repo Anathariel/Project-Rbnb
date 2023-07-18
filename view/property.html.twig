@@ -229,14 +229,13 @@
 				<div class="property-comments">
 					<h3>Ce qu'ils en disent :</h3>
 					<div class="nav-arrows">
-						<button><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
-						<button><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
+						<button class="comment-leftarrow"><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
+						<button class="comment-rightarrow"><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
 					</div>
 
 					<div class="container-comments-row">
 						<div class="container-comment">
-							<div
-								class="stars-rating">
+							<div class="stars-rating">
 								{# <p>{{ comment.rating }}étoiles</p> #}
 								<figure>
 									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
@@ -247,16 +246,14 @@
 								</figure>
 							</div>
 
-							<p>{{ comment.commentText }}
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
+							<p>{{ comment.commentText }}Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque inventore alias eaque illum non fugiat.</p>
 
 							<figure>
 								<div id="profile-picture">
 									<img src="" alt="">
 								</div>
 								<figcaption>
-									<p>{{ user.firstName }}
-										@User</p>
+									<p>{{ user.firstName }}@User</p>
 								</figcaption>
 							</figure>
 						</div>
@@ -338,7 +335,7 @@
 								</figcaption>
 							</figure>
 						</div>
-					</div>
+				</div>
 
 
 				</div>
