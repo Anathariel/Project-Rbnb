@@ -69,7 +69,6 @@ class PropertyModel extends Model
         $stmt->execute();
     }
 
-<<<<<<< HEAD
     public function getUserProperties($userId)
     {
         $properties = [];
@@ -86,8 +85,6 @@ class PropertyModel extends Model
     }
 
 
-=======
->>>>>>> 46801d6397b682d994a90d46da30184fdd8d0c62
     public function deletePropertyModel($propertyId)
     {
         $req = $this->getDb()->prepare('DELETE FROM `property` WHERE `propertyId` = :propertyId');
@@ -95,18 +92,4 @@ class PropertyModel extends Model
         $req->execute();
     }
 
-    public function getUserProperties($userId)
-    {
-        $properties = [];
-
-        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description` FROM `property` WHERE `owner` = :userId');
-        $req->bindParam('userId', $userId, PDO::PARAM_INT);
-        $req->execute();
-
-        while ($property = $req->fetch(PDO::FETCH_ASSOC)) {
-            $properties[] = new Property($property);
-        }
-
-        return $properties;
-    }
 }
