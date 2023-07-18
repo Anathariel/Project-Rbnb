@@ -30,6 +30,14 @@ abstract class Controller {
                 $basePath = '/projet/project-rbnb/asset'; // Update with your base asset path
                 return $basePath . $assetPath;
             }));
+
+            // Add the user data if user is logged in
+        if (isset($_SESSION['uid'])) {
+            $userId = $_SESSION['uid'];
+            $userModel = new UserModel();
+            $user = $userModel->getUserById($userId);
+            self::$twig->addGlobal('user', $user);
+        }
         }
         return self::$twig;
     }
