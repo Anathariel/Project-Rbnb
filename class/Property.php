@@ -132,7 +132,7 @@ class Property
         $this->description = $description;
     }
 
-    public function setPriceNight(float $priceNight)
+    public function setPriceNight($priceNight)
     {
         $this->priceNight = $priceNight;
     }
