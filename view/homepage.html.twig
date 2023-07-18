@@ -6,51 +6,22 @@
 {% block content %}
 	{# ---------- HERO ---------- #}
 
-<section id="hero">
-  <figure>
-    <img class="slider-image" src="{{ asset('/media/hero-locar.webp') }}" alt="Hero Loca'R Slide 1"/>
-    <img class="slider-image" src="{{ asset('/media/hero-locar2.webp') }}" alt="Hero Loca'R Slide 2">
-    <img class="slider-image" src="{{ asset('/media/hero-locar3.webp') }}" alt="Hero Loca'R Slide 3">
-    <figcaption>
-      <div class="overlay"></div>
-    </figcaption>
-    <button class="slider-arrow prev-arrow"><img src="{{ asset('/media/icons/arrow') }}" alt="Left arrow"></button>
-    <button class="slider-arrow next-arrow"><img src="{{ asset('/media/icons/arrowleft') }}" alt="Left right"></button>
-  </figure>
-</section>
+	<section id="hero">
+  		<figure>
+    		<img class="slider-image" src="{{ asset('/media/hero-locar.webp') }}" alt="Hero Loca'R Slide 1"/>
+    		<img class="slider-image" src="{{ asset('/media/hero-locar2.webp') }}" alt="Hero Loca'R Slide 2">
+   	 		<img class="slider-image" src="{{ asset('/media/hero-locar3.webp') }}" alt="Hero Loca'R Slide 3">
+    		<figcaption>
+      			<div class="overlay"></div>
+    		</figcaption>
+    {# <button class="slider-arrow prev-arrow"><img src="{{ asset('/media/icons/arrow') }}" alt="Left arrow"></button>
+    <button class="slider-arrow next-arrow"><img src="{{ asset('/media/icons/arrowleft') }}" alt="Left right"></button> #}
+ 		</figure>
+	</section>
 
 	{# ---------- Tag List Navigation Menu ---------- #}
 
-<section id="tag-nav">
-  <div id="tag-container">
-    <div class="arrow-container left-arrow-container">
-      <button class="arrow left-arrow">
-        <img src="{{ asset('/media/icons/arrow.svg')}}" alt="Left arrow icon">
-      </button>
-    </div>
-
-    <div class="container-tag-list">
-      {% for tag in tags %}
-      <div class="tag-item">
-        <a href="#">
-          <img id="icon-tag" src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
-          <img src="../asset/media/locations/" alt="">
-          <p>{{ tag.type }}</p>
-        </a>
-      </div>
-      {% endfor %}
-    </div>
-
-    <div class="arrow-container right-arrow-container">
-      <button class="arrow right-arrow">
-        <img src="{{ asset('/media/icons/arrowleft.svg')}}" alt="Right arrow icon">
-      </button>
-      <button class="filter">
-        <img src="{{asset('/media/icons/filter.svg')}}" alt="filter">
-      </button>
-    </div>
-  </div>
-</section>
+	{% include 'category-menu.html.twig' %}
 
 	{# ---------- New destinations sections---------- #}
 
@@ -200,7 +171,7 @@
 		<div id="container-card-join-us" class="limit-size">
 			<figcaption>
 				<img src="{{ asset('/media/banners/join-us-banner.png') }}" alt="banner"/>
-				<a href="#" id="btn-list-property">Lister votre propriété</a>
+				<a href="{{ path('dashboard') }}" id="btn-list-property">Lister votre propriété</a>
 			</figcaption>
 		</div>
 	</section>

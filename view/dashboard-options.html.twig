@@ -9,13 +9,13 @@
 		<form action="{{ path('options')}}" method="POST">
 			<p>Nom Légal</p>
 			<div class="user-names">
-				<input type="text" name="firstname" value="Prénom">
-				<input type="text" name="lastname" value="Nom">
+				<input type="text" name="firstname" value="{{ firstName }}">
+				<input type="text" name="lastname" value="{{ lastName }}">
 			</div>
 
 
 			<p>E-mail</p>
-			<input type="text" name="email" value="user@gmail.com">
+			<input type="text" name="email" value="{{ email }}">
 
 			<p>Numéro de Téléphone</p>
 			<input type="text" name="phoneNumber" value="06 66 66 66 66">

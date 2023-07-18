@@ -180,11 +180,13 @@ class UserController extends Controller
         $userModel = new UserModel();
         $user = $userModel->getUserById($userId);
         $firstName = $user->getFirstName();
+        $lastName = $user->getLastName();
         $email = $user->getEmail();
 
         $data = [
             'firstName' => $firstName,
             'email' => $email,
+            'lastName' => $lastName,
         ];
 
         echo self::getRender('dashboard-options.html.twig', $data);
