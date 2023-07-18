@@ -30,7 +30,7 @@ class UserController extends Controller
     public function login()
     {
         if (!$_POST) {
-            echo self::getRender('register.html.twig', []);
+            echo self::getRender('login.html.twig', []);
         } else {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -49,7 +49,7 @@ class UserController extends Controller
                     exit();
                 } else {
                     $message = "Email / mot de passe incorrect!";
-                    echo self::getRender('register.html.twig', ['message' => $message]);
+                    echo self::getRender('login.html.twig', ['message' => $message]);
                 }
             } else {
                 $message = "Email / mot de passe incorrect!";
@@ -130,19 +130,7 @@ class UserController extends Controller
     }
 
     public function options(){
-        $userId = $_SESSION['uid'];
-        $userModel = new UserModel();
-        $user = $userModel->getUserById($userId);
-        $firstName = $user->getFirstName();
-        $lastName = $user->getLastName();
-        $email = $user->getEmail();
-
-        $data = [
-            'firstName' => $firstName,
-            'email' => $email,
-            'lastName' => $lastName,
-        ];
         
-        echo self::getRender('dashboard-options.html.twig', $data);
+        echo self::getRender('dashboard-options.html.twig', []);
     }
 }
