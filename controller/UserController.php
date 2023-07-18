@@ -30,7 +30,7 @@ class UserController extends Controller
     public function login()
     {
         if (!$_POST) {
-            echo self::getRender('login.html.twig', []);
+            echo self::getRender('register.html.twig', []);
         } else {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -49,11 +49,11 @@ class UserController extends Controller
                     exit();
                 } else {
                     $message = "Email / mot de passe incorrect!";
-                    echo self::getRender('login.html.twig', ['message' => $message]);
+                    echo self::getRender('register.html.twig', ['message' => $message]);
                 }
             } else {
                 $message = "Email / mot de passe incorrect!";
-                echo self::getRender('login.html.twig', ['message' => $message]);
+                echo self::getRender('register.html.twig', ['message' => $message]);
             }
         }
     }
@@ -128,19 +128,20 @@ class UserController extends Controller
         ];
         echo self::getRender('dashboard.html.twig', $data);
     }
-    
-    public function editUser(){
 
-        if(!$_POST){
+    public function editUser()
+    {
+
+        if (!$_POST) {
             $uid = $_SESSION['uid'];
             //Récupérer les infos du user dans BDD
             $userModel = new userModel();
 
             $user = $userModel->getUserById($uid);
 
-            echo self::getRender('editUser.html.twig',['user'=>$user]); //info: user est un objet
+            echo self::getRender('dashboard-options.html.twig', ['user' => $user]); //info: user est un objet
 
-        }else{
+        } else {
             // Récupérer les information du  formulaire
             $uid = $_SESSION['uid'];
             $firstName = $_POST['firstName'];
@@ -149,33 +150,32 @@ class UserController extends Controller
             $password = $_POST['password'];
             $confirmation = $_POST['confirmation'];
             //condition pour verfier le mot de passe
-            if($password !=$confirmation){
+            if ($password != $confirmation) {
                 $message = 'Mot de passe incorrecte';
-                echo self::getrender('editUser.html.twig', ['message' => $message]);
+                echo self::getrender('dashboard-options.html.twig', ['message' => $message]);
+            } else {
 
-            }else{
+                if (isset($_POST['submit'])) {
 
-            $userModel = new userModel();
-            $user = $userModel->getUserById($uid);
+                    $userModel = new userModel();
+                    $user = $userModel->getUserById($uid);
 
-            
-            $user->setFirstName($firstName);
-            $user->setLastName($lastName);
-            $user->setEmail($email);
-            $user->setPassword($password);
-                
-            $userModel->editUser($user);
-            echo self::getRender('editUser.html.twig',['user'=>$user]);
-            exit();
+                    $user->setFirstName($firstName);
+                    $user->setLastName($lastName);
+                    $user->setEmail($email);
+                    $user->setPassword($password);
 
+                    $userModel->editUser($user);
+                    echo self::getRender('dashboard-options.html.twig', ['user' => $user]);
+                    exit();
+                }
             }
-            
-
-        }       
+        }
     }
-   
 
-    public function options(){
+
+    public function options()
+    {
         $userId = $_SESSION['uid'];
         $userModel = new UserModel();
         $user = $userModel->getUserById($userId);
@@ -186,7 +186,7 @@ class UserController extends Controller
             'firstName' => $firstName,
             'email' => $email,
         ];
-        
+
         echo self::getRender('dashboard-options.html.twig', $data);
     }
 }
