@@ -129,7 +129,7 @@ class UserController extends Controller
         echo self::getRender('dashboard.html.twig', $data);
     }
     
-    public function editUser($uid){
+    public function editUser(){
 
         if(!$_POST){
             $uid = $_SESSION['uid'];
@@ -142,34 +142,30 @@ class UserController extends Controller
 
         }else{
             // Récupérer les information du  formulaire
-
-            $userId = $_SESSION['uid'];
+            $uid = $_SESSION['uid'];
             $firstName = $_POST['firstName'];
             $lastName = $_POST['lastName'];
             $email = $_POST['email'];
             $password = $_POST['password'];
             $confirmation = $_POST['confirmation'];
-
+            //condition pour verfier le mot de passe
             if($password !=$confirmation){
                 $message = 'Mot de passe incorrecte';
                 echo self::getrender('editUser.html.twig', ['message' => $message]);
 
             }else{
 
-            $user = new UserModel([
-                'userId' => $userId,
-                'firstName' => $firstName,
-                'lastName' => $lastName,
-                'email' => $email,
-            ]);
+            $userModel = new userModel();
+            $user = $userModel->getUserById($uid);
 
-            // $user->setFirstName($firstName);
-            // $user->setLastName($lastName);
-            // $user->setEmail($email);
-
-            $user->editUser(); 
-           
-            echo self::getRender('editUser.html.twig');
+            
+            $user->setFirstName($firstName);
+            $user->setLastName($lastName);
+            $user->setEmail($email);
+            $user->setPassword($password);
+                
+            $userModel->editUser($user);
+            echo self::getRender('editUser.html.twig',['user'=>$user]);
             exit();
 
             }

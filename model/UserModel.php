@@ -44,7 +44,17 @@ class UserModel extends Model
         return $user;
     }
 
-    public function editUser(int $uid, string $firstName, string $lastName, string $email,string $password){
+    public function editUser(User $user){
+
+
+
+        $firstName = $user->getFirstName();
+        $lastName = $user->getLastName();
+        $email = $user->getEmail();
+        $password = $user->getPassword();
+
+
+
         // Obtient la connexion à la base de données
         $db = $this->getDb(); 
          // Prépare la requête de mise à jour pour mettre à jour les données de l'utilisateur
