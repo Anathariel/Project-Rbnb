@@ -10,6 +10,6 @@ function uploadFile($file, $uploadDir) {
     if (move_uploaded_file($tmpFilePath, $uploadPath)) {
         return $uniqueFileName;
     } else {
-        return 'coucou';
+        return '';
     }
 }

@@ -15,6 +15,7 @@ $dashboard-brg: #e1e7ea;
 $dash-maincolor : #0E9384;
 
 $gradient: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
+
 //* --------- FONT --------- //
 
 $font: "Quicksand";
@@ -37,8 +38,11 @@ $font: "Quicksand";
 body {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  background-color: rgba(241, 244, 246, 0.722);
+  background-color: rgba(248, 248, 248);
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
@@ -82,37 +86,13 @@ h3 {
   color: $darkerblue;
 }
 
-//^ --------- CLASSES --------- //
-
-//* --------- COLORS CLASSES --------- //
-
-.darkerblue {
-  color: $darkerblue;
-}
-
-.white {
-  color: $white;
-}
-
-.maincolor {
-  color: $maincolor;
-}
-
-.grey {
-  color: rgb(67, 65, 65);
-}
-
-.lightgrey {
-  color: rgba(91, 88, 88, 0.721);
-}
-
 //~ -------------------- STYLING -------------------- //
 //? --------- HEADER --------- //
 
 .header-main {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 99;
   background-color: $maincolor;
   padding: 1rem;
 
@@ -460,7 +440,23 @@ footer {
 
   .footer-desktop {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+
+    a {
+      font-size: 1rem;
+      margin: 1rem;
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: .5rem;
+
+      a {
+        margin: 0 .6rem;
+      }
+    }
   }
 
   .footer-mobile {
@@ -476,14 +472,66 @@ footer {
 //~ -------------------- HOMEPAGE -------------------- //
 //? --------- Hero Section --------- //
 
-//Faire un carousel/slider d'images, voir si ajout d'un slogan
 #hero {
   figure {
-    img {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+
+    .slider-image {
       object-fit: cover;
       width: 100%;
-      max-height: 300px;
-      opacity: 70%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+
+      &:first-child {
+        opacity: 1;
+        z-index: 2;
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to bottom, transparentize(#0E1D33, 0.2), transparentize(#0E1D33, 0.8));
+      z-index: 3;
+    }
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      z-index: 4;
+
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .prev-arrow {
+      left: 10px;
+    }
+
+    .next-arrow {
+      right: 10px;
     }
   }
 }
@@ -491,32 +539,80 @@ footer {
 //? --------- Tag Nav' Menu Section --------- //
 
 #tag-nav {
+  position: relative;
+  overflow: hidden;
 
   #tag-container {
-    position: relative;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     width: 100%;
 
-    .left-corner {
+    .arrow-container {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       width: 10%;
       height: 100%;
-      position: absolute;
-      left: 0;
-      // background-color: $accent;
+
+      &.left-arrow-container {
+        position: absolute;
+        left: 0;
+
+        .left-arrow {
+          z-index: 2;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to right, rgba(248, 248, 248), rgba(248, 248, 248, 0.8));
+          pointer-events: none;
+        }
+      }
+
+      &.right-arrow-container {
+        position: absolute;
+        right: 0;
+        z-index: 2;
+
+        .right-arrow {
+          z-index: 2;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to left, rgba(248, 248, 248), rgba(248, 248, 248, 0.8));
+          pointer-events: none;
+        }
+      }
     }
 
     .container-tag-list {
       display: flex;
-      overflow: scroll;
-      width: 80%;
+      overflow-x: scroll;
+      width: 100%;
+      padding-right: 10%;
+      padding-left: 10%;
+      scrollbar-width: none;
+      /* Hide scrollbar for Firefox */
+      -ms-overflow-style: none;
+      /* Hide scrollbar for IE and Edge */
+
+      &::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar for Chrome, Safari, and Opera */
+      }
 
       .tag-item {
-        flex: 1;
+        flex: 0 0 auto;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -551,17 +647,6 @@ footer {
         }
       }
     }
-
-    .right-corner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 10%;
-      height: 100%;
-      position: absolute;
-      right: 0;
-      // background-color: $accent;
-    }
   }
 
   button.filter {
@@ -570,6 +655,7 @@ footer {
     padding: .5rem;
     border-radius: 100%;
     border: 1px solid $darkerblue;
+    z-index: 2;
   }
 
   button.arrow {
@@ -577,9 +663,19 @@ footer {
     padding: .5rem;
     border-radius: 100%;
     border: .5px solid $darkerblue;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(248, 248, 248, 0.5);
+      pointer-events: none;
+    }
   }
 }
-
 
 //? --------- New Destination Section --------- //
 
@@ -656,9 +752,6 @@ section#new-destinations-section {
 
     div.new-destination-main-card {
       width: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
 
       .main-card {
         margin: 0 auto;
@@ -697,6 +790,7 @@ section#new-destinations-section {
 }
 
 //? --------- best-tags sections --------- //
+
 section#best-tags-section {
   margin-bottom: 40px 0;
 
@@ -766,10 +860,6 @@ section#best-tags-section {
 
     div.best-tags-main-card {
       width: 50%;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
-      // background-color: aquamarine;
 
       .main-card {
         margin: 0 auto;
@@ -809,6 +899,7 @@ section#best-tags-section {
 }
 
 //? --------- features-sections --------- //
+
 section#features-section {
   margin-bottom: 3rem;
 
@@ -847,6 +938,7 @@ section#features-section {
 }
 
 //? --------- join-us-sections --------- //
+
 section#join-us-section {
 
   div#container-card-join-us {
@@ -885,6 +977,26 @@ section#join-us-section {
   }
 }
 
+#scroll-to-top-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background-color: $accent;
+  border: 1px solid $white;
+  outline: transparent;
+  cursor: pointer;
+  transition: display 0.5s ease;
+  opacity: 1;
+  z-index: 9999;
+}
+
+.scroll-to-top-hidden {
+display: none;
+}
+
 //~ -------------------- PROPERTY -------------------- //
 
 section#property-section {
@@ -906,11 +1018,14 @@ section#property-section {
     }
   }
 
+  .inline-title {
+    display: flex;
+  }
+
   h3 {
     font-size: 1.5rem;
     color: $accent;
     text-align: left;
-
   }
 
   .property-details {
@@ -925,15 +1040,12 @@ section#property-section {
         flex-direction: row;
 
         p {
-          padding-right: .5rem;
+          padding-right: .8rem;
+          font-size: .8rem;
         }
       }
 
       .property-description {
-        p {
-          font-weight: lighter;
-          font-family: 'Poppins';
-        }
 
         #description-details {
           color: $accent;
@@ -1127,9 +1239,9 @@ section#property-section {
       display: flex;
       flex-direction: column;
       margin: 1rem 5rem;
-      background: #d9d9d960;
+      background-color: #d9d9d960;
       width: 30%;
-      max-height: 505px;
+      max-height: 530px;
       padding: 1.5rem;
       border-radius: 1.5rem;
 
@@ -1186,26 +1298,57 @@ section#property-section {
           .traveler {
             display: flex;
             flex-direction: column;
+
+            select#traveler-select {
+              font-family: 'Quicksand';
+              padding: .5rem .8rem;
+              border: none;
+              box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            }
           }
         }
 
 
         button {
-          background-color: $accent;
-          color: $white;
-          border: none;
-          outline: transparent;
+          width: 100%;
+          position: relative;
+          margin: .5rem 0;
+          border: solid 1px $accent;
+          background-color: transparent;
           border-radius: .5rem;
-          padding: .5rem 1rem;
-          width: 90%;
           cursor: pointer;
-          font-size: 1.3rem;
+          overflow: hidden;
+
+          span {
+            display: block;
+            font-family: 'Quicksand';
+            font-size: 1.5rem;
+            width: 100%;
+            padding: 1rem 0;
+            color: $accent;
+            position: relative;
+            z-index: 1;
+          }
+
+          span:hover {
+            color: $white;
+          }
         }
 
-        button:hover {
-          background-color: $maincolor;
-          border: .5px solid white;
-          transition: 500ms ease;
+        button:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0%;
+          height: 100%;
+          background-color: $accent;
+          transition: all .5s ease-out;
+          z-index: 0;
+        }
+
+        button:hover:before {
+          width: 100%;
         }
 
         p {
@@ -1232,14 +1375,13 @@ section#property-section {
     }
   }
 
-
   div {
     margin-bottom: 1rem;
   }
 }
 
-
 //? --------- Gogglemap-property Section --------- //
+
 section#googlemaps-property-section {
   div#map {
     width: 100%;
@@ -1247,10 +1389,10 @@ section#googlemaps-property-section {
   }
 }
 
-
 //~ -------------------- DASHBOARD -------------------- //
 .dashboard {
   background-color: #E1E7EA;
+  min-height: 90vh;
 
   .welcome-dashboard {
     text-align: left;
@@ -1389,49 +1531,29 @@ section#googlemaps-property-section {
         .description {
           h3 {
             text-align: left;
-          }
-
-          text-align: left;
-        }
-
-        button {
-          width: 100%;
-          position: relative;
-          margin: 1rem 0;
-          border: solid 1px $dash-maincolor;
-          background-color: transparent;
-          border-radius: .5rem;
-          cursor: pointer;
-          overflow: hidden;
-
-          span {
-            display: block;
-            width: 100%;
-            padding: 1rem 0;
-            color: $dash-maincolor;
-            position: relative;
-            z-index: 1;
-          }
-
-          span:hover {
-            color: $white;
+            font-size: 1.2rem;
           }
         }
 
-        button:before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 0%;
-          height: 100%;
-          background-color: $dash-maincolor;
-          transition: all .5s ease-out;
-          z-index: 0;
-        }
+        .property-buttons {
+          display: flex;
+          justify-content: space-evenly;
+          margin: .5rem;
 
-        button:hover:before {
-          width: 100%;
+          .button>p {
+            color: #059669;
+            font-family: 'Quicksand-bold';
+            font-size: 1rem;
+          }
+
+          .delete {
+            color: red;
+            font-family: 'Quicksand-bold';
+            font-size: 1rem;
+            border: none;
+            outline: transparent;
+            background-color: transparent;
+          }
         }
       }
     }
@@ -1452,6 +1574,8 @@ section#googlemaps-property-section {
 
   fieldset {
     padding: 1rem 3rem;
+    display: flex;
+    justify-content: center;
   }
 
   h4 {
@@ -1530,14 +1654,6 @@ section#googlemaps-property-section {
         cursor: pointer;
       }
     }
-
-    .equipement:hover {
-      cursor: pointer;
-      background-color: #ffffff5b;
-      border-bottom: 1px solid $darkerblue;
-      transition: 500ms ease-in;
-    }
-
   }
 
   .add-rules {
@@ -1556,19 +1672,310 @@ section#googlemaps-property-section {
 
   .selection-tags {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    align-items: center;
+
+
+
+    .tag-element {
+      display: flex;
+      flex-direction: column;
+
+    }
 
     label {
       width: 70px;
       margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
 
       img {
         width: 25px;
       }
     }
 
+  }
+}
+
+// #editpropertyform {
+//   background-color: $dashboard-brg;
+
+//   fieldset {
+//     padding: 1rem 3rem;
+//     display: flex;
+//     justify-content: center;
+
+//     .edit-tags {
+//       display: flex;
+//       justify-content: space-evenly;
+//       flex-wrap: wrap;
+
+//       label {
+//         width: 70px;
+//         margin: 1rem;
+
+//         img {
+//           width: 25px;
+//         }
+//       }
+//     }
+//   }
+// }
+
+#user-edit {
+  background-color: #E1E7EA;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    color: $dash-maincolor;
+    margin-bottom: 2rem;
+  }
+
+  .user-names {
+    display: flex;
+    flex-direction: row;
+
+    input[type=text] {
+      margin: 0 .2rem;
+    }
+  }
+
+  p {
+    margin-top: 1rem;
+  }
+
+  a {
+    margin: 2rem;
+  }
+
+  .account-buttons {
+    input[type=submit] {
+      border: none;
+      background-color: transparent;
+      outline: transparent;
+      padding: 1rem;
+      font-family: 'Quicksand';
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: .5rem;
+      color: $dash-maincolor;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      outline: transparent;
+      padding: 1rem;
+      font-family: 'Quicksand';
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: .5rem;
+      color: red;
+    }
+  }
+}
+
+//~ -------------------- 404 -------------------- //
+
+#error-page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .left-side {
+    margin: 5rem;
+
+    p:first-child {
+      color: $accent;
+      font-size: .9rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: $darkerblue;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .button-error {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 1rem;
+
+      #button-return {
+        border: 1px solid $darkerblue;
+        display: flex;
+        background-color: transparent;
+        outline: transparent;
+        cursor: pointer;
+        border-radius: .5rem;
+        padding: .5rem;
+
+        img {
+          padding: 0 .5rem;
+        }
+      }
+
+      #home-redirection {
+        border: 1px solid $darkerblue;
+        display: flex;
+        background-color: $maincolor;
+        outline: transparent;
+        cursor: pointer;
+        border-radius: .5rem;
+        padding: .5rem;
+        color: $white;
+        font-family: 'Quicksand';
+        font-size: 1rem;
+      }
+    }
+
+  }
+}
+
+//~ -------------------- CATALOGUE -------------------- //
+
+.catalog-cards {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-evenly;
+  margin: 1rem 5rem;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    // height: auto;
+    width: 100%;
+    max-width: 280px;
+    margin: 2rem auto;
+    background-color: $white;
+    border-radius: .5rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    figure {
+      position: relative;
+      padding: 1rem 0;
+
+      img {
+        width: 90%;
+        max-width: 260px;
+        max-height: 200px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: .5rem;
+        display: inline-block;
+      }
+
+      figcaption {
+        width: 30px;
+        position: absolute;
+        top: 2rem;
+        left: 14.5rem;
+
+        a>img {
+          width: 30px;
+        }
+      }
+    }
+
+    .card-details {
+      padding: 0 1rem;
+
+      .pricing {
+        display: flex;
+        flex-direction: row;
+        margin-right: auto;
+
+        span {
+          font-size: 2rem;
+        }
+
+        .rating {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-left: auto;
+        }
+      }
+
+      .location {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1rem 0;
+
+        img {
+          margin: .2rem;
+        }
+      }
+
+      .description {
+        h3 {
+          text-align: left;
+          font-size: 1.2rem;
+        }
+      }
+
+      button {
+        width: 100%;
+        position: relative;
+        margin: .5rem 0;
+        border: solid 1px $accent;
+        background-color: transparent;
+        border-radius: .5rem;
+        cursor: pointer;
+        overflow: hidden;
+
+        span {
+          display: block;
+          font-family: 'Quicksand';
+          font-size: 1rem;
+          width: 100%;
+          padding: .3rem 0;
+          color: $accent;
+          position: relative;
+          z-index: 1;
+        }
+
+        span:hover {
+          color: $white;
+        }
+      }
+
+      button:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: $accent;
+        transition: all .5s ease-out;
+        z-index: 0;
+      }
+
+      button:hover:before {
+        width: 100%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .dashboard-cards {
+      .card {
+        margin: 0;
+        max-width: 180px;
+      }
+    }
   }
 }
