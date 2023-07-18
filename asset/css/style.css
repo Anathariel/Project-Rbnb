@@ -857,7 +857,7 @@ section#property-section .property-details .container-description-property .prop
   width: 100%;
   display: flex;
   justify-content: space-between;
-  overflow: scroll;
+  overflow: hidden;
 }
 section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment {
   display: flex;
@@ -928,9 +928,8 @@ section#property-section .property-details .container-description-property .prop
   justify-content: center;
 }
 section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button {
-  width: 100%;
+  width: 15rem;
   position: relative;
-  margin: 0.5rem 0;
   border: solid 1px #404e87;
   background-color: transparent;
   border-radius: 0.5rem;
@@ -940,9 +939,9 @@ section#property-section .property-details .container-description-property .prop
 section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span {
   display: block;
   font-family: "Quicksand";
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   width: 100%;
-  padding: 1rem 0;
+  padding: 0.3rem 0;
   color: #404e87;
   position: relative;
   z-index: 1;
@@ -997,7 +996,7 @@ section#property-section .property-details .container-pricing {
   margin: 1rem 5rem;
   background-color: rgba(217, 217, 217, 0.3764705882);
   width: 30%;
-  max-height: 530px;
+  max-height: 550px;
   padding: 1.5rem;
   border-radius: 1.5rem;
 }
