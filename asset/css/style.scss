@@ -1755,6 +1755,7 @@ section#googlemaps-property-section {
   }
 
   .account-buttons {
+    display: flex;
     input[type=submit] {
       border: none;
       background-color: transparent;
@@ -1767,7 +1768,7 @@ section#googlemaps-property-section {
       color: $dash-maincolor;
     }
 
-    button {
+    #delete-account {
       border: none;
       background-color: transparent;
       outline: transparent;

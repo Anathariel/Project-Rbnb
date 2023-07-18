@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 // HERO SLIDER HOMEPAGE
-
 const sliderImages = document.querySelectorAll('.slider-image');
 const prevArrow = document.querySelector('.prev-arrow');
 const nextArrow = document.querySelector('.next-arrow');
@@ -74,8 +73,8 @@ setInterval(showNextSlide, 10000);
 
 
 
-// MENU NAVIGATION ICON
-
+// MENU NAVIGATION ICON 
+//HOMEPAGE
 const containerTagList = document.querySelector('.container-tag-list');
 const leftArrowContainer = document.querySelector('.left-arrow-container');
 const rightArrowContainer = document.querySelector('.right-arrow-container');
@@ -98,7 +97,6 @@ function scrollToRight() {
 
 leftArrow.addEventListener('click', scrollToLeft);
 rightArrow.addEventListener('click', scrollToRight);
-
 
 
 // SCROLL TOP BUTTON HOMEPAGE

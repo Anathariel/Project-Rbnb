@@ -12,37 +12,38 @@
 	{# <h2>Résultat de votre recherche</h2>
 
 	<div id="response"></div> #}
-	<section id="tag-nav">
-		<div id="tag-container">
-			<div class="left-corner">
-				<button class="arrow left-arrow">
-					<img src="{{ asset('/media/icons/arrow.svg')}}" alt="Left arrow icon">
-				</button>
-			</div>
 
-			<div class="container-tag-list">
-				{% for tag in tags %}
-					<div class="tag-item">
-						<a href="#">
-							<img id="icon-tag" src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
-							<img src="../asset/media/locations/" alt="">
-							<p class="darkerblue">{{ tag.type }}</p>
-						</a>
-					</div>
-				{% endfor %}
-			</div>
+<section id="catalogue-tag-nav">
+  <div id="catalogue-tag-container">
+    <div class="catalogue-arrow-container left-arrow-container">
+      <button class="catalogue-arrow left-arrow">
+        <img src="{{ asset('/media/icons/arrow.svg')}}" alt="Left arrow icon">
+      </button>
+    </div>
 
-			<div class="right-corner">
-				<button class="arrow right-arrow">
-					<img src="{{ asset('/media/icons/arrowleft.svg')}}" alt="Right arrow icon">
-				</button>
-				<button class="filter">
-					<img src="{{asset('/media/icons/filter.svg')}}" alt="filter">
-				</button>
-			</div>
-		</div>
-	</section>
-<section id="property-catalog">
+    <div class="catalogue-container-tag-list">
+      {% for tag in tags %}
+      <div class="catalogue-tag-item">
+        <a href="#">
+          <img id="catalogue-icon-tag" src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
+          <img src="../asset/media/locations/" alt="">
+          <p>{{ tag.type }}</p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="catalogue-arrow-container right-arrow-container">
+      <button class="catalogue-arrow right-arrow">
+        <img src="{{ asset('/media/icons/arrowleft.svg')}}" alt="Right arrow icon">
+      </button>
+      <button class="catalogue-filter">
+        <img src="{{asset('/media/icons/filter.svg')}}" alt="filter">
+      </button>
+    </div>
+  </div>
+</section>
+
 
 <section class="catalog-cards">
 			
