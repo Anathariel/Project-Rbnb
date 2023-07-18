@@ -827,14 +827,24 @@ section#property-section .property-details .container-description-property .prop
 section#property-section .property-details .container-description-property .property-description #description-details:hover {
   text-decoration: underline;
 }
+section#property-section .property-details .container-description-property .property-equipment {
+  margin-left: 0.5rem;
+  max-height: 350px;
+}
 section#property-section .property-details .container-description-property .property-equipment .equipment-list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 section#property-section .property-details .container-description-property .property-equipment .equipment-list figure {
+  max-width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 1.5rem 1rem;
   margin-left: 0;
   overflow: hidden;
+  text-align: center;
 }
 section#property-section .property-details .container-description-property .property-equipment .equipment-list figure img {
   margin-right: 0.5rem;
@@ -932,6 +942,7 @@ section#property-section .property-details .container-description-property .prop
   position: relative;
   border: solid 1px #404e87;
   background-color: transparent;
+  padding: 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
   overflow: hidden;

@@ -22,7 +22,7 @@
 	<div class="property-details">
 	{# ----------------- CONTAINER LEFT -------------------------#}
 		<div class="container-description-property">
-			<h3>Chez @{{ property.getOwnerFirstName() }}</h3>
+			<h3>Chez @{{ property.owner.firstName }}</h3>
 
 
 			<div class="property-amenities">
@@ -253,7 +253,7 @@
 									<img src="" alt="">
 								</div>
 								<figcaption>
-									<p>{{ user.firstName }}@User</p>
+									<p>@User</p>
 								</figcaption>
 							</figure>
 						</div>
@@ -336,8 +336,7 @@
 							</figure>
 						</div>
 				</div>
-
-
+				
 				</div>
 
 				{# ---------- Google maps ---------- #}
@@ -404,25 +403,23 @@
 					</div>
 				</div>
 				<div class="property-conditions">
-				{# ---------- HouseRules ---------- #}
-				<div class="reglement">
-					<h4>Règlement intérieur :</h4>
-					<p>Arrivée à partir de
+					{# ---------- HouseRules ---------- #}
+					<div class="reglement">
+						<h4>Règlement intérieur :</h4>
+						<p>Arrivée à partir de
 						{{ houseRules.checkInTime|slice(0, 5) }}</p>
-					<p>Départ avant
+						<p>Départ avant
 						{{ houseRules.checkOutTime|slice(0, 5) }}</p>
-					<p>{{ houseRules.maxGuests }}
+						<p>{{ houseRules.maxGuests }}
 						voyageurs maximum</p>
 
-					<a id="description-details" href="#">
+						<a id="description-details" href="#">
 						En savoir plus →</a>
-				</div>
-
-
-				{# ---------- Cancellation Policy ---------- #}
-				<div class="annulation">
-					<h4>Conditions d'annulation :</h4>
-					{% if cancellationPolicy %}
+					</div>
+					{# ---------- Cancellation Policy ---------- #}
+					<div class="annulation">
+						<h4>Conditions d'annulation :</h4>
+						{% if cancellationPolicy %}
 						<p>Annulation gratuite avant
 							{{ cancellationPolicy.cancellationTime }}</p>
 						<p>Politique de remboursement :
@@ -432,14 +429,12 @@
 							€</p>
 						<a id="description-details" href="#">
 							En savoir plus →</a>
-					{% else %}
+						{% else %}
 						<p>Aucune politique d'annulation définie pour cette propriété.</p>
-					{% endif %}
+						{% endif %}
+					</div>
 				</div>
-
 			</div>
-			</div>
-
 
 			<div class="container-pricing">
 				<p>

@@ -1059,14 +1059,23 @@ section#property-section {
       }
 
       .property-equipment {
+        margin-left: .5rem;
+        max-height: 350px;
+        
         .equipment-list {
           display: flex;
           flex-direction: row;
+          flex-wrap: wrap;
 
           figure {
+            max-width: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 1.5rem 1rem;
             margin-left: 0;
             overflow: hidden;
+            text-align: center;
 
             img {
               margin-right: 0.5rem;
