@@ -20,6 +20,9 @@
 			{% block content %}{% endblock %}
 		</main>
 
+
+
+
 		<!-- Google Maps API -->
 		{% block googleAPI %}
 			<script>
@@ -129,8 +132,9 @@
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOcambCQedSWiOWZsYd7LKrNoA8lXdCFk&libraries=places&callback=initMap&solution_channel=GMP_QB_addressselection_v1_cAB" async defer></script>
 		{% endblock %}
 
-		{% block javascript %}{% endblock %}
+		{% block javascript %}
 		<script src="{{ asset('/js/dashboard.js') }}"></script>
-
+		<script src="{{ asset('/js/map.js') }}"></script>
+		{% endblock %}
 	</body>
 </html>
