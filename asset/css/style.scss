@@ -538,7 +538,7 @@ footer {
 
 //? --------- Tag Nav' Menu Section --------- //
 
-#tag-nav {
+.tag-nav {
   position: relative;
   overflow: hidden;
 
@@ -994,7 +994,7 @@ section#join-us-section {
 }
 
 .scroll-to-top-hidden {
-display: none;
+  display: none;
 }
 
 //~ -------------------- PROPERTY -------------------- //
@@ -1186,20 +1186,46 @@ section#property-section {
             display: flex;
             justify-content: center;
 
-            button.hote-contact {
-              border: 1px solid $accent;
+            button {
+              width: 100%;
+              position: relative;
+              margin: .5rem 0;
+              border: solid 1px $accent;
               background-color: transparent;
-              padding: 1rem;
               border-radius: .5rem;
               cursor: pointer;
-              color: $accent;
+              overflow: hidden;
+    
+              span {
+                display: block;
+                font-family: 'Quicksand';
+                font-size: 1.5rem;
+                width: 100%;
+                padding: 1rem 0;
+                color: $accent;
+                position: relative;
+                z-index: 1;
+              }
+    
+              span:hover {
+                color: $white;
+              }
             }
-
-            button.hote-contact:hover {
+    
+            button:before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0%;
+              height: 100%;
               background-color: $accent;
-              color: $white;
-              border: 1px solid $white;
-              transition: 500ms ease-in;
+              transition: all .5s ease-out;
+              z-index: 0;
+            }
+    
+            button:hover:before {
+              width: 100%;
             }
           }
         }
@@ -1756,6 +1782,7 @@ section#googlemaps-property-section {
 
   .account-buttons {
     display: flex;
+
     input[type=submit] {
       border: none;
       background-color: transparent;
@@ -1840,6 +1867,13 @@ section#googlemaps-property-section {
       }
     }
 
+  }
+
+  figure {
+    margin: 1rem;
+    img{
+      border-radius: .5rem;
+    }
   }
 }
 
