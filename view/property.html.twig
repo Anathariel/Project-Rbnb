@@ -24,7 +24,7 @@
 				class="container-description-property">
 
 				{# ---------- Property ---------- #}
-				<h3>Chez @{{ property.getOwnerFirstName() }}</h3>
+				<h3>Chez @{{ property.owner.firstName }}</h3>
 
 				{# <h3>Type de location :
 																				{% if propertyType.house == 1 %}
@@ -405,7 +405,7 @@
 								<img src="" alt="">
 							</div>
 							<figcaption>
-								<h4>@{{ property.getOwnerFirstName() }}</h4>
+								<h4>@{{ property.owner.firstName }}</h4>
 								<p>Membre depuis : 2020 • Particulier</p>
 								<div class="host-rating">
 									<div

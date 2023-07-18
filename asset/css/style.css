@@ -1094,8 +1094,63 @@ section#googlemaps-property-section div#map {
   height: 400px;
 }
 
+section#addgooglemaps-property-section .sb-title {
+  position: relative;
+  top: -12px;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+}
+section#addgooglemaps-property-section .sb-title-icon {
+  position: relative;
+  top: -5px;
+}
+section#addgooglemaps-property-section .card-container {
+  display: flex;
+  height: 500px;
+  width: 600px;
+}
+section#addgooglemaps-property-section .panel {
+  background: white;
+  width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+section#addgooglemaps-property-section .half-input-container {
+  display: flex;
+  justify-content: space-between;
+}
+section#addgooglemaps-property-section .half-input {
+  max-width: 120px;
+}
+section#addgooglemaps-property-section .map {
+  width: 300px;
+}
+section#addgooglemaps-property-section h2 {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+section#addgooglemaps-property-section input {
+  height: 30px;
+}
+section#addgooglemaps-property-section input {
+  border: 0;
+  border-bottom: 1px solid black;
+  font-size: 14px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+section#addgooglemaps-property-section input:focus::-moz-placeholder {
+  color: white;
+}
+section#addgooglemaps-property-section input:focus::placeholder {
+  color: white;
+}
+
 .dashboard {
-  background-color: #E1E7EA;
+  background-color: #e1e7ea;
   min-height: 90vh;
 }
 .dashboard .welcome-dashboard {
@@ -1130,7 +1185,7 @@ section#googlemaps-property-section div#map {
   border-radius: 5rem;
 }
 .dashboard .welcome-dashboard .user-menu .add.first-link a {
-  background-color: #0E9384;
+  background-color: #0e9384;
   color: #f8f8f8;
 }
 .dashboard .welcome-dashboard .user-menu .add.filter {
@@ -1250,13 +1305,13 @@ section#googlemaps-property-section div#map {
   justify-content: center;
 }
 #addpropertyForm h4 {
-  color: #0E9384;
+  color: #0e9384;
   font-size: 1.2rem;
   margin: 1rem 0;
 }
 #addpropertyForm h5 {
   font-size: 1rem;
-  color: #0E9384;
+  color: #0e9384;
 }
 #addpropertyForm .flex-form {
   display: flex;
@@ -1341,14 +1396,14 @@ section#googlemaps-property-section div#map {
 }
 
 #user-edit {
-  background-color: #E1E7EA;
+  background-color: #e1e7ea;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 #user-edit h2 {
-  color: #0E9384;
+  color: #0e9384;
   margin-bottom: 2rem;
 }
 #user-edit .user-names {
@@ -1373,7 +1428,7 @@ section#googlemaps-property-section div#map {
   font-size: 1rem;
   cursor: pointer;
   border-radius: 0.5rem;
-  color: #0E9384;
+  color: #0e9384;
 }
 #user-edit .account-buttons button {
   border: none;
