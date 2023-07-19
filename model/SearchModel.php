@@ -9,7 +9,6 @@ class SearchModel extends Model
 
         $req = $this->getDb()->prepare("SELECT `propertyId`, `title`, `description`, `priceNight`, `address`, `city`, `postalCode`, `department`, `region`, `country` FROM `property`"
             . " WHERE LOWER(`title`) LIKE :search_term"
-            . " OR LOWER(`description`) LIKE :search_term"
             . " OR LOWER(`priceNight`) LIKE :search_term"
             . " OR LOWER(`address`) LIKE :search_term"
             . " OR LOWER(`city`) LIKE :search_term"

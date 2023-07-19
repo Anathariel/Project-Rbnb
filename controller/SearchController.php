@@ -12,10 +12,13 @@ class SearchController extends Controller
             $datas = $model->getSearchResult($searchTerm);
 
             $propertyImagesModel = new PropertyImagesModel();
+            $averageRatingModel = new CommentModel();
             foreach ($datas as &$property) {
                 $id = $property['propertyId'];
                 $propertyImages = $propertyImagesModel->getPropertyImagesModel($id);
                 $property['images'] = $propertyImages;
+                $averageRating = $averageRatingModel->getAverageRating($id);
+                $property['averageRating'] = $averageRating;
             }
         }
 

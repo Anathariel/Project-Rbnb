@@ -57,6 +57,8 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
         'Conversation' => __DIR__ . '/../..' . '/class/Conversation.php',
         'ErrorController' => __DIR__ . '/../..' . '/controller/ErrorController.php',
         'Favorite' => __DIR__ . '/../..' . '/class/Favorite.php',
+        'FavoriteController' => __DIR__ . '/../..' . '/controller/FavoriteController.php',
+        'FavoriteModel' => __DIR__ . '/../..' . '/model/FavoriteModel.php',
         'HomeController' => __DIR__ . '/../..' . '/controller/HomeController.php',
         'HostLanguage' => __DIR__ . '/../..' . '/class/HostLanguage.php',
         'HostLanguageModel' => __DIR__ . '/../..' . '/model/HostLanguageModel.php',
