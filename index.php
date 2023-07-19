@@ -27,8 +27,10 @@ $router->map('GET', '/logout', 'UserController#logout', 'logout');
 
 // Dashboard Utilisateur
 $router->map('GET', '/account', 'UserController#dashboard', 'dashboard');
-$router->map('GET', '/account/options', 'UserController#options', 'options');
+$router->map('GET|POST', '/account/options', 'UserController#editUser', 'options');
 
+//CRUD USER
+$router->map('POST|DELETE','/user/delete','UserController#delete','deleteUser',);
 
 // CRUD Property
 $router->map('GET|POST', '/addproperty', 'PropertyController#createProperty', 'propertyAdd');

@@ -53,7 +53,7 @@ class UserController extends Controller
                 }
             } else {
                 $message = "Email / mot de passe incorrect!";
-                echo self::getRender('login.html.twig', ['message' => $message]);
+                echo self::getRender('register.html.twig', ['message' => $message]);
             }
         }
     }
@@ -129,8 +129,45 @@ class UserController extends Controller
         echo self::getRender('dashboard.html.twig', $data);
     }
 
-    public function options()
+    public function editUser()
     {
-        echo self::getRender('dashboard-options.html.twig', []);
+        if (!$_POST) {
+            $uid = $_SESSION['uid'];
+            //Récupérer les infos du user dans BDD
+            $userModel = new UserModel();
+            $user = $userModel->getUserById($uid);
+            
+            echo self::getRender('dashboard-options.html.twig', ['user' =>$user]); //info: user est un objet
+
+        } else {
+            // Récupérer les information du  formulaire
+            $uid = $_SESSION['uid'];
+            $firstName = $_POST['firstName'];
+            $lastName = $_POST['lastName'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $confirmation = $_POST['confirmation'];
+            // condition pour verfier le mot de passe
+            if ($password != $confirmation) {
+                $message = 'Mot de passe incorrecte';
+                echo self::getrender('dashboard-options.html.twig', ['message' => $message]);
+            } else {
+
+                if (isset($_POST['submit'])) {
+
+                    $userModel = new UserModel();
+                    $user = $userModel->getUserById($uid);
+                    $user->setUid($uid);
+                    $user->setFirstName($firstName);
+                    $user->setLastName($lastName);
+                    $user->setEmail($email);
+                    $user->setPassword($password);
+                    $userModel->editUser($user);
+                    echo self::getRender('dashboard-options.html.twig', ['user' => $user]);
+                    exit();
+                }
+            }
+        
+        }
     }
 }
