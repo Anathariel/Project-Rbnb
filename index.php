@@ -12,8 +12,11 @@ $router->map('GET', '/blog', 'HomeController#blog', 'blog');
 $router->map('GET', '/catalogue', 'HomeController#catalogue', 'catalogue');
 $router->map('GET', '/tags', '', 'baseTags');
 
-$router->map('GET', '/property/', '', 'baseProperty');
-$router->map('GET', '/property/[i:id]', 'PropertyController#getOne', '');
+$router->map('GET|POST', '/property/', '', 'baseProperty');
+$router->map('GET|POST', '/property/[i:id]', 'PropertyController#getOne', '');
+
+// comment
+$router->map('GET|POST', '/property/comment', 'CommentController#addComment', 'commentAdd');
 
 // Register
 $router->map('GET|POST', '/registration', 'UserController#register', 'register');
@@ -28,6 +31,7 @@ $router->map('GET|POST', '/account/options', 'UserController#editUser', 'options
 
 //CRUD USER
 $router->map('POST|DELETE','/user/delete','UserController#delete','deleteUser',);
+
 // CRUD Property
 $router->map('GET|POST', '/addproperty', 'PropertyController#createProperty', 'propertyAdd');
 

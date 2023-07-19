@@ -16,6 +16,8 @@ class PropertyController extends Controller
         $cancellationPolicyModel = new CancellationPolicyModel();
         $commentModel = new CommentModel();
         $propertyTypeModel = new PropertyTypeModel();
+        $commentModel = new CommentModel();
+
 
         $property = $propertyModel->getOneProperty($id);
         $propertyAmenities = $propertyAmenitiesModel->getPropertyAmenities($id);
@@ -26,10 +28,13 @@ class PropertyController extends Controller
         $cancellationPolicy = $cancellationPolicyModel->getCancellationPolicyModel($id);
         $comment = $commentModel->getCommentModel($id);
         $propertyType = $propertyTypeModel->getPropertyTypeModel($id);
+        $comments = $commentModel->getCommentModel($id);
+
+        $propertyCount = $propertyModel->countUserProperties($property->getOwner()['uid']);
 
 
         $oneProperty = $router->generate('baseProperty');
-        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comment' => $comment, 'propertyType' => $propertyType]);
+        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyCount' => $propertyCount, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comments' => $comments, 'propertyType' => $propertyType,]);
     }
 
     // C R U D
@@ -50,9 +55,17 @@ class PropertyController extends Controller
             ]);
         } else {
             if (isset($_POST['submit'])) {
-                $title = $_POST['title'];
-                $description = $_POST['description'];
-                $priceNight = $_POST['price-night'];
+                $title = isset($_POST['title']) ? $_POST['title'] : '';
+                $description = isset($_POST['description']) ? $_POST['description'] : '';
+                $priceNight = isset($_POST['price-night']) ? $_POST['price-night'] : '';
+                $address = isset($_POST['address']) ? $_POST['address'] : '';
+                $city = isset($_POST['city']) ? $_POST['city'] : '';
+                $postalCode = isset($_POST['postalCode']) ? $_POST['postalCode'] : '';
+                $department = isset($_POST['department']) ? $_POST['department'] : '';
+                $region = isset($_POST['region']) ? $_POST['region'] : '';
+                $country = isset($_POST['country']) ? $_POST['country'] : '';
+                $latitude = isset($_POST['latitude']) ? $_POST['latitude'] : '';
+                $longitude = isset($_POST['longitude']) ? $_POST['longitude'] : '';
 
                 $propertyType = $_POST['property-type'];
 
@@ -65,7 +78,6 @@ class PropertyController extends Controller
                 $maxGuests = $_POST['max-guests'];
 
                 $tags = isset($_POST['tags']) ? $_POST['tags'] : [];
-                var_dump($tags);
 
                 $owner = $_SESSION['uid'];
 
@@ -73,6 +85,14 @@ class PropertyController extends Controller
                     'title' => $title,
                     'description' => $description,
                     'priceNight' => $priceNight,
+                    'address' => $address,
+                    'city' => $city,
+                    'postalCode' => $postalCode,
+                    'department' => $department,
+                    'region' => $region,
+                    'country' => $country,
+                    'latitude' => $latitude,
+                    'longitude' => $longitude,
                     'owner' => $owner,
                 ]);
 
@@ -259,6 +279,14 @@ class PropertyController extends Controller
                     $title = isset($_POST['title']) ? $_POST['title'] : '';
                     $description = isset($_POST['description']) ? $_POST['description'] : '';
                     $priceNight = isset($_POST['price-night']) ? $_POST['price-night'] : '';
+                    $address = isset($_POST['address']) ? $_POST['address'] : '';
+                    $city = isset($_POST['city']) ? $_POST['city'] : '';
+                    $postalCode = isset($_POST['postalCode']) ? $_POST['postalCode'] : '';
+                    $department = isset($_POST['department']) ? $_POST['department'] : '';
+                    $region = isset($_POST['region']) ? $_POST['region'] : '';
+                    $country = isset($_POST['country']) ? $_POST['country'] : '';
+                    $latitude = isset($_POST['latitude']) ? $_POST['latitude'] : '';
+                    $longitude = isset($_POST['longitude']) ? $_POST['longitude'] : '';
                     $propertyType = $_POST['property-type'];
                     $hostLanguages = isset($_POST['host-languages']) ? $_POST['host-languages'] : [];
                     $accomodationTypes = isset($_POST['accommodation-types']) ? $_POST['accommodation-types'] : [];
@@ -270,7 +298,7 @@ class PropertyController extends Controller
                     $tags = isset($_POST['tags']) ? $_POST['tags'] : [];
 
 
-                    $propertyModel->editPropertyModel($id, $title, $description, $priceNight);
+                    $propertyModel->editPropertyModel($id, $title, $description, $priceNight, $address, $city, $postalCode, $department, $region, $country, $latitude, $longitude);
 
                     $propertyType = new PropertyType([
                         'propertyId' => $id,

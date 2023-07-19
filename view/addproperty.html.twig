@@ -50,14 +50,31 @@
 						<h5>Décrivez votre propriété</h5>
 						<label for="description"></label>
 						{# <input
-																																																												type="text" id="description" name="description" placeholder="Entrer la description de la propriété"/> #}
+																																																																																										type="text" id="description" name="description" placeholder="Entrer la description de la propriété"/> #}
 						<textarea name="description" id="description" cols="80" rows="10" placeholder="Entrer la description de la propriété"></textarea>
-						
+						<br>
 
-						<label for="address">Adresse :</label>
-						<input type="text" id="address" placeholder="Entrez votre adresse">
 
-						<div id="map"></div>
+						<section id="addgooglemaps-property-section">
+							<div class="card-container">
+								<div class="panel">
+									<div>
+										<img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
+										<span class="sb-title">Address Selection</span>
+									</div>
+									<input type="text" name="address" placeholder="Addresse de la location" id="location-input"/>
+									<input type="text" name="city" placeholder="ville" id="locality-input"/>
+									<div class="half-input-container">
+										<input type="text" name="region" class="half-input" placeholder="Région" id="administrative_area_level_1-input"/>
+										<input type="text" name="postalCode" class="half-input" placeholder="Code postal" id="postal_code-input"/>
+									</div>
+									<input type="text" name="country" placeholder="Country" id="country-input"/>
+									<input type="hidden" name="latitude" id="latitude-input">
+									<input type="hidden" name="longitude" id="longitude-input">
+								</div>
+								<div class="map" id="gmp-map"></div>
+							</div>
+						</section>
 
 
 						<h4>Langues parlées par l'Hôte</h4>
