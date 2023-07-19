@@ -50,7 +50,7 @@ class Favorite
         $this->favoriteId = $favoriteId;
     }
 
-    public function setUid(int $uid)
+    public function setUid($uid)
     {
         $this->uid = $uid;
     }
