@@ -6,13 +6,16 @@
 {% block content %}
 	<section id="user-edit">
 		<h2>Mon Compte</h2>
-		<form action="#" method="POST">
+		<form method="POST" action="{{ router.generate('editUser',{'id': user.uid}) }}" >
 			<p>Nom Légal</p>
 			<div class="user-names">
-				<input type="text" name="firstname" value="{{ user.firstName }}">
-				<input type="text" name="lastname" value="{{ user.lastName }}">
+				<input type="text" name="firstName" value="{{ user.firstName }}">
+				<input type="text" name="lastName" value="{{ user.lastName }}">
 			</div>
-
+            <p>Mot de passe</p>
+			<input type="password" name="password">
+            <p>Confirmation</p>
+			<input type="password" name="confirmation">
 
 			<p>E-mail</p>
 			<input type="text" name="email" value="{{ user.email }}">
@@ -23,12 +26,11 @@
 			<p>Date de Naissance</p>
 			<input type="date" name="birthdate">
 
-
 			<div class="account-buttons">
 				<input type="submit" name="submit" value="Modifier">
 		</form>
 
-        <form action="" method="POST">
+        <form action="#" method="POST">
 			<input type="hidden" name="_method" value="DELETE">
     	    <input type="submit" value="Delete" id="delete-account">
         </form>
