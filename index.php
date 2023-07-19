@@ -12,8 +12,8 @@ $router->map('GET', '/blog', 'HomeController#blog', 'blog');
 $router->map('GET', '/catalogue', 'HomeController#catalogue', 'catalogue');
 $router->map('GET', '/tags', '', 'baseTags');
 
-$router->map('GET|POST', '/property/', '', 'baseProperty');
-$router->map('GET|POST', '/property/[i:id]', 'PropertyController#getOne', '');
+$router->map('GET|POST', '/property/', 'PropertyController#getOne', 'baseProperty');
+$router->map('GET|POST', '/property/[i:id]', 'PropertyController#getOne', 'propertyOne');
 
 // comment
 $router->map('GET|POST', '/property/comment', 'CommentController#addComment', 'commentAdd');

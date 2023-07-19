@@ -16,7 +16,6 @@ class PropertyController extends Controller
         $cancellationPolicyModel = new CancellationPolicyModel();
         $commentModel = new CommentModel();
         $propertyTypeModel = new PropertyTypeModel();
-        $commentModel = new CommentModel();
 
 
         $property = $propertyModel->getOneProperty($id);
@@ -26,15 +25,14 @@ class PropertyController extends Controller
         $hostLanguage = $hostLanguageModel->getHostLanguageModel($id);
         $propertyImages = $propertyImagesModel->getPropertyImagesModel($id);
         $cancellationPolicy = $cancellationPolicyModel->getCancellationPolicyModel($id);
-        $comment = $commentModel->getCommentModel($id);
         $propertyType = $propertyTypeModel->getPropertyTypeModel($id);
         $comments = $commentModel->getCommentModel($id);
-
+        $averageRating = $commentModel->getAverageRating($id);
         $propertyCount = $propertyModel->countUserProperties($property->getOwner()['uid']);
 
 
         $oneProperty = $router->generate('baseProperty');
-        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyCount' => $propertyCount, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comments' => $comments, 'propertyType' => $propertyType,]);
+        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyCount' => $propertyCount, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comments' => $comments, 'propertyType' => $propertyType, 'averageRating' => $averageRating]);
     }
 
     // C R U D

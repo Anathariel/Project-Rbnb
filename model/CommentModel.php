@@ -36,17 +36,33 @@ class CommentModel extends Model
 
     public function addCommentModel(Comment $comment)
     {
+        var_dump($comment);
         $propertyId = $comment->getPropertyId();
+        echo $propertyId;
         $userId = $comment->getUid();
         $rating = $comment->getRating();
         $commentText = $comment->getCommentText();
 
-
         $req = $this->getDb()->prepare('INSERT INTO `comment` (`propertyId`, `uid`, `rating`, `commentText`) VALUES (:propertyId, :userId, :rating, :commentText)');
+
         $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
         $req->bindParam(':userId', $userId, PDO::PARAM_INT);
         $req->bindParam(':rating', $rating, PDO::PARAM_INT);
         $req->bindParam(':commentText', $commentText, PDO::PARAM_STR);
+        
         $req->execute();
+    }
+
+    public function getAverageRating(int $propertyId)
+    {
+        $req = $this->getDb()->prepare('SELECT AVG(`rating`) AS averageRating FROM `comment` WHERE `propertyId` = :propertyId');
+        $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+        $req->execute();
+
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+        $averageRating = $result['averageRating'];
+
+        // Return 0 if no comments are found for the property
+        return $averageRating !== null ? floatval($averageRating) : 0;
     }
 }
