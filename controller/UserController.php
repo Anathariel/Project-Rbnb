@@ -129,8 +129,8 @@ class UserController extends Controller
         echo self::getRender('dashboard.html.twig', $data);
     }
 
-    public function options(){
-        
+    public function options()
+    {
         echo self::getRender('dashboard-options.html.twig', []);
     }
 }

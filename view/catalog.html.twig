@@ -4,273 +4,54 @@
 {% endblock %}
 
 {% block content %}
-		{# <form action="{{ path('search') }}" method="GET" id="search-form">
-			<input type="text" name="search" placeholder="Rechercher une location . . ." id="input-search">
-			<button type="submit">X</button>
-		</form> #}
-		
-	{# <h2>Résultat de votre recherche</h2>
+	<form action="{{ path('search') }}" method="GET" id="search-form">
+		<input type="text" name="search" placeholder="Rechercher une location . . ." id="input-search">
+		<input type="submit" value="Rechercher">
+	</form>
 
-	<div id="response"></div> #}
-{% include 'category-menu.html.twig' %}
+	{% include 'category-menu.html.twig' %}
 
-<section class="catalog-cards">
-			
-	<a href="#">
-		<div class="card">
-			<figure>
-				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
-					<figcaption>
-						<a href="#">
-							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
-						</a>
-					</figcaption>
-			</figure>
+	<h2>Résultat de votre recherche</h2>
 
-			<div class="card-details">
-				<div class="pricing">
-				<h3><span>60€</span>/nuit</h3>
-					<div class="rating">
-						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-						<p>5.0</p>
+	<div id="response"></div>
+
+	<section class="catalog-cards">
+		{% for property in result %}
+			<a href="#">
+				<div class="card">
+					<figure>
+							<img src="{{ asset('/media/locations/' ~ images.imageMainURL) }}" alt="{{ property.title }}"/>
+						<figcaption>
+							<a href="#">
+								<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+							</a>
+						</figcaption>
+					</figure>
+
+					<div class="card-details">
+						<div class="pricing">
+							<h3>
+								<span>{{ property.priceNight }}€</span>/nuit
+							</h3>
+							<div class="rating">
+								<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+								<p>5.0</p>
+							</div>
+						</div>
+						<div class="location">
+							<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+							<p>{{ property.city }},{{ property.region }}</p>
+						</div>
+						<div class="description">
+							<h3>{{ property.title }}</h3>
+							<p>{{ property.description }}</p>
+						</div>
+						<button>
+							<span>Réserver</span>
+						</button>
 					</div>
 				</div>
-				<div class="location">
-				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-				<p>Jakarta, Indonesia</p>
-				</div>
-				<div class="description">
-				<h3>User Experience Design</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
-				</div>
-				<button><span>Réserver</span></button>					
-			</div>
-		</div>
-	</a>
-
-	<a href="#">
-		<div class="card">
-			<figure>
-				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
-					<figcaption>
-						<a href="#">
-							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
-						</a>
-					</figcaption>
-			</figure>
-
-			<div class="card-details">
-				<div class="pricing">
-				<h3><span>60€</span>/nuit</h3>
-					<div class="rating">
-						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-						<p>5.0</p>
-					</div>
-				</div>
-				<div class="location">
-				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-				<p>Jakarta, Indonesia</p>
-				</div>
-				<div class="description">
-				<h3>User Experience Design</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
-				</div>
-				<button><span>Réserver</span></button>					
-			</div>
-		</div>
-	</a>
-
-	<a href="#">
-		<div class="card">
-			<figure>
-				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
-					<figcaption>
-						<a href="#">
-							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
-						</a>
-					</figcaption>
-			</figure>
-
-			<div class="card-details">
-				<div class="pricing">
-				<h3><span>60€</span>/nuit</h3>
-					<div class="rating">
-						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-						<p>5.0</p>
-					</div>
-				</div>
-				<div class="location">
-				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-				<p>Jakarta, Indonesia</p>
-				</div>
-				<div class="description">
-				<h3>User Experience Design</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
-				</div>
-				<button><span>Réserver</span></button>					
-			</div>
-		</div>
-	</a>
-
-	<a href="#">
-		<div class="card">
-			<figure>
-				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
-					<figcaption>
-						<a href="#">
-							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
-						</a>
-					</figcaption>
-			</figure>
-
-			<div class="card-details">
-				<div class="pricing">
-				<h3><span>60€</span>/nuit</h3>
-					<div class="rating">
-						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-						<p>5.0</p>
-					</div>
-				</div>
-				<div class="location">
-				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-				<p>Jakarta, Indonesia</p>
-				</div>
-				<div class="description">
-				<h3>User Experience Design</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
-				</div>
-				<button><span>Réserver</span></button>					
-			</div>
-		</div>
-	</a>
-
-	<a href="#">
-		<div class="card">
-			<figure>
-				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
-					<figcaption>
-						<a href="#">
-							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
-						</a>
-					</figcaption>
-			</figure>
-
-			<div class="card-details">
-				<div class="pricing">
-				<h3><span>60€</span>/nuit</h3>
-					<div class="rating">
-						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-						<p>5.0</p>
-					</div>
-				</div>
-				<div class="location">
-				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-				<p>Jakarta, Indonesia</p>
-				</div>
-				<div class="description">
-				<h3>User Experience Design</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
-				</div>
-				<button><span>Réserver</span></button>					
-			</div>
-		</div>
-	</a>
-
-	<a href="#">
-		<div class="card">
-			<figure>
-				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
-					<figcaption>
-						<a href="#">
-							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
-						</a>
-					</figcaption>
-			</figure>
-
-			<div class="card-details">
-				<div class="pricing">
-				<h3><span>60€</span>/nuit</h3>
-					<div class="rating">
-						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-						<p>5.0</p>
-					</div>
-				</div>
-				<div class="location">
-				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-				<p>Jakarta, Indonesia</p>
-				</div>
-				<div class="description">
-				<h3>User Experience Design</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
-				</div>
-				<button><span>Réserver</span></button>					
-			</div>
-		</div>
-	</a>
-
-	<a href="#">
-		<div class="card">
-			<figure>
-				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
-					<figcaption>
-						<a href="#">
-							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
-						</a>
-					</figcaption>
-			</figure>
-
-			<div class="card-details">
-				<div class="pricing">
-				<h3><span>60€</span>/nuit</h3>
-					<div class="rating">
-						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-						<p>5.0</p>
-					</div>
-				</div>
-				<div class="location">
-				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-				<p>Jakarta, Indonesia</p>
-				</div>
-				<div class="description">
-				<h3>User Experience Design</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
-				</div>
-				<button><span>Réserver</span></button>					
-			</div>
-		</div>
-	</a>
-
-	<a href="#">
-		<div class="card">
-			<figure>
-				<img src="{{ asset('/media/locations/64a57c0723fae.jpg') }}" alt="Destination"/>
-					<figcaption>
-						<a href="#">
-							<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
-						</a>
-					</figcaption>
-			</figure>
-
-			<div class="card-details">
-				<div class="pricing">
-				<h3><span>60€</span>/nuit</h3>
-					<div class="rating">
-						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-						<p>5.0</p>
-					</div>
-				</div>
-				<div class="location">
-				<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-				<p>Jakarta, Indonesia</p>
-				</div>
-				<div class="description">
-				<h3>User Experience Design</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestias!</p>
-				</div>
-				<button><span>Réserver</span></button>					
-			</div>
-		</div>
-	</a>
-
-</section>
+			</a>
+		{% endfor %}
+	</section>
 {% endblock %}
