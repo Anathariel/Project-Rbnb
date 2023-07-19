@@ -798,9 +798,6 @@ section#property-section figure img {
   width: 30%;
   height: auto;
 }
-section#property-section .inline-title {
-  display: flex;
-}
 section#property-section h3 {
   font-size: 1.5rem;
   color: #404e87;
@@ -974,29 +971,29 @@ section#property-section .property-details .container-description-property .prop
 section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:hover:before {
   width: 100%;
 }
-section#property-section .property-details .property-conditions {
+section#property-section .property-details .container-description-property .property-conditions {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-section#property-section .property-details .property-conditions .annulation,
-section#property-section .property-details .property-conditions .reglement {
+section#property-section .property-details .container-description-property .property-conditions .annulation,
+section#property-section .property-details .container-description-property .property-conditions .reglement {
   max-width: 300px;
 }
-section#property-section .property-details .property-conditions .annulation h4,
-section#property-section .property-details .property-conditions .reglement h4 {
+section#property-section .property-details .container-description-property .property-conditions .annulation h4,
+section#property-section .property-details .container-description-property .property-conditions .reglement h4 {
   font-size: 1.3rem;
 }
-section#property-section .property-details .property-conditions .annulation p,
-section#property-section .property-details .property-conditions .reglement p {
+section#property-section .property-details .container-description-property .property-conditions .annulation p,
+section#property-section .property-details .container-description-property .property-conditions .reglement p {
   margin: 1rem;
 }
-section#property-section .property-details .property-conditions .annulation a,
-section#property-section .property-details .property-conditions .reglement a {
+section#property-section .property-details .container-description-property .property-conditions .annulation a,
+section#property-section .property-details .container-description-property .property-conditions .reglement a {
   font-size: 1.1rem;
 }
-section#property-section .property-details .property-conditions .annulation a:hover,
-section#property-section .property-details .property-conditions .reglement a:hover {
+section#property-section .property-details .container-description-property .property-conditions .annulation a:hover,
+section#property-section .property-details .container-description-property .property-conditions .reglement a:hover {
   color: #404e87;
   text-decoration: underline;
   transition: 250ms ease-in;

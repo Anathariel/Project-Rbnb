@@ -1021,10 +1021,6 @@ section#property-section {
     }
   }
 
-  .inline-title {
-    display: flex;
-  }
-
   h3 {
     font-size: 1.5rem;
     color: $accent;
@@ -1239,33 +1235,33 @@ section#property-section {
           }
         }
       }
-    }
 
-    .property-conditions {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      .annulation,
-      .reglement {
-        max-width: 300px;
-
-        h4 {
-          font-size: 1.3rem;
-        }
-
-        p {
-          margin: 1rem;
-        }
-
-        a {
-          font-size: 1.1rem;
-        }
-
-        a:hover {
-          color: $accent;
-          text-decoration: underline;
-          transition: 250ms ease-in;
+      .property-conditions {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+  
+        .annulation,
+        .reglement {
+          max-width: 300px;
+  
+          h4 {
+            font-size: 1.3rem;
+          }
+  
+          p {
+            margin: 1rem;
+          }
+  
+          a {
+            font-size: 1.1rem;
+          }
+  
+          a:hover {
+            color: $accent;
+            text-decoration: underline;
+            transition: 250ms ease-in;
+          }
         }
       }
     }

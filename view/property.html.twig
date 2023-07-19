@@ -5,40 +5,38 @@
 {% endblock %}
 
 {% block content %}
+{# ---------- property-section ---------- #}
+<section id="property-section">
+	<h1>{{ property.title }}</h1>
+	<span>{{ property.comment }}○{{ property.address }}</span>
 
-	{# ---------- property-section ---------- #}
-	<section id="property-section">
-		<h1>{{ property.title }}</h1>
-		<span>{{ property.comment }}○{{ property.address }}</span>
+	<figure>
+		{% if propertyImages.imageMainURL %}
+			<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+		{% endif %}
+		{% if propertyImages.image1URL %}
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
+		{% endif %}
+		{% if propertyImages.image2URL %}
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
+		{% endif %}
+		{% if propertyImages.image3URL %}
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
+		{% endif %}
+		{% if propertyImages.image4URL %}
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
+		{% endif %}
+	</figure>
 
-		<figure>
-			{% if propertyImages.imageMainURL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image1URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image2URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image3URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image4URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-		</figure>
-
-		<div
-			class="property-details">
-			{# ----------------- CONTAINER LEFT -------------------------#}
+{# -------------- CONTAINER DESCRIPTION -------------- #}
+	<div class="property-details">
+{# -------------- LEFT SIDE DESCRIPTION -------------- #}
 			<div class="container-description-property">
 				<h3>Chez @{{ property.owner.firstName }}</h3>
 
 
 				<div class="property-amenities">
-					<p>{{ houseRules.maxGuests }}
-						voyageurs</p>
+					<p>{{ houseRules.maxGuests }}voyageurs</p>
 					{# ---------- Amenities ---------- #}
 					{% if propertyAmenities.beds > 0 %}
 						<p>{{ propertyAmenities.beds }}{{ propertyAmenities.beds == 1 ? "lit" : "lits" }}</p>
@@ -246,29 +244,28 @@
 					</div>
 
 					<div class="container-comments-row">
+						{% for comment in comments %}
 						<div class="container-comment">
-							{% for comment in comments %}
-								<div class="stars-rating">
-									<p>{{ comment.rating }}
-										étoiles</p>
-									<figure>
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-									</figure>
-								</div>
-								<p>{{ comment.commentText }}</p>
+							<div class="stars-rating">
+								<p>{{ comment.rating }} étoiles</p>
 								<figure>
-									<div id="profile-picture">
-										<img src="" alt="">
-									</div>
-									<figcaption>
-										<p>{{ comment.firstname }}</p>
-									</figcaption>
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
 								</figure>
 							</div>
+							<p>{{ comment.commentText }}</p>
+							<figure>
+								<div id="profile-picture">
+									<img src="" alt="">
+								</div>
+								<figcaption>
+									<p>{{ comment.firstname }}</p>
+								</figcaption>
+							</figure>
+						</div>
 						{% endfor %}
 					</div>
 				</div>
@@ -295,8 +292,7 @@
 								<h4>@{{ property.owner.firstName }}</h4>
 								<p>Membre depuis : 2020 • Particulier</p>
 								<div class="host-rating">
-									<div
-										class="stars-rating">
+									<div class="stars-rating">
 										{# <p>{{ comment.rating }}étoiles</p> #}
 										<figure>
 											<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
@@ -331,120 +327,105 @@
 								{% endfor %}
 							</div>
 
-							<p>Nombre de Logements :
-								{{ propertyCount }}</p>
+							<p>Nombre de Logements :{{ propertyCount }}</p>
 						</div>
 
 						<div class="center-button">
-							<button class="hote-contact">
-								<span>Contacter l'Hôte<span></button>
-								</div>
-							</div>
-						</div>
-						<div
-							class="property-conditions">
-							{# ---------- HouseRules ---------- #}
-							<div class="reglement">
-								<h4>Règlement intérieur :</h4>
-								<p>Arrivée à partir de
-									{{ houseRules.checkInTime|slice(0, 5) }}</p>
-								<p>Départ avant
-									{{ houseRules.checkOutTime|slice(0, 5) }}</p>
-								<p>{{ houseRules.maxGuests }}
-									voyageurs maximum</p>
-
-								<a id="description-details" href="#">
-									En savoir plus →</a>
-							</div>
-							{# ---------- Cancellation Policy ---------- #}
-							<div class="annulation">
-								<h4>Conditions d'annulation :</h4>
-								{% if cancellationPolicy %}
-									<p>Annulation gratuite avant
-										{{ cancellationPolicy.cancellationTime }}</p>
-									<p>Politique de remboursement :
-										{{ cancellationPolicy.refundPolicy }}</p>
-									<p>Frais d'annulation :
-										{{ cancellationPolicy.cancellationFees }}
-										€</p>
-									<a id="description-details" href="#">
-										En savoir plus →</a>
-								{% else %}
-									<p>Aucune politique d'annulation définie pour cette propriété.</p>
-								{% endif %}
-							</div>
+							<button class="hote-contact"><span>Contacter l'Hôte<span></button>
 						</div>
 					</div>
+				</div>
 
-					<div class="container-pricing">
-						<p>
-							<span>{{ property.PriceNight }}€</span>
-							par nuit</p>
-						<div class="container-calendar-traveler">
-							<div class="reservation-options">
-								<div class="calendar">
-									<div class="arrival">
-										<h4>Arrivée</h4>
-										<input type="date">
-									</div>
-									<div class="departure">
-										<h4>Départ</h4>
-										<input type="date">
-									</div>
+				<div class="property-conditions">
 
-								</div>
-								<div class="traveler">
-									<h4>Voyageurs</h4>
-									<select name="traveler" id="traveler-select">
-										<option value="1 Voyageur">1 Voyageur</option>
-										<option value="2 Voyageur">2 Voyageurs</option>
-										<option value="3 Voyageur">3 Voyageurs</option>
-										<option value="4 Voyageur">4 Voyageurs</option>
-										<option value="5 Voyageur">5 Voyageurs</option>
-										<option value="6 Voyageur">6 Voyageurs</option>
-										<option value="7 Voyageur">7 Voyageurs</option>
-										<option value="8 Voyageur">8+ Voyageurs</option>
-									</select>
-								</div>
-							</div>
-							<button>
-								<span>Réserver</span>
-							</button>
-							<p>Aucun montant ne vous sera débité pour le moment</p>
-						</div>
-						<div class="price-details">
-							<div class="details">
-								<p>45€ x 5 nuits</p>
-								<p>Frais de service Loca'R</p>
-								<p>Taxes</p>
-								<h4>Total du sejour</h4>
-							</div>
-							<div class="prices">
-								<p>225€</p>
-								<p>38€</p>
-								<p>3€</p>
-								<h4>266€</h4>
-							</div>
-						</div>
+					<div class="reglement">
+						<h4>Règlement intérieur :</h4>
+						<p>Arrivée à partir de {{ houseRules.checkInTime|slice(0, 5) }}</p>
+						<p>Départ avant {{ houseRules.checkOutTime|slice(0, 5) }}</p>
+						<p>{{ houseRules.maxGuests }} voyageurs maximum</p>
+						<a id="description-details" href="#">En savoir plus →</a>
 					</div>
-					<h3>Laisser votre commentaire</h3>
-					<div>
-						<form action="{{ path('commentAdd') }}" method="POST">
-							<div>
-								<label for="rating">Votre note (sur 5) :</label>
-								<br>
-								<input type="number" id="rating" name="rating" required>
-							</div>
-							<div>
-								<label for="comment">Votre commentaire :</label>
-								<br>
-								<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
-								<br>
-							</div>
-							<input type="submit" name="submit" value="Proposer mon commentaire">
-						</form>
+
+					<div class="annulation">
+						<h4>Conditions d'annulation :</h4>
+						{% if cancellationPolicy %}
+							<p>Annulation gratuite avant {{ cancellationPolicy.cancellationTime }}</p>
+							<p>Politique de remboursement : {{ cancellationPolicy.refundPolicy }}</p>
+							<p>Frais d'annulation : {{ cancellationPolicy.cancellationFees }}€</p>
+							<a id="description-details" href="#">En savoir plus →</a>
+						{% else %}
+							<p>Aucune politique d'annulation définie pour cette propriété.</p>
+						{% endif %}
 					</div>
 				</div>
 			</div>
-		</section>
-	{% endblock %}
+{# --------------- RIGHT SIDE PRICE BOX -------------- #}
+			<div class="container-pricing">
+				<p><span>{{ property.PriceNight }}€</span>par nuit</p>
+				<div class="container-calendar-traveler">
+						<div class="reservation-options">
+							<div class="calendar">
+								<div class="arrival">
+									<h4>Arrivée</h4>
+									<input type="date">
+								</div>
+								<div class="departure">
+									<h4>Départ</h4>
+									<input type="date">
+								</div>
+
+							</div>
+							<div class="traveler">
+								<h4>Voyageurs</h4>
+								<select name="traveler" id="traveler-select">
+									<option value="1 Voyageur">1 Voyageur</option>
+									<option value="2 Voyageur">2 Voyageurs</option>
+									<option value="3 Voyageur">3 Voyageurs</option>
+									<option value="4 Voyageur">4 Voyageurs</option>
+									<option value="5 Voyageur">5 Voyageurs</option>
+									<option value="6 Voyageur">6 Voyageurs</option>
+									<option value="7 Voyageur">7 Voyageurs</option>
+									<option value="8 Voyageur">8+ Voyageurs</option>
+								</select>
+							</div>
+						</div>
+						<button><span>Réserver</span></button>
+						<p>Aucun montant ne vous sera débité pour le moment</p>
+				</div>
+				<div class="price-details">
+						<div class="details">
+							<p>45€ x 5 nuits</p>
+							<p>Frais de service Loca'R</p>
+							<p>Taxes</p>
+							<h4>Total du sejour</h4>
+						</div>
+						<div class="prices">
+							<p>225€</p>
+							<p>38€</p>
+							<p>3€</p>
+							<h4>266€</h4>
+						</div>
+				</div>
+			</div>
+	</div>
+
+
+	<h3>Laisser votre commentaire</h3>
+	<div class="add-comment-rating">
+		<form action="{{ path('commentAdd') }}" method="POST">
+			<div>
+				<label for="rating">Votre note (sur 5) :</label>
+				<br>
+				<input type="number" id="rating" name="rating" required>
+			</div>
+			<div class="input-add-comment">
+				<label for="comment">Votre commentaire :</label>
+				<br>
+				<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
+				<br>
+			</div>
+			<input type="submit" name="submit" value="Proposer mon commentaire">
+		</form>
+	</div>
+</section>
+{% endblock %}
