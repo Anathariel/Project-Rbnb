@@ -253,7 +253,7 @@
 						<button class="comment-leftarrow"><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
 						<button class="comment-rightarrow"><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
 					</div>
-
+				{% endif %}
                 <div class="container-comments-row">
                     {% for comment in comments %}
                     <div class="container-comment">
@@ -438,4 +438,4 @@
         </form>
     </div>
 </section>
-	{% endblock %}
+{% endblock %}
