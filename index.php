@@ -31,6 +31,7 @@ $router->map('GET|POST', '/account/options', 'UserController#editUser', 'options
 
 //CRUD USER
 $router->map('POST|DELETE','/user/delete','UserController#delete','deleteUser',);
+
 // CRUD Property
 $router->map('GET|POST', '/addproperty', 'PropertyController#createProperty', 'propertyAdd');
 

@@ -131,9 +131,7 @@ class UserController extends Controller
 
     public function editUser()
     {
-
         if (!$_POST) {
-
             $uid = $_SESSION['uid'];
             //Récupérer les infos du user dans BDD
             $userModel = new UserModel();
@@ -173,7 +171,6 @@ class UserController extends Controller
                     $user->setLastName($lastName);
                     $user->setEmail($email);
                     $user->setPassword($password);
-var_dump($user);
                     $userModel->editUser($user);
                     echo self::getRender('dashboard-options.html.twig', ['user' => $user,]);
                     exit();
