@@ -63,5 +63,20 @@ class UserModel extends Model
         $req->execute();
         
     }
+    public function delete(){
+
+        // $uid = $user->getUid();
+        // $firstName = $user->getFirstName();
+        // $lastName = $user->getLastName();
+        // $email = $user->getEmail();
+        // Delete the recipe
+        $req = $this->getDb()->prepare('DELETE FROM `user` WHERE `uid` = :uid');
+        $req->bindParam('uid', $uid, PDO::PARAM_INT);
+        // $req->bindParam(':firstName', $firstName, PDO::PARAM_STR);
+        // $req->bindParam(':lastName', $lastName, PDO::PARAM_STR);
+        // $req->bindParam(':email', $email, PDO::PARAM_STR);
+        $req->execute();
+
+    }
 
 }

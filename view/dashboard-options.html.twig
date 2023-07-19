@@ -30,9 +30,9 @@
 				<input type="submit" name="submit" value="Modifier">
 		</form>
 
-        <form action="#" method="POST">
-			<input type="hidden" name="_method" value="DELETE">
-    	    <input type="submit" value="Delete" id="delete-account">
+        <form action="{{ router.generate('deleteUser', {'id': user.id}) }}" method="POST">
+			<input type="submit" name="delete" value="DELETE">
+    	   
         </form>
 		    </div>
 

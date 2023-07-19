@@ -141,14 +141,14 @@ class UserController extends Controller
             $firstName = $user->getFirstName();
             $lastName = $user->getLastName();
             $email = $user->getEmail();
-    
+
             $data = [
                 'firstName' => $firstName,
                 'email' => $email,
                 'lastName' => $lastName,
             ];
-            
-            echo self::getRender('dashboard-options.html.twig', ['user' =>$user,'data' =>$data]); //info: user est un objet
+
+            echo self::getRender('dashboard-options.html.twig', ['user' => $user, 'data' => $data]); //info: user est un objet
 
         } else {
             // Récupérer les information du  formulaire
@@ -173,13 +173,30 @@ class UserController extends Controller
                     $user->setLastName($lastName);
                     $user->setEmail($email);
                     $user->setPassword($password);
-var_dump($user);
+
                     $userModel->editUser($user);
                     echo self::getRender('dashboard-options.html.twig', ['user' => $user,]);
                     exit();
                 }
             }
-        
+        }
+    }
+    public function delete($uid)
+    {
+        // Vérifie si la méthode de la requête HTTP est POST et si le paramètre "_method" est défini à "DELETE"
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['_method'] === 'DELETE') {
+            // // Crée un nouvel objet 
+            $user = new UserModel();
+            // $user1 = $userModel->getUserById($uid);
+            // $firstName = $user1->getFirstName();
+            // $lastName = $user1->getLastName();
+            // $email = $user1->getEmail();
+            // Appelle la méthode "delete pour supprimer le USER spécifiée par l'identifiant $id
+            $user->delete($uid);
+            var_dump($uid);
+            
+            echo self::getRender('dashboard-options.html.twig', ['user' => $user,]);
+            exit();
         }
     }
 }
