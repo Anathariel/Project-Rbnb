@@ -133,13 +133,22 @@ class UserController extends Controller
     {
 
         if (!$_POST) {
+
             $uid = $_SESSION['uid'];
             //Récupérer les infos du user dans BDD
-            $userModel = new userModel();
-
+            $userModel = new UserModel();
             $user = $userModel->getUserById($uid);
-
-            echo self::getRender('dashboard-options.html.twig', ['user' => $user]); //info: user est un objet
+            $firstName = $user->getFirstName();
+            $lastName = $user->getLastName();
+            $email = $user->getEmail();
+    
+            $data = [
+                'firstName' => $firstName,
+                'email' => $email,
+                'lastName' => $lastName,
+            ];
+            
+            echo self::getRender('dashboard-options.html.twig', ['user' =>$user,'data' =>$data]); //info: user est un objet
 
         } else {
             // Récupérer les information du  formulaire
@@ -149,7 +158,7 @@ class UserController extends Controller
             $email = $_POST['email'];
             $password = $_POST['password'];
             $confirmation = $_POST['confirmation'];
-            //condition pour verfier le mot de passe
+            // condition pour verfier le mot de passe
             if ($password != $confirmation) {
                 $message = 'Mot de passe incorrecte';
                 echo self::getrender('dashboard-options.html.twig', ['message' => $message]);
@@ -157,38 +166,20 @@ class UserController extends Controller
 
                 if (isset($_POST['submit'])) {
 
-                    $userModel = new userModel();
+                    $userModel = new UserModel();
                     $user = $userModel->getUserById($uid);
-
+                    $user->setUid($uid);
                     $user->setFirstName($firstName);
                     $user->setLastName($lastName);
                     $user->setEmail($email);
                     $user->setPassword($password);
-
+var_dump($user);
                     $userModel->editUser($user);
-                    echo self::getRender('dashboard-options.html.twig', ['user' => $user]);
+                    echo self::getRender('dashboard-options.html.twig', ['user' => $user,]);
                     exit();
                 }
             }
+        
         }
-    }
-
-
-    public function options()
-    {
-        $userId = $_SESSION['uid'];
-        $userModel = new UserModel();
-        $user = $userModel->getUserById($userId);
-        $firstName = $user->getFirstName();
-        $lastName = $user->getLastName();
-        $email = $user->getEmail();
-
-        $data = [
-            'firstName' => $firstName,
-            'email' => $email,
-            'lastName' => $lastName,
-        ];
-
-        echo self::getRender('dashboard-options.html.twig', $data);
     }
 }

@@ -47,23 +47,20 @@ class UserModel extends Model
     public function editUser(User $user){
 
        // récupère les informations de l'utilisateur
+        $uid = $user->getUid();
         $firstName = $user->getFirstName();
         $lastName = $user->getLastName();
         $email = $user->getEmail();
-        $password = $user->getPassword();
-
         // Obtient la connexion à la base de données
         $db = $this->getDb(); 
          // Prépare la requête de mise à jour pour mettre à jour les données de l'utilisateur
-        $user = $db->prepare('UPDATE `user` SET `firstName` = :firstName,`lastName` = :lastName,`email` = :email WHERE `uid` = :uid');
-         // Associe la valeur de $uid au paramètre :
-        $user->bindParam(':uid', $uid, PDO::PARAM_INT);
-        $user->bindParam(':firstName', $firstName, PDO::PARAM_STR);
-        $user->bindParam(':lastName', $lastName, PDO::PARAM_STR);
-        $user->bindParam(':email', $email, PDO::PARAM_STR);
-        
-      
-        $user->execute();
+        $req = $db->prepare('UPDATE `user` SET `firstName` = :firstName,`lastName` = :lastName,`email` = :email WHERE `uid` = :uid');
+         // Associe la valeur de $uid au paramètre 
+        $req->bindParam(':uid', $uid, PDO::PARAM_INT);
+        $req->bindParam(':firstName', $firstName, PDO::PARAM_STR);
+        $req->bindParam(':lastName', $lastName, PDO::PARAM_STR);
+        $req->bindParam(':email', $email, PDO::PARAM_STR);
+        $req->execute();
         
     }
 
