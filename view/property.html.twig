@@ -5,10 +5,16 @@
 {% endblock %}
 
 {% block content %}
-{# ---------- property-section ---------- #}
-<section id="property-section">
-    <h1>{{ property.title }}</h1>
-    <span>{{ property.comment }}○{{ property.address }}</span>
+
+	{# ---------- property-section ---------- #}
+	<section id="property-section">
+		<h1>{{ property.title }}</h1>
+		<span>{{ averageRating }}
+			étoiles</span>
+		○
+		{{ property.city }},
+		{{ property.region }},
+		{{ property.country }}</span>
 
     <figure>
         {% if propertyImages.imageMainURL %}
@@ -238,12 +244,15 @@
                 </div>
             </div>
 
-            <div class="property-comments">
-                <h3>Ce qu'ils en disent :</h3>
-                <div class="nav-arrows">
-                    <button class="comment-leftarrow"><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
-                    <button class="comment-rightarrow"><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
-                </div>
+			<div class="property-comments">
+				<h3>Ce qu'ils en disent :</h3>
+				{% if comments is empty %}
+					<p>Pas encore de commentaire pour cette location.</p>
+				{% else %}
+					<div class="nav-arrows">
+						<button class="comment-leftarrow"><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
+						<button class="comment-rightarrow"><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
+					</div>
 
                 <div class="container-comments-row">
                     {% for comment in comments %}
@@ -272,14 +281,15 @@
                 </div>
             </div>
 
-            {# ---------- Google maps ---------- #}
-            <h3>Où se situe ce logement</h3>
+			{# ---------- Google maps ---------- #}
+			<h3>Où se situe ce logement</h3>
 
-            {% include 'googlemaps.html.twig' %}
-            <p>{{ property.city }},
-                {{ property.region }},
-                {{ property.country }}</p>
-            {# ----------------------------------- #}
+			{% include 'googlemaps.html.twig' %}
+			<p>{{ property.address }},
+				{{ property.city }},
+				{{ property.region }},
+				{{ property.country }}</p>
+			{# ----------------------------------- #}
 
             <div class="property-host">
                 <h3>A propos de votre Hôte</h3>

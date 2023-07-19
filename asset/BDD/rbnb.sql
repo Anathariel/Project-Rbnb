@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 18 juil. 2023 à 21:37
+-- Généré le : mer. 19 juil. 2023 à 11:44
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -70,8 +70,7 @@ INSERT INTO `accommodationtype` (`accommodationTypeId`, `propertyId`, `piscine`,
 (76, 105, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1),
 (77, 106, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1),
 (90, 119, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(91, 120, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(92, 121, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(91, 120, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -106,15 +105,17 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`commentId`),
   KEY `USER` (`uid`),
   KEY `property` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `comment`
 --
 
 INSERT INTO `comment` (`commentId`, `uid`, `propertyId`, `rating`, `commentText`) VALUES
-(3, 13, 121, 4, 'ceci est un test de commentaire'),
-(4, 8, 121, 3, 'coucou');
+(14, 10, 120, 5, 'J\'ai passé un excellent séjour chez Airbnb ! L\'hébergement était confortable et l\'hôte était très accueillant. Je recommande vivement cette plateforme pour trouver des logements de qualité.'),
+(15, 10, 120, 2, 'J\'ai passé un excellent séjour chez Airbnb ! L\'hébergement était confortable et l\'hôte était très accueillant. Je recommande vivement cette plateforme pour trouver des logements de qualité.'),
+(16, 10, 119, 2, 'J\'ai passé un excellent séjour chez Airbnb ! L\'hébergement était confortable et l\'hôte était très accueillant. Je recommande vivement cette plateforme pour trouver des logements de qualité.'),
+(17, 13, 120, 4, 'goooooooooooooooo');
 
 -- --------------------------------------------------------
 
@@ -187,8 +188,7 @@ INSERT INTO `hostlanguage` (`hostLanguageId`, `propertyId`, `anglais`, `françai
 (63, 105, 1, 1, 1, 0, 0, 1, 1, 0, 1),
 (64, 106, 1, 1, 0, 0, 0, 1, 1, 0, 0),
 (77, 119, 0, 1, 0, 0, 0, 0, 0, 0, 0),
-(78, 120, 0, 1, 0, 0, 0, 0, 0, 0, 0),
-(79, 121, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+(78, 120, 0, 1, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -221,8 +221,7 @@ INSERT INTO `houserules` (`houseRulesId`, `propertyId`, `checkInTime`, `checkOut
 (47, 105, '18:00:00', '09:00:00', 6),
 (48, 106, '16:30:00', '09:30:00', 14),
 (61, 119, '14:47:00', '14:47:00', 2),
-(62, 120, '14:51:00', '14:51:00', 1),
-(63, 121, '14:59:00', '14:59:00', 4);
+(62, 120, '14:51:00', '14:51:00', 1);
 
 -- --------------------------------------------------------
 
@@ -340,8 +339,7 @@ INSERT INTO `property` (`propertyId`, `title`, `description`, `priceNight`, `add
 (105, 'Chalet alpin : ressourcez-vous en pleine nature', 'Bienvenue dans ce chalet alpin pittoresque, un véritable refuge de montagne qui vous invite à vous ressourcer et à vous reconnecter avec la nature. Situé au cœur d\'un paysage montagneux à couper le souffle, ce chalet offre une expérience authentique et chaleureuse.  L\'intérieur du chalet allie avec harmonie le bois traditionnel et des touches de modernité. Les espaces de vie sont accueillants et confortables, créant une atmosphère conviviale pour des moments de détente en famille ou entre amis. Les grandes baies vitrées offrent des vues panoramiques sur les sommets enneigés ou les paysages verdoyants, selon la saison.  Le chalet dispose de tout le confort nécessaire pour rendre votre séjour agréable. Profitez d\'une soirée près de la cheminée, détendez-vous dans le jacuzzi extérieur ou dégustez un délicieux repas dans la cuisine entièrement équipée. Les chambres confortables vous invitent à des nuits paisibles, bercées par le calme de la montagne.  Les activités ne manquent pas, été comme hiver. En hiver, vous pourrez dévaler les pistes de ski à proximité, faire de la raquette ou vous initier à la glisse sur la patinoire du village. En été, partez en randonnée à travers des sentiers magnifiques, explorez les lacs alpins environnants ou faites du VTT sur des pistes pittoresques.  Réservez dès maintenant votre séjour dans ce chalet alpin et laissez-vous séduire par l\'atmosphère chaleureuse et l\'authenticité de la montagne. Une escapade en pleine nature vous attend, où vous pourrez vous ressourcer, vous amuser et profiter des merveilles de l\'environnement alpin.', '70.00', '', '', 0, '', '', '', '0.000000000', '0.000000000', 0, '2023-07-11 18:45:12', '', 13),
 (106, 'Château de caractère : une immersion dans l\'histoire', 'Bienvenue dans ce château de caractère, véritable vestige du temps qui vous transporte dans une époque révolue. Imprégnez-vous de l\'atmosphère chargée d\'histoire dès votre arrivée et laissez-vous emporter par son charme envoûtant.  Le château, magnifiquement restauré, est le reflet d\'une architecture remarquable et de détails d\'époque préservés avec soin. Les salles majestueuses, les galeries aux voûtes imposantes et les chambres richement décorées vous plongent dans une ambiance digne des contes de fées.  Chaque coin du château raconte une histoire. Promenez-vous dans les jardins à la française, admirez les fresques murales et les tapisseries anciennes, et explorez les pièces secrètes qui recèlent des trésors cachés.  Votre séjour au château sera agrémenté d\'expériences uniques. Vous pourrez déguster des mets raffinés dans une salle à manger d\'époque, assister à des concerts de musique classique dans la salle de bal somptueuse ou vous détendre dans un salon confortable en dégustant un verre de vin sélectionné parmi la cave du château.  Pour une immersion totale, des visites guidées vous permettront de découvrir les secrets et les légendes du château, vous transportant ainsi dans une époque révolue. Vous pourrez également profiter des activités de loisirs proposées, telles que des balades à cheval dans le parc environnant ou des soirées costumées à thème.  Réservez dès maintenant votre séjour dans ce château de caractère et plongez dans une immersion passionnante dans l\'histoire. Une expérience inoubliable vous attend, où vous pourrez vivre une vie de châtelain et vous émerveiller devant la grandeur et la beauté d\'un château chargé de mystères.', '450.00', '', '', 0, '', '', '', '47.688617500', '2.629934600', 0, '2023-07-12 09:04:46', '', 13),
 (119, 'gigi', 'test', '222.00', '52 Rue de Noé', 'Gien', 45500, '', 'Centre-Val de Loire', 'France', '47.688656000', '2.629954400', 0, '2023-07-18 14:47:53', '', 13),
-(120, 'Karim', 'coucou', '100.00', '45 Grande Rue', 'Sault-Brénaz', 1150, '', 'Auvergne-Rhône-Alpes', 'France', '45.861916600', '5.398418200', 0, '2023-07-18 14:51:51', '', 13),
-(121, 'coucou', 'eefefe', '222.00', '52 Rue de Noé', 'Gien', 45500, '', 'Centre-Val de Loire', 'France', '47.688656000', '2.629954400', 0, '2023-07-18 15:00:01', '', 13);
+(120, 'Karim', 'coucou', '100.00', '45 Grande Rue', 'Sault-Brénaz', 1150, '', 'Auvergne-Rhône-Alpes', 'France', '45.861916600', '5.398418200', 0, '2023-07-18 14:51:51', '', 13);
 
 -- --------------------------------------------------------
 
@@ -375,8 +373,7 @@ INSERT INTO `propertyamenities` (`propertyAmenitiesId`, `propertyId`, `bedrooms`
 (41, 105, 3, 5, 2, 2),
 (42, 106, 8, 8, 8, 8),
 (55, 119, 1, 1, 1, 1),
-(56, 120, 1, 1, 1, 1),
-(57, 121, 8, 8, 8, 8);
+(56, 120, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -411,8 +408,7 @@ INSERT INTO `propertyimages` (`propertyImagesId`, `propertyId`, `imageMainURL`, 
 (39, 105, '64ad8718d2ac2.jpg', '64ad8718d2ca4.jpg', '64ad8718d2e13.jpg', '64ad8718d2f6b.jpg', '64ad8718d319d.jpg'),
 (40, 106, '64aeabe6beadc.jpg', '64aeabe6becb2.jpg', '64aeabe6bee88.jpg', '64aeabe6bf007.jpg', '64aeabe6bf1ea.jpg'),
 (53, 119, '64b689f9e2e1e.jpg', '64b689f9e30c4.jpg', '64b689f9e328d.jpg', '64b689f9e33f4.jpg', '64b689f9e356d.jpg'),
-(54, 120, '64b68ae718f25.jpg', '', '', '', ''),
-(55, 121, '64b68cd1bd43d.jpg', '', '', '', '');
+(54, 120, '64b68ae718f25.jpg', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -448,8 +444,7 @@ INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES
 (106, 392),
 (100, 392),
 (119, 376),
-(120, 376),
-(121, 376);
+(120, 376);
 
 -- --------------------------------------------------------
 
@@ -483,8 +478,7 @@ INSERT INTO `propertytype` (`PropertyTypeId`, `propertyId`, `house`, `flat`, `gu
 (85, 105, 1, 0, 0, 0),
 (86, 106, 1, 0, 0, 0),
 (99, 119, 1, 0, 0, 0),
-(100, 120, 1, 0, 0, 0),
-(101, 121, 1, 0, 0, 0);
+(100, 120, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
