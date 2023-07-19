@@ -9,237 +9,246 @@
 	{# ---------- property-section ---------- #}
 	<section id="property-section">
 		<h1>{{ property.title }}</h1>
-		<span>{{ property.comment }}○{{ property.address }}</span>
+		<span>{{ averageRating }}
+			étoiles</span>
+		○
+		{{ property.city }},
+		{{ property.region }},
+		{{ property.country }}</span>
 
-		<figure>
-			{% if propertyImages.imageMainURL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image1URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image2URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image3URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image4URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-		</figure>
+	<figure>
+		{% if propertyImages.imageMainURL %}
+			<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+		{% endif %}
+		{% if propertyImages.image1URL %}
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
+		{% endif %}
+		{% if propertyImages.image2URL %}
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
+		{% endif %}
+		{% if propertyImages.image3URL %}
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
+		{% endif %}
+		{% if propertyImages.image4URL %}
+			<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
+		{% endif %}
+	</figure>
 
-		<div
-			class="property-details">
-			{# ----------------- CONTAINER LEFT -------------------------#}
-			<div class="container-description-property">
-				<h3>Chez @{{ property.owner.firstName }}</h3>
+	<div
+		class="property-details">
+		{# ----------------- CONTAINER LEFT -------------------------#}
+		<div class="container-description-property">
+			<h3>Chez @{{ property.owner.firstName }}</h3>
 
 
-				<div class="property-amenities">
-					<p>{{ houseRules.maxGuests }}
-						voyageurs</p>
-					{# ---------- Amenities ---------- #}
-					{% if propertyAmenities.beds > 0 %}
-						<p>{{ propertyAmenities.beds }}{{ propertyAmenities.beds == 1 ? "lit" : "lits" }}</p>
+			<div class="property-amenities">
+				<p>{{ houseRules.maxGuests }}
+					voyageurs</p>
+				{# ---------- Amenities ---------- #}
+				{% if propertyAmenities.beds > 0 %}
+					<p>{{ propertyAmenities.beds }}{{ propertyAmenities.beds == 1 ? "lit" : "lits" }}</p>
+				{% endif %}
+
+				{% if propertyAmenities.bedrooms > 0 %}
+					<p>{{ propertyAmenities.bedrooms }}{{ propertyAmenities.bedrooms == 1 ? "chambre" : "chambres" }}</p>
+				{% endif %}
+
+				{% if propertyAmenities.bathrooms > 0 %}
+					<p>{{ propertyAmenities.bathrooms }}{{ propertyAmenities.bathrooms == 1 ? "salle de bain" : "salles de bain" }}</p>
+				{% endif %}
+
+				{% if propertyAmenities.toilets > 0 %}
+					<p>{{ propertyAmenities.toilets }}{{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}</p>
+				{% endif %}
+			</div>
+
+			<div class="property-description">
+				<p>{{ property.description }}</p>
+
+				<a id="description-details" href="#">En savoir plus →</a>
+			</div>
+
+			<div class="property-equipment">
+				<h3>Ce que propose ce logement :</h3>
+				<div class="equipment-list">
+					{% if accommodationType.piscine == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/piscine.svg') }}" alt="Icon piscine">
+							<figcaption>
+								<p>Piscine</p>
+							</figcaption>
+						</figure>
 					{% endif %}
-
-					{% if propertyAmenities.bedrooms > 0 %}
-						<p>{{ propertyAmenities.bedrooms }}{{ propertyAmenities.bedrooms == 1 ? "chambre" : "chambres" }}</p>
+					{% if accommodationType.parkingGratuit == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/parking.svg') }}" alt="Icon Parking">
+							<figcaption>
+								<p>Parking gratuit</p>
+							</figcaption>
+						</figure>
 					{% endif %}
-
-					{% if propertyAmenities.bathrooms > 0 %}
-						<p>{{ propertyAmenities.bathrooms }}{{ propertyAmenities.bathrooms == 1 ? "salle de bain" : "salles de bain" }}</p>
+					{% if accommodationType.jacuzzi == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/jacuzzi.svg') }}" alt="Icon Jacuzzi">
+							<figcaption>
+								<p>Jacuzzi</p>
+							</figcaption>
+						</figure>
 					{% endif %}
+					{% if accommodationType.wifi == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/wifi.svg') }}" alt="Icon Wi-Fi">
 
-					{% if propertyAmenities.toilets > 0 %}
-						<p>{{ propertyAmenities.toilets }}{{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}</p>
+							<figcaption>
+								<p>Wifi</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.laveLinge == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/lave-linge.svg') }}" alt="Icon lage-linge">
+							<figcaption>
+								<p>Lave-linge</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.secheLinge == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/seche-linge.svg') }}" alt="Icon Sèche-linge">
+							<figcaption>
+								<p>Sèche-linge</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.climatisation == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/climatisation.svg') }}" alt="Icon climatisation">
+							<figcaption>
+								<p>Climatisation</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.chauffage == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/chauffage.svg') }}" alt="Icon chauffage">
+							<figcaption>
+								<p>Chauffage</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.espaceTravailDedie == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/espace-travail.svg') }}" alt="Icon espace de travail">
+							<figcaption>
+								<p>Espace de travail dédié</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.television == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/television.svg') }}" alt="Icon Télévision">
+							<figcaption>
+								<p>Télévision</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.secheCheveux == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/seche-cheveux.svg') }}" alt="Icon Sèche-cheveux">
+							<figcaption>
+								<p>Sèche-cheveux</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.ferRepasser == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/fer-repasser.svg') }}" alt="Icon Fer à repasser">
+							<figcaption>
+								<p>Fer à repasser</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.stationRechargeVehiElectriques == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/recharge-vehicule.svg') }}" alt="Icon de station de recharge pour véhicules électrique">
+							<figcaption>
+								<p>Station de recharge pour véhicules électriques</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.litBebe == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/lit-bebe.svg') }}" alt="Icon de lit pour bébé">
+							<figcaption>
+								<p>Lit pour bébé</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.salleSport == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/salle-sport.svg') }}" alt="Icon de salle de sport">
+							<figcaption>
+								<p>Salle de sport</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.barbecue == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/barbecue.svg') }}" alt="Icon barbecue">
+							<figcaption>
+								<p>Barbecue</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.petitDejeuner == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/breakfast.svg') }}" alt="Icon petit déjeuner">
+							<figcaption>
+								<p>Petit déjeuner</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.cheminee == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/cheminee.svg') }}" alt="Icon cheminée">
+							<figcaption>
+								<p>Cheminée</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.logementFumeur == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/fumeur.svg') }}" alt="Icon logement fumeur">
+							<figcaption>
+								<p>Logement fumeur</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.detecteurFumee == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/detecteur-fumee.svg') }}" alt="Icon détecteur de fumée">
+							<figcaption>
+								<p>Détecteur de fumée</p>
+							</figcaption>
+						</figure>
+					{% endif %}
+					{% if accommodationType.detecteurMonoxyDeCarbone == 1 %}
+						<figure>
+							<img src="{{ asset('/media/icons/detecteur-carbone.svg') }}" alt="Icon de détecteur de monoxyde de carbone">
+							<figcaption>
+								<p>Détecteur de monoxyde de carbone</p>
+							</figcaption>
+						</figure>
 					{% endif %}
 				</div>
+			</div>
 
-				<div class="property-description">
-					<p>{{ property.description }}</p>
 
-					<a id="description-details" href="#">En savoir plus →</a>
-				</div>
-
-				<div class="property-equipment">
-					<h3>Ce que propose ce logement :</h3>
-					<div class="equipment-list">
-						{% if accommodationType.piscine == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/piscine.svg') }}" alt="Icon piscine">
-								<figcaption>
-									<p>Piscine</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.parkingGratuit == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/parking.svg') }}" alt="Icon Parking">
-								<figcaption>
-									<p>Parking gratuit</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.jacuzzi == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/jacuzzi.svg') }}" alt="Icon Jacuzzi">
-								<figcaption>
-									<p>Jacuzzi</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.wifi == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/wifi.svg') }}" alt="Icon Wi-Fi">
-
-								<figcaption>
-									<p>Wifi</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.laveLinge == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/lave-linge.svg') }}" alt="Icon lage-linge">
-								<figcaption>
-									<p>Lave-linge</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.secheLinge == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/seche-linge.svg') }}" alt="Icon Sèche-linge">
-								<figcaption>
-									<p>Sèche-linge</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.climatisation == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/climatisation.svg') }}" alt="Icon climatisation">
-								<figcaption>
-									<p>Climatisation</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.chauffage == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/chauffage.svg') }}" alt="Icon chauffage">
-								<figcaption>
-									<p>Chauffage</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.espaceTravailDedie == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/espace-travail.svg') }}" alt="Icon espace de travail">
-								<figcaption>
-									<p>Espace de travail dédié</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.television == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/television.svg') }}" alt="Icon Télévision">
-								<figcaption>
-									<p>Télévision</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.secheCheveux == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/seche-cheveux.svg') }}" alt="Icon Sèche-cheveux">
-								<figcaption>
-									<p>Sèche-cheveux</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.ferRepasser == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/fer-repasser.svg') }}" alt="Icon Fer à repasser">
-								<figcaption>
-									<p>Fer à repasser</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.stationRechargeVehiElectriques == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/recharge-vehicule.svg') }}" alt="Icon de station de recharge pour véhicules électrique">
-								<figcaption>
-									<p>Station de recharge pour véhicules électriques</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.litBebe == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/lit-bebe.svg') }}" alt="Icon de lit pour bébé">
-								<figcaption>
-									<p>Lit pour bébé</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.salleSport == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/salle-sport.svg') }}" alt="Icon de salle de sport">
-								<figcaption>
-									<p>Salle de sport</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.barbecue == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/barbecue.svg') }}" alt="Icon barbecue">
-								<figcaption>
-									<p>Barbecue</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.petitDejeuner == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/breakfast.svg') }}" alt="Icon petit déjeuner">
-								<figcaption>
-									<p>Petit déjeuner</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.cheminee == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/cheminee.svg') }}" alt="Icon cheminée">
-								<figcaption>
-									<p>Cheminée</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.logementFumeur == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/fumeur.svg') }}" alt="Icon logement fumeur">
-								<figcaption>
-									<p>Logement fumeur</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.detecteurFumee == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/detecteur-fumee.svg') }}" alt="Icon détecteur de fumée">
-								<figcaption>
-									<p>Détecteur de fumée</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-						{% if accommodationType.detecteurMonoxyDeCarbone == 1 %}
-							<figure>
-								<img src="{{ asset('/media/icons/detecteur-carbone.svg') }}" alt="Icon de détecteur de monoxyde de carbone">
-								<figcaption>
-									<p>Détecteur de monoxyde de carbone</p>
-								</figcaption>
-							</figure>
-						{% endif %}
-					</div>
-				</div>
-
-				<div class="property-comments">
-					<h3>Ce qu'ils en disent :</h3>
+			<div class="property-comments">
+				<h3>Ce qu'ils en disent :</h3>
+				{% if comments is empty %}
+					<p>Pas encore de commentaire pour cette location.</p>
+				{% else %}
 					<div class="nav-arrows">
 						<button class="comment-leftarrow"><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
 						<button class="comment-rightarrow"><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
@@ -259,18 +268,18 @@
 										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
 									</figure>
 								</div>
-								<p>{{ comment.commentText }}</p>
+								<p>"{{ comment.commentText }}"</p>
 								<figure>
 									<div id="profile-picture">
 										<img src="" alt="">
 									</div>
 									<figcaption>
-										<p>{{ comment.firstname }}</p>
+										<p>@{{ comment.firstname }}</p>
 									</figcaption>
 								</figure>
 							</div>
 						{% endfor %}
-					</div>
+					{% endif %}
 				</div>
 
 
@@ -278,7 +287,8 @@
 				<h3>Où se situe ce logement</h3>
 
 				{% include 'googlemaps.html.twig' %}
-				<p>{{ property.city }},
+				<p>{{ property.address }},
+					{{ property.city }},
 					{{ property.region }},
 					{{ property.country }}</p>
 				{# ----------------------------------- #}
@@ -427,25 +437,25 @@
 							</div>
 						</div>
 					</div>
-					<h3>Laisser votre commentaire</h3>
-					<div>
-						<form action="{{ path('commentAdd') }}" method="POST">
-							<div>
-								<label for="rating">Votre note (sur 5) :</label>
-								<br>
-								<input type="number" id="rating" name="rating" required>
-							</div>
-							<div>
-								<label for="comment">Votre commentaire :</label>
-								<br>
-								<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
-								<br>
-							</div>
-							<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-							<input type="submit" name="submit" value="Proposer mon commentaire">
-						</form>
-					</div>
 				</div>
+			</div>
+			<div>
+				<h3>Laisser votre commentaire</h3>
+				<form action="{{ path('commentAdd') }}" method="POST">
+					<div>
+						<label for="rating">Votre note (sur 5) :</label>
+						<br>
+						<input type="number" id="rating" name="rating" required>
+					</div>
+					<div>
+						<label for="comment">Votre commentaire :</label>
+						<br>
+						<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
+						<br>
+					</div>
+					<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+					<input type="submit" name="submit" value="Proposer mon commentaire">
+				</form>
 			</div>
 		</section>
 	{% endblock %}

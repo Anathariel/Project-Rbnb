@@ -52,4 +52,17 @@ class CommentModel extends Model
         
         $req->execute();
     }
+
+    public function getAverageRating(int $propertyId)
+    {
+        $req = $this->getDb()->prepare('SELECT AVG(`rating`) AS averageRating FROM `comment` WHERE `propertyId` = :propertyId');
+        $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+        $req->execute();
+
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+        $averageRating = $result['averageRating'];
+
+        // Return 0 if no comments are found for the property
+        return $averageRating !== null ? floatval($averageRating) : 0;
+    }
 }
