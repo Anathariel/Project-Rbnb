@@ -246,8 +246,8 @@
 					</div>
 
 					<div class="container-comments-row">
-						<div class="container-comment">
-							{% for comment in comments %}
+						{% for comment in comments %}
+							<div class="container-comment">
 								<div class="stars-rating">
 									<p>{{ comment.rating }}
 										étoiles</p>
@@ -441,6 +441,7 @@
 								<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
 								<br>
 							</div>
+							<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
 							<input type="submit" name="submit" value="Proposer mon commentaire">
 						</form>
 					</div>
