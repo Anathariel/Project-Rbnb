@@ -373,59 +373,60 @@
 									<h4>Départ</h4>
 									<input type="date">
 								</div>
-
 							</div>
-							<div class="traveler">
-								<h4>Voyageurs</h4>
-								<select name="traveler" id="traveler-select">
-									<option value="1 Voyageur">1 Voyageur</option>
-									<option value="2 Voyageur">2 Voyageurs</option>
-									<option value="3 Voyageur">3 Voyageurs</option>
-									<option value="4 Voyageur">4 Voyageurs</option>
-									<option value="5 Voyageur">5 Voyageurs</option>
-									<option value="6 Voyageur">6 Voyageurs</option>
-									<option value="7 Voyageur">7 Voyageurs</option>
-									<option value="8 Voyageur">8+ Voyageurs</option>
-								</select>
+								<div class="traveler">
+									<h4>Voyageurs</h4>
+									<select name="traveler" id="traveler-select">
+										<option value="1 Voyageur">1 Voyageur</option>
+										<option value="2 Voyageur">2 Voyageurs</option>
+										<option value="3 Voyageur">3 Voyageurs</option>
+										<option value="4 Voyageur">4 Voyageurs</option>
+										<option value="5 Voyageur">5 Voyageurs</option>
+										<option value="6 Voyageur">6 Voyageurs</option>
+										<option value="7 Voyageur">7 Voyageurs</option>
+										<option value="8 Voyageur">8+ Voyageurs</option>
+									</select>
+								</div>
+						</div>
+							<button><span>Réserver</span></button>
+							<p>Aucun montant ne vous sera débité pour le moment</p>
+				</div>
+						<div class="price-details">
+							<div class="details">
+								<p>45€ x 5 nuits</p>
+								<p>Frais de service Loca'R</p>
+								<p>Taxes</p>
+								<h4>Total du sejour</h4>
+							</div>
+							<div class="prices">
+								<p>225€</p>
+								<p>38€</p>
+								<p>3€</p>
+								<h4>266€</h4>
 							</div>
 						</div>
-						<button><span>Réserver</span></button>
-						<p>Aucun montant ne vous sera débité pour le moment</p>
-				</div>
-				<div class="price-details">
-						<div class="details">
-							<p>45€ x 5 nuits</p>
-							<p>Frais de service Loca'R</p>
-							<p>Taxes</p>
-							<h4>Total du sejour</h4>
-						</div>
-						<div class="prices">
-							<p>225€</p>
-							<p>38€</p>
-							<p>3€</p>
-							<h4>266€</h4>
-						</div>
-				</div>
 			</div>
-	</div>
+					
+		</div>
+			</div>
 
-
-	<h3>Laisser votre commentaire</h3>
-	<div class="add-comment-rating">
-		<form action="{{ path('commentAdd') }}" method="POST">
-			<div>
-				<label for="rating">Votre note (sur 5) :</label>
-				<br>
-				<input type="number" id="rating" name="rating" required>
-			</div>
-			<div class="input-add-comment">
-				<label for="comment">Votre commentaire :</label>
-				<br>
-				<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
-				<br>
-			</div>
-			<input type="submit" name="submit" value="Proposer mon commentaire">
-		</form>
-	</div>
-</section>
-{% endblock %}
+			<h3>Laisser votre commentaire</h3>
+					<div>
+						<form action="{{ path('commentAdd') }}" method="POST">
+							<div>
+								<label for="rating">Votre note (sur 5) :</label>
+								<br>
+								<input type="number" id="rating" name="rating" required>
+							</div>
+							<div>
+								<label for="comment">Votre commentaire :</label>
+								<br>
+								<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
+								<br>
+							</div>
+							<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+							<input type="submit" name="submit" value="Proposer mon commentaire">
+						</form>
+					</div>
+		</section>
+	{% endblock %}
