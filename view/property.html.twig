@@ -9,31 +9,38 @@
 	{# ---------- property-section ---------- #}
 	<section id="property-section">
 		<h1>{{ property.title }}</h1>
-		<span>{{ averageRating }}
-			étoiles</span>
-		○
-		{{ property.city }},
-		{{ property.region }},
-		{{ property.country }}</span>
+		<span>{{ averageRating }} étoiles</span>○{{ property.city }},{{ property.region }},{{ property.country }}</span>
 
-    <figure>
-        {% if propertyImages.imageMainURL %}
-        <img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}" />
-        {% endif %}
-        {% if propertyImages.image1URL %}
-        <img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}" />
-        {% endif %}
-        {% if propertyImages.image2URL %}
-        <img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}" />
-        {% endif %}
-        {% if propertyImages.image3URL %}
-        <img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}" />
-        {% endif %}
-        {% if propertyImages.image4URL %}
-        <img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}" />
-        {% endif %}
-    </figure>
-
+<div class="property-images">
+    <figure class="property-main-image">
+      {% if propertyImages.imageMainURL %}
+      <img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}" />
+      {% endif %}
+	</figure>
+	<figure class="property-flex-images">
+		{% if propertyImages.image1URL %}
+		<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}" />
+		{% endif %}
+		{% if propertyImages.image2URL %}
+		<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}" />
+		{% endif %}
+		{% if propertyImages.image3URL %}
+		<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}" />
+		{% endif %}
+		{% if propertyImages.image4URL %}
+		<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}" />
+		{% endif %}
+	</figure>
+</div>
+<!-- The Modal -->
+	<div id="myModal" class="modal">
+  <!-- The Close Button -->
+  		<span class="close">&times;</span>
+  <!-- Modal Content (The Image) -->
+  		<img class="modal-content" id="img01">
+  <!-- Modal Caption (Image Text) -->
+  		<div id="caption"></div>
+</div>
     {# -------------- CONTAINER DESCRIPTION -------------- #}
     <div class="property-details">
         {# -------------- LEFT SIDE DESCRIPTION -------------- #}

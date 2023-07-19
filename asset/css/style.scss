@@ -224,6 +224,7 @@ h3 {
     }
 
     @media screen and (max-width: 700px) {
+
       #logo,
       #user,
       #desktop-searchbar {
@@ -327,7 +328,7 @@ h3 {
               width: 18px;
             }
 
-            & > a {
+            &>a {
               display: flex;
               justify-content: center;
               align-items: center;
@@ -337,7 +338,7 @@ h3 {
               cursor: pointer;
             }
 
-            & > a:hover {
+            &>a:hover {
               background-color: #0e938343;
               color: $white;
             }
@@ -368,7 +369,7 @@ h3 {
   }
 
   @media screen and (max-width: 700px) {
-    .right-menu > .app {
+    .right-menu>.app {
       display: none;
     }
   }
@@ -498,11 +499,9 @@ footer {
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(
-        to bottom,
-        transparentize(#0e1d33, 0.2),
-        transparentize(#0e1d33, 0.8)
-      );
+      background: linear-gradient(to bottom,
+          transparentize(#0e1d33, 0.2),
+          transparentize(#0e1d33, 0.8));
       z-index: 3;
     }
 
@@ -567,11 +566,9 @@ footer {
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(
-            to right,
-            rgba(248, 248, 248),
-            rgba(248, 248, 248, 0.8)
-          );
+          background: linear-gradient(to right,
+              rgba(248, 248, 248),
+              rgba(248, 248, 248, 0.8));
           pointer-events: none;
         }
       }
@@ -592,11 +589,9 @@ footer {
           right: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(
-            to left,
-            rgba(248, 248, 248),
-            rgba(248, 248, 248, 0.8)
-          );
+          background: linear-gradient(to left,
+              rgba(248, 248, 248),
+              rgba(248, 248, 248, 0.8));
           pointer-events: none;
         }
       }
@@ -1009,17 +1004,88 @@ section#property-section {
     font-size: 55px;
   }
 
-  figure {
+  .property-images {
     width: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
-    overflow: scroll;
+    align-items: center;
+    overflow-x: scroll;
 
-    img {
-      width: 30%;
-      height: auto;
+    .property-main-image {
+      img {
+        width: 100%;
+        min-height: 680px;
+        border-radius: .8rem;
+        object-fit: cover;
+      }
+    }
+
+    .property-flex-images {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      img {
+        width: 45%;
+        max-height: 400px;
+        border-radius: .8rem;
+        margin: .3rem;
+        object-fit: cover;
+      }
     }
   }
+
+/* The Modal (background) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  padding: 0; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.9); 
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%; 
+  max-width: 700px;
+  max-height: 80%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
   h3 {
     font-size: 1.5rem;
@@ -1057,7 +1123,7 @@ section#property-section {
       .property-equipment {
         margin-left: .5rem;
         max-height: 350px;
-        
+
         .equipment-list {
           display: flex;
           flex-direction: row;
@@ -1200,7 +1266,7 @@ section#property-section {
               border-radius: 0.5rem;
               cursor: pointer;
               overflow: hidden;
-    
+
               span {
                 display: block;
                 font-family: 'Quicksand';
@@ -1211,12 +1277,12 @@ section#property-section {
                 position: relative;
                 z-index: 1;
               }
-    
+
               span:hover {
                 color: $white;
               }
             }
-    
+
             button:before {
               content: "";
               position: absolute;
@@ -1228,7 +1294,7 @@ section#property-section {
               transition: all .5s ease-out;
               z-index: 0;
             }
-    
+
             button:hover:before {
               width: 100%;
             }
@@ -1240,23 +1306,23 @@ section#property-section {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-  
+
         .annulation,
         .reglement {
           max-width: 300px;
-  
+
           h4 {
             font-size: 1.3rem;
           }
-  
+
           p {
             margin: 1rem;
           }
-  
+
           a {
             font-size: 1.1rem;
           }
-  
+
           a:hover {
             color: $accent;
             text-decoration: underline;
@@ -1483,6 +1549,7 @@ section#addgooglemaps-property-section {
     color: white;
   }
 }
+
 //~ -------------------- DASHBOARD -------------------- //
 .dashboard {
   background-color: #e1e7ea;
@@ -1584,7 +1651,7 @@ section#addgooglemaps-property-section {
           top: 2rem;
           left: 14.5rem;
 
-          a > img {
+          a>img {
             width: 30px;
           }
         }
@@ -1633,7 +1700,7 @@ section#addgooglemaps-property-section {
           justify-content: space-evenly;
           margin: 0.5rem;
 
-          .button > p {
+          .button>p {
             color: #059669;
             font-family: "Quicksand-bold";
             font-size: 1rem;
@@ -1934,7 +2001,8 @@ section#addgooglemaps-property-section {
 
   figure {
     margin: 1rem;
-    img{
+
+    img {
       border-radius: .5rem;
     }
   }
@@ -1980,7 +2048,7 @@ section#addgooglemaps-property-section {
         top: 2rem;
         left: 14.5rem;
 
-        a > img {
+        a>img {
           width: 30px;
         }
       }
