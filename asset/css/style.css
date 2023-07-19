@@ -215,6 +215,7 @@ h3 {
   display: none;
   background-color: #f8f8f8;
   border-radius: 5px;
+  z-index: 99;
 }
 .dashboard-header .right-menu .user-menu .submenu-dashboard ul {
   list-style-type: none;
@@ -785,9 +786,6 @@ section#join-us-section div#container-card-join-us figcaption a#btn-list-propert
 section#property-section {
   text-align: left;
   /* The Modal (background) */
-  /* Modal Content (Image) */
-  /* Add Animation - Zoom in the Modal */
-  /* The Close Button */
 }
 section#property-section h1 {
   font-size: 55px;
@@ -798,11 +796,10 @@ section#property-section .property-images {
   display: flex;
   flex-direction: row;
   align-items: center;
-  overflow-x: scroll;
 }
 section#property-section .property-images .property-main-image img {
   width: 100%;
-  min-height: 680px;
+  min-height: 650px;
   border-radius: 0.8rem;
   -o-object-fit: cover;
      object-fit: cover;
@@ -832,8 +829,11 @@ section#property-section .modal {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.9);
+  /* Modal Content (Image) */
+  /* Add Animation - Zoom in the Modal */
+  /* The Close Button */
 }
-section#property-section .modal-content {
+section#property-section .modal .modal-content {
   margin: auto;
   display: block;
   width: 80%;
@@ -843,11 +843,11 @@ section#property-section .modal-content {
   top: 50%;
   transform: translateY(-50%);
 }
-section#property-section .modal-content {
+section#property-section .modal .modal-content {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
-section#property-section .close {
+section#property-section .modal .close {
   position: absolute;
   top: 5%;
   right: 3%;
@@ -856,7 +856,8 @@ section#property-section .close {
   font-weight: bold;
   transition: 0.3s;
 }
-section#property-section .close:hover, section#property-section .close:focus {
+section#property-section .modal .close:hover,
+section#property-section .modal .close:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
@@ -984,7 +985,11 @@ section#property-section .property-details .container-description-property .prop
 section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption h4 {
   font-size: 1.3rem;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .stars-rating img {
+section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure {
+  display: flex;
+  flex-direction: row;
+}
+section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure img {
   width: 15px;
 }
 section#property-section .property-details .container-description-property .property-host .container-host-info .host-details {
