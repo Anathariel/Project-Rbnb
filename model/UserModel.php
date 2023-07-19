@@ -28,7 +28,7 @@ class UserModel extends Model
 
     public function getUserById($userId)
     {
-        $req = $this->getDb()->prepare('SELECT `firstName`, `lastName`, `email`, `password` FROM `user` WHERE `uid` = :userId');
+        $req = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `email`, `password` FROM `user` WHERE `uid` = :userId');
         $req->bindParam('userId', $userId, PDO::PARAM_INT);
         $req->execute();
 
@@ -63,18 +63,10 @@ class UserModel extends Model
         $req->execute();
         
     }
-    public function delete(){
+    public function delete($uid){
 
-        // $uid = $user->getUid();
-        // $firstName = $user->getFirstName();
-        // $lastName = $user->getLastName();
-        // $email = $user->getEmail();
-        // Delete the recipe
         $req = $this->getDb()->prepare('DELETE FROM `user` WHERE `uid` = :uid');
         $req->bindParam('uid', $uid, PDO::PARAM_INT);
-        // $req->bindParam(':firstName', $firstName, PDO::PARAM_STR);
-        // $req->bindParam(':lastName', $lastName, PDO::PARAM_STR);
-        // $req->bindParam(':email', $email, PDO::PARAM_STR);
         $req->execute();
 
     }

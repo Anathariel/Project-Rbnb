@@ -79,12 +79,13 @@ class UserController extends Controller
 
         // Récupérez le prénom de l'utilisateur à partir de la base de données
         $userId = $_SESSION['uid'];
+        
         $userModel = new UserModel();
         $user = $userModel->getUserById($userId);
         $firstName = $user->getFirstName();
         $email = $user->getEmail();
         $propertyImagesModel = new PropertyImagesModel();
-
+        var_dump($user);
         // Récupérez les propriétés de l'utilisateur à partir de la base de données
         $propertyModel = new PropertyModel();
         $userProperties = $propertyModel->getUserProperties($userId);
@@ -169,21 +170,19 @@ class UserController extends Controller
             }
         }
     }
-    public function delete($uid)
+    public function delete()
     {
+        $uid = $_SESSION['uid'];
         // Vérifie si la méthode de la requête HTTP est POST et si le paramètre "_method" est défini à "DELETE"
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['_method'] === 'DELETE') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // // Crée un nouvel objet 
             $user = new UserModel();
-            // $user1 = $userModel->getUserById($uid);
-            // $firstName = $user1->getFirstName();
-            // $lastName = $user1->getLastName();
-            // $email = $user1->getEmail();
-            // Appelle la méthode "delete pour supprimer le USER spécifiée par l'identifiant $id
+            //appelle ta fonction
             $user->delete($uid);
-            var_dump($uid);
-            
-            echo self::getRender('dashboard-options.html.twig', ['user' => $user,]);
+            session_destroy();
+            //réinitialiser la session
+            $_SESSION = [];
+            echo self::getRender('homepage.html.twig',[]);
             exit();
         }
     }
