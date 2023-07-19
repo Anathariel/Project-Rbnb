@@ -12,12 +12,28 @@ class UserController extends Controller
             $rawPass = $_POST['password'];
             $password = password_hash($rawPass, PASSWORD_DEFAULT);
             $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
+            $picture = $_FILES['picture'];
 
+                // Récupérer le fichier photo
+        if (isset($_FILES['picture']) && $_FILES['picture']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = 'chemin/vers/votre/dossier/photos/';
+            $uploadFile = $uploadDir . basename($_FILES['picture']['name']);
+
+            // Déplacer le fichier temporaire vers le dossier final
+        if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadFile)) {
+                // Le fichier a été téléchargé avec succès, vous pouvez enregistrer le chemin d'accès à la photo dans la base de données
+            } else {
+                $message = "Une erreur est survenue lors du téléchargement de l'image. Veuillez réessayer.";
+                echo self::getRender('login.html.twig', ['message' => $message]);
+            }
+        }
+           
             $user = new User([
                 'firstName' => $firstName,
                 'lastName' => $lastName,
                 'password' => $password,
-                'email' => $email
+                'email' => $email,
+                'picture' => $picture,
             ]);
 
             $model->createUser($user);

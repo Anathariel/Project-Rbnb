@@ -23,6 +23,12 @@
 					<label for="password">Mot de passe*</label>
 					<input type="password" id="password" name="password" placeholder="Insérez votre mot de passe (8 caractères minimum)">
 
+					{# <form action="{{ path('register') }}" method="POST" enctype="#"> #}
+							<label for="photo">Choisissez votre photo :</label>
+							<input type="file" name="picture" id="picture">
+							{# <input type="submit" value="Envoyer"> #}
+		            {# </form> #}
+
 					<button type="submit">S'inscrire</button>
 				</form>
 			</div>
@@ -41,8 +47,9 @@
 					<label for="rememberMe">Se souvenir de cet ordinateur pendant 30 jours</label>
 
 					<a href="#">Mot de passe oublié?</a>
-
+					
 					<button type="submit">Se connecter</button>
+						
 				</form>
 			</div>
 		</div>
