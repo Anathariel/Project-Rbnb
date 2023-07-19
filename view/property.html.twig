@@ -5,42 +5,41 @@
 {% endblock %}
 
 {% block content %}
+{# ---------- property-section ---------- #}
+<section id="property-section">
+    <h1>{{ property.title }}</h1>
+    <span>{{ averageRating }} étoiles</span>○{{ property.city }},{{ property.region }},{{ property.country }}</span>
 
-	{# ---------- property-section ---------- #}
-	<section id="property-section">
-		<h1>{{ property.title }}</h1>
-		<span>{{ averageRating }} étoiles</span>○{{ property.city }},{{ property.region }},{{ property.country }}</span>
-
-<div class="property-images">
-    <figure class="property-main-image">
-      {% if propertyImages.imageMainURL %}
-      <img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}" />
-      {% endif %}
-	</figure>
-	<figure class="property-flex-images">
-		{% if propertyImages.image1URL %}
-		<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}" />
-		{% endif %}
-		{% if propertyImages.image2URL %}
-		<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}" />
-		{% endif %}
-		{% if propertyImages.image3URL %}
-		<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}" />
-		{% endif %}
-		{% if propertyImages.image4URL %}
-		<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}" />
-		{% endif %}
-	</figure>
-</div>
-<!-- The Modal -->
-	<div id="myModal" class="modal">
-  <!-- The Close Button -->
-  		<span class="close">&times;</span>
-  <!-- Modal Content (The Image) -->
-  		<img class="modal-content" id="img01">
-  <!-- Modal Caption (Image Text) -->
-  		<div id="caption"></div>
-</div>
+    <div class="property-images">
+        <figure class="property-main-image">
+            {% if propertyImages.imageMainURL %}
+            <img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}" />
+            {% endif %}
+        </figure>
+        <figure class="property-flex-images">
+            {% if propertyImages.image1URL %}
+            <img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}" />
+            {% endif %}
+            {% if propertyImages.image2URL %}
+            <img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}" />
+            {% endif %}
+            {% if propertyImages.image3URL %}
+            <img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}" />
+            {% endif %}
+            {% if propertyImages.image4URL %}
+            <img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}" />
+            {% endif %}
+        </figure>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
     {# -------------- CONTAINER DESCRIPTION -------------- #}
     <div class="property-details">
         {# -------------- LEFT SIDE DESCRIPTION -------------- #}
@@ -251,16 +250,17 @@
                 </div>
             </div>
 
-			<div class="property-comments">
-				<h3>Ce qu'ils en disent :</h3>
-				{% if comments is empty %}
-					<p>Pas encore de commentaire pour cette location.</p>
-				{% else %}
-					<div class="nav-arrows">
-						<button class="comment-leftarrow"><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
-						<button class="comment-rightarrow"><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
-					</div>
-				{% endif %}
+            <div class="property-comments">
+                <h3>Ce qu'ils en disent :</h3>
+                {% if comments is empty %}
+                <p>Pas encore de commentaire pour cette location.</p>
+                {% else %}
+                <div class="nav-arrows">
+                    <button class="comment-leftarrow"><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
+                    <button class="comment-rightarrow"><img src="{{ asset('/media/icons/arrowleft.svg') }}"
+                            alt=""></button>
+                </div>
+                {% endif %}
                 <div class="container-comments-row">
                     {% for comment in comments %}
                     <div class="container-comment">
@@ -288,15 +288,15 @@
                 </div>
             </div>
 
-			{# ---------- Google maps ---------- #}
-			<h3>Où se situe ce logement</h3>
+            {# ---------- Google maps ---------- #}
+            <h3>Où se situe ce logement</h3>
 
-			{% include 'googlemaps.html.twig' %}
-			<p>{{ property.address }},
-				{{ property.city }},
-				{{ property.region }},
-				{{ property.country }}</p>
-			{# ----------------------------------- #}
+            {% include 'googlemaps.html.twig' %}
+            <p>{{ property.address }},
+                {{ property.city }},
+                {{ property.region }},
+                {{ property.country }}</p>
+            {# ----------------------------------- #}
 
             <div class="property-host">
                 <h3>A propos de votre Hôte</h3>
