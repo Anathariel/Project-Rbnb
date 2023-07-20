@@ -29,6 +29,9 @@ $router->map('GET', '/logout', 'UserController#logout', 'logout');
 $router->map('GET', '/account', 'UserController#dashboard', 'dashboard');
 $router->map('GET|POST', '/account/options', 'UserController#editUser', 'options');
 
+// favorites
+$router->map('GET|POST', '/account/favorites', 'FavoriteController#addFavorite', 'favorite');
+
 //CRUD USER
 $router->map('POST|DELETE','/user/delete','UserController#delete','deleteUser',);
 

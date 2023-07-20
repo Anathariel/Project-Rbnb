@@ -19,6 +19,8 @@ return array(
     'Conversation' => $baseDir . '/class/Conversation.php',
     'ErrorController' => $baseDir . '/controller/ErrorController.php',
     'Favorite' => $baseDir . '/class/Favorite.php',
+    'FavoriteController' => $baseDir . '/controller/FavoriteController.php',
+    'FavoriteModel' => $baseDir . '/model/FavoriteModel.php',
     'HomeController' => $baseDir . '/controller/HomeController.php',
     'HostLanguage' => $baseDir . '/class/HostLanguage.php',
     'HostLanguageModel' => $baseDir . '/model/HostLanguageModel.php',

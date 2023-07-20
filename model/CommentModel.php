@@ -33,12 +33,9 @@ class CommentModel extends Model
         return $comments;
     }
 
-
     public function addCommentModel(Comment $comment)
     {
-        var_dump($comment);
         $propertyId = $comment->getPropertyId();
-        echo $propertyId;
         $userId = $comment->getUid();
         $rating = $comment->getRating();
         $commentText = $comment->getCommentText();
