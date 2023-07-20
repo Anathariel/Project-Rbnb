@@ -20,14 +20,15 @@
 		<main class="limit-size"> {% block content %}{% endblock %}
 			</main>
 
-			{% block javascript %}
-				<script src="{{ asset('/js/main.js') }}"></script>
-			{% endblock %}
-
 			{% include 'footer.html.twig' %}
 
 			{% block googleAPI %}
 				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTkV0SRCLJ9DnzywThlI_HwT8W6-KRL_Q&callback=initMap&v=weekly" defer></script>
+			{% endblock %}
+
+			{% block javascript %}
+				<script src="{{ asset('/js/main.js') }}"></script>
+				<script src="{{ asset('/js/reservation.js') }}"></script>
 			{% endblock %}
 		</body>
 	</html>
