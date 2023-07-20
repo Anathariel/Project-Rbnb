@@ -893,6 +893,7 @@ section#new-destinations-section {
   div#container-card-new-destinations {
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     a {
       padding-top: 1.5rem;
@@ -919,10 +920,12 @@ section#new-destinations-section {
             position: absolute;
             top: 1rem;
             right: 1rem;
-          
+
             button {
               border: none;
               background-color: transparent;
+              cursor: pointer;
+
               input {
                 display: none;
               }
@@ -1057,16 +1060,18 @@ section#best-tags-section {
             position: absolute;
             top: 1rem;
             right: 1rem;
-          
+
             button {
               border: none;
               background-color: transparent;
+              cursor: pointer;
+
               input {
                 display: none;
               }
             }
           }
-          
+
           img {
             width: 100%;
             height: 100%;
@@ -1157,7 +1162,7 @@ section#features-section {
         width: 100%;
         min-height: 100px;
 
-        
+
       }
     }
 
@@ -1588,8 +1593,10 @@ section#property-section {
         }
       }
     }
-
+    
     .container-pricing {
+      position: sticky;
+      top: 8rem;
       display: flex;
       flex-direction: column;
       margin: 1rem 5rem;

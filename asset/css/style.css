@@ -62,6 +62,10 @@ h3 {
   color: #1b1d21;
 }
 
+.hidden {
+  display: none;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -693,6 +697,7 @@ section#new-destinations-section p#description-new-destinations {
 section#new-destinations-section div#container-card-new-destinations {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 section#new-destinations-section div#container-card-new-destinations a {
   padding-top: 1.5rem;
@@ -723,6 +728,7 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button input {
   display: none;
@@ -840,6 +846,7 @@ section#best-tags-section div#container-card-best-tags a div.card-best-tags figu
 section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button input {
   display: none;
@@ -1267,6 +1274,8 @@ section#property-section .property-details .container-description-property .prop
   transition: 250ms ease-in;
 }
 section#property-section .property-details .container-pricing {
+  position: sticky;
+  top: 8rem;
   display: flex;
   flex-direction: column;
   margin: 1rem 5rem;
