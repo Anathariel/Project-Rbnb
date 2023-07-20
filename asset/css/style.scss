@@ -737,6 +737,16 @@ section#new-destinations-section {
             padding: 10px;
             border-radius: 10px;
             transition: opacity 0.3s;
+
+            h3{
+              color: $accent;
+            }
+
+            p{
+              span{
+                font-family: 'Quicksand-bold';
+              }
+            }
           }
 
           &:hover figcaption {
@@ -847,10 +857,20 @@ section#best-tags-section {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
             background-color: rgba(255, 255, 255, 0.948);
             padding: 10px;
             border-radius: 10px;
             transition: opacity 0.3s;
+
+            h3{
+              color: $accent;
+            }
+            p{
+              span{
+                font-family: 'Quicksand-bold';
+              }
+            }
           }
 
           &:hover figcaption {

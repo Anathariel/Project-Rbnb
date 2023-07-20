@@ -574,6 +574,12 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
   border-radius: 10px;
   transition: opacity 0.3s;
 }
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption h3 {
+  color: #404e87;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption p span {
+  font-family: "Quicksand-bold";
+}
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure:hover figcaption {
   background-color: #f8f8f8;
 }
@@ -668,10 +674,17 @@ section#best-tags-section div#container-card-best-tags a div.card-best-tags figu
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.948);
   padding: 10px;
   border-radius: 10px;
   transition: opacity 0.3s;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption h3 {
+  color: #404e87;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption p span {
+  font-family: "Quicksand-bold";
 }
 section#best-tags-section div#container-card-best-tags a div.card-best-tags figure:hover figcaption {
   background-color: #f8f8f8;

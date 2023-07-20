@@ -40,7 +40,7 @@
 							<img src="{{ asset('/media/locations/' ~ propertys[0].propertyImages.imageMainURL) }}" alt="{{ propertys[0].title }}"/>
 							<figcaption>
 								<h3 id="title-description-card">{{ propertys[0].title }}</h3>
-								<p>{{ propertys[0].PriceNight }}€/nuit</p>
+								<p><span>{{ propertys[0].PriceNight }}</span>€/nuit</p>
 								<p>{{ propertys[0].address }}</p>
 							</figcaption>
 						</figure>
@@ -56,7 +56,7 @@
 								<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
 								<figcaption>
 									<h3 id="title-description-card">{{ property.title }}</h3>
-									<p>{{ property.PriceNight }}€/nuit</p>
+									<p><span>{{ property.PriceNight }}</span>€/nuit</p>
 									<p>{{ property.address }}</p>
 								</figcaption>
 							</figure>
@@ -82,7 +82,7 @@
 							<figcaption>
 								<div class="description-card">
 									<h3 id="title-description-card">{{ getLastTagChateaux.title }}</h3>
-									<p>{{ getLastTagChateaux.priceNight }}€/nuit</p>
+									<p><span>{{ getLastTagChateaux.priceNight }}</span>€/nuit</p>
 								</div>
 							</figcaption>
 						</figure>
@@ -99,7 +99,7 @@
 								<figcaption>
 									<div class="description-card">
 										<h3 id="title-description-card">{{ lastTagChateaux.title }}</h3>
-										<p>{{ lastTagChateaux.priceNight }}€/nuit</p>
+										<p><span>{{ lastTagChateaux.priceNight }}</span>€/nuit</p>
 									</div>
 								</figcaption>
 							</figure>
