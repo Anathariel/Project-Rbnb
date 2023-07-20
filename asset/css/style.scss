@@ -224,26 +224,27 @@ h3 {
       width: 100%;
     }
 
-    .dashboard-property-buttons{
+    .dashboard-property-buttons {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
       align-items: center;
       margin: 1rem;
 
-      .button{
-        p{
+      .button {
+        p {
           color: $dash-maincolor;
           font-family: $bold;
           font-size: 1rem;
         }
       }
-      .button:hover{
+
+      .button:hover {
         border: 1px solid $dash-maincolor;
         border-radius: .5rem;
       }
 
-      input{
+      input {
         color: red;
         font-family: $bold;
         font-size: 1rem;
@@ -253,7 +254,7 @@ h3 {
         cursor: pointer;
       }
 
-      input:hover{
+      input:hover {
         border: 1px solid red;
         border-radius: .5rem;
       }
@@ -278,6 +279,7 @@ h3 {
   line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
 //? --------- HEADER --------- //
 
 .header-main {
@@ -907,6 +909,20 @@ section#new-destinations-section {
           padding: 0;
           position: relative;
 
+          .homepage-favoris {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+          
+            button {
+              border: none;
+              background-color: transparent;
+              input {
+                display: none;
+              }
+            }
+          }
+
           img {
             width: 100%;
             height: 100%;
@@ -1031,6 +1047,20 @@ section#best-tags-section {
           padding: 0;
           position: relative;
 
+          .homepage-favoris {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+          
+            button {
+              border: none;
+              background-color: transparent;
+              input {
+                display: none;
+              }
+            }
+          }
+          
           img {
             width: 100%;
             height: 100%;
@@ -1120,6 +1150,8 @@ section#features-section {
       img {
         width: 100%;
         min-height: 100px;
+
+        
       }
     }
 

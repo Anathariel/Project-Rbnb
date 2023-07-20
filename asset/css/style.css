@@ -715,6 +715,18 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
   padding: 0;
   position: relative;
 }
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button {
+  border: none;
+  background-color: transparent;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button input {
+  display: none;
+}
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure img {
   width: 100%;
   height: 100%;
@@ -819,6 +831,18 @@ section#best-tags-section div#container-card-best-tags a div.card-best-tags figu
   margin: 0;
   padding: 0;
   position: relative;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button {
+  border: none;
+  background-color: transparent;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button input {
+  display: none;
 }
 section#best-tags-section div#container-card-best-tags a div.card-best-tags figure img {
   width: 100%;

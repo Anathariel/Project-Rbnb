@@ -7,16 +7,16 @@
 	{# ---------- HERO ---------- #}
 
 	<section id="hero">
-  		<figure>
-    		<img class="slider-image" src="{{ asset('/media/hero-locar.webp') }}" alt="Hero Loca'R Slide 1"/>
-    		<img class="slider-image" src="{{ asset('/media/hero-locar2.webp') }}" alt="Hero Loca'R Slide 2">
-   	 		<img class="slider-image" src="{{ asset('/media/hero-locar3.webp') }}" alt="Hero Loca'R Slide 3">
-    		<figcaption>
-      			<div class="overlay"></div>
-    		</figcaption>
-    		<button class="slider-arrow prev-arrow"><img src="{{ asset('/media/icons/arrow') }}" alt="Left arrow"></button>
-    		<button class="slider-arrow next-arrow"><img src="{{ asset('/media/icons/arrowleft') }}" alt="Left right"></button>
- 		</figure>
+		<figure>
+			<img class="slider-image" src="{{ asset('/media/hero-locar.webp') }}" alt="Hero Loca'R Slide 1"/>
+			<img class="slider-image" src="{{ asset('/media/hero-locar2.webp') }}" alt="Hero Loca'R Slide 2">
+			<img class="slider-image" src="{{ asset('/media/hero-locar3.webp') }}" alt="Hero Loca'R Slide 3">
+			<figcaption>
+				<div class="overlay"></div>
+			</figcaption>
+			<button class="slider-arrow prev-arrow"><img src="{{ asset('/media/icons/arrow') }}" alt="Left arrow"></button>
+			<button class="slider-arrow next-arrow"><img src="{{ asset('/media/icons/arrowleft') }}" alt="Left right"></button>
+		</figure>
 	</section>
 
 	{# ---------- Tag List Navigation Menu ---------- #}
@@ -39,19 +39,19 @@
 						<figure>
 							<img src="{{ asset('/media/locations/' ~ propertys[0].propertyImages.imageMainURL) }}" alt="{{ propertys[0].title }}"/>
 							<figcaption>
-							<div class="description-card">
-								<h3 id="title-description-card">{{ propertys[0].title }}</h3>
-								<p><span>{{ propertys[0].PriceNight }}</span>€/nuit</p>
-								<p>{{ propertys[0].address }}</p>
-							</div>
-
-							<div class="homepage-favoris">
-										<form method="POST" action="{{ path('favorite') }}">
-											<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-											<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
-										</form>
-									</div>
+								<div class="description-card">
+									<h3 id="title-description-card">{{ propertys[0].title }}</h3>
+									<p>
+										<span>{{ propertys[0].PriceNight }}</span>€/nuit</p>
+									<p>{{ propertys[0].address }}</p>
+								</div>
 							</figcaption>
+							<div class="homepage-favoris">
+								<form method="POST" action="{{ path('favorite') }}">
+									<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+									<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
+								</form>
+							</div>
 						</figure>
 					</div>
 				</a>
@@ -66,17 +66,17 @@
 								<figcaption>
 									<div class="description-card">
 										<h3 id="title-description-card">{{ property.title }}</h3>
-										<p><span>{{ property.PriceNight }}</span>€/nuit</p>
+										<p>
+											<span>{{ property.PriceNight }}</span>€/nuit</p>
 										<p>{{ property.address }}</p>
 									</div>
-
-									<div class="homepage-favoris">
-										<form method="POST" action="{{ path('favorite') }}">
-											<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-											<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
-										</form>
-									</div>
 								</figcaption>
+								<div class="homepage-favoris">
+									<form method="POST" action="{{ path('favorite') }}">
+										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+										<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
+									</form>
+								</div>
 							</figure>
 						</div>
 					</a>
@@ -100,16 +100,18 @@
 							<figcaption>
 								<div class="description-card">
 									<h3 id="title-description-card">{{ getLastTagChateaux.title }}</h3>
-									<p><span>{{ getLastTagChateaux.priceNight }}</span>€/nuit</p>
+									<p>
+										<span>{{ getLastTagChateaux.priceNight }}</span>€/nuit</p>
 								</div>
 
-								<div class="homepage-favoris">
-										<form method="POST" action="{{ path('favorite') }}">
-											<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-											<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
-										</form>
-									</div>
+
 							</figcaption>
+							<div class="homepage-favoris">
+								<form method="POST" action="{{ path('favorite') }}">
+									<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+									<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
+								</form>
+							</div>
 						</figure>
 					</div>
 				</a>
@@ -124,16 +126,18 @@
 								<figcaption>
 									<div class="description-card">
 										<h3 id="title-description-card">{{ lastTagChateaux.title }}</h3>
-										<p><span>{{ lastTagChateaux.priceNight }}</span>€/nuit</p>
+										<p>
+											<span>{{ lastTagChateaux.priceNight }}</span>€/nuit</p>
 									</div>
 
-									<div class="homepage-favoris">
-										<form method="POST" action="{{ path('favorite') }}">
-											<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-											<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
-										</form>
-									</div>
+
 								</figcaption>
+								<div class="homepage-favoris">
+									<form method="POST" action="{{ path('favorite') }}">
+										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+										<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
+									</form>
+								</div>
 							</figure>
 						</div>
 					</a>
@@ -209,6 +213,6 @@
 	</section>
 
 	<button id="scroll-to-top-button" class="scroll-to-top-hidden">
-  		<img src="{{ asset('/media/icons/arrow-top.svg')}}" alt="Scroll to top">
+		<img src="{{ asset('/media/icons/arrow-top.svg')}}" alt="Scroll to top">
 	</button>
 {% endblock %}
