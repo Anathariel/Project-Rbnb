@@ -15,7 +15,7 @@
 
 	<div id="response"></div>
 
-	<section class="catalog-cards">
+	<section id="catalog-cards">
 		{% for property in result %}
 			<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
 				<div class="card">
@@ -29,7 +29,7 @@
 						<figcaption>
 							<form method="POST" action="{{ path('favorite') }}">
 								<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-								<input type="submit" name="submit" value="coeur">
+								<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
 							</form>
 						</figcaption>
 					</figure>
@@ -51,7 +51,7 @@
 						</div>
 						<div class="description">
 							<h3>{{ property.title }}</h3>
-							<p>{{ property.description }}</p>
+							<p class="card-descriptions-limit">{{ property.description }}</p>
 						</div>
 						<button>
 							<span>Réserver</span>
