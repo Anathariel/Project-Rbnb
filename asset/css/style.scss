@@ -88,6 +88,198 @@ h3 {
 }
 
 //~ -------------------- STYLING -------------------- //
+//^ --------- CARD DEFAULT STYLE --------- //
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 450px;
+  width: 100%;
+  max-width: 280px;
+  margin: 2rem auto;
+  background-color: $white;
+  border-radius: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  figure {
+    padding: 1rem 0;
+    position: relative;
+
+    img {
+      width: 90%;
+      max-width: 260px;
+      max-height: 150px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 0.5rem;
+      display: inline-block;
+    }
+
+    figcaption {
+      width: 30px;
+      position: absolute;
+      top: 2rem;
+      right: 1.5rem;
+
+      button {
+        outline: transparent;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        img {
+          width: 30px;
+        }
+
+        input {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .card-details {
+    padding: 0 1rem;
+
+    .pricing {
+      display: flex;
+      flex-direction: row;
+      margin-right: auto;
+
+      span {
+        font-size: 2rem;
+      }
+
+      .rating {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: auto;
+      }
+    }
+
+    .location {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 1rem 0;
+
+      img {
+        margin: 0.2rem;
+      }
+    }
+
+    .description {
+      h3 {
+        text-align: left;
+        font-size: 1.2rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        margin: .5rem;
+      }
+    }
+
+    button {
+      width: 100%;
+      position: relative;
+      margin: 0.5rem 0;
+      border: solid 1px $accent;
+      background-color: transparent;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      overflow: hidden;
+
+      span {
+        display: block;
+        font-family: "Quicksand";
+        font-size: 1rem;
+        width: 100%;
+        padding: 0.3rem 0;
+        color: $accent;
+        position: relative;
+        z-index: 1;
+      }
+
+      span:hover {
+        color: $white;
+      }
+    }
+
+    button:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: $accent;
+      transition: all 0.5s ease-out;
+      z-index: 0;
+    }
+
+    button:hover:before {
+      width: 100%;
+    }
+
+    .dashboard-property-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 1rem;
+
+      .button {
+        p {
+          color: $dash-maincolor;
+          font-family: $bold;
+          font-size: 1rem;
+        }
+      }
+
+      .button:hover {
+        border: 1px solid $dash-maincolor;
+        border-radius: .5rem;
+      }
+
+      input {
+        color: red;
+        font-family: $bold;
+        font-size: 1rem;
+        outline: transparent;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      input:hover {
+        border: 1px solid red;
+        border-radius: .5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .dashboard-cards {
+    .card {
+      margin: 0;
+      max-width: 180px;
+    }
+  }
+}
+
+.card-descriptions-limit {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 //? --------- HEADER --------- //
 
 .header-main {
@@ -717,6 +909,20 @@ section#new-destinations-section {
           padding: 0;
           position: relative;
 
+          .homepage-favoris {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+          
+            button {
+              border: none;
+              background-color: transparent;
+              input {
+                display: none;
+              }
+            }
+          }
+
           img {
             width: 100%;
             height: 100%;
@@ -841,6 +1047,20 @@ section#best-tags-section {
           padding: 0;
           position: relative;
 
+          .homepage-favoris {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+          
+            button {
+              border: none;
+              background-color: transparent;
+              input {
+                display: none;
+              }
+            }
+          }
+          
           img {
             width: 100%;
             height: 100%;
@@ -930,6 +1150,8 @@ section#features-section {
       img {
         width: 100%;
         min-height: 100px;
+
+        
       }
     }
 
@@ -1945,193 +2167,4 @@ section#addgooglemaps-property-section {
   text-align: center;
   justify-content: space-evenly;
   margin: 1rem 5rem;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 450px;
-  width: 100%;
-  max-width: 280px;
-  margin: 2rem auto;
-  background-color: $white;
-  border-radius: 0.5rem;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-  figure {
-    padding: 1rem 0;
-    position: relative;
-
-    img {
-      width: 90%;
-      max-width: 260px;
-      max-height: 150px;
-      object-fit: cover;
-      object-position: top;
-      border-radius: 0.5rem;
-      display: inline-block;
-    }
-
-    figcaption {
-      width: 30px;
-      position: absolute;
-      top: 2rem;
-      right: 1.5rem;
-
-      button {
-        outline: transparent;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-
-        img {
-          width: 30px;
-        }
-
-        input {
-          display: none;
-        }
-      }
-    }
-  }
-
-  .card-details {
-    padding: 0 1rem;
-
-    .pricing {
-      display: flex;
-      flex-direction: row;
-      margin-right: auto;
-
-      span {
-        font-size: 2rem;
-      }
-
-      .rating {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-left: auto;
-      }
-    }
-
-    .location {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 1rem 0;
-
-      img {
-        margin: 0.2rem;
-      }
-    }
-
-    .description {
-      h3 {
-        text-align: left;
-        font-size: 1.2rem;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        line-clamp: 1;
-        -webkit-box-orient: vertical;
-        margin: .5rem;
-      }
-    }
-
-    button {
-      width: 100%;
-      position: relative;
-      margin: 0.5rem 0;
-      border: solid 1px $accent;
-      background-color: transparent;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      overflow: hidden;
-
-      span {
-        display: block;
-        font-family: "Quicksand";
-        font-size: 1rem;
-        width: 100%;
-        padding: 0.3rem 0;
-        color: $accent;
-        position: relative;
-        z-index: 1;
-      }
-
-      span:hover {
-        color: $white;
-      }
-    }
-
-    button:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background-color: $accent;
-      transition: all 0.5s ease-out;
-      z-index: 0;
-    }
-
-    button:hover:before {
-      width: 100%;
-    }
-
-    .dashboard-property-buttons{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-      margin: 1rem;
-
-      .button{
-        p{
-          color: $dash-maincolor;
-          font-family: $bold;
-          font-size: 1rem;
-        }
-      }
-      .button:hover{
-        border: 1px solid $dash-maincolor;
-        border-radius: .5rem;
-      }
-
-      input{
-        color: red;
-        font-family: $bold;
-        font-size: 1rem;
-        outline: transparent;
-        background-color: transparent;
-        border: none;
-      }
-
-      input:hover{
-        border: 1px solid red;
-        border-radius: .5rem;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .dashboard-cards {
-    .card {
-      margin: 0;
-      max-width: 180px;
-    }
-  }
-}
-
-.card-descriptions-limit {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  /* number of lines to show */
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
 }

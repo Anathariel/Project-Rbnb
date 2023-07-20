@@ -62,6 +62,169 @@ h3 {
   color: #1b1d21;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 450px;
+  width: 100%;
+  max-width: 280px;
+  margin: 2rem auto;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.card figure {
+  padding: 1rem 0;
+  position: relative;
+}
+.card figure img {
+  width: 90%;
+  max-width: 260px;
+  max-height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+.card figure figcaption {
+  width: 30px;
+  position: absolute;
+  top: 2rem;
+  right: 1.5rem;
+}
+.card figure figcaption button {
+  outline: transparent;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.card figure figcaption button img {
+  width: 30px;
+}
+.card figure figcaption button input {
+  display: none;
+}
+.card .card-details {
+  padding: 0 1rem;
+}
+.card .card-details .pricing {
+  display: flex;
+  flex-direction: row;
+  margin-right: auto;
+}
+.card .card-details .pricing span {
+  font-size: 2rem;
+}
+.card .card-details .pricing .rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+}
+.card .card-details .location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 0;
+}
+.card .card-details .location img {
+  margin: 0.2rem;
+}
+.card .card-details .description h3 {
+  text-align: left;
+  font-size: 1.2rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin: 0.5rem;
+}
+.card .card-details button {
+  width: 100%;
+  position: relative;
+  margin: 0.5rem 0;
+  border: solid 1px #404e87;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+.card .card-details button span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #404e87;
+  position: relative;
+  z-index: 1;
+}
+.card .card-details button span:hover {
+  color: #f8f8f8;
+}
+.card .card-details button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #404e87;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+.card .card-details button:hover:before {
+  width: 100%;
+}
+.card .card-details .dashboard-property-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem;
+}
+.card .card-details .dashboard-property-buttons .button p {
+  color: #0e9384;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+}
+.card .card-details .dashboard-property-buttons .button:hover {
+  border: 1px solid #0e9384;
+  border-radius: 0.5rem;
+}
+.card .card-details .dashboard-property-buttons input {
+  color: red;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  outline: transparent;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.card .card-details .dashboard-property-buttons input:hover {
+  border: 1px solid red;
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  .dashboard-cards .card {
+    margin: 0;
+    max-width: 180px;
+  }
+}
+.card-descriptions-limit {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 .header-main {
   position: sticky;
   top: 0;
@@ -552,6 +715,18 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
   padding: 0;
   position: relative;
 }
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button {
+  border: none;
+  background-color: transparent;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button input {
+  display: none;
+}
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure img {
   width: 100%;
   height: 100%;
@@ -656,6 +831,18 @@ section#best-tags-section div#container-card-best-tags a div.card-best-tags figu
   margin: 0;
   padding: 0;
   position: relative;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button {
+  border: none;
+  background-color: transparent;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button input {
+  display: none;
 }
 section#best-tags-section div#container-card-best-tags a div.card-best-tags figure img {
   width: 100%;
@@ -1535,166 +1722,4 @@ section#addgooglemaps-property-section input:focus::placeholder {
   text-align: center;
   justify-content: space-evenly;
   margin: 1rem 5rem;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 450px;
-  width: 100%;
-  max-width: 280px;
-  margin: 2rem auto;
-  background-color: #f8f8f8;
-  border-radius: 0.5rem;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-.card figure {
-  padding: 1rem 0;
-  position: relative;
-}
-.card figure img {
-  width: 90%;
-  max-width: 260px;
-  max-height: 150px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
-  border-radius: 0.5rem;
-  display: inline-block;
-}
-.card figure figcaption {
-  width: 30px;
-  position: absolute;
-  top: 2rem;
-  right: 1.5rem;
-}
-.card figure figcaption button {
-  outline: transparent;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-.card figure figcaption button img {
-  width: 30px;
-}
-.card figure figcaption button input {
-  display: none;
-}
-.card .card-details {
-  padding: 0 1rem;
-}
-.card .card-details .pricing {
-  display: flex;
-  flex-direction: row;
-  margin-right: auto;
-}
-.card .card-details .pricing span {
-  font-size: 2rem;
-}
-.card .card-details .pricing .rating {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: auto;
-}
-.card .card-details .location {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 1rem 0;
-}
-.card .card-details .location img {
-  margin: 0.2rem;
-}
-.card .card-details .description h3 {
-  text-align: left;
-  font-size: 1.2rem;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
-  -webkit-box-orient: vertical;
-  margin: 0.5rem;
-}
-.card .card-details button {
-  width: 100%;
-  position: relative;
-  margin: 0.5rem 0;
-  border: solid 1px #404e87;
-  background-color: transparent;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-.card .card-details button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1rem;
-  width: 100%;
-  padding: 0.3rem 0;
-  color: #404e87;
-  position: relative;
-  z-index: 1;
-}
-.card .card-details button span:hover {
-  color: #f8f8f8;
-}
-.card .card-details button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #404e87;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-.card .card-details button:hover:before {
-  width: 100%;
-}
-.card .card-details .dashboard-property-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 1rem;
-}
-.card .card-details .dashboard-property-buttons .button p {
-  color: #0e9384;
-  font-family: "Quicksand-bold";
-  font-size: 1rem;
-}
-.card .card-details .dashboard-property-buttons .button:hover {
-  border: 1px solid #0e9384;
-  border-radius: 0.5rem;
-}
-.card .card-details .dashboard-property-buttons input {
-  color: red;
-  font-family: "Quicksand-bold";
-  font-size: 1rem;
-  outline: transparent;
-  background-color: transparent;
-  border: none;
-}
-.card .card-details .dashboard-property-buttons input:hover {
-  border: 1px solid red;
-  border-radius: 0.5rem;
-}
-
-@media screen and (max-width: 800px) {
-  .dashboard-cards .card {
-    margin: 0;
-    max-width: 180px;
-  }
-}
-.card-descriptions-limit {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  /* number of lines to show */
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
 }/*# sourceMappingURL=style.css.map */
