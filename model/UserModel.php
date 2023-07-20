@@ -7,14 +7,14 @@ class UserModel extends Model
         $lastName = $user->getLastName();
         $password = $user->getPassword();
         $email = $user->getEmail();
-        $picture = $user->getPicture();
+      
 
-        $req = $this->getDb()->prepare("INSERT INTO `user` (`firstName`, `lastName`, `email`, `password`,`picture`) VALUES (:firstName, :lastName, :email, :password, :picture)");
+        $req = $this->getDb()->prepare("INSERT INTO `user` (`firstName`, `lastName`, `email`, `password`) VALUES (:firstName, :lastName, :email, :password)");
         $req->bindParam(":firstName", $firstName, PDO::PARAM_STR);
         $req->bindParam(":lastName", $lastName, PDO::PARAM_STR);
         $req->bindParam(":password", $password, PDO::PARAM_STR);
         $req->bindParam(":email", $email, PDO::PARAM_STR);
-        $req->bindParam(":picture", $picture, PDO::PARAM_STR);
+      
 
 
         $req->execute();
@@ -53,17 +53,25 @@ class UserModel extends Model
         $uid = $user->getUid();
         $firstName = $user->getFirstName();
         $lastName = $user->getLastName();
+        $birthDate = $user->getBirthDate();
         $email = $user->getEmail();
+        $phoneNumber = $user->getPhoneNumber();
+        $picture = $user->getPicture();
         // Obtient la connexion à la base de données
         $db = $this->getDb(); 
          // Prépare la requête de mise à jour pour mettre à jour les données de l'utilisateur
-        $req = $db->prepare('UPDATE `user` SET `firstName` = :firstName,`lastName` = :lastName,`email` = :email WHERE `uid` = :uid');
+        $req = $db->prepare('UPDATE `user` SET `firstName` = :firstName,`lastName` = :lastName,`birthDate` =:birthDate,`email` = :email,`phoneNumber` = :phoneNumber,`picture` = :picture WHERE `uid` = :uid');
          // Associe la valeur de $uid au paramètre 
         $req->bindParam(':uid', $uid, PDO::PARAM_INT);
         $req->bindParam(':firstName', $firstName, PDO::PARAM_STR);
         $req->bindParam(':lastName', $lastName, PDO::PARAM_STR);
+        $req->bindParam(':birthDate', $birthDate, PDO::PARAM_STR);
         $req->bindParam(':email', $email, PDO::PARAM_STR);
-        $req->execute();
+        $req->bindParam(':phoneNumber', $phoneNumber, PDO::PARAM_STR);
+        $req->bindParam(':picture', $picture, PDO::PARAM_STR);
+        $querryResult = $req->execute();
+
+        return $querryResult;
         
     }
     public function delete($uid){

@@ -6,7 +6,7 @@
 {% block content %}
 	<section id="user-edit">
 		<h2>Mon Compte</h2>
-		<form method="POST" action="{{ router.generate('editUser',{'id': user.uid}) }}" >
+		<form method="POST" action="{{ router.generate('editUser',{'id': user.uid}) }}" enctype="multipart/form-data">
 			<p>Nom Légal</p>
 			<div class="user-names">
 				<input type="text" name="firstName" value="{{ user.firstName }}">
@@ -21,11 +21,16 @@
 			<input type="text" name="email" value="{{ user.email }}">
 
 			<p>Numéro de Téléphone</p>
-			<input type="text" name="phoneNumber" value="06 66 66 66 66">
+			<input type="text" name="phoneNumber"  value="{{ user.phoneNumber }}">
 
 			<p>Date de Naissance</p>
-			<input type="date" name="birthdate">
+			<input type="date" name="birthDate" value="{{ user.birthDate }}">
 
+			{# <form action="{{ path('register') }}" method="POST" enctype="#"> #}
+			<p>Choisissez votre photo</p>
+			<input type="file" name="picture" id="picture" >
+			 {# <input type="submit" value="Envoyer"> #}
+		
 			<div class="account-buttons">
 				<input type="submit" name="submit" value="Modifier">
 		</form>
