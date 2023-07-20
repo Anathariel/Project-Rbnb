@@ -1240,14 +1240,15 @@ section#property-section {
               }
 
               .stars-rating {
-                figure{
+                figure {
                   display: flex;
                   flex-direction: row;
+
                   img {
-                  width: 15px;
+                    width: 15px;
+                  }
                 }
-                }
-                
+
               }
             }
           }
@@ -1561,6 +1562,9 @@ section#addgooglemaps-property-section {
   background-color: #e1e7ea;
   min-height: 90vh;
 
+  h2{
+    color: $dash-maincolor;
+  }
   .welcome-dashboard {
     text-align: left;
 
@@ -1568,6 +1572,7 @@ section#addgooglemaps-property-section {
       color: #111;
       margin: 0 5rem;
       padding-top: 1rem;
+      font-size: 2rem;
     }
 
     .user-menu {
@@ -1621,118 +1626,116 @@ section#addgooglemaps-property-section {
     }
   }
 
-  .dashboard-cards {
+  .cards-container{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    justify-content: center;
+    justify-content: center;    
+  .card {
+    display: flex;
+    flex-direction: column;
+    // height: auto;
+    width: 100%;
+    max-width: 280px;
+    margin: 2rem auto;
+    background-color: $white;
+    border-radius: 0.5rem;
 
-    .card {
-      display: flex;
-      flex-direction: column;
-      // height: auto;
-      width: 100%;
-      max-width: 280px;
-      margin: 2rem auto;
-      background-color: $white;
-      border-radius: 0.5rem;
+    figure {
+      position: relative;
+      padding: 1rem 0;
 
-      figure {
-        position: relative;
-        padding: 1rem 0;
-
-        img {
-          width: 90%;
-          max-width: 260px;
-          max-height: 200px;
-          object-fit: cover;
-          object-position: top;
-          border-radius: 0.5rem;
-          display: inline-block;
-        }
-
-        figcaption {
-          width: 30px;
-          position: absolute;
-          top: 2rem;
-          left: 14.5rem;
-
-          a>img {
-            width: 30px;
-          }
-        }
+      img {
+        width: 90%;
+        max-width: 260px;
+        max-height: 200px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 0.5rem;
+        display: inline-block;
       }
 
-      .card-details {
-        padding: 0 1rem;
+      figcaption {
+        width: 30px;
+        position: absolute;
+        top: 2rem;
+        left: 14.5rem;
 
-        .pricing {
-          display: flex;
-          flex-direction: row;
-          margin-right: auto;
-
-          span {
-            font-size: 2rem;
-          }
-
-          .rating {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-left: auto;
-          }
-        }
-
-        .location {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          padding: 1rem 0;
-
-          img {
-            margin: 0.2rem;
-          }
-        }
-
-        .description {
-          h3 {
-            text-align: left;
-            font-size: 1.2rem;
-          }
-        }
-
-        .property-buttons {
-          display: flex;
-          justify-content: space-evenly;
-          margin: 0.5rem;
-
-          .button>p {
-            color: #059669;
-            font-family: "Quicksand-bold";
-            font-size: 1rem;
-          }
-
-          .delete {
-            color: red;
-            font-family: "Quicksand-bold";
-            font-size: 1rem;
-            border: none;
-            outline: transparent;
-            background-color: transparent;
-          }
+        a>img {
+          width: 30px;
         }
       }
     }
 
-    @media screen and (max-width: 800px) {
-      .dashboard-cards {
-        .card {
-          margin: 0;
-          max-width: 180px;
+    .card-details {
+      padding: 0 1rem;
+
+      .pricing {
+        display: flex;
+        flex-direction: row;
+        margin-right: auto;
+
+        span {
+          font-size: 2rem;
+        }
+
+        .rating {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-left: auto;
+        }
+      }
+
+      .location {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1rem 0;
+
+        img {
+          margin: 0.2rem;
+        }
+      }
+
+      .description {
+        h3 {
+          text-align: left;
+          font-size: 1.2rem;
+        }
+      }
+
+      .property-buttons {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0.5rem;
+
+        .button>p {
+          color: #059669;
+          font-family: "Quicksand-bold";
+          font-size: 1rem;
+        }
+
+        .delete {
+          color: red;
+          font-family: "Quicksand-bold";
+          font-size: 1rem;
+          border: none;
+          outline: transparent;
+          background-color: transparent;
         }
       }
     }
   }
+
+  @media screen and (max-width: 800px) {
+    .card {
+      margin: 0;
+      max-width: 180px;
+    }
+  }    
+  }
+
 }
 
 #addpropertyForm {

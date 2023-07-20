@@ -41,7 +41,9 @@
 			</div>
 		</section>
 
-		<section class="dashboard-cards">
+		<section class="dashboard-cards-my-proprieties">
+		<h2>Mes propriétés</h2>
+		<div class="cards-container">
 			{% for property in userProperties %}
 				{% if property is defined %}
 					<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
@@ -90,8 +92,61 @@
 						</div>
 					</a>
 				{% endif %}
-			{% endfor %}
-			</div>
+			{% endfor %}		
+		</div>
+
+		</section>
+
+		<section class="dashboard-cards-my-favs">
+		<h2>Mes Favoris</h2>
+		<div class="cards-container">
+			<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
+							<div class="card">
+								<figure>
+									{% if property.propertyImages is defined %}
+										<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+									{% endif %}
+									<figcaption>
+										<a href="#">
+											<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
+										</a>
+									</figcaption>
+								</figure>
+
+								<div class="card-details">
+									<div class="pricing">
+										<h3>
+											<span>{{ property.priceNight }}€</span>/nuit</h3>
+										<div class="rating">
+											<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+											<p>5.0</p>
+										</div>
+									</div>
+									<div class="location">
+										<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+										<p>{{ property.address }}</p>
+									</div>
+									<div class="description">
+										<h3>{{ property.title }}</h3>
+										{# <p>{{ property.description }}</p> #}
+									</div>
+									<div class="property-buttons">
+										<a href="{{ path('baseEditproperty') }}{{ property.propertyId }}">
+											<div class="button">
+												<p>Modifier</p>
+											</div>
+										</a>
+										<form action="{{ path('baseDeleteproperty') }}{{ property.propertyId }}" method="POST">
+											<input type="hidden" name="_method" value="DELETE">
+											<input type="submit" value="Supprimer" class="delete">
+										</form>
+									</div>
+									
+								</div>
+							</div>
+			</a>
+		</div>
+		
 		</section>
 </section>
 {% endblock %}

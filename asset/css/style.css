@@ -1251,6 +1251,9 @@ section#addgooglemaps-property-section input:focus::placeholder {
   background-color: #e1e7ea;
   min-height: 90vh;
 }
+.dashboard h2 {
+  color: #0e9384;
+}
 .dashboard .welcome-dashboard {
   text-align: left;
 }
@@ -1258,6 +1261,7 @@ section#addgooglemaps-property-section input:focus::placeholder {
   color: #111;
   margin: 0 5rem;
   padding-top: 1rem;
+  font-size: 2rem;
 }
 .dashboard .welcome-dashboard .user-menu {
   display: flex;
@@ -1300,13 +1304,13 @@ section#addgooglemaps-property-section input:focus::placeholder {
     align-self: flex-end;
   }
 }
-.dashboard .dashboard-cards {
+.dashboard .cards-container {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: center;
 }
-.dashboard .dashboard-cards .card {
+.dashboard .cards-container .card {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -1315,11 +1319,11 @@ section#addgooglemaps-property-section input:focus::placeholder {
   background-color: #f8f8f8;
   border-radius: 0.5rem;
 }
-.dashboard .dashboard-cards .card figure {
+.dashboard .cards-container .card figure {
   position: relative;
   padding: 1rem 0;
 }
-.dashboard .dashboard-cards .card figure img {
+.dashboard .cards-container .card figure img {
   width: 90%;
   max-width: 260px;
   max-height: 200px;
@@ -1330,56 +1334,56 @@ section#addgooglemaps-property-section input:focus::placeholder {
   border-radius: 0.5rem;
   display: inline-block;
 }
-.dashboard .dashboard-cards .card figure figcaption {
+.dashboard .cards-container .card figure figcaption {
   width: 30px;
   position: absolute;
   top: 2rem;
   left: 14.5rem;
 }
-.dashboard .dashboard-cards .card figure figcaption a > img {
+.dashboard .cards-container .card figure figcaption a > img {
   width: 30px;
 }
-.dashboard .dashboard-cards .card .card-details {
+.dashboard .cards-container .card .card-details {
   padding: 0 1rem;
 }
-.dashboard .dashboard-cards .card .card-details .pricing {
+.dashboard .cards-container .card .card-details .pricing {
   display: flex;
   flex-direction: row;
   margin-right: auto;
 }
-.dashboard .dashboard-cards .card .card-details .pricing span {
+.dashboard .cards-container .card .card-details .pricing span {
   font-size: 2rem;
 }
-.dashboard .dashboard-cards .card .card-details .pricing .rating {
+.dashboard .cards-container .card .card-details .pricing .rating {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-left: auto;
 }
-.dashboard .dashboard-cards .card .card-details .location {
+.dashboard .cards-container .card .card-details .location {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 1rem 0;
 }
-.dashboard .dashboard-cards .card .card-details .location img {
+.dashboard .cards-container .card .card-details .location img {
   margin: 0.2rem;
 }
-.dashboard .dashboard-cards .card .card-details .description h3 {
+.dashboard .cards-container .card .card-details .description h3 {
   text-align: left;
   font-size: 1.2rem;
 }
-.dashboard .dashboard-cards .card .card-details .property-buttons {
+.dashboard .cards-container .card .card-details .property-buttons {
   display: flex;
   justify-content: space-evenly;
   margin: 0.5rem;
 }
-.dashboard .dashboard-cards .card .card-details .property-buttons .button > p {
+.dashboard .cards-container .card .card-details .property-buttons .button > p {
   color: #059669;
   font-family: "Quicksand-bold";
   font-size: 1rem;
 }
-.dashboard .dashboard-cards .card .card-details .property-buttons .delete {
+.dashboard .cards-container .card .card-details .property-buttons .delete {
   color: red;
   font-family: "Quicksand-bold";
   font-size: 1rem;
@@ -1388,7 +1392,7 @@ section#addgooglemaps-property-section input:focus::placeholder {
   background-color: transparent;
 }
 @media screen and (max-width: 800px) {
-  .dashboard .dashboard-cards .dashboard-cards .card {
+  .dashboard .cards-container .card {
     margin: 0;
     max-width: 180px;
   }
