@@ -367,101 +367,102 @@
 								{{ houseRules.checkInTime|slice(0, 5) }}</p>
 							<p>Départ avant
 								{{ houseRules.checkOutTime|slice(0, 5) }}</p>
-							<p>{{ houseRules.maxGuests }}
-								voyageurs maximum</p>
+							<p id="maxGuests">{{ houseRules.maxGuests }}</p>
+							voyageurs maximum</p>
+						<a id="description-details" href="#">En savoir plus →</a>
+					</div>
+
+					<div class="annulation">
+						<h4>Conditions d'annulation :</h4>
+						{% if cancellationPolicy %}
+							<p>Annulation gratuite avant
+								{{ cancellationPolicy.cancellationTime }}</p>
+							<p>Politique de remboursement :
+								{{ cancellationPolicy.refundPolicy }}</p>
+							<p>Frais d'annulation :
+								{{ cancellationPolicy.cancellationFees }}€</p>
 							<a id="description-details" href="#">En savoir plus →</a>
-						</div>
-
-						<div class="annulation">
-							<h4>Conditions d'annulation :</h4>
-							{% if cancellationPolicy %}
-								<p>Annulation gratuite avant
-									{{ cancellationPolicy.cancellationTime }}</p>
-								<p>Politique de remboursement :
-									{{ cancellationPolicy.refundPolicy }}</p>
-								<p>Frais d'annulation :
-									{{ cancellationPolicy.cancellationFees }}€</p>
-								<a id="description-details" href="#">En savoir plus →</a>
-							{% else %}
-								<p>Aucune politique d'annulation définie pour cette propriété.</p>
-							{% endif %}
-						</div>
+						{% else %}
+							<p>Aucune politique d'annulation définie pour cette propriété.</p>
+						{% endif %}
 					</div>
 				</div>
-				{# --------------- RIGHT SIDE PRICE BOX -------------- #}
-				<div class="container-pricing">
-					<p>
-						<span id="pricePerNight">{{ property.PriceNight }}€</span>
-						par nuit
-					</p>
-					<div class="container-calendar-traveler">
-						<div class="reservation-options">
-							<div class="calendar">
-								<div class="arrival">
-									<h4>Arrivée</h4>
-									<input type="date">
-								</div>
-								<div class="departure">
-									<h4>Départ</h4>
-									<input type="date">
-								</div>
+			</div>
+			{# --------------- RIGHT SIDE PRICE BOX -------------- #}
+			<div class="container-pricing">
+				<p>
+					<span id="pricePerNight">{{ property.PriceNight }}€</span>
+					par nuit
+				</p>
+				<div class="container-calendar-traveler">
+					<div class="reservation-options">
+						<div class="calendar">
+							<div class="arrival">
+								<h4>Arrivée</h4>
+								<input type="date" id="arrivalDate">
 							</div>
-							<div class="traveler">
-								<h4>Voyageurs</h4>
-								<select name="traveler" id="traveler-select">
-									<option value="1 Voyageur">1 Voyageur</option>
-									<option value="2 Voyageur">2 Voyageurs</option>
-									<option value="3 Voyageur">3 Voyageurs</option>
-									<option value="4 Voyageur">4 Voyageurs</option>
-									<option value="5 Voyageur">5 Voyageurs</option>
-									<option value="6 Voyageur">6 Voyageurs</option>
-									<option value="7 Voyageur">7 Voyageurs</option>
-									<option value="8 Voyageur">8+ Voyageurs</option>
-								</select>
+							<div class="departure">
+								<h4>Départ</h4>
+								<input type="date" id="departureDate">
 							</div>
 						</div>
-						<button>
-							<span>Réserver</span>
-						</button>
-						<p>Aucun montant ne vous sera débité pour le moment</p>
+
+						<div class="traveler">
+							<h4>Voyageurs</h4>
+							<select name="traveler" id="traveler-select">
+								<option value="1 Voyageur">1 Voyageur</option>
+								<option value="2 Voyageur">2 Voyageurs</option>
+								<option value="3 Voyageur">3 Voyageurs</option>
+								<option value="4 Voyageur">4 Voyageurs</option>
+								<option value="5 Voyageur">5 Voyageurs</option>
+								<option value="6 Voyageur">6 Voyageurs</option>
+								<option value="7 Voyageur">7 Voyageurs</option>
+								<option value="8 Voyageur">8+ Voyageurs</option>
+							</select>
+						</div>
 					</div>
-					<div class="price-details">
-						<div class="details">
-							<p>{{ property.PriceNight }}€ x
-								<span id="travelers">{{ selectedTravelers }}</span>
-							</p>
-							<p>Frais de service Loca'R</p>
-							<p>Taxes</p>
-							<h4>Total du séjour</h4>
-						</div>
-						<div class="prices">
-							<p id="totalPrice">{{ totalPrice }}€</p>
-							<p id="serviceFee">{{ serviceFee }}€</p>
-							<p id="taxes">{{ taxes }}€</p>
-							<h4 id="totalPriceWithFees">{{ totalPriceWithFees }}€</h4>
-						</div>
+					<button>
+						<span>Réserver</span>
+					</button>
+					<p>Aucun montant ne vous sera débité pour le moment</p>
+				</div>
+				<div class="price-details hidden">
+					<div class="details">
+						<p>{{ property.PriceNight }}€ x
+							<span id="nb-day"></span>
+						</p>
+						<p>Frais de service Loca'R</p>
+						<p>Taxes</p>
+						<h4>Total du séjour</h4>
+					</div>
+					<div class="prices">
+						<p id="totalPrice">{{ totalPrice }}€</p>
+						<p id="serviceFee">{{ serviceFee }}€</p>
+						<p id="taxes">{{ taxes }}€</p>
+						<h4 id="totalPriceWithFees">{{ totalPriceWithFees }}€</h4>
 					</div>
 				</div>
-
 			</div>
 
-			<h3>Laisser votre commentaire</h3>
-			<div class="add-comment-form">
-				<form action="{{ path('commentAdd') }}" method="POST">
-					<div class="rating-input">
-						<label for="rating">Votre note (sur 5) :</label>
-						<br>
-						<input type="number" id="rating" name="rating" required>
-					</div>
-					<div class="comment-input">
-						<label for="comment">Votre commentaire :</label>
-						<br>
-						<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
-						<br>
-					</div>
-					<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-					<input type="submit" name="submit" value="Proposer mon commentaire">
-				</form>
-			</div>
-		</section>
-	{% endblock %}
+		</div>
+
+		<h3>Laisser votre commentaire</h3>
+		<div class="add-comment-form">
+			<form action="{{ path('commentAdd') }}" method="POST">
+				<div class="rating-input">
+					<label for="rating">Votre note (sur 5) :</label>
+					<br>
+					<input type="number" id="rating" name="rating" required>
+				</div>
+				<div class="comment-input">
+					<label for="comment">Votre commentaire :</label>
+					<br>
+					<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
+					<br>
+				</div>
+				<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+				<input type="submit" name="submit" value="Proposer mon commentaire">
+			</form>
+		</div>
+	</section>
+{% endblock %}

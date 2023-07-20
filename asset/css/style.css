@@ -62,6 +62,10 @@ h3 {
   color: #1b1d21;
 }
 
+.hidden {
+  display: none;
+}
+
 .header-main {
   position: sticky;
   top: 0;
@@ -1067,6 +1071,8 @@ section#property-section .property-details .container-pricing {
   margin: 1rem 5rem;
   background-color: rgba(217, 217, 217, 0.3764705882);
   width: 30%;
+  height: -moz-fit-content;
+  height: fit-content;
   max-height: 550px;
   padding: 1.5rem;
   border-radius: 1.5rem;

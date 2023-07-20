@@ -86,6 +86,12 @@ h3 {
   color: $darkerblue;
 }
 
+// -------------------- class connum javascript hidden -------------------- //
+
+.hidden {
+  display: none;
+}
+
 //~ -------------------- STYLING -------------------- //
 //? --------- HEADER --------- //
 
@@ -1338,6 +1344,7 @@ section#property-section {
       margin: 1rem 5rem;
       background-color: #d9d9d960;
       width: 30%;
+      height: fit-content;
       max-height: 550px;
       padding: 1.5rem;
       border-radius: 1.5rem;
