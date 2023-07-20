@@ -135,10 +135,10 @@ class UserController extends Controller
     public function editUser()
     {
         if (!$_POST) {
-            // $uid = $_SESSION['uid'];
-            // //Récupérer les infos du user dans BDD
-            // $userModel = new UserModel();
-            // $user = $userModel->getUserById($uid);
+            $uid = $_SESSION['uid'];
+            //Récupérer les infos du user dans BDD
+            $userModel = new UserModel();
+            $user = $userModel->getUserById($uid);
 
             echo self::getRender('dashboard-options.html.twig', []); //info: user est un objet
 
@@ -154,8 +154,8 @@ class UserController extends Controller
             $pictureName = $_FILES['picture']['name'];
             $password = $_POST['password'];
             $confirmation = $_POST['confirmation'];
-            var_dump($_POST);
-            var_dump($_FILES);
+            // var_dump($_POST);
+            // var_dump($_FILES);
             // condition pour verfier le mot de passe
             if ($password != $confirmation) {
                 $message = 'Mot de passe incorrecte';
@@ -182,8 +182,8 @@ class UserController extends Controller
 
                         // Déplacer le fichier temporaire vers le dossier final
                         $controleUpload = move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile);
-                        var_dump($controleUpload);
-                        // Le fichier a été téléchargé avec succès, vous pouvez enregistrer le chemin d'accès à la photo dans la base de données
+                        // var_dump($controleUpload);
+                        // Le fichier a été téléchargé avec succès,  vous pouvez enregistrer le chemin d'accès à la photo dans la base de données
                         //var_dump(move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile));
                         if (!$controleUpload) {
                             $message = "Une erreur est survenue lors du téléchargement de l'image. Veuillez réessayer.";
