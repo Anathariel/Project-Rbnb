@@ -62,8 +62,167 @@ h3 {
   color: #1b1d21;
 }
 
-.hidden {
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 450px;
+  width: 100%;
+  max-width: 280px;
+  margin: 2rem auto;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.card figure {
+  padding: 1rem 0;
+  position: relative;
+}
+.card figure img {
+  width: 90%;
+  max-width: 260px;
+  max-height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+.card figure figcaption {
+  width: 30px;
+  position: absolute;
+  top: 2rem;
+  right: 1.5rem;
+}
+.card figure figcaption button {
+  outline: transparent;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.card figure figcaption button img {
+  width: 30px;
+}
+.card figure figcaption button input {
   display: none;
+}
+.card .card-details {
+  padding: 0 1rem;
+}
+.card .card-details .pricing {
+  display: flex;
+  flex-direction: row;
+  margin-right: auto;
+}
+.card .card-details .pricing span {
+  font-size: 2rem;
+}
+.card .card-details .pricing .rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+}
+.card .card-details .location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 0;
+}
+.card .card-details .location img {
+  margin: 0.2rem;
+}
+.card .card-details .description h3 {
+  text-align: left;
+  font-size: 1.2rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin: 0.5rem;
+}
+.card .card-details button {
+  width: 100%;
+  position: relative;
+  margin: 0.5rem 0;
+  border: solid 1px #404e87;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+.card .card-details button span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #404e87;
+  position: relative;
+  z-index: 1;
+}
+.card .card-details button span:hover {
+  color: #f8f8f8;
+}
+.card .card-details button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #404e87;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+.card .card-details button:hover:before {
+  width: 100%;
+}
+.card .card-details .dashboard-property-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem;
+}
+.card .card-details .dashboard-property-buttons .button p {
+  color: #0e9384;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+}
+.card .card-details .dashboard-property-buttons .button:hover {
+  border: 1px solid #0e9384;
+  border-radius: 0.5rem;
+}
+.card .card-details .dashboard-property-buttons input {
+  color: red;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  outline: transparent;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.card .card-details .dashboard-property-buttons input:hover {
+  border: 1px solid red;
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  .dashboard-cards .card {
+    margin: 0;
+    max-width: 180px;
+  }
+}
+.card-descriptions-limit {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .header-main {
@@ -219,6 +378,7 @@ h3 {
   display: none;
   background-color: #f8f8f8;
   border-radius: 5px;
+  z-index: 99;
 }
 .dashboard-header .right-menu .user-menu .submenu-dashboard ul {
   list-style-type: none;
@@ -555,6 +715,18 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
   padding: 0;
   position: relative;
 }
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button {
+  border: none;
+  background-color: transparent;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button input {
+  display: none;
+}
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure img {
   width: 100%;
   height: 100%;
@@ -576,6 +748,12 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
   padding: 10px;
   border-radius: 10px;
   transition: opacity 0.3s;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption h3 {
+  color: #404e87;
+}
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption p span {
+  font-family: "Quicksand-bold";
 }
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure:hover figcaption {
   background-color: #f8f8f8;
@@ -654,6 +832,18 @@ section#best-tags-section div#container-card-best-tags a div.card-best-tags figu
   padding: 0;
   position: relative;
 }
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button {
+  border: none;
+  background-color: transparent;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button input {
+  display: none;
+}
 section#best-tags-section div#container-card-best-tags a div.card-best-tags figure img {
   width: 100%;
   height: 100%;
@@ -671,10 +861,17 @@ section#best-tags-section div#container-card-best-tags a div.card-best-tags figu
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.948);
   padding: 10px;
   border-radius: 10px;
   transition: opacity 0.3s;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption h3 {
+  color: #404e87;
+}
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption p span {
+  font-family: "Quicksand-bold";
 }
 section#best-tags-section div#container-card-best-tags a div.card-best-tags figure:hover figcaption {
   background-color: #f8f8f8;
@@ -789,9 +986,6 @@ section#join-us-section div#container-card-join-us figcaption a#btn-list-propert
 section#property-section {
   text-align: left;
   /* The Modal (background) */
-  /* Modal Content (Image) */
-  /* Add Animation - Zoom in the Modal */
-  /* The Close Button */
 }
 section#property-section h1 {
   font-size: 55px;
@@ -802,11 +996,10 @@ section#property-section .property-images {
   display: flex;
   flex-direction: row;
   align-items: center;
-  overflow-x: scroll;
 }
 section#property-section .property-images .property-main-image img {
   width: 100%;
-  min-height: 680px;
+  min-height: 650px;
   border-radius: 0.8rem;
   -o-object-fit: cover;
      object-fit: cover;
@@ -836,8 +1029,11 @@ section#property-section .modal {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.9);
+  /* Modal Content (Image) */
+  /* Add Animation - Zoom in the Modal */
+  /* The Close Button */
 }
-section#property-section .modal-content {
+section#property-section .modal .modal-content {
   margin: auto;
   display: block;
   width: 80%;
@@ -847,11 +1043,11 @@ section#property-section .modal-content {
   top: 50%;
   transform: translateY(-50%);
 }
-section#property-section .modal-content {
+section#property-section .modal .modal-content {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
-section#property-section .close {
+section#property-section .modal .close {
   position: absolute;
   top: 5%;
   right: 3%;
@@ -860,7 +1056,8 @@ section#property-section .close {
   font-weight: bold;
   transition: 0.3s;
 }
-section#property-section .close:hover, section#property-section .close:focus {
+section#property-section .modal .close:hover,
+section#property-section .modal .close:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
@@ -988,7 +1185,11 @@ section#property-section .property-details .container-description-property .prop
 section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption h4 {
   font-size: 1.3rem;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .stars-rating img {
+section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure {
+  display: flex;
+  flex-direction: row;
+}
+section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure img {
   width: 15px;
 }
 section#property-section .property-details .container-description-property .property-host .container-host-info .host-details {
@@ -1252,6 +1453,9 @@ section#addgooglemaps-property-section input:focus::placeholder {
   background-color: #e1e7ea;
   min-height: 90vh;
 }
+.dashboard h2 {
+  color: #0e9384;
+}
 .dashboard .welcome-dashboard {
   text-align: left;
 }
@@ -1259,6 +1463,7 @@ section#addgooglemaps-property-section input:focus::placeholder {
   color: #111;
   margin: 0 5rem;
   padding-top: 1rem;
+  font-size: 2rem;
 }
 .dashboard .welcome-dashboard .user-menu {
   display: flex;
@@ -1301,98 +1506,11 @@ section#addgooglemaps-property-section input:focus::placeholder {
     align-self: flex-end;
   }
 }
-.dashboard .dashboard-cards {
+.dashboard .cards-container {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: center;
-}
-.dashboard .dashboard-cards .card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 280px;
-  margin: 2rem auto;
-  background-color: #f8f8f8;
-  border-radius: 0.5rem;
-}
-.dashboard .dashboard-cards .card figure {
-  position: relative;
-  padding: 1rem 0;
-}
-.dashboard .dashboard-cards .card figure img {
-  width: 90%;
-  max-width: 260px;
-  max-height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
-  border-radius: 0.5rem;
-  display: inline-block;
-}
-.dashboard .dashboard-cards .card figure figcaption {
-  width: 30px;
-  position: absolute;
-  top: 2rem;
-  left: 14.5rem;
-}
-.dashboard .dashboard-cards .card figure figcaption a > img {
-  width: 30px;
-}
-.dashboard .dashboard-cards .card .card-details {
-  padding: 0 1rem;
-}
-.dashboard .dashboard-cards .card .card-details .pricing {
-  display: flex;
-  flex-direction: row;
-  margin-right: auto;
-}
-.dashboard .dashboard-cards .card .card-details .pricing span {
-  font-size: 2rem;
-}
-.dashboard .dashboard-cards .card .card-details .pricing .rating {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: auto;
-}
-.dashboard .dashboard-cards .card .card-details .location {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 1rem 0;
-}
-.dashboard .dashboard-cards .card .card-details .location img {
-  margin: 0.2rem;
-}
-.dashboard .dashboard-cards .card .card-details .description h3 {
-  text-align: left;
-  font-size: 1.2rem;
-}
-.dashboard .dashboard-cards .card .card-details .property-buttons {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0.5rem;
-}
-.dashboard .dashboard-cards .card .card-details .property-buttons .button > p {
-  color: #059669;
-  font-family: "Quicksand-bold";
-  font-size: 1rem;
-}
-.dashboard .dashboard-cards .card .card-details .property-buttons .delete {
-  color: red;
-  font-family: "Quicksand-bold";
-  font-size: 1rem;
-  border: none;
-  outline: transparent;
-  background-color: transparent;
-}
-@media screen and (max-width: 800px) {
-  .dashboard .dashboard-cards .dashboard-cards .card {
-    margin: 0;
-    max-width: 180px;
-  }
 }
 
 #addpropertyForm {
@@ -1600,117 +1718,10 @@ section#addgooglemaps-property-section input:focus::placeholder {
   border-radius: 0.5rem;
 }
 
-.catalog-cards {
+#catalog-cards {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-evenly;
   margin: 1rem 5rem;
-}
-.catalog-cards .card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 280px;
-  margin: 2rem auto;
-  background-color: #f8f8f8;
-  border-radius: 0.5rem;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-.catalog-cards .card figure {
-  position: relative;
-  padding: 1rem 0;
-}
-.catalog-cards .card figure img {
-  width: 90%;
-  max-width: 260px;
-  max-height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
-  border-radius: 0.5rem;
-  display: inline-block;
-}
-.catalog-cards .card figure figcaption {
-  width: 30px;
-  position: absolute;
-  top: 2rem;
-  left: 14.5rem;
-}
-.catalog-cards .card figure figcaption a > img {
-  width: 30px;
-}
-.catalog-cards .card .card-details {
-  padding: 0 1rem;
-}
-.catalog-cards .card .card-details .pricing {
-  display: flex;
-  flex-direction: row;
-  margin-right: auto;
-}
-.catalog-cards .card .card-details .pricing span {
-  font-size: 2rem;
-}
-.catalog-cards .card .card-details .pricing .rating {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: auto;
-}
-.catalog-cards .card .card-details .location {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 1rem 0;
-}
-.catalog-cards .card .card-details .location img {
-  margin: 0.2rem;
-}
-.catalog-cards .card .card-details .description h3 {
-  text-align: left;
-  font-size: 1.2rem;
-}
-.catalog-cards .card .card-details button {
-  width: 100%;
-  position: relative;
-  margin: 0.5rem 0;
-  border: solid 1px #404e87;
-  background-color: transparent;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-.catalog-cards .card .card-details button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1rem;
-  width: 100%;
-  padding: 0.3rem 0;
-  color: #404e87;
-  position: relative;
-  z-index: 1;
-}
-.catalog-cards .card .card-details button span:hover {
-  color: #f8f8f8;
-}
-.catalog-cards .card .card-details button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #404e87;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-.catalog-cards .card .card-details button:hover:before {
-  width: 100%;
-}
-@media screen and (max-width: 800px) {
-  .catalog-cards .dashboard-cards .card {
-    margin: 0;
-    max-width: 180px;
-  }
 }/*# sourceMappingURL=style.css.map */

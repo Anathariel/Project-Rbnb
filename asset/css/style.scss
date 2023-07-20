@@ -19,6 +19,7 @@ $gradient: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
 //* --------- FONT --------- //
 
 $font: "Quicksand";
+$bold: 'Quicksand-bold';
 
 //? -------------------- RESETS -------------------- //
 
@@ -93,6 +94,198 @@ h3 {
 }
 
 //~ -------------------- STYLING -------------------- //
+//^ --------- CARD DEFAULT STYLE --------- //
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 450px;
+  width: 100%;
+  max-width: 280px;
+  margin: 2rem auto;
+  background-color: $white;
+  border-radius: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  figure {
+    padding: 1rem 0;
+    position: relative;
+
+    img {
+      width: 90%;
+      max-width: 260px;
+      max-height: 150px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 0.5rem;
+      display: inline-block;
+    }
+
+    figcaption {
+      width: 30px;
+      position: absolute;
+      top: 2rem;
+      right: 1.5rem;
+
+      button {
+        outline: transparent;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        img {
+          width: 30px;
+        }
+
+        input {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .card-details {
+    padding: 0 1rem;
+
+    .pricing {
+      display: flex;
+      flex-direction: row;
+      margin-right: auto;
+
+      span {
+        font-size: 2rem;
+      }
+
+      .rating {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: auto;
+      }
+    }
+
+    .location {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 1rem 0;
+
+      img {
+        margin: 0.2rem;
+      }
+    }
+
+    .description {
+      h3 {
+        text-align: left;
+        font-size: 1.2rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        margin: .5rem;
+      }
+    }
+
+    button {
+      width: 100%;
+      position: relative;
+      margin: 0.5rem 0;
+      border: solid 1px $accent;
+      background-color: transparent;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      overflow: hidden;
+
+      span {
+        display: block;
+        font-family: "Quicksand";
+        font-size: 1rem;
+        width: 100%;
+        padding: 0.3rem 0;
+        color: $accent;
+        position: relative;
+        z-index: 1;
+      }
+
+      span:hover {
+        color: $white;
+      }
+    }
+
+    button:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: $accent;
+      transition: all 0.5s ease-out;
+      z-index: 0;
+    }
+
+    button:hover:before {
+      width: 100%;
+    }
+
+    .dashboard-property-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 1rem;
+
+      .button {
+        p {
+          color: $dash-maincolor;
+          font-family: $bold;
+          font-size: 1rem;
+        }
+      }
+
+      .button:hover {
+        border: 1px solid $dash-maincolor;
+        border-radius: .5rem;
+      }
+
+      input {
+        color: red;
+        font-family: $bold;
+        font-size: 1rem;
+        outline: transparent;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      input:hover {
+        border: 1px solid red;
+        border-radius: .5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .dashboard-cards {
+    .card {
+      margin: 0;
+      max-width: 180px;
+    }
+  }
+}
+
+.card-descriptions-limit {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 //? --------- HEADER --------- //
 
 .header-main {
@@ -316,6 +509,7 @@ h3 {
         display: none;
         background-color: $white;
         border-radius: 5px;
+        z-index: 99;
 
         ul {
           list-style-type: none;
@@ -721,6 +915,20 @@ section#new-destinations-section {
           padding: 0;
           position: relative;
 
+          .homepage-favoris {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+          
+            button {
+              border: none;
+              background-color: transparent;
+              input {
+                display: none;
+              }
+            }
+          }
+
           img {
             width: 100%;
             height: 100%;
@@ -742,6 +950,16 @@ section#new-destinations-section {
             padding: 10px;
             border-radius: 10px;
             transition: opacity 0.3s;
+
+            h3 {
+              color: $accent;
+            }
+
+            p {
+              span {
+                font-family: 'Quicksand-bold';
+              }
+            }
           }
 
           &:hover figcaption {
@@ -835,6 +1053,20 @@ section#best-tags-section {
           padding: 0;
           position: relative;
 
+          .homepage-favoris {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+          
+            button {
+              border: none;
+              background-color: transparent;
+              input {
+                display: none;
+              }
+            }
+          }
+          
           img {
             width: 100%;
             height: 100%;
@@ -852,10 +1084,21 @@ section#best-tags-section {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
             background-color: rgba(255, 255, 255, 0.948);
             padding: 10px;
             border-radius: 10px;
             transition: opacity 0.3s;
+
+            h3 {
+              color: $accent;
+            }
+
+            p {
+              span {
+                font-family: 'Quicksand-bold';
+              }
+            }
           }
 
           &:hover figcaption {
@@ -913,6 +1156,8 @@ section#features-section {
       img {
         width: 100%;
         min-height: 100px;
+
+        
       }
     }
 
@@ -1016,12 +1261,11 @@ section#property-section {
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow-x: scroll;
 
     .property-main-image {
       img {
         width: 100%;
-        min-height: 680px;
+        min-height: 650px;
         border-radius: .8rem;
         object-fit: cover;
       }
@@ -1043,54 +1287,55 @@ section#property-section {
     }
   }
 
-/* The Modal (background) */
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
-  padding: 0; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.9); 
-}
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
 
-/* Modal Content (Image) */
-.modal-content {
-  margin: auto;
-  display: block;
-  width: 80%; 
-  max-width: 700px;
-  max-height: 80%;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
+    /* Modal Content (Image) */
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      max-height: 80%;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
-/* Add Animation - Zoom in the Modal */
-.modal-content {
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
+    /* Add Animation - Zoom in the Modal */
+    .modal-content {
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
 
-/* The Close Button */
-.close {
-  position: absolute;
-  top: 5%;
-  right: 3%;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-}
+    /* The Close Button */
+    .close {
+      position: absolute;
+      top: 5%;
+      right: 3%;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
 
-.close:hover, .close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
 
 
   h3 {
@@ -1243,12 +1488,18 @@ section#property-section {
               h4 {
                 font-size: 1.3rem;
               }
-            }
-          }
 
-          .stars-rating {
-            img {
-              width: 15px;
+              .stars-rating {
+                figure {
+                  display: flex;
+                  flex-direction: row;
+
+                  img {
+                    width: 15px;
+                  }
+                }
+
+              }
             }
           }
 
@@ -1562,6 +1813,10 @@ section#addgooglemaps-property-section {
   background-color: #e1e7ea;
   min-height: 90vh;
 
+  h2 {
+    color: $dash-maincolor;
+  }
+
   .welcome-dashboard {
     text-align: left;
 
@@ -1569,6 +1824,7 @@ section#addgooglemaps-property-section {
       color: #111;
       margin: 0 5rem;
       padding-top: 1rem;
+      font-size: 2rem;
     }
 
     .user-menu {
@@ -1622,118 +1878,13 @@ section#addgooglemaps-property-section {
     }
   }
 
-  .dashboard-cards {
+  .cards-container {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      // height: auto;
-      width: 100%;
-      max-width: 280px;
-      margin: 2rem auto;
-      background-color: $white;
-      border-radius: 0.5rem;
-
-      figure {
-        position: relative;
-        padding: 1rem 0;
-
-        img {
-          width: 90%;
-          max-width: 260px;
-          max-height: 200px;
-          object-fit: cover;
-          object-position: top;
-          border-radius: 0.5rem;
-          display: inline-block;
-        }
-
-        figcaption {
-          width: 30px;
-          position: absolute;
-          top: 2rem;
-          left: 14.5rem;
-
-          a>img {
-            width: 30px;
-          }
-        }
-      }
-
-      .card-details {
-        padding: 0 1rem;
-
-        .pricing {
-          display: flex;
-          flex-direction: row;
-          margin-right: auto;
-
-          span {
-            font-size: 2rem;
-          }
-
-          .rating {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-left: auto;
-          }
-        }
-
-        .location {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          padding: 1rem 0;
-
-          img {
-            margin: 0.2rem;
-          }
-        }
-
-        .description {
-          h3 {
-            text-align: left;
-            font-size: 1.2rem;
-          }
-        }
-
-        .property-buttons {
-          display: flex;
-          justify-content: space-evenly;
-          margin: 0.5rem;
-
-          .button>p {
-            color: #059669;
-            font-family: "Quicksand-bold";
-            font-size: 1rem;
-          }
-
-          .delete {
-            color: red;
-            font-family: "Quicksand-bold";
-            font-size: 1rem;
-            border: none;
-            outline: transparent;
-            background-color: transparent;
-          }
-        }
-      }
-    }
-
-    @media screen and (max-width: 800px) {
-      .dashboard-cards {
-        .card {
-          margin: 0;
-          max-width: 180px;
-        }
-      }
-    }
   }
+
 }
 
 #addpropertyForm {
@@ -2017,138 +2168,10 @@ section#addgooglemaps-property-section {
 
 //~ -------------------- CATALOGUE -------------------- //
 
-.catalog-cards {
+#catalog-cards {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-evenly;
   margin: 1rem 5rem;
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    // height: auto;
-    width: 100%;
-    max-width: 280px;
-    margin: 2rem auto;
-    background-color: $white;
-    border-radius: 0.5rem;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-    figure {
-      position: relative;
-      padding: 1rem 0;
-
-      img {
-        width: 90%;
-        max-width: 260px;
-        max-height: 200px;
-        object-fit: cover;
-        object-position: top;
-        border-radius: 0.5rem;
-        display: inline-block;
-      }
-
-      figcaption {
-        width: 30px;
-        position: absolute;
-        top: 2rem;
-        left: 14.5rem;
-
-        a>img {
-          width: 30px;
-        }
-      }
-    }
-
-    .card-details {
-      padding: 0 1rem;
-
-      .pricing {
-        display: flex;
-        flex-direction: row;
-        margin-right: auto;
-
-        span {
-          font-size: 2rem;
-        }
-
-        .rating {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          margin-left: auto;
-        }
-      }
-
-      .location {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 1rem 0;
-
-        img {
-          margin: 0.2rem;
-        }
-      }
-
-      .description {
-        h3 {
-          text-align: left;
-          font-size: 1.2rem;
-        }
-      }
-
-      button {
-        width: 100%;
-        position: relative;
-        margin: 0.5rem 0;
-        border: solid 1px $accent;
-        background-color: transparent;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        overflow: hidden;
-
-        span {
-          display: block;
-          font-family: "Quicksand";
-          font-size: 1rem;
-          width: 100%;
-          padding: 0.3rem 0;
-          color: $accent;
-          position: relative;
-          z-index: 1;
-        }
-
-        span:hover {
-          color: $white;
-        }
-      }
-
-      button:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 100%;
-        background-color: $accent;
-        transition: all 0.5s ease-out;
-        z-index: 0;
-      }
-
-      button:hover:before {
-        width: 100%;
-      }
-    }
-  }
-
-  @media screen and (max-width: 800px) {
-    .dashboard-cards {
-      .card {
-        margin: 0;
-        max-width: 180px;
-      }
-    }
-  }
 }
