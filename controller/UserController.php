@@ -85,6 +85,9 @@ class UserController extends Controller
         $email = $user->getEmail();
         $propertyImagesModel = new PropertyImagesModel();
 
+        $favortieModel = new FavoriteModel();
+        $userFavorites = $favortieModel->getFavoriteByUid($userId);
+
         // Récupérez les propriétés de l'utilisateur à partir de la base de données
         $propertyModel = new PropertyModel();
         $userProperties = $propertyModel->getUserProperties($userId);
@@ -100,7 +103,8 @@ class UserController extends Controller
             'firstName' => $firstName,
             'email' => $email,
             'userProperties' => $userProperties,
-            'propertys' => $propertysWithImages
+            'propertys' => $propertysWithImages,
+            'userFavorites' => $userFavorites,
         ];
         echo self::getRender('dashboard.html.twig', $data);
     }

@@ -19,8 +19,8 @@ class FavoriteController extends Controller
             $favoriteModel = new FavoriteModel();
             $favoriteModel->addFavoriteModel($favorite);
 
-            header('Location: ' . $router->generate('favorite', ['id' => $propertyId]));
-            exit;
+
+            header('Location: ' . $router->generate('home', ['id' => $propertyId]));
         }
     }
 }
