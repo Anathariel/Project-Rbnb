@@ -10,6 +10,7 @@ class User
     private $password;
     private $phoneNumber;
     private $picture;
+    private $registrationDate;
 
     public function __construct(array $post){
         $this->hydrate($post);
@@ -64,6 +65,10 @@ class User
     {
         return $this->picture;
     }
+    public function getRegistrationDate()
+    {
+        return $this->registrationDate;
+    }
 
     //SETTERS
     public function setUid(int $uid)
@@ -104,5 +109,8 @@ class User
     {
         $this->picture = $picture;
     }
-
+    public function setRegistrationDate(String $registrationDate){
+        $this->registrationDate = $registrationDate;
+    }
+       
 }
