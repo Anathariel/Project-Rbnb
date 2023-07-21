@@ -1184,7 +1184,6 @@ section#property-section .property-details .container-description-property .prop
   justify-content: flex-start;
 }
 section#property-section .property-details .container-description-property .property-host .container-host-info figure .profile-picture {
-  background-color: grey;
   width: 100px;
   height: 100px;
   border-radius: 50%;

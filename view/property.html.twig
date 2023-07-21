@@ -226,7 +226,7 @@
 					{% endif %}
 					{% if accommodationType.logementFumeur == 1 %}
 						<figure>
-							<img src="{{ asset('/media/icons/fumeur.svg') }}" alt="Icon logement fumeur">
+							<img src="{{ asset('/media/icons/logement-fumeur.svg') }}" alt="Icon logement fumeur">
 							<figcaption>
 								<p>Logement fumeur</p>
 							</figcaption>
@@ -278,7 +278,7 @@
 							<p>{{ comment.commentText }}</p>
 							<figure>
 								<div id="profile-picture">
-									<img src="" alt="">
+									<img src="{{ asset('/media/profils/') }}{{ comment.picture }}" alt="{{ comment.picture }}">
 								</div>
 								<figcaption>
 									<p>{{ comment.firstname }}</p>
@@ -306,7 +306,7 @@
 				<div class="container-host-info">
 					<figure>
 						<div class="profile-picture">
-							<img src="" alt="">
+							<img src="{{ asset('/media/profils/') }}{{ property.owner.picture }}" alt="{{ property.owner.picture }}">
 						</div>
 						<figcaption>
 							<h4>@{{ property.owner.firstName }}</h4>
@@ -367,19 +367,6 @@
 							<p id="maxGuests">{{ houseRules.maxGuests }} voyageurs maximum</p>
 						<a id="description-details" href="#">En savoir plus →</a>
 					</div>
-
-					<div class="annulation">
-						<h4>Conditions d'annulation :</h4>
-						{% if cancellationPolicy %}
-							<p>Annulation gratuite avant
-								{{ cancellationPolicy.cancellationTime }}</p>
-							<p>Politique de remboursement :
-								{{ cancellationPolicy.refundPolicy }}</p>
-							<p>Frais d'annulation :
-								{{ cancellationPolicy.cancellationFees }}€</p>
-							<a id="description-details" href="#">En savoir plus →</a>
-							{% endif %}
-						</div>
 
 						<div class="annulation">
 							<h4>Conditions d'annulation :</h4>
