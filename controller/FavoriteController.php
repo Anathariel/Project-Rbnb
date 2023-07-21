@@ -23,4 +23,24 @@ class FavoriteController extends Controller
             header('Location: ' . $router->generate('home', ['id' => $propertyId]));
         }
     }
+
+    public function deleteFavorite()
+    {
+        $userId = $_SESSION['uid'];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['_method'] === 'DELETE') {
+            if (isset($_POST['propertyId'])) {
+                $propertyId = $_POST['propertyId'];
+                $favoriteModel = new FavoriteModel();
+
+                $favoriteModel->deleteFavoriteModel($propertyId, $userId);
+
+                global $router;
+                header('Location: ' . $router->generate('dashboard'));
+                exit();
+            }
+        } else {
+            echo self::getRender('dashboard.html.twig', []);
+        }
+    }
 }

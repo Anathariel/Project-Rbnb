@@ -13,7 +13,7 @@ class FavoriteModel extends Model
         $stmt->execute();
     }
 
-    public function getFavoriteByUid($userId)
+    public function getFavoriteByUidModel($userId)
     {
         $stmt = $this->getDb()->prepare('SELECT * FROM favorite WHERE uid = :uid');
         $stmt->bindParam(':uid', $userId, PDO::PARAM_INT);
@@ -21,9 +21,26 @@ class FavoriteModel extends Model
 
         $favorites = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $favorites[] = new Favorite($row);
+            $favorite = new Favorite($row);
+
+            // Récupérer les détails de la propriété associée à ce favori
+            $propertyId = $favorite->getPropertyId();
+            $propertyModel = new PropertyModel();
+            $property = $propertyModel->getPropertyById($propertyId);
+            $favorite->setProperty($property);
+
+            $favorites[] = $favorite;
         }
 
         return $favorites;
+    }
+
+    public function deleteFavoriteModel($propertyId, $userId)
+    {
+        $stmt = $this->getDb()->prepare('DELETE FROM `favorite` WHERE `propertyId` = :propertyId AND `uid` = :uid');
+        $stmt->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+        $stmt->bindParam(':uid', $userId, PDO::PARAM_INT);
+
+        $stmt->execute();
     }
 }

@@ -64,6 +64,20 @@ class PropertyModel extends Model
         return $properties;
     }
 
+    public function getPropertyById($propertyId)
+    {
+        $stmt = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description` FROM `property` WHERE `propertyId` = :propertyId');
+        $stmt->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        if ($property = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            return new Property($property);
+        }
+
+        return null; // La propriété avec l'ID spécifié n'a pas été trouvée.
+    }
+
+
     public function countUserProperties($userId)
     {
         $req = $this->getDb()->prepare('SELECT COUNT(*) FROM `property` WHERE `owner` = :userId');

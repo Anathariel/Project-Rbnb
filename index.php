@@ -29,12 +29,14 @@ $router->map('GET', '/logout', 'UserController#logout', 'logout');
 $router->map('GET', '/account', 'UserController#dashboard', 'dashboard');
 
 
-// favorites
+// FAVORITES
 $router->map('GET|POST', '/account', 'FavoriteController#addFavorite', 'favorite');
+$router->map('POST', '/account/favorite/delete', 'FavoriteController#deleteFavorite', 'favoriteDelete');
 
 //CRUD USER
 $router->map('GET|POST', '/account/options', 'UserController#editUser', 'options');
 $router->map('POST','/account/delete','UserController#delete','deleteUser',);
+
 
 // CRUD Property
 $router->map('GET|POST', '/addproperty', 'PropertyController#createProperty', 'propertyAdd');

@@ -18,6 +18,7 @@ class Property
     private $publicationDate;
     private $reservationOption;
     private $owner;
+    public $propertyImages;
 
     public function __construct(array $data)
     {
@@ -116,6 +117,11 @@ class Property
         return $this->owner;
     }
 
+    public function getPropertyImages()
+    {
+        return $this->propertyImages;
+    }
+
     // SETTERS
     public function setPropertyId(int $propertyId)
     {
@@ -195,5 +201,10 @@ class Property
     public function setOwner($owner)
     {
         $this->owner = $owner;
+    }
+
+    public function setPropertyImages($propertyImages)
+    {
+        $this->propertyImages = $propertyImages;
     }
 }
