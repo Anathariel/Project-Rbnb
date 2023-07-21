@@ -20,7 +20,7 @@ class FavoriteController extends Controller
             $favoriteModel->addFavoriteModel($favorite);
 
 
-            header('Location: ' . $router->generate('home', ['id' => $propertyId]));
+            header('Location: ' . $router->generate('dashboard'));
         }
     }
 

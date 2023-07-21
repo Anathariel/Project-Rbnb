@@ -15,7 +15,7 @@ class FavoriteModel extends Model
 
     public function getFavoriteByUidModel($userId)
     {
-        $stmt = $this->getDb()->prepare('SELECT * FROM favorite WHERE uid = :uid');
+        $stmt = $this->getDb()->prepare('SELECT * FROM favorite WHERE uid = :uid ORDER BY addedDate DESC');
         $stmt->bindParam(':uid', $userId, PDO::PARAM_INT);
         $stmt->execute();
 
