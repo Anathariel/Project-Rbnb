@@ -1745,9 +1745,34 @@ section#property-section {
       .rating-input {
         display: flex;
         flex-direction: column;
-        .rating-stars{
+
+        .rating-stars {
           display: flex;
           flex-direction: row;
+
+          label img {
+            width: 25px;
+            /* Adjust the size of the stars as needed */
+            cursor: pointer;
+            opacity: 0.6;
+            /* Set the initial opacity for non-active stars */
+          }
+
+          label img:hover {
+            opacity: 0.8;
+            /* Set the opacity on hover */
+          }
+
+          input[type="radio"]:checked+label img {
+            opacity: 1;
+            /* Set the opacity to 1 for the checked (active) star */
+          }
+
+          input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+          }
         }
       }
 
@@ -1797,6 +1822,7 @@ section#property-section {
       button:hover:before {
         width: 100%;
       }
+
       input[type=submit] {
         display: none;
       }

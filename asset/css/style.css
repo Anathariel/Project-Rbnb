@@ -1407,6 +1407,26 @@ section#property-section .add-comment-form form .rating-input .rating-stars {
   display: flex;
   flex-direction: row;
 }
+section#property-section .add-comment-form form .rating-input .rating-stars label img {
+  width: 25px;
+  /* Adjust the size of the stars as needed */
+  cursor: pointer;
+  opacity: 0.6;
+  /* Set the initial opacity for non-active stars */
+}
+section#property-section .add-comment-form form .rating-input .rating-stars label img:hover {
+  opacity: 0.8;
+  /* Set the opacity on hover */
+}
+section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio]:checked + label img {
+  opacity: 1;
+  /* Set the opacity to 1 for the checked (active) star */
+}
+section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
 section#property-section .add-comment-form form .comment-input {
   display: flex;
   flex-direction: column;
