@@ -368,19 +368,6 @@
 						<a id="description-details" href="#">En savoir plus →</a>
 					</div>
 
-					<div class="annulation">
-						<h4>Conditions d'annulation :</h4>
-						{% if cancellationPolicy %}
-							<p>Annulation gratuite avant
-								{{ cancellationPolicy.cancellationTime }}</p>
-							<p>Politique de remboursement :
-								{{ cancellationPolicy.refundPolicy }}</p>
-							<p>Frais d'annulation :
-								{{ cancellationPolicy.cancellationFees }}€</p>
-							<a id="description-details" href="#">En savoir plus →</a>
-							{% endif %}
-						</div>
-
 						<div class="annulation">
 							<h4>Conditions d'annulation :</h4>
 							{% if cancellationPolicy %}
