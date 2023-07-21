@@ -12,14 +12,14 @@ class UserController extends Controller
             $rawPass = $_POST['password'];
             $password = password_hash($rawPass, PASSWORD_DEFAULT);
             $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
-            $registrationDate = 
-            $user = new User([
-                'firstName' => $firstName,
-                'lastName' => $lastName,
-                'password' => $password,
-                'email' => $email,
+            $registrationDate =
+                $user = new User([
+                    'firstName' => $firstName,
+                    'lastName' => $lastName,
+                    'password' => $password,
+                    'email' => $email,
 
-            ]);
+                ]);
 
             $model->createUser($user);
             header('Location: ' . $router->generate('register'));
@@ -157,8 +157,6 @@ class UserController extends Controller
             $user = $userModel->getUserById($uid);
 
             echo self::getRender('dashboard-options.html.twig', []); //info: user est un objet
-
-
         } else {
             // Récupérer les information du  formulaire
             $uid = $_SESSION['uid'];
@@ -179,54 +177,54 @@ class UserController extends Controller
                 echo self::getrender('dashboard-options.html.twig', ['message' => $message]);
             } else {
 
-                if (isset($_POST['submit'])) {
+                if (isset($_POST['submit']) && $_FILES['picture']) {
 
-                    $userModel = new UserModel();
-                    $user = $userModel->getUserById($uid);
-                    $user->setUid($uid);
-                    $user->setEmail($email);
-                    $user->setPhoneNumber($phoneNumber);
-                    $user->setPicture($pictureName);
-                    var_dump($_POST);
-                    var_dump($_FILES);
-                    
-                    $querryResult = $userModel->editUser($user);
+                    //explode: la premier valeur c'est le séparteur et le deuxieme après la point 
+                    $tabExtension = explode('.', $_FILES['picture']['name']);
+                    //Tableau des extensions que l'on accepte
+                    $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+                    $extension = strtolower(end($tabExtension));
 
-                    if ($querryResult) {
-                        $uploadDir = 'asset/media/profils/';
-                        //explode: la premier valeur c'est le séparteur et le deuxieme après la point 
-                        $tabExtension = explode('.', $_FILES['picture']['name']);
-                        //Tableau des extensions que l'on accepte
-                        $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-                        $extension = strtolower(end($tabExtension));
-                        $uploadFile = $uploadDir . $_FILES['picture']['name'];
-                        if(in_array($extension, $extensions)){
-                         // Déplacer le fichier temporaire vers le dossier final
-                        $controleUpload = move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile);
-                        // var_dump($controleUpload);
-                        // Le fichier a été téléchargé avec succès,  vous pouvez enregistrer le chemin d'accès à la photo dans la base de données
-                        //var_dump(move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile));
-                        if(!$controleUpload) {
-                            $message = "Une erreur est survenue lors du téléchargement de l'image. Veuillez réessayer.";
-                            echo self::getRender('dashboard-option.html.twig', ['message' => $message]);
-                        }    
-                        }else{ 
-                            echo "Mauvaise extension";
+                    if (in_array($extension, $extensions)) {
+                        $userModel = new UserModel();
+                        $user = $userModel->getUserById($uid);
+                        $user->setUid($uid);
+                        $user->setEmail($email);
+                        $user->setPhoneNumber($phoneNumber);
+                        $user->setPicture($pictureName);
 
-                    }
-                
+                        $querryResult = $userModel->editUser($user);
 
-                    echo self::getRender('dashboard-options.html.twig', ['user' => $user]);
-                    exit();
+                        if ($querryResult) {
+                            $uploadDir = 'asset/media/profils/';
+                            $uploadFile = $uploadDir . $_FILES['picture']['name'];
+
+
+
+                            // Déplacer le fichier temporaire vers le dossier final
+                            $controleUpload = move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile);
+                            echo self::getRender('dashboard-options.html.twig', ['user' => $user]);
+                            exit();
+                            if (!$controleUpload) {
+                                $message = "Une erreur est survenue lors du téléchargement de l'image. Veuillez réessayer.";
+                                echo self::getRender('dashboard-option.html.twig', ['message' => $message]);
+                            }
+                        } 
+                    }else {
+                            $message = "Cette extension n'est pas autorisée.";
+                            echo self::getRender('dashboard-options.html.twig', ['message' => $message]);
+                        }
                 }
+                
             }
-        }}
-        // Récupérer le fichier photo
-
-
-
+        }
     }
-  
+    // Récupérer le fichier photo
+
+
+
+
+
     public function delete()
     {
         $uid = $_SESSION['uid'];
