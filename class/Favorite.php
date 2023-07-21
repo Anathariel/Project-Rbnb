@@ -6,6 +6,8 @@ class Favorite
     private $uid;
     private $propertyId;
     private $addedDate;
+    private $property;
+    private $propertyImages;
 
     public function __construct(array $post)
     {
@@ -44,6 +46,16 @@ class Favorite
         return $this->addedDate;
     }
 
+    public function getProperty()
+    {
+        return $this->property;
+    }
+
+    public function getPropertyImages()
+    {
+        return $this->propertyImages;
+    }
+
     //SETTERS
     public function setFavoriteId(int $favoriteId)
     {
@@ -55,7 +67,7 @@ class Favorite
         $this->uid = $uid;
     }
 
-    public function setPropertyId(int $propertyId)
+    public function setPropertyId($propertyId)
     {
         $this->propertyId = $propertyId;
     }
@@ -63,5 +75,15 @@ class Favorite
     public function setAddedDate(string $addedDate)
     {
         $this->addedDate = $addedDate;
+    }
+
+    public function setProperty(Property $property)
+    {
+        $this->property = $property;
+    }
+
+    public function setPropertyImages(array $propertyImages)
+    {
+        $this->propertyImages = $propertyImages;
     }
 }
