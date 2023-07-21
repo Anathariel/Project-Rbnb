@@ -63,7 +63,7 @@ class PropertyController extends Controller
                 $region = isset($_POST['region']) ? $_POST['region'] : '';
                 $country = isset($_POST['country']) ? $_POST['country'] : '';
                 $latitude = isset($_POST['latitude']) ? $_POST['latitude'] : '';
-                $longitude = isset($_POST['longitude']) ? $_POST['longitude'] : '';
+                $longitude = isset($_POST['longitude'])? $_POST['longitude'] : '';
 
                 $propertyType = $_POST['property-type'];
 

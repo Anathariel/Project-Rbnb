@@ -15,16 +15,22 @@
 
 	<div id="response"></div>
 
-	<section class="catalog-cards">
+	<section id="catalog-cards">
 		{% for property in result %}
-			<a href="#">
+			<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
 				<div class="card">
 					<figure>
-							<img src="{{ asset('/media/locations/' ~ images.imageMainURL) }}" alt="{{ property.title }}"/>
+						{% if property.images is defined %}
+							{% set images = property.images %}
+							{% if images.imageMainURL is defined %}
+								<img src="{{ asset('/media/locations/' ~ images.imageMainURL) }}" alt="{{ property.title }}"/>
+							{% endif %}
+						{% endif %}
 						<figcaption>
-							<a href="#">
-								<img src="{{ asset('/media/icons/heart.svg') }}" alt="Favoris Logo">
-							</a>
+							<form method="POST" action="{{ path('favorite') }}">
+								<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+								<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
+							</form>
 						</figcaption>
 					</figure>
 
@@ -35,16 +41,17 @@
 							</h3>
 							<div class="rating">
 								<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-								<p>5.0</p>
+								<p>{{ property.averageRating|number_format(1, '.', '') }}</p>
 							</div>
 						</div>
 						<div class="location">
 							<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-							<p>{{ property.city }},{{ property.region }}</p>
+							<p>{{ property.city }},
+								{{ property.region }}</p>
 						</div>
 						<div class="description">
 							<h3>{{ property.title }}</h3>
-							<p>{{ property.description }}</p>
+							<p class="card-descriptions-limit">{{ property.description }}</p>
 						</div>
 						<button>
 							<span>Réserver</span>

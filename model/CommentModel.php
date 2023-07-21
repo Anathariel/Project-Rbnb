@@ -20,7 +20,7 @@ class CommentModel extends Model
 
             $commentUser = $comment->getUid();
 
-            $req2 = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `birthDate`, `email`, `phoneNumber` FROM `user` WHERE `uid` = :id');
+            $req2 = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `birthDate`, `email`, `phoneNumber`,`picture` FROM `user` WHERE `uid` = :id');
             $req2->bindParam(':id', $commentUser, PDO::PARAM_INT);
             $req2->execute();
 
@@ -33,12 +33,9 @@ class CommentModel extends Model
         return $comments;
     }
 
-
     public function addCommentModel(Comment $comment)
     {
-        var_dump($comment);
         $propertyId = $comment->getPropertyId();
-        echo $propertyId;
         $userId = $comment->getUid();
         $rating = $comment->getRating();
         $commentText = $comment->getCommentText();

@@ -84,25 +84,41 @@ class UserController extends Controller
         $user = $userModel->getUserById($userId);
         $firstName = $user->getFirstName();
         $email = $user->getEmail();
-        $propertyImagesModel = new PropertyImagesModel();
 
         // Récupérez les propriétés de l'utilisateur à partir de la base de données
         $propertyModel = new PropertyModel();
         $userProperties = $propertyModel->getUserProperties($userId);
 
-        $propertysWithImages = [];
+        // Récupérez les favoris de l'utilisateur à partir de la base de données
+        $favoriteModel = new FavoriteModel();
+        $userFavorites = $favoriteModel->getFavoriteByUidModel($userId);
+
+
+        // Récupérez les images liées à chaque propriété du propriétaire
+        $propertyImagesModel = new PropertyImagesModel();
         foreach ($userProperties as $property) {
-            $propertyImages = $propertyImagesModel->getPropertyImagesModel($property->getPropertyId());
-            $property->propertyImages = $propertyImages;
-            $propertysWithImages[] = $property;
+            $propertyId = $property->getPropertyId();
+            $propertyImages = $propertyImagesModel->getPropertyImagesModel($propertyId);
+            $property->setPropertyImages($propertyImages);
         }
 
+        // Récupérez les images liées à chaque propriété favorite
+        $propertyImagesModel = new PropertyImagesModel();
+        foreach ($userFavorites as $favorite) {
+            $propertyId = $favorite->getPropertyId();
+            $propertyImages = $propertyImagesModel->getPropertyImagesModel($propertyId);
+            $favorite->getProperty()->setPropertyImages($propertyImages);
+        }
+
+        // Préparez les données à envoyer à la vue
         $data = [
             'firstName' => $firstName,
             'email' => $email,
             'userProperties' => $userProperties,
-            'propertys' => $propertysWithImages
+            'userFavorites' => $userFavorites,
         ];
+
+        // Affichez la vue avec les données
         echo self::getRender('dashboard.html.twig', $data);
     }
 
@@ -141,6 +157,7 @@ class UserController extends Controller
             $user = $userModel->getUserById($uid);
 
             echo self::getRender('dashboard-options.html.twig', []); //info: user est un objet
+
 
         } else {
             // Récupérer les information du  formulaire
@@ -205,7 +222,11 @@ class UserController extends Controller
             }
         }}
         // Récupérer le fichier photo
+
+
+
     }
+  
     public function delete()
     {
         $uid = $_SESSION['uid'];
