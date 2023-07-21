@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 19 juil. 2023 à 11:44
--- Version du serveur : 8.0.31
--- Version de PHP : 8.0.26
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jul 21, 2023 at 07:08 AM
+-- Server version: 8.0.31
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `rbnb`
+-- Database: `rbnb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `accommodationtype`
+-- Table structure for table `accommodationtype`
 --
 
 DROP TABLE IF EXISTS `accommodationtype`;
@@ -54,10 +54,10 @@ CREATE TABLE IF NOT EXISTS `accommodationtype` (
   `detecteurMonoxyDeCarbone` tinyint(1) NOT NULL,
   PRIMARY KEY (`accommodationTypeId`),
   KEY `PROPERTY` (`propertyId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `accommodationtype`
+-- Dumping data for table `accommodationtype`
 --
 
 INSERT INTO `accommodationtype` (`accommodationTypeId`, `propertyId`, `piscine`, `parkingGratuit`, `jacuzzi`, `wifi`, `laveLinge`, `secheLinge`, `climatisation`, `chauffage`, `espaceTravailDedie`, `television`, `secheCheveux`, `ferRepasser`, `stationRechargeVehiElectriques`, `litBebe`, `salleSport`, `barbecue`, `petitDejeuner`, `cheminee`, `logementFumeur`, `detecteurFumee`, `detecteurMonoxyDeCarbone`) VALUES
@@ -70,12 +70,14 @@ INSERT INTO `accommodationtype` (`accommodationTypeId`, `propertyId`, `piscine`,
 (76, 105, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1),
 (77, 106, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1),
 (90, 119, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(91, 120, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(91, 120, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(92, 121, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(96, 125, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cancellationpolicy`
+-- Table structure for table `cancellationpolicy`
 --
 
 DROP TABLE IF EXISTS `cancellationpolicy`;
@@ -92,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `cancellationpolicy` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comment`
+-- Table structure for table `comment`
 --
 
 DROP TABLE IF EXISTS `comment`;
@@ -105,22 +107,23 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`commentId`),
   KEY `USER` (`uid`),
   KEY `property` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `comment`
+-- Dumping data for table `comment`
 --
 
 INSERT INTO `comment` (`commentId`, `uid`, `propertyId`, `rating`, `commentText`) VALUES
-(14, 10, 120, 5, 'J\'ai passé un excellent séjour chez Airbnb ! L\'hébergement était confortable et l\'hôte était très accueillant. Je recommande vivement cette plateforme pour trouver des logements de qualité.'),
-(15, 10, 120, 2, 'J\'ai passé un excellent séjour chez Airbnb ! L\'hébergement était confortable et l\'hôte était très accueillant. Je recommande vivement cette plateforme pour trouver des logements de qualité.'),
-(16, 10, 119, 2, 'J\'ai passé un excellent séjour chez Airbnb ! L\'hébergement était confortable et l\'hôte était très accueillant. Je recommande vivement cette plateforme pour trouver des logements de qualité.'),
-(17, 13, 120, 4, 'goooooooooooooooo');
+(3, 14, 121, 5, 'test'),
+(4, 14, 121, 5, 'test'),
+(7, 14, 125, 3, 'L\'internet est pas terrible'),
+(8, 14, 125, 1, 'test'),
+(9, 14, 125, 5, '2test');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `conversation`
+-- Table structure for table `conversation`
 --
 
 DROP TABLE IF EXISTS `conversation`;
@@ -137,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `conversation` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `favorite`
+-- Table structure for table `favorite`
 --
 
 DROP TABLE IF EXISTS `favorite`;
@@ -149,12 +152,22 @@ CREATE TABLE IF NOT EXISTS `favorite` (
   PRIMARY KEY (`favoriteId`),
   KEY `USER` (`uid`),
   KEY `PROPERTY` (`propertyId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `favorite`
+--
+
+INSERT INTO `favorite` (`favoriteId`, `uid`, `propertyId`, `addedDate`) VALUES
+(1, 14, 100, '2023-07-20 09:17:50'),
+(2, 14, 101, '2023-07-20 09:50:11'),
+(3, 14, 101, '2023-07-20 10:12:33'),
+(4, 14, 92, '2023-07-20 10:34:59');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `hostlanguage`
+-- Table structure for table `hostlanguage`
 --
 
 DROP TABLE IF EXISTS `hostlanguage`;
@@ -172,10 +185,10 @@ CREATE TABLE IF NOT EXISTS `hostlanguage` (
   `arabe` tinyint(1) NOT NULL,
   PRIMARY KEY (`hostLanguageId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `hostlanguage`
+-- Dumping data for table `hostlanguage`
 --
 
 INSERT INTO `hostlanguage` (`hostLanguageId`, `propertyId`, `anglais`, `français`, `allemand`, `japonais`, `italien`, `russe`, `espagnol`, `chinois`, `arabe`) VALUES
@@ -188,12 +201,14 @@ INSERT INTO `hostlanguage` (`hostLanguageId`, `propertyId`, `anglais`, `françai
 (63, 105, 1, 1, 1, 0, 0, 1, 1, 0, 1),
 (64, 106, 1, 1, 0, 0, 0, 1, 1, 0, 0),
 (77, 119, 0, 1, 0, 0, 0, 0, 0, 0, 0),
-(78, 120, 0, 1, 0, 0, 0, 0, 0, 0, 0);
+(78, 120, 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(79, 121, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(83, 125, 1, 1, 1, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `houserules`
+-- Table structure for table `houserules`
 --
 
 DROP TABLE IF EXISTS `houserules`;
@@ -205,10 +220,10 @@ CREATE TABLE IF NOT EXISTS `houserules` (
   `maxGuests` int NOT NULL,
   PRIMARY KEY (`houseRulesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `houserules`
+-- Dumping data for table `houserules`
 --
 
 INSERT INTO `houserules` (`houseRulesId`, `propertyId`, `checkInTime`, `checkOutTime`, `maxGuests`) VALUES
@@ -221,12 +236,14 @@ INSERT INTO `houserules` (`houseRulesId`, `propertyId`, `checkInTime`, `checkOut
 (47, 105, '18:00:00', '09:00:00', 6),
 (48, 106, '16:30:00', '09:30:00', 14),
 (61, 119, '14:47:00', '14:47:00', 2),
-(62, 120, '14:51:00', '14:51:00', 1);
+(62, 120, '14:51:00', '14:51:00', 1),
+(63, 121, '14:59:00', '14:59:00', 4),
+(67, 125, '09:32:00', '13:36:00', 3);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `invoice`
+-- Table structure for table `invoice`
 --
 
 DROP TABLE IF EXISTS `invoice`;
@@ -246,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `invoice` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `message`
+-- Table structure for table `message`
 --
 
 DROP TABLE IF EXISTS `message`;
@@ -264,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `message` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `messagestatus`
+-- Table structure for table `messagestatus`
 --
 
 DROP TABLE IF EXISTS `messagestatus`;
@@ -281,7 +298,7 @@ CREATE TABLE IF NOT EXISTS `messagestatus` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `payment`
+-- Table structure for table `payment`
 --
 
 DROP TABLE IF EXISTS `payment`;
@@ -300,7 +317,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `property`
+-- Table structure for table `property`
 --
 
 DROP TABLE IF EXISTS `property`;
@@ -323,10 +340,10 @@ CREATE TABLE IF NOT EXISTS `property` (
   `owner` int NOT NULL,
   PRIMARY KEY (`propertyId`),
   KEY `USER` (`owner`)
-) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `property`
+-- Dumping data for table `property`
 --
 
 INSERT INTO `property` (`propertyId`, `title`, `description`, `priceNight`, `address`, `city`, `postalCode`, `department`, `region`, `country`, `latitude`, `longitude`, `availability`, `publicationdate`, `reservationOption`, `owner`) VALUES
@@ -339,12 +356,14 @@ INSERT INTO `property` (`propertyId`, `title`, `description`, `priceNight`, `add
 (105, 'Chalet alpin : ressourcez-vous en pleine nature', 'Bienvenue dans ce chalet alpin pittoresque, un véritable refuge de montagne qui vous invite à vous ressourcer et à vous reconnecter avec la nature. Situé au cœur d\'un paysage montagneux à couper le souffle, ce chalet offre une expérience authentique et chaleureuse.  L\'intérieur du chalet allie avec harmonie le bois traditionnel et des touches de modernité. Les espaces de vie sont accueillants et confortables, créant une atmosphère conviviale pour des moments de détente en famille ou entre amis. Les grandes baies vitrées offrent des vues panoramiques sur les sommets enneigés ou les paysages verdoyants, selon la saison.  Le chalet dispose de tout le confort nécessaire pour rendre votre séjour agréable. Profitez d\'une soirée près de la cheminée, détendez-vous dans le jacuzzi extérieur ou dégustez un délicieux repas dans la cuisine entièrement équipée. Les chambres confortables vous invitent à des nuits paisibles, bercées par le calme de la montagne.  Les activités ne manquent pas, été comme hiver. En hiver, vous pourrez dévaler les pistes de ski à proximité, faire de la raquette ou vous initier à la glisse sur la patinoire du village. En été, partez en randonnée à travers des sentiers magnifiques, explorez les lacs alpins environnants ou faites du VTT sur des pistes pittoresques.  Réservez dès maintenant votre séjour dans ce chalet alpin et laissez-vous séduire par l\'atmosphère chaleureuse et l\'authenticité de la montagne. Une escapade en pleine nature vous attend, où vous pourrez vous ressourcer, vous amuser et profiter des merveilles de l\'environnement alpin.', '70.00', '', '', 0, '', '', '', '0.000000000', '0.000000000', 0, '2023-07-11 18:45:12', '', 13),
 (106, 'Château de caractère : une immersion dans l\'histoire', 'Bienvenue dans ce château de caractère, véritable vestige du temps qui vous transporte dans une époque révolue. Imprégnez-vous de l\'atmosphère chargée d\'histoire dès votre arrivée et laissez-vous emporter par son charme envoûtant.  Le château, magnifiquement restauré, est le reflet d\'une architecture remarquable et de détails d\'époque préservés avec soin. Les salles majestueuses, les galeries aux voûtes imposantes et les chambres richement décorées vous plongent dans une ambiance digne des contes de fées.  Chaque coin du château raconte une histoire. Promenez-vous dans les jardins à la française, admirez les fresques murales et les tapisseries anciennes, et explorez les pièces secrètes qui recèlent des trésors cachés.  Votre séjour au château sera agrémenté d\'expériences uniques. Vous pourrez déguster des mets raffinés dans une salle à manger d\'époque, assister à des concerts de musique classique dans la salle de bal somptueuse ou vous détendre dans un salon confortable en dégustant un verre de vin sélectionné parmi la cave du château.  Pour une immersion totale, des visites guidées vous permettront de découvrir les secrets et les légendes du château, vous transportant ainsi dans une époque révolue. Vous pourrez également profiter des activités de loisirs proposées, telles que des balades à cheval dans le parc environnant ou des soirées costumées à thème.  Réservez dès maintenant votre séjour dans ce château de caractère et plongez dans une immersion passionnante dans l\'histoire. Une expérience inoubliable vous attend, où vous pourrez vivre une vie de châtelain et vous émerveiller devant la grandeur et la beauté d\'un château chargé de mystères.', '450.00', '', '', 0, '', '', '', '47.688617500', '2.629934600', 0, '2023-07-12 09:04:46', '', 13),
 (119, 'gigi', 'test', '222.00', '52 Rue de Noé', 'Gien', 45500, '', 'Centre-Val de Loire', 'France', '47.688656000', '2.629954400', 0, '2023-07-18 14:47:53', '', 13),
-(120, 'Karim', 'coucou', '100.00', '45 Grande Rue', 'Sault-Brénaz', 1150, '', 'Auvergne-Rhône-Alpes', 'France', '45.861916600', '5.398418200', 0, '2023-07-18 14:51:51', '', 13);
+(120, 'Karim', 'coucou', '100.00', '45 Grande Rue', 'Sault-Brénaz', 1150, '', 'Auvergne-Rhône-Alpes', 'France', '45.861916600', '5.398418200', 0, '2023-07-18 14:51:51', '', 13),
+(121, 'coucou', 'eefefe', '222.00', '52 Rue de Noé', 'Gien', 45500, '', 'Centre-Val de Loire', 'France', '47.688656000', '2.629954400', 0, '2023-07-18 15:00:01', '', 13),
+(125, 'Ghiggeri', 'Yes', '80.00', '7 Allée du Buisson Sarrazin', 'Bétheny', 51450, '', 'Grand Est', 'France', '49.275652000', '4.055309300', 0, '2023-07-20 09:33:08', '', 14);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `propertyamenities`
+-- Table structure for table `propertyamenities`
 --
 
 DROP TABLE IF EXISTS `propertyamenities`;
@@ -357,10 +376,10 @@ CREATE TABLE IF NOT EXISTS `propertyamenities` (
   `toilets` int NOT NULL,
   PRIMARY KEY (`propertyAmenitiesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `propertyamenities`
+-- Dumping data for table `propertyamenities`
 --
 
 INSERT INTO `propertyamenities` (`propertyAmenitiesId`, `propertyId`, `bedrooms`, `beds`, `bathrooms`, `toilets`) VALUES
@@ -373,12 +392,14 @@ INSERT INTO `propertyamenities` (`propertyAmenitiesId`, `propertyId`, `bedrooms`
 (41, 105, 3, 5, 2, 2),
 (42, 106, 8, 8, 8, 8),
 (55, 119, 1, 1, 1, 1),
-(56, 120, 1, 1, 1, 1);
+(56, 120, 1, 1, 1, 1),
+(57, 121, 8, 8, 8, 8),
+(61, 125, 3, 4, 2, 2);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `propertyimages`
+-- Table structure for table `propertyimages`
 --
 
 DROP TABLE IF EXISTS `propertyimages`;
@@ -392,10 +413,10 @@ CREATE TABLE IF NOT EXISTS `propertyimages` (
   `image4URL` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`propertyImagesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `propertyimages`
+-- Dumping data for table `propertyimages`
 --
 
 INSERT INTO `propertyimages` (`propertyImagesId`, `propertyId`, `imageMainURL`, `image1URL`, `image2URL`, `image3URL`, `image4URL`) VALUES
@@ -408,12 +429,14 @@ INSERT INTO `propertyimages` (`propertyImagesId`, `propertyId`, `imageMainURL`, 
 (39, 105, '64ad8718d2ac2.jpg', '64ad8718d2ca4.jpg', '64ad8718d2e13.jpg', '64ad8718d2f6b.jpg', '64ad8718d319d.jpg'),
 (40, 106, '64aeabe6beadc.jpg', '64aeabe6becb2.jpg', '64aeabe6bee88.jpg', '64aeabe6bf007.jpg', '64aeabe6bf1ea.jpg'),
 (53, 119, '64b689f9e2e1e.jpg', '64b689f9e30c4.jpg', '64b689f9e328d.jpg', '64b689f9e33f4.jpg', '64b689f9e356d.jpg'),
-(54, 120, '64b68ae718f25.jpg', '', '', '', '');
+(54, 120, '64b68ae718f25.jpg', '', '', '', ''),
+(55, 121, '64b68cd1bd43d.jpg', '', '', '', ''),
+(59, 125, '64b8e3346b42a.jpg', '64b8e3346b55d.jpg', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `propertytag`
+-- Table structure for table `propertytag`
 --
 
 DROP TABLE IF EXISTS `propertytag`;
@@ -425,7 +448,7 @@ CREATE TABLE IF NOT EXISTS `propertytag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `propertytag`
+-- Dumping data for table `propertytag`
 --
 
 INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES
@@ -444,12 +467,14 @@ INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES
 (106, 392),
 (100, 392),
 (119, 376),
-(120, 376);
+(120, 376),
+(121, 376),
+(125, 376);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `propertytype`
+-- Table structure for table `propertytype`
 --
 
 DROP TABLE IF EXISTS `propertytype`;
@@ -462,10 +487,10 @@ CREATE TABLE IF NOT EXISTS `propertytype` (
   `hotel` tinyint(1) NOT NULL,
   PRIMARY KEY (`PropertyTypeId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `propertytype`
+-- Dumping data for table `propertytype`
 --
 
 INSERT INTO `propertytype` (`PropertyTypeId`, `propertyId`, `house`, `flat`, `guesthouse`, `hotel`) VALUES
@@ -478,12 +503,14 @@ INSERT INTO `propertytype` (`PropertyTypeId`, `propertyId`, `house`, `flat`, `gu
 (85, 105, 1, 0, 0, 0),
 (86, 106, 1, 0, 0, 0),
 (99, 119, 1, 0, 0, 0),
-(100, 120, 1, 0, 0, 0);
+(100, 120, 1, 0, 0, 0),
+(101, 121, 1, 0, 0, 0),
+(105, 125, 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reservation`
+-- Table structure for table `reservation`
 --
 
 DROP TABLE IF EXISTS `reservation`;
@@ -504,7 +531,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `role`
+-- Table structure for table `role`
 --
 
 DROP TABLE IF EXISTS `role`;
@@ -520,7 +547,7 @@ CREATE TABLE IF NOT EXISTS `role` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tag`
+-- Table structure for table `tag`
 --
 
 DROP TABLE IF EXISTS `tag`;
@@ -532,7 +559,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
 ) ENGINE=InnoDB AUTO_INCREMENT=428 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `tag`
+-- Dumping data for table `tag`
 --
 
 INSERT INTO `tag` (`tagId`, `type`, `picto`) VALUES
@@ -592,7 +619,7 @@ INSERT INTO `tag` (`tagId`, `type`, `picto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -604,133 +631,159 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `phoneNumber` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `picture` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`uid`, `firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`) VALUES
-(8, 'Frédéric', 'Favreau', '0000-00-00', 'fred@gmail.com', '$2y$10$GaZ/gznrAdDs9Ax9NUc7Q.782X9AzSevwHe5D78txYhFnxhFKu9b.', ''),
-(9, 'demo', 'demo', '0000-00-00', 'demo@rbnb.com', '$2y$10$YpOsI8takAJZtp.B5phhZO./N0aL9FFsT4T3N6ltIl/UvGNmCHl8K', ''),
-(10, 'toto', 'robert', '0000-00-00', 'toto@gmail.com', '$2y$10$E8SiOsulhDiZuQXCRgm1xe8a1i2O0cRa5/K79aHTooVtSa9YXbwti', ''),
-(11, 'session', 'robert', '0000-00-00', 'session@gmail.com', '$2y$10$rjq1fFDlPURcJ59Px4XgVO6B5g/mpx0tRjvq8F/izBPeFJsvLfeUm', ''),
-(12, 'debug', 'lol', '0000-00-00', 'debug@gmail.com', '$2y$10$2lkCyvCBDvsGO02MCPvtWueNgqZOtixFyhJ7j/i2bZ1WWEKlhmDES', ''),
-(13, 'zaza', 'zaza', '0000-00-00', 'zaza@gmail.com', '$2y$10$3.2nyNMAMJX1hcE/W7AqOOQSUF1Vy/FZG4X7FPzxDF6Eq3k5/lw32', '');
+INSERT INTO `user` (`uid`, `firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`, `picture`) VALUES
+(8, 'Frédéric', 'Favreau', '0000-00-00', 'fred@gmail.com', '$2y$10$GaZ/gznrAdDs9Ax9NUc7Q.782X9AzSevwHe5D78txYhFnxhFKu9b.', '', 'user.png'),
+(9, 'demo', 'demo', '0000-00-00', 'demo@rbnb.com', '$2y$10$YpOsI8takAJZtp.B5phhZO./N0aL9FFsT4T3N6ltIl/UvGNmCHl8K', '', 'user.png'),
+(10, 'toto', 'robert', '0000-00-00', 'toto@gmail.com', '$2y$10$E8SiOsulhDiZuQXCRgm1xe8a1i2O0cRa5/K79aHTooVtSa9YXbwti', '', 'user.png'),
+(11, 'session', 'robert', '0000-00-00', 'session@gmail.com', '$2y$10$rjq1fFDlPURcJ59Px4XgVO6B5g/mpx0tRjvq8F/izBPeFJsvLfeUm', '', 'user.png'),
+(12, 'debug', 'lol', '0000-00-00', 'debug@gmail.com', '$2y$10$2lkCyvCBDvsGO02MCPvtWueNgqZOtixFyhJ7j/i2bZ1WWEKlhmDES', '', 'user.png'),
+(13, 'zaza', 'zaza', '0000-00-00', 'zaza@gmail.com', '$2y$10$3.2nyNMAMJX1hcE/W7AqOOQSUF1Vy/FZG4X7FPzxDF6Eq3k5/lw32', '', 'user.png'),
+(14, 'Walesca', 'MissU', '0000-00-00', 'Walescat@gmail.com', '$2y$10$E5QchFZpZSDgFyqvJlKqueHsH6nTfBu7cQyyZhWTRVQGWWCzxKx0q', '', 'WaNom.png'),
+(15, 'Hamid', 'Ham', '0000-00-00', 'hamid@gmail.com', '$2y$10$tBZT.QziDePhCenELfdqaeLXOfv6vaok5biEKkvIBl3.hxCvfrwtq', '', 'user.png');
+
+-- --------------------------------------------------------
 
 --
--- Contraintes pour les tables déchargées
+-- Table structure for table `user_properties`
+--
+
+DROP TABLE IF EXISTS `user_properties`;
+CREATE TABLE IF NOT EXISTS `user_properties` (
+  `userPropertyId` int NOT NULL AUTO_INCREMENT,
+  `uid` int NOT NULL,
+  `propertyId` int NOT NULL,
+  PRIMARY KEY (`userPropertyId`),
+  KEY `USER` (`uid`),
+  KEY `PROPERTY` (`propertyId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `accommodationtype`
+-- Constraints for table `accommodationtype`
 --
 ALTER TABLE `accommodationtype`
   ADD CONSTRAINT `accommodationtype_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `cancellationpolicy`
+-- Constraints for table `cancellationpolicy`
 --
 ALTER TABLE `cancellationpolicy`
   ADD CONSTRAINT `cancellationpolicy_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `comment`
+-- Constraints for table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `favorite`
+-- Constraints for table `favorite`
 --
 ALTER TABLE `favorite`
   ADD CONSTRAINT `favorite_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `favorite_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `hostlanguage`
+-- Constraints for table `hostlanguage`
 --
 ALTER TABLE `hostlanguage`
   ADD CONSTRAINT `hostlanguage_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `houserules`
+-- Constraints for table `houserules`
 --
 ALTER TABLE `houserules`
   ADD CONSTRAINT `houserules_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `invoice`
+-- Constraints for table `invoice`
 --
 ALTER TABLE `invoice`
   ADD CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `invoice_ibfk_2` FOREIGN KEY (`reservationId`) REFERENCES `reservation` (`reservationId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `message`
+-- Constraints for table `message`
 --
 ALTER TABLE `message`
   ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`conversationId`) REFERENCES `conversation` (`conversationId`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Contraintes pour la table `messagestatus`
+-- Constraints for table `messagestatus`
 --
 ALTER TABLE `messagestatus`
   ADD CONSTRAINT `messagestatus_ibfk_1` FOREIGN KEY (`messageId`) REFERENCES `message` (`messageId`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `messagestatus_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `payment`
+-- Constraints for table `payment`
 --
 ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`reservationId`) REFERENCES `reservation` (`reservationId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `property`
+-- Constraints for table `property`
 --
 ALTER TABLE `property`
   ADD CONSTRAINT `property_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `propertyamenities`
+-- Constraints for table `propertyamenities`
 --
 ALTER TABLE `propertyamenities`
   ADD CONSTRAINT `propertyamenities_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `propertyimages`
+-- Constraints for table `propertyimages`
 --
 ALTER TABLE `propertyimages`
   ADD CONSTRAINT `propertyimages_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `propertytag`
+-- Constraints for table `propertytag`
 --
 ALTER TABLE `propertytag`
   ADD CONSTRAINT `propertytag_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `propertytag_ibfk_2` FOREIGN KEY (`tagId`) REFERENCES `tag` (`tagId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `propertytype`
+-- Constraints for table `propertytype`
 --
 ALTER TABLE `propertytype`
   ADD CONSTRAINT `propertytype_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `reservation`
+-- Constraints for table `reservation`
 --
 ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `role`
+-- Constraints for table `role`
 --
 ALTER TABLE `role`
   ADD CONSTRAINT `role_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_properties`
+--
+ALTER TABLE `user_properties`
+  ADD CONSTRAINT `user_properties_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_properties_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
