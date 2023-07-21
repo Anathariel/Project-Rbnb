@@ -445,26 +445,21 @@
 			<h3>Laisser votre commentaire</h3>
 			<div class="add-comment-form">
 				<form action="{{ path('commentAdd') }}" method="POST">
-					<div
-						class="rating-input">
-						{# <input type="number" id="rating" name="rating" required> #}
-						<div class="rating-input">
-							<label for="rating">Votre note :</label>
-							<div class="rating-stars">
-								<input type="radio" id="star1" name="rating" value="1">
-								<label for="star1"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
-								<input type="radio" id="star2" name="rating" value="2">
-								<label for="star2"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
-								<input type="radio" id="star3" name="rating" value="3">
-								<label for="star3"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
-								<input type="radio" id="star4" name="rating" value="4">
-								<label for="star4"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
-								<input type="radio" id="star5" name="rating" value="5">
-								<label for="star5"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
-							</div>
+					<div class="rating-input">
+						<input type="hidden" id="rating" name="rating" required>
+						<label for="rating">Votre note :</label>
+						<div class="rating-stars">
+							<input type="radio" id="star1" name="rating" value="1">
+							<label for="star1"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
+							<input type="radio" id="star2" name="rating" value="2">
+							<label for="star2"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
+							<input type="radio" id="star3" name="rating" value="3">
+							<label for="star3"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
+							<input type="radio" id="star4" name="rating" value="4">
+							<label for="star4"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
+							<input type="radio" id="star5" name="rating" value="5">
+							<label for="star5"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
 						</div>
-
-
 					</div>
 					<div class="comment-input">
 						<label for="comment">Votre commentaire :</label>
