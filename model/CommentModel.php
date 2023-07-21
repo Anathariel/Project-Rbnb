@@ -20,7 +20,7 @@ class CommentModel extends Model
 
             $commentUser = $comment->getUid();
 
-            $req2 = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `birthDate`, `email`, `phoneNumber` FROM `user` WHERE `uid` = :id');
+            $req2 = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `birthDate`, `email`, `phoneNumber`,`picture` FROM `user` WHERE `uid` = :id');
             $req2->bindParam(':id', $commentUser, PDO::PARAM_INT);
             $req2->execute();
 

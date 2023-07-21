@@ -62,6 +62,10 @@ h3 {
   color: #1b1d21;
 }
 
+.hidden {
+  display: none;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -693,6 +697,7 @@ section#new-destinations-section p#description-new-destinations {
 section#new-destinations-section div#container-card-new-destinations {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 section#new-destinations-section div#container-card-new-destinations a {
   padding-top: 1.5rem;
@@ -723,6 +728,7 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button input {
   display: none;
@@ -840,6 +846,7 @@ section#best-tags-section div#container-card-best-tags a div.card-best-tags figu
 section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button input {
   display: none;
@@ -1172,9 +1179,11 @@ section#property-section .property-details .container-description-property .prop
 }
 section#property-section .property-details .container-description-property .property-host .container-host-info figure {
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 section#property-section .property-details .container-description-property .property-host .container-host-info figure .profile-picture {
-  background-color: grey;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -1267,6 +1276,8 @@ section#property-section .property-details .container-description-property .prop
   transition: 250ms ease-in;
 }
 section#property-section .property-details .container-pricing {
+  position: sticky;
+  top: 8rem;
   display: flex;
   flex-direction: column;
   margin: 1rem 5rem;
@@ -1384,6 +1395,61 @@ section#property-section .property-details .container-pricing .price-details h4 
   margin: 1rem 0;
   padding-top: 0.5rem;
   border-top: 1px solid #1b1d21;
+}
+section#property-section .add-comment-form {
+  width: 50%;
+}
+section#property-section .add-comment-form form .rating-input {
+  display: flex;
+  flex-direction: column;
+}
+section#property-section .add-comment-form form .rating-input .rating-stars {
+  display: flex;
+  flex-direction: row;
+}
+section#property-section .add-comment-form form .comment-input {
+  display: flex;
+  flex-direction: column;
+}
+section#property-section .add-comment-form form button {
+  width: 100%;
+  position: relative;
+  margin: 0.5rem 0;
+  border: solid 1px #404e87;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+section#property-section .add-comment-form form button span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 1rem 0;
+  color: #404e87;
+  position: relative;
+  z-index: 1;
+}
+section#property-section .add-comment-form form button span:hover {
+  color: #f8f8f8;
+}
+section#property-section .add-comment-form form button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #404e87;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+section#property-section .add-comment-form form button:hover:before {
+  width: 100%;
+}
+section#property-section .add-comment-form form input[type=submit] {
+  display: none;
 }
 section#property-section div {
   margin-bottom: 1rem;

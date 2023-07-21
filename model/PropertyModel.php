@@ -17,7 +17,7 @@ class PropertyModel extends Model
 
     public function getOneProperty(int $id)
     {
-        $req = $this->getDb()->prepare('SELECT `property`.`propertyId`, `property`.`title`, `property`.`priceNight`, `property`.`city`, `property`.`postalCode`, `property`.`department`, `property`.`region`, `property`.`country`, `property`.`address`, `property`.`description`, `property`.`latitude`, `property`.`longitude`, `user`.`firstName`, `property`.`owner`  FROM `property`
+        $req = $this->getDb()->prepare('SELECT `property`.`propertyId`, `property`.`title`, `property`.`priceNight`, `property`.`city`, `property`.`postalCode`, `property`.`department`, `property`.`region`, `property`.`country`, `property`.`address`, `property`.`description`, `property`.`latitude`, `property`.`longitude`, `user`.`firstName`,`user`.`picture`, `property`.`owner`  FROM `property`
         JOIN `user` ON `property`.`owner` = `user`.`uid` WHERE `property`.`propertyId` = :id');
         $req->bindParam('id', $id, PDO::PARAM_INT);
         $req->execute();
@@ -28,7 +28,7 @@ class PropertyModel extends Model
 
         $propertyOwner = $property->getOwner();
 
-        $req2 = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `birthDate`, `email`, `phoneNumber` FROM `user` WHERE `uid` = :id');
+        $req2 = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `birthDate`, `email`, `phoneNumber`,`picture` FROM `user` WHERE `uid` = :id');
         $req2->bindParam('id', $propertyOwner, PDO::PARAM_INT);
         $req2->execute();
 
