@@ -51,28 +51,22 @@
 			<h3>Chez @{{ property.owner.firstName }}</h3>
 
 			<div class="property-amenities">
-				<p>{{ houseRules.maxGuests }}
-					voyageurs</p>
 				{# ---------- Amenities ---------- #}
 				{% if propertyAmenities.beds > 0 %}
-					<p>{{ propertyAmenities.beds }}
-						{{ propertyAmenities.beds == 1 ? "lit" : "lits" }}</p>
+					<p>{{ propertyAmenities.beds }} {{ propertyAmenities.beds == 1 ? "lit" : "lits" }}</p>
 				{% endif %}
 
 				{% if propertyAmenities.bedrooms > 0 %}
-					<p>{{ propertyAmenities.bedrooms }}
-						{{ propertyAmenities.bedrooms == 1 ? "chambre" : "chambres" }}</p>
+					<p>{{ propertyAmenities.bedrooms }} {{ propertyAmenities.bedrooms == 1 ? "chambre" : "chambres" }}</p>
 				{% endif %}
 
 				{% if propertyAmenities.bathrooms > 0 %}
-					<p>{{ propertyAmenities.bathrooms }}
-						{{ propertyAmenities.bathrooms == 1 ? "salle de bain" : "salles de
+					<p>{{ propertyAmenities.bathrooms }} {{ propertyAmenities.bathrooms == 1 ? "salle de bain" : "salles de
                     bain" }}</p>
 				{% endif %}
 
 				{% if propertyAmenities.toilets > 0 %}
-					<p>{{ propertyAmenities.toilets }}
-						{{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}</p>
+					<p>{{ propertyAmenities.toilets }} {{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}</p>
 				{% endif %}
 			</div>
 
@@ -370,8 +364,19 @@
 								{{ houseRules.checkInTime|slice(0, 5) }}</p>
 							<p>Départ avant
 								{{ houseRules.checkOutTime|slice(0, 5) }}</p>
-							<p id="maxGuests">{{ houseRules.maxGuests }}
-								voyageurs maximum</p>
+							<p id="maxGuests">{{ houseRules.maxGuests }} voyageurs maximum</p>
+						<a id="description-details" href="#">En savoir plus →</a>
+					</div>
+
+					<div class="annulation">
+						<h4>Conditions d'annulation :</h4>
+						{% if cancellationPolicy %}
+							<p>Annulation gratuite avant
+								{{ cancellationPolicy.cancellationTime }}</p>
+							<p>Politique de remboursement :
+								{{ cancellationPolicy.refundPolicy }}</p>
+							<p>Frais d'annulation :
+								{{ cancellationPolicy.cancellationFees }}€</p>
 							<a id="description-details" href="#">En savoir plus →</a>
 						</div>
 

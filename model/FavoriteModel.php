@@ -12,4 +12,18 @@ class FavoriteModel extends Model
 
         $stmt->execute();
     }
+
+    public function getFavoriteByUid($userId)
+    {
+        $stmt = $this->getDb()->prepare('SELECT * FROM favorite WHERE uid = :uid');
+        $stmt->bindParam(':uid', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $favorites = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $favorites[] = new Favorite($row);
+        }
+
+        return $favorites;
+    }
 }
