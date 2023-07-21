@@ -7,16 +7,13 @@ class UserModel extends Model
         $lastName = $user->getLastName();
         $password = $user->getPassword();
         $email = $user->getEmail();
-      
 
-        $req = $this->getDb()->prepare("INSERT INTO `user` (`firstName`, `lastName`, `email`, `password`) VALUES (:firstName, :lastName, :email, :password)");
+        $req = $this->getDb()->prepare("INSERT INTO `user` (`firstName`, `lastName`, `email`, `password`,`registrationDate`) VALUES (:firstName, :lastName, :email, :password,NOW())");
         $req->bindParam(":firstName", $firstName, PDO::PARAM_STR);
         $req->bindParam(":lastName", $lastName, PDO::PARAM_STR);
         $req->bindParam(":password", $password, PDO::PARAM_STR);
         $req->bindParam(":email", $email, PDO::PARAM_STR);
       
-
-
         $req->execute();
     }
 

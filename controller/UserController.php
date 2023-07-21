@@ -12,6 +12,7 @@ class UserController extends Controller
             $rawPass = $_POST['password'];
             $password = password_hash($rawPass, PASSWORD_DEFAULT);
             $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
+            $registrationDate = 
             $user = new User([
                 'firstName' => $firstName,
                 'lastName' => $lastName,
@@ -26,7 +27,6 @@ class UserController extends Controller
             echo self::getRender('register.html.twig', []);
         }
     }
-
     public function login()
     {
         if (!$_POST) {
@@ -167,40 +167,44 @@ class UserController extends Controller
                     $userModel = new UserModel();
                     $user = $userModel->getUserById($uid);
                     $user->setUid($uid);
-                    $user->setFirstName($firstName);
-                    $user->setLastName($lastName);
-                    $user->setBirthDate($birthDate);
                     $user->setEmail($email);
                     $user->setPhoneNumber($phoneNumber);
                     $user->setPicture($pictureName);
-
+                    var_dump($_POST);
+                    var_dump($_FILES);
+                    
                     $querryResult = $userModel->editUser($user);
 
                     if ($querryResult) {
                         $uploadDir = 'asset/media/profils/';
+                        //explode: la premier valeur c'est le séparteur et le deuxieme après la point 
+                        $tabExtension = explode('.', $_FILES['picture']['name']);
+                        //Tableau des extensions que l'on accepte
+                        $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+                        $extension = strtolower(end($tabExtension));
                         $uploadFile = $uploadDir . $_FILES['picture']['name'];
-
-                        // Déplacer le fichier temporaire vers le dossier final
+                        if(in_array($extension, $extensions)){
+                         // Déplacer le fichier temporaire vers le dossier final
                         $controleUpload = move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile);
                         // var_dump($controleUpload);
                         // Le fichier a été téléchargé avec succès,  vous pouvez enregistrer le chemin d'accès à la photo dans la base de données
                         //var_dump(move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile));
-                        if (!$controleUpload) {
+                        if(!$controleUpload) {
                             $message = "Une erreur est survenue lors du téléchargement de l'image. Veuillez réessayer.";
                             echo self::getRender('dashboard-option.html.twig', ['message' => $message]);
-                        }
+                        }    
+                        }else{ 
+                            echo "Mauvaise extension";
+
                     }
+                
 
                     echo self::getRender('dashboard-options.html.twig', ['user' => $user]);
                     exit();
                 }
             }
-        }
-
+        }}
         // Récupérer le fichier photo
-
-
-
     }
     public function delete()
     {
