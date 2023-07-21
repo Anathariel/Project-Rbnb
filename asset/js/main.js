@@ -150,4 +150,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// PROPERTY COMMENT RATING
+
+
+
 });

@@ -1479,6 +1479,9 @@ section#property-section {
 
           figure {
             overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
 
             .profile-picture {
               background-color: grey;
@@ -1593,7 +1596,7 @@ section#property-section {
         }
       }
     }
-    
+
     .container-pricing {
       position: sticky;
       top: 8rem;
@@ -1734,6 +1737,72 @@ section#property-section {
         }
       }
     }
+  }
+
+  .add-comment-form {
+    width: 50%;
+
+    form {
+      .rating-input {
+        display: flex;
+        flex-direction: column;
+        .rating-stars{
+          display: flex;
+          flex-direction: row;
+        }
+      }
+
+      .comment-input {
+        display: flex;
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+        position: relative;
+        margin: 0.5rem 0;
+        border: solid 1px $accent;
+        background-color: transparent;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        overflow: hidden;
+
+        span {
+          display: block;
+          font-family: "Quicksand";
+          font-size: 1.5rem;
+          width: 100%;
+          padding: 1rem 0;
+          color: $accent;
+          position: relative;
+          z-index: 1;
+        }
+
+        span:hover {
+          color: $white;
+        }
+      }
+
+      button:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: $accent;
+        transition: all 0.5s ease-out;
+        z-index: 0;
+      }
+
+      button:hover:before {
+        width: 100%;
+      }
+      input[type=submit] {
+        display: none;
+      }
+    }
+
   }
 
   div {
