@@ -7,7 +7,9 @@ function updatePrices() {
   showPriceDetails.style.display = "none";
 
   const arrivalDate = new Date(document.getElementById("arrivalDate").value);
-  const departureDate = new Date(document.getElementById("departureDate").value);
+  const departureDate = new Date(
+    document.getElementById("departureDate").value
+  );
   const numberOfDays = Math.ceil(
     (departureDate - arrivalDate) / (1000 * 60 * 60 * 24)
   );
@@ -36,11 +38,15 @@ function updatePrices() {
   const endDateInput = document.getElementById("endDateInput");
   const numTravelersInput = document.getElementById("numTravelersInput");
   const totalPriceInput = document.getElementById("totalPriceInput");
+  const selectedNumTravelers = document.getElementById("traveler-select").value;
 
   startDateInput.value = arrivalDate.toISOString().slice(0, 10);
   endDateInput.value = departureDate.toISOString().slice(0, 10);
-  numTravelersInput.value = parseInt(document.getElementById("traveler-select").value);
-  totalPriceInput.value = totalPrice.toFixed(2);
+
+  // Mettre à jour le champ de saisie caché avec le nombre de voyageurs sélectionné
+  numTravelersInput.value = selectedNumTravelers;
+
+  totalPriceInput.value = totalPriceWithFees.toFixed(2);
 }
 
 // Your existing function to update maximum number of travelers in the select options
@@ -50,7 +56,14 @@ function updateTravelerOptions() {
 
 // Écouter les changements de la date d'arrivée et de la date de départ
 document.getElementById("arrivalDate").addEventListener("change", updatePrices);
-document.getElementById("departureDate").addEventListener("change", updatePrices);
+document
+  .getElementById("departureDate")
+  .addEventListener("change", updatePrices);
+
+// Écouter le changement du nombre de voyageurs sélectionné
+document
+  .getElementById("traveler-select")
+  .addEventListener("change", updatePrices);
 
 // Appeler la fonction updatePrices une première fois pour afficher les prix initiaux
 updatePrices();

@@ -93,7 +93,7 @@ class Reservation
         $this->numTravelers = $numTravelers;
     }
 
-    public function setTotalPrice(int $totalPrice)
+    public function setTotalPrice($totalPrice)
     {
         $this->totalPrice = $totalPrice;
     }

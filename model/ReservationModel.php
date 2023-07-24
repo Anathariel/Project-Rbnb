@@ -18,7 +18,7 @@
             $req->bindParam(':checkInDate', $checkInDate, PDO::PARAM_STR);
             $req->bindParam(':checkoutDate', $checkoutDate, PDO::PARAM_STR);
             $req->bindParam(':numTravelers', $numTravelers, PDO::PARAM_INT);
-            $req->bindParam(':totalPrice', $totalPrice, PDO::PARAM_INT);
+            $req->bindParam(':totalPrice', $totalPrice, PDO::PARAM_STR);
             $req->execute();
         }
 
