@@ -50,23 +50,28 @@
 		<div class="container-description-property">
 			<h3>Chez @{{ property.owner.firstName }}</h3>
 
-			<div class="property-amenities">
+			<div
+				class="property-amenities">
 				{# ---------- Amenities ---------- #}
 				{% if propertyAmenities.beds > 0 %}
-					<p>{{ propertyAmenities.beds }} {{ propertyAmenities.beds == 1 ? "lit" : "lits" }}</p>
+					<p>{{ propertyAmenities.beds }}
+						{{ propertyAmenities.beds == 1 ? "lit" : "lits" }}</p>
 				{% endif %}
 
 				{% if propertyAmenities.bedrooms > 0 %}
-					<p>{{ propertyAmenities.bedrooms }} {{ propertyAmenities.bedrooms == 1 ? "chambre" : "chambres" }}</p>
+					<p>{{ propertyAmenities.bedrooms }}
+						{{ propertyAmenities.bedrooms == 1 ? "chambre" : "chambres" }}</p>
 				{% endif %}
 
 				{% if propertyAmenities.bathrooms > 0 %}
-					<p>{{ propertyAmenities.bathrooms }} {{ propertyAmenities.bathrooms == 1 ? "salle de bain" : "salles de
+					<p>{{ propertyAmenities.bathrooms }}
+						{{ propertyAmenities.bathrooms == 1 ? "salle de bain" : "salles de
                     bain" }}</p>
 				{% endif %}
 
 				{% if propertyAmenities.toilets > 0 %}
-					<p>{{ propertyAmenities.toilets }} {{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}</p>
+					<p>{{ propertyAmenities.toilets }}
+						{{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}</p>
 				{% endif %}
 			</div>
 
@@ -364,9 +369,10 @@
 								{{ houseRules.checkInTime|slice(0, 5) }}</p>
 							<p>Départ avant
 								{{ houseRules.checkOutTime|slice(0, 5) }}</p>
-							<p id="maxGuests">{{ houseRules.maxGuests }} voyageurs maximum</p>
-						<a id="description-details" href="#">En savoir plus →</a>
-					</div>
+							<p id="maxGuests">{{ houseRules.maxGuests }}
+								voyageurs maximum</p>
+							<a id="description-details" href="#">En savoir plus →</a>
+						</div>
 
 						<div class="annulation">
 							<h4>Conditions d'annulation :</h4>
@@ -395,31 +401,36 @@
 							<div class="calendar">
 								<div class="arrival">
 									<h4>Arrivée</h4>
-									<input type="date" id="arrivalDate">
+									<input type="date" id="arrivalDate" format="YYYY-MM-DD">
 								</div>
 								<div class="departure">
 									<h4>Départ</h4>
-									<input type="date" id="departureDate">
+									<input type="date" id="departureDate" format="YYYY-MM-DD">
 								</div>
 							</div>
 
 							<div class="traveler">
 								<h4>Voyageurs</h4>
-								<select name="traveler" id="traveler-select">
-									<option value="1 Voyageur">1 Voyageur</option>
-									<option value="2 Voyageur">2 Voyageurs</option>
-									<option value="3 Voyageur">3 Voyageurs</option>
-									<option value="4 Voyageur">4 Voyageurs</option>
-									<option value="5 Voyageur">5 Voyageurs</option>
-									<option value="6 Voyageur">6 Voyageurs</option>
-									<option value="7 Voyageur">7 Voyageurs</option>
-									<option value="8 Voyageur">8+ Voyageurs</option>
+								<select name="numTravelers" id="traveler-select">
+									<option value="1">1 Voyageur</option>
+									<option value="2">2 Voyageurs</option>
+									<option value="3">3 Voyageurs</option>
+									<option value="4">4 Voyageurs</option>
+									<option value="5">5 Voyageurs</option>
+									<option value="6">6 Voyageurs</option>
+									<option value="7">7 Voyageurs</option>
+									<option value="8">8+ Voyageurs</option>
 								</select>
 							</div>
 						</div>
-						<button>
-							<span>Réserver</span>
-						</button>
+						<form action="{{ path('reservation') }}" method="POST">
+							<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+							<input type="hidden" name="startDate" id="startDateInput" value="">
+							<input type="hidden" name="endDate" id="endDateInput" value="">
+							<input type="hidden" name="numTravelers" id="numTravelersInput" value="1">
+							<input type="hidden" name="totalPrice" id="totalPriceInput" value="">
+							<input type="submit" value="Réserver" class="submit">
+						</form>
 						<p>Aucun montant ne vous sera débité pour le moment</p>
 					</div>
 					<div class="price-details hidden">
