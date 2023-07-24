@@ -51,6 +51,9 @@ $router->map('POST', '/deleteproperty/[i:id]', 'PropertyController#deletePropert
 // SEARCH
 $router->map('GET|POST', '/search', 'SearchController#searchResult', 'search');
 
+// Reservation
+$router->map('GET|POST', '/reservation', 'ReservationController#addReservation', 'reservation');
+
 
 // MATCH :
 $match = $router->match();
