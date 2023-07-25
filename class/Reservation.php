@@ -9,6 +9,8 @@ class Reservation
     private $checkoutDate;
     private $numTravelers;
     private $totalPrice;
+    private $property;
+    private $propertyImages;
 
     public function __construct(array $post)
     {
@@ -62,6 +64,16 @@ class Reservation
         return $this->totalPrice;
     }
 
+    public function getProperty()
+    {
+        return $this->property;
+    }
+
+    public function getPropertyImages()
+    {
+        return $this->propertyImages;
+    }
+
     //SETTERS
     public function setReservationId(int $reservationId)
     {
@@ -96,5 +108,15 @@ class Reservation
     public function setTotalPrice($totalPrice)
     {
         $this->totalPrice = $totalPrice;
+    }
+
+    public function setProperty(Property $property)
+    {
+        $this->property = $property;
+    }
+
+    public function setPropertyImages(array $propertyImages)
+    {
+        $this->propertyImages = $propertyImages;
     }
 }
