@@ -4,12 +4,13 @@
 {% endblock %}
 
 {% block content %}
+
+	{% include 'category-menu.html.twig' %}
+
 	<form action="{{ path('search') }}" method="GET" id="search-form">
 		<input type="text" name="search" placeholder="Rechercher une location . . ." id="input-search">
 		<input type="submit" value="Rechercher">
 	</form>
-
-	{% include 'category-menu.html.twig' %}
 
 	<h2>Résultat de votre recherche</h2>
 
