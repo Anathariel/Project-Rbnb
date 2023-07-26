@@ -93,8 +93,22 @@ class UserController extends Controller
         $favoriteModel = new FavoriteModel();
         $userFavorites = $favoriteModel->getFavoriteByUidModel($userId);
 
+        // Récupérez les réservations de l'utilisateur à partir de la base de données
         $reservationModel = new ReservationModel();
         $userReservations = $reservationModel->getReservationModel($userId);
+
+        // Récupérez les propriétés louées par l'utilisateur (propriétaire)
+        $userRentedProperties = [];
+
+        foreach ($userProperties as $property) {
+            $propertyId = $property->getPropertyId();
+            $reservations = $reservationModel->getReservationsByProperty($propertyId);
+
+            // Si la propriété a des réservations, ajoutez-la à la liste des propriétés louées par l'utilisateur
+            if (!empty($reservations)) {
+                $userRentedProperties[] = $property;
+            }
+        }
 
 
         // Récupérez les images liées à chaque propriété du propriétaire
@@ -131,7 +145,8 @@ class UserController extends Controller
             'email' => $email,
             'userProperties' => $userProperties,
             'userFavorites' => $userFavorites,
-            'userReservations' => $userReservations
+            'userReservations' => $userReservations,
+            'userRentedProperties' => $userRentedProperties
         ];
 
         // Affichez la vue avec les données
@@ -155,7 +170,7 @@ class UserController extends Controller
         $firstName = $user->getFirstName();
         $email = $user->getEmail();
 
-
+        // Récupérez les propriétés de l'utilisateur à partir de la base de données
         $data = [
             'firstName' => $firstName,
             'email' => $email,

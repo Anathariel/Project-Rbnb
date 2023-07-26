@@ -1,6 +1,5 @@
  <?php
     class ReservationModel extends Model
-
     {
         public function addReservationModel(Reservation $reservation)
         {
@@ -44,6 +43,34 @@
         public function getReservationIdModel($reservation)
         {
             return $reservation->getReservationId();
+        }
+
+        public function getUserProperties($userId)
+        {
+            $req = $this->getDb()->prepare('SELECT * FROM `property` WHERE `ownerId` = :ownerId');
+            $req->bindParam(':ownerId', $userId, PDO::PARAM_INT);
+            $req->execute();
+
+            $properties = [];
+            while ($property = $req->fetch(PDO::FETCH_ASSOC)) {
+                $properties[] = new Property($property);
+            }
+
+            return $properties;
+        }
+
+        public function getReservationsByProperty($propertyId)
+        {
+            $req = $this->getDb()->prepare('SELECT * FROM `reservation` WHERE `propertyId` = :propertyId');
+            $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+            $req->execute();
+
+            $reservations = [];
+            while ($reservation = $req->fetch(PDO::FETCH_ASSOC)) {
+                $reservations[] = new Reservation($reservation);
+            }
+
+            return $reservations;
         }
 
         public function deleteReservationModel($propertyId, $userId)

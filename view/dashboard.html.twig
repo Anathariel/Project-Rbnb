@@ -103,11 +103,10 @@
 		<section class="dashboard-cards-my-favs">
 			<h2>Mes locations</h2>
 			<div class="cards-container">
-				{% if userFavorites is empty %}
+				{% if userRentedProperties is empty %}
 					<p>Vous ne disposer pas de location.</p>
 				{% else %}
-					{% for favorite in userFavorites %}
-						{% set property = favorite.property %}
+					{% for property in userRentedProperties %}
 						<a href="{{ path('baseProperty') ~ property.propertyId }}">
 							<div class="card">
 								<figure>
