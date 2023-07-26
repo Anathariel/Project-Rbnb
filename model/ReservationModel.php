@@ -1,8 +1,6 @@
  <?php
     class ReservationModel extends Model
-
     {
-
         public function addReservationModel(Reservation $reservation)
         {
             $propertyId = $reservation->getPropertyId();
@@ -24,14 +22,19 @@
 
         public function getReservationModel($userId)
         {
-            $req = $this->getDb()->prepare('SELECT `reservation`.`reservationId`, `reservation`.`propertyId`, `reservation`.`uid`, `reservation`.`checkInDate`, `reservation`.`checkoutDate`, `reservation`.`totalPrice`, `property`.`title`, `property`.`address`, `property`.`city`, `property`.`postalCode`, `property`.`department`, `property`.`region`, `property`.`country`, `property`.`description`, `property`.`latitude`, `property`.`longitude`, `user`.`firstName`, `user`.`lastName`, `user`.`email`, `user`.`phoneNumber`, `user`.`picture` FROM `reservation` JOIN `property` ON `reservation`.`propertyId` = `property`.`propertyId` JOIN `user` ON `reservation`.`uid` = `user`.`uid` WHERE `reservation`.`uid` = :uid');
+            $req = $this->getDb()->prepare('SELECT `reservation`.`reservationId`, `reservation`.`propertyId`, `reservation`.`uid`, `reservation`.`checkInDate`, `reservation`.`checkoutDate`, `reservation`.`totalPrice`, `property`.`propertyId`, `property`.`title`, `property`.`priceNight`, `property`.`address`, `property`.`city`, `property`.`postalCode`, `property`.`department`, `property`.`region`, `property`.`country`, `property`.`description` FROM `reservation` JOIN `property` ON `reservation`.`propertyId` = `property`.`propertyId` WHERE `reservation`.`uid` = :uid');
             $req->bindParam(':uid', $userId, PDO::PARAM_INT);
             $req->execute();
 
             $reservations = [];
-
             while ($reservation = $req->fetch(PDO::FETCH_ASSOC)) {
                 $reservations[] = new Reservation($reservation);
+
+                // Récupérer les détails de la propriété associée à cette réservation
+                $propertyId = $reservation['propertyId'];
+                $propertyModel = new PropertyModel();
+                $property = $propertyModel->getPropertyById($propertyId);
+                $reservations[count($reservations) - 1]->setProperty($property);
             }
 
             return $reservations;
@@ -42,10 +45,39 @@
             return $reservation->getReservationId();
         }
 
-        public function deleteReservationModel($reservationId)
+        public function getUserProperties($userId)
         {
-            $req = $this->getDb()->prepare('DELETE FROM `reservation` WHERE `reservationId` = :reservationId');
-            $req->bindParam(':reservationId', $reservationId, PDO::PARAM_INT);
+            $req = $this->getDb()->prepare('SELECT * FROM `property` WHERE `ownerId` = :ownerId');
+            $req->bindParam(':ownerId', $userId, PDO::PARAM_INT);
+            $req->execute();
+
+            $properties = [];
+            while ($property = $req->fetch(PDO::FETCH_ASSOC)) {
+                $properties[] = new Property($property);
+            }
+
+            return $properties;
+        }
+
+        public function getReservationsByProperty($propertyId)
+        {
+            $req = $this->getDb()->prepare('SELECT * FROM `reservation` WHERE `propertyId` = :propertyId');
+            $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+            $req->execute();
+
+            $reservations = [];
+            while ($reservation = $req->fetch(PDO::FETCH_ASSOC)) {
+                $reservations[] = new Reservation($reservation);
+            }
+
+            return $reservations;
+        }
+
+        public function deleteReservationModel($propertyId, $userId)
+        {
+            $req = $this->getDb()->prepare('DELETE FROM `reservation` WHERE `propertyId` = :propertyId AND `uid` = :userId');
+            $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+            $req->bindParam(':userId', $userId, PDO::PARAM_INT);
             $req->execute();
         }
     }
