@@ -46,10 +46,11 @@
             return $reservation->getReservationId();
         }
 
-        public function deleteReservationModel($reservationId)
+        public function deleteReservationModel($propertyId, $userId)
         {
-            $req = $this->getDb()->prepare('DELETE FROM `reservation` WHERE `reservationId` = :reservationId');
-            $req->bindParam(':reservationId', $reservationId, PDO::PARAM_INT);
+            $req = $this->getDb()->prepare('DELETE FROM `reservation` WHERE `propertyId` = :propertyId AND `uid` = :userId');
+            $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+            $req->bindParam(':userId', $userId, PDO::PARAM_INT);
             $req->execute();
         }
     }

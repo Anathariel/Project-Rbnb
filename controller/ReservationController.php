@@ -30,4 +30,24 @@ class ReservationController extends Controller
             header('Location: ' . $router->generate('dashboard'));
         }
     }
+
+    public function deleteReservation()
+    {
+        $userId = $_SESSION['uid'];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['_method'] === 'DELETE') {
+            if (isset($_POST['propertyId'])) {
+                $propertyId = $_POST['propertyId'];
+                $reservationModel = new ReservationModel();
+
+                $reservationModel->deleteReservationModel($propertyId, $userId);
+
+                global $router;
+                header('Location: ' . $router->generate('dashboard'));
+                exit();
+            }
+        } else {
+            echo self::getRender('dashboard.html.twig', []);
+        }
+    }
 }
