@@ -53,6 +53,8 @@ $router->map('GET|POST', '/search', 'SearchController#searchResult', 'search');
 
 // Reservation
 $router->map('GET|POST', '/reservation', 'ReservationController#addReservation', 'reservation');
+$router->map('GET|POST', '/account/reservation', 'ReservationController#getReservation', 'reservationGet');
+$router->map('POST', '/account/reservation/delete', 'ReservationController#deleteReservation', 'reservationDelete');
 
 
 // MATCH :

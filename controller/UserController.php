@@ -93,6 +93,9 @@ class UserController extends Controller
         $favoriteModel = new FavoriteModel();
         $userFavorites = $favoriteModel->getFavoriteByUidModel($userId);
 
+        $reservationModel = new ReservationModel();
+        $userReservations = $reservationModel->getReservationModel($userId);
+
 
         // Récupérez les images liées à chaque propriété du propriétaire
         $propertyImagesModel = new PropertyImagesModel();
@@ -110,12 +113,25 @@ class UserController extends Controller
             $favorite->getProperty()->setPropertyImages($propertyImages);
         }
 
+        // Récupérez les images liées à chaque propriété réservée
+        $propertyImagesModel = new PropertyImagesModel();
+        foreach ($userReservations as $reservation) {
+            $propertyId = $reservation->getPropertyId();
+            $propertyImages = $propertyImagesModel->getPropertyImagesModel($propertyId);
+
+            // Check if the property is set before calling setPropertyImages()
+            if ($reservation->getProperty()) {
+                $reservation->getProperty()->setPropertyImages($propertyImages);
+            }
+        }
+
         // Préparez les données à envoyer à la vue
         $data = [
             'firstName' => $firstName,
             'email' => $email,
             'userProperties' => $userProperties,
             'userFavorites' => $userFavorites,
+            'userReservations' => $userReservations
         ];
 
         // Affichez la vue avec les données
@@ -209,13 +225,12 @@ class UserController extends Controller
                                 $message = "Une erreur est survenue lors du téléchargement de l'image. Veuillez réessayer.";
                                 echo self::getRender('dashboard-option.html.twig', ['message' => $message]);
                             }
-                        } 
-                    }else {
-                            $message = "Cette extension n'est pas autorisée.";
-                            echo self::getRender('dashboard-options.html.twig', ['message' => $message]);
                         }
+                    } else {
+                        $message = "Cette extension n'est pas autorisée.";
+                        echo self::getRender('dashboard-options.html.twig', ['message' => $message]);
+                    }
                 }
-                
             }
         }
     }
