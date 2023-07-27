@@ -26,24 +26,15 @@ class SearchController extends Controller
 
     public function searchResultAjax()
     {
-        $searchTerm = $_GET['term']; 
+        $searchTerm = $_GET['term'];
         $model = new SearchModel();
         $datas = $model->getSearchResult($searchTerm);
 
         $results = [];
         foreach ($datas as $data) {
-
             $results[] = [
-                'label' => $data['title'],
+                'label' => $data['address'] . ', ' . $data['city'] . ', ' . $data['postalCode'] . ', ' . $data['department'] . ', ' . $data['region'] . ', ' . $data['country'],
                 'value' => $data['title'],
-                'description' => $data['description'],
-                'priceNight' => $data['priceNight'],
-                'address' => $data['address'],
-                'city' => $data['city'],
-                'postalCode' => $data['postalCode'],
-                'department' => $data['department'],
-                'region' => $data['region'],
-                'country' => $data['country'],
             ];
         }
 

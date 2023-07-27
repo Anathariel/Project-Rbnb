@@ -1,43 +1,52 @@
 $(document).ready(function () {
-    $("#input-search").autocomplete({
-      source: function (request, response) {
-        $.ajax({
-          url: "autocomplete",
-          dataType: "json",
-          data: {
-            term: request.term,
-          },
-          success: function (data) {
-            response(data);
-          },
-          error: function (xhr, status, error) {
-            console.error("Error", status, error);
-          },
-        });
-      },
-      minLength: 2,
-      open: function (event, ui) {
-        // Ajuster la largeur du menu déroulant pour qu'elle corresponde à celle du texte affiché
-        var menu = $(".ui-autocomplete");
-        var menuItems = menu.find(".ui-menu-item");
-  
-        var maxWidth = 0;
-        menuItems.each(function () {
-          var itemWidth = $(this).outerWidth();
-          maxWidth = Math.max(maxWidth, itemWidth);
-        });
-  
-        menu.outerWidth(maxWidth);
-      },
-      focus: function (event, ui) {
-        // Ajouter la classe pour la surbrillance en pointeur
-        $(".ui-menu-item").removeClass("ui-state-active");
-        $(ui.item[0]).addClass("ui-state-active");
-      },
-      select: function (event, ui) {
-        // Supprimer la classe après la sélection pour éviter la surbrillance persistante
-        $(".ui-menu-item").removeClass("ui-state-active");
-      },
-    });
+  // Cacher la voix en bas du site par défaut
+  $("#voice").hide();
+
+  // Ajouter la classe "autocomplete-open" au corps de la page lorsque l'autocomplétion est ouverte
+  $("#input-search").on("autocompleteopen", function () {
+    $("body").addClass("autocomplete-open");
+    $("#voice").hide();
   });
-  
+
+  $("#input-search").autocomplete({
+    source: function (request, response) {
+      $.ajax({
+        url: "autocomplete",
+        dataType: "json",
+        data: {
+          term: request.term,
+        },
+        success: function (data) {
+          response(data);
+        },
+        error: function (xhr, status, error) {
+          console.error("Error", status, error);
+        },
+      });
+    },
+    minLength: 2,
+    position: {
+      // Ajuster la position de l'autocomplétion pour qu'elle s'affiche sous l'élément de recherche
+      my: "left top+5",
+      at: "left bottom",
+      collision: "none",
+    },
+    messages: {
+      // Laisser les fonctions vides pour désactiver l'affichage des messages
+      noResults: function () {},
+      results: function () {},
+    },
+    focus: function (event, ui) {
+      // Ajouter la classe pour la surbrillance en pointeur
+      $(".ui-menu-item").removeClass("ui-state-active");
+      $(ui.item[0]).addClass("ui-state-active");
+    },
+    select: function (event, ui) {
+      // Soumettre le formulaire de recherche lorsque l'utilisateur sélectionne un élément
+      $("#search-form").submit();
+
+      // Supprimer la classe après la sélection pour éviter la surbrillance persistante
+      $(".ui-menu-item").removeClass("ui-state-active");
+    },
+  });
+});

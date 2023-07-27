@@ -95,12 +95,21 @@ h3 {
 
 // -------------------- class connum search -------------------- //
 
+/* CSS pour cacher l'élément d'autocomplétion généré par jQuery UI */
 .ui-autocomplete {
   max-height: 250px;
+  height: fit-content;
+  width: fit-content;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 1000;
   border: 1px solid #ccc;
+
+  /* Fixer le footer en bas de la page */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .ui-menu-item {
@@ -110,7 +119,27 @@ h3 {
 }
 
 .ui-state-active {
-  background-color: #f0f0f0; /* Couleur de surbrillance */
+  background-color: #f0f0f0;
+}
+
+.ui-menu-item-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* CSS pour cacher le scroll lorsque l'autocomplétion est ouverte */
+.autocomplete-open {
+  overflow: hidden;
+}
+
+/* CSS pour masquer le texte du message */
+.ui-helper-hidden-accessible {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 //~ -------------------- STYLING -------------------- //

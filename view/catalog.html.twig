@@ -14,52 +14,56 @@
 
 	<h2>Résultat de votre recherche</h2>
 
-	<div id="response"></div>
+	{% if result is empty %}
+		<p>Votre recherche ne donne aucun résultat.</p>
+	{% else %}
 
-	<section id="catalog-cards">
-		{% for property in result %}
-			<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
-				<div class="card">
-					<figure>
-						{% if property.images is defined %}
-							{% set images = property.images %}
-							{% if images.imageMainURL is defined %}
-								<img src="{{ asset('/media/locations/' ~ images.imageMainURL) }}" alt="{{ property.title }}"/>
+
+		<section id="catalog-cards">
+			{% for property in result %}
+				<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
+					<div class="card">
+						<figure>
+							{% if property.images is defined %}
+								{% set images = property.images %}
+								{% if images.imageMainURL is defined %}
+									<img src="{{ asset('/media/locations/' ~ images.imageMainURL) }}" alt="{{ property.title }}"/>
+								{% endif %}
 							{% endif %}
-						{% endif %}
-						<figcaption>
-							<form method="POST" action="{{ path('favorite') }}">
-								<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-								<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
-							</form>
-						</figcaption>
-					</figure>
+							<figcaption>
+								<form method="POST" action="{{ path('favorite') }}">
+									<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+									<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
+								</form>
+							</figcaption>
+						</figure>
 
-					<div class="card-details">
-						<div class="pricing">
-							<h3>
-								<span>{{ property.priceNight }}€</span>/nuit
-							</h3>
-							<div class="rating">
-								<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-								<p>{{ property.averageRating|number_format(1, '.', '') }}</p>
+						<div class="card-details">
+							<div class="pricing">
+								<h3>
+									<span>{{ property.priceNight }}€</span>/nuit
+								</h3>
+								<div class="rating">
+									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
+									<p>{{ property.averageRating|number_format(1, '.', '') }}</p>
+								</div>
 							</div>
+							<div class="location">
+								<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+								<p>{{ property.city }},
+									{{ property.region }}</p>
+							</div>
+							<div class="description">
+								<h3>{{ property.title }}</h3>
+								<p class="card-descriptions-limit">{{ property.description }}</p>
+							</div>
+							<button>
+								<span>Réserver</span>
+							</button>
 						</div>
-						<div class="location">
-							<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-							<p>{{ property.city }},
-								{{ property.region }}</p>
-						</div>
-						<div class="description">
-							<h3>{{ property.title }}</h3>
-							<p class="card-descriptions-limit">{{ property.description }}</p>
-						</div>
-						<button>
-							<span>Réserver</span>
-						</button>
 					</div>
-				</div>
-			</a>
-		{% endfor %}
-	</section>
+				</a>
+			{% endfor %}
+		</section>
+	{% endif %}
 {% endblock %}
