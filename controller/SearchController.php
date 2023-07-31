@@ -2,7 +2,6 @@
 
 class SearchController extends Controller
 {
-
     public function searchResult()
     {
 
@@ -23,5 +22,22 @@ class SearchController extends Controller
         }
 
         echo self::getRender('catalog.html.twig', ['result' => $datas]);
+    }
+
+    public function searchResultAjax()
+    {
+        $searchTerm = $_GET['term'];
+        $model = new SearchModel();
+        $datas = $model->getSearchResult($searchTerm);
+
+        $results = [];
+        foreach ($datas as $data) {
+            $results[] = [
+                'label' => $data['address'] . ', ' . $data['city'] . ', ' . $data['postalCode'] . ', ' . $data['department'] . ', ' . $data['region'] . ', ' . $data['country'],
+                'value' => $data['title'],
+            ];
+        }
+
+        echo json_encode($results);
     }
 }

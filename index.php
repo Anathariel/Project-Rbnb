@@ -50,6 +50,8 @@ $router->map('POST', '/deleteproperty/[i:id]', 'PropertyController#deletePropert
 
 // SEARCH
 $router->map('GET|POST', '/search', 'SearchController#searchResult', 'search');
+$router->map('GET', '/autocomplete', 'SearchController#searchResultAjax', 'autocomplete');
+
 
 // Reservation
 $router->map('GET|POST', '/reservation', 'ReservationController#addReservation', 'reservation');

@@ -93,9 +93,32 @@ class UserController extends Controller
         $favoriteModel = new FavoriteModel();
         $userFavorites = $favoriteModel->getFavoriteByUidModel($userId);
 
+        // Récupérez les moyennes des commentaires des propriétés favorites à partir de la base de données
+        $commentModel = new CommentModel();
+        foreach ($userFavorites as $favorite) {
+            $propertyId = $favorite->getPropertyId();
+            $averageRating = $commentModel->getAverageRating($propertyId);
+            $favorite->getProperty()->setAverageRating($averageRating);
+        }
+
         // Récupérez les réservations de l'utilisateur à partir de la base de données
         $reservationModel = new ReservationModel();
         $userReservations = $reservationModel->getReservationModel($userId);
+
+        // Récupérez les réservations de l'utilisateur à partir de la base de données
+        $reservationModel = new ReservationModel();
+        $userReservations = $reservationModel->getReservationModel($userId);
+
+        // Récupérez les moyennes des commentaires des propriétés réservées à partir de la base de données
+        $commentModel = new CommentModel();
+        foreach ($userReservations as $reservation) {
+            $propertyId = $reservation->getPropertyId();
+            $averageRating = $commentModel->getAverageRating($propertyId);
+            $reservation->getProperty()->setAverageRating($averageRating);
+        }
+
+        // Récupérez la note moyenne de l'utilisateur à partir de la base de données
+        $commentModel = new CommentModel();
 
         // Récupérez les propriétés louées par l'utilisateur (propriétaire)
         $userRentedProperties = [];
@@ -108,6 +131,12 @@ class UserController extends Controller
             if (!empty($reservations)) {
                 $userRentedProperties[] = $property;
             }
+
+            // Récupérez la moyenne des notes pour cette propriété
+            $averageRating = $commentModel->getAverageRating($propertyId);
+
+            // Ajoutez la moyenne des notes à la propriété actuelle
+            $property->setAverageRating($averageRating);
         }
 
 
@@ -146,7 +175,8 @@ class UserController extends Controller
             'userProperties' => $userProperties,
             'userFavorites' => $userFavorites,
             'userReservations' => $userReservations,
-            'userRentedProperties' => $userRentedProperties
+            'userRentedProperties' => $userRentedProperties,
+            'averageRating' => $averageRating
         ];
 
         // Affichez la vue avec les données
