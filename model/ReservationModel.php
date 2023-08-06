@@ -47,7 +47,7 @@
 
         public function getUserProperties($userId)
         {
-            $req = $this->getDb()->prepare('SELECT * FROM `property` WHERE `ownerId` = :ownerId');
+            $req = $this->getDb()->prepare('SELECT `uid`, `reservationId`, `propertyId`, `checkInDate`, `checkoutDate`, `numTravelers`,`totalPrice` FROM `property` WHERE `ownerId` = :ownerId');
             $req->bindParam(':ownerId', $userId, PDO::PARAM_INT);
             $req->execute();
 
@@ -61,7 +61,7 @@
 
         public function getReservationsByProperty($propertyId)
         {
-            $req = $this->getDb()->prepare('SELECT * FROM `reservation` WHERE `propertyId` = :propertyId');
+            $req = $this->getDb()->prepare('SELECT `uid`, `reservationId`, `propertyId`, `checkInDate`, `checkoutDate`, `numTravelers`,`totalPrice` FROM `reservation` WHERE `propertyId` = :propertyId');
             $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
             $req->execute();
 
@@ -71,6 +71,18 @@
             }
 
             return $reservations;
+        }
+
+        public function isDateAvailableModel($propertyId, $date)
+        {
+            $req = $this->getDb()->prepare('SELECT COUNT(*) FROM `reservation` WHERE `propertyId` = :propertyId AND :date BETWEEN `checkInDate` AND `checkoutDate`');
+            $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+            $req->bindParam(':date', $date, PDO::PARAM_STR);
+            $req->execute();
+        
+            $count = $req->fetchColumn();
+        
+            return $count == 0;
         }
 
         public function deleteReservationModel($propertyId, $userId)
