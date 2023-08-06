@@ -16,7 +16,7 @@ class PropertyController extends Controller
         $cancellationPolicyModel = new CancellationPolicyModel();
         $commentModel = new CommentModel();
         $propertyTypeModel = new PropertyTypeModel();
-
+        $reservationModel = new ReservationModel();
 
         $property = $propertyModel->getOneProperty($id);
         $propertyAmenities = $propertyAmenitiesModel->getPropertyAmenities($id);
@@ -30,9 +30,16 @@ class PropertyController extends Controller
         $averageRating = $commentModel->getAverageRating($id);
         $propertyCount = $propertyModel->countUserProperties($property->getOwner()['uid']);
 
+        // Vérifier si la date est disponible pour cette propriété
+        if (isset($_GET['date'])) {
+            $date = $_GET['date'];
+            $isAvailable = $reservationModel->isDateAvailableModel($id, $date);
+        } else {
+            $isAvailable = null;
+        }
 
         $oneProperty = $router->generate('baseProperty');
-        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyCount' => $propertyCount, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comments' => $comments, 'propertyType' => $propertyType, 'averageRating' => $averageRating]);
+        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyCount' => $propertyCount, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comments' => $comments, 'propertyType' => $propertyType, 'averageRating' => $averageRating, 'isAvailable' => $isAvailable]);
     }
 
     // C R U D
@@ -63,7 +70,7 @@ class PropertyController extends Controller
                 $region = isset($_POST['region']) ? $_POST['region'] : '';
                 $country = isset($_POST['country']) ? $_POST['country'] : '';
                 $latitude = isset($_POST['latitude']) ? $_POST['latitude'] : '';
-                $longitude = isset($_POST['longitude'])? $_POST['longitude'] : '';
+                $longitude = isset($_POST['longitude']) ? $_POST['longitude'] : '';
 
                 $propertyType = $_POST['property-type'];
 

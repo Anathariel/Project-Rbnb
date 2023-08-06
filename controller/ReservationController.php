@@ -31,6 +31,20 @@ class ReservationController extends Controller
         }
     }
 
+    public function checkAvailability($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $date = $_GET['date'];
+            $propertyId = $_GET['propertyId'];
+
+            $reservationModel = new ReservationModel();
+            $isAvailable = $reservationModel->isDateAvailableModel($propertyId, $date);
+
+            header('Content-Type: application/json');
+            echo json_encode($isAvailable);
+        }
+    }
+
     public function deleteReservation()
     {
         $userId = $_SESSION['uid'];

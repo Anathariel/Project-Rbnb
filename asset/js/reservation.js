@@ -1,3 +1,30 @@
+// Fonction pour vérifier si une date est disponible ou non
+function checkAvailability() {
+  const arrivalDate = document.getElementById("arrivalDate").value;
+  const departureDate = document.getElementById("departureDate").value;
+
+  // Envoyer une requête AJAX pour vérifier si la date est disponible
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "/check-availability?date=" + arrivalDate);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      const isAvailable = JSON.parse(xhr.responseText);
+      if (!isAvailable) {
+        alert(
+          "La date sélectionnée n'est pas disponible. Veuillez sélectionner une autre date."
+        );
+      }
+    }
+  };
+  xhr.send();
+}
+
+// Écouter les changements de la date d'arrivée
+document
+  .getElementById("arrivalDate")
+  .addEventListener("change", checkAvailability);
+
+// Fonction pour mettre à jour les prix en fonction de la date d'arrivée, de la date de départ et du nombre de voyageurs
 function updatePrices() {
   const pricePerNight = parseFloat(
     document.getElementById("pricePerNight").innerText
@@ -47,11 +74,6 @@ function updatePrices() {
   numTravelersInput.value = selectedNumTravelers;
 
   totalPriceInput.value = totalPriceWithFees.toFixed(2);
-}
-
-// Your existing function to update maximum number of travelers in the select options
-function updateTravelerOptions() {
-  // ... (your existing code)
 }
 
 // Écouter les changements de la date d'arrivée et de la date de départ

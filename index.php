@@ -35,7 +35,7 @@ $router->map('POST', '/account/favorite/delete', 'FavoriteController#deleteFavor
 
 //CRUD USER
 $router->map('GET|POST', '/account/options', 'UserController#editUser', 'options');
-$router->map('POST','/account/delete','UserController#delete','deleteUser',);
+$router->map('POST', '/account/delete', 'UserController#delete', 'deleteUser',);
 
 
 // CRUD Property

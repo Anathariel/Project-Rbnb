@@ -279,11 +279,6 @@ class UserController extends Controller
             }
         }
     }
-    // Récupérer le fichier photo
-
-
-
-
 
     public function delete()
     {
