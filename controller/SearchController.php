@@ -33,7 +33,7 @@ class SearchController extends Controller
         $results = [];
         foreach ($datas as $data) {
             $results[] = [
-                'label' => $data['address'] . ', ' . $data['city'] . ', ' . $data['postalCode'] . ', ' . $data['department'] . ', ' . $data['region'] . ', ' . $data['country'],
+                'label' => $data['city'] . ', ' . $data['postalCode'] . ', ' . $data['department'] . ', ' . $data['region'] . ', ' . $data['country'],
                 'value' => $data['title'],
             ];
         }
