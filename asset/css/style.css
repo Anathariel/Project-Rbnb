@@ -559,6 +559,12 @@ footer .footer-mobile a {
   margin: 2rem;
 }
 
+#hero {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+}
 #hero figure {
   position: relative;
   height: 450px;

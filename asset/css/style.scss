@@ -717,6 +717,11 @@ footer {
 //? --------- Hero Section --------- //
 
 #hero {
+  width: 100vw;
+  position: relative;
+  left: 50%; 
+  margin-left: -50vw;
+
   figure {
     position: relative;
     height: 450px;
