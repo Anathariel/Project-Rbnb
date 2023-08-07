@@ -29,13 +29,19 @@
 								{% endif %}
 							{% endif %}
 							<figcaption>
-								<form method="POST" action="{{ path('favorite') }}">
+								<form method="POST" action="{{ path('favorite') }}" class="favorite-form">
 									<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-									<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
+									<button>
+										{% if property.isFavorite %}
+											<img src="{{ asset('/media/icons/heart-solid.svg') }}" alt="" id="heart-img-{{ property.propertyId }}">
+										{% else %}
+											<img src="{{ asset('/media/icons/heart.svg') }}" alt="" id="heart-img-{{ property.propertyId }}">
+										{% endif %}
+										<input type="submit" name="submit">
+									</button>
 								</form>
 							</figcaption>
 						</figure>
-
 						<div class="card-details">
 							<div class="pricing">
 								<h3>
