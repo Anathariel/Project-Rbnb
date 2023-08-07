@@ -155,6 +155,7 @@ h3 {
 }
 .card figure figcaption button img {
   width: 30px;
+  height: 30px;
 }
 .card figure figcaption button input {
   display: none;
