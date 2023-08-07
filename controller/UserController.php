@@ -139,7 +139,6 @@ class UserController extends Controller
         $firstName = $user->getFirstName();
         $email = $user->getEmail();
 
-
         $data = [
             'firstName' => $firstName,
             'email' => $email,
@@ -189,8 +188,11 @@ class UserController extends Controller
                         $userModel = new UserModel();
                         $user = $userModel->getUserById($uid);
                         $user->setUid($uid);
+                        $user->setFirstName($firstName);
+                        $user->setLastName($lastName);
                         $user->setEmail($email);
                         $user->setPhoneNumber($phoneNumber);
+                        $user->setBirthDate($birthDate);
                         $user->setPicture($pictureName);
 
                         $querryResult = $userModel->editUser($user);
@@ -198,8 +200,6 @@ class UserController extends Controller
                         if ($querryResult) {
                             $uploadDir = 'asset/media/profils/';
                             $uploadFile = $uploadDir . $_FILES['picture']['name'];
-
-
 
                             // Déplacer le fichier temporaire vers le dossier final
                             $controleUpload = move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile);
@@ -220,11 +220,6 @@ class UserController extends Controller
         }
     }
     // Récupérer le fichier photo
-
-
-
-
-
     public function delete()
     {
         $uid = $_SESSION['uid'];

@@ -28,10 +28,11 @@
 
 			
 			<p>Choisissez votre photo</p>
-			<input type="file" name="picture" id="picture" >
-			<input type="hidden" name="picture" accept="image/*" />
+			<label for="picture"></label>
+			<input type="file"  name="picture" id="previewId" onchange="previewImage(event, 'imageMainPreview')">
+			<img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 150px; display: none;">
+			<input type="hidden"  name="picture" accept="image/*"  />
 			
-		
 			<div class="account-buttons">
 				<input type="submit" name="submit" value="Modifier">
 		</form>
