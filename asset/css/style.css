@@ -132,9 +132,8 @@ h3 {
   position: relative;
 }
 .card figure img {
-  width: 90%;
-  max-width: 260px;
-  max-height: 150px;
+  width: 260px;
+  height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
@@ -156,6 +155,7 @@ h3 {
 }
 .card figure figcaption button img {
   width: 30px;
+  height: 30px;
 }
 .card figure figcaption button input {
   display: none;
@@ -560,7 +560,7 @@ footer .footer-mobile a {
 }
 
 #hero {
-  width: 100vw;
+  width: 99.5vw;
   position: relative;
   left: 50%;
   margin-left: -50vw;
@@ -753,6 +753,7 @@ section#new-destinations-section div#container-card-new-destinations {
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-align: center;
 }
 section#new-destinations-section div#container-card-new-destinations a {
   padding-top: 1.5rem;
@@ -865,6 +866,7 @@ section#best-tags-section div#container-card-best-tags {
   flex-direction: row-reverse;
   flex-wrap: wrap;
   align-items: center;
+  text-align: center;
 }
 section#best-tags-section div#container-card-best-tags div.best-tags-flex-cards {
   width: 40%;
@@ -994,6 +996,23 @@ section#features-section div#container-card-features div#container-description-f
 section#features-section div#container-card-features div#container-description-features div.item-features-commun p {
   font-size: 14px;
   line-height: 24px;
+}
+@media screen and (min-width: 950px) {
+  section#features-section div#container-card-features {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  section#features-section div#container-description-features {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 1.5rem;
+  }
+  section#features-section div.item-features-commun {
+    margin: 1rem;
+  }
 }
 
 section#join-us-section div#container-card-join-us figcaption {
@@ -1651,7 +1670,7 @@ section#addgooglemaps-property-section input:focus::placeholder {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 #addpropertyForm {

@@ -71,6 +71,7 @@ class UserModel extends Model
         return $querryResult;
         
     }
+    
     public function delete($uid){
 
         $req = $this->getDb()->prepare('DELETE FROM `user` WHERE `uid` = :uid');

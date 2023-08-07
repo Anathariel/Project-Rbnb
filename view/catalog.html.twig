@@ -17,8 +17,6 @@
 	{% if result is empty %}
 		<p>Votre recherche ne donne aucun résultat.</p>
 	{% else %}
-
-
 		<section id="catalog-cards">
 			{% for property in result %}
 				<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
