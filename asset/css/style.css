@@ -1670,7 +1670,7 @@ section#addgooglemaps-property-section input:focus::placeholder {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 #addpropertyForm {
