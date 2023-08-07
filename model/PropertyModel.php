@@ -6,7 +6,7 @@ class PropertyModel extends Model
     {
         $propertys = [];
 
-        $req = $this->getDb()->query('SELECT `propertyId`, `title`, `priceNight`, `address` FROM `property` ORDER BY `propertyId` DESC LIMIT 5');
+        $req = $this->getDb()->query('SELECT `propertyId`, `title`, `priceNight`, `city` FROM `property` ORDER BY `propertyId` DESC LIMIT 5');
 
         while ($property = $req->fetch(PDO::FETCH_ASSOC)) {
             $propertys[] = new Property($property);

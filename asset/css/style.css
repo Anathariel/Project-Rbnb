@@ -753,6 +753,7 @@ section#new-destinations-section div#container-card-new-destinations {
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-align: center;
 }
 section#new-destinations-section div#container-card-new-destinations a {
   padding-top: 1.5rem;
@@ -865,6 +866,7 @@ section#best-tags-section div#container-card-best-tags {
   flex-direction: row-reverse;
   flex-wrap: wrap;
   align-items: center;
+  text-align: center;
 }
 section#best-tags-section div#container-card-best-tags div.best-tags-flex-cards {
   width: 40%;

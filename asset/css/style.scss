@@ -953,6 +953,7 @@ section#new-destinations-section {
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-align: center;
 
     a {
       padding-top: 1.5rem;
@@ -1086,6 +1087,7 @@ section#best-tags-section {
     flex-direction: row-reverse;
     flex-wrap: wrap;
     align-items: center;
+    text-align: center;
 
     div.best-tags-flex-cards {
       width: 40%;
