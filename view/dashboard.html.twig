@@ -31,13 +31,13 @@
 						<p>Mes Propriétés</p>
 					</a>
 				</div>
-				<div class="add property">
+				<div class="add locations">
 					<a href="#my-locations">
 						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
 						<p>Mes Locations</p>
 					</a>
 				</div>
-				<div class="add property">
+				<div class="add reservations">
 					<a href="#my-reservations">
 						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
 						<p>Mes Réservations</p>
@@ -157,10 +157,10 @@
 					</a>
 				{% endfor %}
 			{% endif %}
-		</div>
-	</section>
+			</div>
+		</section>
 
-	<section class="dashboard-cards-my-favs" id="my-favs">
+		<section class="dashboard-cards-my-favs" id="my-favs">
 
 		<h2>Mes Favoris</h2>
 		<div class="cards-container">
@@ -210,11 +210,9 @@
 				{% endfor %}
 			{% endif %}
 		</div>
-	</section>
+		</section>
 
-
-
-	<section class="dashboard-cards-my-reservations" id="my-reservations">
+		<section class="dashboard-cards-my-reservations" id="my-reservations">
 		<h2>Mes réservations</h2>
 		<div class="cards-container">
 			{% if userReservations is empty %}
@@ -265,5 +263,6 @@
 				{% endfor %}
 			{% endif %}
 		</div>
+		</section>
 	</section>
-</section>{% endblock %}
+{% endblock %}
