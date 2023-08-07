@@ -5,124 +5,120 @@
 
 {% block content %}
 
-	<section id="addpropertyForm" class="limit-size">
-		<fieldset>
-			{% if message %}
-				<p>{{ message }}</p>
-			{% endif %}
+<section id="addpropertyForm" class="limit-size">
+	<fieldset>
+		{% if message %}
+			<p>{{ message }}</p>
+		{% endif %}
 
-			<legend>Ajout d'une propriété</legend>
+		<legend>Ajout d'une propriété</legend>
 
-			<form method="POST" enctype="multipart/form-data" action="{{ path('propertyAdd') }}">
+		<form method="POST" enctype="multipart/form-data" action="{{ path('propertyAdd') }}">
 
-				<input type="hidden" name="idUser" value="<?php echo $_SESSION['idUser']; ?>">
+			<input type="hidden" name="idUser" value="<?php echo $_SESSION['idUser']; ?>">
 
-				<div class="flex-form">
-					<div class="left-property-details">
+			<div class="flex-form">
+				<div class="left-property-details">
 
-						<div class="input-flex">
+					<div class="input-flex">
 
-							<div class="property-title">
-								<h5>Titre de la propriété</h5>
-								<label for="title"></label>
-								<input type="text" id="title" name="title" placeholder="Entrer le nom de la propriété"/>
-							</div>
-
-							<div class="property-price">
-								<h5>Déterminez le prix d'une nuit</h5>
-								<label for="price-night"></label>
-								<input type="text" id="price-night" name="price-night" placeholder="Déterminez le prix d'une nuit"/>
-							</div>
-
-							<div class="property-type">
-								<h5>Choisissez le type de propriété :</h5>
-								<label for="property-type"></label>
-								<select id="property-type" name="property-type">
-									<option value="house">Maison</option>
-									<option value="flat">Appartement</option>
-									<option value="guesthouse">Maison d'hôte</option>
-									<option value="hotel">Hôtel</option>
-								</select>
-							</div>
-
+						<div class="property-title">
+							<h5>Titre de la propriété</h5>
+							<label for="title"></label>
+							<input type="text" id="title" name="title" placeholder="Entrer le nom de la propriété"/>
 						</div>
 
-						<h5>Décrivez votre propriété</h5>
-						<label for="description"></label>
-						{# <input
-																																																																																																																								type="text" id="description" name="description" placeholder="Entrer la description de la propriété"/> #}
-						<textarea name="description" id="description" cols="80" rows="10" placeholder="Entrer la description de la propriété"></textarea>
-						<br>
+						<div class="property-price">
+							<h5>Déterminez le prix d'une nuit</h5>
+							<label for="price-night"></label>
+							<input type="text" id="price-night" name="price-night" placeholder="Déterminez le prix d'une nuit"/>
+						</div>
 
+						<div class="property-type">
+							<h5>Choisissez le type de propriété :</h5>
+							<label for="property-type"></label>
+							<select id="property-type" name="property-type">
+								<option value="house">Maison</option>
+								<option value="flat">Appartement</option>
+								<option value="guesthouse">Maison d'hôte</option>
+								<option value="hotel">Hôtel</option>
+							</select>
+						</div>
+					</div>
 
-						<section id="addgooglemaps-property-section">
-							<div class="card-container">
-								<div class="panel">
-									<div>
-										<img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
-										<span class="sb-title">Address Selection</span>
-									</div>
-									<input type="text" name="address" placeholder="Addresse de la location" id="location-input"/>
-									<input type="text" name="city" placeholder="ville" id="locality-input"/>
-									<input type="text" name="department" placeholder="Département" id="locality-input"/>
-									<div class="half-input-container">
-										<input type="text" name="region" class="half-input" placeholder="Région" id="administrative_area_level_1-input"/>
-										<input type="text" name="postalCode" class="half-input" placeholder="Code postal" id="postal_code-input"/>
-									</div>
-									<input type="text" name="country" placeholder="Country" id="country-input"/>
-									<input type="hidden" name="latitude" id="latitude-input">
-									<input type="hidden" name="longitude" id="longitude-input">
+					<h5>Décrivez votre propriété</h5>
+					<label for="description"></label>
+
+					<textarea name="description" id="description" cols="80" rows="10" placeholder="Entrer la description de la propriété"></textarea>
+
+					<section id="addgooglemaps-property-section">
+						<div class="card-container">
+							<div class="panel">
+								<div>
+									<img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
+									<span class="sb-title">Address Selection</span>
 								</div>
-								<div class="map" id="gmp-map"></div>
+								<input type="text" name="address" placeholder="Addresse de la location" id="location-input"/>
+								<input type="text" name="city" placeholder="ville" id="locality-input"/>
+								<input type="text" name="department" placeholder="Département" id="locality-input"/>
+								<div class="half-input-container">
+									<input type="text" name="region" class="half-input" placeholder="Région" id="administrative_area_level_1-input"/>
+									<input type="text" name="postalCode" class="half-input" placeholder="Code postal" id="postal_code-input"/>
+								</div>
+								<input type="text" name="country" placeholder="Country" id="country-input"/>
+								<input type="hidden" name="latitude" id="latitude-input">
+								<input type="hidden" name="longitude" id="longitude-input">
 							</div>
-						</section>
-
-
-						<h4>Langues parlées par l'Hôte</h4>
-						<div class="host-languages">
-							<label for="host-languages"></label>
-							{% set languages = ["anglais", "français", "allemand", "japonais", "italien", "russe", "espagnol", "chinois", "arabe"] %}
-							{% for language in languages %}
-								<input type="checkbox" id="{{ language }}" name="host-languages[]" value="{{ language }}"/>
-								<label for="{{ language }}">{{ language|capitalize }}</label>
-							{% endfor %}
+							<div class="map" id="gmp-map"></div>
 						</div>
+					</section>
 
+
+					<h4>Langues parlées par l'Hôte</h4>
+					<div class="host-languages">
+						<label for="host-languages"></label>
+						{% set languages = ["anglais", "français", "allemand", "japonais", "italien", "russe", "espagnol", "chinois", "arabe"] %}
+						{% for language in languages %}
+							<input type="checkbox" id="{{ language }}" name="host-languages[]" value="{{ language }}"/>
+							<label for="{{ language }}">{{ language|capitalize }}</label>
+						{% endfor %}
 					</div>
 
-					<div class="right-property-images">
-						<h5>Importer vos images de la location :</h5>
-						<label for="propertyImage"></label>
-						<label for="imageMain">Image principale :</label>
-						<input type="file" id="imageMain" name="imageMain" accept="image/*" required onchange="previewImage(event, 'imageMainPreview')"/>
-						<img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 200px; display: none;">
-
-
-						<label for="image1">Image 1 :</label>
-						<input type="file" id="image1" name="image1" accept="image/*" onchange="previewImage(event, 'image1Preview')"/>
-						<img id="image1Preview" src="#" alt="Aperçu de l'image 1" style="max-width: 200px; display: none;">
-
-
-						<label for="image2">Image 2 :</label>
-						<input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(event, 'image2Preview')"/>
-						<img id="image2Preview" src="#" alt="Aperçu de l'image 2" style="max-width: 200px; display: none;">
-
-
-						<label for="image3">Image 3 :</label>
-						<input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(event, 'image3Preview')"/>
-						<img id="image3Preview" src="#" alt="Aperçu de l'image 3" style="max-width: 200px; display: none;">
-
-
-						<label for="image4">Image 4 :</label>
-						<input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(event, 'image4Preview')"/>
-						<img id="image4Preview" src="#" alt="Aperçu de l'image 4" style="max-width: 200px; display: none;">
-					</div>
 				</div>
 
-				<h4>Equipements disponibles :</h4>
-				<div class="selection-accomodation">
-					<label for="accommodation-types"></label>
-					{% set equipements = [
+				<div class="right-property-images">
+					<h5>Importer vos images de la location :</h5>
+					<label for="propertyImage"></label>
+					<label for="imageMain">Image principale :</label>
+					<input type="file" id="imageMain" name="imageMain" accept="image/*" required onchange="previewImage(event, 'imageMainPreview')"/>
+					<img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 200px; display: none;">
+
+
+					<label for="image1">Image 1 :</label>
+					<input type="file" id="image1" name="image1" accept="image/*" onchange="previewImage(event, 'image1Preview')"/>
+					<img id="image1Preview" src="#" alt="Aperçu de l'image 1" style="max-width: 200px; display: none;">
+
+
+					<label for="image2">Image 2 :</label>
+					<input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(event, 'image2Preview')"/>
+					<img id="image2Preview" src="#" alt="Aperçu de l'image 2" style="max-width: 200px; display: none;">
+
+
+					<label for="image3">Image 3 :</label>
+					<input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(event, 'image3Preview')"/>
+					<img id="image3Preview" src="#" alt="Aperçu de l'image 3" style="max-width: 200px; display: none;">
+
+
+					<label for="image4">Image 4 :</label>
+					<input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(event, 'image4Preview')"/>
+					<img id="image4Preview" src="#" alt="Aperçu de l'image 4" style="max-width: 200px; display: none;">
+				</div>
+			</div>
+
+			<h4>Equipements disponibles :</h4>
+			<div class="selection-accomodation">
+				<label for="accommodation-types"></label>
+				{% set equipements = [
 					{ "id": "piscine", "value": "piscine", "image": "/media/icons/piscine.svg", "label": "Piscine" },
 					{ "id": "parkingGratuit", "value": "parkingGratuit", "image": "/media/icons/parking.svg", "label": "Parking gratuit" },
 					{ "id": "jacuzzi", "value": "jacuzzi", "image": "/media/icons/jacuzzi.svg", "label": "Jacuzzi" },
@@ -145,18 +141,16 @@
 					{ "id": "detecteurFumee", "value": "detecteurFumee", "image": "/media/icons/detecteur-fumee.svg", "label": "Détecteur de fumée" },
 					{ "id": "detecteurMonoxyDeCarbone", "value": "detecteurMonoxyDeCarbone", "image": "/media/icons/detecteur-carbone.svg", "label": "Détecteur de monoxyde de carbone" }
 				] %}
-					{% for equipement in equipements %}
-						<div class="equipement">
-							<input type="checkbox" id="{{ equipement.id }}" name="accommodation-types[]" value="{{ equipement.value }}"/>
-							<label for="{{ equipement.id }}">
-								<img src="{{ asset(equipement.image) }}" alt="{{ equipement.label|lower }}"/>
+				{% for equipement in equipements %}
+					<div class="equipement">
+						<input type="checkbox" id="{{ equipement.id }}" name="accommodation-types[]" value="{{ equipement.value }}"/>
+						<label for="{{ equipement.id }}">
+							<img src="{{ asset(equipement.image) }}" alt="{{ equipement.label|lower }}"/>
 								{{ equipement.label }}
-							</label>
-						</div>
-					{% endfor %}
-				</div>
+						</label>
+					</div>
+				{% endfor %}
 			</div>
-
 
 			<h4>Règlement intérieur :</h4>
 			<div class="add-rules">
@@ -198,9 +192,6 @@
 					</div>
 				{% endfor %}
 			</div>
-
-
-		</div>
 
 		<h4>Choisissez vos tags :</h4>
 		<div class="selection-tags">
@@ -270,7 +261,11 @@
 			{% endfor %}
 		</div>
 
-
 		<input type="submit" name="submit" value="Proposer ma location"/>
-	</form>
-</fieldset></section>{% endblock %}{% block javascript %}<script src="{{ asset('/js/fred.js') }}"></script>{% endblock %}
+	 </form>
+	</fieldset>
+</section>
+{% endblock %}
+{% block javascript %}
+	<script src="{{ asset('/js/fred.js') }}"></script>
+{% endblock %}
