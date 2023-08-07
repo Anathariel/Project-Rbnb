@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    {% block stylesheet %}{% endblock %}
-    <link rel="stylesheet" href="{{ asset('/css/font.css') }}" />
-    <link rel="stylesheet" href="{{ asset('/css/style.css') }}" />
+	<head>
+		<meta charset="UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+		{% block stylesheet %}{% endblock %}
+		<link rel="stylesheet" href="{{ asset('/css/font.css') }}"/>
+		<link rel="stylesheet" href="{{ asset('/css/style.css') }}"/>
 
-    <title>{% block title %}Loca'R{% endblock %}</title>
-  </head>
+		<title>
+			{% block title %}Loca'R
+			{% endblock %}
+		</title>
+	</head>
 
-  <body>
-    {% include 'header.html.twig' %}
-    <main class="limit-size">
-    {% block content %}
+	<body>
+		{% include 'header.html.twig' %}
+		<main class="limit-size"> {% block content %}{% endblock %}
+			</main>
 
-    {% endblock %}
-    </main>
+			{% include 'footer.html.twig' %}
 
-    {% block javascript %}{% endblock %}
-    <script src="{{ asset('/js/main.js') }}"></script>
-    
-    {% include 'footer.html.twig' %}
+			{% block googleAPI %}
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTkV0SRCLJ9DnzywThlI_HwT8W6-KRL_Q&callback=initMap&v=weekly" defer></script>
+			{% endblock %}
 
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTkV0SRCLJ9DnzywThlI_HwT8W6-KRL_Q&callback=initMap&v=weekly"
-      defer
-    ></script>
+			{% block javascript %}
+				<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+				<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+				<script src="{{ asset('/js/search.js') }}"></script>
+				<script src="{{ asset('/js/main.js') }}"></script>
+				<script src="{{ asset('/js/reservation.js') }}"></script>
+			{% endblock %}
 
-  </body>
-</html>
+		</body>
+	</html>

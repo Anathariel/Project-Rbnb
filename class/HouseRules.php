@@ -71,7 +71,7 @@ class HouseRules
         $this->checkOutTime = $checkOutTime;
     }
 
-    public function setMaxGuests(int $maxGuests)
+    public function setMaxGuests($maxGuests)
     {
         $this->maxGuests = $maxGuests;
     }

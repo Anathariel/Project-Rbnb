@@ -1,0 +1,33 @@
+{% block content %}
+
+<section class="tag-nav">
+  <div id="tag-container">
+    <div class="arrow-container left-arrow-container">
+      <button class="arrow left-arrow">
+        <img src="{{ asset('/media/icons/arrow.svg')}}" alt="Left arrow icon">
+      </button>
+    </div>
+
+    <div class="container-tag-list">
+      {% for tag in tags %}
+      <div class="tag-item">
+        <a href="#">
+          <img id="icon-tag" src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
+          <p>{{ tag.type }}</p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="arrow-container right-arrow-container">
+      <button class="arrow right-arrow">
+        <img src="{{ asset('/media/icons/arrowleft.svg')}}" alt="Right arrow icon">
+      </button>
+      <button class="filter">
+        <img src="{{asset('/media/icons/filter.svg')}}" alt="filter">
+      </button>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

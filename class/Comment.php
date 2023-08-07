@@ -7,6 +7,7 @@ class Comment
     private $propertyId;
     private $rating;
     private $commentText;
+    private $firstname;
 
     public function __construct(array $post)
     {
@@ -50,6 +51,11 @@ class Comment
         return $this->commentText;
     }
 
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
     //SETTERS
     public function setCommentId(int $commentId)
     {
@@ -74,5 +80,10 @@ class Comment
     public function setCommentText(string $commentText)
     {
         $this->commentText = $commentText;
+    }
+
+    public function setFirstname(string $firstname)
+    {
+        $this->firstname = $firstname;
     }
 }

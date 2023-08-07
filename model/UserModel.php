@@ -8,12 +8,12 @@ class UserModel extends Model
         $password = $user->getPassword();
         $email = $user->getEmail();
 
-        $req = $this->getDb()->prepare("INSERT INTO `user` (`firstName`, `lastName`, `email`, `password`) VALUES (:firstName, :lastName, :email, :password)");
+        $req = $this->getDb()->prepare("INSERT INTO `user` (`firstName`, `lastName`, `email`, `password`,`registrationDate`) VALUES (:firstName, :lastName, :email, :password,NOW())");
         $req->bindParam(":firstName", $firstName, PDO::PARAM_STR);
         $req->bindParam(":lastName", $lastName, PDO::PARAM_STR);
         $req->bindParam(":password", $password, PDO::PARAM_STR);
         $req->bindParam(":email", $email, PDO::PARAM_STR);
-
+      
         $req->execute();
     }
 
@@ -28,7 +28,7 @@ class UserModel extends Model
 
     public function getUserById($userId)
     {
-        $req = $this->getDb()->prepare('SELECT `firstName`, `lastName`, `email`, `password` FROM `user` WHERE `uid` = :userId');
+        $req = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `email`, `password`, `picture` FROM `user` WHERE `uid` = :userId');
         $req->bindParam('userId', $userId, PDO::PARAM_INT);
         $req->execute();
 
@@ -44,5 +44,39 @@ class UserModel extends Model
         return $user;
     }
 
-    
+    public function editUser(User $user){
+
+       // récupère les informations de l'utilisateur
+        $uid = $user->getUid();
+        $firstName = $user->getFirstName();
+        $lastName = $user->getLastName();
+        $birthDate = $user->getBirthDate();
+        $email = $user->getEmail();
+        $phoneNumber = $user->getPhoneNumber();
+        $picture = $user->getPicture();
+        // Obtient la connexion à la base de données
+        $db = $this->getDb(); 
+         // Prépare la requête de mise à jour pour mettre à jour les données de l'utilisateur
+        $req = $db->prepare('UPDATE `user` SET `firstName` = :firstName,`lastName` = :lastName,`birthDate` =:birthDate,`email` = :email,`phoneNumber` = :phoneNumber,`picture` = :picture WHERE `uid` = :uid');
+         // Associe la valeur de $uid au paramètre 
+        $req->bindParam(':uid', $uid, PDO::PARAM_INT);
+        $req->bindParam(':firstName', $firstName, PDO::PARAM_STR);
+        $req->bindParam(':lastName', $lastName, PDO::PARAM_STR);
+        $req->bindParam(':birthDate', $birthDate, PDO::PARAM_STR);
+        $req->bindParam(':email', $email, PDO::PARAM_STR);
+        $req->bindParam(':phoneNumber', $phoneNumber, PDO::PARAM_STR);
+        $req->bindParam(':picture', $picture, PDO::PARAM_STR);
+        $querryResult = $req->execute();
+
+        return $querryResult;
+        
+    }
+    public function delete($uid){
+
+        $req = $this->getDb()->prepare('DELETE FROM `user` WHERE `uid` = :uid');
+        $req->bindParam('uid', $uid, PDO::PARAM_INT);
+        $req->execute();
+
+    }
+
 }

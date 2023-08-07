@@ -3,50 +3,63 @@ class CommentModel extends Model
 {
     public function getCommentModel(int $propertyId)
     {
-        $req = $this->getDb()->prepare('SELECT `uid`, `rating`, `commentText` FROM `comment` WHERE `propertyId` = :propertyId');
-        $req->bindParam('propertyId', $propertyId, PDO::PARAM_INT);
+        $req = $this->getDb()->prepare('SELECT `uid`, `rating`, `commentText`, `propertyId` FROM `comment` WHERE `propertyId` = :propertyId ORDER BY `commentId` DESC');
+        $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
         $req->execute();
 
-        $commentModelData = $req->fetch(PDO::FETCH_ASSOC);
+        $commentModelData = $req->fetchAll(PDO::FETCH_ASSOC);
 
         if (!$commentModelData) {
-            // Gérer le cas où aucune commodité n'est trouvée pour la propriété spécifiée
-            return null;
+            // Gérer le cas où aucun commentaire n'est trouvé pour la propriété spécifiée
+            return [];
         }
 
-        $comment = new Comment($commentModelData);
+        $comments = [];
+        foreach ($commentModelData as $commentData) {
+            $comment = new Comment($commentData);
 
-        return $comment;
+            $commentUser = $comment->getUid();
+
+            $req2 = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `birthDate`, `email`, `phoneNumber`,`picture` FROM `user` WHERE `uid` = :id');
+            $req2->bindParam(':id', $commentUser, PDO::PARAM_INT);
+            $req2->execute();
+
+            $userData = $req2->fetch(PDO::FETCH_ASSOC);
+            $comment->setFirstname($userData['firstName']);
+
+            $comments[] = $comment;
+        }
+
+        return $comments;
     }
 
-//     public function getCommentById(int $commentId)
-// {
-//     // Récupérer les informations de l'utilisateur associé au commentaire
-//     $userModel = new UserModel();
-//     $req = $this->getDb()->prepare('SELECT `userId` FROM `comment` WHERE `commentId` = :commentId');
-//     $req->bindParam('commentId', $commentId, PDO::PARAM_INT);
-//     $req->execute();
+    public function addCommentModel(Comment $comment)
+    {
+        $propertyId = $comment->getPropertyId();
+        $userId = $comment->getUid();
+        $rating = $comment->getRating();
+        $commentText = $comment->getCommentText();
 
-//     $userData = $req->fetch(PDO::FETCH_ASSOC);
+        $req = $this->getDb()->prepare('INSERT INTO `comment` (`propertyId`, `uid`, `rating`, `commentText`) VALUES (:propertyId, :userId, :rating, :commentText)');
 
-//     if (!$userData) {
-//         // Gérer le cas où aucun utilisateur n'est trouvé pour le commentaire spécifié
-//         return null;
-//     }
+        $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+        $req->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $req->bindParam(':rating', $rating, PDO::PARAM_INT);
+        $req->bindParam(':commentText', $commentText, PDO::PARAM_STR);
+        
+        $req->execute();
+    }
 
-//     $userId = $userData['userId'];
-//     $user = $userModel->getUserById($userId);
+    public function getAverageRating(int $propertyId)
+    {
+        $req = $this->getDb()->prepare('SELECT AVG(`rating`) AS averageRating FROM `comment` WHERE `propertyId` = :propertyId');
+        $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
+        $req->execute();
 
-//     if (!$user) {
-//         // Gérer le cas où l'utilisateur associé au commentaire n'est pas trouvé
-//         return null;
-//     }
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+        $averageRating = $result['averageRating'];
 
-//     $comment = new Comment($uid);
-
-//     return $comment;
-// }
-
-    
-
+        // Return 0 if no comments are found for the property
+        return $averageRating !== null ? floatval($averageRating) : 0;
+    }
 }

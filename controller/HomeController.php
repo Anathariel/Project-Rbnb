@@ -9,7 +9,10 @@ class HomeController extends Controller
         $propertyImagesModel = new PropertyImagesModel();
 
         $propertys = $propertyModel->getLastPropertys();
-        $lastTagsChateaux = $tagModel->getLastFiveTagsChateaux();
+        $lastFiveTagsChateaux = $tagModel->getLastFiveTagsChateaux();
+
+        $getLastTagChateaux = $tagModel->getLastTagChateaux();
+
 
         $propertysWithImages = [];
         foreach ($propertys as $property) {
@@ -18,11 +21,15 @@ class HomeController extends Controller
             $propertysWithImages[] = $property;
         }
 
-        echo self::getRender('homepage.html.twig', ['propertys' => $propertysWithImages, 'lastTagsChateaux' => $lastTagsChateaux, 'propertyImages' => $propertyImages]);
+        echo self::getRender('homepage.html.twig', ['propertys' => $propertysWithImages, 'lastFiveTagsChateaux' => $lastFiveTagsChateaux, 'propertyImages' => $propertyImages, 'getLastTagChateaux' => $getLastTagChateaux]);
     }
 
     public function blog(){
         echo self::getRender('blog.html.twig', []);
+    }
+
+    public function catalogue(){
+        echo self::getRender('catalog.html.twig', []);
     }
 }
 

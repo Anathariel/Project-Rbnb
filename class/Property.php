@@ -6,23 +6,30 @@ class Property
     private $title;
     private $description;
     private $priceNight;
-    private $accommodationTypeId;
     private $address;
+    private $city;
+    private $postalCode;
+    private $department;
+    private $region;
+    private $country;
     private $latitude;
     private $longitude;
     private $availability;
-    private $publicationdate;
+    private $publicationDate;
     private $reservationOption;
     private $owner;
+    public $propertyImages;
+    public $averageRating;
 
-    public function __construct(array $post)
+
+    public function __construct(array $data)
     {
-        $this->hydrate($post);
+        $this->hydrate($data);
     }
 
-    private function hydrate(array $post)
+    private function hydrate(array $data)
     {
-        foreach ($post as $key => $value) {
+        foreach ($data as $key => $value) {
             $method = 'set' . ucfirst($key);
 
             if (method_exists($this, $method)) {
@@ -31,7 +38,7 @@ class Property
         }
     }
 
-    //GETTERS
+    // GETTERS
     public function getPropertyId()
     {
         return $this->propertyId;
@@ -52,14 +59,34 @@ class Property
         return $this->priceNight;
     }
 
-    public function getAccommodationTypeId()
-    {
-        return $this->accommodationTypeId;
-    }
-
     public function getAddress()
     {
         return $this->address;
+    }
+
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    public function getPostalCode()
+    {
+        return $this->postalCode;
+    }
+
+    public function getDepartment()
+    {
+        return $this->department;
+    }
+
+    public function getRegion()
+    {
+        return $this->region;
+    }
+
+    public function getCountry()
+    {
+        return $this->country;
     }
 
     public function getLatitude()
@@ -77,9 +104,9 @@ class Property
         return $this->availability;
     }
 
-    public function getPublicationdate()
+    public function getPublicationDate()
     {
-        return $this->publicationdate;
+        return $this->publicationDate;
     }
 
     public function getReservationOption()
@@ -92,13 +119,24 @@ class Property
         return $this->owner;
     }
 
-    //SETTERS
+    public function getPropertyImages()
+    {
+        return $this->propertyImages;
+    }
+
+    public function getAverageRating()
+    {
+        return $this->averageRating;
+    }
+
+
+    // SETTERS
     public function setPropertyId(int $propertyId)
     {
         $this->propertyId = $propertyId;
     }
 
-    public function setTitle(String $title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
@@ -108,19 +146,39 @@ class Property
         $this->description = $description;
     }
 
-    public function setPriceNight(string $priceNight)
+    public function setPriceNight($priceNight)
     {
         $this->priceNight = $priceNight;
-    }
-
-    public function setAccommodationTypeId(int $accommodationTypeId)
-    {
-        $this->accommodationTypeId = $accommodationTypeId;
     }
 
     public function setAddress(string $address)
     {
         $this->address = $address;
+    }
+
+    public function setCity(string $city)
+    {
+        $this->city = $city;
+    }
+
+    public function setPostalCode($postalCode)
+    {
+        $this->postalCode = $postalCode;
+    }
+
+    public function setDepartment(string $department)
+    {
+        $this->department = $department;
+    }
+
+    public function setRegion(string $region)
+    {
+        $this->region = $region;
+    }
+
+    public function setCountry(string $country)
+    {
+        $this->country = $country;
     }
 
     public function setLatitude($latitude)
@@ -133,24 +191,33 @@ class Property
         $this->longitude = $longitude;
     }
 
-    public function setAvailability(String $availability)
+    public function setAvailability(bool $availability)
     {
         $this->availability = $availability;
     }
 
-    public function setPublicationdate($publicationdate)
+    public function setPublicationDate($publicationDate)
     {
-        $this->publicationdate = $publicationdate;
+        $this->publicationDate = $publicationDate;
     }
 
-    public function setReservationOption(String $reservationOption)
+    public function setReservationOption(string $reservationOption)
     {
         $this->reservationOption = $reservationOption;
     }
 
-    public function setOwner(int $owner)
+    public function setOwner($owner)
     {
         $this->owner = $owner;
     }
 
+    public function setPropertyImages($propertyImages)
+    {
+        $this->propertyImages = $propertyImages;
+    }
+
+    public function setAverageRating($averageRating)
+    {
+        $this->averageRating = $averageRating;
+    }
 }
