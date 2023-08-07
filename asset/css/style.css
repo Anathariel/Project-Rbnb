@@ -132,6 +132,7 @@ h3 {
   position: relative;
 }
 .card figure img {
+  margin: 0 0.5rem;
   width: 260px;
   height: 150px;
   -o-object-fit: cover;
