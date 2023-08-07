@@ -1748,14 +1748,15 @@ section#property-section {
 
         button {
           width: 100%;
+          min-width: 300px;
           position: relative;
-          margin: 0.5rem 0;
+          margin: 0.5rem;
           border: solid 1px $accent;
           background-color: transparent;
           border-radius: 0.5rem;
           cursor: pointer;
           overflow: hidden;
-
+  
           span {
             display: block;
             font-family: "Quicksand";
@@ -1766,12 +1767,12 @@ section#property-section {
             position: relative;
             z-index: 1;
           }
-
+  
           span:hover {
             color: $white;
           }
         }
-
+  
         button:before {
           content: "";
           position: absolute;
@@ -1783,13 +1784,17 @@ section#property-section {
           transition: all 0.5s ease-out;
           z-index: 0;
         }
-
+  
         button:hover:before {
           width: 100%;
         }
 
         p {
           font-size: 0.7rem;
+        }
+
+        input[type="submit"] {
+          display: none;
         }
       }
 

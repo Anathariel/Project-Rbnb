@@ -1419,8 +1419,9 @@ section#property-section .property-details .container-pricing .container-calenda
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler button {
   width: 100%;
+  min-width: 300px;
   position: relative;
-  margin: 0.5rem 0;
+  margin: 0.5rem;
   border: solid 1px #404e87;
   background-color: transparent;
   border-radius: 0.5rem;
@@ -1456,6 +1457,9 @@ section#property-section .property-details .container-pricing .container-calenda
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler p {
   font-size: 0.7rem;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler input[type=submit] {
+  display: none;
 }
 section#property-section .property-details .container-pricing .price-details {
   display: flex;
