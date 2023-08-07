@@ -1853,11 +1853,12 @@ section#addgooglemaps-property-section input:focus::placeholder {
   border-radius: 0.5rem;
 }
 
-@media screen and (max-width: 800px) {
-  .dashboard .dashboard-cards .dashboard-cards .card {
-    margin: 0;
-    max-width: 180px;
-  }
+#catalog-cards {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-evenly;
+  margin: 1rem 5rem;
 }
 
 section#section-blog {
@@ -1966,11 +1967,4 @@ section#section-blog div#container-section-blog div.card-blog div.card-blog {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-#catalog-cards {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  justify-content: space-evenly;
-  margin: 1rem 5rem;
 }/*# sourceMappingURL=style.css.map */

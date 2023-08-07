@@ -2313,6 +2313,15 @@ section#addgooglemaps-property-section {
   }
 }
 
+//~ -------------------- CATALOGUE -------------------- //
+
+#catalog-cards {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-evenly;
+  margin: 1rem 5rem;
+}
 
 //Blog//
 
