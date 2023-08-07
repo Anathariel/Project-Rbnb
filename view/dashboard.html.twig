@@ -212,8 +212,6 @@
 		</div>
 	</section>
 
-
-
 	<section class="dashboard-cards-my-reservations" id="my-reservations">
 		<h2>Mes réservations</h2>
 		<div class="cards-container">
@@ -245,7 +243,16 @@
 								</div>
 								<div class="description">
 									<h3>{{ property.title }}</h3>
-									<p class="card-descriptions-limit">{{ property.description }}</p>
+									<div class="calendar">
+										<div class="arrival">
+											<h4>Arrivée</h4>
+											<input type="date" id="arrivalDate" format="YYYY-MM-DD">
+										</div>
+										<div class="departure">
+											<h4>Départ</h4>
+											<input type="date" id="departureDate" format="YYYY-MM-DD">
+										</div>
+									</div>
 								</div>
 								<div class="dashboard-property-buttons">
 									<a href="{{ path('favoriteDelete') ~ property.propertyId }}">
@@ -256,7 +263,7 @@
 									<form action="{{ path('reservationDelete') }}" method="POST">
 										<input type="hidden" name="_method" value="DELETE">
 										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-										<input type="submit" value="Supprimer" class="delete">
+										<input type="submit" value="Annuler" class="delete">
 									</form>
 								</div>
 							</div>
