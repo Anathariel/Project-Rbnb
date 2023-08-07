@@ -119,21 +119,20 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   height: 450px;
-  width: 100%;
   max-width: 280px;
-  margin: 2rem auto;
+  margin: 1rem auto;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .card figure {
-  padding: 1rem 0;
   position: relative;
 }
 .card figure img {
   margin: 0 0.5rem;
-  width: 260px;
+  width: 250px;
   height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -162,9 +161,10 @@ h3 {
   display: none;
 }
 .card .card-details {
-  padding: 0 1rem;
+  width: 100%;
 }
 .card .card-details .pricing {
+  margin: 1rem;
   display: flex;
   flex-direction: row;
   margin-right: auto;
@@ -173,6 +173,7 @@ h3 {
   font-size: 2rem;
 }
 .card .card-details .pricing .rating {
+  margin: 0 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -182,10 +183,16 @@ h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 1rem 0;
 }
 .card .card-details .location img {
   margin: 0.2rem;
+}
+.card .card-details .description {
+  width: 90%;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .card .card-details .description h3 {
   text-align: left;
@@ -197,12 +204,42 @@ h3 {
   -webkit-box-orient: vertical;
   margin: 0.5rem;
 }
+.card .card-details .description .locataire {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.card .card-details .description .locataire .img-profile {
+  background-color: grey;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 1rem;
+}
+.card .card-details .calendar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.card .card-details .calendar input[type=date] {
+  border: none;
+  outline: transparent;
+  font-family: "Quicksand";
+  text-transform: uppercase;
+}
+.card .card-details .calendar .arrival,
+.card .card-details .calendar .departure {
+  width: 50%;
+  padding: 0.5rem;
+}
 .card .card-details button {
-  width: 100%;
-  position: relative;
   margin: 0.5rem 0;
+  width: 90%;
+  position: relative;
   border: solid 1px #404e87;
   background-color: transparent;
+  padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
   overflow: hidden;
@@ -210,7 +247,7 @@ h3 {
 .card .card-details button span {
   display: block;
   font-family: "Quicksand";
-  font-size: 1rem;
+  font-size: 1.2rem;
   width: 100%;
   padding: 0.3rem 0;
   color: #404e87;
@@ -237,9 +274,15 @@ h3 {
 .card .card-details .dashboard-property-buttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   margin: 1rem;
+  width: 90%;
+  height: 2rem;
+}
+.card .card-details .dashboard-property-buttons .button {
+  width: 6rem;
+  padding: 0.5rem;
 }
 .card .card-details .dashboard-property-buttons .button p {
   color: #0e9384;
@@ -251,6 +294,8 @@ h3 {
   border-radius: 0.5rem;
 }
 .card .card-details .dashboard-property-buttons input {
+  width: 7rem;
+  padding: 0.5rem;
   color: red;
   font-family: "Quicksand-bold";
   font-size: 1rem;
@@ -262,6 +307,44 @@ h3 {
 .card .card-details .dashboard-property-buttons input:hover {
   border: 1px solid red;
   border-radius: 0.5rem;
+}
+.card .card-details .dashboard-property-buttons button {
+  margin: 0.5rem 0;
+  width: 90%;
+  position: relative;
+  border: solid 1px #0e9384;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+.card .card-details .dashboard-property-buttons button span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #0e9384;
+  position: relative;
+  z-index: 1;
+}
+.card .card-details .dashboard-property-buttons button span:hover {
+  color: #f8f8f8;
+}
+.card .card-details .dashboard-property-buttons button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0e9384;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+.card .card-details .dashboard-property-buttons button:hover:before {
+  width: 100%;
 }
 
 @media screen and (max-width: 800px) {
@@ -1419,8 +1502,9 @@ section#property-section .property-details .container-pricing .container-calenda
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler button {
   width: 100%;
+  min-width: 300px;
   position: relative;
-  margin: 0.5rem 0;
+  margin: 0.5rem;
   border: solid 1px #404e87;
   background-color: transparent;
   border-radius: 0.5rem;
@@ -1456,6 +1540,9 @@ section#property-section .property-details .container-pricing .container-calenda
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler p {
   font-size: 0.7rem;
+}
+section#property-section .property-details .container-pricing .container-calendar-traveler input[type=submit] {
+  display: none;
 }
 section#property-section .property-details .container-pricing .price-details {
   display: flex;
@@ -1671,7 +1758,8 @@ section#addgooglemaps-property-section input:focus::placeholder {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  margin: 1rem 3rem;
 }
 
 #addpropertyForm {

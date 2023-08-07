@@ -15,7 +15,7 @@
 			<div class="user-menu">
 				<div class="add first-link">
 					<a href="{{ path('propertyAdd') }}">
-						<img src="{{ asset('/media/icons/plus.svg') }}" alt="Ajouter">
+						<img src="{{ asset('/media/icons/plus.svg') }}" alt="Ajouter une propriété">
 						<p>Ajouter une propriété</p>
 					</a>
 				</div>
@@ -33,13 +33,13 @@
 				</div>
 				<div class="add locations">
 					<a href="#my-locations">
-						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
+						<img src="{{ asset('/media/icons/locations.svg') }}" alt="Mes Locations">
 						<p>Mes Locations</p>
 					</a>
 				</div>
 				<div class="add reservations">
 					<a href="#my-reservations">
-						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
+						<img src="{{ asset('/media/icons/reservation.svg') }}" alt="Mes Réservations">
 						<p>Mes Réservations</p>
 					</a>
 				</div>
@@ -123,44 +123,43 @@
 								</figure>
 
 								<div class="card-details">
-									<div class="pricing">
-										<h3>
-											<span>{{ property.priceNight }}€</span>/nuit</h3>
-										<div class="rating">
-											<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-											<p>{{ property.averageRating|number_format(1, '.', '') }}</p>
-										</p>
-									</div>
-								</div>
-								<div class="location">
-									<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-									<p>{{ property.city }}</p>
-								</div>
-								<div class="description">
-									<h3>{{ property.title }}</h3>
-									<p class="card-descriptions-limit">{{ property.description }}</p>
-								</div>
-								<div class="dashboard-property-buttons">
-									<a href="{{ path('favoriteDelete') ~ property.propertyId }}">
-										<div class="button">
-											<p>Modifier</p>
+									<div class="description">
+										<h3>{{ property.title }}</h3>
+										<div class="locataire">
+											<div class="img-profile">
+												<img src="" alt="">
+											</div>
+											<p>Loué par @User</p>
 										</div>
-									</a>
-									<form action="{{ path('favoriteDelete') }}" method="POST">
-										<input type="hidden" name="_method" value="DELETE">
-										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-										<input type="submit" value="Supprimer" class="delete">
-									</form>
-								</div>
+									</div>
+								
+									<div class="calendar">
+										<div class="arrival">
+											<h4>Arrivée</h4>
+											<input type="date" id="arrivalDate" format="YYYY-MM-DD">
+										</div>
+										<div class="departure">
+											<h4>Départ</h4>
+											<input type="date" id="departureDate" format="YYYY-MM-DD">
+										</div>
+									</div>
+									
+									<div class="dashboard-property-buttons">
+										<button>
+											<input type="hidden">
+											<span>Contacter</span>
+										</button>
+									</div>
+								</div>			
 							</div>
 						</div>
 					</a>
-				{% endfor %}
-			{% endif %}
-			</div>
-		</section>
+					{% endfor %}
+				{% endif %}
+		</div>
+	</section>
 
-		<section class="dashboard-cards-my-favs" id="my-favs">
+	<section class="dashboard-cards-my-favs" id="my-favs">
 
 		<h2>Mes Favoris</h2>
 		<div class="cards-container">
@@ -210,9 +209,9 @@
 				{% endfor %}
 			{% endif %}
 		</div>
-		</section>
+	</section>
 
-		<section class="dashboard-cards-my-reservations" id="my-reservations">
+	<section class="dashboard-cards-my-reservations" id="my-reservations">
 		<h2>Mes réservations</h2>
 		<div class="cards-container">
 			{% if userReservations is empty %}
@@ -243,7 +242,16 @@
 								</div>
 								<div class="description">
 									<h3>{{ property.title }}</h3>
-									<p class="card-descriptions-limit">{{ property.description }}</p>
+									<div class="calendar">
+										<div class="arrival">
+											<h4>Arrivée</h4>
+											<input type="date" id="arrivalDate" format="YYYY-MM-DD">
+										</div>
+										<div class="departure">
+											<h4>Départ</h4>
+											<input type="date" id="departureDate" format="YYYY-MM-DD">
+										</div>
+									</div>
 								</div>
 								<div class="dashboard-property-buttons">
 									<a href="{{ path('favoriteDelete') ~ property.propertyId }}">
@@ -254,7 +262,7 @@
 									<form action="{{ path('reservationDelete') }}" method="POST">
 										<input type="hidden" name="_method" value="DELETE">
 										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-										<input type="submit" value="Supprimer" class="delete">
+										<input type="submit" value="Annuler" class="delete">
 									</form>
 								</div>
 							</div>
@@ -263,6 +271,5 @@
 				{% endfor %}
 			{% endif %}
 		</div>
-		</section>
 	</section>
-{% endblock %}
+</section>{% endblock %}

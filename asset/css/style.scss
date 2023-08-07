@@ -148,21 +148,20 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   height: 450px;
-  width: 100%;
   max-width: 280px;
-  margin: 2rem auto;
+  margin: 1rem auto;
   background-color: $white;
   border-radius: 0.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   figure {
-    padding: 1rem 0;
     position: relative;
 
     img {
       margin: 0 .5rem;
-      width: 260px;
+      width: 250px;
       height: 150px;
       object-fit: cover;
       object-position: top;
@@ -195,9 +194,10 @@ h3 {
   }
 
   .card-details {
-    padding: 0 1rem;
+    width: 100%;
 
     .pricing {
+      margin: 1rem;
       display: flex;
       flex-direction: row;
       margin-right: auto;
@@ -207,6 +207,7 @@ h3 {
       }
 
       .rating {
+        margin: 0 1rem;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -218,7 +219,6 @@ h3 {
       display: flex;
       flex-direction: row;
       align-items: center;
-      padding: 1rem 0;
 
       img {
         margin: 0.2rem;
@@ -226,6 +226,12 @@ h3 {
     }
 
     .description {
+      width: 90%;
+      margin: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
       h3 {
         text-align: left;
         font-size: 1.2rem;
@@ -236,14 +242,48 @@ h3 {
         -webkit-box-orient: vertical;
         margin: 0.5rem;
       }
+
+      .locataire{
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: center;
+        .img-profile{
+          background-color: grey;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          margin: 1rem;
+        }
+      }
+    }
+
+    .calendar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+
+      input[type="date"] {
+        border: none;
+        outline: transparent;
+        font-family: "Quicksand";
+        text-transform: uppercase;
+      }
+
+      .arrival,
+      .departure {
+        width: 50%;
+        padding: 0.5rem;
+      }
     }
 
     button {
-      width: 100%;
+      margin: .5rem 0;
+      width: 90%;
       position: relative;
-      margin: 0.5rem 0;
       border: solid 1px $accent;
       background-color: transparent;
+      padding: .5rem;
       border-radius: 0.5rem;
       cursor: pointer;
       overflow: hidden;
@@ -251,7 +291,7 @@ h3 {
       span {
         display: block;
         font-family: "Quicksand";
-        font-size: 1rem;
+        font-size: 1.2rem;
         width: 100%;
         padding: 0.3rem 0;
         color: $accent;
@@ -283,11 +323,16 @@ h3 {
     .dashboard-property-buttons {
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
+      justify-content: center;
       align-items: center;
       margin: 1rem;
+      width: 90%;
+      height: 2rem;
 
       .button {
+        width: 6rem;
+        padding: .5rem;
+
         p {
           color: $dash-maincolor;
           font-family: $bold;
@@ -301,6 +346,8 @@ h3 {
       }
 
       input {
+        width: 7rem;
+        padding: .5rem;
         color: red;
         font-family: $bold;
         font-size: 1rem;
@@ -313,6 +360,49 @@ h3 {
       input:hover {
         border: 1px solid red;
         border-radius: 0.5rem;
+      }
+
+      button {
+        margin: .5rem 0;
+        width: 90%;
+        position: relative;
+        border: solid 1px $dash-maincolor;
+        background-color: transparent;
+        padding: .5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        overflow: hidden;
+  
+        span {
+          display: block;
+          font-family: "Quicksand";
+          font-size: 1.2rem;
+          width: 100%;
+          padding: 0.3rem 0;
+          color: $dash-maincolor;
+          position: relative;
+          z-index: 1;
+        }
+  
+        span:hover {
+          color: $white;
+        }
+      }
+  
+      button:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: $dash-maincolor;
+        transition: all 0.5s ease-out;
+        z-index: 0;
+      }
+  
+      button:hover:before {
+        width: 100%;
       }
     }
   }
@@ -1748,8 +1838,9 @@ section#property-section {
 
         button {
           width: 100%;
+          min-width: 300px;
           position: relative;
-          margin: 0.5rem 0;
+          margin: 0.5rem;
           border: solid 1px $accent;
           background-color: transparent;
           border-radius: 0.5rem;
@@ -1790,6 +1881,10 @@ section#property-section {
 
         p {
           font-size: 0.7rem;
+        }
+
+        input[type="submit"] {
+          display: none;
         }
       }
 
@@ -2055,7 +2150,8 @@ section#addgooglemaps-property-section {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    margin: 1rem 3rem;
   }
 }
 
