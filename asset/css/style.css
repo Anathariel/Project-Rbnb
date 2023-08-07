@@ -132,9 +132,8 @@ h3 {
   position: relative;
 }
 .card figure img {
-  width: 90%;
-  max-width: 260px;
-  max-height: 150px;
+  width: 260px;
+  height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;

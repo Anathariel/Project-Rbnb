@@ -161,9 +161,8 @@ h3 {
     position: relative;
 
     img {
-      width: 90%;
-      max-width: 260px;
-      max-height: 150px;
+      width: 260px;
+      height: 150px;
       object-fit: cover;
       object-position: top;
       border-radius: 0.5rem;
@@ -1247,12 +1246,13 @@ section#features-section {
 
   @media screen and (min-width: 950px) {
 
-    div#container-card-features{
+    div#container-card-features {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
+
     div#container-description-features {
       display: flex;
       justify-content: space-evenly;
