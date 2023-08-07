@@ -20,15 +20,27 @@
 					</a>
 				</div>
 				<div class="add favoris">
-					<a href="#">
+					<a href="#my-favs">
 						<img src="{{ asset('/media/icons/heart.svg') }}" alt="Mes Favoris">
 						<p>Mes Favoris</p>
 					</a>
 				</div>
 				<div class="add property">
-					<a href="#">
+					<a href="#my-proprieties">
 						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
 						<p>Mes Propriétés</p>
+					</a>
+				</div>
+				<div class="add property">
+					<a href="#my-locations">
+						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
+						<p>Mes Locations</p>
+					</a>
+				</div>
+				<div class="add property">
+					<a href="#my-reservations">
+						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
+						<p>Mes Réservations</p>
 					</a>
 				</div>
 
@@ -41,7 +53,8 @@
 			</div>
 		</section>
 
-		<section class="dashboard-cards-my-proprieties">
+		<section class="dashboard-cards-my-proprieties" id="my-proprieties">
+
 			<h2>Mes propriétés</h2>
 			<div class="cards-container">
 				{% if userProperties is empty %}
@@ -94,7 +107,7 @@
 			</div>
 		</section>
 
-		<section class="dashboard-cards-my-locations">
+		<section class="dashboard-cards-my-locations" id="my-locations">
 			<h2>Mes locations</h2>
 			<div class="cards-container">
 				{% if userRentedProperties is empty %}
@@ -147,7 +160,8 @@
 		</div>
 	</section>
 
-	<section class="dashboard-cards-my-favs">
+	<section class="dashboard-cards-my-favs" id="my-favs">
+
 		<h2>Mes Favoris</h2>
 		<div class="cards-container">
 			{% if userFavorites is empty %}
@@ -199,7 +213,8 @@
 	</section>
 
 
-	<section class="dashboard-cards-my-reservations">
+
+	<section class="dashboard-cards-my-reservations" id="my-reservations">
 		<h2>Mes réservations</h2>
 		<div class="cards-container">
 			{% if userReservations is empty %}
