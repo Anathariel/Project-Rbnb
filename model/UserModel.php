@@ -28,7 +28,7 @@ class UserModel extends Model
 
     public function getUserById($userId)
     {
-        $req = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `email`, `password`, `picture` FROM `user` WHERE `uid` = :userId');
+        $req = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `email`, `password`,`birthDate`,`phoneNumber`, `picture` FROM `user` WHERE `uid` = :userId');
         $req->bindParam('userId', $userId, PDO::PARAM_INT);
         $req->execute();
 
