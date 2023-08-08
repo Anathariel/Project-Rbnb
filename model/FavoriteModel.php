@@ -15,7 +15,7 @@ class FavoriteModel extends Model
 
     public function getFavoriteByUidModel($userId)
     {
-        $stmt = $this->getDb()->prepare('SELECT * FROM favorite WHERE uid = :uid ORDER BY addedDate DESC');
+        $stmt = $this->getDb()->prepare('SELECT `favoriteId`, `uid`, `propertyId`, `addedDate` FROM favorite WHERE uid = :uid ORDER BY addedDate DESC');
         $stmt->bindParam(':uid', $userId, PDO::PARAM_INT);
         $stmt->execute();
 
@@ -34,6 +34,21 @@ class FavoriteModel extends Model
 
         return $favorites;
     }
+
+    public function getFavoritePropertyIdsByUidModel($userId)
+    {
+        $stmt = $this->getDb()->prepare('SELECT `propertyId` FROM favorite WHERE uid = :uid');
+        $stmt->bindParam(':uid', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $propertyIds = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $propertyIds[] = $row['propertyId'];
+        }
+
+        return $propertyIds;
+    }
+
 
     public function deleteFavoriteModel($propertyId, $userId)
     {
