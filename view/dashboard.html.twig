@@ -136,11 +136,11 @@
 									<div class="calendar">
 										<div class="arrival">
 											<h4>Arrivée</h4>
-											<input type="date" id="arrivalDate" format="YYYY-MM-DD">
+											<input type="date" id="arrivalDate" value="{{ userReservations.checkInDate|date('Y-m-d') }}" format="YYYY-MM-DD" readonly>
 										</div>
 										<div class="departure">
 											<h4>Départ</h4>
-											<input type="date" id="departureDate" format="YYYY-MM-DD">
+											<input type="date" id="departureDate" value="{{ userReservations.checkoutDate|date('Y-m-d') }}" format="YYYY-MM-DD" readonly>
 										</div>
 									</div>
 
