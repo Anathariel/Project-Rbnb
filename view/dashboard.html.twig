@@ -197,9 +197,7 @@
 									</div>
 									<div class="dashboard-property-buttons">
 										<form action="{{ path('favoriteDelete') }}" method="POST">
-											<input type="hidden" name="_method" value="DELETE">
-											<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-											<input type="submit" value="Supprimer" class="delete">
+											<input type="submit" value="Supprimer" class="delete delete-favorite"  data-method="DELETE" data-property-id="{{ property.propertyId }}">
 										</form>
 									</div>
 								</div>
