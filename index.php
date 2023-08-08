@@ -40,7 +40,7 @@ $router->map('POST', '/account/delete', 'UserController#delete', 'deleteUser',);
 
 
 // CRUD Property
-$router->map('GET|POST', '/addproperty', 'PropertyController#createProperty', 'propertyAdd');
+$router->map('GET|POST', '/addproperty', 'PropertyController#createProperty',  'propertyAdd');
 
 $router->map('GET|POST', '/editproperty/', '', 'baseEditproperty');
 $router->map('GET|POST', '/editproperty/[i:id]', 'PropertyController#editProperty', 'propertyEdit');

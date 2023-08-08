@@ -19,16 +19,19 @@ class FavoriteController extends Controller
             $favoriteModel = new FavoriteModel();
             $favoriteModel->addFavoriteModel($favorite);
 
-
-            header('Location: ' . $router->generate('dashboard'));
+            if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                // c'est une requête AJAX
+                echo json_encode(['success' => true]);
+                exit;
+            }
         }
     }
 
     public function deleteFavorite()
     {
         $userId = $_SESSION['uid'];
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['_method'] === 'DELETE') {
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['method'] === 'DELETE') {
             if (isset($_POST['propertyId'])) {
                 $propertyId = $_POST['propertyId'];
                 $favoriteModel = new FavoriteModel();
@@ -36,7 +39,7 @@ class FavoriteController extends Controller
                 $favoriteModel->deleteFavoriteModel($propertyId, $userId);
 
                 global $router;
-                header('Location: ' . $router->generate('dashboard'));
+                // header('Location: ' . $router->generate('dashboard'));
                 exit();
             }
         } else {

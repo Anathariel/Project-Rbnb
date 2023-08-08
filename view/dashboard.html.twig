@@ -15,20 +15,32 @@
 			<div class="user-menu">
 				<div class="add first-link">
 					<a href="{{ path('propertyAdd') }}">
-						<img src="{{ asset('/media/icons/plus.svg') }}" alt="Ajouter">
+						<img src="{{ asset('/media/icons/plus.svg') }}" alt="Ajouter une propriété">
 						<p>Ajouter une propriété</p>
 					</a>
 				</div>
-				<div class="add favoris">
-					<a href="#">
+				<div class="add favoris tab">
+					<a href="#my-favs">
 						<img src="{{ asset('/media/icons/heart.svg') }}" alt="Mes Favoris">
 						<p>Mes Favoris</p>
 					</a>
 				</div>
-				<div class="add property">
-					<a href="#">
+				<div class="add property tab">
+					<a href="#my-proprieties">
 						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
 						<p>Mes Propriétés</p>
+					</a>
+				</div>
+				<div class="add locations tab">
+					<a href="#my-locations">
+						<img src="{{ asset('/media/icons/locations.svg') }}" alt="Mes Locations">
+						<p>Mes Locations</p>
+					</a>
+				</div>
+				<div class="add reservations tab">
+					<a href="#my-reservations">
+						<img src="{{ asset('/media/icons/reservation.svg') }}" alt="Mes Réservations">
+						<p>Mes Réservations</p>
 					</a>
 				</div>
 
@@ -41,7 +53,8 @@
 			</div>
 		</section>
 
-		<section class="dashboard-cards-my-proprieties">
+		<section class="dashboard-cards-my-proprieties" id="my-proprieties">
+
 			<h2>Mes propriétés</h2>
 			<div class="cards-container">
 				{% if userProperties is empty %}
@@ -55,12 +68,6 @@
 										{% if property.propertyImages is defined %}
 											<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
 										{% endif %}
-										<figcaption>
-											<form method="POST" action="{{ path('favorite') }}">
-												<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-												<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
-											</form>
-										</figcaption>
 									</figure>
 
 									<div class="card-details">
@@ -74,7 +81,7 @@
 										</div>
 										<div class="location">
 											<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-											<p>{{ property.address }}</p>
+											<p>{{ property.city }}</p>
 										</div>
 										<div class="description">
 											<h3>{{ property.title }}</h3>
@@ -100,7 +107,7 @@
 			</div>
 		</section>
 
-		<section class="dashboard-cards-my-favs">
+		<section class="dashboard-cards-my-locations" id="my-locations">
 			<h2>Mes locations</h2>
 			<div class="cards-container">
 				{% if userRentedProperties is empty %}
@@ -108,51 +115,40 @@
 				{% else %}
 					{% for property in userRentedProperties %}
 						<a href="{{ path('baseProperty') ~ property.propertyId }}">
-							<div class="card">
+							<div class="card medium-card">
 								<figure>
 									{% if property.propertyImages %}
 										<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
 									{% endif %}
-									<figcaption>
-										<form method="POST" action="{{ path('favorite') }}">
-											<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-											<button>
-												<img src="{{ asset('/media/icons/heart.svg') }}" alt="">
-												<input type="submit" name="submit">
-											</button>
-										</form>
-									</figcaption>
 								</figure>
 
 								<div class="card-details">
-									<div class="pricing">
-										<h3>
-											<span>{{ property.priceNight }}€</span>/nuit</h3>
-										<div class="rating">
-											<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-											<p>{{ property.averageRating|number_format(1, '.', '') }}</p>
-										</p>
-									</div>
-								</div>
-								<div class="location">
-									<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-									<p>{{ property.address }}</p>
-								</div>
-								<div class="description">
-									<h3>{{ property.title }}</h3>
-									<p class="card-descriptions-limit">{{ property.description }}</p>
-								</div>
-								<div class="dashboard-property-buttons">
-									<a href="{{ path('favoriteDelete') ~ property.propertyId }}">
-										<div class="button">
-											<p>Modifier</p>
+									<div class="description">
+										<div class="locataire">
+											<div class="img-profile">
+												<img src="" alt="">
+											</div>
+											<h3>Loué par @User</h3>
 										</div>
-									</a>
-									<form action="{{ path('favoriteDelete') }}" method="POST">
-										<input type="hidden" name="_method" value="DELETE">
-										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-										<input type="submit" value="Supprimer" class="delete">
-									</form>
+									</div>
+
+									<div class="calendar">
+										<div class="arrival">
+											<h4>Arrivée</h4>
+											<input type="date" id="arrivalDate" value="{{ userReservations.checkInDate|date('Y-m-d') }}" format="YYYY-MM-DD" readonly>
+										</div>
+										<div class="departure">
+											<h4>Départ</h4>
+											<input type="date" id="departureDate" value="{{ userReservations.checkoutDate|date('Y-m-d') }}" format="YYYY-MM-DD" readonly>
+										</div>
+									</div>
+
+									<div class="dashboard-property-buttons">
+										<button>
+											<input type="hidden">
+											<span>Contacter</span>
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -162,7 +158,8 @@
 		</div>
 	</section>
 
-	<section class="dashboard-cards-my-favs">
+	<section class="dashboard-cards-my-favs" id="my-favs">
+
 		<h2>Mes Favoris</h2>
 		<div class="cards-container">
 			{% if userFavorites is empty %}
@@ -178,15 +175,6 @@
 									{% if property.propertyImages %}
 										<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
 									{% endif %}
-									<figcaption>
-										<form method="POST" action="{{ path('favorite') }}">
-											<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-											<button>
-												<img src="{{ asset('/media/icons/heart.svg') }}" alt="">
-												<input type="submit" name="submit">
-											</button>
-										</form>
-									</figcaption>
 								</figure>
 
 								<div class="card-details">
@@ -207,15 +195,8 @@
 										<p class="card-descriptions-limit">{{ property.description }}</p>
 									</div>
 									<div class="dashboard-property-buttons">
-										<a href="{{ path('favoriteDelete') ~ property.propertyId }}">
-											<div class="button">
-												<p>Modifier</p>
-											</div>
-										</a>
 										<form action="{{ path('favoriteDelete') }}" method="POST">
-											<input type="hidden" name="_method" value="DELETE">
-											<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-											<input type="submit" value="Supprimer" class="delete">
+											<input type="submit" value="Supprimer" class="delete delete-favorite" data-method="DELETE" data-property-id="{{ property.propertyId }}">
 										</form>
 									</div>
 								</div>
@@ -227,8 +208,7 @@
 		</div>
 	</section>
 
-
-	<section class="dashboard-cards-my-favs">
+	<section class="dashboard-cards-my-reservations" id="my-reservations">
 		<h2>Mes réservations</h2>
 		<div class="cards-container">
 			{% if userReservations is empty %}
@@ -237,38 +217,25 @@
 				{% for reservation in userReservations %}
 					{% set property = reservation.property %}
 					<a href="{{ path('baseProperty') ~ property.propertyId }}">
-						<div class="card">
+						<div class="card smaller-card">
 							<figure>
 								{% if property.propertyImages %}
 									<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
 								{% endif %}
-								<figcaption>
-									<form method="POST" action="{{ path('favorite') }}">
-										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-										<button>
-											<img src="{{ asset('/media/icons/heart.svg') }}" alt="">
-											<input type="submit" name="submit">
-										</button>
-									</form>
-								</figcaption>
 							</figure>
 
 							<div class="card-details">
-								<div class="pricing">
-									<h3>
-										<span>{{ property.priceNight }}€</span>/nuit</h3>
-									<div class="rating">
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-										<p>{{ property.averageRating|number_format(1, '.', '') }}</p>
-									</div>
-								</div>
-								<div class="location">
-									<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-									<p>{{ property.address }}</p>
-								</div>
 								<div class="description">
-									<h3>{{ property.title }}</h3>
-									<p class="card-descriptions-limit">{{ property.description }}</p>
+									<div class="calendar">
+										<div class="arrival">
+											<h4>Arrivée</h4>
+											<input type="date" id="arrivalDate" format="YYYY-MM-DD">
+										</div>
+										<div class="departure">
+											<h4>Départ</h4>
+											<input type="date" id="departureDate" format="YYYY-MM-DD">
+										</div>
+									</div>
 								</div>
 								<div class="dashboard-property-buttons">
 									<a href="{{ path('favoriteDelete') ~ property.propertyId }}">
@@ -279,7 +246,7 @@
 									<form action="{{ path('reservationDelete') }}" method="POST">
 										<input type="hidden" name="_method" value="DELETE">
 										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-										<input type="submit" value="Supprimer" class="delete">
+										<input type="submit" value="Annuler" class="delete">
 									</form>
 								</div>
 							</div>
