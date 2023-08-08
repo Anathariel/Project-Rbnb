@@ -1,0 +1,15 @@
+{% extends "template.html.twig" %}
+
+{% block headerblock %}
+{% include 'header.html.twig' with {'categories' : cats } %}
+{% endblock %}
+
+{% block title %}Rajouter une article{% endblock %}
+
+{% block content %}
+
+    <h1>{{ article.getTitle() }}</h1>
+    <p>{{ article.getDescription() }}</p>
+
+	
+{% endblock %}
