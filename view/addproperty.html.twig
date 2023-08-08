@@ -5,265 +5,265 @@
 
 {% block content %}
 
-<section id="addpropertyForm" class="limit-size">
-	<fieldset>
-		{% if message %}
-			<p>{{ message }}</p>
-		{% endif %}
+<section id="addpropertyForm">
+	{% if message %}
+		<p>{{ message }}</p>
+	{% endif %}
+	<h1>Ajout d'une propriété</h1>
 
-		<legend>Ajout d'une propriété</legend>
+	<form method="POST" enctype="multipart/form-data" action="{{ path('propertyAdd') }}">
 
-		<form method="POST" enctype="multipart/form-data" action="{{ path('propertyAdd') }}">
+		<input type="hidden" name="idUser" value="<?php echo $_SESSION['idUser']; ?>">
 
-			<input type="hidden" name="idUser" value="<?php echo $_SESSION['idUser']; ?>">
-
-			<div class="flex-form">
-				<div class="left-property-details">
-
-					<div class="input-flex">
-
-						<div class="property-title">
-							<h5>Titre de la propriété</h5>
-							<label for="title"></label>
-							<input type="text" id="title" name="title" placeholder="Entrer le nom de la propriété"/>
-						</div>
-
-						<div class="property-price">
-							<h5>Déterminez le prix d'une nuit</h5>
-							<label for="price-night"></label>
-							<input type="text" id="price-night" name="price-night" placeholder="Déterminez le prix d'une nuit"/>
-						</div>
-
-						<div class="property-type">
-							<h5>Choisissez le type de propriété :</h5>
-							<label for="property-type"></label>
-							<select id="property-type" name="property-type">
-								<option value="house">Maison</option>
-								<option value="flat">Appartement</option>
-								<option value="guesthouse">Maison d'hôte</option>
-								<option value="hotel">Hôtel</option>
-							</select>
-						</div>
-					</div>
-
-					<h5>Décrivez votre propriété</h5>
-					<label for="description"></label>
-
-					<textarea name="description" id="description" cols="80" rows="10" placeholder="Entrer la description de la propriété"></textarea>
-
-					<section id="addgooglemaps-property-section">
-						<div class="card-container">
-							<div class="panel">
-								<div>
-									<img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
-									<span class="sb-title">Address Selection</span>
-								</div>
-								<input type="text" name="address" placeholder="Addresse de la location" id="location-input"/>
-								<input type="text" name="city" placeholder="ville" id="locality-input"/>
-								<input type="text" name="department" placeholder="Département" id="locality-input"/>
-								<div class="half-input-container">
-									<input type="text" name="region" class="half-input" placeholder="Région" id="administrative_area_level_1-input"/>
-									<input type="text" name="postalCode" class="half-input" placeholder="Code postal" id="postal_code-input"/>
-								</div>
-								<input type="text" name="country" placeholder="Country" id="country-input"/>
-								<input type="hidden" name="latitude" id="latitude-input">
-								<input type="hidden" name="longitude" id="longitude-input">
-							</div>
-							<div class="map" id="gmp-map"></div>
-						</div>
-					</section>
-
-
-					<h4>Langues parlées par l'Hôte</h4>
-					<div class="host-languages">
-						<label for="host-languages"></label>
-						{% set languages = ["anglais", "français", "allemand", "japonais", "italien", "russe", "espagnol", "chinois", "arabe"] %}
-						{% for language in languages %}
-							<input type="checkbox" id="{{ language }}" name="host-languages[]" value="{{ language }}"/>
-							<label for="{{ language }}">{{ language|capitalize }}</label>
-						{% endfor %}
-					</div>
-
+		<div class="add-form">
+			<div class="input-flex">
+				<div class="property-title">
+					<h4>Titre de la propriété</h4>
+					<label for="title"></label>
+					<input type="text" id="title" name="title" placeholder="Entrer le nom de la propriété"/>
 				</div>
 
-				<div class="right-property-images">
-					<h5>Importer vos images de la location :</h5>
-					<label for="propertyImage"></label>
-					<label for="imageMain">Image principale :</label>
-					<input type="file" id="imageMain" name="imageMain" accept="image/*" required onchange="previewImage(event, 'imageMainPreview')"/>
-					<img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 200px; display: none;">
-
-
-					<label for="image1">Image 1 :</label>
-					<input type="file" id="image1" name="image1" accept="image/*" onchange="previewImage(event, 'image1Preview')"/>
-					<img id="image1Preview" src="#" alt="Aperçu de l'image 1" style="max-width: 200px; display: none;">
-
-
-					<label for="image2">Image 2 :</label>
-					<input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(event, 'image2Preview')"/>
-					<img id="image2Preview" src="#" alt="Aperçu de l'image 2" style="max-width: 200px; display: none;">
-
-
-					<label for="image3">Image 3 :</label>
-					<input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(event, 'image3Preview')"/>
-					<img id="image3Preview" src="#" alt="Aperçu de l'image 3" style="max-width: 200px; display: none;">
-
-
-					<label for="image4">Image 4 :</label>
-					<input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(event, 'image4Preview')"/>
-					<img id="image4Preview" src="#" alt="Aperçu de l'image 4" style="max-width: 200px; display: none;">
+				<div class="property-price">
+					<h4>Déterminez le prix d'une nuit</h4>
+					<label for="price-night"></label>
+					<input type="text" id="price-night" name="price-night" placeholder="Déterminez le prix d'une nuit"/>
 				</div>
+
+				<div class="property-type">
+					<h4>Choisissez le type de propriété :</h4>
+					<label for="property-type"></label>
+					<select id="property-type" name="property-type">
+						<option value="house">Maison</option>
+						<option value="flat">Appartement</option>
+						<option value="guesthouse">Maison d'hôte</option>
+						<option value="hotel">Hôtel</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="property-images">
+				<h4>Importer vos images de la location :</h4>
+				<p>Nous demandons un minimum de 1 image.</p>
+				<label for="propertyImage"></label>
+				<div class="images-container">
+					<div class="image-input">
+						<label for="imageMain">Image principale :</label>
+						<input type="file" id="imageMain" name="imageMain" accept="image/*" required onchange="previewImage(event, 'imageMainPreview')"/>
+						<img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 200px; display: none;">
+					</div>
+
+					<div class="image-input">
+						<label for="image1">Image 1 :</label>
+						<input type="file" id="image1" name="image1" accept="image/*" onchange="previewImage(event, 'image1Preview')"/>
+						<img id="image1Preview" src="#" alt="Aperçu de l'image 1" style="max-width: 200px; display: none;">
+					</div>
+
+					<div class="image-input">
+						<label for="image2">Image 2 :</label>
+						<input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(event, 'image2Preview')"/>
+						<img id="image2Preview" src="#" alt="Aperçu de l'image 2" style="max-width: 200px; display: none;">
+					</div>
+					
+					<div class="image-input">
+						<label for="image3">Image 3 :</label>
+						<input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(event, 'image3Preview')"/>
+						<img id="image3Preview" src="#" alt="Aperçu de l'image 3" style="max-width: 200px; display: none;">
+					</div>
+
+					<div class="image-input">
+						<label for="image4">Image 4 :</label>
+						<input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(event, 'image4Preview')"/>
+						<img id="image4Preview" src="#" alt="Aperçu de l'image 4" style="max-width: 200px; display: none;">
+					</div>
+				</div>
+			</div>
+
+			<h4>Décrivez votre propriété</h4>
+			<label for="description"></label>
+
+			<textarea name="description" id="description" cols="80" rows="20" placeholder="Entrer la description de la propriété, maximum de 9285 / 16250 mots"></textarea>
+
+			<h4>Langues parlées par l'Hôte</h4>
+			<div class="host-languages">
+					<label for="host-languages"></label>
+					{% set languages = ["anglais", "français", "allemand", "japonais", "italien", "russe", "espagnol", "chinois", "arabe"] %}
+					{% for language in languages %}
+						<input type="checkbox" id="{{ language }}" name="host-languages[]" value="{{ language }}"/>
+						<label for="{{ language }}">{{ language|capitalize }}</label>
+					{% endfor %}
 			</div>
 
 			<h4>Equipements disponibles :</h4>
 			<div class="selection-accomodation">
-				<label for="accommodation-types"></label>
-				{% set equipements = [
-					{ "id": "piscine", "value": "piscine", "image": "/media/icons/piscine.svg", "label": "Piscine" },
-					{ "id": "parkingGratuit", "value": "parkingGratuit", "image": "/media/icons/parking.svg", "label": "Parking gratuit" },
-					{ "id": "jacuzzi", "value": "jacuzzi", "image": "/media/icons/jacuzzi.svg", "label": "Jacuzzi" },
-					{ "id": "wifi", "value": "wifi", "image": "/media/icons/wifi.svg", "label": "Wifi" },
-					{ "id": "laveLinge", "value": "laveLinge", "image": "/media/icons/lave-linge.svg", "label": "Lave-linge" },
-					{ "id": "secheLinge", "value": "secheLinge", "image": "/media/icons/seche-linge.svg", "label": "Sèche-linge" },
-					{ "id": "climatisation", "value": "climatisation", "image": "/media/icons/climatisation.svg", "label": "Climatisation" },
-					{ "id": "chauffage", "value": "chauffage", "image": "/media/icons/chauffage.svg", "label": "Chauffage" },
-					{ "id": "espaceTravailDedie", "value": "espaceTravailDedie", "image": "/media/icons/espace-travail.svg", "label": "Espace de travail dédié" },
-					{ "id": "television", "value": "television", "image": "/media/icons/television.svg", "label": "Télévision" },
-					{ "id": "secheCheveux", "value": "secheCheveux", "image": "/media/icons/seche-cheveux.svg", "label": "Sèche-cheveux" },
-					{ "id": "ferRepasser", "value": "ferRepasser", "image": "/media/icons/fer-repasser.svg", "label": "Fer à repasser" },
-					{ "id": "stationRechargeVehiElectriques", "value": "stationRechargeVehiElectriques", "image": "/media/icons/recharge-vehicule.svg", "label": "Station de recharge pour véhicules électriques" },
-					{ "id": "litBebe", "value": "litBebe", "image": "/media/icons/lit-bebe.svg", "label": "Lit bébé" },
-					{ "id": "salleSport", "value": "salleSport", "image": "/media/icons/salle-sport.svg", "label": "Salle de sport" },
-					{ "id": "barbecue", "value": "barbecue", "image": "/media/icons/barbecue.svg", "label": "Barbecue" },
-					{ "id": "petitDejeuner", "value": "petitDejeuner", "image": "/media/icons/breakfast.svg", "label": "Petit déjeuner" },
-					{ "id": "cheminee", "value": "cheminee", "image": "/media/icons/cheminee.svg", "label": "Cheminée" },
-					{ "id": "logementFumeur", "value": "logementFumeur", "image": "/media/icons/logement-fumeur.svg", "label": "Logement fumeur" },
-					{ "id": "detecteurFumee", "value": "detecteurFumee", "image": "/media/icons/detecteur-fumee.svg", "label": "Détecteur de fumée" },
-					{ "id": "detecteurMonoxyDeCarbone", "value": "detecteurMonoxyDeCarbone", "image": "/media/icons/detecteur-carbone.svg", "label": "Détecteur de monoxyde de carbone" }
-				] %}
-				{% for equipement in equipements %}
-					<div class="equipement">
-						<input type="checkbox" id="{{ equipement.id }}" name="accommodation-types[]" value="{{ equipement.value }}"/>
-						<label for="{{ equipement.id }}">
-							<img src="{{ asset(equipement.image) }}" alt="{{ equipement.label|lower }}"/>
-								{{ equipement.label }}
+					<label for="accommodation-types"></label>
+					{% set equipements = [
+						{ "id": "piscine", "value": "piscine", "image": "/media/icons/piscine.svg", "label": "Piscine" },
+						{ "id": "parkingGratuit", "value": "parkingGratuit", "image": "/media/icons/parking.svg", "label": "Parking gratuit" },
+						{ "id": "jacuzzi", "value": "jacuzzi", "image": "/media/icons/jacuzzi.svg", "label": "Jacuzzi" },
+						{ "id": "wifi", "value": "wifi", "image": "/media/icons/wifi.svg", "label": "Wifi" },
+						{ "id": "laveLinge", "value": "laveLinge", "image": "/media/icons/lave-linge.svg", "label": "Lave-linge" },
+						{ "id": "secheLinge", "value": "secheLinge", "image": "/media/icons/seche-linge.svg", "label": "Sèche-linge" },
+						{ "id": "climatisation", "value": "climatisation", "image": "/media/icons/climatisation.svg", "label": "Climatisation" },
+						{ "id": "chauffage", "value": "chauffage", "image": "/media/icons/chauffage.svg", "label": "Chauffage" },
+						{ "id": "espaceTravailDedie", "value": "espaceTravailDedie", "image": "/media/icons/espace-travail.svg", "label": "Espace de travail dédié" },
+						{ "id": "television", "value": "television", "image": "/media/icons/television.svg", "label": "Télévision" },
+						{ "id": "secheCheveux", "value": "secheCheveux", "image": "/media/icons/seche-cheveux.svg", "label": "Sèche-cheveux" },
+						{ "id": "ferRepasser", "value": "ferRepasser", "image": "/media/icons/fer-repasser.svg", "label": "Fer à repasser" },
+						{ "id": "stationRechargeVehiElectriques", "value": "stationRechargeVehiElectriques", "image": "/media/icons/recharge-vehicule.svg", "label": "Station de recharge pour véhicules électriques" },
+						{ "id": "litBebe", "value": "litBebe", "image": "/media/icons/lit-bebe.svg", "label": "Lit bébé" },
+						{ "id": "salleSport", "value": "salleSport", "image": "/media/icons/salle-sport.svg", "label": "Salle de sport" },
+						{ "id": "barbecue", "value": "barbecue", "image": "/media/icons/barbecue.svg", "label": "Barbecue" },
+						{ "id": "petitDejeuner", "value": "petitDejeuner", "image": "/media/icons/breakfast.svg", "label": "Petit déjeuner" },
+						{ "id": "cheminee", "value": "cheminee", "image": "/media/icons/cheminee.svg", "label": "Cheminée" },
+						{ "id": "logementFumeur", "value": "logementFumeur", "image": "/media/icons/logement-fumeur.svg", "label": "Logement fumeur" },
+						{ "id": "detecteurFumee", "value": "detecteurFumee", "image": "/media/icons/detecteur-fumee.svg", "label": "Détecteur de fumée" },
+						{ "id": "detecteurMonoxyDeCarbone", "value": "detecteurMonoxyDeCarbone", "image": "/media/icons/detecteur-carbone.svg", "label": "Détecteur de monoxyde de carbone" }
+					] %}
+					{% for equipement in equipements %}
+						<div class="equipement">
+							<input type="checkbox" id="{{ equipement.id }}" name="accommodation-types[]" value="{{ equipement.value }}"/>
+							<label for="{{ equipement.id }}">
+								<img src="{{ asset(equipement.image) }}" alt="{{ equipement.label|lower }}"/>
+									{{ equipement.label }}
+							</label>
+						</div>
+					{% endfor %}
+			</div>
+
+			<div class="container-flex">
+				<h4>Règlement intérieur :</h4>
+				<div class="add-rules">
+						<label for="check-in-time">Heure d'arrivée :</label>
+						<input type="time" id="check-in-time" name="check-in-time" required/>
+
+
+						<label for="check-out-time">Heure de départ :</label>
+						<input type="time" id="check-out-time" name="check-out-time" required/>
+
+
+						<label for="max-guests">Nombre maximum d'invités :</label>
+						<input type="number" id="max-guests" name="max-guests" required/>
+				</div>
+
+				<h4>Pièces clées de la propriété :</h4>
+				<div class="add-amenities">
+					<label for="property-amenities"></label>
+
+					{% set roomOptions = [
+							{ "name": "Nombre de chambres :", "idPrefix": "bedroom", "namePrefix": "bedrooms" },
+							{ "name": "Nombre de lits :", "idPrefix": "bed", "namePrefix": "beds" },
+							{ "name": "Nombre de salles de bain :", "idPrefix": "bathroom", "namePrefix": "bathrooms" },
+							{ "name": "Nombre de toilettes :", "idPrefix": "toilet", "namePrefix": "toilets" }
+					] %}
+
+					{% for roomOption in roomOptions %}
+						<h5>{{ roomOption.name }}</h5>
+						<div class="amenity">
+								<label for="{{ roomOption.namePrefix }}"></label>
+								{% for i in range(1, 8) %}
+									{% set optionId = roomOption.idPrefix ~ '-' ~ i %}
+									<input type="radio" id="{{ optionId }}" name="{{ roomOption.namePrefix }}" value="{{ i }}"/>
+									<label for="{{ optionId }}">{{ i }}</label>
+								{% endfor %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			
+
+			<h4>Choisissez vos tags :</h4>
+			<div class="selection-tags">
+					<label for="tags"></label>
+
+					{% set tags = [
+						{ "id": "avecvue", "value": "376", "img": "avecvue.jpg", "alt": "Avec vue", "label": "Avec vue" },
+						{ "id": "chambres", "value": "377", "img": "chambres.jpg", "alt": "Chambres", "label": "Chambres" },
+						{ "id": "campagne", "value": "378", "img": "campagne.jpg", "alt": "Campagne", "label": "Campagne" },
+						{ "id": "wow", "value": "379", "img": "wow.jpg", "alt": "Wow!", "label": "Wow!" },
+						{ "id": "surleau", "value": "380", "img": "surleau.jpg", "alt": "Sur l'eau", "label": "Sur l'eau" },
+						{ "id": "espacesdejeu", "value": "381", "img": "espacesdejeu.jpg", "alt": "Espaces de jeu", "label": "Espaces de jeu" },
+						{ "id": "piscines", "value": "382", "img": "piscines.jpg", "alt": "Piscines", "label": "Piscines" },
+						{ "id": "borddemer", "value": "383", "img": "borddemer.jpg", "alt": "Bord de mer", "label": "Bord de mer" },
+						{ "id": "cabanesperchees", "value": "384", "img": "cabanesperchees.jpg", "alt": "Cabanes perchées", "label": "Cabanes perchées" },
+						{ "id": "bateaux", "value": "385", "img": "bateaux.jpg", "alt": "Bateaux", "label": "Bateaux" },
+						{ "id": "luxe", "value": "386", "img": "luxe.jpg", "alt": "Luxe", "label": "Luxe" },
+						{ "id": "domes", "value": "387", "img": "domes.jpg", "alt": "Dômes", "label": "Dômes" },
+						{ "id": "tinyhouses", "value": "388", "img": "tinyhouses.jpg", "alt": "Tiny houses", "label": "Tiny houses" },
+						{ "id": "tendance", "value": "389", "img": "tendance.jpg", "alt": "Tendance", "label": "Tendance" },
+						{ "id": "borddelac", "value": "390", "img": "borddelac.jpg", "alt": "Bord de lac", "label": "Bord de lac" },
+						{ "id": "fermes", "value": "391", "img": "fermes.jpg", "alt": "Fermes", "label": "Fermes" },
+						{ "id": "chateaux", "value": "392", "img": "chateaux.jpg", "alt": "Châteaux", "label": "Châteaux" },
+						{ "id": "cabanes", "value": "393", "img": "cabanes.jpg", "alt": "Cabanes", "label": "Cabanes" },
+						{ "id": "design", "value": "394", "img": "design.jpg", "alt": "Design", "label": "Design" },
+						{ "id": "grandesdemeures", "value": "395", "img": "grandesdemeures.jpg", "alt": "Grandes demeures", "label": "Grandes demeures" },
+						{ "id": "sejoursdeconnectes", "value": "396", "img": "sejoursdeconnectes.jpg", "alt": "Séjours déconnectés", "label": "Séjours déconnectés" },
+						{ "id": "lacs", "value": "397", "img": "lacs.jpg", "alt": "Lacs", "label": "Lacs" },
+						{ "id": "camping", "value": "398", "img": "camping.jpg", "alt": "Camping", "label": "Camping" },
+						{ "id": "parcsnationaux", "value": "399", "img": "parcsnationaux.jpg", "alt": "Parcs nationaux", "label": "Parcs nationaux" },
+						{ "id": "maisonstroglodytes", "value": "400", "img": "maisonstroglodytes.jpg", "alt": "Maisons troglodytes", "label": "Maisons troglodytes" },
+						{ "id": "vignobles", "value": "401", "img": "vignobles.jpg", "alt": "Vignobles", "label": "Vignobles" },
+						{ "id": "ski", "value": "402", "img": "ski.jpg", "alt": "Ski", "label": "Ski" },
+						{ "id": "nouveautes", "value": "403", "img": "nouveautes.jpg", "alt": "Nouveautés", "label": "Nouveautés" },
+						{ "id": "maisonsorganiques", "value": "404", "img": "maisonsorganiques.jpg", "alt": "Maisons organiques", "label": "Maisons organiques" },
+						{ "id": "patrimoine", "value": "405", "img": "patrimoine.jpg", "alt": "Patrimoine", "label": "Patrimoine" },
+						{ "id": "villesemblematiques", "value": "406", "img": "villesemblematiques.jpg", "alt": "Villes emblématiques", "label": "Villes emblématiques" },
+						{ "id": "chambresdhotes", "value": "407", "img": "chambresdhotes.jpg", "alt": "Chambres d'hôtes", "label": "Chambres d'hôtes" },
+						{ "id": "yourtes", "value": "408", "img": "yourtes.jpg", "alt": "Yourtes", "label": "Yourtes" },
+						{ "id": "artetcreativite", "value": "409", "img": "artetcreativite.jpg", "alt": "Art et créativité", "label": "Art et créativité" },
+						{ "id": "maisonscycladiques", "value": "410", "img": "maisonscycladiques.jpg", "alt": "Maisons cycladiques", "label": "Maisons cycladiques" },
+						{ "id": "riads", "value": "411", "img": "riads.jpg", "alt": "Riads", "label": "Riads" },
+						{ "id": "granges", "value": "412", "img": "granges.jpg", "alt": "Granges", "label": "Granges" },
+						{ "id": "aupieddespistes", "value": "413", "img": "aupieddespistes.jpg", "alt": "Au pied des pistes", "label": "Au pied des pistes" },
+						{ "id": "chaletstipi", "value": "414", "img": "chaletstipi.jpg", "alt": "Chalets tipi", "label": "Chalets tipi" },
+						{ "id": "cabanesdeberger", "value": "415", "img": "cabanesdeberger.jpg", "alt": "Cabanes de berger", "label": "Cabanes de berger" },
+						{ "id": "dammusi", "value": "416", "img": "dammusi.jpg", "alt": "Dammusi", "label": "Dammusi" },
+						{ "id": "surf", "value": "417", "img": "surf.jpg", "alt": "Surf", "label": "Surf" },
+						{ "id": "toitdumonde", "value": "418", "img": "toitdumonde.jpg", "alt": "Toit du monde", "label": "Toit du monde" },
+						{ "id": "conteneursmaritimes", "value": "419", "img": "conteneursmaritimes.jpg", "alt": "Conteneurs maritimes", "label": "Conteneurs maritimes" },
+						{ "id": "moulinsavent", "value": "420", "img": "moulinsavent.jpg", "alt": "Moulins à vent", "label": "Moulins à vent" },
+						{ "id": "casasparticulares", "value": "421", "img": "casasparticulares.jpg", "alt": "Casas particulares", "label": "Casas particulares" },
+						{ "id": "tours", "value": "422", "img": "tours.jpg", "alt": "Tours", "label": "Tours" },
+						{ "id": "cuisinesequipees", "value": "423", "img": "cuisinesequipees.jpg", "alt": "Cuisines équipées", "label": "Cuisines équipées" },
+						{ "id": "hanoks", "value": "424", "img": "hanoks.jpg", "alt": "Hanoks", "label": "Hanoks" },
+						{ "id": "logementsadaptes", "value": "425", "img": "logementsadaptes.jpg", "alt": "Logements adaptés", "label": "Logements adaptés" },
+						{ "id": "caravanes", "value": "426", "img": "caravanes.jpg", "alt": "Caravanes", "label": "Caravanes" },
+						{ "id": "plages", "value": "427", "img": "plages.jpg", "alt": "Plages", "label": "Plages" }
+					] %}
+
+					{% for tag in tags %}
+						<input type="checkbox" id="{{ tag.id }}" name="tags[]" value="{{ tag.value }}"/>
+						<label for="{{ tag.id }}">
+							<img src="{{ asset('/media/icons/tag/' ~ tag.img) }}" alt="{{ tag.alt }}"/>
+						{{ tag.label }}
 						</label>
+					{% endfor %}
+			</div>
+				
+			<div id="addgooglemaps-property-section">
+					<div class="card-container">
+						<div class="panel">
+							<div>
+								<img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
+								<span class="sb-title">Address Selection</span>
+							</div>
+							<input type="text" name="address" placeholder="Addresse de la location" id="location-input"/>
+							<input type="text" name="city" placeholder="Ville" id="locality-input"/>
+							<input type="text" name="department" placeholder="Département" id="locality-input"/>
+							<div class="half-input-container">
+								<input type="text" name="region" class="half-input" placeholder="Région" id="administrative_area_level_1-input"/>
+								<input type="text" name="postalCode" class="half-input" placeholder="Code postal" id="postal_code-input"/>
+							</div>
+							<input type="text" name="country" placeholder="Country" id="country-input"/>
+							<input type="hidden" name="latitude" id="latitude-input">
+							<input type="hidden" name="longitude" id="longitude-input">
+						</div>
+						<div class="map" id="gmp-map"></div>
 					</div>
-				{% endfor %}
 			</div>
-
-			<h4>Règlement intérieur :</h4>
-			<div class="add-rules">
-				<label for="check-in-time">Heure d'arrivée :</label>
-				<input type="time" id="check-in-time" name="check-in-time" required/>
-
-
-				<label for="check-out-time">Heure de départ :</label>
-				<input type="time" id="check-out-time" name="check-out-time" required/>
-
-
-				<label for="max-guests">Nombre maximum d'invités :</label>
-				<input type="number" id="max-guests" name="max-guests" required/>
-			</div>
-
-
-			<h4>Pièces clées de la propriété :</h4>
-			<div class="add-amenities">
-				<label for="property-amenities"></label>
-
-				{% set roomOptions = [
-				{ "name": "Nombre de chambres :", "idPrefix": "bedroom", "namePrefix": "bedrooms" },
-				{ "name": "Nombre de lits :", "idPrefix": "bed", "namePrefix": "beds" },
-				{ "name": "Nombre de salles de bain :", "idPrefix": "bathroom", "namePrefix": "bathrooms" },
-				{ "name": "Nombre de toilettes :", "idPrefix": "toilet", "namePrefix": "toilets" }
-			] %}
-
-				{% for roomOption in roomOptions %}
-					<h5>{{ roomOption.name }}</h5>
-					<div class="amenity">
-						<label for="{{ roomOption.namePrefix }}"></label>
-						{% for i in range(1, 9) %}
-							{% set optionId = roomOption.idPrefix ~ '-' ~ i %}
-							<input type="radio" id="{{ optionId }}" name="{{ roomOption.namePrefix }}" value="{{ i }}"/>
-							<label for="{{ optionId }}">{{ i }}</label>
-						{% endfor %}
-						<input type="radio" id="{{ roomOption.idPrefix }}-8+" name="{{ roomOption.namePrefix }}" value="8+"/>
-						<label for="{{ roomOption.idPrefix }}-8+">8+</label>
-					</div>
-				{% endfor %}
-			</div>
-
-		<h4>Choisissez vos tags :</h4>
-		<div class="selection-tags">
-			<label for="tags"></label>
-
-			{% set tags = [
-				{ "id": "avecvue", "value": "376", "img": "avecvue.jpg", "alt": "Avec vue", "label": "Avec vue" },
-				{ "id": "chambres", "value": "377", "img": "chambres.jpg", "alt": "Chambres", "label": "Chambres" },
-				{ "id": "campagne", "value": "378", "img": "campagne.jpg", "alt": "Campagne", "label": "Campagne" },
-				{ "id": "wow", "value": "379", "img": "wow.jpg", "alt": "Wow!", "label": "Wow!" },
-				{ "id": "surleau", "value": "380", "img": "surleau.jpg", "alt": "Sur l'eau", "label": "Sur l'eau" },
-				{ "id": "espacesdejeu", "value": "381", "img": "espacesdejeu.jpg", "alt": "Espaces de jeu", "label": "Espaces de jeu" },
-				{ "id": "piscines", "value": "382", "img": "piscines.jpg", "alt": "Piscines", "label": "Piscines" },
-				{ "id": "borddemer", "value": "383", "img": "borddemer.jpg", "alt": "Bord de mer", "label": "Bord de mer" },
-				{ "id": "cabanesperchees", "value": "384", "img": "cabanesperchees.jpg", "alt": "Cabanes perchées", "label": "Cabanes perchées" },
-				{ "id": "bateaux", "value": "385", "img": "bateaux.jpg", "alt": "Bateaux", "label": "Bateaux" },
-				{ "id": "luxe", "value": "386", "img": "luxe.jpg", "alt": "Luxe", "label": "Luxe" },
-				{ "id": "domes", "value": "387", "img": "domes.jpg", "alt": "Dômes", "label": "Dômes" },
-				{ "id": "tinyhouses", "value": "388", "img": "tinyhouses.jpg", "alt": "Tiny houses", "label": "Tiny houses" },
-				{ "id": "tendance", "value": "389", "img": "tendance.jpg", "alt": "Tendance", "label": "Tendance" },
-				{ "id": "borddelac", "value": "390", "img": "borddelac.jpg", "alt": "Bord de lac", "label": "Bord de lac" },
-				{ "id": "fermes", "value": "391", "img": "fermes.jpg", "alt": "Fermes", "label": "Fermes" },
-				{ "id": "chateaux", "value": "392", "img": "chateaux.jpg", "alt": "Châteaux", "label": "Châteaux" },
-				{ "id": "cabanes", "value": "393", "img": "cabanes.jpg", "alt": "Cabanes", "label": "Cabanes" },
-				{ "id": "design", "value": "394", "img": "design.jpg", "alt": "Design", "label": "Design" },
-				{ "id": "grandesdemeures", "value": "395", "img": "grandesdemeures.jpg", "alt": "Grandes demeures", "label": "Grandes demeures" },
-				{ "id": "sejoursdeconnectes", "value": "396", "img": "sejoursdeconnectes.jpg", "alt": "Séjours déconnectés", "label": "Séjours déconnectés" },
-				{ "id": "lacs", "value": "397", "img": "lacs.jpg", "alt": "Lacs", "label": "Lacs" },
-				{ "id": "camping", "value": "398", "img": "camping.jpg", "alt": "Camping", "label": "Camping" },
-				{ "id": "parcsnationaux", "value": "399", "img": "parcsnationaux.jpg", "alt": "Parcs nationaux", "label": "Parcs nationaux" },
-				{ "id": "maisonstroglodytes", "value": "400", "img": "maisonstroglodytes.jpg", "alt": "Maisons troglodytes", "label": "Maisons troglodytes" },
-				{ "id": "vignobles", "value": "401", "img": "vignobles.jpg", "alt": "Vignobles", "label": "Vignobles" },
-				{ "id": "ski", "value": "402", "img": "ski.jpg", "alt": "Ski", "label": "Ski" },
-				{ "id": "nouveautes", "value": "403", "img": "nouveautes.jpg", "alt": "Nouveautés", "label": "Nouveautés" },
-				{ "id": "maisonsorganiques", "value": "404", "img": "maisonsorganiques.jpg", "alt": "Maisons organiques", "label": "Maisons organiques" },
-				{ "id": "patrimoine", "value": "405", "img": "patrimoine.jpg", "alt": "Patrimoine", "label": "Patrimoine" },
-				{ "id": "villesemblematiques", "value": "406", "img": "villesemblematiques.jpg", "alt": "Villes emblématiques", "label": "Villes emblématiques" },
-				{ "id": "chambresdhotes", "value": "407", "img": "chambresdhotes.jpg", "alt": "Chambres d'hôtes", "label": "Chambres d'hôtes" },
-				{ "id": "yourtes", "value": "408", "img": "yourtes.jpg", "alt": "Yourtes", "label": "Yourtes" },
-				{ "id": "artetcreativite", "value": "409", "img": "artetcreativite.jpg", "alt": "Art et créativité", "label": "Art et créativité" },
-				{ "id": "maisonscycladiques", "value": "410", "img": "maisonscycladiques.jpg", "alt": "Maisons cycladiques", "label": "Maisons cycladiques" },
-				{ "id": "riads", "value": "411", "img": "riads.jpg", "alt": "Riads", "label": "Riads" },
-				{ "id": "granges", "value": "412", "img": "granges.jpg", "alt": "Granges", "label": "Granges" },
-				{ "id": "aupieddespistes", "value": "413", "img": "aupieddespistes.jpg", "alt": "Au pied des pistes", "label": "Au pied des pistes" },
-				{ "id": "chaletstipi", "value": "414", "img": "chaletstipi.jpg", "alt": "Chalets tipi", "label": "Chalets tipi" },
-				{ "id": "cabanesdeberger", "value": "415", "img": "cabanesdeberger.jpg", "alt": "Cabanes de berger", "label": "Cabanes de berger" },
-				{ "id": "dammusi", "value": "416", "img": "dammusi.jpg", "alt": "Dammusi", "label": "Dammusi" },
-				{ "id": "surf", "value": "417", "img": "surf.jpg", "alt": "Surf", "label": "Surf" },
-				{ "id": "toitdumonde", "value": "418", "img": "toitdumonde.jpg", "alt": "Toit du monde", "label": "Toit du monde" },
-				{ "id": "conteneursmaritimes", "value": "419", "img": "conteneursmaritimes.jpg", "alt": "Conteneurs maritimes", "label": "Conteneurs maritimes" },
-				{ "id": "moulinsavent", "value": "420", "img": "moulinsavent.jpg", "alt": "Moulins à vent", "label": "Moulins à vent" },
-				{ "id": "casasparticulares", "value": "421", "img": "casasparticulares.jpg", "alt": "Casas particulares", "label": "Casas particulares" },
-				{ "id": "tours", "value": "422", "img": "tours.jpg", "alt": "Tours", "label": "Tours" },
-				{ "id": "cuisinesequipees", "value": "423", "img": "cuisinesequipees.jpg", "alt": "Cuisines équipées", "label": "Cuisines équipées" },
-				{ "id": "hanoks", "value": "424", "img": "hanoks.jpg", "alt": "Hanoks", "label": "Hanoks" },
-				{ "id": "logementsadaptes", "value": "425", "img": "logementsadaptes.jpg", "alt": "Logements adaptés", "label": "Logements adaptés" },
-				{ "id": "caravanes", "value": "426", "img": "caravanes.jpg", "alt": "Caravanes", "label": "Caravanes" },
-				{ "id": "plages", "value": "427", "img": "plages.jpg", "alt": "Plages", "label": "Plages" }
-			] %}
-
-			{% for tag in tags %}
-				<input type="checkbox" id="{{ tag.id }}" name="tags[]" value="{{ tag.value }}"/>
-				<label for="{{ tag.id }}">
-					<img src="{{ asset('/media/icons/tag/' ~ tag.img) }}" alt="{{ tag.alt }}"/>
-					{{ tag.label }}
-				</label>
-			{% endfor %}
 		</div>
-
+					
 		<input type="submit" name="submit" value="Proposer ma location"/>
-	 </form>
-	</fieldset>
+	</form>
 </section>
 {% endblock %}
 {% block javascript %}
