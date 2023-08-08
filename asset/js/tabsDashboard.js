@@ -11,18 +11,19 @@ window.onload = function () {
   document.querySelector("#my-proprieties").style.display = "block";
 
   // Ajouter des gestionnaires d'événements click à chaque lien
-  const links = document.querySelectorAll(".user-menu a");
+  const links = document.querySelectorAll(".user-menu .tab a");
   links.forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault(); // Empêcher le comportement par défaut
       // Cacher toutes les sections
+      console.log(sections);
       sections.forEach((section) => {
         section.style.display = "none";
       });
 
-      // Afficher la section correspondante
-      const target = link.getAttribute("href");
-      document.querySelector(target).style.display = "block";
+      // Récupérer l'ID de la section cible depuis l'attribut href
+      const targetId = link.getAttribute("href");
+      document.querySelector(targetId).style.display = "block";
     });
   });
 
@@ -51,7 +52,7 @@ window.onload = function () {
       xhr.onerror = () => {
         console.error(xhr.statusText);
       };
-  xhr.send("propertyId="+`${propertyId}`+"&method="+`${method}`);
+      xhr.send("propertyId=" + `${propertyId}` + "&method=" + `${method}`);
     });
   });
 };

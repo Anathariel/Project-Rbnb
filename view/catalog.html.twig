@@ -29,7 +29,7 @@
 								{% endif %}
 							{% endif %}
 							<figcaption>
-								<form method="POST" action="{{ path('favorite') }}" class="favorite-form">
+								<form method="POST" action="{{ path('favorite') }}" class="favorite-form {% if property.isFavorite %}favorite-active{% endif %}">
 									<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
 									<button>
 										{% if property.isFavorite %}
@@ -40,7 +40,6 @@
 									</button>
 								</form>
 							</figcaption>
-							
 						</figure>
 						<div class="card-details">
 							<div class="pricing">

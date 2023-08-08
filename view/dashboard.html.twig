@@ -19,25 +19,25 @@
 						<p>Ajouter une propriété</p>
 					</a>
 				</div>
-				<div class="add favoris">
+				<div class="add favoris tab">
 					<a href="#my-favs">
 						<img src="{{ asset('/media/icons/heart.svg') }}" alt="Mes Favoris">
 						<p>Mes Favoris</p>
 					</a>
 				</div>
-				<div class="add property">
+				<div class="add property tab">
 					<a href="#my-proprieties">
 						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
 						<p>Mes Propriétés</p>
 					</a>
 				</div>
-				<div class="add locations">
+				<div class="add locations tab">
 					<a href="#my-locations">
 						<img src="{{ asset('/media/icons/locations.svg') }}" alt="Mes Locations">
 						<p>Mes Locations</p>
 					</a>
 				</div>
-				<div class="add reservations">
+				<div class="add reservations tab">
 					<a href="#my-reservations">
 						<img src="{{ asset('/media/icons/reservation.svg') }}" alt="Mes Réservations">
 						<p>Mes Réservations</p>
@@ -131,7 +131,7 @@
 											<h3>Loué par @User</h3>
 										</div>
 									</div>
-								
+
 									<div class="calendar">
 										<div class="arrival">
 											<h4>Arrivée</h4>
@@ -142,19 +142,19 @@
 											<input type="date" id="departureDate" format="YYYY-MM-DD">
 										</div>
 									</div>
-									
+
 									<div class="dashboard-property-buttons">
 										<button>
 											<input type="hidden">
 											<span>Contacter</span>
 										</button>
 									</div>
-								</div>			
+								</div>
 							</div>
 						</div>
 					</a>
-					{% endfor %}
-				{% endif %}
+				{% endfor %}
+			{% endif %}
 		</div>
 	</section>
 
@@ -196,7 +196,7 @@
 									</div>
 									<div class="dashboard-property-buttons">
 										<form action="{{ path('favoriteDelete') }}" method="POST">
-											<input type="submit" value="Supprimer" class="delete delete-favorite"  data-method="DELETE" data-property-id="{{ property.propertyId }}">
+											<input type="submit" value="Supprimer" class="delete delete-favorite" data-method="DELETE" data-property-id="{{ property.propertyId }}">
 										</form>
 									</div>
 								</div>
