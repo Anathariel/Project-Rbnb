@@ -464,10 +464,6 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  /* Ajoutez ici les propriétés CSS pour la mise en forme de la section /
-  }
-
-  / CSS pour les images dans la div #article-flex-images */
 }
 .dashboard-header .search-dashboard {
   display: flex;
@@ -569,37 +565,38 @@ h3 {
     width: 90%;
   }
 }
-.dashboard-header #registration {
+
+#registration {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   background-color: #8aecab;
 }
-.dashboard-header #registration .form-container {
+#registration .form-container {
   position: relative;
   padding: 3rem;
   display: flex;
   flex-direction: row-reverse;
 }
-.dashboard-header #registration #register,
-.dashboard-header #registration #connect {
+#registration #register,
+#registration #connect {
   margin: 0px 5rem;
   width: 50%;
 }
-.dashboard-header #registration form {
+#registration form {
   display: flex;
   flex-direction: column;
   margin: 0px 1.5rem;
 }
-.dashboard-header #registration form input {
+#registration form input {
   margin: 10px 0px;
   border: none;
   padding: 15px;
   background-color: #efefef;
   border-radius: 0.5rem;
 }
-.dashboard-header #registration button {
+#registration button {
   border: none;
   padding: 20px;
   margin-top: 5px;
@@ -608,53 +605,55 @@ h3 {
   color: #fff;
   cursor: pointer;
 }
-.dashboard-header #registration .intros-container {
+#registration .intros-container {
   display: none;
   background-color: #1b1d21;
   position: absolute;
   width: 50%;
   padding: 2rem;
 }
-.dashboard-header footer {
+
+footer {
   margin-top: auto;
   background-color: #92aad3;
 }
-.dashboard-header footer .footer-desktop {
+footer .footer-desktop {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-.dashboard-header footer .footer-desktop a {
+footer .footer-desktop a {
   font-size: 1rem;
   margin: 1rem;
 }
-.dashboard-header footer .footer-desktop .social-media {
+footer .footer-desktop .social-media {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 0.5rem;
 }
-.dashboard-header footer .footer-desktop .social-media a {
+footer .footer-desktop .social-media a {
   margin: 0 0.6rem;
 }
-.dashboard-header footer .footer-mobile {
+footer .footer-mobile {
   display: flex;
   justify-content: center;
 }
-.dashboard-header footer .footer-mobile a {
+footer .footer-mobile a {
   margin: 2rem;
 }
-.dashboard-header #hero {
+
+#hero {
   width: 99.5vw;
   position: relative;
   left: 50%;
   margin-left: -50vw;
 }
-.dashboard-header #hero figure {
+#hero figure {
   position: relative;
   height: 450px;
   overflow: hidden;
 }
-.dashboard-header #hero figure .slider-image {
+#hero figure .slider-image {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -666,11 +665,11 @@ h3 {
   left: 0;
   z-index: 1;
 }
-.dashboard-header #hero figure .slider-image:first-child {
+#hero figure .slider-image:first-child {
   opacity: 1;
   z-index: 2;
 }
-.dashboard-header #hero figure .overlay {
+#hero figure .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -681,7 +680,7 @@ h3 {
   background: linear-gradient(to bottom, rgba(14, 29, 51, 0.8), rgba(14, 29, 51, 0.2));
   z-index: 3;
 }
-.dashboard-header #hero figure .slider-arrow {
+#hero figure .slider-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -694,39 +693,40 @@ h3 {
   cursor: pointer;
   z-index: 4;
 }
-.dashboard-header #hero figure .slider-arrow img {
+#hero figure .slider-arrow img {
   display: block;
   margin: 0 auto;
 }
-.dashboard-header #hero figure .prev-arrow {
+#hero figure .prev-arrow {
   left: 10px;
 }
-.dashboard-header #hero figure .next-arrow {
+#hero figure .next-arrow {
   right: 10px;
 }
-.dashboard-header .tag-nav {
+
+.tag-nav {
   position: relative;
   overflow: hidden;
 }
-.dashboard-header .tag-nav #tag-container {
+.tag-nav #tag-container {
   display: flex;
   width: 100%;
 }
-.dashboard-header .tag-nav #tag-container .arrow-container {
+.tag-nav #tag-container .arrow-container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 10%;
   height: 100%;
 }
-.dashboard-header .tag-nav #tag-container .arrow-container.left-arrow-container {
+.tag-nav #tag-container .arrow-container.left-arrow-container {
   position: absolute;
   left: 0;
 }
-.dashboard-header .tag-nav #tag-container .arrow-container.left-arrow-container .left-arrow {
+.tag-nav #tag-container .arrow-container.left-arrow-container .left-arrow {
   z-index: 2;
 }
-.dashboard-header .tag-nav #tag-container .arrow-container.left-arrow-container::before {
+.tag-nav #tag-container .arrow-container.left-arrow-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -736,15 +736,15 @@ h3 {
   background: linear-gradient(to right, rgb(248, 248, 248), rgba(248, 248, 248, 0.8));
   pointer-events: none;
 }
-.dashboard-header .tag-nav #tag-container .arrow-container.right-arrow-container {
+.tag-nav #tag-container .arrow-container.right-arrow-container {
   position: absolute;
   right: 0;
   z-index: 2;
 }
-.dashboard-header .tag-nav #tag-container .arrow-container.right-arrow-container .right-arrow {
+.tag-nav #tag-container .arrow-container.right-arrow-container .right-arrow {
   z-index: 2;
 }
-.dashboard-header .tag-nav #tag-container .arrow-container.right-arrow-container::before {
+.tag-nav #tag-container .arrow-container.right-arrow-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -754,7 +754,7 @@ h3 {
   background: linear-gradient(to left, rgb(248, 248, 248), rgba(248, 248, 248, 0.8));
   pointer-events: none;
 }
-.dashboard-header .tag-nav #tag-container .container-tag-list {
+.tag-nav #tag-container .container-tag-list {
   display: flex;
   overflow-x: scroll;
   width: 100%;
@@ -765,17 +765,17 @@ h3 {
   -ms-overflow-style: none;
   /* Hide scrollbar for IE and Edge */
 }
-.dashboard-header .tag-nav #tag-container .container-tag-list::-webkit-scrollbar {
+.tag-nav #tag-container .container-tag-list::-webkit-scrollbar {
   display: none;
   /* Hide scrollbar for Chrome, Safari, and Opera */
 }
-.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item {
+.tag-nav #tag-container .container-tag-list .tag-item {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item a {
+.tag-nav #tag-container .container-tag-list .tag-item a {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -783,23 +783,23 @@ h3 {
   padding: 0 0.5rem;
   height: 80px;
 }
-.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item a #icon-tag {
+.tag-nav #tag-container .container-tag-list .tag-item a #icon-tag {
   width: 30px;
 }
-.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item a img {
+.tag-nav #tag-container .container-tag-list .tag-item a img {
   width: 30px;
   margin: 0 auto;
 }
-.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item a p {
+.tag-nav #tag-container .container-tag-list .tag-item a p {
   min-width: 50px;
   font-size: 0.6rem;
   text-align: center;
 }
-.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item a:hover {
+.tag-nav #tag-container .container-tag-list .tag-item a:hover {
   background-color: rgba(167, 167, 167, 0.4352941176);
   border-bottom: 1px solid #000000;
 }
-.dashboard-header .tag-nav button.filter {
+.tag-nav button.filter {
   cursor: pointer;
   margin: 0.5rem;
   padding: 0.5rem;
@@ -807,13 +807,13 @@ h3 {
   border: 1px solid #1b1d21;
   z-index: 2;
 }
-.dashboard-header .tag-nav button.arrow {
+.tag-nav button.arrow {
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 100%;
   border: 0.5px solid #1b1d21;
 }
-.dashboard-header .tag-nav button.arrow::before {
+.tag-nav button.arrow::before {
   content: "";
   position: absolute;
   top: 0;
@@ -823,24 +823,25 @@ h3 {
   background: rgba(248, 248, 248, 0.5);
   pointer-events: none;
 }
-.dashboard-header section#new-destinations-section {
+
+section#new-destinations-section {
   margin: 40px 0;
 }
-.dashboard-header section#new-destinations-section p#description-new-destinations {
+section#new-destinations-section p#description-new-destinations {
   text-align: right;
   color: #1b1d21;
   margin: 0.5rem 0;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations {
+section#new-destinations-section div#container-card-new-destinations {
   display: flex;
   flex-direction: row;
   align-items: center;
   text-align: center;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations a {
+section#new-destinations-section div#container-card-new-destinations a {
   padding-top: 1.5rem;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations {
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations {
   width: 220px;
   height: 236px;
   position: relative;
@@ -848,7 +849,7 @@ h3 {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin-bottom: 2rem;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure {
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -858,27 +859,27 @@ h3 {
   padding: 0;
   position: relative;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris {
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris {
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button {
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button {
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button input {
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button input {
   display: none;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure img {
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption {
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption {
   position: absolute;
   bottom: 0;
   left: 1rem;
@@ -893,25 +894,25 @@ h3 {
   border-radius: 10px;
   transition: opacity 0.3s;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption h3 {
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption h3 {
   color: #404e87;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption p span {
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption p span {
   font-family: "Quicksand-bold";
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure:hover figcaption {
+section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure:hover figcaption {
   background-color: #f8f8f8;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations div.new-destination-flex-cards {
+section#new-destinations-section div#container-card-new-destinations div.new-destination-flex-cards {
   width: 40%;
   margin-right: 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card {
+section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card {
   width: 50%;
 }
-.dashboard-header section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card .main-card {
+section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card .main-card {
   margin: 0 auto;
   max-width: 450px;
   width: calc(100% - 1rem);
@@ -922,43 +923,44 @@ h3 {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 @media screen and (max-width: 850px) {
-  .dashboard-header section#new-destinations-section div#container-card-new-destinations {
+  section#new-destinations-section div#container-card-new-destinations {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .dashboard-header section#new-destinations-section div#container-card-new-destinations div.new-destination-flex-cards {
+  section#new-destinations-section div#container-card-new-destinations div.new-destination-flex-cards {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .dashboard-header section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card {
+  section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card {
     width: 100%;
   }
 }
-.dashboard-header section#best-tags-section {
+
+section#best-tags-section {
   margin-bottom: 40px 0;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags {
+section#best-tags-section div#container-card-best-tags {
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
   align-items: center;
   text-align: center;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags div.best-tags-flex-cards {
+section#best-tags-section div#container-card-best-tags div.best-tags-flex-cards {
   width: 40%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-left: 1rem;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags a {
+section#best-tags-section div#container-card-best-tags a {
   padding-top: 1.5rem;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags {
+section#best-tags-section div#container-card-best-tags a div.card-best-tags {
   width: 220px;
   height: 236px;
   position: relative;
@@ -966,7 +968,7 @@ h3 {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin-bottom: 2rem;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure {
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -976,27 +978,27 @@ h3 {
   padding: 0;
   position: relative;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris {
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris {
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button {
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button {
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button input {
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button input {
   display: none;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure img {
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption {
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption {
   position: absolute;
   bottom: 0;
   left: 1rem;
@@ -1012,19 +1014,19 @@ h3 {
   border-radius: 10px;
   transition: opacity 0.3s;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption h3 {
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption h3 {
   color: #404e87;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption p span {
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption p span {
   font-family: "Quicksand-bold";
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure:hover figcaption {
+section#best-tags-section div#container-card-best-tags a div.card-best-tags figure:hover figcaption {
   background-color: #f8f8f8;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags div.best-tags-main-card {
+section#best-tags-section div#container-card-best-tags div.best-tags-main-card {
   width: 50%;
 }
-.dashboard-header section#best-tags-section div#container-card-best-tags div.best-tags-main-card .main-card {
+section#best-tags-section div#container-card-best-tags div.best-tags-main-card .main-card {
   margin: 0 auto;
   max-width: 450px;
   width: calc(100% - 1rem);
@@ -1035,73 +1037,75 @@ h3 {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 @media screen and (max-width: 850px) {
-  .dashboard-header section#best-tags-section div#container-card-best-tags {
+  section#best-tags-section div#container-card-best-tags {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .dashboard-header section#best-tags-section div#container-card-best-tags div.best-tags-flex-cards {
+  section#best-tags-section div#container-card-best-tags div.best-tags-flex-cards {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .dashboard-header section#best-tags-section div#container-card-best-tags div.best-tags-main-card {
+  section#best-tags-section div#container-card-best-tags div.best-tags-main-card {
     width: 100%;
   }
 }
-.dashboard-header section#features-section {
+
+section#features-section {
   margin-bottom: 3rem;
 }
-.dashboard-header section#features-section div#container-card-features figure img {
+section#features-section div#container-card-features figure img {
   width: 100%;
   min-height: 100px;
 }
-.dashboard-header section#features-section div#container-card-features div#container-description-features {
+section#features-section div#container-card-features div#container-description-features {
   width: 90%;
   text-align: center;
 }
-.dashboard-header section#features-section div#container-card-features div#container-description-features div.item-features-commun figure {
+section#features-section div#container-card-features div#container-description-features div.item-features-commun figure {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.dashboard-header section#features-section div#container-card-features div#container-description-features div.item-features-commun figure img {
+section#features-section div#container-card-features div#container-description-features div.item-features-commun figure img {
   width: 30px;
   height: 30px;
 }
-.dashboard-header section#features-section div#container-card-features div#container-description-features div.item-features-commun p {
+section#features-section div#container-card-features div#container-description-features div.item-features-commun p {
   font-size: 14px;
   line-height: 24px;
 }
 @media screen and (min-width: 950px) {
-  .dashboard-header section#features-section div#container-card-features {
+  section#features-section div#container-card-features {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .dashboard-header section#features-section div#container-description-features {
+  section#features-section div#container-description-features {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding-bottom: 1.5rem;
   }
-  .dashboard-header section#features-section div.item-features-commun {
+  section#features-section div.item-features-commun {
     margin: 1rem;
   }
 }
-.dashboard-header section#join-us-section div#container-card-join-us figcaption {
+
+section#join-us-section div#container-card-join-us figcaption {
   position: relative;
 }
-.dashboard-header section#join-us-section div#container-card-join-us figcaption img {
+section#join-us-section div#container-card-join-us figcaption img {
   width: 100%;
   min-height: 100px;
 }
-.dashboard-header section#join-us-section div#container-card-join-us figcaption a#btn-list-property {
+section#join-us-section div#container-card-join-us figcaption a#btn-list-property {
   position: absolute;
   bottom: 10%;
   right: 10%;
@@ -1113,16 +1117,17 @@ h3 {
   background-color: #f4ebff;
   border-radius: 10px;
 }
-.dashboard-header section#join-us-section div#container-card-join-us figcaption a#btn-list-property a#btn-list-property:hover {
+section#join-us-section div#container-card-join-us figcaption a#btn-list-property a#btn-list-property:hover {
   background-color: rgba(213, 223, 240, 0.831372549);
   filter: brightness(110%);
   transition: 0.5s ease;
 }
-.dashboard-header section#join-us-section div#container-card-join-us figcaption a#btn-list-property a#btn-list-property:active {
+section#join-us-section div#container-card-join-us figcaption a#btn-list-property a#btn-list-property:active {
   transform: translate(0, 0.5rem);
   box-shadow: 0 0.1rem rgba(255, 255, 255, 0.7);
 }
-.dashboard-header #scroll-to-top-button {
+
+#scroll-to-top-button {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
@@ -1137,37 +1142,39 @@ h3 {
   opacity: 1;
   z-index: 9999;
 }
-.dashboard-header .scroll-to-top-hidden {
+
+.scroll-to-top-hidden {
   display: none;
 }
-.dashboard-header section#property-section {
+
+section#property-section {
   text-align: left;
   /* The Modal (background) */
 }
-.dashboard-header section#property-section h1 {
+section#property-section h1 {
   font-size: 55px;
 }
-.dashboard-header section#property-section .property-images {
+section#property-section .property-images {
   width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.dashboard-header section#property-section .property-images .property-main-image img {
+section#property-section .property-images .property-main-image img {
   width: 100%;
   min-height: 650px;
   border-radius: 0.8rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.dashboard-header section#property-section .property-images .property-flex-images {
+section#property-section .property-images .property-flex-images {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
-.dashboard-header section#property-section .property-images .property-flex-images img {
+section#property-section .property-images .property-flex-images img {
   width: 45%;
   max-height: 400px;
   border-radius: 0.8rem;
@@ -1175,7 +1182,7 @@ h3 {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.dashboard-header section#property-section .modal {
+section#property-section .modal {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -1190,7 +1197,7 @@ h3 {
   /* Add Animation - Zoom in the Modal */
   /* The Close Button */
 }
-.dashboard-header section#property-section .modal .modal-content {
+section#property-section .modal .modal-content {
   margin: auto;
   display: block;
   width: 80%;
@@ -1200,11 +1207,11 @@ h3 {
   top: 50%;
   transform: translateY(-50%);
 }
-.dashboard-header section#property-section .modal .modal-content {
+section#property-section .modal .modal-content {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
-.dashboard-header section#property-section .modal .close {
+section#property-section .modal .close {
   position: absolute;
   top: 5%;
   right: 3%;
@@ -1213,48 +1220,48 @@ h3 {
   font-weight: bold;
   transition: 0.3s;
 }
-.dashboard-header section#property-section .modal .close:hover,
-.dashboard-header section#property-section .modal .close:focus {
+section#property-section .modal .close:hover,
+section#property-section .modal .close:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
 }
-.dashboard-header section#property-section h3 {
+section#property-section h3 {
   font-size: 1.5rem;
   color: #404e87;
   text-align: left;
 }
-.dashboard-header section#property-section .property-details {
+section#property-section .property-details {
   display: flex;
   flex-direction: row;
 }
-.dashboard-header section#property-section .property-details .container-description-property {
+section#property-section .property-details .container-description-property {
   width: 50%;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-amenities {
+section#property-section .property-details .container-description-property .property-amenities {
   display: flex;
   flex-direction: row;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-amenities p {
+section#property-section .property-details .container-description-property .property-amenities p {
   padding-right: 0.8rem;
   font-size: 0.8rem;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-description #description-details {
+section#property-section .property-details .container-description-property .property-description #description-details {
   color: #404e87;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-description #description-details:hover {
+section#property-section .property-details .container-description-property .property-description #description-details:hover {
   text-decoration: underline;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-equipment {
+section#property-section .property-details .container-description-property .property-equipment {
   margin-left: 0.5rem;
   max-height: 350px;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-equipment .equipment-list {
+section#property-section .property-details .container-description-property .property-equipment .equipment-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-equipment .equipment-list figure {
+section#property-section .property-details .container-description-property .property-equipment .equipment-list figure {
   max-width: 150px;
   display: flex;
   justify-content: center;
@@ -1264,30 +1271,30 @@ h3 {
   overflow: hidden;
   text-align: center;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-equipment .equipment-list figure img {
+section#property-section .property-details .container-description-property .property-equipment .equipment-list figure img {
   margin-right: 0.5rem;
   width: 25px;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-comments {
+section#property-section .property-details .container-description-property .property-comments {
   display: flex;
   flex-direction: column;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-comments .nav-arrows {
+section#property-section .property-details .container-description-property .property-comments .nav-arrows {
   align-self: flex-end;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-comments .nav-arrows button {
+section#property-section .property-details .container-description-property .property-comments .nav-arrows button {
   outline: transparent;
   border: 1px solid #1b1d21;
   border-radius: 50%;
   padding: 0.5rem;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row {
+section#property-section .property-details .container-description-property .property-comments .container-comments-row {
   width: 100%;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment {
+section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -1299,69 +1306,69 @@ h3 {
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment .stars-rating figure img {
+section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment .stars-rating figure img {
   width: 25px;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure {
+section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure {
   display: flex;
   flex-direction: row;
   align-items: center;
   overflow: hidden;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure #profile-picture {
+section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure #profile-picture {
   background-color: grey;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure figcaption {
+section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure figcaption {
   margin: 0 0.5rem;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host h3 {
+section#property-section .property-details .container-description-property .property-host h3 {
   margin: 1rem 0;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info {
+section#property-section .property-details .container-description-property .property-host .container-host-info {
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   padding: 2rem;
   border-radius: 1rem;
   max-width: 60%;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure {
+section#property-section .property-details .container-description-property .property-host .container-host-info figure {
   overflow: hidden;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure .profile-picture {
+section#property-section .property-details .container-description-property .property-host .container-host-info figure .profile-picture {
   width: 100px;
   height: 100px;
   border-radius: 50%;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption {
+section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption {
   padding: 0.5rem 1rem;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption h4 {
+section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption h4 {
   font-size: 1.3rem;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure {
+section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure {
   display: flex;
   flex-direction: row;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure img {
+section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure img {
   width: 15px;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .host-details {
+section#property-section .property-details .container-description-property .property-host .container-host-info .host-details {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button {
+section#property-section .property-details .container-description-property .property-host .container-host-info .center-button {
   display: flex;
   justify-content: center;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button {
+section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button {
   width: 15rem;
   position: relative;
   border: solid 1px #404e87;
@@ -1371,7 +1378,7 @@ h3 {
   cursor: pointer;
   overflow: hidden;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span {
+section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span {
   display: block;
   font-family: "Quicksand";
   font-size: 1.2rem;
@@ -1381,10 +1388,10 @@ h3 {
   position: relative;
   z-index: 1;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span:hover {
+section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span:hover {
   color: #f8f8f8;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:before {
+section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:before {
   content: "";
   position: absolute;
   top: 0;
@@ -1395,37 +1402,37 @@ h3 {
   transition: all 0.5s ease-out;
   z-index: 0;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:hover:before {
+section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:hover:before {
   width: 100%;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-conditions {
+section#property-section .property-details .container-description-property .property-conditions {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-conditions .annulation,
-.dashboard-header section#property-section .property-details .container-description-property .property-conditions .reglement {
+section#property-section .property-details .container-description-property .property-conditions .annulation,
+section#property-section .property-details .container-description-property .property-conditions .reglement {
   max-width: 300px;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-conditions .annulation h4,
-.dashboard-header section#property-section .property-details .container-description-property .property-conditions .reglement h4 {
+section#property-section .property-details .container-description-property .property-conditions .annulation h4,
+section#property-section .property-details .container-description-property .property-conditions .reglement h4 {
   font-size: 1.3rem;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-conditions .annulation p,
-.dashboard-header section#property-section .property-details .container-description-property .property-conditions .reglement p {
+section#property-section .property-details .container-description-property .property-conditions .annulation p,
+section#property-section .property-details .container-description-property .property-conditions .reglement p {
   margin: 1rem;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-conditions .annulation a,
-.dashboard-header section#property-section .property-details .container-description-property .property-conditions .reglement a {
+section#property-section .property-details .container-description-property .property-conditions .annulation a,
+section#property-section .property-details .container-description-property .property-conditions .reglement a {
   font-size: 1.1rem;
 }
-.dashboard-header section#property-section .property-details .container-description-property .property-conditions .annulation a:hover,
-.dashboard-header section#property-section .property-details .container-description-property .property-conditions .reglement a:hover {
+section#property-section .property-details .container-description-property .property-conditions .annulation a:hover,
+section#property-section .property-details .container-description-property .property-conditions .reglement a:hover {
   color: #404e87;
   text-decoration: underline;
   transition: 250ms ease-in;
 }
-.dashboard-header section#property-section .property-details .container-pricing {
+section#property-section .property-details .container-pricing {
   position: sticky;
   top: 8rem;
   display: flex;
@@ -1439,60 +1446,60 @@ h3 {
   padding: 1.5rem;
   border-radius: 1.5rem;
 }
-.dashboard-header section#property-section .property-details .container-pricing p {
+section#property-section .property-details .container-pricing p {
   font-size: 1.6rem;
   margin: 1rem;
   margin-top: 0;
 }
-.dashboard-header section#property-section .property-details .container-pricing p span {
+section#property-section .property-details .container-pricing p span {
   font-family: "Quicksand-bold";
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler {
+section#property-section .property-details .container-pricing .container-calendar-traveler {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options {
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options {
   width: 90%;
   background-color: #fff;
   border-radius: 1rem;
   padding: 0.5rem;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar {
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar input[type=date] {
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar input[type=date] {
   border: none;
   outline: transparent;
   font-family: "Quicksand";
   text-transform: uppercase;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .arrival,
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .departure {
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .arrival,
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .departure {
   width: 50%;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #1b1d21;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .arrival {
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .arrival {
   border-right: 1px solid #1b1d21;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .departure {
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .departure {
   padding-left: 1rem;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler {
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler {
   display: flex;
   flex-direction: column;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler select#traveler-select {
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler select#traveler-select {
   font-family: "Quicksand";
   padding: 0.5rem 0.8rem;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler button {
+section#property-section .property-details .container-pricing .container-calendar-traveler button {
   width: 100%;
   min-width: 300px;
   position: relative;
@@ -1503,7 +1510,7 @@ h3 {
   cursor: pointer;
   overflow: hidden;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler button span {
+section#property-section .property-details .container-pricing .container-calendar-traveler button span {
   display: block;
   font-family: "Quicksand";
   font-size: 1.5rem;
@@ -1513,10 +1520,10 @@ h3 {
   position: relative;
   z-index: 1;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler button span:hover {
+section#property-section .property-details .container-pricing .container-calendar-traveler button span:hover {
   color: #f8f8f8;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler button:before {
+section#property-section .property-details .container-pricing .container-calendar-traveler button:before {
   content: "";
   position: absolute;
   top: 0;
@@ -1527,65 +1534,65 @@ h3 {
   transition: all 0.5s ease-out;
   z-index: 0;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler button:hover:before {
+section#property-section .property-details .container-pricing .container-calendar-traveler button:hover:before {
   width: 100%;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler p {
+section#property-section .property-details .container-pricing .container-calendar-traveler p {
   font-size: 0.7rem;
 }
-.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler input[type=submit] {
+section#property-section .property-details .container-pricing .container-calendar-traveler input[type=submit] {
   display: none;
 }
-.dashboard-header section#property-section .property-details .container-pricing .price-details {
+section#property-section .property-details .container-pricing .price-details {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.dashboard-header section#property-section .property-details .container-pricing .price-details p {
+section#property-section .property-details .container-pricing .price-details p {
   font-size: 1rem;
 }
-.dashboard-header section#property-section .property-details .container-pricing .price-details h4 {
+section#property-section .property-details .container-pricing .price-details h4 {
   font-size: 1.3rem;
   margin: 1rem 0;
   padding-top: 0.5rem;
   border-top: 1px solid #1b1d21;
 }
-.dashboard-header section#property-section .add-comment-form {
+section#property-section .add-comment-form {
   width: 50%;
 }
-.dashboard-header section#property-section .add-comment-form form .rating-input {
+section#property-section .add-comment-form form .rating-input {
   display: flex;
   flex-direction: column;
 }
-.dashboard-header section#property-section .add-comment-form form .rating-input .rating-stars {
+section#property-section .add-comment-form form .rating-input .rating-stars {
   display: flex;
   flex-direction: row;
 }
-.dashboard-header section#property-section .add-comment-form form .rating-input .rating-stars label img {
+section#property-section .add-comment-form form .rating-input .rating-stars label img {
   width: 25px;
   /* Adjust the size of the stars as needed */
   cursor: pointer;
   opacity: 0.6;
   /* Set the initial opacity for non-active stars */
 }
-.dashboard-header section#property-section .add-comment-form form .rating-input .rating-stars label img:hover {
+section#property-section .add-comment-form form .rating-input .rating-stars label img:hover {
   opacity: 0.8;
   /* Set the opacity on hover */
 }
-.dashboard-header section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio]:checked + label img {
+section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio]:checked + label img {
   opacity: 1;
   /* Set the opacity to 1 for the checked (active) star */
 }
-.dashboard-header section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio] {
+section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio] {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
-.dashboard-header section#property-section .add-comment-form form .comment-input {
+section#property-section .add-comment-form form .comment-input {
   display: flex;
   flex-direction: column;
 }
-.dashboard-header section#property-section .add-comment-form form button {
+section#property-section .add-comment-form form button {
   width: 100%;
   position: relative;
   margin: 0.5rem 0;
@@ -1595,7 +1602,7 @@ h3 {
   cursor: pointer;
   overflow: hidden;
 }
-.dashboard-header section#property-section .add-comment-form form button span {
+section#property-section .add-comment-form form button span {
   display: block;
   font-family: "Quicksand";
   font-size: 1.5rem;
@@ -1605,10 +1612,10 @@ h3 {
   position: relative;
   z-index: 1;
 }
-.dashboard-header section#property-section .add-comment-form form button span:hover {
+section#property-section .add-comment-form form button span:hover {
   color: #f8f8f8;
 }
-.dashboard-header section#property-section .add-comment-form form button:before {
+section#property-section .add-comment-form form button:before {
   content: "";
   position: absolute;
   top: 0;
@@ -1619,35 +1626,37 @@ h3 {
   transition: all 0.5s ease-out;
   z-index: 0;
 }
-.dashboard-header section#property-section .add-comment-form form button:hover:before {
+section#property-section .add-comment-form form button:hover:before {
   width: 100%;
 }
-.dashboard-header section#property-section .add-comment-form form input[type=submit] {
+section#property-section .add-comment-form form input[type=submit] {
   display: none;
 }
-.dashboard-header section#property-section div {
+section#property-section div {
   margin-bottom: 1rem;
 }
-.dashboard-header section#googlemaps-property-section div#map {
+
+section#googlemaps-property-section div#map {
   width: 100%;
   height: 400px;
 }
-.dashboard-header #addgooglemaps-property-section .sb-title {
+
+#addgooglemaps-property-section .sb-title {
   position: relative;
   top: -12px;
   font-family: Roboto, sans-serif;
   font-weight: 500;
 }
-.dashboard-header #addgooglemaps-property-section .sb-title-icon {
+#addgooglemaps-property-section .sb-title-icon {
   position: relative;
   top: -5px;
 }
-.dashboard-header #addgooglemaps-property-section .card-container {
+#addgooglemaps-property-section .card-container {
   display: flex;
   height: 500px;
   width: 100%;
 }
-.dashboard-header #addgooglemaps-property-section .panel {
+#addgooglemaps-property-section .panel {
   background: white;
   width: 800px;
   padding: 20px;
@@ -1656,24 +1665,24 @@ h3 {
   justify-content: space-around;
   border-radius: 0.5rem;
 }
-.dashboard-header #addgooglemaps-property-section .half-input-container {
+#addgooglemaps-property-section .half-input-container {
   display: flex;
   justify-content: space-between;
 }
-.dashboard-header #addgooglemaps-property-section .half-input {
+#addgooglemaps-property-section .half-input {
   max-width: 120px;
 }
-.dashboard-header #addgooglemaps-property-section .map {
+#addgooglemaps-property-section .map {
   width: 50%;
 }
-.dashboard-header #addgooglemaps-property-section h2 {
+#addgooglemaps-property-section h2 {
   margin: 0;
   font-family: Roboto, sans-serif;
 }
-.dashboard-header #addgooglemaps-property-section input {
+#addgooglemaps-property-section input {
   height: 30px;
 }
-.dashboard-header #addgooglemaps-property-section input {
+#addgooglemaps-property-section input {
   border: 0;
   border-bottom: 1px solid black;
   font-size: 14px;
@@ -1681,36 +1690,37 @@ h3 {
   font-style: normal;
   font-weight: normal;
 }
-.dashboard-header #addgooglemaps-property-section input:focus::-moz-placeholder {
+#addgooglemaps-property-section input:focus::-moz-placeholder {
   color: white;
 }
-.dashboard-header #addgooglemaps-property-section input:focus::placeholder {
+#addgooglemaps-property-section input:focus::placeholder {
   color: white;
 }
-.dashboard-header .dashboard {
+
+.dashboard {
   background-color: #e1e7ea;
   min-height: 90vh;
 }
-.dashboard-header .dashboard h2 {
+.dashboard h2 {
   color: #0e9384;
 }
-.dashboard-header .dashboard .welcome-dashboard {
+.dashboard .welcome-dashboard {
   text-align: left;
 }
-.dashboard-header .dashboard .welcome-dashboard h1 {
+.dashboard .welcome-dashboard h1 {
   color: #111;
   margin: 0 5rem;
   padding-top: 1rem;
   font-size: 2rem;
 }
-.dashboard-header .dashboard .welcome-dashboard .user-menu {
+.dashboard .welcome-dashboard .user-menu {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin: 5rem;
   margin-bottom: 0;
 }
-.dashboard-header .dashboard .welcome-dashboard .user-menu .add a {
+.dashboard .welcome-dashboard .user-menu .add a {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1720,75 +1730,76 @@ h3 {
   padding: 0.5rem;
   padding-right: 2rem;
 }
-.dashboard-header .dashboard .welcome-dashboard .user-menu .add a img {
+.dashboard .welcome-dashboard .user-menu .add a img {
   padding: 0.5rem;
   margin: 0 0.5rem 0 0;
   background-color: #f3f3f3;
   border-radius: 5rem;
 }
-.dashboard-header .dashboard .welcome-dashboard .user-menu .add.first-link a {
+.dashboard .welcome-dashboard .user-menu .add.first-link a {
   background-color: #0e9384;
   color: #f8f8f8;
 }
-.dashboard-header .dashboard .welcome-dashboard .user-menu .add.filter {
+.dashboard .welcome-dashboard .user-menu .add.filter {
   margin-left: auto;
   align-self: flex-end;
 }
-.dashboard-header .dashboard .welcome-dashboard .user-menu .add a:hover {
+.dashboard .welcome-dashboard .user-menu .add a:hover {
   background: rgba(14, 147, 131, 0.5803921569);
   transition: all 0.5s ease-out;
 }
 @media screen and (max-width: 800px) {
-  .dashboard-header .dashboard .welcome-dashboard .user-menu .add.filter {
+  .dashboard .welcome-dashboard .user-menu .add.filter {
     margin-left: 0;
     align-self: flex-end;
   }
 }
-.dashboard-header .dashboard .cards-container {
+.dashboard .cards-container {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-around;
   margin: 1rem 3rem;
 }
-.dashboard-header #addpropertyForm {
+
+#addpropertyForm {
   background-color: #e1e7ea;
   text-align: center;
   padding: 1rem;
 }
-.dashboard-header #addpropertyForm h1 {
+#addpropertyForm h1 {
   color: #0e9384;
   font-size: 2rem;
 }
-.dashboard-header #addpropertyForm .add-form {
+#addpropertyForm .add-form {
   padding: 1rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.dashboard-header #addpropertyForm .add-form h4 {
+#addpropertyForm .add-form h4 {
   color: #0e9384;
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
-.dashboard-header #addpropertyForm .add-form h5 {
+#addpropertyForm .add-form h5 {
   color: #0e9384;
   font-size: 1rem;
 }
-.dashboard-header #addpropertyForm .add-form input[type=text] {
+#addpropertyForm .add-form input[type=text] {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-.dashboard-header #addpropertyForm .add-form input[type=text]:focus,
-.dashboard-header #addpropertyForm .add-form input[type=text]:focus {
+#addpropertyForm .add-form input[type=text]:focus,
+#addpropertyForm .add-form input[type=text]:focus {
   color: #0e9384;
   outline: transparent;
   background-color: #ffffff;
 }
-.dashboard-header #addpropertyForm .add-form select {
+#addpropertyForm .add-form select {
   background-color: rgba(255, 255, 255, 0.6470588235);
   border: 1px solid #0e9384;
   font-family: "Quicksand";
@@ -1796,14 +1807,14 @@ h3 {
   font-size: 0.8rem;
   padding: 0.5rem;
 }
-.dashboard-header #addpropertyForm .add-form textarea {
+#addpropertyForm .add-form textarea {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-.dashboard-header #addpropertyForm .add-form input[type=checkbox] {
+#addpropertyForm .add-form input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -1820,7 +1831,7 @@ h3 {
   place-content: center;
   cursor: pointer;
 }
-.dashboard-header #addpropertyForm .add-form input[type=checkbox]::before {
+#addpropertyForm .add-form input[type=checkbox]::before {
   content: "";
   width: 0.8rem;
   height: 0.8rem;
@@ -1832,12 +1843,12 @@ h3 {
   -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
           clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
-.dashboard-header #addpropertyForm .add-form input[type=checkbox]:checked::before {
+#addpropertyForm .add-form input[type=checkbox]:checked::before {
   transform: scale(1);
   color: #0e9384;
   background-color: #0e9384;
 }
-.dashboard-header #addpropertyForm .add-form input[type=radio] {
+#addpropertyForm .add-form input[type=radio] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -1854,7 +1865,7 @@ h3 {
   place-content: center;
   cursor: pointer;
 }
-.dashboard-header #addpropertyForm .add-form input[type=radio]::before {
+#addpropertyForm .add-form input[type=radio]::before {
   content: "";
   width: 0.65em;
   height: 0.65em;
@@ -1864,25 +1875,25 @@ h3 {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: #0e9384;
 }
-.dashboard-header #addpropertyForm .add-form input[type=radio]:checked::before {
+#addpropertyForm .add-form input[type=radio]:checked::before {
   transform: scale(1);
 }
-.dashboard-header #addpropertyForm .add-form .input-flex {
+#addpropertyForm .add-form .input-flex {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 1rem 0;
 }
-.dashboard-header #addpropertyForm .add-form .input-flex .property-title,
-.dashboard-header #addpropertyForm .add-form .input-flex .property-price,
-.dashboard-header #addpropertyForm .add-form .input-flex .property-type {
+#addpropertyForm .add-form .input-flex .property-title,
+#addpropertyForm .add-form .input-flex .property-price,
+#addpropertyForm .add-form .input-flex .property-type {
   display: flex;
   flex-direction: column;
 }
-.dashboard-header #addpropertyForm .add-form .input-flex .property-title input,
-.dashboard-header #addpropertyForm .add-form .input-flex .property-price input,
-.dashboard-header #addpropertyForm .add-form .input-flex .property-type input {
+#addpropertyForm .add-form .input-flex .property-title input,
+#addpropertyForm .add-form .input-flex .property-price input,
+#addpropertyForm .add-form .input-flex .property-type input {
   border: 1px solid #0e9384;
   padding: 0.5rem;
   font-family: "Quicksand-bold";
@@ -1890,35 +1901,35 @@ h3 {
   background-color: rgba(248, 248, 248, 0.7294117647);
   border-radius: 0.5rem;
 }
-.dashboard-header #addpropertyForm .add-form .input-flex .property-title input:hover,
-.dashboard-header #addpropertyForm .add-form .input-flex .property-title input:focus,
-.dashboard-header #addpropertyForm .add-form .input-flex .property-price input:hover,
-.dashboard-header #addpropertyForm .add-form .input-flex .property-price input:focus,
-.dashboard-header #addpropertyForm .add-form .input-flex .property-type input:hover,
-.dashboard-header #addpropertyForm .add-form .input-flex .property-type input:focus {
+#addpropertyForm .add-form .input-flex .property-title input:hover,
+#addpropertyForm .add-form .input-flex .property-title input:focus,
+#addpropertyForm .add-form .input-flex .property-price input:hover,
+#addpropertyForm .add-form .input-flex .property-price input:focus,
+#addpropertyForm .add-form .input-flex .property-type input:hover,
+#addpropertyForm .add-form .input-flex .property-type input:focus {
   background-color: #f8f8f8;
   outline: max(2px, 0.15em) solid #f8f8f8;
   outline-offset: max(2px, 0.15em);
 }
-.dashboard-header #addpropertyForm .add-form .property-images {
+#addpropertyForm .add-form .property-images {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
 }
-.dashboard-header #addpropertyForm .add-form .property-images p {
+#addpropertyForm .add-form .property-images p {
   font-size: 0.8rem;
 }
-.dashboard-header #addpropertyForm .add-form .property-images .images-container {
+#addpropertyForm .add-form .property-images .images-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.dashboard-header #addpropertyForm .add-form .property-images .images-container .image-input {
+#addpropertyForm .add-form .property-images .images-container .image-input {
   display: flex;
   flex-direction: column;
 }
-.dashboard-header #addpropertyForm .add-form .property-images input::file-selector-button {
+#addpropertyForm .add-form .property-images input::file-selector-button {
   border: 1px solid #0e9384;
   background-color: #e1e7ea;
   border-radius: 0.5rem;
@@ -1926,12 +1937,12 @@ h3 {
   margin: 0.5rem;
   padding: 0.3rem;
 }
-.dashboard-header #addpropertyForm .add-form .property-images input::file-selector-button:hover {
+#addpropertyForm .add-form .property-images input::file-selector-button:hover {
   cursor: pointer;
   color: #f8f8f8;
   background-color: #0e9384;
 }
-.dashboard-header #addpropertyForm .add-form .host-languages {
+#addpropertyForm .add-form .host-languages {
   margin: 1rem 0;
   display: flex;
   flex-direction: row;
@@ -1939,17 +1950,17 @@ h3 {
   align-items: center;
   justify-content: center;
 }
-.dashboard-header #addpropertyForm .add-form .host-languages label {
+#addpropertyForm .add-form .host-languages label {
   margin: 1.5rem;
 }
-.dashboard-header #addpropertyForm .add-form .selection-accomodation {
+#addpropertyForm .add-form .selection-accomodation {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin: 1rem 0;
 }
-.dashboard-header #addpropertyForm .add-form .selection-accomodation .equipement {
+#addpropertyForm .add-form .selection-accomodation .equipement {
   width: 200px;
   height: 120px;
   display: flex;
@@ -1958,51 +1969,51 @@ h3 {
   align-items: center;
   text-align: center;
 }
-.dashboard-header #addpropertyForm .add-form .selection-accomodation .equipement label {
+#addpropertyForm .add-form .selection-accomodation .equipement label {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
 }
-.dashboard-header #addpropertyForm .add-form .selection-accomodation .equipement label img {
+#addpropertyForm .add-form .selection-accomodation .equipement label img {
   width: 20px;
 }
-.dashboard-header #addpropertyForm .add-form .selection-accomodation .equipement label:hover {
+#addpropertyForm .add-form .selection-accomodation .equipement label:hover {
   cursor: pointer;
 }
-.dashboard-header #addpropertyForm .add-form .selection-accomodation .equipement:hover {
+#addpropertyForm .add-form .selection-accomodation .equipement:hover {
   background-color: rgba(128, 128, 128, 0.252);
   border-bottom: 1px solid #f8f8f8;
 }
-.dashboard-header #addpropertyForm .add-form .container-flex {
+#addpropertyForm .add-form .container-flex {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
 }
-.dashboard-header #addpropertyForm .add-form .container-flex .add-rules {
+#addpropertyForm .add-form .container-flex .add-rules {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-.dashboard-header #addpropertyForm .add-form .container-flex .add-amenities {
+#addpropertyForm .add-form .container-flex .add-amenities {
   display: flex;
   flex-direction: column;
 }
-.dashboard-header #addpropertyForm .add-form .container-flex .add-amenities .amenity {
+#addpropertyForm .add-form .container-flex .add-amenities .amenity {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-.dashboard-header #addpropertyForm .add-form .container-flex .add-amenities .amenity label {
+#addpropertyForm .add-form .container-flex .add-amenities .amenity label {
   margin: 0.5rem;
 }
-.dashboard-header #addpropertyForm .add-form .container-flex input {
+#addpropertyForm .add-form .container-flex input {
   border: 1px solid #0e9384;
   padding: 0.5rem;
   font-family: "Quicksand-bold";
@@ -2010,30 +2021,30 @@ h3 {
   background-color: rgba(248, 248, 248, 0.7294117647);
   border-radius: 0.5rem;
 }
-.dashboard-header #addpropertyForm .add-form .container-flex input:hover,
-.dashboard-header #addpropertyForm .add-form .container-flex input:focus {
+#addpropertyForm .add-form .container-flex input:hover,
+#addpropertyForm .add-form .container-flex input:focus {
   background-color: #f8f8f8;
   outline: max(2px, 0.15em) solid #f8f8f8;
   outline-offset: max(2px, 0.15em);
 }
-.dashboard-header #addpropertyForm .add-form .selection-tags {
+#addpropertyForm .add-form .selection-tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 1rem;
 }
-.dashboard-header #addpropertyForm .add-form .selection-tags .tag-element {
+#addpropertyForm .add-form .selection-tags .tag-element {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.dashboard-header #addpropertyForm .add-form .selection-tags .tag-element:hover {
+#addpropertyForm .add-form .selection-tags .tag-element:hover {
   background-color: rgba(128, 128, 128, 0.252);
   border-bottom: 1px solid #f8f8f8;
 }
-.dashboard-header #addpropertyForm .add-form .selection-tags label {
+#addpropertyForm .add-form .selection-tags label {
   width: 70px;
   margin: 1rem;
   display: flex;
@@ -2042,10 +2053,10 @@ h3 {
   align-items: center;
   cursor: pointer;
 }
-.dashboard-header #addpropertyForm .add-form .selection-tags label img {
+#addpropertyForm .add-form .selection-tags label img {
   width: 25px;
 }
-.dashboard-header #addpropertyForm button.main-button-style {
+#addpropertyForm button.main-button-style {
   margin: 0.5rem 0;
   width: 90%;
   position: relative;
@@ -2056,7 +2067,7 @@ h3 {
   cursor: pointer;
   overflow: hidden;
 }
-.dashboard-header #addpropertyForm button.main-button-style span {
+#addpropertyForm button.main-button-style span {
   display: block;
   font-family: "Quicksand";
   font-size: 1.2rem;
@@ -2066,13 +2077,13 @@ h3 {
   position: relative;
   z-index: 1;
 }
-.dashboard-header #addpropertyForm button.main-button-style span:hover {
+#addpropertyForm button.main-button-style span:hover {
   color: #f8f8f8;
 }
-.dashboard-header #addpropertyForm button.main-button-style > input {
+#addpropertyForm button.main-button-style > input {
   display: none;
 }
-.dashboard-header #addpropertyForm button.main-button-style:before {
+#addpropertyForm button.main-button-style:before {
   content: "";
   position: absolute;
   top: 0;
@@ -2083,47 +2094,48 @@ h3 {
   transition: all 1s ease-out;
   z-index: 0;
 }
-.dashboard-header #addpropertyForm button.main-button-style:hover:before {
+#addpropertyForm button.main-button-style:hover:before {
   width: 100%;
 }
-.dashboard-header #editpropertyform {
+
+#editpropertyform {
   background-color: #e1e7ea;
   text-align: center;
   padding: 1rem;
 }
-.dashboard-header #editpropertyform h1 {
+#editpropertyform h1 {
   color: #0e9384;
   font-size: 2rem;
 }
-.dashboard-header #editpropertyform .edit-form {
+#editpropertyform .edit-form {
   padding: 1rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.dashboard-header #editpropertyform .edit-form h4 {
+#editpropertyform .edit-form h4 {
   color: #0e9384;
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
-.dashboard-header #editpropertyform .edit-form h5 {
+#editpropertyform .edit-form h5 {
   color: #0e9384;
   font-size: 1rem;
 }
-.dashboard-header #editpropertyform .edit-form input[type=text] {
+#editpropertyform .edit-form input[type=text] {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-.dashboard-header #editpropertyform .edit-form input[type=text]:focus,
-.dashboard-header #editpropertyform .edit-form input[type=text]:focus {
+#editpropertyform .edit-form input[type=text]:focus,
+#editpropertyform .edit-form input[type=text]:focus {
   color: #0e9384;
   outline: transparent;
   background-color: #ffffff;
 }
-.dashboard-header #editpropertyform .edit-form select {
+#editpropertyform .edit-form select {
   background-color: rgba(255, 255, 255, 0.6470588235);
   border: 1px solid #0e9384;
   font-family: "Quicksand";
@@ -2131,14 +2143,14 @@ h3 {
   font-size: 0.8rem;
   padding: 0.5rem;
 }
-.dashboard-header #editpropertyform .edit-form textarea {
+#editpropertyform .edit-form textarea {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-.dashboard-header #editpropertyform .edit-form input[type=checkbox] {
+#editpropertyform .edit-form input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -2155,7 +2167,7 @@ h3 {
   place-content: center;
   cursor: pointer;
 }
-.dashboard-header #editpropertyform .edit-form input[type=checkbox]::before {
+#editpropertyform .edit-form input[type=checkbox]::before {
   content: "";
   width: 0.8rem;
   height: 0.8rem;
@@ -2167,12 +2179,12 @@ h3 {
   -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
           clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
-.dashboard-header #editpropertyform .edit-form input[type=checkbox]:checked::before {
+#editpropertyform .edit-form input[type=checkbox]:checked::before {
   transform: scale(1);
   color: #0e9384;
   background-color: #0e9384;
 }
-.dashboard-header #editpropertyform .edit-form input[type=radio] {
+#editpropertyform .edit-form input[type=radio] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -2189,7 +2201,7 @@ h3 {
   place-content: center;
   cursor: pointer;
 }
-.dashboard-header #editpropertyform .edit-form input[type=radio]::before {
+#editpropertyform .edit-form input[type=radio]::before {
   content: "";
   width: 0.65em;
   height: 0.65em;
@@ -2199,25 +2211,25 @@ h3 {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: #0e9384;
 }
-.dashboard-header #editpropertyform .edit-form input[type=radio]:checked::before {
+#editpropertyform .edit-form input[type=radio]:checked::before {
   transform: scale(1);
 }
-.dashboard-header #editpropertyform .edit-form .input-flex {
+#editpropertyform .edit-form .input-flex {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 1rem 0;
 }
-.dashboard-header #editpropertyform .edit-form .input-flex .property-title,
-.dashboard-header #editpropertyform .edit-form .input-flex .property-price,
-.dashboard-header #editpropertyform .edit-form .input-flex .property-type {
+#editpropertyform .edit-form .input-flex .property-title,
+#editpropertyform .edit-form .input-flex .property-price,
+#editpropertyform .edit-form .input-flex .property-type {
   display: flex;
   flex-direction: column;
 }
-.dashboard-header #editpropertyform .edit-form .input-flex .property-title input,
-.dashboard-header #editpropertyform .edit-form .input-flex .property-price input,
-.dashboard-header #editpropertyform .edit-form .input-flex .property-type input {
+#editpropertyform .edit-form .input-flex .property-title input,
+#editpropertyform .edit-form .input-flex .property-price input,
+#editpropertyform .edit-form .input-flex .property-type input {
   border: 1px solid #0e9384;
   padding: 0.5rem;
   font-family: "Quicksand-bold";
@@ -2225,35 +2237,35 @@ h3 {
   background-color: rgba(248, 248, 248, 0.7294117647);
   border-radius: 0.5rem;
 }
-.dashboard-header #editpropertyform .edit-form .input-flex .property-title input:hover,
-.dashboard-header #editpropertyform .edit-form .input-flex .property-title input:focus,
-.dashboard-header #editpropertyform .edit-form .input-flex .property-price input:hover,
-.dashboard-header #editpropertyform .edit-form .input-flex .property-price input:focus,
-.dashboard-header #editpropertyform .edit-form .input-flex .property-type input:hover,
-.dashboard-header #editpropertyform .edit-form .input-flex .property-type input:focus {
+#editpropertyform .edit-form .input-flex .property-title input:hover,
+#editpropertyform .edit-form .input-flex .property-title input:focus,
+#editpropertyform .edit-form .input-flex .property-price input:hover,
+#editpropertyform .edit-form .input-flex .property-price input:focus,
+#editpropertyform .edit-form .input-flex .property-type input:hover,
+#editpropertyform .edit-form .input-flex .property-type input:focus {
   background-color: #f8f8f8;
   outline: max(2px, 0.15em) solid #f8f8f8;
   outline-offset: max(2px, 0.15em);
 }
-.dashboard-header #editpropertyform .edit-form .property-images {
+#editpropertyform .edit-form .property-images {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
 }
-.dashboard-header #editpropertyform .edit-form .property-images p {
+#editpropertyform .edit-form .property-images p {
   font-size: 0.8rem;
 }
-.dashboard-header #editpropertyform .edit-form .property-images .images-container {
+#editpropertyform .edit-form .property-images .images-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.dashboard-header #editpropertyform .edit-form .property-images .images-container .image-input {
+#editpropertyform .edit-form .property-images .images-container .image-input {
   display: flex;
   flex-direction: column;
 }
-.dashboard-header #editpropertyform .edit-form .property-images input::file-selector-button {
+#editpropertyform .edit-form .property-images input::file-selector-button {
   border: 1px solid #0e9384;
   background-color: #e1e7ea;
   border-radius: 0.5rem;
@@ -2261,12 +2273,12 @@ h3 {
   margin: 0.5rem;
   padding: 0.3rem;
 }
-.dashboard-header #editpropertyform .edit-form .property-images input::file-selector-button:hover {
+#editpropertyform .edit-form .property-images input::file-selector-button:hover {
   cursor: pointer;
   color: #f8f8f8;
   background-color: #0e9384;
 }
-.dashboard-header #editpropertyform .edit-form .host-languages {
+#editpropertyform .edit-form .host-languages {
   margin: 1rem 0;
   display: flex;
   flex-direction: row;
@@ -2274,17 +2286,17 @@ h3 {
   align-items: center;
   justify-content: center;
 }
-.dashboard-header #editpropertyform .edit-form .host-languages label {
+#editpropertyform .edit-form .host-languages label {
   margin: 1.5rem;
 }
-.dashboard-header #editpropertyform .edit-form .selection-accomodation {
+#editpropertyform .edit-form .selection-accomodation {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin: 1rem 0;
 }
-.dashboard-header #editpropertyform .edit-form .selection-accomodation .equipement {
+#editpropertyform .edit-form .selection-accomodation .equipement {
   width: 200px;
   height: 120px;
   display: flex;
@@ -2293,51 +2305,51 @@ h3 {
   align-items: center;
   text-align: center;
 }
-.dashboard-header #editpropertyform .edit-form .selection-accomodation .equipement label {
+#editpropertyform .edit-form .selection-accomodation .equipement label {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
 }
-.dashboard-header #editpropertyform .edit-form .selection-accomodation .equipement label img {
+#editpropertyform .edit-form .selection-accomodation .equipement label img {
   width: 20px;
 }
-.dashboard-header #editpropertyform .edit-form .selection-accomodation .equipement label:hover {
+#editpropertyform .edit-form .selection-accomodation .equipement label:hover {
   cursor: pointer;
 }
-.dashboard-header #editpropertyform .edit-form .selection-accomodation .equipement:hover {
+#editpropertyform .edit-form .selection-accomodation .equipement:hover {
   background-color: rgba(128, 128, 128, 0.252);
   border-bottom: 1px solid #f8f8f8;
 }
-.dashboard-header #editpropertyform .edit-form .container-flex {
+#editpropertyform .edit-form .container-flex {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
 }
-.dashboard-header #editpropertyform .edit-form .container-flex .add-rules {
+#editpropertyform .edit-form .container-flex .add-rules {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-.dashboard-header #editpropertyform .edit-form .container-flex .add-amenities {
+#editpropertyform .edit-form .container-flex .add-amenities {
   display: flex;
   flex-direction: column;
 }
-.dashboard-header #editpropertyform .edit-form .container-flex .add-amenities .amenity {
+#editpropertyform .edit-form .container-flex .add-amenities .amenity {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-.dashboard-header #editpropertyform .edit-form .container-flex .add-amenities .amenity label {
+#editpropertyform .edit-form .container-flex .add-amenities .amenity label {
   margin: 0.5rem;
 }
-.dashboard-header #editpropertyform .edit-form .container-flex input {
+#editpropertyform .edit-form .container-flex input {
   border: 1px solid #0e9384;
   padding: 0.5rem;
   font-family: "Quicksand-bold";
@@ -2345,30 +2357,30 @@ h3 {
   background-color: rgba(248, 248, 248, 0.7294117647);
   border-radius: 0.5rem;
 }
-.dashboard-header #editpropertyform .edit-form .container-flex input:hover,
-.dashboard-header #editpropertyform .edit-form .container-flex input:focus {
+#editpropertyform .edit-form .container-flex input:hover,
+#editpropertyform .edit-form .container-flex input:focus {
   background-color: #f8f8f8;
   outline: max(2px, 0.15em) solid #f8f8f8;
   outline-offset: max(2px, 0.15em);
 }
-.dashboard-header #editpropertyform .edit-form .selection-tags {
+#editpropertyform .edit-form .selection-tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 1rem;
 }
-.dashboard-header #editpropertyform .edit-form .selection-tags .tag-element {
+#editpropertyform .edit-form .selection-tags .tag-element {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.dashboard-header #editpropertyform .edit-form .selection-tags .tag-element:hover {
+#editpropertyform .edit-form .selection-tags .tag-element:hover {
   background-color: rgba(128, 128, 128, 0.252);
   border-bottom: 1px solid #f8f8f8;
 }
-.dashboard-header #editpropertyform .edit-form .selection-tags label {
+#editpropertyform .edit-form .selection-tags label {
   width: 70px;
   margin: 1rem;
   display: flex;
@@ -2377,10 +2389,10 @@ h3 {
   align-items: center;
   cursor: pointer;
 }
-.dashboard-header #editpropertyform .edit-form .selection-tags label img {
+#editpropertyform .edit-form .selection-tags label img {
   width: 25px;
 }
-.dashboard-header #editpropertyform button.main-button-style {
+#editpropertyform button.main-button-style {
   margin: 0.5rem 0;
   width: 90%;
   position: relative;
@@ -2391,7 +2403,7 @@ h3 {
   cursor: pointer;
   overflow: hidden;
 }
-.dashboard-header #editpropertyform button.main-button-style span {
+#editpropertyform button.main-button-style span {
   display: block;
   font-family: "Quicksand";
   font-size: 1.2rem;
@@ -2401,13 +2413,13 @@ h3 {
   position: relative;
   z-index: 1;
 }
-.dashboard-header #editpropertyform button.main-button-style span:hover {
+#editpropertyform button.main-button-style span:hover {
   color: #f8f8f8;
 }
-.dashboard-header #editpropertyform button.main-button-style > input {
+#editpropertyform button.main-button-style > input {
   display: none;
 }
-.dashboard-header #editpropertyform button.main-button-style:before {
+#editpropertyform button.main-button-style:before {
   content: "";
   position: absolute;
   top: 0;
@@ -2418,37 +2430,38 @@ h3 {
   transition: all 1s ease-out;
   z-index: 0;
 }
-.dashboard-header #editpropertyform button.main-button-style:hover:before {
+#editpropertyform button.main-button-style:hover:before {
   width: 100%;
 }
-.dashboard-header #user-edit {
+
+#user-edit {
   background-color: #e1e7ea;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.dashboard-header #user-edit h2 {
+#user-edit h2 {
   color: #0e9384;
   margin-bottom: 2rem;
 }
-.dashboard-header #user-edit .user-names {
+#user-edit .user-names {
   display: flex;
   flex-direction: row;
 }
-.dashboard-header #user-edit .user-names input[type=text] {
+#user-edit .user-names input[type=text] {
   margin: 0 0.2rem;
 }
-.dashboard-header #user-edit p {
+#user-edit p {
   margin-top: 1rem;
 }
-.dashboard-header #user-edit a {
+#user-edit a {
   margin: 2rem;
 }
-.dashboard-header #user-edit .account-buttons {
+#user-edit .account-buttons {
   display: flex;
 }
-.dashboard-header #user-edit .account-buttons input[type=submit] {
+#user-edit .account-buttons input[type=submit] {
   border: none;
   background-color: transparent;
   outline: transparent;
@@ -2459,7 +2472,7 @@ h3 {
   border-radius: 0.5rem;
   color: #0e9384;
 }
-.dashboard-header #user-edit .account-buttons #delete-account {
+#user-edit .account-buttons #delete-account {
   border: none;
   background-color: transparent;
   outline: transparent;
@@ -2470,32 +2483,33 @@ h3 {
   border-radius: 0.5rem;
   color: red;
 }
-.dashboard-header #error-page {
+
+#error-page {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.dashboard-header #error-page .left-side {
+#error-page .left-side {
   margin: 5rem;
 }
-.dashboard-header #error-page .left-side p:first-child {
+#error-page .left-side p:first-child {
   color: #404e87;
   font-size: 0.9rem;
 }
-.dashboard-header #error-page .left-side h1 {
+#error-page .left-side h1 {
   font-size: 3rem;
   color: #1b1d21;
 }
-.dashboard-header #error-page .left-side p {
+#error-page .left-side p {
   font-size: 1rem;
 }
-.dashboard-header #error-page .left-side .button-error {
+#error-page .left-side .button-error {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin: 1rem;
 }
-.dashboard-header #error-page .left-side .button-error #button-return {
+#error-page .left-side .button-error #button-return {
   border: 1px solid #1b1d21;
   display: flex;
   background-color: transparent;
@@ -2504,10 +2518,10 @@ h3 {
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
-.dashboard-header #error-page .left-side .button-error #button-return img {
+#error-page .left-side .button-error #button-return img {
   padding: 0 0.5rem;
 }
-.dashboard-header #error-page .left-side .button-error #home-redirection {
+#error-page .left-side .button-error #home-redirection {
   border: 1px solid #1b1d21;
   display: flex;
   background-color: #92aad3;
@@ -2519,29 +2533,30 @@ h3 {
   font-family: "Quicksand";
   font-size: 1rem;
 }
-.dashboard-header #error-page figure {
+#error-page figure {
   margin: 1rem;
 }
-.dashboard-header #error-page figure img {
+#error-page figure img {
   border-radius: 0.5rem;
 }
-.dashboard-header #catalog-cards {
+
+#catalog-cards {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-evenly;
   margin: 1rem 5rem;
 }
-.dashboard-header section#section-blog {
+
+section#section-blog {
   margin-top: 20px;
-  font-family: "Quicksand";
 }
-.dashboard-header section#section-blog p.sub-title-section {
+section#section-blog p.sub-title-section {
   color: black;
   text-align: center;
   padding: 30px;
 }
-.dashboard-header section#section-blog div#container-section-blog {
+section#section-blog div#container-section-blog {
   width: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -2549,7 +2564,7 @@ h3 {
   align-items: center;
   margin: 0 auto;
 }
-.dashboard-header section#section-blog div#container-section-blog div.card-blog {
+section#section-blog div#container-section-blog div.card-blog {
   width: 100%;
   max-width: 420px;
   height: 540px;
@@ -2561,15 +2576,15 @@ h3 {
   transition: all 0.5s ease;
 }
 @media screen and (min-width: 950px) {
-  .dashboard-header section#section-blog div#container-section-blog div.card-blog {
+  section#section-blog div#container-section-blog div.card-blog {
     width: 384px;
     height: 456px;
   }
-  .dashboard-header section#section-blog div#container-section-blog div.card-blog:hover .bg-image {
+  section#section-blog div#container-section-blog div.card-blog:hover .bg-image {
     transform: scale(1.1);
   }
 }
-.dashboard-header section#section-blog div#container-section-blog div.card-blog div.card-blog-top {
+section#section-blog div#container-section-blog div.card-blog div.card-blog-top {
   width: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -2577,7 +2592,7 @@ h3 {
   align-items: center;
   margin: 0 auto;
 }
-.dashboard-header section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom {
+section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom {
   position: relative;
   padding: 30px 40px;
   text-align: center;
@@ -2586,10 +2601,10 @@ h3 {
   flex-direction: column;
   align-items: flex-start;
 }
-.dashboard-header section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom p {
+section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom p {
   margin-top: 15px;
 }
-.dashboard-header section#section-blog div#container-section-blog div.card-blog div.card-blog {
+section#section-blog div#container-section-blog div.card-blog div.card-blog {
   position: relative;
   text-align: center;
   height: 50%;
@@ -2597,42 +2612,54 @@ h3 {
   flex-direction: column;
   align-items: flex-start;
 }
-.dashboard-header section#article-section {
+
+section#article-section {
   text-align: center;
   margin: 30px auto;
 }
-.dashboard-header div#article-flex-images figure.article-flex-images {
+
+div#article-flex-images figure.article-flex-images {
   display: flex;
 }
-.dashboard-header div#article-flex-images .right-aligned {
+
+div#article-flex-images .right-aligned {
   float: right;
   margin-left: 5px;
 }
-.dashboard-header section#article-section h1,
-.dashboard-header section#article-section h2 {
+
+section#article-section h1,
+section#article-section h2 {
   color: #92AAD3;
   margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;
 }
-.dashboard-header section#article-section {
+
+section#article-section {
   text-align: center;
   margin: 0 auto;
 }
-.dashboard-header div#article-flex-images figure.article-flex-images {
+
+div#article-flex-images figure.article-flex-images {
   display: flex;
 }
-.dashboard-header div#article-flex-images figure.article-flex-images .right-aligned {
+div#article-flex-images figure.article-flex-images .right-aligned {
   float: right;
   margin-left: 5px;
 }
-.dashboard-header div#article-flex-images figure.article-flex-images .right-aligned section#article-section h3 {
+div#article-flex-images figure.article-flex-images .right-aligned section#article-section h3 {
   color: #92AAD3;
 }
-.dashboard-header div#article-flex-images figure.article-flex-images .right-aligned section#article-section h3 section#article-section h4 {
+div#article-flex-images figure.article-flex-images .right-aligned section#article-section h3 section#article-section h4 {
   color: #92AAD3;
   text-align: center;
 }
-.dashboard-header section#article-section {
+
+section#article-section {
   font-family: "Quicksand";
-}/*# sourceMappingURL=style.css.map */
+}
+
+/* Ajoutez ici les propriétés CSS pour la mise en forme de la section /
+}
+
+/ CSS pour les images dans la div #article-flex-images *//*# sourceMappingURL=style.css.map */
