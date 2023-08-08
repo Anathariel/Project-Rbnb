@@ -5,7 +5,7 @@ class Article
     private $uid;
     private $image;
     private $title;
-    private $description;
+    private $content;
     private $date;
 
   
@@ -41,9 +41,9 @@ class Article
      return $this->title;
  }
 
- public function getDescription()
+ public function getContent()
  {
-     return $this->description;
+     return $this->content;
  }
 
  public function getDate()
@@ -67,9 +67,9 @@ class Article
      $this->title = $title;
  }
 
- public function setDescription(string $description)
+ public function setContent(string $content)
  {
-     $this->description = $description;
+     $this->content = $content;
  }
 
  public function setDate(String $date)
