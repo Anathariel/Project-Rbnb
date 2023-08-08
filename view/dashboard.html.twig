@@ -115,7 +115,7 @@
 				{% else %}
 					{% for property in userRentedProperties %}
 						<a href="{{ path('baseProperty') ~ property.propertyId }}">
-							<div class="card">
+							<div class="card medium-card">
 								<figure>
 									{% if property.propertyImages %}
 										<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
@@ -124,12 +124,11 @@
 
 								<div class="card-details">
 									<div class="description">
-										<h3>{{ property.title }}</h3>
 										<div class="locataire">
 											<div class="img-profile">
 												<img src="" alt="">
 											</div>
-											<p>Loué par @User</p>
+											<h3>Loué par @User</h3>
 										</div>
 									</div>
 								
@@ -218,7 +217,7 @@
 				{% for reservation in userReservations %}
 					{% set property = reservation.property %}
 					<a href="{{ path('baseProperty') ~ property.propertyId }}">
-						<div class="card">
+						<div class="card smaller-card">
 							<figure>
 								{% if property.propertyImages %}
 									<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
@@ -226,20 +225,7 @@
 							</figure>
 
 							<div class="card-details">
-								<div class="pricing">
-									<h3>
-										<span>{{ property.priceNight }}€</span>/nuit</h3>
-									<div class="rating">
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-										<p>{{ property.averageRating|number_format(1, '.', '') }}</p>
-									</div>
-								</div>
-								<div class="location">
-									<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-									<p>{{ property.city }}</p>
-								</div>
 								<div class="description">
-									<h3>{{ property.title }}</h3>
 									<div class="calendar">
 										<div class="arrival">
 											<h4>Arrivée</h4>
