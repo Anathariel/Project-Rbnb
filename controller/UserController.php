@@ -177,7 +177,6 @@ class UserController extends Controller
             'userRentedProperties' => $userRentedProperties,
             'averageRating' => $averageRating
         ];
-        var_dump($data);
 
         // Affichez la vue avec les données
         echo self::getRender('dashboard.html.twig', $data);
