@@ -17,65 +17,65 @@
 
 		<div class="add-form">
 			<div class="input-flex">
-				<div class="property-title">
-					<h4>Titre de la propriété</h4>
-					<label for="title"></label>
-					<input type="text" id="title" name="title" placeholder="Entrer le nom de la propriété"/>
-				</div>
+					<div class="property-title">
+						<h4>Titre de la propriété</h4>
+						<label for="title"></label>
+						<input type="text" id="title" name="title" placeholder="Entrer le nom de la propriété"/>
+					</div>
 
-				<div class="property-price">
-					<h4>Déterminez le prix d'une nuit</h4>
-					<label for="price-night"></label>
-					<input type="text" id="price-night" name="price-night" placeholder="Déterminez le prix d'une nuit"/>
-				</div>
+					<div class="property-price">
+						<h4>Déterminez le prix d'une nuit</h4>
+						<label for="price-night"></label>
+						<input type="text" id="price-night" name="price-night" placeholder="Déterminez le prix d'une nuit"/>
+					</div>
 
-				<div class="property-type">
-					<h4>Choisissez le type de propriété :</h4>
-					<label for="property-type"></label>
-					<select id="property-type" name="property-type">
-						<option value="house">Maison</option>
-						<option value="flat">Appartement</option>
-						<option value="guesthouse">Maison d'hôte</option>
-						<option value="hotel">Hôtel</option>
-					</select>
-				</div>
+					<div class="property-type">
+						<h4>Choisissez le type de propriété :</h4>
+						<label for="property-type"></label>
+						<select id="property-type" name="property-type">
+							<option value="house">Maison</option>
+							<option value="flat">Appartement</option>
+							<option value="guesthouse">Maison d'hôte</option>
+							<option value="hotel">Hôtel</option>
+						</select>
+					</div>
 			</div>
 
 			<div class="property-images">
-				<h4>Importer vos images de la location :</h4>
-				<p>Nous demandons un minimum de 1 image.</p>
-				<label for="propertyImage"></label>
-				<div class="images-container">
-					<div class="image-input">
-						<label for="imageMain">Image principale :</label>
-						<input type="file" id="imageMain" name="imageMain" accept="image/*" required onchange="previewImage(event, 'imageMainPreview')"/>
-						<img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 200px; display: none;">
-					</div>
+					<h4>Importer vos images de la location :</h4>
+					<p>Nous demandons un minimum de 1 image.</p>
+					<label for="propertyImage"></label>
+					<div class="images-container">
+						<div class="image-input">
+							<label for="imageMain">Image principale :</label>
+							<input type="file" id="imageMain" name="imageMain" accept="image/*" required onchange="previewImage(event, 'imageMainPreview')"/>
+							<img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 200px; display: none;">
+						</div>
 
-					<div class="image-input">
-						<label for="image1">Image 1 :</label>
-						<input type="file" id="image1" name="image1" accept="image/*" onchange="previewImage(event, 'image1Preview')"/>
-						<img id="image1Preview" src="#" alt="Aperçu de l'image 1" style="max-width: 200px; display: none;">
-					</div>
+						<div class="image-input">
+							<label for="image1">Image 1 :</label>
+							<input type="file" id="image1" name="image1" accept="image/*" onchange="previewImage(event, 'image1Preview')"/>
+							<img id="image1Preview" src="#" alt="Aperçu de l'image 1" style="max-width: 200px; display: none;">
+						</div>
 
-					<div class="image-input">
-						<label for="image2">Image 2 :</label>
-						<input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(event, 'image2Preview')"/>
-						<img id="image2Preview" src="#" alt="Aperçu de l'image 2" style="max-width: 200px; display: none;">
-					</div>
-					
-					<div class="image-input">
-						<label for="image3">Image 3 :</label>
-						<input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(event, 'image3Preview')"/>
-						<img id="image3Preview" src="#" alt="Aperçu de l'image 3" style="max-width: 200px; display: none;">
-					</div>
+						<div class="image-input">
+							<label for="image2">Image 2 :</label>
+							<input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(event, 'image2Preview')"/>
+							<img id="image2Preview" src="#" alt="Aperçu de l'image 2" style="max-width: 200px; display: none;">
+						</div>
 
-					<div class="image-input">
-						<label for="image4">Image 4 :</label>
-						<input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(event, 'image4Preview')"/>
-						<img id="image4Preview" src="#" alt="Aperçu de l'image 4" style="max-width: 200px; display: none;">
+						<div class="image-input">
+							<label for="image3">Image 3 :</label>
+							<input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(event, 'image3Preview')"/>
+							<img id="image3Preview" src="#" alt="Aperçu de l'image 3" style="max-width: 200px; display: none;">
+						</div>
+
+						<div class="image-input">
+							<label for="image4">Image 4 :</label>
+							<input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(event, 'image4Preview')"/>
+							<img id="image4Preview" src="#" alt="Aperçu de l'image 4" style="max-width: 200px; display: none;">
+						</div>
 					</div>
-				</div>
 			</div>
 
 			<h4>Décrivez votre propriété</h4>
@@ -124,15 +124,16 @@
 							<input type="checkbox" id="{{ equipement.id }}" name="accommodation-types[]" value="{{ equipement.value }}"/>
 							<label for="{{ equipement.id }}">
 								<img src="{{ asset(equipement.image) }}" alt="{{ equipement.label|lower }}"/>
-									{{ equipement.label }}
+								{{ equipement.label }}
 							</label>
 						</div>
 					{% endfor %}
 			</div>
 
 			<div class="container-flex">
-				<h4>Règlement intérieur :</h4>
-				<div class="add-rules">
+
+					<div class="add-rules">
+						<h4>Règlement intérieur :</h4>
 						<label for="check-in-time">Heure d'arrivée :</label>
 						<input type="time" id="check-in-time" name="check-in-time" required/>
 
@@ -143,39 +144,39 @@
 
 						<label for="max-guests">Nombre maximum d'invités :</label>
 						<input type="number" id="max-guests" name="max-guests" required/>
-				</div>
+					</div>
 
-				<h4>Pièces clées de la propriété :</h4>
-				<div class="add-amenities">
-					<label for="property-amenities"></label>
+					<div class="add-amenities">
+						<h4>Pièces clées de la propriété :</h4>
+						<label for="property-amenities"></label>
 
-					{% set roomOptions = [
+						{% set roomOptions = [
 							{ "name": "Nombre de chambres :", "idPrefix": "bedroom", "namePrefix": "bedrooms" },
 							{ "name": "Nombre de lits :", "idPrefix": "bed", "namePrefix": "beds" },
 							{ "name": "Nombre de salles de bain :", "idPrefix": "bathroom", "namePrefix": "bathrooms" },
 							{ "name": "Nombre de toilettes :", "idPrefix": "toilet", "namePrefix": "toilets" }
 					] %}
 
-					{% for roomOption in roomOptions %}
-						<h5>{{ roomOption.name }}</h5>
-						<div class="amenity">
+						{% for roomOption in roomOptions %}
+							<h5>{{ roomOption.name }}</h5>
+							<div class="amenity">
 								<label for="{{ roomOption.namePrefix }}"></label>
 								{% for i in range(1, 8) %}
 									{% set optionId = roomOption.idPrefix ~ '-' ~ i %}
 									<input type="radio" id="{{ optionId }}" name="{{ roomOption.namePrefix }}" value="{{ i }}"/>
 									<label for="{{ optionId }}">{{ i }}</label>
 								{% endfor %}
-						</div>
-					{% endfor %}
-				</div>
+							</div>
+						{% endfor %}
+					</div>
 			</div>
-			
+
 
 			<h4>Choisissez vos tags :</h4>
+			<p>Veuillez sélectionner un seul tag</p>
 			<div class="selection-tags">
-					<label for="tags"></label>
-
-					{% set tags = [
+				<label for="tags"></label>
+				{% set tags = [
 						{ "id": "avecvue", "value": "376", "img": "avecvue.jpg", "alt": "Avec vue", "label": "Avec vue" },
 						{ "id": "chambres", "value": "377", "img": "chambres.jpg", "alt": "Chambres", "label": "Chambres" },
 						{ "id": "campagne", "value": "378", "img": "campagne.jpg", "alt": "Campagne", "label": "Campagne" },
@@ -228,17 +229,18 @@
 						{ "id": "logementsadaptes", "value": "425", "img": "logementsadaptes.jpg", "alt": "Logements adaptés", "label": "Logements adaptés" },
 						{ "id": "caravanes", "value": "426", "img": "caravanes.jpg", "alt": "Caravanes", "label": "Caravanes" },
 						{ "id": "plages", "value": "427", "img": "plages.jpg", "alt": "Plages", "label": "Plages" }
-					] %}
-
-					{% for tag in tags %}
+				] %}
+				{% for tag in tags %}
+					<div class="tag-element">
 						<input type="checkbox" id="{{ tag.id }}" name="tags[]" value="{{ tag.value }}"/>
 						<label for="{{ tag.id }}">
 							<img src="{{ asset('/media/icons/tag/' ~ tag.img) }}" alt="{{ tag.alt }}"/>
-						{{ tag.label }}
+								{{ tag.label }}
 						</label>
-					{% endfor %}
+					</div>
+				{% endfor %}
 			</div>
-				
+
 			<div id="addgooglemaps-property-section">
 					<div class="card-container">
 						<div class="panel">
@@ -261,8 +263,11 @@
 					</div>
 			</div>
 		</div>
-					
-		<input type="submit" name="submit" value="Proposer ma location"/>
+
+		<button class="main-button-style">
+			<input type="submit" name="submit" value="Proposer ma location"/>
+			<span>Proposer ma location</span>
+		</button>
 	</form>
 </section>
 {% endblock %}

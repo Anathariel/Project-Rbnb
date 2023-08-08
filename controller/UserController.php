@@ -12,7 +12,6 @@ class UserController extends Controller
             $rawPass = $_POST['password'];
             $password = password_hash($rawPass, PASSWORD_DEFAULT);
             $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
-            $registrationDate =
                 $user = new User([
                     'firstName' => $firstName,
                     'lastName' => $lastName,

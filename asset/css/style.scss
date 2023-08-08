@@ -143,7 +143,7 @@ h3 {
 }
 
 //~ -------------------- STYLING -------------------- //
-//^ --------- CARD DEFAULT STYLE --------- //
+//^ ---------  DEFAULT STYLE --------- //
 .card {
   position: relative;
   display: flex;
@@ -436,6 +436,55 @@ h3 {
 .medium-card {
   height: 355px;
 }
+
+// .main-button-style {
+//   button {
+//     margin: .5rem 0;
+//     width: 90%;
+//     position: relative;
+//     border: solid 1px $accent;
+//     background-color: transparent;
+//     padding: .5rem;
+//     border-radius: 0.5rem;
+//     cursor: pointer;
+//     overflow: hidden;
+
+//     span {
+//       display: block;
+//       font-family: "Quicksand";
+//       font-size: 1.2rem;
+//       width: 100%;
+//       padding: 0.3rem 0;
+//       color: $accent;
+//       position: relative;
+//       z-index: 1;
+//     }
+
+//     span:hover {
+//       color: $white;
+//     }
+//   }
+
+//   button:before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 0%;
+//     height: 100%;
+//     background-color: $accent;
+//     transition: all 0.5s ease-out;
+//     z-index: 0;
+//   }
+
+//   button:hover:before {
+//     width: 100%;
+//   }
+
+//   input {
+//     display: none;
+//   }
+// }
 
 //? --------- HEADERS --------- //
 
@@ -2402,43 +2451,55 @@ section#googlemaps-property-section {
       }
     }
 
-    .container-flex{
-
-    }
-    
-    .add-rules {
+    .container-flex {
       display: flex;
-      flex-direction: column;
+      justify-content: space-evenly;
       flex-wrap: wrap;
-      justify-content: center;
       align-items: center;
-    }
 
-    .add-amenities {
-
-
-      .amenity {
+      .add-rules {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        
-        label{
-          margin: .5rem;
+      }
+
+      .add-amenities {
+        display: flex;
+        flex-direction: column;
+
+        .amenity {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+
+          label {
+            margin: .5rem;
+          }
         }
       }
     }
 
     .selection-tags {
       display: flex;
-      justify-content: center;
+      flex-direction: row;
       flex-wrap: wrap;
+      justify-content: center;
       margin-bottom: 1rem;
 
       .tag-element {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .tag-element:hover {
+        background-color: rgba(128, 128, 128, 0.252);
+        border-bottom: 1px solid $white;
       }
 
       label {
@@ -2456,8 +2517,54 @@ section#googlemaps-property-section {
       }
     }
   }
-}
 
+  button.main-button-style {
+    margin: .5rem 0;
+    width: 90%;
+    position: relative;
+    border: solid 1px $dash-maincolor;
+    background-color: transparent;
+    padding: .5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    overflow: hidden;
+
+    span {
+      display: block;
+      font-family: "Quicksand";
+      font-size: 1.2rem;
+      width: 100%;
+      padding: 0.3rem 0;
+      color: $dash-maincolor;
+      position: relative;
+      z-index: 1;
+    }
+
+    span:hover {
+      color: $white;
+    }
+
+    &>input {
+      display: none;
+    }
+  }
+
+  button.main-button-style:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: $dash-maincolor;
+    transition: all 1s ease-out;
+    z-index: 0;
+  }
+
+  button.main-button-style:hover:before {
+    width: 100%;
+  }
+}
 
 #editpropertyform {
   background-color: $dashboard-brg;

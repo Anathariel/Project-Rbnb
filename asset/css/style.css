@@ -1978,32 +1978,49 @@ section#googlemaps-property-section div#map {
   background-color: rgba(128, 128, 128, 0.252);
   border-bottom: 1px solid #f8f8f8;
 }
-#addpropertyForm .add-form .add-rules {
+#addpropertyForm .add-form .container-flex {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#addpropertyForm .add-form .container-flex .add-rules {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-#addpropertyForm .add-form .add-amenities .amenity {
+#addpropertyForm .add-form .container-flex .add-amenities {
+  display: flex;
+  flex-direction: column;
+}
+#addpropertyForm .add-form .container-flex .add-amenities .amenity {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-#addpropertyForm .add-form .add-amenities .amenity label {
+#addpropertyForm .add-form .container-flex .add-amenities .amenity label {
   margin: 0.5rem;
 }
 #addpropertyForm .add-form .selection-tags {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 #addpropertyForm .add-form .selection-tags .tag-element {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#addpropertyForm .add-form .selection-tags .tag-element:hover {
+  background-color: rgba(128, 128, 128, 0.252);
+  border-bottom: 1px solid #f8f8f8;
 }
 #addpropertyForm .add-form .selection-tags label {
   width: 70px;
@@ -2016,6 +2033,47 @@ section#googlemaps-property-section div#map {
 }
 #addpropertyForm .add-form .selection-tags label img {
   width: 25px;
+}
+#addpropertyForm button.main-button-style {
+  margin: 0.5rem 0;
+  width: 90%;
+  position: relative;
+  border: solid 1px #0e9384;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+#addpropertyForm button.main-button-style span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #0e9384;
+  position: relative;
+  z-index: 1;
+}
+#addpropertyForm button.main-button-style span:hover {
+  color: #f8f8f8;
+}
+#addpropertyForm button.main-button-style > input {
+  display: none;
+}
+#addpropertyForm button.main-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0e9384;
+  transition: all 1s ease-out;
+  z-index: 0;
+}
+#addpropertyForm button.main-button-style:hover:before {
+  width: 100%;
 }
 
 #editpropertyform {
