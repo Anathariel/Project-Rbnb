@@ -4,52 +4,202 @@
 {% endblock %}
 
 {% block content %}
-	<div>
-		<fieldset>
-			<legend>Modification de votre propriété</legend>
-			<form method="POST" enctype="multipart/form-data" action="{{ router.generate('propertyEdit', {'id': property.id}) }}">
-				<label for="title">Titre de la propriété</label>
-				<br/>
-				<input type="text" id="title" name="title" value="{{ property.title }}" placeholder="Entrer le nom de la propriété"/>
-				<br/>
-				<label for="description">Décrivez votre propriété</label>
-				<br/>
-				<input type="text" id="description" name="description" value="{{ property.description }}" placeholder="Entrer la description de la propriété"/>
-				<br/>
-				<label for="price- night">Prix de la location</label>
-				<br/>
-				<input type="number" id="price-night" name="price-night" value="{{ property.priceNight }}" placeholder="Entrer le prix de la location"/>
-				<br/><br>
+	<section id="editpropertyform">
+		{% if message %}
+			<p>{{ message }}</p>
+		{% endif %}
+		<h1>Modification de votre propriété</h1>
 
-				<label for="propertyImage">Importer les images de la location :</label><br>
+		<form method="POST" enctype="multipart/form-data" action="{{ router.generate('propertyEdit', {'id': property.id}) }}">
 
-				<label for="imageMain">Image principale :</label>
-				<input type="file" id="imageMain" name="imageMain" accept="image/*" onchange="previewImage(event, 'imageMainPreview')"/>
-				<img id="imageMainPreview" src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="Aperçu de l'image principale" style="max-width: 200px;">
-				<br/>
+			<div class="edit-form">
+				<div class="input-flex">
+					<div class="property-title">
+						<h4>Titre de la propriété</h4>
+						<label for="title"></label>
+						<input type="text" id="title" name="title" value="{{ property.title }}" placeholder="Entrer le nom de la propriété"/>
+					</div>
 
-				<label for="image1">Image 1 :</label>
-				<input type="file" id="image1" name="image1" accept="image/*" onchange="previewImage(event, 'image1Preview')"/>
-				<img id="image1Preview" src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ propertyImages.image1URL ? 'Aperçu de l\'image 1' : '' }}" 
- 				style="max-width: 200px;">
-				<br/>
+					<div class="property-price">
+						<h4>Prix de la location</h4>
+						<label for="price- night"></label>
+						<input type="number" id="price-night" name="price-night" value="{{ property.priceNight }}" placeholder="Entrer le prix de la location"/>
+					</div>
 
-				<label for="image2">Image 2 :</label>
-				<input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(event, 'image2Preview')"/>
-				<img id="image2Preview" src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ propertyImages.image2URL ? 'Aperçu de l\'image 2' : '' }}" style="max-width: 200px;">
-				<br/>
+					<div class="property-type">
+					<h4>Modifier le type de propriété :</h4>
+						<label for="property-type"></label>
+						<select id="property-type" name="property-type">
+							<option value="house" {% if propertyType.house %} selected {% endif %}>Maison</option>
+							<option value="flat" {% if propertyType.flat %} selected {% endif %}>Appartement</option>
+							<option value="guesthouse" {% if propertyType.guesthouse %} selected {% endif %}>Maison d'hôte</option>
+							<option value="hotel" {% if propertyType.hotel %} selected {% endif %}>Hôtel</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="property-images">
+					<h4>Vos images</h4>
+					<p>Nous demandons un minimum de 2 image.</p>
+					<div class="images-container">
+						<label for="propertyImage"></label>
+						<div class="image-input">
+							<label for="imageMain">Image principale :</label>
+							<input type="file" id="imageMain" name="imageMain" accept="image/*" onchange="previewImage(event, 'imageMainPreview')"/>
+							<img id="imageMainPreview" src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="Aperçu de l'image principale" style="max-width: 200px;">
+						</div>
 
-				<label for="image3">Image 3 :</label>
-				<input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(event, 'image3Preview')"/>
-				<img id="image3Preview" src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ propertyImages.image3URL ? 'Aperçu de l\'image 3' : '' }}" style="max-width: 200px;">
-				<br/>
+						<div class="image-input">
+							<label for="image1">Image 1 :</label>
+							<input type="file" id="image1" name="image1" accept="image/*" onchange="previewImage(event, 'image1Preview')"/>
+							<img id="image1Preview" src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ propertyImages.image1URL ? 'Aperçu de l\'image 1' : '' }}" style="max-width: 200px;">
+						</div>
 
-				<label for="image4">Image 4 :</label>
-				<input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(event, 'image4Preview')"/>
-				<img id="image4Preview" src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ propertyImages.image4URL ? 'Aperçu de l\'image 4' : '' }}" style="max-width: 200px;">
-				<br/><br>
+						<div class="image-input">
+							<label for="image2">Image 2 :</label>
+							<input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(event, 'image2Preview')"/>
+							<img id="image2Preview" src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ propertyImages.image2URL ? 'Aperçu de l\'image 2' : '' }}" style="max-width: 200px;">
+						</div>
 
-				<section id="addgooglemaps-property-section">
+						<div class="image-input">
+							<label for="image3">Image 3 :</label>
+							<input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(event, 'image3Preview')"/>
+							<img id="image3Preview" src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ propertyImages.image3URL ? 'Aperçu de l\'image 3' : '' }}" style="max-width: 200px;">
+						</div>
+
+						<div class="image-input">
+							<label for="image4">Image 4 :</label>
+							<input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(event, 'image4Preview')"/>
+							<img id="image4Preview" src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ propertyImages.image4URL ? 'Aperçu de l\'image 4' : '' }}" style="max-width: 200px;">
+						</div>
+					</div>
+				</div>
+
+				<h4>Décrivez votre propriété</h4>
+				<label for="description"></label>
+				<textarea id="description" name="description" cols="80" rows="20">{{ property.description }}</textarea>
+
+				<h4>Langues parlées par l'Hôte</h4>
+				<div class="host-languages">
+					<label for="host-languages"></label>
+					{% set languages = {
+						'anglais': 'english', 
+						'français': 'french', 
+						'allemand': 'german',
+						'japonais': 'japanese',
+						'italien': 'italian',
+						'russe': 'russian',
+						'espagnol': 'spanish',
+						'chinois': 'chinese',
+						'arabe': 'arabic'
+					} %}
+					{% for language, id in languages %}
+						<input type="checkbox" id="{{ id }}" name="host-languages[]" value="{{ language }}" {% if oldHostLanguage[id] == 1 %} checked {% endif %}/>
+						<label for="{{ id }}">{{ id|capitalize }}</label>
+					{% endfor %}
+				</div>
+
+				<h4>Équipements disponibles</h4>
+				<div class="selection-accomodation">
+					<label for="accommodation-types"></label>
+						{% set equipmentList = {
+						'piscine': 'Piscine',
+						'parkingGratuit': 'Parking gratuit',
+						'jacuzzi': 'Jacuzzi',
+						'wifi': 'Wifi',
+						'laveLinge': 'Lave-linge',
+						'secheLinge': 'Sèche-linge',
+						'climatisation': 'Climatisation',
+						'chauffage': 'Chauffage',
+						'espaceTravailDedie': 'Espace de travail dédié',
+						'television': 'Télévision',
+						'secheCheveux': 'Sèche-cheveux',
+						'ferRepasser': 'Fer à repasser',
+						'stationRechargeVehiElectriques': 'Station de recharge pour véhicules électriques',
+						'litBebe': 'Lit bébé',
+						'salleSport': 'Salle de sport',
+						'barbecue': 'Barbecue',
+						'petitDejeuner': 'Petit déjeuner',
+						'cheminee': 'Cheminée',
+						'logementFumeur': 'Logement fumeur',
+						'detecteurFumee': 'Détecteur de fumée',
+						'detecteurMonoxyDeCarbone': 'Détecteur de monoxyde de carbone'
+						} %}
+						{% for id, label in equipmentList %}
+						<input type="checkbox" id="{{ id }}" name="accommodation-types[]" value="{{ id }}" {% if accommodationType[id] == 1 %} checked {% endif %}/>
+						<label for="{{ id }}">{{ label }}</label>
+						{% endfor %}
+				</div>
+
+				<div class="container-flex">
+					<div class="add-rules">
+						<h4>Règlement intérieur :</h4>
+						<label for="house-rules"></label>
+						
+						<label for="check-in-time">Heure d'arrivée :</label>
+						<input type="time" id="check-in-time" name="check-in-time" value="{{ houseRules.checkInTime|date('H:i') }}" required/>
+
+						<label for="check-out-time">Heure de départ :</label>
+						<input type="time" id="check-out-time" name="check-out-time" value="{{ houseRules.checkOutTime|date('H:i') }}" required/>
+
+						<label for="max-guests">Nombre maximum d'invités :</label>
+						<input type="number" id="max-guests" name="max-guests" value="{{ houseRules.maxGuests }}" required/>
+					</div>
+
+					<div class="add-amenities">
+						<h4>Pièces clées de la propriété :</h4>
+						<label for="property-amenities"></label>
+						<div class="amenity">
+							<label for="bedrooms">Nombre de chambres :</label>
+							{% for i in 1..8 %}
+								<input type="radio" id="bedroom-{{ i }}" name="bedrooms" value="{{ i }}" {{ propertyAmenities.bedrooms == i ? 'checked' : '' }}/>
+								<label for="bedroom-{{ i }}">{{ i }}</label>
+							{% endfor %}
+						</div>
+						
+						<div class="amenity">
+							<label for="beds">Nombre de lits :</label>
+							{% for i in 1..8 %}
+								<input type="radio" id="bed-{{ i }}" name="beds" value="{{ i }}" {{ propertyAmenities.beds == i ? 'checked' : '' }}/>
+								<label for="bed-{{ i }}">{{ i }}</label>
+							{% endfor %}
+						</div>
+						
+						<div class="amenity">
+							<label for="bathrooms">Nombre de salles de bain :</label>
+							{% for i in 1..8 %}
+								<input type="radio" id="bathroom-{{ i }}" name="bathrooms" value="{{ i }}" {{ propertyAmenities.bathrooms == i ? 'checked' : '' }}/>
+								<label for="bathroom-{{ i }}">{{ i }}</label>
+							{% endfor %}
+						</div>
+						
+						<div class="amenity">
+							<label for="toilets">Nombre de toilettes :</label>
+							{% for i in 1..8 %}
+								<input type="radio" id="toilet-{{ i }}" name="toilets" value="{{ i }}" {{ propertyAmenities.toilets == i ? 'checked' : '' }}/>
+								<label for="toilet-{{ i }}">{{ i }}</label>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+				<h4>Choisissez votre tag :</h4>
+				<p>Veuillez sélectionner un seul tag</p>
+				<div class="selection-tag">
+					<label for="tags"></label>
+					<div class="tag-element">
+					{% for tag in tags %}
+							<input type="checkbox" id="{{ tag.picto }}" name="tags[]" value="{{ tag.tagId }}" {% if tag.tagId in selectedTags %} checked {% endif %}/>
+							<label for="{{ tag.picto }}">
+								<img src="{{ asset('/media/icons/tag/' ~ tag.picto) }}" alt="{{ tag.type }}"/>
+								{{ tag.type }}
+							</label>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<section id="addgooglemaps-property-section">
 							<div class="card-container">
 								<div class="panel">
 									<div>
@@ -71,158 +221,10 @@
 								</div>
 								<div class="map" id="gmp-map"></div>
 							</div>
-						</section>
-
-				<label for="property-type">Choisissez le type de propriété :</label>
-				<br/>
-				<select id="property-type" name="property-type">
-					<option value="house" {% if propertyType.house %} selected {% endif %}>Maison</option>
-					<option value="flat" {% if propertyType.flat %} selected {% endif %}>Appartement</option>
-					<option value="guesthouse" {% if propertyType.guesthouse %} selected {% endif %}>Maison d'hôte</option>
-					<option value="hotel" {% if propertyType.hotel %} selected {% endif %}>Hôtel</option>
-				</select>
-
-				<br/><br/>
-
-				<label for="host-languages">Langues parlées par l'hôte :</label>
-				<br/>
-				{% set languages = {
-					'anglais': 'english', 
-					'français': 'french', 
-					'allemand': 'german',
-					'japonais': 'japanese',
-					'italien': 'italian',
-					'russe': 'russian',
-					'espagnol': 'spanish',
-					'chinois': 'chinese',
-					'arabe': 'arabic'
-				} %}
-
-				{% for language, id in languages %}
-				<input type="checkbox" id="{{ id }}" name="host-languages[]" value="{{ language }}" {% if oldHostLanguage[id] == 1 %} checked {% endif %}/>
-				<label for="{{ id }}">{{ id|capitalize }}</label>
-				<br/>
-				{% endfor %}
-				<br/><br/>
-
-
-
-				<label for="house-rules">Règlement intérieur :</label>
-				<br/>
-				<label for="check-in-time">Heure d'arrivée :</label>
-				<input type="time" id="check-in-time" name="check-in-time" value="{{ houseRules.checkInTime|date('H:i') }}" required/>
-				<br/>
-
-				<label for="check-out-time">Heure de départ :</label>
-				<input type="time" id="check-out-time" name="check-out-time" value="{{ houseRules.checkOutTime|date('H:i') }}" required/>
-				<br/>
-
-				<label for="max-guests">Nombre maximum d'invités :</label>
-				<input type="number" id="max-guests" name="max-guests" value="{{ houseRules.maxGuests }}" required/>
-				<br/><br/>
-
-
-				<label for="property-amenities">Pièces clées de la propriété :</label>
-				<br/>
-				<label for="bedrooms">Nombre de chambres :</label>
-				<br/>
-				{% for i in 1..8 %}
-					<input type="radio" id="bedroom-{{ i }}" name="bedrooms" value="{{ i }}" {{ propertyAmenities.bedrooms == i ? 'checked' : '' }}/>
-					<label for="bedroom-{{ i }}">{{ i }}</label>
-					<br/>
-				{% endfor %}
-				<input type="radio" id="bedroom-8+" name="bedrooms" value="8+" {{ propertyAmenities.bedrooms >= 8 ? 'checked' : '' }}/>
-				<label for="bedroom-8+">8+</label>
-
-				<br/><br/>
-
-				<label for="beds">Nombre de lits :</label>
-				<br/>
-				{% for i in 1..8 %}
-					<input type="radio" id="bed-{{ i }}" name="beds" value="{{ i }}" {{ propertyAmenities.beds == i ? 'checked' : '' }}/>
-					<label for="bed-{{ i }}">{{ i }}</label>
-					<br/>
-				{% endfor %}
-				<input type="radio" id="bed-8+" name="beds" value="8+" {{ propertyAmenities.beds >= 8 ? 'checked' : '' }}/>
-				<label for="bed-8+">8+</label>
-
-				<br/><br/>
-
-				<label for="bathrooms">Nombre de salles de bain :</label>
-				<br/>
-				{% for i in 1..8 %}
-					<input type="radio" id="bathroom-{{ i }}" name="bathrooms" value="{{ i }}" {{ propertyAmenities.bathrooms == i ? 'checked' : '' }}/>
-					<label for="bathroom-{{ i }}">{{ i }}</label>
-					<br/>
-				{% endfor %}
-				<input type="radio" id="bathroom-8+" name="bathrooms" value="8+" {{ propertyAmenities.bathrooms >= 8 ? 'checked' : '' }}/>
-				<label for="bathroom-8+">8+</label>
-
-				<br/><br/>
-
-				<label for="toilets">Nombre de toilettes :</label>
-				<br/>
-				{% for i in 1..8 %}
-					<input type="radio" id="toilet-{{ i }}" name="toilets" value="{{ i }}" {{ propertyAmenities.toilets == i ? 'checked' : '' }}/>
-					<label for="toilet-{{ i }}">{{ i }}</label>
-					<br/>
-				{% endfor %}
-				<input type="radio" id="toilet-8+" name="toilets" value="8+" {{ propertyAmenities.toilets >= 8 ? 'checked' : '' }}/>
-				<label for="toilet-8+">8+</label>
-				<br/><br/>
-
-
-				<label for="accommodation-types">Equipements disponibles :</label>
-				{% set equipmentList = {
-				'piscine': 'Piscine',
-				'parkingGratuit': 'Parking gratuit',
-				'jacuzzi': 'Jacuzzi',
-				'wifi': 'Wifi',
-				'laveLinge': 'Lave-linge',
-				'secheLinge': 'Sèche-linge',
-				'climatisation': 'Climatisation',
-				'chauffage': 'Chauffage',
-				'espaceTravailDedie': 'Espace de travail dédié',
-				'television': 'Télévision',
-				'secheCheveux': 'Sèche-cheveux',
-				'ferRepasser': 'Fer à repasser',
-				'stationRechargeVehiElectriques': 'Station de recharge pour véhicules électriques',
-				'litBebe': 'Lit bébé',
-				'salleSport': 'Salle de sport',
-				'barbecue': 'Barbecue',
-				'petitDejeuner': 'Petit déjeuner',
-				'cheminee': 'Cheminée',
-				'logementFumeur': 'Logement fumeur',
-				'detecteurFumee': 'Détecteur de fumée',
-				'detecteurMonoxyDeCarbone': 'Détecteur de monoxyde de carbone'
-				} %}
-				<br/>
-
-				{% for id, label in equipmentList %}
-					<input type="checkbox" id="{{ id }}" name="accommodation-types[]" value="{{ id }}" {% if accommodationType[id] == 1 %} checked {% endif %}/>
-					<label for="{{ id }}">{{ label }}</label>
-					<br/>
-				{% endfor %}
-				<br/><br/>
-
-
-				<label for="tags">Choisissez vos tags :</label>
-				<br/>
-				{% for tag in tags %}
-					<input type="checkbox" id="{{ tag.picto }}" name="tags[]" value="{{ tag.tagId }}" {% if tag.tagId in selectedTags %} checked {% endif %}/>
-					<label for="{{ tag.picto }}">
-						<img src="{{ asset('/media/icons/tag/' ~ tag.picto) }}" alt="{{ tag.type }}"/>
-						{{ tag.type }}
-					</label>
-					<br/>
-				{% endfor %}
-				<br/>
-
-
-				<input type="submit" name="submit" value="Modifier"/>
-			</form>
-		</fieldset>
-	</div>
+			</section>
+			<input type="submit" name="submit" value="Modifier"/>
+		</form>
+	</section>
 {% endblock %}
 
 {% block javascript %}

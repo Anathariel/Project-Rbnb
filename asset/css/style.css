@@ -1891,6 +1891,26 @@ section#googlemaps-property-section div#map {
   display: flex;
   flex-direction: column;
 }
+#addpropertyForm .add-form .input-flex .property-title input,
+#addpropertyForm .add-form .input-flex .property-price input,
+#addpropertyForm .add-form .input-flex .property-type input {
+  border: 1px solid #0e9384;
+  padding: 0.5rem;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  background-color: rgba(248, 248, 248, 0.7294117647);
+  border-radius: 0.5rem;
+}
+#addpropertyForm .add-form .input-flex .property-title input:hover,
+#addpropertyForm .add-form .input-flex .property-title input:focus,
+#addpropertyForm .add-form .input-flex .property-price input:hover,
+#addpropertyForm .add-form .input-flex .property-price input:focus,
+#addpropertyForm .add-form .input-flex .property-type input:hover,
+#addpropertyForm .add-form .input-flex .property-type input:focus {
+  background-color: #f8f8f8;
+  outline: max(2px, 0.15em) solid #f8f8f8;
+  outline-offset: max(2px, 0.15em);
+}
 #addpropertyForm .add-form .property-images {
   overflow: hidden;
   display: flex;
@@ -2080,23 +2100,338 @@ section#googlemaps-property-section div#map {
 
 #editpropertyform {
   background-color: #e1e7ea;
+  text-align: center;
+  padding: 1rem;
 }
-#editpropertyform fieldset {
+#editpropertyform h1 {
+  color: #0e9384;
+  font-size: 2rem;
+}
+#editpropertyform .edit-form {
   padding: 1rem 3rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
-#editpropertyform fieldset .edit-tags {
+#editpropertyform .edit-form h4 {
+  color: #0e9384;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+#editpropertyform .edit-form h5 {
+  color: #0e9384;
+  font-size: 1rem;
+}
+#editpropertyform .edit-form input[type=text] {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #0e9384;
+  font-family: "Quicksand";
+  background-color: rgba(255, 255, 255, 0.6470588235);
+}
+#editpropertyform .edit-form input[type=text]:focus,
+#editpropertyform .edit-form input[type=text]:focus {
+  color: #0e9384;
+  outline: transparent;
+  background-color: #ffffff;
+}
+#editpropertyform .edit-form select {
+  background-color: rgba(255, 255, 255, 0.6470588235);
+  border: 1px solid #0e9384;
+  font-family: "Quicksand";
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+}
+#editpropertyform .edit-form textarea {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #0e9384;
+  font-family: "Quicksand";
+  background-color: rgba(255, 255, 255, 0.6470588235);
+}
+#editpropertyform .edit-form input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #0e9384;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid #0e9384;
+  border-radius: 0.3rem;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+#editpropertyform .edit-form input[type=checkbox]::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #0e9384;
+  transform-origin: bottom left;
+  -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+          clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+#editpropertyform .edit-form input[type=checkbox]:checked::before {
+  transform: scale(1);
+  color: #0e9384;
+  background-color: #0e9384;
+}
+#editpropertyform .edit-form input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #0e9384;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #0e9384;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+#editpropertyform .edit-form input[type=radio]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #0e9384;
+}
+#editpropertyform .edit-form input[type=radio]:checked::before {
+  transform: scale(1);
+}
+#editpropertyform .edit-form .input-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+#editpropertyform .edit-form .input-flex .property-title,
+#editpropertyform .edit-form .input-flex .property-price,
+#editpropertyform .edit-form .input-flex .property-type {
+  display: flex;
+  flex-direction: column;
+}
+#editpropertyform .edit-form .input-flex .property-title input,
+#editpropertyform .edit-form .input-flex .property-price input,
+#editpropertyform .edit-form .input-flex .property-type input {
+  border: 1px solid #0e9384;
+  padding: 0.5rem;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  background-color: rgba(248, 248, 248, 0.7294117647);
+  border-radius: 0.5rem;
+}
+#editpropertyform .edit-form .input-flex .property-title input:hover,
+#editpropertyform .edit-form .input-flex .property-title input:focus,
+#editpropertyform .edit-form .input-flex .property-price input:hover,
+#editpropertyform .edit-form .input-flex .property-price input:focus,
+#editpropertyform .edit-form .input-flex .property-type input:hover,
+#editpropertyform .edit-form .input-flex .property-type input:focus {
+  background-color: #f8f8f8;
+  outline: max(2px, 0.15em) solid #f8f8f8;
+  outline-offset: max(2px, 0.15em);
+}
+#editpropertyform .edit-form .property-images {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+#editpropertyform .edit-form .property-images p {
+  font-size: 0.8rem;
+}
+#editpropertyform .edit-form .property-images .images-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#editpropertyform .edit-form .property-images .images-container .image-input {
+  display: flex;
+  flex-direction: column;
+}
+#editpropertyform .edit-form .property-images input::file-selector-button {
+  border: 1px solid #0e9384;
+  background-color: #e1e7ea;
+  border-radius: 0.5rem;
+  font-family: "Quicksand-bold";
+  margin: 0.5rem;
+  padding: 0.3rem;
+}
+#editpropertyform .edit-form .property-images input::file-selector-button:hover {
+  cursor: pointer;
+  color: #f8f8f8;
+  background-color: #0e9384;
+}
+#editpropertyform .edit-form .host-languages {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+#editpropertyform .edit-form .host-languages label {
+  margin: 1.5rem;
+}
+#editpropertyform .edit-form .selection-accomodation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 0;
+}
+#editpropertyform .edit-form .selection-accomodation .equipement {
+  width: 200px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#editpropertyform .edit-form .selection-accomodation .equipement label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+#editpropertyform .edit-form .selection-accomodation .equipement label img {
+  width: 20px;
+}
+#editpropertyform .edit-form .selection-accomodation .equipement label:hover {
+  cursor: pointer;
+}
+#editpropertyform .edit-form .selection-accomodation .equipement:hover {
+  background-color: rgba(128, 128, 128, 0.252);
+  border-bottom: 1px solid #f8f8f8;
+}
+#editpropertyform .edit-form .container-flex {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  align-items: center;
 }
-#editpropertyform fieldset .edit-tags label {
+#editpropertyform .edit-form .container-flex .add-rules {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+#editpropertyform .edit-form .container-flex .add-amenities {
+  display: flex;
+  flex-direction: column;
+}
+#editpropertyform .edit-form .container-flex .add-amenities .amenity {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+#editpropertyform .edit-form .container-flex .add-amenities .amenity label {
+  margin: 0.5rem;
+}
+#editpropertyform .edit-form .container-flex input {
+  border: 1px solid #0e9384;
+  padding: 0.5rem;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  background-color: rgba(248, 248, 248, 0.7294117647);
+  border-radius: 0.5rem;
+}
+#editpropertyform .edit-form .container-flex input:hover,
+#editpropertyform .edit-form .container-flex input:focus {
+  background-color: #f8f8f8;
+  outline: max(2px, 0.15em) solid #f8f8f8;
+  outline-offset: max(2px, 0.15em);
+}
+#editpropertyform .edit-form .selection-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+#editpropertyform .edit-form .selection-tags .tag-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#editpropertyform .edit-form .selection-tags .tag-element:hover {
+  background-color: rgba(128, 128, 128, 0.252);
+  border-bottom: 1px solid #f8f8f8;
+}
+#editpropertyform .edit-form .selection-tags label {
   width: 70px;
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-#editpropertyform fieldset .edit-tags label img {
+#editpropertyform .edit-form .selection-tags label img {
   width: 25px;
+}
+#editpropertyform button.main-button-style {
+  margin: 0.5rem 0;
+  width: 90%;
+  position: relative;
+  border: solid 1px #0e9384;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+#editpropertyform button.main-button-style span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #0e9384;
+  position: relative;
+  z-index: 1;
+}
+#editpropertyform button.main-button-style span:hover {
+  color: #f8f8f8;
+}
+#editpropertyform button.main-button-style > input {
+  display: none;
+}
+#editpropertyform button.main-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0e9384;
+  transition: all 1s ease-out;
+  z-index: 0;
+}
+#editpropertyform button.main-button-style:hover:before {
+  width: 100%;
 }
 
 #user-edit {

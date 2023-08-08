@@ -26,7 +26,7 @@
 				<div class="property-price">
 						<h4>Déterminez le prix d'une nuit</h4>
 						<label for="price-night"></label>
-						<input type="text" id="price-night" name="price-night" placeholder="Déterminez le prix d'une nuit"/>
+						<input type="number" id="price-night" name="price-night" placeholder="Déterminez le prix d'une nuit"/>
 				</div>
 
 				<div class="property-type">
@@ -45,6 +45,7 @@
 				<h4>Importer vos images de la location :</h4>
 				<p>Nous demandons un minimum de 2 image.</p>
 				<div class="images-container">
+					<label for="propertyImage"></label>
 					<div class="image-input">
 						<label for="imageMain">Image principale :</label>
 						<input type="file" id="imageMain" name="imageMain" accept="image/*" required onchange="previewImage(event, 'imageMainPreview')"/>
@@ -92,7 +93,7 @@
 					{% endfor %}
 			</div>
 
-			<h4>Equipements disponibles :</h4>
+			<h4>Équipements disponibles :</h4>
 			<div class="selection-accomodation">
 					<label for="accommodation-types"></label>
 					{% set equipements = [
@@ -132,13 +133,12 @@
 			<div class="container-flex">
 				<div class="add-rules">
 						<h4>Règlement intérieur :</h4>
+
 						<label for="check-in-time">Heure d'arrivée :</label>
 						<input type="time" id="check-in-time" name="check-in-time" required/>
 
-
 						<label for="check-out-time">Heure de départ :</label>
 						<input type="time" id="check-out-time" name="check-out-time" required/>
-
 
 						<label for="max-guests">Nombre maximum d'invités :</label>
 						<input type="number" id="max-guests" name="max-guests" required/>
