@@ -2279,6 +2279,7 @@ section#googlemaps-property-section {
       transform: translateY(-0.075em);
       display: grid;
       place-content: center;
+      cursor: pointer;
     }
 
     input[type="checkbox"]::before {
@@ -2313,6 +2314,7 @@ section#googlemaps-property-section {
       transform: translateY(-0.075em);
       display: grid;
       place-content: center;
+      cursor: pointer;
     }
 
     input[type="radio"]::before {
@@ -2328,22 +2330,6 @@ section#googlemaps-property-section {
 
     input[type="radio"]:checked::before {
       transform: scale(1);
-    }
-
-    input {
-      border: 1px solid $dash-maincolor;
-      padding: .5rem;
-      font-family: $bold;
-      font-size: 1rem;
-      background-color: #f8f8f8ba;
-      border-radius: .5rem;
-    }
-
-    input:hover,
-    input:focus {
-      background-color: $white;
-      outline: max(2px, 0.15em) solid $white;
-      outline-offset: max(2px, 0.15em);
     }
 
     //^ --------- Structure --------- //
@@ -2480,6 +2466,22 @@ section#googlemaps-property-section {
             margin: .5rem;
           }
         }
+      }
+
+      input {
+        border: 1px solid $dash-maincolor;
+        padding: .5rem;
+        font-family: $bold;
+        font-size: 1rem;
+        background-color: #f8f8f8ba;
+        border-radius: .5rem;
+      }
+  
+      input:hover,
+      input:focus {
+        background-color: $white;
+        outline: max(2px, 0.15em) solid $white;
+        outline-offset: max(2px, 0.15em);
       }
     }
 

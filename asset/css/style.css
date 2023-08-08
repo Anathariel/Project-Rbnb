@@ -1829,6 +1829,7 @@ section#googlemaps-property-section div#map {
   transform: translateY(-0.075em);
   display: grid;
   place-content: center;
+  cursor: pointer;
 }
 #addpropertyForm .add-form input[type=checkbox]::before {
   content: "";
@@ -1862,6 +1863,7 @@ section#googlemaps-property-section div#map {
   transform: translateY(-0.075em);
   display: grid;
   place-content: center;
+  cursor: pointer;
 }
 #addpropertyForm .add-form input[type=radio]::before {
   content: "";
@@ -1875,20 +1877,6 @@ section#googlemaps-property-section div#map {
 }
 #addpropertyForm .add-form input[type=radio]:checked::before {
   transform: scale(1);
-}
-#addpropertyForm .add-form input {
-  border: 1px solid #0e9384;
-  padding: 0.5rem;
-  font-family: "Quicksand-bold";
-  font-size: 1rem;
-  background-color: rgba(248, 248, 248, 0.7294117647);
-  border-radius: 0.5rem;
-}
-#addpropertyForm .add-form input:hover,
-#addpropertyForm .add-form input:focus {
-  background-color: #f8f8f8;
-  outline: max(2px, 0.15em) solid #f8f8f8;
-  outline-offset: max(2px, 0.15em);
 }
 #addpropertyForm .add-form .input-flex {
   display: flex;
@@ -2004,6 +1992,20 @@ section#googlemaps-property-section div#map {
 }
 #addpropertyForm .add-form .container-flex .add-amenities .amenity label {
   margin: 0.5rem;
+}
+#addpropertyForm .add-form .container-flex input {
+  border: 1px solid #0e9384;
+  padding: 0.5rem;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  background-color: rgba(248, 248, 248, 0.7294117647);
+  border-radius: 0.5rem;
+}
+#addpropertyForm .add-form .container-flex input:hover,
+#addpropertyForm .add-form .container-flex input:focus {
+  background-color: #f8f8f8;
+  outline: max(2px, 0.15em) solid #f8f8f8;
+  outline-offset: max(2px, 0.15em);
 }
 #addpropertyForm .add-form .selection-tags {
   display: flex;
