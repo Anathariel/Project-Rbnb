@@ -19,8 +19,11 @@ class FavoriteController extends Controller
             $favoriteModel = new FavoriteModel();
             $favoriteModel->addFavoriteModel($favorite);
 
-
-            header('Location: ' . $router->generate('home', ['id' => $propertyId]));
+            if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                // c'est une requête AJAX
+                echo json_encode(['success' => true]);
+                exit;
+            }
         }
     }
 

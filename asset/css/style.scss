@@ -19,7 +19,7 @@ $gradient: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
 //* --------- FONT --------- //
 
 $font: "Quicksand";
-$bold: 'Quicksand-bold';
+$bold: "Quicksand-bold";
 
 //? -------------------- RESETS -------------------- //
 
@@ -93,28 +93,76 @@ h3 {
   display: none;
 }
 
+// -------------------- class connum search -------------------- //
+
+/* CSS pour cacher l'élément d'autocomplétion généré par jQuery UI */
+.ui-autocomplete {
+  max-height: 250px;
+  height: fit-content;
+  width: fit-content;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  border: 1px solid #ccc;
+
+  /* Fixer le footer en bas de la page */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.ui-menu-item {
+  padding: 8px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.ui-state-active {
+  background-color: #f0f0f0;
+}
+
+.ui-menu-item-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* CSS pour cacher le scroll lorsque l'autocomplétion est ouverte */
+.autocomplete-open {
+  overflow: hidden;
+}
+
+/* CSS pour masquer le texte du message */
+.ui-helper-hidden-accessible {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 //~ -------------------- STYLING -------------------- //
 //^ --------- CARD DEFAULT STYLE --------- //
 .card {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   height: 450px;
-  width: 100%;
   max-width: 280px;
-  margin: 2rem auto;
+  margin: 1rem auto;
   background-color: $white;
   border-radius: 0.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   figure {
-    padding: 1rem 0;
     position: relative;
 
     img {
-      width: 90%;
-      max-width: 260px;
-      max-height: 150px;
+      margin: 0 .5rem;
+      width: 250px;
+      height: 150px;
       object-fit: cover;
       object-position: top;
       border-radius: 0.5rem;
@@ -135,6 +183,7 @@ h3 {
 
         img {
           width: 30px;
+          height: 30px;
         }
 
         input {
@@ -145,9 +194,10 @@ h3 {
   }
 
   .card-details {
-    padding: 0 1rem;
+    width: 100%;
 
     .pricing {
+      margin: 1rem;
       display: flex;
       flex-direction: row;
       margin-right: auto;
@@ -157,6 +207,7 @@ h3 {
       }
 
       .rating {
+        margin: 0 1rem;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -168,7 +219,6 @@ h3 {
       display: flex;
       flex-direction: row;
       align-items: center;
-      padding: 1rem 0;
 
       img {
         margin: 0.2rem;
@@ -176,6 +226,12 @@ h3 {
     }
 
     .description {
+      width: 90%;
+      margin: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
       h3 {
         text-align: left;
         font-size: 1.2rem;
@@ -184,16 +240,50 @@ h3 {
         -webkit-line-clamp: 1;
         line-clamp: 1;
         -webkit-box-orient: vertical;
-        margin: .5rem;
+        margin: 0.5rem;
+      }
+
+      .locataire{
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: center;
+        .img-profile{
+          background-color: grey;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          margin: 1rem;
+        }
+      }
+    }
+
+    .calendar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+
+      input[type="date"] {
+        border: none;
+        outline: transparent;
+        font-family: "Quicksand";
+        text-transform: uppercase;
+      }
+
+      .arrival,
+      .departure {
+        width: 50%;
+        padding: 0.5rem;
       }
     }
 
     button {
-      width: 100%;
+      margin: .5rem 0;
+      width: 90%;
       position: relative;
-      margin: 0.5rem 0;
       border: solid 1px $accent;
       background-color: transparent;
+      padding: .5rem;
       border-radius: 0.5rem;
       cursor: pointer;
       overflow: hidden;
@@ -201,7 +291,7 @@ h3 {
       span {
         display: block;
         font-family: "Quicksand";
-        font-size: 1rem;
+        font-size: 1.2rem;
         width: 100%;
         padding: 0.3rem 0;
         color: $accent;
@@ -233,11 +323,16 @@ h3 {
     .dashboard-property-buttons {
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
+      justify-content: center;
       align-items: center;
       margin: 1rem;
+      width: 90%;
+      height: 2rem;
 
       .button {
+        width: 6rem;
+        padding: .5rem;
+
         p {
           color: $dash-maincolor;
           font-family: $bold;
@@ -247,10 +342,12 @@ h3 {
 
       .button:hover {
         border: 1px solid $dash-maincolor;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
       }
 
       input {
+        width: 7rem;
+        padding: .5rem;
         color: red;
         font-family: $bold;
         font-size: 1rem;
@@ -262,7 +359,50 @@ h3 {
 
       input:hover {
         border: 1px solid red;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
+      }
+
+      button {
+        margin: .5rem 0;
+        width: 90%;
+        position: relative;
+        border: solid 1px $dash-maincolor;
+        background-color: transparent;
+        padding: .5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        overflow: hidden;
+  
+        span {
+          display: block;
+          font-family: "Quicksand";
+          font-size: 1.2rem;
+          width: 100%;
+          padding: 0.3rem 0;
+          color: $dash-maincolor;
+          position: relative;
+          z-index: 1;
+        }
+  
+        span:hover {
+          color: $white;
+        }
+      }
+  
+      button:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: $dash-maincolor;
+        transition: all 0.5s ease-out;
+        z-index: 0;
+      }
+  
+      button:hover:before {
+        width: 100%;
       }
     }
   }
@@ -669,6 +809,11 @@ footer {
 //? --------- Hero Section --------- //
 
 #hero {
+  width: 99.5vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+
   figure {
     position: relative;
     height: 450px;
@@ -894,6 +1039,7 @@ section#new-destinations-section {
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-align: center;
 
     a {
       padding-top: 1.5rem;
@@ -960,7 +1106,7 @@ section#new-destinations-section {
 
             p {
               span {
-                font-family: 'Quicksand-bold';
+                font-family: "Quicksand-bold";
               }
             }
           }
@@ -1027,6 +1173,7 @@ section#best-tags-section {
     flex-direction: row-reverse;
     flex-wrap: wrap;
     align-items: center;
+    text-align: center;
 
     div.best-tags-flex-cards {
       width: 40%;
@@ -1101,7 +1248,7 @@ section#best-tags-section {
 
             p {
               span {
-                font-family: 'Quicksand-bold';
+                font-family: "Quicksand-bold";
               }
             }
           }
@@ -1161,8 +1308,6 @@ section#features-section {
       img {
         width: 100%;
         min-height: 100px;
-
-
       }
     }
 
@@ -1188,6 +1333,27 @@ section#features-section {
           line-height: 24px;
         }
       }
+    }
+  }
+
+  @media screen and (min-width: 950px) {
+
+    div#container-card-features {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div#container-description-features {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding-bottom: 1.5rem;
+    }
+
+    div.item-features-commun {
+      margin: 1rem;
     }
   }
 }
@@ -1271,7 +1437,7 @@ section#property-section {
       img {
         width: 100%;
         min-height: 650px;
-        border-radius: .8rem;
+        border-radius: 0.8rem;
         object-fit: cover;
       }
     }
@@ -1285,8 +1451,8 @@ section#property-section {
       img {
         width: 45%;
         max-height: 400px;
-        border-radius: .8rem;
-        margin: .3rem;
+        border-radius: 0.8rem;
+        margin: 0.3rem;
         object-fit: cover;
       }
     }
@@ -1342,7 +1508,6 @@ section#property-section {
     }
   }
 
-
   h3 {
     font-size: 1.5rem;
     color: $accent;
@@ -1377,7 +1542,7 @@ section#property-section {
       }
 
       .property-equipment {
-        margin-left: .5rem;
+        margin-left: 0.5rem;
         max-height: 350px;
 
         .equipment-list {
@@ -1505,7 +1670,6 @@ section#property-section {
                     width: 15px;
                   }
                 }
-
               }
             }
           }
@@ -1533,10 +1697,10 @@ section#property-section {
 
               span {
                 display: block;
-                font-family: 'Quicksand';
+                font-family: "Quicksand";
                 font-size: 1.2rem;
                 width: 100%;
-                padding: .3rem 0;
+                padding: 0.3rem 0;
                 color: $accent;
                 position: relative;
                 z-index: 1;
@@ -1555,7 +1719,7 @@ section#property-section {
               width: 0%;
               height: 100%;
               background-color: $accent;
-              transition: all .5s ease-out;
+              transition: all 0.5s ease-out;
               z-index: 0;
             }
 
@@ -1674,8 +1838,9 @@ section#property-section {
 
         button {
           width: 100%;
+          min-width: 300px;
           position: relative;
-          margin: 0.5rem 0;
+          margin: 0.5rem;
           border: solid 1px $accent;
           background-color: transparent;
           border-radius: 0.5rem;
@@ -1717,6 +1882,10 @@ section#property-section {
         p {
           font-size: 0.7rem;
         }
+
+        input[type="submit"] {
+          display: none;
+        }
       }
 
       .price-details {
@@ -1745,9 +1914,34 @@ section#property-section {
       .rating-input {
         display: flex;
         flex-direction: column;
-        .rating-stars{
+
+        .rating-stars {
           display: flex;
           flex-direction: row;
+
+          label img {
+            width: 25px;
+            /* Adjust the size of the stars as needed */
+            cursor: pointer;
+            opacity: 0.6;
+            /* Set the initial opacity for non-active stars */
+          }
+
+          label img:hover {
+            opacity: 0.8;
+            /* Set the opacity on hover */
+          }
+
+          input[type="radio"]:checked+label img {
+            opacity: 1;
+            /* Set the opacity to 1 for the checked (active) star */
+          }
+
+          input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+          }
         }
       }
 
@@ -1797,11 +1991,11 @@ section#property-section {
       button:hover:before {
         width: 100%;
       }
-      input[type=submit] {
+
+      input[type="submit"] {
         display: none;
       }
     }
-
   }
 
   div {
@@ -1817,7 +2011,6 @@ section#googlemaps-property-section {
     height: 400px;
   }
 }
-
 
 section#addgooglemaps-property-section {
   .sb-title {
@@ -1957,9 +2150,9 @@ section#addgooglemaps-property-section {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    justify-content: center;
+    justify-content: space-around;
+    margin: 1rem 3rem;
   }
-
 }
 
 #addpropertyForm {
@@ -2144,10 +2337,9 @@ section#addgooglemaps-property-section {
   }
 
   .account-buttons {
-
     display: flex;
 
-    input[type=submit] {
+    input[type="submit"] {
       border: none;
       background-color: transparent;
       outline: transparent;
@@ -2236,7 +2428,7 @@ section#addgooglemaps-property-section {
     margin: 1rem;
 
     img {
-      border-radius: .5rem;
+      border-radius: 0.5rem;
     }
   }
 }
@@ -2249,4 +2441,90 @@ section#addgooglemaps-property-section {
   text-align: center;
   justify-content: space-evenly;
   margin: 1rem 5rem;
+}
+
+//~ -------------------- BLOG -------------------- //
+
+section#section-blog {
+  // # car id //
+  margin-top: 20px;
+
+  p.sub-title-section {
+    // couleur du texte //
+    color: black;
+    text-align: center;
+    padding: 30px;
+  }
+
+  div#container-section-blog {
+    // # car id //
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+
+
+    div.card-blog {
+      // # car class L14 //
+      width: 100%;
+      max-width: 420px;
+      height: 540px;
+      background-color: $white;
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      margin: 0 5px 40px 5px;
+      transition: all 0.5s ease;
+
+      @media screen and (min-width: 950px) {
+        // responsive //
+        width: 384px;
+        height: 456px;
+
+        &:hover {
+          .bg-image {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      div.card-blog-top {
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0 auto;
+
+
+      }
+
+      div.card-blog-bottom {
+        position: relative;
+        padding: 30px 40px;
+        text-align: center;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        p {
+          margin-top: 15px;
+        }
+      }
+
+      div.card-blog {
+        position: relative;
+        text-align: center;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+      }
+    }
+  }
 }

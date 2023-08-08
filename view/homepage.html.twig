@@ -43,15 +43,9 @@
 									<h3 id="title-description-card">{{ propertys[0].title }}</h3>
 									<p>
 										<span>{{ propertys[0].PriceNight }}</span>€/nuit</p>
-									<p>{{ propertys[0].address }}</p>
+									<p>{{ propertys[0].city }}</p>
 								</div>
 							</figcaption>
-							<div class="homepage-favoris">
-								<form method="POST" action="{{ path('favorite') }}">
-									<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-									<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
-								</form>
-							</div>
 						</figure>
 					</div>
 				</a>
@@ -68,15 +62,9 @@
 										<h3 id="title-description-card">{{ property.title }}</h3>
 										<p>
 											<span>{{ property.PriceNight }}</span>€/nuit</p>
-										<p>{{ property.address }}</p>
+										<p>{{ property.city }}</p>
 									</div>
 								</figcaption>
-								<div class="homepage-favoris">
-									<form method="POST" action="{{ path('favorite') }}">
-										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-										<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
-									</form>
-								</div>
 							</figure>
 						</div>
 					</a>
@@ -102,16 +90,9 @@
 									<h3 id="title-description-card">{{ getLastTagChateaux.title }}</h3>
 									<p>
 										<span>{{ getLastTagChateaux.priceNight }}</span>€/nuit</p>
+										<p>{{ property.city }}</p>
 								</div>
-
-
 							</figcaption>
-							<div class="homepage-favoris">
-								<form method="POST" action="{{ path('favorite') }}">
-									<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-									<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
-								</form>
-							</div>
 						</figure>
 					</div>
 				</a>
@@ -128,16 +109,11 @@
 										<h3 id="title-description-card">{{ lastTagChateaux.title }}</h3>
 										<p>
 											<span>{{ lastTagChateaux.priceNight }}</span>€/nuit</p>
+											<p>{{ property.city }}</p>
 									</div>
 
 
 								</figcaption>
-								<div class="homepage-favoris">
-									<form method="POST" action="{{ path('favorite') }}">
-										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-										<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
-									</form>
-								</div>
 							</figure>
 						</div>
 					</a>

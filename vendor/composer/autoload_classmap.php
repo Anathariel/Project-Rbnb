@@ -41,6 +41,8 @@ return array(
     'PropertyType' => $baseDir . '/class/propertyType.php',
     'PropertyTypeModel' => $baseDir . '/model/PropertyTypeModel.php',
     'Reservation' => $baseDir . '/class/Reservation.php',
+    'ReservationController' => $baseDir . '/controller/ReservationController.php',
+    'ReservationModel' => $baseDir . '/model/ReservationModel.php',
     'Role' => $baseDir . '/class/role.php',
     'SearchController' => $baseDir . '/controller/SearchController.php',
     'SearchModel' => $baseDir . '/model/SearchModel.php',

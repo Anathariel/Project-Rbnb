@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::before,
 *::after {
@@ -66,26 +67,73 @@ h3 {
   display: none;
 }
 
+/* CSS pour cacher l'élément d'autocomplétion généré par jQuery UI */
+.ui-autocomplete {
+  max-height: 250px;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  border: 1px solid #ccc;
+  /* Fixer le footer en bas de la page */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.ui-menu-item {
+  padding: 8px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.ui-state-active {
+  background-color: #f0f0f0;
+}
+
+.ui-menu-item-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* CSS pour cacher le scroll lorsque l'autocomplétion est ouverte */
+.autocomplete-open {
+  overflow: hidden;
+}
+
+/* CSS pour masquer le texte du message */
+.ui-helper-hidden-accessible {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   height: 450px;
-  width: 100%;
   max-width: 280px;
-  margin: 2rem auto;
+  margin: 1rem auto;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .card figure {
-  padding: 1rem 0;
   position: relative;
 }
 .card figure img {
-  width: 90%;
-  max-width: 260px;
-  max-height: 150px;
+  margin: 0 0.5rem;
+  width: 250px;
+  height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
@@ -107,14 +155,16 @@ h3 {
 }
 .card figure figcaption button img {
   width: 30px;
+  height: 30px;
 }
 .card figure figcaption button input {
   display: none;
 }
 .card .card-details {
-  padding: 0 1rem;
+  width: 100%;
 }
 .card .card-details .pricing {
+  margin: 1rem;
   display: flex;
   flex-direction: row;
   margin-right: auto;
@@ -123,6 +173,7 @@ h3 {
   font-size: 2rem;
 }
 .card .card-details .pricing .rating {
+  margin: 0 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -132,10 +183,16 @@ h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 1rem 0;
 }
 .card .card-details .location img {
   margin: 0.2rem;
+}
+.card .card-details .description {
+  width: 90%;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .card .card-details .description h3 {
   text-align: left;
@@ -147,12 +204,42 @@ h3 {
   -webkit-box-orient: vertical;
   margin: 0.5rem;
 }
+.card .card-details .description .locataire {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.card .card-details .description .locataire .img-profile {
+  background-color: grey;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 1rem;
+}
+.card .card-details .calendar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.card .card-details .calendar input[type=date] {
+  border: none;
+  outline: transparent;
+  font-family: "Quicksand";
+  text-transform: uppercase;
+}
+.card .card-details .calendar .arrival,
+.card .card-details .calendar .departure {
+  width: 50%;
+  padding: 0.5rem;
+}
 .card .card-details button {
-  width: 100%;
-  position: relative;
   margin: 0.5rem 0;
+  width: 90%;
+  position: relative;
   border: solid 1px #404e87;
   background-color: transparent;
+  padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
   overflow: hidden;
@@ -160,7 +247,7 @@ h3 {
 .card .card-details button span {
   display: block;
   font-family: "Quicksand";
-  font-size: 1rem;
+  font-size: 1.2rem;
   width: 100%;
   padding: 0.3rem 0;
   color: #404e87;
@@ -187,9 +274,15 @@ h3 {
 .card .card-details .dashboard-property-buttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   margin: 1rem;
+  width: 90%;
+  height: 2rem;
+}
+.card .card-details .dashboard-property-buttons .button {
+  width: 6rem;
+  padding: 0.5rem;
 }
 .card .card-details .dashboard-property-buttons .button p {
   color: #0e9384;
@@ -201,6 +294,8 @@ h3 {
   border-radius: 0.5rem;
 }
 .card .card-details .dashboard-property-buttons input {
+  width: 7rem;
+  padding: 0.5rem;
   color: red;
   font-family: "Quicksand-bold";
   font-size: 1rem;
@@ -212,6 +307,44 @@ h3 {
 .card .card-details .dashboard-property-buttons input:hover {
   border: 1px solid red;
   border-radius: 0.5rem;
+}
+.card .card-details .dashboard-property-buttons button {
+  margin: 0.5rem 0;
+  width: 90%;
+  position: relative;
+  border: solid 1px #0e9384;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+.card .card-details .dashboard-property-buttons button span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #0e9384;
+  position: relative;
+  z-index: 1;
+}
+.card .card-details .dashboard-property-buttons button span:hover {
+  color: #f8f8f8;
+}
+.card .card-details .dashboard-property-buttons button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0e9384;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+.card .card-details .dashboard-property-buttons button:hover:before {
+  width: 100%;
 }
 
 @media screen and (max-width: 800px) {
@@ -510,6 +643,12 @@ footer .footer-mobile a {
   margin: 2rem;
 }
 
+#hero {
+  width: 99.5vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+}
 #hero figure {
   position: relative;
   height: 450px;
@@ -698,6 +837,7 @@ section#new-destinations-section div#container-card-new-destinations {
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-align: center;
 }
 section#new-destinations-section div#container-card-new-destinations a {
   padding-top: 1.5rem;
@@ -810,6 +950,7 @@ section#best-tags-section div#container-card-best-tags {
   flex-direction: row-reverse;
   flex-wrap: wrap;
   align-items: center;
+  text-align: center;
 }
 section#best-tags-section div#container-card-best-tags div.best-tags-flex-cards {
   width: 40%;
@@ -939,6 +1080,23 @@ section#features-section div#container-card-features div#container-description-f
 section#features-section div#container-card-features div#container-description-features div.item-features-commun p {
   font-size: 14px;
   line-height: 24px;
+}
+@media screen and (min-width: 950px) {
+  section#features-section div#container-card-features {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  section#features-section div#container-description-features {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 1.5rem;
+  }
+  section#features-section div.item-features-commun {
+    margin: 1rem;
+  }
 }
 
 section#join-us-section div#container-card-join-us figcaption {
@@ -1344,8 +1502,9 @@ section#property-section .property-details .container-pricing .container-calenda
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler button {
   width: 100%;
+  min-width: 300px;
   position: relative;
-  margin: 0.5rem 0;
+  margin: 0.5rem;
   border: solid 1px #404e87;
   background-color: transparent;
   border-radius: 0.5rem;
@@ -1382,6 +1541,9 @@ section#property-section .property-details .container-pricing .container-calenda
 section#property-section .property-details .container-pricing .container-calendar-traveler p {
   font-size: 0.7rem;
 }
+section#property-section .property-details .container-pricing .container-calendar-traveler input[type=submit] {
+  display: none;
+}
 section#property-section .property-details .container-pricing .price-details {
   display: flex;
   flex-direction: row;
@@ -1406,6 +1568,26 @@ section#property-section .add-comment-form form .rating-input {
 section#property-section .add-comment-form form .rating-input .rating-stars {
   display: flex;
   flex-direction: row;
+}
+section#property-section .add-comment-form form .rating-input .rating-stars label img {
+  width: 25px;
+  /* Adjust the size of the stars as needed */
+  cursor: pointer;
+  opacity: 0.6;
+  /* Set the initial opacity for non-active stars */
+}
+section#property-section .add-comment-form form .rating-input .rating-stars label img:hover {
+  opacity: 0.8;
+  /* Set the opacity on hover */
+}
+section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio]:checked + label img {
+  opacity: 1;
+  /* Set the opacity to 1 for the checked (active) star */
+}
+section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 section#property-section .add-comment-form form .comment-input {
   display: flex;
@@ -1576,7 +1758,8 @@ section#addgooglemaps-property-section input:focus::placeholder {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  justify-content: center;
+  justify-content: space-around;
+  margin: 1rem 3rem;
 }
 
 #addpropertyForm {
@@ -1790,4 +1973,69 @@ section#addgooglemaps-property-section input:focus::placeholder {
   text-align: center;
   justify-content: space-evenly;
   margin: 1rem 5rem;
+}
+
+section#section-blog {
+  margin-top: 20px;
+}
+section#section-blog p.sub-title-section {
+  color: black;
+  text-align: center;
+  padding: 30px;
+}
+section#section-blog div#container-section-blog {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+}
+section#section-blog div#container-section-blog div.card-blog {
+  width: 100%;
+  max-width: 420px;
+  height: 540px;
+  background-color: #f8f8f8;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin: 0 5px 40px 5px;
+  transition: all 0.5s ease;
+}
+@media screen and (min-width: 950px) {
+  section#section-blog div#container-section-blog div.card-blog {
+    width: 384px;
+    height: 456px;
+  }
+  section#section-blog div#container-section-blog div.card-blog:hover .bg-image {
+    transform: scale(1.1);
+  }
+}
+section#section-blog div#container-section-blog div.card-blog div.card-blog-top {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+}
+section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom {
+  position: relative;
+  padding: 30px 40px;
+  text-align: center;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom p {
+  margin-top: 15px;
+}
+section#section-blog div#container-section-blog div.card-blog div.card-blog {
+  position: relative;
+  text-align: center;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }/*# sourceMappingURL=style.css.map */

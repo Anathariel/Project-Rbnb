@@ -9,6 +9,7 @@ $router->setBasePath('/projet/project-rbnb');
 // MAIN ROUTES
 $router->map('GET', '/', 'HomeController#home', 'home');
 $router->map('GET', '/blog', 'HomeController#blog', 'blog');
+$router->map('GET', '/article', 'HomeController#article', 'article');
 $router->map('GET', '/catalogue', 'HomeController#catalogue', 'catalogue');
 $router->map('GET', '/tags', '', 'baseTags');
 
@@ -35,7 +36,7 @@ $router->map('POST', '/account/favorite/delete', 'FavoriteController#deleteFavor
 
 //CRUD USER
 $router->map('GET|POST', '/account/options', 'UserController#editUser', 'options');
-$router->map('POST','/account/delete','UserController#delete','deleteUser',);
+$router->map('POST', '/account/delete', 'UserController#delete', 'deleteUser',);
 
 
 // CRUD Property
@@ -50,6 +51,13 @@ $router->map('POST', '/deleteproperty/[i:id]', 'PropertyController#deletePropert
 
 // SEARCH
 $router->map('GET|POST', '/search', 'SearchController#searchResult', 'search');
+$router->map('GET', '/autocomplete', 'SearchController#searchResultAjax', 'autocomplete');
+
+
+// Reservation
+$router->map('GET|POST', '/reservation', 'ReservationController#addReservation', 'reservation');
+$router->map('GET|POST', '/account/reservation', 'ReservationController#getReservation', 'reservationGet');
+$router->map('POST', '/account/reservation/delete', 'ReservationController#deleteReservation', 'reservationDelete');
 
 
 // MATCH :

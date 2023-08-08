@@ -93,6 +93,52 @@ class UserController extends Controller
         $favoriteModel = new FavoriteModel();
         $userFavorites = $favoriteModel->getFavoriteByUidModel($userId);
 
+        // Récupérez les moyennes des commentaires des propriétés favorites à partir de la base de données
+        $commentModel = new CommentModel();
+        foreach ($userFavorites as $favorite) {
+            $propertyId = $favorite->getPropertyId();
+            $averageRating = $commentModel->getAverageRating($propertyId);
+            $favorite->getProperty()->setAverageRating($averageRating);
+        }
+
+        // Récupérez les réservations de l'utilisateur à partir de la base de données
+        $reservationModel = new ReservationModel();
+        $userReservations = $reservationModel->getReservationModel($userId);
+
+        // Récupérez les réservations de l'utilisateur à partir de la base de données
+        $reservationModel = new ReservationModel();
+        $userReservations = $reservationModel->getReservationModel($userId);
+
+        // Récupérez les moyennes des commentaires des propriétés réservées à partir de la base de données
+        $commentModel = new CommentModel();
+        foreach ($userReservations as $reservation) {
+            $propertyId = $reservation->getPropertyId();
+            $averageRating = $commentModel->getAverageRating($propertyId);
+            $reservation->getProperty()->setAverageRating($averageRating);
+        }
+
+        // Récupérez la note moyenne de l'utilisateur à partir de la base de données
+        $commentModel = new CommentModel();
+
+        // Récupérez les propriétés louées par l'utilisateur (propriétaire)
+        $userRentedProperties = [];
+
+        foreach ($userProperties as $property) {
+            $propertyId = $property->getPropertyId();
+            $reservations = $reservationModel->getReservationsByProperty($propertyId);
+
+            // Si la propriété a des réservations, ajoutez-la à la liste des propriétés louées par l'utilisateur
+            if (!empty($reservations)) {
+                $userRentedProperties[] = $property;
+            }
+
+            // Récupérez la moyenne des notes pour cette propriété
+            $averageRating = $commentModel->getAverageRating($propertyId);
+
+            // Ajoutez la moyenne des notes à la propriété actuelle
+            $property->setAverageRating($averageRating);
+        }
+
 
         // Récupérez les images liées à chaque propriété du propriétaire
         $propertyImagesModel = new PropertyImagesModel();
@@ -110,12 +156,27 @@ class UserController extends Controller
             $favorite->getProperty()->setPropertyImages($propertyImages);
         }
 
+        // Récupérez les images liées à chaque propriété réservée
+        $propertyImagesModel = new PropertyImagesModel();
+        foreach ($userReservations as $reservation) {
+            $propertyId = $reservation->getPropertyId();
+            $propertyImages = $propertyImagesModel->getPropertyImagesModel($propertyId);
+
+            // Check if the property is set before calling setPropertyImages()
+            if ($reservation->getProperty()) {
+                $reservation->getProperty()->setPropertyImages($propertyImages);
+            }
+        }
+
         // Préparez les données à envoyer à la vue
         $data = [
             'firstName' => $firstName,
             'email' => $email,
             'userProperties' => $userProperties,
             'userFavorites' => $userFavorites,
+            'userReservations' => $userReservations,
+            'userRentedProperties' => $userRentedProperties,
+            'averageRating' => $averageRating
         ];
 
         // Affichez la vue avec les données
@@ -139,6 +200,7 @@ class UserController extends Controller
         $firstName = $user->getFirstName();
         $email = $user->getEmail();
 
+        // Récupérez les propriétés de l'utilisateur à partir de la base de données
         $data = [
             'firstName' => $firstName,
             'email' => $email,
@@ -187,11 +249,14 @@ class UserController extends Controller
                     if (in_array($extension, $extensions)) {
                         $userModel = new UserModel();
                         $user = $userModel->getUserById($uid);
+                        $user->setFirstName($firstName);
+                        $user->setLastName($lastName);
                         $user->setUid($uid);
                         $user->setFirstName($firstName);
                         $user->setLastName($lastName);
                         $user->setEmail($email);
                         $user->setPhoneNumber($phoneNumber);
+                        $user->setBirthDate($birthDate);
                         $user->setBirthDate($birthDate);
                         $user->setPicture($pictureName);
 
@@ -209,13 +274,12 @@ class UserController extends Controller
                                 $message = "Une erreur est survenue lors du téléchargement de l'image. Veuillez réessayer.";
                                 echo self::getRender('dashboard-option.html.twig', ['message' => $message]);
                             }
-                        } 
-                    }else {
-                            $message = "Cette extension n'est pas autorisée.";
-                            echo self::getRender('dashboard-options.html.twig', ['message' => $message]);
                         }
+                    } else {
+                        $message = "Cette extension n'est pas autorisée.";
+                        echo self::getRender('dashboard-options.html.twig', ['message' => $message]);
+                    }
                 }
-                
             }
         }
     }

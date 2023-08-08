@@ -19,6 +19,8 @@ class Property
     private $reservationOption;
     private $owner;
     public $propertyImages;
+    public $averageRating;
+
 
     public function __construct(array $data)
     {
@@ -122,6 +124,12 @@ class Property
         return $this->propertyImages;
     }
 
+    public function getAverageRating()
+    {
+        return $this->averageRating;
+    }
+
+
     // SETTERS
     public function setPropertyId(int $propertyId)
     {
@@ -206,5 +214,10 @@ class Property
     public function setPropertyImages($propertyImages)
     {
         $this->propertyImages = $propertyImages;
+    }
+
+    public function setAverageRating($averageRating)
+    {
+        $this->averageRating = $averageRating;
     }
 }

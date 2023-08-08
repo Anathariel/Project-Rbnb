@@ -7,9 +7,10 @@ class Reservation
     private $propertyId;
     private $checkInDate;
     private $checkoutDate;
-    private $numAdults;
-    private $numberChildren;
-    private $status;
+    private $numTravelers;
+    private $totalPrice;
+    private $property;
+    private $propertyImages;
 
     public function __construct(array $post)
     {
@@ -53,19 +54,24 @@ class Reservation
         return $this->checkoutDate;
     }
 
-    public function getNumAdults()
+    public function getNumTravelers()
     {
-        return $this->numAdults;
+        return $this->numTravelers;
     }
 
-    public function getNumberChildren()
+    public function getTotalPrice()
     {
-        return $this->numberChildren;
+        return $this->totalPrice;
     }
 
-    public function getStatus()
+    public function getProperty()
     {
-        return $this->status;
+        return $this->property;
+    }
+
+    public function getPropertyImages()
+    {
+        return $this->propertyImages;
     }
 
     //SETTERS
@@ -94,18 +100,23 @@ class Reservation
         $this->checkoutDate = $checkoutDate;
     }
 
-    public function setNumAdults(int $numAdults)
+    public function setNumTravelers(int $numTravelers)
     {
-        $this->numAdults = $numAdults;
+        $this->numTravelers = $numTravelers;
     }
 
-    public function setNumberChildren(int $numberChildren)
+    public function setTotalPrice($totalPrice)
     {
-        $this->numberChildren = $numberChildren;
+        $this->totalPrice = $totalPrice;
     }
 
-    public function setStatus(String $status)
+    public function setProperty(Property $property)
     {
-        $this->status = $status;
+        $this->property = $property;
+    }
+
+    public function setPropertyImages(array $propertyImages)
+    {
+        $this->propertyImages = $propertyImages;
     }
 }

@@ -6,7 +6,7 @@ class PropertyModel extends Model
     {
         $propertys = [];
 
-        $req = $this->getDb()->query('SELECT `propertyId`, `title`, `priceNight`, `address` FROM `property` ORDER BY `propertyId` DESC LIMIT 5');
+        $req = $this->getDb()->query('SELECT `propertyId`, `title`, `priceNight`, `address`, `city`, `postalCode`, `department`, `region`, `country` FROM `property` ORDER BY `propertyId` DESC LIMIT 5');
 
         while ($property = $req->fetch(PDO::FETCH_ASSOC)) {
             $propertys[] = new Property($property);
@@ -53,7 +53,7 @@ class PropertyModel extends Model
     {
         $properties = [];
 
-        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description` FROM `property` WHERE `owner` = :userId ORDER BY `propertyId` DESC');
+        $req = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `city`, `postalCode`, `department`, `region`, `country`, `description` FROM `property` WHERE `owner` = :userId ORDER BY `propertyId` DESC');
         $req->bindParam(':userId', $userId, PDO::PARAM_INT);
         $req->execute();
 
@@ -66,7 +66,7 @@ class PropertyModel extends Model
 
     public function getPropertyById($propertyId)
     {
-        $stmt = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`, `address`, `description` FROM `property` WHERE `propertyId` = :propertyId');
+        $stmt = $this->getDb()->prepare('SELECT `propertyId`, `title`, `priceNight`,`address`, `city`, `postalCode`, `department`, `region`, `country`, `description` FROM `property` WHERE `propertyId` = :propertyId');
         $stmt->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
         $stmt->execute();
 

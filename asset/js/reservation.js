@@ -1,15 +1,43 @@
-// Function to update prices and total based on dates
+// Fonction pour vérifier si une date est disponible ou non
+function checkAvailability() {
+  const arrivalDate = document.getElementById("arrivalDate").value;
+  const departureDate = document.getElementById("departureDate").value;
+
+  // Envoyer une requête AJAX pour vérifier si la date est disponible
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "/check-availability?date=" + arrivalDate);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      const isAvailable = JSON.parse(xhr.responseText);
+      if (!isAvailable) {
+        alert(
+          "La date sélectionnée n'est pas disponible. Veuillez sélectionner une autre date."
+        );
+      }
+    }
+  };
+  xhr.send();
+}
+
+// Écouter les changements de la date d'arrivée
+document
+  .getElementById("arrivalDate")
+  .addEventListener("change", checkAvailability);
+
+// Fonction pour mettre à jour les prix en fonction de la date d'arrivée, de la date de départ et du nombre de voyageurs
 function updatePrices() {
-  var pricePerNight = parseFloat(
+  const pricePerNight = parseFloat(
     document.getElementById("pricePerNight").innerText
   );
 
-  var showPriceDetails = document.querySelector(".price-details");
+  const showPriceDetails = document.querySelector(".price-details");
   showPriceDetails.style.display = "none";
 
-  var arrivalDate = new Date(document.getElementById("arrivalDate").value);
-  var departureDate = new Date(document.getElementById("departureDate").value);
-  var numberOfDays = Math.ceil(
+  const arrivalDate = new Date(document.getElementById("arrivalDate").value);
+  const departureDate = new Date(
+    document.getElementById("departureDate").value
+  );
+  const numberOfDays = Math.ceil(
     (departureDate - arrivalDate) / (1000 * 60 * 60 * 24)
   );
 
@@ -18,12 +46,12 @@ function updatePrices() {
   }
 
   document.getElementById("nb-day").innerText =
-numberOfDays + " nuit" + (numberOfDays > 1 ? "s" : "");
+    numberOfDays + " nuit" + (numberOfDays > 1 ? "s" : "");
 
-  var totalPrice = pricePerNight * numberOfDays;
-  var serviceFee = totalPrice * 0.05; // Calcul des frais de service (5% du total)
-  var taxes = totalPrice * 0.01; // Calcul des taxes (1% du total)
-  var totalPriceWithFees = totalPrice + serviceFee + taxes;
+  const totalPrice = pricePerNight * numberOfDays;
+  const serviceFee = totalPrice * 0.05; // Calcul des frais de service (5% du total)
+  const taxes = totalPrice * 0.01; // Calcul des taxes (1% du total)
+  const totalPriceWithFees = totalPrice + serviceFee + taxes;
 
   // Mettre à jour les prix et le total affichés
   document.getElementById("totalPrice").innerText = totalPrice.toFixed(2) + "€";
@@ -31,27 +59,32 @@ numberOfDays + " nuit" + (numberOfDays > 1 ? "s" : "");
   document.getElementById("taxes").innerText = taxes.toFixed(2) + "€";
   document.getElementById("totalPriceWithFees").innerText =
     totalPriceWithFees.toFixed(2) + "€";
-}
 
-// Function to update maximum number of travelers in the select options
-function updateTravelerOptions() {
-  var maxGuests = parseInt(document.getElementById("maxGuests").innerText);
+  // Update hidden input fields
+  const startDateInput = document.getElementById("startDateInput");
+  const endDateInput = document.getElementById("endDateInput");
+  const numTravelersInput = document.getElementById("numTravelersInput");
+  const totalPriceInput = document.getElementById("totalPriceInput");
+  const selectedNumTravelers = document.getElementById("traveler-select").value;
 
-  var travelerSelect = document.getElementById("traveler-select");
-  travelerSelect.innerHTML = "";
+  startDateInput.value = arrivalDate.toISOString().slice(0, 10);
+  endDateInput.value = departureDate.toISOString().slice(0, 10);
 
-  for (var i = 1; i <= maxGuests; i++) {
-    var option = document.createElement("option");
-    option.value = i + " Voyageur";
-    option.text = i + " Voyageur" + (i > 1 ? "s" : "");
-    travelerSelect.add(option);
-  }
+  // Mettre à jour le champ de saisie caché avec le nombre de voyageurs sélectionné
+  numTravelersInput.value = selectedNumTravelers;
+
+  totalPriceInput.value = totalPriceWithFees.toFixed(2);
 }
 
 // Écouter les changements de la date d'arrivée et de la date de départ
 document.getElementById("arrivalDate").addEventListener("change", updatePrices);
 document
   .getElementById("departureDate")
+  .addEventListener("change", updatePrices);
+
+// Écouter le changement du nombre de voyageurs sélectionné
+document
+  .getElementById("traveler-select")
   .addEventListener("change", updatePrices);
 
 // Appeler la fonction updatePrices une première fois pour afficher les prix initiaux
