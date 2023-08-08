@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 06 août 2023 à 11:01
+-- Généré le : mar. 08 août 2023 à 12:32
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -74,6 +74,29 @@ INSERT INTO `accommodationtype` (`accommodationTypeId`, `propertyId`, `piscine`,
 (92, 121, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (96, 125, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (97, 126, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `article`
+--
+
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE IF NOT EXISTS `article` (
+  `uid` int NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `title` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `content` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `date` date NOT NULL,
+  KEY `user` (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `article`
+--
+
+INSERT INTO `article` (`uid`, `image`, `title`, `content`, `date`) VALUES
+(15, 'bateau.png', 'Maldives', 'Les Maldives sont un paradis tropical situé dans l’océan Indien, au sud-ouest du Sri Lanka et de l’Inde. C’est un archipel composé de plus de 1 000 îles coralliennes, dont environ 200 sont habitées. Les Maldives sont connues pour leurs plages de sable bla', '2023-08-08');
 
 -- --------------------------------------------------------
 
@@ -694,6 +717,12 @@ CREATE TABLE IF NOT EXISTS `user_properties` (
 --
 ALTER TABLE `accommodationtype`
   ADD CONSTRAINT `accommodationtype_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `article`
+--
+ALTER TABLE `article`
+  ADD CONSTRAINT `article_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Contraintes pour la table `cancellationpolicy`
