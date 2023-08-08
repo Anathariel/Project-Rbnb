@@ -3186,7 +3186,7 @@ section#section-blog {
   }
 }
 
-//~ -------------------- BLOG -------------------- //
+//~ -------------------- ARTICLE -------------------- //
 
 section#article-section {
   text-align: center;
@@ -3210,22 +3210,9 @@ section#article-section h2 {
   text-align: center;
 }
 
-
-
-//Elisa 2//
-section#article-section  {
-  text-align: center;
-  margin: 0 auto;
-  }
-
   div#article-flex-images {
     figure.article-flex-images {
       display: flex;
-
-
-      .right-aligned {
-        float: right;
-        margin-left: 5px;
 
         section#article-section h3 {
           color: #92AAD3;
@@ -3238,16 +3225,3 @@ section#article-section  {
         }
       }
     }
-  }
-
-
-
-section#article-section {
-  font-family: "Quicksand";
-}
-
-
-  /* Ajoutez ici les propriétés CSS pour la mise en forme de la section /
-}
-
-/ CSS pour les images dans la div #article-flex-images */

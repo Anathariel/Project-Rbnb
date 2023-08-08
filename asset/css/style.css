@@ -2635,31 +2635,13 @@ section#article-section h2 {
   text-align: center;
 }
 
-section#article-section {
-  text-align: center;
-  margin: 0 auto;
-}
-
 div#article-flex-images figure.article-flex-images {
   display: flex;
 }
-div#article-flex-images figure.article-flex-images .right-aligned {
-  float: right;
-  margin-left: 5px;
-}
-div#article-flex-images figure.article-flex-images .right-aligned section#article-section h3 {
+div#article-flex-images figure.article-flex-images section#article-section h3 {
   color: #92AAD3;
 }
-div#article-flex-images figure.article-flex-images .right-aligned section#article-section h3 section#article-section h4 {
+div#article-flex-images figure.article-flex-images section#article-section h3 section#article-section h4 {
   color: #92AAD3;
   text-align: center;
-}
-
-section#article-section {
-  font-family: "Quicksand";
-}
-
-/* Ajoutez ici les propriétés CSS pour la mise en forme de la section /
-}
-
-/ CSS pour les images dans la div #article-flex-images *//*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
