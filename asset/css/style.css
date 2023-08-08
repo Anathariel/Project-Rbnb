@@ -464,6 +464,10 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  /* Ajoutez ici les propriétés CSS pour la mise en forme de la section /
+  }
+
+  / CSS pour les images dans la div #article-flex-images */
 }
 .dashboard-header .search-dashboard {
   display: flex;
@@ -565,38 +569,37 @@ h3 {
     width: 90%;
   }
 }
-
-#registration {
+.dashboard-header #registration {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   background-color: #8aecab;
 }
-#registration .form-container {
+.dashboard-header #registration .form-container {
   position: relative;
   padding: 3rem;
   display: flex;
   flex-direction: row-reverse;
 }
-#registration #register,
-#registration #connect {
+.dashboard-header #registration #register,
+.dashboard-header #registration #connect {
   margin: 0px 5rem;
   width: 50%;
 }
-#registration form {
+.dashboard-header #registration form {
   display: flex;
   flex-direction: column;
   margin: 0px 1.5rem;
 }
-#registration form input {
+.dashboard-header #registration form input {
   margin: 10px 0px;
   border: none;
   padding: 15px;
   background-color: #efefef;
   border-radius: 0.5rem;
 }
-#registration button {
+.dashboard-header #registration button {
   border: none;
   padding: 20px;
   margin-top: 5px;
@@ -605,55 +608,53 @@ h3 {
   color: #fff;
   cursor: pointer;
 }
-#registration .intros-container {
+.dashboard-header #registration .intros-container {
   display: none;
   background-color: #1b1d21;
   position: absolute;
   width: 50%;
   padding: 2rem;
 }
-
-footer {
+.dashboard-header footer {
   margin-top: auto;
   background-color: #92aad3;
 }
-footer .footer-desktop {
+.dashboard-header footer .footer-desktop {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-footer .footer-desktop a {
+.dashboard-header footer .footer-desktop a {
   font-size: 1rem;
   margin: 1rem;
 }
-footer .footer-desktop .social-media {
+.dashboard-header footer .footer-desktop .social-media {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 0.5rem;
 }
-footer .footer-desktop .social-media a {
+.dashboard-header footer .footer-desktop .social-media a {
   margin: 0 0.6rem;
 }
-footer .footer-mobile {
+.dashboard-header footer .footer-mobile {
   display: flex;
   justify-content: center;
 }
-footer .footer-mobile a {
+.dashboard-header footer .footer-mobile a {
   margin: 2rem;
 }
-
-#hero {
+.dashboard-header #hero {
   width: 99.5vw;
   position: relative;
   left: 50%;
   margin-left: -50vw;
 }
-#hero figure {
+.dashboard-header #hero figure {
   position: relative;
   height: 450px;
   overflow: hidden;
 }
-#hero figure .slider-image {
+.dashboard-header #hero figure .slider-image {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -665,11 +666,11 @@ footer .footer-mobile a {
   left: 0;
   z-index: 1;
 }
-#hero figure .slider-image:first-child {
+.dashboard-header #hero figure .slider-image:first-child {
   opacity: 1;
   z-index: 2;
 }
-#hero figure .overlay {
+.dashboard-header #hero figure .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -680,7 +681,7 @@ footer .footer-mobile a {
   background: linear-gradient(to bottom, rgba(14, 29, 51, 0.8), rgba(14, 29, 51, 0.2));
   z-index: 3;
 }
-#hero figure .slider-arrow {
+.dashboard-header #hero figure .slider-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -693,40 +694,39 @@ footer .footer-mobile a {
   cursor: pointer;
   z-index: 4;
 }
-#hero figure .slider-arrow img {
+.dashboard-header #hero figure .slider-arrow img {
   display: block;
   margin: 0 auto;
 }
-#hero figure .prev-arrow {
+.dashboard-header #hero figure .prev-arrow {
   left: 10px;
 }
-#hero figure .next-arrow {
+.dashboard-header #hero figure .next-arrow {
   right: 10px;
 }
-
-.tag-nav {
+.dashboard-header .tag-nav {
   position: relative;
   overflow: hidden;
 }
-.tag-nav #tag-container {
+.dashboard-header .tag-nav #tag-container {
   display: flex;
   width: 100%;
 }
-.tag-nav #tag-container .arrow-container {
+.dashboard-header .tag-nav #tag-container .arrow-container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 10%;
   height: 100%;
 }
-.tag-nav #tag-container .arrow-container.left-arrow-container {
+.dashboard-header .tag-nav #tag-container .arrow-container.left-arrow-container {
   position: absolute;
   left: 0;
 }
-.tag-nav #tag-container .arrow-container.left-arrow-container .left-arrow {
+.dashboard-header .tag-nav #tag-container .arrow-container.left-arrow-container .left-arrow {
   z-index: 2;
 }
-.tag-nav #tag-container .arrow-container.left-arrow-container::before {
+.dashboard-header .tag-nav #tag-container .arrow-container.left-arrow-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -736,15 +736,15 @@ footer .footer-mobile a {
   background: linear-gradient(to right, rgb(248, 248, 248), rgba(248, 248, 248, 0.8));
   pointer-events: none;
 }
-.tag-nav #tag-container .arrow-container.right-arrow-container {
+.dashboard-header .tag-nav #tag-container .arrow-container.right-arrow-container {
   position: absolute;
   right: 0;
   z-index: 2;
 }
-.tag-nav #tag-container .arrow-container.right-arrow-container .right-arrow {
+.dashboard-header .tag-nav #tag-container .arrow-container.right-arrow-container .right-arrow {
   z-index: 2;
 }
-.tag-nav #tag-container .arrow-container.right-arrow-container::before {
+.dashboard-header .tag-nav #tag-container .arrow-container.right-arrow-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -754,7 +754,7 @@ footer .footer-mobile a {
   background: linear-gradient(to left, rgb(248, 248, 248), rgba(248, 248, 248, 0.8));
   pointer-events: none;
 }
-.tag-nav #tag-container .container-tag-list {
+.dashboard-header .tag-nav #tag-container .container-tag-list {
   display: flex;
   overflow-x: scroll;
   width: 100%;
@@ -765,17 +765,17 @@ footer .footer-mobile a {
   -ms-overflow-style: none;
   /* Hide scrollbar for IE and Edge */
 }
-.tag-nav #tag-container .container-tag-list::-webkit-scrollbar {
+.dashboard-header .tag-nav #tag-container .container-tag-list::-webkit-scrollbar {
   display: none;
   /* Hide scrollbar for Chrome, Safari, and Opera */
 }
-.tag-nav #tag-container .container-tag-list .tag-item {
+.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.tag-nav #tag-container .container-tag-list .tag-item a {
+.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item a {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -783,23 +783,23 @@ footer .footer-mobile a {
   padding: 0 0.5rem;
   height: 80px;
 }
-.tag-nav #tag-container .container-tag-list .tag-item a #icon-tag {
+.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item a #icon-tag {
   width: 30px;
 }
-.tag-nav #tag-container .container-tag-list .tag-item a img {
+.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item a img {
   width: 30px;
   margin: 0 auto;
 }
-.tag-nav #tag-container .container-tag-list .tag-item a p {
+.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item a p {
   min-width: 50px;
   font-size: 0.6rem;
   text-align: center;
 }
-.tag-nav #tag-container .container-tag-list .tag-item a:hover {
+.dashboard-header .tag-nav #tag-container .container-tag-list .tag-item a:hover {
   background-color: rgba(167, 167, 167, 0.4352941176);
   border-bottom: 1px solid #000000;
 }
-.tag-nav button.filter {
+.dashboard-header .tag-nav button.filter {
   cursor: pointer;
   margin: 0.5rem;
   padding: 0.5rem;
@@ -807,13 +807,13 @@ footer .footer-mobile a {
   border: 1px solid #1b1d21;
   z-index: 2;
 }
-.tag-nav button.arrow {
+.dashboard-header .tag-nav button.arrow {
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 100%;
   border: 0.5px solid #1b1d21;
 }
-.tag-nav button.arrow::before {
+.dashboard-header .tag-nav button.arrow::before {
   content: "";
   position: absolute;
   top: 0;
@@ -823,25 +823,24 @@ footer .footer-mobile a {
   background: rgba(248, 248, 248, 0.5);
   pointer-events: none;
 }
-
-section#new-destinations-section {
+.dashboard-header section#new-destinations-section {
   margin: 40px 0;
 }
-section#new-destinations-section p#description-new-destinations {
+.dashboard-header section#new-destinations-section p#description-new-destinations {
   text-align: right;
   color: #1b1d21;
   margin: 0.5rem 0;
 }
-section#new-destinations-section div#container-card-new-destinations {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations {
   display: flex;
   flex-direction: row;
   align-items: center;
   text-align: center;
 }
-section#new-destinations-section div#container-card-new-destinations a {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations a {
   padding-top: 1.5rem;
 }
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations {
   width: 220px;
   height: 236px;
   position: relative;
@@ -849,7 +848,7 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin-bottom: 2rem;
 }
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -859,27 +858,27 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
   padding: 0;
   position: relative;
 }
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris {
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button {
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button input {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure .homepage-favoris button input {
   display: none;
 }
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure img {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
 }
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption {
   position: absolute;
   bottom: 0;
   left: 1rem;
@@ -894,25 +893,25 @@ section#new-destinations-section div#container-card-new-destinations a div.card-
   border-radius: 10px;
   transition: opacity 0.3s;
 }
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption h3 {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption h3 {
   color: #404e87;
 }
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption p span {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure figcaption p span {
   font-family: "Quicksand-bold";
 }
-section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure:hover figcaption {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations a div.card-new-destinations figure:hover figcaption {
   background-color: #f8f8f8;
 }
-section#new-destinations-section div#container-card-new-destinations div.new-destination-flex-cards {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations div.new-destination-flex-cards {
   width: 40%;
   margin-right: 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card {
   width: 50%;
 }
-section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card .main-card {
+.dashboard-header section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card .main-card {
   margin: 0 auto;
   max-width: 450px;
   width: calc(100% - 1rem);
@@ -923,44 +922,43 @@ section#new-destinations-section div#container-card-new-destinations div.new-des
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 @media screen and (max-width: 850px) {
-  section#new-destinations-section div#container-card-new-destinations {
+  .dashboard-header section#new-destinations-section div#container-card-new-destinations {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  section#new-destinations-section div#container-card-new-destinations div.new-destination-flex-cards {
+  .dashboard-header section#new-destinations-section div#container-card-new-destinations div.new-destination-flex-cards {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card {
+  .dashboard-header section#new-destinations-section div#container-card-new-destinations div.new-destination-main-card {
     width: 100%;
   }
 }
-
-section#best-tags-section {
+.dashboard-header section#best-tags-section {
   margin-bottom: 40px 0;
 }
-section#best-tags-section div#container-card-best-tags {
+.dashboard-header section#best-tags-section div#container-card-best-tags {
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
   align-items: center;
   text-align: center;
 }
-section#best-tags-section div#container-card-best-tags div.best-tags-flex-cards {
+.dashboard-header section#best-tags-section div#container-card-best-tags div.best-tags-flex-cards {
   width: 40%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-left: 1rem;
 }
-section#best-tags-section div#container-card-best-tags a {
+.dashboard-header section#best-tags-section div#container-card-best-tags a {
   padding-top: 1.5rem;
 }
-section#best-tags-section div#container-card-best-tags a div.card-best-tags {
+.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags {
   width: 220px;
   height: 236px;
   position: relative;
@@ -968,7 +966,7 @@ section#best-tags-section div#container-card-best-tags a div.card-best-tags {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin-bottom: 2rem;
 }
-section#best-tags-section div#container-card-best-tags a div.card-best-tags figure {
+.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -978,27 +976,27 @@ section#best-tags-section div#container-card-best-tags a div.card-best-tags figu
   padding: 0;
   position: relative;
 }
-section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris {
+.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris {
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
-section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button {
+.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button {
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
-section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button input {
+.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure .homepage-favoris button input {
   display: none;
 }
-section#best-tags-section div#container-card-best-tags a div.card-best-tags figure img {
+.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
 }
-section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption {
+.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption {
   position: absolute;
   bottom: 0;
   left: 1rem;
@@ -1014,19 +1012,19 @@ section#best-tags-section div#container-card-best-tags a div.card-best-tags figu
   border-radius: 10px;
   transition: opacity 0.3s;
 }
-section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption h3 {
+.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption h3 {
   color: #404e87;
 }
-section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption p span {
+.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure figcaption p span {
   font-family: "Quicksand-bold";
 }
-section#best-tags-section div#container-card-best-tags a div.card-best-tags figure:hover figcaption {
+.dashboard-header section#best-tags-section div#container-card-best-tags a div.card-best-tags figure:hover figcaption {
   background-color: #f8f8f8;
 }
-section#best-tags-section div#container-card-best-tags div.best-tags-main-card {
+.dashboard-header section#best-tags-section div#container-card-best-tags div.best-tags-main-card {
   width: 50%;
 }
-section#best-tags-section div#container-card-best-tags div.best-tags-main-card .main-card {
+.dashboard-header section#best-tags-section div#container-card-best-tags div.best-tags-main-card .main-card {
   margin: 0 auto;
   max-width: 450px;
   width: calc(100% - 1rem);
@@ -1037,75 +1035,73 @@ section#best-tags-section div#container-card-best-tags div.best-tags-main-card .
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 @media screen and (max-width: 850px) {
-  section#best-tags-section div#container-card-best-tags {
+  .dashboard-header section#best-tags-section div#container-card-best-tags {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  section#best-tags-section div#container-card-best-tags div.best-tags-flex-cards {
+  .dashboard-header section#best-tags-section div#container-card-best-tags div.best-tags-flex-cards {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  section#best-tags-section div#container-card-best-tags div.best-tags-main-card {
+  .dashboard-header section#best-tags-section div#container-card-best-tags div.best-tags-main-card {
     width: 100%;
   }
 }
-
-section#features-section {
+.dashboard-header section#features-section {
   margin-bottom: 3rem;
 }
-section#features-section div#container-card-features figure img {
+.dashboard-header section#features-section div#container-card-features figure img {
   width: 100%;
   min-height: 100px;
 }
-section#features-section div#container-card-features div#container-description-features {
+.dashboard-header section#features-section div#container-card-features div#container-description-features {
   width: 90%;
   text-align: center;
 }
-section#features-section div#container-card-features div#container-description-features div.item-features-commun figure {
+.dashboard-header section#features-section div#container-card-features div#container-description-features div.item-features-commun figure {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-section#features-section div#container-card-features div#container-description-features div.item-features-commun figure img {
+.dashboard-header section#features-section div#container-card-features div#container-description-features div.item-features-commun figure img {
   width: 30px;
   height: 30px;
 }
-section#features-section div#container-card-features div#container-description-features div.item-features-commun p {
+.dashboard-header section#features-section div#container-card-features div#container-description-features div.item-features-commun p {
   font-size: 14px;
   line-height: 24px;
 }
 @media screen and (min-width: 950px) {
-  section#features-section div#container-card-features {
+  .dashboard-header section#features-section div#container-card-features {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  section#features-section div#container-description-features {
+  .dashboard-header section#features-section div#container-description-features {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding-bottom: 1.5rem;
   }
-  section#features-section div.item-features-commun {
+  .dashboard-header section#features-section div.item-features-commun {
     margin: 1rem;
   }
 }
-
-section#join-us-section div#container-card-join-us figcaption {
+.dashboard-header section#join-us-section div#container-card-join-us figcaption {
   position: relative;
 }
-section#join-us-section div#container-card-join-us figcaption img {
+.dashboard-header section#join-us-section div#container-card-join-us figcaption img {
   width: 100%;
   min-height: 100px;
 }
-section#join-us-section div#container-card-join-us figcaption a#btn-list-property {
+.dashboard-header section#join-us-section div#container-card-join-us figcaption a#btn-list-property {
   position: absolute;
   bottom: 10%;
   right: 10%;
@@ -1117,17 +1113,16 @@ section#join-us-section div#container-card-join-us figcaption a#btn-list-propert
   background-color: #f4ebff;
   border-radius: 10px;
 }
-section#join-us-section div#container-card-join-us figcaption a#btn-list-property a#btn-list-property:hover {
+.dashboard-header section#join-us-section div#container-card-join-us figcaption a#btn-list-property a#btn-list-property:hover {
   background-color: rgba(213, 223, 240, 0.831372549);
   filter: brightness(110%);
   transition: 0.5s ease;
 }
-section#join-us-section div#container-card-join-us figcaption a#btn-list-property a#btn-list-property:active {
+.dashboard-header section#join-us-section div#container-card-join-us figcaption a#btn-list-property a#btn-list-property:active {
   transform: translate(0, 0.5rem);
   box-shadow: 0 0.1rem rgba(255, 255, 255, 0.7);
 }
-
-#scroll-to-top-button {
+.dashboard-header #scroll-to-top-button {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
@@ -1142,39 +1137,37 @@ section#join-us-section div#container-card-join-us figcaption a#btn-list-propert
   opacity: 1;
   z-index: 9999;
 }
-
-.scroll-to-top-hidden {
+.dashboard-header .scroll-to-top-hidden {
   display: none;
 }
-
-section#property-section {
+.dashboard-header section#property-section {
   text-align: left;
   /* The Modal (background) */
 }
-section#property-section h1 {
+.dashboard-header section#property-section h1 {
   font-size: 55px;
 }
-section#property-section .property-images {
+.dashboard-header section#property-section .property-images {
   width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-section#property-section .property-images .property-main-image img {
+.dashboard-header section#property-section .property-images .property-main-image img {
   width: 100%;
   min-height: 650px;
   border-radius: 0.8rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
-section#property-section .property-images .property-flex-images {
+.dashboard-header section#property-section .property-images .property-flex-images {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
-section#property-section .property-images .property-flex-images img {
+.dashboard-header section#property-section .property-images .property-flex-images img {
   width: 45%;
   max-height: 400px;
   border-radius: 0.8rem;
@@ -1182,7 +1175,7 @@ section#property-section .property-images .property-flex-images img {
   -o-object-fit: cover;
      object-fit: cover;
 }
-section#property-section .modal {
+.dashboard-header section#property-section .modal {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -1197,7 +1190,7 @@ section#property-section .modal {
   /* Add Animation - Zoom in the Modal */
   /* The Close Button */
 }
-section#property-section .modal .modal-content {
+.dashboard-header section#property-section .modal .modal-content {
   margin: auto;
   display: block;
   width: 80%;
@@ -1207,11 +1200,11 @@ section#property-section .modal .modal-content {
   top: 50%;
   transform: translateY(-50%);
 }
-section#property-section .modal .modal-content {
+.dashboard-header section#property-section .modal .modal-content {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
-section#property-section .modal .close {
+.dashboard-header section#property-section .modal .close {
   position: absolute;
   top: 5%;
   right: 3%;
@@ -1220,48 +1213,48 @@ section#property-section .modal .close {
   font-weight: bold;
   transition: 0.3s;
 }
-section#property-section .modal .close:hover,
-section#property-section .modal .close:focus {
+.dashboard-header section#property-section .modal .close:hover,
+.dashboard-header section#property-section .modal .close:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
 }
-section#property-section h3 {
+.dashboard-header section#property-section h3 {
   font-size: 1.5rem;
   color: #404e87;
   text-align: left;
 }
-section#property-section .property-details {
+.dashboard-header section#property-section .property-details {
   display: flex;
   flex-direction: row;
 }
-section#property-section .property-details .container-description-property {
+.dashboard-header section#property-section .property-details .container-description-property {
   width: 50%;
 }
-section#property-section .property-details .container-description-property .property-amenities {
+.dashboard-header section#property-section .property-details .container-description-property .property-amenities {
   display: flex;
   flex-direction: row;
 }
-section#property-section .property-details .container-description-property .property-amenities p {
+.dashboard-header section#property-section .property-details .container-description-property .property-amenities p {
   padding-right: 0.8rem;
   font-size: 0.8rem;
 }
-section#property-section .property-details .container-description-property .property-description #description-details {
+.dashboard-header section#property-section .property-details .container-description-property .property-description #description-details {
   color: #404e87;
 }
-section#property-section .property-details .container-description-property .property-description #description-details:hover {
+.dashboard-header section#property-section .property-details .container-description-property .property-description #description-details:hover {
   text-decoration: underline;
 }
-section#property-section .property-details .container-description-property .property-equipment {
+.dashboard-header section#property-section .property-details .container-description-property .property-equipment {
   margin-left: 0.5rem;
   max-height: 350px;
 }
-section#property-section .property-details .container-description-property .property-equipment .equipment-list {
+.dashboard-header section#property-section .property-details .container-description-property .property-equipment .equipment-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-section#property-section .property-details .container-description-property .property-equipment .equipment-list figure {
+.dashboard-header section#property-section .property-details .container-description-property .property-equipment .equipment-list figure {
   max-width: 150px;
   display: flex;
   justify-content: center;
@@ -1271,30 +1264,30 @@ section#property-section .property-details .container-description-property .prop
   overflow: hidden;
   text-align: center;
 }
-section#property-section .property-details .container-description-property .property-equipment .equipment-list figure img {
+.dashboard-header section#property-section .property-details .container-description-property .property-equipment .equipment-list figure img {
   margin-right: 0.5rem;
   width: 25px;
 }
-section#property-section .property-details .container-description-property .property-comments {
+.dashboard-header section#property-section .property-details .container-description-property .property-comments {
   display: flex;
   flex-direction: column;
 }
-section#property-section .property-details .container-description-property .property-comments .nav-arrows {
+.dashboard-header section#property-section .property-details .container-description-property .property-comments .nav-arrows {
   align-self: flex-end;
 }
-section#property-section .property-details .container-description-property .property-comments .nav-arrows button {
+.dashboard-header section#property-section .property-details .container-description-property .property-comments .nav-arrows button {
   outline: transparent;
   border: 1px solid #1b1d21;
   border-radius: 50%;
   padding: 0.5rem;
 }
-section#property-section .property-details .container-description-property .property-comments .container-comments-row {
+.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row {
   width: 100%;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
 }
-section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment {
+.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -1306,69 +1299,69 @@ section#property-section .property-details .container-description-property .prop
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 }
-section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment .stars-rating figure img {
+.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment .stars-rating figure img {
   width: 25px;
 }
-section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure {
+.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure {
   display: flex;
   flex-direction: row;
   align-items: center;
   overflow: hidden;
 }
-section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure #profile-picture {
+.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure #profile-picture {
   background-color: grey;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
-section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure figcaption {
+.dashboard-header section#property-section .property-details .container-description-property .property-comments .container-comments-row .container-comment figure figcaption {
   margin: 0 0.5rem;
 }
-section#property-section .property-details .container-description-property .property-host h3 {
+.dashboard-header section#property-section .property-details .container-description-property .property-host h3 {
   margin: 1rem 0;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info {
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   padding: 2rem;
   border-radius: 1rem;
   max-width: 60%;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info figure {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure {
   overflow: hidden;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info figure .profile-picture {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure .profile-picture {
   width: 100px;
   height: 100px;
   border-radius: 50%;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption {
   padding: 0.5rem 1rem;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption h4 {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption h4 {
   font-size: 1.3rem;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure {
   display: flex;
   flex-direction: row;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure img {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info figure figcaption .stars-rating figure img {
   width: 15px;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .host-details {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .host-details {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button {
   display: flex;
   justify-content: center;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button {
   width: 15rem;
   position: relative;
   border: solid 1px #404e87;
@@ -1378,7 +1371,7 @@ section#property-section .property-details .container-description-property .prop
   cursor: pointer;
   overflow: hidden;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span {
   display: block;
   font-family: "Quicksand";
   font-size: 1.2rem;
@@ -1388,10 +1381,10 @@ section#property-section .property-details .container-description-property .prop
   position: relative;
   z-index: 1;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span:hover {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span:hover {
   color: #f8f8f8;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:before {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:before {
   content: "";
   position: absolute;
   top: 0;
@@ -1402,37 +1395,37 @@ section#property-section .property-details .container-description-property .prop
   transition: all 0.5s ease-out;
   z-index: 0;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:hover:before {
+.dashboard-header section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:hover:before {
   width: 100%;
 }
-section#property-section .property-details .container-description-property .property-conditions {
+.dashboard-header section#property-section .property-details .container-description-property .property-conditions {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-section#property-section .property-details .container-description-property .property-conditions .annulation,
-section#property-section .property-details .container-description-property .property-conditions .reglement {
+.dashboard-header section#property-section .property-details .container-description-property .property-conditions .annulation,
+.dashboard-header section#property-section .property-details .container-description-property .property-conditions .reglement {
   max-width: 300px;
 }
-section#property-section .property-details .container-description-property .property-conditions .annulation h4,
-section#property-section .property-details .container-description-property .property-conditions .reglement h4 {
+.dashboard-header section#property-section .property-details .container-description-property .property-conditions .annulation h4,
+.dashboard-header section#property-section .property-details .container-description-property .property-conditions .reglement h4 {
   font-size: 1.3rem;
 }
-section#property-section .property-details .container-description-property .property-conditions .annulation p,
-section#property-section .property-details .container-description-property .property-conditions .reglement p {
+.dashboard-header section#property-section .property-details .container-description-property .property-conditions .annulation p,
+.dashboard-header section#property-section .property-details .container-description-property .property-conditions .reglement p {
   margin: 1rem;
 }
-section#property-section .property-details .container-description-property .property-conditions .annulation a,
-section#property-section .property-details .container-description-property .property-conditions .reglement a {
+.dashboard-header section#property-section .property-details .container-description-property .property-conditions .annulation a,
+.dashboard-header section#property-section .property-details .container-description-property .property-conditions .reglement a {
   font-size: 1.1rem;
 }
-section#property-section .property-details .container-description-property .property-conditions .annulation a:hover,
-section#property-section .property-details .container-description-property .property-conditions .reglement a:hover {
+.dashboard-header section#property-section .property-details .container-description-property .property-conditions .annulation a:hover,
+.dashboard-header section#property-section .property-details .container-description-property .property-conditions .reglement a:hover {
   color: #404e87;
   text-decoration: underline;
   transition: 250ms ease-in;
 }
-section#property-section .property-details .container-pricing {
+.dashboard-header section#property-section .property-details .container-pricing {
   position: sticky;
   top: 8rem;
   display: flex;
@@ -1446,60 +1439,60 @@ section#property-section .property-details .container-pricing {
   padding: 1.5rem;
   border-radius: 1.5rem;
 }
-section#property-section .property-details .container-pricing p {
+.dashboard-header section#property-section .property-details .container-pricing p {
   font-size: 1.6rem;
   margin: 1rem;
   margin-top: 0;
 }
-section#property-section .property-details .container-pricing p span {
+.dashboard-header section#property-section .property-details .container-pricing p span {
   font-family: "Quicksand-bold";
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options {
   width: 90%;
   background-color: #fff;
   border-radius: 1rem;
   padding: 0.5rem;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar input[type=date] {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar input[type=date] {
   border: none;
   outline: transparent;
   font-family: "Quicksand";
   text-transform: uppercase;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .arrival,
-section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .departure {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .arrival,
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .departure {
   width: 50%;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #1b1d21;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .arrival {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .arrival {
   border-right: 1px solid #1b1d21;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .departure {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .departure {
   padding-left: 1rem;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler {
   display: flex;
   flex-direction: column;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler select#traveler-select {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .traveler select#traveler-select {
   font-family: "Quicksand";
   padding: 0.5rem 0.8rem;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler button {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler button {
   width: 100%;
   min-width: 300px;
   position: relative;
@@ -1510,7 +1503,7 @@ section#property-section .property-details .container-pricing .container-calenda
   cursor: pointer;
   overflow: hidden;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler button span {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler button span {
   display: block;
   font-family: "Quicksand";
   font-size: 1.5rem;
@@ -1520,10 +1513,10 @@ section#property-section .property-details .container-pricing .container-calenda
   position: relative;
   z-index: 1;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler button span:hover {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler button span:hover {
   color: #f8f8f8;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler button:before {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler button:before {
   content: "";
   position: absolute;
   top: 0;
@@ -1534,65 +1527,65 @@ section#property-section .property-details .container-pricing .container-calenda
   transition: all 0.5s ease-out;
   z-index: 0;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler button:hover:before {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler button:hover:before {
   width: 100%;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler p {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler p {
   font-size: 0.7rem;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler input[type=submit] {
+.dashboard-header section#property-section .property-details .container-pricing .container-calendar-traveler input[type=submit] {
   display: none;
 }
-section#property-section .property-details .container-pricing .price-details {
+.dashboard-header section#property-section .property-details .container-pricing .price-details {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-section#property-section .property-details .container-pricing .price-details p {
+.dashboard-header section#property-section .property-details .container-pricing .price-details p {
   font-size: 1rem;
 }
-section#property-section .property-details .container-pricing .price-details h4 {
+.dashboard-header section#property-section .property-details .container-pricing .price-details h4 {
   font-size: 1.3rem;
   margin: 1rem 0;
   padding-top: 0.5rem;
   border-top: 1px solid #1b1d21;
 }
-section#property-section .add-comment-form {
+.dashboard-header section#property-section .add-comment-form {
   width: 50%;
 }
-section#property-section .add-comment-form form .rating-input {
+.dashboard-header section#property-section .add-comment-form form .rating-input {
   display: flex;
   flex-direction: column;
 }
-section#property-section .add-comment-form form .rating-input .rating-stars {
+.dashboard-header section#property-section .add-comment-form form .rating-input .rating-stars {
   display: flex;
   flex-direction: row;
 }
-section#property-section .add-comment-form form .rating-input .rating-stars label img {
+.dashboard-header section#property-section .add-comment-form form .rating-input .rating-stars label img {
   width: 25px;
   /* Adjust the size of the stars as needed */
   cursor: pointer;
   opacity: 0.6;
   /* Set the initial opacity for non-active stars */
 }
-section#property-section .add-comment-form form .rating-input .rating-stars label img:hover {
+.dashboard-header section#property-section .add-comment-form form .rating-input .rating-stars label img:hover {
   opacity: 0.8;
   /* Set the opacity on hover */
 }
-section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio]:checked + label img {
+.dashboard-header section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio]:checked + label img {
   opacity: 1;
   /* Set the opacity to 1 for the checked (active) star */
 }
-section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio] {
+.dashboard-header section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio] {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
-section#property-section .add-comment-form form .comment-input {
+.dashboard-header section#property-section .add-comment-form form .comment-input {
   display: flex;
   flex-direction: column;
 }
-section#property-section .add-comment-form form button {
+.dashboard-header section#property-section .add-comment-form form button {
   width: 100%;
   position: relative;
   margin: 0.5rem 0;
@@ -1602,7 +1595,7 @@ section#property-section .add-comment-form form button {
   cursor: pointer;
   overflow: hidden;
 }
-section#property-section .add-comment-form form button span {
+.dashboard-header section#property-section .add-comment-form form button span {
   display: block;
   font-family: "Quicksand";
   font-size: 1.5rem;
@@ -1612,10 +1605,10 @@ section#property-section .add-comment-form form button span {
   position: relative;
   z-index: 1;
 }
-section#property-section .add-comment-form form button span:hover {
+.dashboard-header section#property-section .add-comment-form form button span:hover {
   color: #f8f8f8;
 }
-section#property-section .add-comment-form form button:before {
+.dashboard-header section#property-section .add-comment-form form button:before {
   content: "";
   position: absolute;
   top: 0;
@@ -1626,37 +1619,35 @@ section#property-section .add-comment-form form button:before {
   transition: all 0.5s ease-out;
   z-index: 0;
 }
-section#property-section .add-comment-form form button:hover:before {
+.dashboard-header section#property-section .add-comment-form form button:hover:before {
   width: 100%;
 }
-section#property-section .add-comment-form form input[type=submit] {
+.dashboard-header section#property-section .add-comment-form form input[type=submit] {
   display: none;
 }
-section#property-section div {
+.dashboard-header section#property-section div {
   margin-bottom: 1rem;
 }
-
-section#googlemaps-property-section div#map {
+.dashboard-header section#googlemaps-property-section div#map {
   width: 100%;
   height: 400px;
 }
-
-#addgooglemaps-property-section .sb-title {
+.dashboard-header #addgooglemaps-property-section .sb-title {
   position: relative;
   top: -12px;
   font-family: Roboto, sans-serif;
   font-weight: 500;
 }
-#addgooglemaps-property-section .sb-title-icon {
+.dashboard-header #addgooglemaps-property-section .sb-title-icon {
   position: relative;
   top: -5px;
 }
-#addgooglemaps-property-section .card-container {
+.dashboard-header #addgooglemaps-property-section .card-container {
   display: flex;
   height: 500px;
   width: 100%;
 }
-#addgooglemaps-property-section .panel {
+.dashboard-header #addgooglemaps-property-section .panel {
   background: white;
   width: 800px;
   padding: 20px;
@@ -1665,24 +1656,24 @@ section#googlemaps-property-section div#map {
   justify-content: space-around;
   border-radius: 0.5rem;
 }
-#addgooglemaps-property-section .half-input-container {
+.dashboard-header #addgooglemaps-property-section .half-input-container {
   display: flex;
   justify-content: space-between;
 }
-#addgooglemaps-property-section .half-input {
+.dashboard-header #addgooglemaps-property-section .half-input {
   max-width: 120px;
 }
-#addgooglemaps-property-section .map {
+.dashboard-header #addgooglemaps-property-section .map {
   width: 50%;
 }
-#addgooglemaps-property-section h2 {
+.dashboard-header #addgooglemaps-property-section h2 {
   margin: 0;
   font-family: Roboto, sans-serif;
 }
-#addgooglemaps-property-section input {
+.dashboard-header #addgooglemaps-property-section input {
   height: 30px;
 }
-#addgooglemaps-property-section input {
+.dashboard-header #addgooglemaps-property-section input {
   border: 0;
   border-bottom: 1px solid black;
   font-size: 14px;
@@ -1690,37 +1681,36 @@ section#googlemaps-property-section div#map {
   font-style: normal;
   font-weight: normal;
 }
-#addgooglemaps-property-section input:focus::-moz-placeholder {
+.dashboard-header #addgooglemaps-property-section input:focus::-moz-placeholder {
   color: white;
 }
-#addgooglemaps-property-section input:focus::placeholder {
+.dashboard-header #addgooglemaps-property-section input:focus::placeholder {
   color: white;
 }
-
-.dashboard {
+.dashboard-header .dashboard {
   background-color: #e1e7ea;
   min-height: 90vh;
 }
-.dashboard h2 {
+.dashboard-header .dashboard h2 {
   color: #0e9384;
 }
-.dashboard .welcome-dashboard {
+.dashboard-header .dashboard .welcome-dashboard {
   text-align: left;
 }
-.dashboard .welcome-dashboard h1 {
+.dashboard-header .dashboard .welcome-dashboard h1 {
   color: #111;
   margin: 0 5rem;
   padding-top: 1rem;
   font-size: 2rem;
 }
-.dashboard .welcome-dashboard .user-menu {
+.dashboard-header .dashboard .welcome-dashboard .user-menu {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin: 5rem;
   margin-bottom: 0;
 }
-.dashboard .welcome-dashboard .user-menu .add a {
+.dashboard-header .dashboard .welcome-dashboard .user-menu .add a {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1730,76 +1720,75 @@ section#googlemaps-property-section div#map {
   padding: 0.5rem;
   padding-right: 2rem;
 }
-.dashboard .welcome-dashboard .user-menu .add a img {
+.dashboard-header .dashboard .welcome-dashboard .user-menu .add a img {
   padding: 0.5rem;
   margin: 0 0.5rem 0 0;
   background-color: #f3f3f3;
   border-radius: 5rem;
 }
-.dashboard .welcome-dashboard .user-menu .add.first-link a {
+.dashboard-header .dashboard .welcome-dashboard .user-menu .add.first-link a {
   background-color: #0e9384;
   color: #f8f8f8;
 }
-.dashboard .welcome-dashboard .user-menu .add.filter {
+.dashboard-header .dashboard .welcome-dashboard .user-menu .add.filter {
   margin-left: auto;
   align-self: flex-end;
 }
-.dashboard .welcome-dashboard .user-menu .add a:hover {
+.dashboard-header .dashboard .welcome-dashboard .user-menu .add a:hover {
   background: rgba(14, 147, 131, 0.5803921569);
   transition: all 0.5s ease-out;
 }
 @media screen and (max-width: 800px) {
-  .dashboard .welcome-dashboard .user-menu .add.filter {
+  .dashboard-header .dashboard .welcome-dashboard .user-menu .add.filter {
     margin-left: 0;
     align-self: flex-end;
   }
 }
-.dashboard .cards-container {
+.dashboard-header .dashboard .cards-container {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-around;
   margin: 1rem 3rem;
 }
-
-#addpropertyForm {
+.dashboard-header #addpropertyForm {
   background-color: #e1e7ea;
   text-align: center;
   padding: 1rem;
 }
-#addpropertyForm h1 {
+.dashboard-header #addpropertyForm h1 {
   color: #0e9384;
   font-size: 2rem;
 }
-#addpropertyForm .add-form {
+.dashboard-header #addpropertyForm .add-form {
   padding: 1rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-#addpropertyForm .add-form h4 {
+.dashboard-header #addpropertyForm .add-form h4 {
   color: #0e9384;
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
-#addpropertyForm .add-form h5 {
+.dashboard-header #addpropertyForm .add-form h5 {
   color: #0e9384;
   font-size: 1rem;
 }
-#addpropertyForm .add-form input[type=text] {
+.dashboard-header #addpropertyForm .add-form input[type=text] {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-#addpropertyForm .add-form input[type=text]:focus,
-#addpropertyForm .add-form input[type=text]:focus {
+.dashboard-header #addpropertyForm .add-form input[type=text]:focus,
+.dashboard-header #addpropertyForm .add-form input[type=text]:focus {
   color: #0e9384;
   outline: transparent;
   background-color: #ffffff;
 }
-#addpropertyForm .add-form select {
+.dashboard-header #addpropertyForm .add-form select {
   background-color: rgba(255, 255, 255, 0.6470588235);
   border: 1px solid #0e9384;
   font-family: "Quicksand";
@@ -1807,14 +1796,14 @@ section#googlemaps-property-section div#map {
   font-size: 0.8rem;
   padding: 0.5rem;
 }
-#addpropertyForm .add-form textarea {
+.dashboard-header #addpropertyForm .add-form textarea {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-#addpropertyForm .add-form input[type=checkbox] {
+.dashboard-header #addpropertyForm .add-form input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -1831,7 +1820,7 @@ section#googlemaps-property-section div#map {
   place-content: center;
   cursor: pointer;
 }
-#addpropertyForm .add-form input[type=checkbox]::before {
+.dashboard-header #addpropertyForm .add-form input[type=checkbox]::before {
   content: "";
   width: 0.8rem;
   height: 0.8rem;
@@ -1843,12 +1832,12 @@ section#googlemaps-property-section div#map {
   -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
           clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
-#addpropertyForm .add-form input[type=checkbox]:checked::before {
+.dashboard-header #addpropertyForm .add-form input[type=checkbox]:checked::before {
   transform: scale(1);
   color: #0e9384;
   background-color: #0e9384;
 }
-#addpropertyForm .add-form input[type=radio] {
+.dashboard-header #addpropertyForm .add-form input[type=radio] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -1865,7 +1854,7 @@ section#googlemaps-property-section div#map {
   place-content: center;
   cursor: pointer;
 }
-#addpropertyForm .add-form input[type=radio]::before {
+.dashboard-header #addpropertyForm .add-form input[type=radio]::before {
   content: "";
   width: 0.65em;
   height: 0.65em;
@@ -1875,25 +1864,25 @@ section#googlemaps-property-section div#map {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: #0e9384;
 }
-#addpropertyForm .add-form input[type=radio]:checked::before {
+.dashboard-header #addpropertyForm .add-form input[type=radio]:checked::before {
   transform: scale(1);
 }
-#addpropertyForm .add-form .input-flex {
+.dashboard-header #addpropertyForm .add-form .input-flex {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 1rem 0;
 }
-#addpropertyForm .add-form .input-flex .property-title,
-#addpropertyForm .add-form .input-flex .property-price,
-#addpropertyForm .add-form .input-flex .property-type {
+.dashboard-header #addpropertyForm .add-form .input-flex .property-title,
+.dashboard-header #addpropertyForm .add-form .input-flex .property-price,
+.dashboard-header #addpropertyForm .add-form .input-flex .property-type {
   display: flex;
   flex-direction: column;
 }
-#addpropertyForm .add-form .input-flex .property-title input,
-#addpropertyForm .add-form .input-flex .property-price input,
-#addpropertyForm .add-form .input-flex .property-type input {
+.dashboard-header #addpropertyForm .add-form .input-flex .property-title input,
+.dashboard-header #addpropertyForm .add-form .input-flex .property-price input,
+.dashboard-header #addpropertyForm .add-form .input-flex .property-type input {
   border: 1px solid #0e9384;
   padding: 0.5rem;
   font-family: "Quicksand-bold";
@@ -1901,35 +1890,35 @@ section#googlemaps-property-section div#map {
   background-color: rgba(248, 248, 248, 0.7294117647);
   border-radius: 0.5rem;
 }
-#addpropertyForm .add-form .input-flex .property-title input:hover,
-#addpropertyForm .add-form .input-flex .property-title input:focus,
-#addpropertyForm .add-form .input-flex .property-price input:hover,
-#addpropertyForm .add-form .input-flex .property-price input:focus,
-#addpropertyForm .add-form .input-flex .property-type input:hover,
-#addpropertyForm .add-form .input-flex .property-type input:focus {
+.dashboard-header #addpropertyForm .add-form .input-flex .property-title input:hover,
+.dashboard-header #addpropertyForm .add-form .input-flex .property-title input:focus,
+.dashboard-header #addpropertyForm .add-form .input-flex .property-price input:hover,
+.dashboard-header #addpropertyForm .add-form .input-flex .property-price input:focus,
+.dashboard-header #addpropertyForm .add-form .input-flex .property-type input:hover,
+.dashboard-header #addpropertyForm .add-form .input-flex .property-type input:focus {
   background-color: #f8f8f8;
   outline: max(2px, 0.15em) solid #f8f8f8;
   outline-offset: max(2px, 0.15em);
 }
-#addpropertyForm .add-form .property-images {
+.dashboard-header #addpropertyForm .add-form .property-images {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
 }
-#addpropertyForm .add-form .property-images p {
+.dashboard-header #addpropertyForm .add-form .property-images p {
   font-size: 0.8rem;
 }
-#addpropertyForm .add-form .property-images .images-container {
+.dashboard-header #addpropertyForm .add-form .property-images .images-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-#addpropertyForm .add-form .property-images .images-container .image-input {
+.dashboard-header #addpropertyForm .add-form .property-images .images-container .image-input {
   display: flex;
   flex-direction: column;
 }
-#addpropertyForm .add-form .property-images input::file-selector-button {
+.dashboard-header #addpropertyForm .add-form .property-images input::file-selector-button {
   border: 1px solid #0e9384;
   background-color: #e1e7ea;
   border-radius: 0.5rem;
@@ -1937,12 +1926,12 @@ section#googlemaps-property-section div#map {
   margin: 0.5rem;
   padding: 0.3rem;
 }
-#addpropertyForm .add-form .property-images input::file-selector-button:hover {
+.dashboard-header #addpropertyForm .add-form .property-images input::file-selector-button:hover {
   cursor: pointer;
   color: #f8f8f8;
   background-color: #0e9384;
 }
-#addpropertyForm .add-form .host-languages {
+.dashboard-header #addpropertyForm .add-form .host-languages {
   margin: 1rem 0;
   display: flex;
   flex-direction: row;
@@ -1950,17 +1939,17 @@ section#googlemaps-property-section div#map {
   align-items: center;
   justify-content: center;
 }
-#addpropertyForm .add-form .host-languages label {
+.dashboard-header #addpropertyForm .add-form .host-languages label {
   margin: 1.5rem;
 }
-#addpropertyForm .add-form .selection-accomodation {
+.dashboard-header #addpropertyForm .add-form .selection-accomodation {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin: 1rem 0;
 }
-#addpropertyForm .add-form .selection-accomodation .equipement {
+.dashboard-header #addpropertyForm .add-form .selection-accomodation .equipement {
   width: 200px;
   height: 120px;
   display: flex;
@@ -1969,51 +1958,51 @@ section#googlemaps-property-section div#map {
   align-items: center;
   text-align: center;
 }
-#addpropertyForm .add-form .selection-accomodation .equipement label {
+.dashboard-header #addpropertyForm .add-form .selection-accomodation .equipement label {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
 }
-#addpropertyForm .add-form .selection-accomodation .equipement label img {
+.dashboard-header #addpropertyForm .add-form .selection-accomodation .equipement label img {
   width: 20px;
 }
-#addpropertyForm .add-form .selection-accomodation .equipement label:hover {
+.dashboard-header #addpropertyForm .add-form .selection-accomodation .equipement label:hover {
   cursor: pointer;
 }
-#addpropertyForm .add-form .selection-accomodation .equipement:hover {
+.dashboard-header #addpropertyForm .add-form .selection-accomodation .equipement:hover {
   background-color: rgba(128, 128, 128, 0.252);
   border-bottom: 1px solid #f8f8f8;
 }
-#addpropertyForm .add-form .container-flex {
+.dashboard-header #addpropertyForm .add-form .container-flex {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
 }
-#addpropertyForm .add-form .container-flex .add-rules {
+.dashboard-header #addpropertyForm .add-form .container-flex .add-rules {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-#addpropertyForm .add-form .container-flex .add-amenities {
+.dashboard-header #addpropertyForm .add-form .container-flex .add-amenities {
   display: flex;
   flex-direction: column;
 }
-#addpropertyForm .add-form .container-flex .add-amenities .amenity {
+.dashboard-header #addpropertyForm .add-form .container-flex .add-amenities .amenity {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-#addpropertyForm .add-form .container-flex .add-amenities .amenity label {
+.dashboard-header #addpropertyForm .add-form .container-flex .add-amenities .amenity label {
   margin: 0.5rem;
 }
-#addpropertyForm .add-form .container-flex input {
+.dashboard-header #addpropertyForm .add-form .container-flex input {
   border: 1px solid #0e9384;
   padding: 0.5rem;
   font-family: "Quicksand-bold";
@@ -2021,30 +2010,30 @@ section#googlemaps-property-section div#map {
   background-color: rgba(248, 248, 248, 0.7294117647);
   border-radius: 0.5rem;
 }
-#addpropertyForm .add-form .container-flex input:hover,
-#addpropertyForm .add-form .container-flex input:focus {
+.dashboard-header #addpropertyForm .add-form .container-flex input:hover,
+.dashboard-header #addpropertyForm .add-form .container-flex input:focus {
   background-color: #f8f8f8;
   outline: max(2px, 0.15em) solid #f8f8f8;
   outline-offset: max(2px, 0.15em);
 }
-#addpropertyForm .add-form .selection-tags {
+.dashboard-header #addpropertyForm .add-form .selection-tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 1rem;
 }
-#addpropertyForm .add-form .selection-tags .tag-element {
+.dashboard-header #addpropertyForm .add-form .selection-tags .tag-element {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#addpropertyForm .add-form .selection-tags .tag-element:hover {
+.dashboard-header #addpropertyForm .add-form .selection-tags .tag-element:hover {
   background-color: rgba(128, 128, 128, 0.252);
   border-bottom: 1px solid #f8f8f8;
 }
-#addpropertyForm .add-form .selection-tags label {
+.dashboard-header #addpropertyForm .add-form .selection-tags label {
   width: 70px;
   margin: 1rem;
   display: flex;
@@ -2053,10 +2042,10 @@ section#googlemaps-property-section div#map {
   align-items: center;
   cursor: pointer;
 }
-#addpropertyForm .add-form .selection-tags label img {
+.dashboard-header #addpropertyForm .add-form .selection-tags label img {
   width: 25px;
 }
-#addpropertyForm button.main-button-style {
+.dashboard-header #addpropertyForm button.main-button-style {
   margin: 0.5rem 0;
   width: 90%;
   position: relative;
@@ -2067,7 +2056,7 @@ section#googlemaps-property-section div#map {
   cursor: pointer;
   overflow: hidden;
 }
-#addpropertyForm button.main-button-style span {
+.dashboard-header #addpropertyForm button.main-button-style span {
   display: block;
   font-family: "Quicksand";
   font-size: 1.2rem;
@@ -2077,13 +2066,13 @@ section#googlemaps-property-section div#map {
   position: relative;
   z-index: 1;
 }
-#addpropertyForm button.main-button-style span:hover {
+.dashboard-header #addpropertyForm button.main-button-style span:hover {
   color: #f8f8f8;
 }
-#addpropertyForm button.main-button-style > input {
+.dashboard-header #addpropertyForm button.main-button-style > input {
   display: none;
 }
-#addpropertyForm button.main-button-style:before {
+.dashboard-header #addpropertyForm button.main-button-style:before {
   content: "";
   position: absolute;
   top: 0;
@@ -2094,48 +2083,47 @@ section#googlemaps-property-section div#map {
   transition: all 1s ease-out;
   z-index: 0;
 }
-#addpropertyForm button.main-button-style:hover:before {
+.dashboard-header #addpropertyForm button.main-button-style:hover:before {
   width: 100%;
 }
-
-#editpropertyform {
+.dashboard-header #editpropertyform {
   background-color: #e1e7ea;
   text-align: center;
   padding: 1rem;
 }
-#editpropertyform h1 {
+.dashboard-header #editpropertyform h1 {
   color: #0e9384;
   font-size: 2rem;
 }
-#editpropertyform .edit-form {
+.dashboard-header #editpropertyform .edit-form {
   padding: 1rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-#editpropertyform .edit-form h4 {
+.dashboard-header #editpropertyform .edit-form h4 {
   color: #0e9384;
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
-#editpropertyform .edit-form h5 {
+.dashboard-header #editpropertyform .edit-form h5 {
   color: #0e9384;
   font-size: 1rem;
 }
-#editpropertyform .edit-form input[type=text] {
+.dashboard-header #editpropertyform .edit-form input[type=text] {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-#editpropertyform .edit-form input[type=text]:focus,
-#editpropertyform .edit-form input[type=text]:focus {
+.dashboard-header #editpropertyform .edit-form input[type=text]:focus,
+.dashboard-header #editpropertyform .edit-form input[type=text]:focus {
   color: #0e9384;
   outline: transparent;
   background-color: #ffffff;
 }
-#editpropertyform .edit-form select {
+.dashboard-header #editpropertyform .edit-form select {
   background-color: rgba(255, 255, 255, 0.6470588235);
   border: 1px solid #0e9384;
   font-family: "Quicksand";
@@ -2143,14 +2131,14 @@ section#googlemaps-property-section div#map {
   font-size: 0.8rem;
   padding: 0.5rem;
 }
-#editpropertyform .edit-form textarea {
+.dashboard-header #editpropertyform .edit-form textarea {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-#editpropertyform .edit-form input[type=checkbox] {
+.dashboard-header #editpropertyform .edit-form input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -2167,7 +2155,7 @@ section#googlemaps-property-section div#map {
   place-content: center;
   cursor: pointer;
 }
-#editpropertyform .edit-form input[type=checkbox]::before {
+.dashboard-header #editpropertyform .edit-form input[type=checkbox]::before {
   content: "";
   width: 0.8rem;
   height: 0.8rem;
@@ -2179,12 +2167,12 @@ section#googlemaps-property-section div#map {
   -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
           clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
-#editpropertyform .edit-form input[type=checkbox]:checked::before {
+.dashboard-header #editpropertyform .edit-form input[type=checkbox]:checked::before {
   transform: scale(1);
   color: #0e9384;
   background-color: #0e9384;
 }
-#editpropertyform .edit-form input[type=radio] {
+.dashboard-header #editpropertyform .edit-form input[type=radio] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -2201,7 +2189,7 @@ section#googlemaps-property-section div#map {
   place-content: center;
   cursor: pointer;
 }
-#editpropertyform .edit-form input[type=radio]::before {
+.dashboard-header #editpropertyform .edit-form input[type=radio]::before {
   content: "";
   width: 0.65em;
   height: 0.65em;
@@ -2211,25 +2199,25 @@ section#googlemaps-property-section div#map {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: #0e9384;
 }
-#editpropertyform .edit-form input[type=radio]:checked::before {
+.dashboard-header #editpropertyform .edit-form input[type=radio]:checked::before {
   transform: scale(1);
 }
-#editpropertyform .edit-form .input-flex {
+.dashboard-header #editpropertyform .edit-form .input-flex {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 1rem 0;
 }
-#editpropertyform .edit-form .input-flex .property-title,
-#editpropertyform .edit-form .input-flex .property-price,
-#editpropertyform .edit-form .input-flex .property-type {
+.dashboard-header #editpropertyform .edit-form .input-flex .property-title,
+.dashboard-header #editpropertyform .edit-form .input-flex .property-price,
+.dashboard-header #editpropertyform .edit-form .input-flex .property-type {
   display: flex;
   flex-direction: column;
 }
-#editpropertyform .edit-form .input-flex .property-title input,
-#editpropertyform .edit-form .input-flex .property-price input,
-#editpropertyform .edit-form .input-flex .property-type input {
+.dashboard-header #editpropertyform .edit-form .input-flex .property-title input,
+.dashboard-header #editpropertyform .edit-form .input-flex .property-price input,
+.dashboard-header #editpropertyform .edit-form .input-flex .property-type input {
   border: 1px solid #0e9384;
   padding: 0.5rem;
   font-family: "Quicksand-bold";
@@ -2237,35 +2225,35 @@ section#googlemaps-property-section div#map {
   background-color: rgba(248, 248, 248, 0.7294117647);
   border-radius: 0.5rem;
 }
-#editpropertyform .edit-form .input-flex .property-title input:hover,
-#editpropertyform .edit-form .input-flex .property-title input:focus,
-#editpropertyform .edit-form .input-flex .property-price input:hover,
-#editpropertyform .edit-form .input-flex .property-price input:focus,
-#editpropertyform .edit-form .input-flex .property-type input:hover,
-#editpropertyform .edit-form .input-flex .property-type input:focus {
+.dashboard-header #editpropertyform .edit-form .input-flex .property-title input:hover,
+.dashboard-header #editpropertyform .edit-form .input-flex .property-title input:focus,
+.dashboard-header #editpropertyform .edit-form .input-flex .property-price input:hover,
+.dashboard-header #editpropertyform .edit-form .input-flex .property-price input:focus,
+.dashboard-header #editpropertyform .edit-form .input-flex .property-type input:hover,
+.dashboard-header #editpropertyform .edit-form .input-flex .property-type input:focus {
   background-color: #f8f8f8;
   outline: max(2px, 0.15em) solid #f8f8f8;
   outline-offset: max(2px, 0.15em);
 }
-#editpropertyform .edit-form .property-images {
+.dashboard-header #editpropertyform .edit-form .property-images {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
 }
-#editpropertyform .edit-form .property-images p {
+.dashboard-header #editpropertyform .edit-form .property-images p {
   font-size: 0.8rem;
 }
-#editpropertyform .edit-form .property-images .images-container {
+.dashboard-header #editpropertyform .edit-form .property-images .images-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-#editpropertyform .edit-form .property-images .images-container .image-input {
+.dashboard-header #editpropertyform .edit-form .property-images .images-container .image-input {
   display: flex;
   flex-direction: column;
 }
-#editpropertyform .edit-form .property-images input::file-selector-button {
+.dashboard-header #editpropertyform .edit-form .property-images input::file-selector-button {
   border: 1px solid #0e9384;
   background-color: #e1e7ea;
   border-radius: 0.5rem;
@@ -2273,12 +2261,12 @@ section#googlemaps-property-section div#map {
   margin: 0.5rem;
   padding: 0.3rem;
 }
-#editpropertyform .edit-form .property-images input::file-selector-button:hover {
+.dashboard-header #editpropertyform .edit-form .property-images input::file-selector-button:hover {
   cursor: pointer;
   color: #f8f8f8;
   background-color: #0e9384;
 }
-#editpropertyform .edit-form .host-languages {
+.dashboard-header #editpropertyform .edit-form .host-languages {
   margin: 1rem 0;
   display: flex;
   flex-direction: row;
@@ -2286,17 +2274,17 @@ section#googlemaps-property-section div#map {
   align-items: center;
   justify-content: center;
 }
-#editpropertyform .edit-form .host-languages label {
+.dashboard-header #editpropertyform .edit-form .host-languages label {
   margin: 1.5rem;
 }
-#editpropertyform .edit-form .selection-accomodation {
+.dashboard-header #editpropertyform .edit-form .selection-accomodation {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin: 1rem 0;
 }
-#editpropertyform .edit-form .selection-accomodation .equipement {
+.dashboard-header #editpropertyform .edit-form .selection-accomodation .equipement {
   width: 200px;
   height: 120px;
   display: flex;
@@ -2305,51 +2293,51 @@ section#googlemaps-property-section div#map {
   align-items: center;
   text-align: center;
 }
-#editpropertyform .edit-form .selection-accomodation .equipement label {
+.dashboard-header #editpropertyform .edit-form .selection-accomodation .equipement label {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
 }
-#editpropertyform .edit-form .selection-accomodation .equipement label img {
+.dashboard-header #editpropertyform .edit-form .selection-accomodation .equipement label img {
   width: 20px;
 }
-#editpropertyform .edit-form .selection-accomodation .equipement label:hover {
+.dashboard-header #editpropertyform .edit-form .selection-accomodation .equipement label:hover {
   cursor: pointer;
 }
-#editpropertyform .edit-form .selection-accomodation .equipement:hover {
+.dashboard-header #editpropertyform .edit-form .selection-accomodation .equipement:hover {
   background-color: rgba(128, 128, 128, 0.252);
   border-bottom: 1px solid #f8f8f8;
 }
-#editpropertyform .edit-form .container-flex {
+.dashboard-header #editpropertyform .edit-form .container-flex {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
 }
-#editpropertyform .edit-form .container-flex .add-rules {
+.dashboard-header #editpropertyform .edit-form .container-flex .add-rules {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-#editpropertyform .edit-form .container-flex .add-amenities {
+.dashboard-header #editpropertyform .edit-form .container-flex .add-amenities {
   display: flex;
   flex-direction: column;
 }
-#editpropertyform .edit-form .container-flex .add-amenities .amenity {
+.dashboard-header #editpropertyform .edit-form .container-flex .add-amenities .amenity {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-#editpropertyform .edit-form .container-flex .add-amenities .amenity label {
+.dashboard-header #editpropertyform .edit-form .container-flex .add-amenities .amenity label {
   margin: 0.5rem;
 }
-#editpropertyform .edit-form .container-flex input {
+.dashboard-header #editpropertyform .edit-form .container-flex input {
   border: 1px solid #0e9384;
   padding: 0.5rem;
   font-family: "Quicksand-bold";
@@ -2357,30 +2345,30 @@ section#googlemaps-property-section div#map {
   background-color: rgba(248, 248, 248, 0.7294117647);
   border-radius: 0.5rem;
 }
-#editpropertyform .edit-form .container-flex input:hover,
-#editpropertyform .edit-form .container-flex input:focus {
+.dashboard-header #editpropertyform .edit-form .container-flex input:hover,
+.dashboard-header #editpropertyform .edit-form .container-flex input:focus {
   background-color: #f8f8f8;
   outline: max(2px, 0.15em) solid #f8f8f8;
   outline-offset: max(2px, 0.15em);
 }
-#editpropertyform .edit-form .selection-tags {
+.dashboard-header #editpropertyform .edit-form .selection-tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 1rem;
 }
-#editpropertyform .edit-form .selection-tags .tag-element {
+.dashboard-header #editpropertyform .edit-form .selection-tags .tag-element {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#editpropertyform .edit-form .selection-tags .tag-element:hover {
+.dashboard-header #editpropertyform .edit-form .selection-tags .tag-element:hover {
   background-color: rgba(128, 128, 128, 0.252);
   border-bottom: 1px solid #f8f8f8;
 }
-#editpropertyform .edit-form .selection-tags label {
+.dashboard-header #editpropertyform .edit-form .selection-tags label {
   width: 70px;
   margin: 1rem;
   display: flex;
@@ -2389,10 +2377,10 @@ section#googlemaps-property-section div#map {
   align-items: center;
   cursor: pointer;
 }
-#editpropertyform .edit-form .selection-tags label img {
+.dashboard-header #editpropertyform .edit-form .selection-tags label img {
   width: 25px;
 }
-#editpropertyform button.main-button-style {
+.dashboard-header #editpropertyform button.main-button-style {
   margin: 0.5rem 0;
   width: 90%;
   position: relative;
@@ -2403,7 +2391,7 @@ section#googlemaps-property-section div#map {
   cursor: pointer;
   overflow: hidden;
 }
-#editpropertyform button.main-button-style span {
+.dashboard-header #editpropertyform button.main-button-style span {
   display: block;
   font-family: "Quicksand";
   font-size: 1.2rem;
@@ -2413,13 +2401,13 @@ section#googlemaps-property-section div#map {
   position: relative;
   z-index: 1;
 }
-#editpropertyform button.main-button-style span:hover {
+.dashboard-header #editpropertyform button.main-button-style span:hover {
   color: #f8f8f8;
 }
-#editpropertyform button.main-button-style > input {
+.dashboard-header #editpropertyform button.main-button-style > input {
   display: none;
 }
-#editpropertyform button.main-button-style:before {
+.dashboard-header #editpropertyform button.main-button-style:before {
   content: "";
   position: absolute;
   top: 0;
@@ -2430,38 +2418,37 @@ section#googlemaps-property-section div#map {
   transition: all 1s ease-out;
   z-index: 0;
 }
-#editpropertyform button.main-button-style:hover:before {
+.dashboard-header #editpropertyform button.main-button-style:hover:before {
   width: 100%;
 }
-
-#user-edit {
+.dashboard-header #user-edit {
   background-color: #e1e7ea;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#user-edit h2 {
+.dashboard-header #user-edit h2 {
   color: #0e9384;
   margin-bottom: 2rem;
 }
-#user-edit .user-names {
+.dashboard-header #user-edit .user-names {
   display: flex;
   flex-direction: row;
 }
-#user-edit .user-names input[type=text] {
+.dashboard-header #user-edit .user-names input[type=text] {
   margin: 0 0.2rem;
 }
-#user-edit p {
+.dashboard-header #user-edit p {
   margin-top: 1rem;
 }
-#user-edit a {
+.dashboard-header #user-edit a {
   margin: 2rem;
 }
-#user-edit .account-buttons {
+.dashboard-header #user-edit .account-buttons {
   display: flex;
 }
-#user-edit .account-buttons input[type=submit] {
+.dashboard-header #user-edit .account-buttons input[type=submit] {
   border: none;
   background-color: transparent;
   outline: transparent;
@@ -2472,7 +2459,7 @@ section#googlemaps-property-section div#map {
   border-radius: 0.5rem;
   color: #0e9384;
 }
-#user-edit .account-buttons #delete-account {
+.dashboard-header #user-edit .account-buttons #delete-account {
   border: none;
   background-color: transparent;
   outline: transparent;
@@ -2483,33 +2470,32 @@ section#googlemaps-property-section div#map {
   border-radius: 0.5rem;
   color: red;
 }
-
-#error-page {
+.dashboard-header #error-page {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-#error-page .left-side {
+.dashboard-header #error-page .left-side {
   margin: 5rem;
 }
-#error-page .left-side p:first-child {
+.dashboard-header #error-page .left-side p:first-child {
   color: #404e87;
   font-size: 0.9rem;
 }
-#error-page .left-side h1 {
+.dashboard-header #error-page .left-side h1 {
   font-size: 3rem;
   color: #1b1d21;
 }
-#error-page .left-side p {
+.dashboard-header #error-page .left-side p {
   font-size: 1rem;
 }
-#error-page .left-side .button-error {
+.dashboard-header #error-page .left-side .button-error {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin: 1rem;
 }
-#error-page .left-side .button-error #button-return {
+.dashboard-header #error-page .left-side .button-error #button-return {
   border: 1px solid #1b1d21;
   display: flex;
   background-color: transparent;
@@ -2518,10 +2504,10 @@ section#googlemaps-property-section div#map {
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
-#error-page .left-side .button-error #button-return img {
+.dashboard-header #error-page .left-side .button-error #button-return img {
   padding: 0 0.5rem;
 }
-#error-page .left-side .button-error #home-redirection {
+.dashboard-header #error-page .left-side .button-error #home-redirection {
   border: 1px solid #1b1d21;
   display: flex;
   background-color: #92aad3;
@@ -2533,31 +2519,29 @@ section#googlemaps-property-section div#map {
   font-family: "Quicksand";
   font-size: 1rem;
 }
-#error-page figure {
+.dashboard-header #error-page figure {
   margin: 1rem;
 }
-#error-page figure img {
+.dashboard-header #error-page figure img {
   border-radius: 0.5rem;
 }
-
-#catalog-cards {
+.dashboard-header #catalog-cards {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-evenly;
   margin: 1rem 5rem;
 }
-
-section#section-blog {
+.dashboard-header section#section-blog {
   margin-top: 20px;
   font-family: "Quicksand";
 }
-section#section-blog p.sub-title-section {
+.dashboard-header section#section-blog p.sub-title-section {
   color: black;
   text-align: center;
   padding: 30px;
 }
-section#section-blog div#container-section-blog {
+.dashboard-header section#section-blog div#container-section-blog {
   width: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -2565,7 +2549,7 @@ section#section-blog div#container-section-blog {
   align-items: center;
   margin: 0 auto;
 }
-section#section-blog div#container-section-blog div.card-blog {
+.dashboard-header section#section-blog div#container-section-blog div.card-blog {
   width: 100%;
   max-width: 420px;
   height: 540px;
@@ -2577,15 +2561,15 @@ section#section-blog div#container-section-blog div.card-blog {
   transition: all 0.5s ease;
 }
 @media screen and (min-width: 950px) {
-  section#section-blog div#container-section-blog div.card-blog {
+  .dashboard-header section#section-blog div#container-section-blog div.card-blog {
     width: 384px;
     height: 456px;
   }
-  section#section-blog div#container-section-blog div.card-blog:hover .bg-image {
+  .dashboard-header section#section-blog div#container-section-blog div.card-blog:hover .bg-image {
     transform: scale(1.1);
   }
 }
-section#section-blog div#container-section-blog div.card-blog div.card-blog-top {
+.dashboard-header section#section-blog div#container-section-blog div.card-blog div.card-blog-top {
   width: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -2593,7 +2577,7 @@ section#section-blog div#container-section-blog div.card-blog div.card-blog-top 
   align-items: center;
   margin: 0 auto;
 }
-section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom {
+.dashboard-header section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom {
   position: relative;
   padding: 30px 40px;
   text-align: center;
@@ -2602,10 +2586,10 @@ section#section-blog div#container-section-blog div.card-blog div.card-blog-bott
   flex-direction: column;
   align-items: flex-start;
 }
-section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom p {
+.dashboard-header section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom p {
   margin-top: 15px;
 }
-section#section-blog div#container-section-blog div.card-blog div.card-blog {
+.dashboard-header section#section-blog div#container-section-blog div.card-blog div.card-blog {
   position: relative;
   text-align: center;
   height: 50%;
@@ -2613,54 +2597,42 @@ section#section-blog div#container-section-blog div.card-blog div.card-blog {
   flex-direction: column;
   align-items: flex-start;
 }
-
-section#article-section {
+.dashboard-header section#article-section {
   text-align: center;
   margin: 30px auto;
 }
-
-div#article-flex-images figure.article-flex-images {
+.dashboard-header div#article-flex-images figure.article-flex-images {
   display: flex;
 }
-
-div#article-flex-images .right-aligned {
+.dashboard-header div#article-flex-images .right-aligned {
   float: right;
   margin-left: 5px;
 }
-
-section#article-section h1,
-section#article-section h2 {
+.dashboard-header section#article-section h1,
+.dashboard-header section#article-section h2 {
   color: #92AAD3;
   margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;
 }
-
-section#article-section {
+.dashboard-header section#article-section {
   text-align: center;
   margin: 0 auto;
 }
-
-div#article-flex-images figure.article-flex-images {
+.dashboard-header div#article-flex-images figure.article-flex-images {
   display: flex;
 }
-div#article-flex-images figure.article-flex-images .right-aligned {
+.dashboard-header div#article-flex-images figure.article-flex-images .right-aligned {
   float: right;
   margin-left: 5px;
 }
-div#article-flex-images figure.article-flex-images .right-aligned section#article-section h3 {
+.dashboard-header div#article-flex-images figure.article-flex-images .right-aligned section#article-section h3 {
   color: #92AAD3;
 }
-div#article-flex-images figure.article-flex-images .right-aligned section#article-section h3 section#article-section h4 {
+.dashboard-header div#article-flex-images figure.article-flex-images .right-aligned section#article-section h3 section#article-section h4 {
   color: #92AAD3;
   text-align: center;
 }
-
-section#article-section {
+.dashboard-header section#article-section {
   font-family: "Quicksand";
-}
-
-/* Ajoutez ici les propriétés CSS pour la mise en forme de la section /
-}
-
-/ CSS pour les images dans la div #article-flex-images *//*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
