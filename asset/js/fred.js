@@ -15,4 +15,7 @@ function previewImage(event, previewId) {
     preview.src = "#";
     preview.style.display = "none";
   }
+
 }
+
+

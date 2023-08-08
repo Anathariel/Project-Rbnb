@@ -252,8 +252,11 @@ class UserController extends Controller
                         $user->setFirstName($firstName);
                         $user->setLastName($lastName);
                         $user->setUid($uid);
+                        $user->setFirstName($firstName);
+                        $user->setLastName($lastName);
                         $user->setEmail($email);
                         $user->setPhoneNumber($phoneNumber);
+                        $user->setBirthDate($birthDate);
                         $user->setBirthDate($birthDate);
                         $user->setPicture($pictureName);
 
@@ -280,7 +283,7 @@ class UserController extends Controller
             }
         }
     }
-
+    // Récupérer le fichier photo
     public function delete()
     {
         $uid = $_SESSION['uid'];
