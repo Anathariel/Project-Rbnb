@@ -67,6 +67,28 @@ h3 {
   display: none;
 }
 
+/* Ajoutez ces styles pour les notifications */
+.notification-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  animation: fadeOut 3s ease-in-out;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 /* CSS pour cacher l'élément d'autocomplétion généré par jQuery UI */
 .ui-autocomplete {
   max-height: 250px;
@@ -116,13 +138,13 @@ h3 {
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-  height: 450px;
+  height: 420px;
   max-width: 280px;
-  margin: 1rem auto;
+  margin: 0 auto;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -131,7 +153,8 @@ h3 {
   position: relative;
 }
 .card figure img {
-  margin: 0 0.5rem;
+  margin: 0.5rem;
+  margin-bottom: 0;
   width: 250px;
   height: 150px;
   -o-object-fit: cover;
@@ -164,7 +187,7 @@ h3 {
   width: 100%;
 }
 .card .card-details .pricing {
-  margin: 1rem;
+  margin: 0.5rem 1rem;
   display: flex;
   flex-direction: row;
   margin-right: auto;
@@ -183,16 +206,16 @@ h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 0.5rem;
 }
 .card .card-details .location img {
   margin: 0.2rem;
 }
 .card .card-details .description {
-  width: 90%;
   margin: 0 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  text-align: left;
 }
 .card .card-details .description h3 {
   text-align: left;
@@ -206,15 +229,22 @@ h3 {
 }
 .card .card-details .description .locataire {
   display: inline-flex;
-  justify-content: flex-start;
-  align-items: center;
+  align-items: flex-end;
 }
 .card .card-details .description .locataire .img-profile {
   background-color: grey;
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  margin: 1rem;
+  margin: 0.5rem;
+}
+.card .card-details .description .card-descriptions-limit {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .card .card-details .calendar {
   display: flex;
@@ -276,9 +306,11 @@ h3 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: absolute;
   margin: 1rem;
   width: 90%;
   height: 2rem;
+  bottom: 0;
 }
 .card .card-details .dashboard-property-buttons .button {
   width: 6rem;
@@ -353,13 +385,12 @@ h3 {
     max-width: 180px;
   }
 }
-.card-descriptions-limit {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  /* number of lines to show */
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
+.smaller-card {
+  height: 300px;
+}
+
+.medium-card {
+  height: 355px;
 }
 
 .header-main {
@@ -427,7 +458,7 @@ h3 {
   transition: background 250ms ease-in-out;
 }
 .header-main .header-content #container-searchbar #desktop-searchbar button:hover {
-  background: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
+  background: conic-gradient(from 90deg at bottom right, cyan, #0e9384);
 }
 .header-main .header-content #user {
   margin-right: 3rem;
@@ -549,21 +580,11 @@ h3 {
   display: block;
 }
 @media screen and (max-width: 500px) {
-  .dashboard-header .right-menu {
-    display: none;
-  }
   .dashboard-header .search-dashboard {
-    width: 90%;
-  }
-}
-@media screen and (max-width: 850px) {
-  .dashboard-header .logo-header {
-    margin: 1rem;
-  }
-}
-@media screen and (max-width: 700px) {
-  .dashboard-header .right-menu > .app {
     display: none;
+  }
+  .dashboard-header .right-menu {
+    width: 90%;
   }
 }
 
@@ -1642,47 +1663,48 @@ section#googlemaps-property-section div#map {
   height: 400px;
 }
 
-section#addgooglemaps-property-section .sb-title {
+#addgooglemaps-property-section .sb-title {
   position: relative;
   top: -12px;
   font-family: Roboto, sans-serif;
   font-weight: 500;
 }
-section#addgooglemaps-property-section .sb-title-icon {
+#addgooglemaps-property-section .sb-title-icon {
   position: relative;
   top: -5px;
 }
-section#addgooglemaps-property-section .card-container {
+#addgooglemaps-property-section .card-container {
   display: flex;
   height: 500px;
-  width: 600px;
+  width: 100%;
 }
-section#addgooglemaps-property-section .panel {
+#addgooglemaps-property-section .panel {
   background: white;
-  width: 300px;
+  width: 800px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  border-radius: 0.5rem;
 }
-section#addgooglemaps-property-section .half-input-container {
+#addgooglemaps-property-section .half-input-container {
   display: flex;
   justify-content: space-between;
 }
-section#addgooglemaps-property-section .half-input {
+#addgooglemaps-property-section .half-input {
   max-width: 120px;
 }
-section#addgooglemaps-property-section .map {
-  width: 300px;
+#addgooglemaps-property-section .map {
+  width: 50%;
 }
-section#addgooglemaps-property-section h2 {
+#addgooglemaps-property-section h2 {
   margin: 0;
   font-family: Roboto, sans-serif;
 }
-section#addgooglemaps-property-section input {
+#addgooglemaps-property-section input {
   height: 30px;
 }
-section#addgooglemaps-property-section input {
+#addgooglemaps-property-section input {
   border: 0;
   border-bottom: 1px solid black;
   font-size: 14px;
@@ -1690,10 +1712,10 @@ section#addgooglemaps-property-section input {
   font-style: normal;
   font-weight: normal;
 }
-section#addgooglemaps-property-section input:focus::-moz-placeholder {
+#addgooglemaps-property-section input:focus::-moz-placeholder {
   color: white;
 }
-section#addgooglemaps-property-section input:focus::placeholder {
+#addgooglemaps-property-section input:focus::placeholder {
   color: white;
 }
 
@@ -1764,91 +1786,287 @@ section#addgooglemaps-property-section input:focus::placeholder {
 
 #addpropertyForm {
   background-color: #e1e7ea;
+  text-align: center;
+  padding: 1rem;
 }
-#addpropertyForm fieldset {
+#addpropertyForm h1 {
+  color: #0e9384;
+  font-size: 2rem;
+}
+#addpropertyForm .add-form {
   padding: 1rem 3rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
-#addpropertyForm h4 {
+#addpropertyForm .add-form h4 {
   color: #0e9384;
   font-size: 1.2rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
-#addpropertyForm h5 {
-  font-size: 1rem;
+#addpropertyForm .add-form h5 {
   color: #0e9384;
+  font-size: 1rem;
 }
-#addpropertyForm .flex-form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+#addpropertyForm .add-form input[type=text] {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #0e9384;
+  font-family: "Quicksand";
+  background-color: rgba(255, 255, 255, 0.6470588235);
 }
-#addpropertyForm .flex-form .left-property-details {
-  width: 50%;
+#addpropertyForm .add-form input[type=text]:focus,
+#addpropertyForm .add-form input[type=text]:focus {
+  color: #0e9384;
+  outline: transparent;
+  background-color: #ffffff;
 }
-#addpropertyForm .flex-form .left-property-details .input-flex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-#addpropertyForm .flex-form .left-property-details .input-flex .property-title,
-#addpropertyForm .flex-form .left-property-details .input-flex .property-price,
-#addpropertyForm .flex-form .left-property-details .input-flex .property-type {
-  display: flex;
-  flex-direction: column;
-}
-#addpropertyForm .flex-form .right-property-images {
-  width: 50%;
-  max-height: 400px;
-  overflow: scroll;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#addpropertyForm .flex-form .host-languages label {
-  margin: 1.5rem;
-}
-#addpropertyForm .selection-accomodation {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-#addpropertyForm .selection-accomodation .equipement {
-  width: 100px;
-  text-align: center;
-}
-#addpropertyForm .selection-accomodation .equipement label {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-}
-#addpropertyForm .selection-accomodation .equipement label img {
-  width: 20px;
-}
-#addpropertyForm .selection-accomodation .equipement label:hover {
-  cursor: pointer;
-}
-#addpropertyForm .add-rules label {
-  margin: 1rem;
-}
-#addpropertyForm .add-amenities .amenity label {
+#addpropertyForm .add-form select {
+  background-color: rgba(255, 255, 255, 0.6470588235);
+  border: 1px solid #0e9384;
+  font-family: "Quicksand";
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
   padding: 0.5rem;
 }
-#addpropertyForm .selection-tags {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+#addpropertyForm .add-form textarea {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #0e9384;
+  font-family: "Quicksand";
+  background-color: rgba(255, 255, 255, 0.6470588235);
 }
-#addpropertyForm .selection-tags .tag-element {
+#addpropertyForm .add-form input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #0e9384;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid #0e9384;
+  border-radius: 0.3rem;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+#addpropertyForm .add-form input[type=checkbox]::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #0e9384;
+  transform-origin: bottom left;
+  -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+          clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+#addpropertyForm .add-form input[type=checkbox]:checked::before {
+  transform: scale(1);
+  color: #0e9384;
+  background-color: #0e9384;
+}
+#addpropertyForm .add-form input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #0e9384;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #0e9384;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+#addpropertyForm .add-form input[type=radio]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #0e9384;
+}
+#addpropertyForm .add-form input[type=radio]:checked::before {
+  transform: scale(1);
+}
+#addpropertyForm .add-form .input-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+#addpropertyForm .add-form .input-flex .property-title,
+#addpropertyForm .add-form .input-flex .property-price,
+#addpropertyForm .add-form .input-flex .property-type {
   display: flex;
   flex-direction: column;
 }
-#addpropertyForm .selection-tags label {
+#addpropertyForm .add-form .input-flex .property-title input,
+#addpropertyForm .add-form .input-flex .property-price input,
+#addpropertyForm .add-form .input-flex .property-type input {
+  border: 1px solid #0e9384;
+  padding: 0.5rem;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  background-color: rgba(248, 248, 248, 0.7294117647);
+  border-radius: 0.5rem;
+}
+#addpropertyForm .add-form .input-flex .property-title input:hover,
+#addpropertyForm .add-form .input-flex .property-title input:focus,
+#addpropertyForm .add-form .input-flex .property-price input:hover,
+#addpropertyForm .add-form .input-flex .property-price input:focus,
+#addpropertyForm .add-form .input-flex .property-type input:hover,
+#addpropertyForm .add-form .input-flex .property-type input:focus {
+  background-color: #f8f8f8;
+  outline: max(2px, 0.15em) solid #f8f8f8;
+  outline-offset: max(2px, 0.15em);
+}
+#addpropertyForm .add-form .property-images {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+#addpropertyForm .add-form .property-images p {
+  font-size: 0.8rem;
+}
+#addpropertyForm .add-form .property-images .images-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#addpropertyForm .add-form .property-images .images-container .image-input {
+  display: flex;
+  flex-direction: column;
+}
+#addpropertyForm .add-form .property-images input::file-selector-button {
+  border: 1px solid #0e9384;
+  background-color: #e1e7ea;
+  border-radius: 0.5rem;
+  font-family: "Quicksand-bold";
+  margin: 0.5rem;
+  padding: 0.3rem;
+}
+#addpropertyForm .add-form .property-images input::file-selector-button:hover {
+  cursor: pointer;
+  color: #f8f8f8;
+  background-color: #0e9384;
+}
+#addpropertyForm .add-form .host-languages {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+#addpropertyForm .add-form .host-languages label {
+  margin: 1.5rem;
+}
+#addpropertyForm .add-form .selection-accomodation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 0;
+}
+#addpropertyForm .add-form .selection-accomodation .equipement {
+  width: 200px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#addpropertyForm .add-form .selection-accomodation .equipement label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+#addpropertyForm .add-form .selection-accomodation .equipement label img {
+  width: 20px;
+}
+#addpropertyForm .add-form .selection-accomodation .equipement label:hover {
+  cursor: pointer;
+}
+#addpropertyForm .add-form .selection-accomodation .equipement:hover {
+  background-color: rgba(128, 128, 128, 0.252);
+  border-bottom: 1px solid #f8f8f8;
+}
+#addpropertyForm .add-form .container-flex {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#addpropertyForm .add-form .container-flex .add-rules {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+#addpropertyForm .add-form .container-flex .add-amenities {
+  display: flex;
+  flex-direction: column;
+}
+#addpropertyForm .add-form .container-flex .add-amenities .amenity {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+#addpropertyForm .add-form .container-flex .add-amenities .amenity label {
+  margin: 0.5rem;
+}
+#addpropertyForm .add-form .container-flex input {
+  border: 1px solid #0e9384;
+  padding: 0.5rem;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  background-color: rgba(248, 248, 248, 0.7294117647);
+  border-radius: 0.5rem;
+}
+#addpropertyForm .add-form .container-flex input:hover,
+#addpropertyForm .add-form .container-flex input:focus {
+  background-color: #f8f8f8;
+  outline: max(2px, 0.15em) solid #f8f8f8;
+  outline-offset: max(2px, 0.15em);
+}
+#addpropertyForm .add-form .selection-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+#addpropertyForm .add-form .selection-tags .tag-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#addpropertyForm .add-form .selection-tags .tag-element:hover {
+  background-color: rgba(128, 128, 128, 0.252);
+  border-bottom: 1px solid #f8f8f8;
+}
+#addpropertyForm .add-form .selection-tags label {
   width: 70px;
   margin: 1rem;
   display: flex;
@@ -1857,8 +2075,385 @@ section#addgooglemaps-property-section input:focus::placeholder {
   align-items: center;
   cursor: pointer;
 }
-#addpropertyForm .selection-tags label img {
+#addpropertyForm .add-form .selection-tags label img {
   width: 25px;
+}
+#addpropertyForm button.main-button-style {
+  margin: 0.5rem 0;
+  width: 90%;
+  position: relative;
+  border: solid 1px #0e9384;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+#addpropertyForm button.main-button-style span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #0e9384;
+  position: relative;
+  z-index: 1;
+}
+#addpropertyForm button.main-button-style span:hover {
+  color: #f8f8f8;
+}
+#addpropertyForm button.main-button-style > input {
+  display: none;
+}
+#addpropertyForm button.main-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0e9384;
+  transition: all 1s ease-out;
+  z-index: 0;
+}
+#addpropertyForm button.main-button-style:hover:before {
+  width: 100%;
+}
+
+#editpropertyform {
+  background-color: #e1e7ea;
+  text-align: center;
+  padding: 1rem;
+}
+#editpropertyform h1 {
+  color: #0e9384;
+  font-size: 2rem;
+}
+#editpropertyform .edit-form {
+  padding: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#editpropertyform .edit-form h4 {
+  color: #0e9384;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+#editpropertyform .edit-form h5 {
+  color: #0e9384;
+  font-size: 1rem;
+}
+#editpropertyform .edit-form input[type=text] {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #0e9384;
+  font-family: "Quicksand";
+  background-color: rgba(255, 255, 255, 0.6470588235);
+}
+#editpropertyform .edit-form input[type=text]:focus,
+#editpropertyform .edit-form input[type=text]:focus {
+  color: #0e9384;
+  outline: transparent;
+  background-color: #ffffff;
+}
+#editpropertyform .edit-form select {
+  background-color: rgba(255, 255, 255, 0.6470588235);
+  border: 1px solid #0e9384;
+  font-family: "Quicksand";
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+}
+#editpropertyform .edit-form textarea {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #0e9384;
+  font-family: "Quicksand";
+  background-color: rgba(255, 255, 255, 0.6470588235);
+}
+#editpropertyform .edit-form input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #0e9384;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid #0e9384;
+  border-radius: 0.3rem;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+#editpropertyform .edit-form input[type=checkbox]::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #0e9384;
+  transform-origin: bottom left;
+  -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+          clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+#editpropertyform .edit-form input[type=checkbox]:checked::before {
+  transform: scale(1);
+  color: #0e9384;
+  background-color: #0e9384;
+}
+#editpropertyform .edit-form input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #0e9384;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #0e9384;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+#editpropertyform .edit-form input[type=radio]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #0e9384;
+}
+#editpropertyform .edit-form input[type=radio]:checked::before {
+  transform: scale(1);
+}
+#editpropertyform .edit-form .input-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+#editpropertyform .edit-form .input-flex .property-title,
+#editpropertyform .edit-form .input-flex .property-price,
+#editpropertyform .edit-form .input-flex .property-type {
+  display: flex;
+  flex-direction: column;
+}
+#editpropertyform .edit-form .input-flex .property-title input,
+#editpropertyform .edit-form .input-flex .property-price input,
+#editpropertyform .edit-form .input-flex .property-type input {
+  border: 1px solid #0e9384;
+  padding: 0.5rem;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  background-color: rgba(248, 248, 248, 0.7294117647);
+  border-radius: 0.5rem;
+}
+#editpropertyform .edit-form .input-flex .property-title input:hover,
+#editpropertyform .edit-form .input-flex .property-title input:focus,
+#editpropertyform .edit-form .input-flex .property-price input:hover,
+#editpropertyform .edit-form .input-flex .property-price input:focus,
+#editpropertyform .edit-form .input-flex .property-type input:hover,
+#editpropertyform .edit-form .input-flex .property-type input:focus {
+  background-color: #f8f8f8;
+  outline: max(2px, 0.15em) solid #f8f8f8;
+  outline-offset: max(2px, 0.15em);
+}
+#editpropertyform .edit-form .property-images {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+#editpropertyform .edit-form .property-images p {
+  font-size: 0.8rem;
+}
+#editpropertyform .edit-form .property-images .images-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#editpropertyform .edit-form .property-images .images-container .image-input {
+  display: flex;
+  flex-direction: column;
+}
+#editpropertyform .edit-form .property-images input::file-selector-button {
+  border: 1px solid #0e9384;
+  background-color: #e1e7ea;
+  border-radius: 0.5rem;
+  font-family: "Quicksand-bold";
+  margin: 0.5rem;
+  padding: 0.3rem;
+}
+#editpropertyform .edit-form .property-images input::file-selector-button:hover {
+  cursor: pointer;
+  color: #f8f8f8;
+  background-color: #0e9384;
+}
+#editpropertyform .edit-form .host-languages {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+#editpropertyform .edit-form .host-languages label {
+  margin: 1.5rem;
+}
+#editpropertyform .edit-form .selection-accomodation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 0;
+}
+#editpropertyform .edit-form .selection-accomodation .equipement {
+  width: 200px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#editpropertyform .edit-form .selection-accomodation .equipement label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+#editpropertyform .edit-form .selection-accomodation .equipement label img {
+  width: 20px;
+}
+#editpropertyform .edit-form .selection-accomodation .equipement label:hover {
+  cursor: pointer;
+}
+#editpropertyform .edit-form .selection-accomodation .equipement:hover {
+  background-color: rgba(128, 128, 128, 0.252);
+  border-bottom: 1px solid #f8f8f8;
+}
+#editpropertyform .edit-form .container-flex {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#editpropertyform .edit-form .container-flex .add-rules {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+#editpropertyform .edit-form .container-flex .add-amenities {
+  display: flex;
+  flex-direction: column;
+}
+#editpropertyform .edit-form .container-flex .add-amenities .amenity {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+#editpropertyform .edit-form .container-flex .add-amenities .amenity label {
+  margin: 0.5rem;
+}
+#editpropertyform .edit-form .container-flex input {
+  border: 1px solid #0e9384;
+  padding: 0.5rem;
+  font-family: "Quicksand-bold";
+  font-size: 1rem;
+  background-color: rgba(248, 248, 248, 0.7294117647);
+  border-radius: 0.5rem;
+}
+#editpropertyform .edit-form .container-flex input:hover,
+#editpropertyform .edit-form .container-flex input:focus {
+  background-color: #f8f8f8;
+  outline: max(2px, 0.15em) solid #f8f8f8;
+  outline-offset: max(2px, 0.15em);
+}
+#editpropertyform .edit-form .selection-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+#editpropertyform .edit-form .selection-tags .tag-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#editpropertyform .edit-form .selection-tags .tag-element:hover {
+  background-color: rgba(128, 128, 128, 0.252);
+  border-bottom: 1px solid #f8f8f8;
+}
+#editpropertyform .edit-form .selection-tags label {
+  width: 70px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#editpropertyform .edit-form .selection-tags label img {
+  width: 25px;
+}
+#editpropertyform button.main-button-style {
+  margin: 0.5rem 0;
+  width: 90%;
+  position: relative;
+  border: solid 1px #0e9384;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+#editpropertyform button.main-button-style span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #0e9384;
+  position: relative;
+  z-index: 1;
+}
+#editpropertyform button.main-button-style span:hover {
+  color: #f8f8f8;
+}
+#editpropertyform button.main-button-style > input {
+  display: none;
+}
+#editpropertyform button.main-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0e9384;
+  transition: all 1s ease-out;
+  z-index: 0;
+}
+#editpropertyform button.main-button-style:hover:before {
+  width: 100%;
 }
 
 #user-edit {
@@ -2038,4 +2633,37 @@ section#section-blog div#container-section-blog div.card-blog div.card-blog {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+section#article-section {
+  text-align: center;
+  margin: 30px auto;
+}
+
+div#article-flex-images figure.article-flex-images {
+  display: flex;
+}
+
+div#article-flex-images .right-aligned {
+  float: right;
+  margin-left: 5px;
+}
+
+section#article-section h1,
+section#article-section h2 {
+  color: #92AAD3;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+div#article-flex-images figure.article-flex-images {
+  display: flex;
+}
+div#article-flex-images figure.article-flex-images section#article-section h3 {
+  color: #92AAD3;
+}
+div#article-flex-images figure.article-flex-images section#article-section h3 section#article-section h4 {
+  color: #92AAD3;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

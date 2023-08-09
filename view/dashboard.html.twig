@@ -19,25 +19,25 @@
 						<p>Ajouter une propriété</p>
 					</a>
 				</div>
-				<div class="add favoris">
+				<div class="add favoris tab">
 					<a href="#my-favs">
 						<img src="{{ asset('/media/icons/heart.svg') }}" alt="Mes Favoris">
 						<p>Mes Favoris</p>
 					</a>
 				</div>
-				<div class="add property">
+				<div class="add property tab">
 					<a href="#my-proprieties">
 						<img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
 						<p>Mes Propriétés</p>
 					</a>
 				</div>
-				<div class="add locations">
+				<div class="add locations tab">
 					<a href="#my-locations">
 						<img src="{{ asset('/media/icons/locations.svg') }}" alt="Mes Locations">
 						<p>Mes Locations</p>
 					</a>
 				</div>
-				<div class="add reservations">
+				<div class="add reservations tab">
 					<a href="#my-reservations">
 						<img src="{{ asset('/media/icons/reservation.svg') }}" alt="Mes Réservations">
 						<p>Mes Réservations</p>
@@ -115,7 +115,7 @@
 				{% else %}
 					{% for property in userRentedProperties %}
 						<a href="{{ path('baseProperty') ~ property.propertyId }}">
-							<div class="card">
+							<div class="card medium-card">
 								<figure>
 									{% if property.propertyImages %}
 										<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
@@ -124,38 +124,37 @@
 
 								<div class="card-details">
 									<div class="description">
-										<h3>{{ property.title }}</h3>
 										<div class="locataire">
 											<div class="img-profile">
 												<img src="" alt="">
 											</div>
-											<p>Loué par @User</p>
+											<h3>Loué par @User</h3>
 										</div>
 									</div>
-								
+
 									<div class="calendar">
 										<div class="arrival">
 											<h4>Arrivée</h4>
-											<input type="date" id="arrivalDate" format="YYYY-MM-DD">
+											<input type="date" id="arrivalDate" value="{{ userReservations.checkInDate|date('Y-m-d') }}" format="YYYY-MM-DD" readonly>
 										</div>
 										<div class="departure">
 											<h4>Départ</h4>
-											<input type="date" id="departureDate" format="YYYY-MM-DD">
+											<input type="date" id="departureDate" value="{{ userReservations.checkoutDate|date('Y-m-d') }}" format="YYYY-MM-DD" readonly>
 										</div>
 									</div>
-									
+
 									<div class="dashboard-property-buttons">
 										<button>
 											<input type="hidden">
 											<span>Contacter</span>
 										</button>
 									</div>
-								</div>			
+								</div>
 							</div>
 						</div>
 					</a>
-					{% endfor %}
-				{% endif %}
+				{% endfor %}
+			{% endif %}
 		</div>
 	</section>
 
@@ -197,7 +196,7 @@
 									</div>
 									<div class="dashboard-property-buttons">
 										<form action="{{ path('favoriteDelete') }}" method="POST">
-											<input type="submit" value="Supprimer" class="delete delete-favorite"  data-method="DELETE" data-property-id="{{ property.propertyId }}">
+											<input type="submit" value="Supprimer" class="delete delete-favorite" data-method="DELETE" data-property-id="{{ property.propertyId }}">
 										</form>
 									</div>
 								</div>
@@ -218,7 +217,7 @@
 				{% for reservation in userReservations %}
 					{% set property = reservation.property %}
 					<a href="{{ path('baseProperty') ~ property.propertyId }}">
-						<div class="card">
+						<div class="card smaller-card">
 							<figure>
 								{% if property.propertyImages %}
 									<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
@@ -226,20 +225,7 @@
 							</figure>
 
 							<div class="card-details">
-								<div class="pricing">
-									<h3>
-										<span>{{ property.priceNight }}€</span>/nuit</h3>
-									<div class="rating">
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Rating stars">
-										<p>{{ property.averageRating|number_format(1, '.', '') }}</p>
-									</div>
-								</div>
-								<div class="location">
-									<img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-									<p>{{ property.city }}</p>
-								</div>
 								<div class="description">
-									<h3>{{ property.title }}</h3>
 									<div class="calendar">
 										<div class="arrival">
 											<h4>Arrivée</h4>

@@ -2,22 +2,24 @@
 
 class Article
 {
-    private $uid;
+    private $articleId;
+    private $author;
     private $image;
     private $title;
+    private $extract;
     private $content;
     private $date;
     private $idArticle;
 
 
-  
-  
 
-    public function __construct(array $post){
+    public function __construct(array $post)
+    {
         $this->hydrate($post);
     }
 
-    private function hydrate(array $post){
+    private function hydrate(array $post)
+    {
         foreach ($post as $key => $value) {
             $method = 'set' . ucfirst($key);
 
@@ -27,65 +29,73 @@ class Article
         }
     }
 
- //GETTERS
- public function getUid()
- {
-     return $this->uid;
- }
- public function getIdArticle()
- {
-     return $this->idArticle;
- }
- public function getImage()
- {
-     return $this->image;
- }
+    //GETTERS
+    public function getArticleId()
+    {
+        return $this->articleId;
+    }
+    public function getAuthor()
+    {
+        return $this->author;
+    }
 
- public function getTitle()
- {
-     return $this->title;
- }
+    public function getImage()
+    {
+        return $this->image;
+    }
 
- public function getContent()
- {
-     return $this->content;
- }
+    public function getTitle()
+    {
+        return $this->title;
+    }
 
- public function getDate()
- {
-     return $this->date;
- }
+    public function getExtract()
+    {
+        return $this->extract;
+    }
 
+    public function getContent()
+    {
+        return $this->content;
+    }
 
- //SETTERS
- public function setUid(int $uid)
- {
-     $this->uid = $uid;
- }
- public function setIdArticle(int $idArticle)
- {
-     $this->date = $idArticle;
- }
+    public function getDate()
+    {
+        return $this->date;
+    }
 
- public function setImage(String $image)
- {
-     $this->image = $image;
- }
+    //SETTERS
+    public function setArticleId(int $articleId)
+    {
+        $this->articleId = $articleId;
+    }
+    public function setAuthor(int $author)
+    {
+        $this->author = $author;
+    }
 
- public function setTitle(string $title)
- {
-     $this->title = $title;
- }
+    public function setImage(String $image)
+    {
+        $this->image = $image;
+    }
 
- public function setContent(string $content)
- {
-     $this->content = $content;
- }
+    public function setTitle(string $title)
+    {
+        $this->title = $title;
+    }
 
- public function setDate(String $date)
- {
-     $this->date = $date;
- }
+    public function setExtract(string $extract)
+    {
+        $this->extract = $extract;
+    }
 
+    public function setContent(string $content)
+    {
+        $this->content = $content;
+    }
 
+    public function setDate(String $date)
+    {
+        $this->date = $date;
+    }
 }
