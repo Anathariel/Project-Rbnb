@@ -1,5 +1,7 @@
 {% extends "template.html.twig" %}
 
+{% block title %}Rajouter une article{% endblock %}
+
 
 {% block title %}Bienvenue sur Loca'R
 {% endblock %}
@@ -22,10 +24,13 @@
     <p>Cet été, oubliez les hordes de touristes pour aller à la découverte de quartiers typiques, plus authentiques
         et abordables.</p>
 
-    <div id="article-images">
-        <figure class="property-main-image">
-            <img src="{{ asset('/media/blog/articles/blogarticle.webp') }}">
-        </figure>
+	   {# {% for data in datas %} #}
+    <h1>{{ datas.title }}</h1>
+    <p><em>{{ datas.date }}</em></p>
+    <img src="{{ datas.image }}" alt="{{ datas.title }}" width="300">
+    <p>{{ datas.content }}</p>
+    {# {% endfor %} #}
+	
 
         <h1> À l’échelle mondiale, les annonces sur Airbnb sont plus dispersées que jamais.</h1>
     </div>

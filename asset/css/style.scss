@@ -93,6 +93,32 @@ h3 {
   display: none;
 }
 
+// -------------------- notifications -------------------- //
+
+/* Ajoutez ces styles pour les notifications */
+.notification-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  animation: fadeOut 3s ease-in-out;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
 // -------------------- class connum search -------------------- //
 
 /* CSS pour cacher l'élément d'autocomplétion généré par jQuery UI */

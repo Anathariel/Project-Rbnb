@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 08 août 2023 à 12:32
+-- Généré le : mer. 09 août 2023 à 12:49
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -83,20 +83,24 @@ INSERT INTO `accommodationtype` (`accommodationTypeId`, `propertyId`, `piscine`,
 
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE IF NOT EXISTS `article` (
-  `uid` int NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `title` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `content` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `articleId` int NOT NULL AUTO_INCREMENT,
+  `author` int NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `extract` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date` date NOT NULL,
-  KEY `user` (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`articleId`),
+  KEY `user` (`author`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `article`
 --
 
-INSERT INTO `article` (`uid`, `image`, `title`, `content`, `date`) VALUES
-(15, 'bateau.png', 'Maldives', 'Les Maldives sont un paradis tropical situé dans l’océan Indien, au sud-ouest du Sri Lanka et de l’Inde. C’est un archipel composé de plus de 1 000 îles coralliennes, dont environ 200 sont habitées. Les Maldives sont connues pour leurs plages de sable bla', '2023-08-08');
+INSERT INTO `article` (`articleId`, `author`, `image`, `title`, `extract`, `content`, `date`) VALUES
+(1, 15, 'bateau.png', 'Maldives', '', 'Les Maldives sont un paradis tropical situé dans l’océan Indien, au sud-ouest du Sri Lanka et de l’Inde. C’est un archipel composé de plus de 1 000 îles coralliennes, dont environ 200 sont habitées. Les Maldives sont connues pour leurs plages de sable bla', '2023-08-08'),
+(2, 10, 'bateau.png', 'premier acticle', 'ceci est un test', 'bla bla bla', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -524,25 +528,6 @@ CREATE TABLE IF NOT EXISTS `propertytype` (
   KEY `PROPERTY` (`propertyId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `propertytype`
---
-
-INSERT INTO `propertytype` (`PropertyTypeId`, `propertyId`, `house`, `flat`, `guesthouse`, `hotel`) VALUES
-(71, 92, 1, 0, 0, 0),
-(80, 100, 0, 0, 1, 0),
-(81, 101, 0, 0, 1, 0),
-(82, 102, 0, 0, 1, 0),
-(83, 103, 0, 0, 1, 0),
-(84, 104, 0, 0, 1, 0),
-(85, 105, 1, 0, 0, 0),
-(86, 106, 1, 0, 0, 0),
-(99, 119, 1, 0, 0, 0),
-(100, 120, 1, 0, 0, 0),
-(101, 121, 1, 0, 0, 0),
-(105, 125, 0, 0, 1, 0),
-(106, 126, 0, 1, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -713,55 +698,10 @@ CREATE TABLE IF NOT EXISTS `user_properties` (
 --
 
 --
--- Contraintes pour la table `accommodationtype`
---
-ALTER TABLE `accommodationtype`
-  ADD CONSTRAINT `accommodationtype_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Contraintes pour la table `article`
 --
 ALTER TABLE `article`
-  ADD CONSTRAINT `article_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
---
--- Contraintes pour la table `cancellationpolicy`
---
-ALTER TABLE `cancellationpolicy`
-  ADD CONSTRAINT `cancellationpolicy_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `comment`
---
-ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `favorite`
---
-ALTER TABLE `favorite`
-  ADD CONSTRAINT `favorite_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `favorite_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `hostlanguage`
---
-ALTER TABLE `hostlanguage`
-  ADD CONSTRAINT `hostlanguage_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `houserules`
---
-ALTER TABLE `houserules`
-  ADD CONSTRAINT `houserules_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `invoice`
---
-ALTER TABLE `invoice`
-  ADD CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `invoice_ibfk_2` FOREIGN KEY (`reservationId`) REFERENCES `reservation` (`reservationId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `article_ibfk_1` FOREIGN KEY (`author`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `message`
@@ -770,49 +710,10 @@ ALTER TABLE `message`
   ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`conversationId`) REFERENCES `conversation` (`conversationId`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Contraintes pour la table `messagestatus`
---
-ALTER TABLE `messagestatus`
-  ADD CONSTRAINT `messagestatus_ibfk_1` FOREIGN KEY (`messageId`) REFERENCES `message` (`messageId`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `messagestatus_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `payment`
---
-ALTER TABLE `payment`
-  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`reservationId`) REFERENCES `reservation` (`reservationId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Contraintes pour la table `property`
 --
 ALTER TABLE `property`
   ADD CONSTRAINT `property_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `propertyamenities`
---
-ALTER TABLE `propertyamenities`
-  ADD CONSTRAINT `propertyamenities_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `propertyimages`
---
-ALTER TABLE `propertyimages`
-  ADD CONSTRAINT `propertyimages_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `propertytag`
---
-ALTER TABLE `propertytag`
-  ADD CONSTRAINT `propertytag_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `propertytag_ibfk_2` FOREIGN KEY (`tagId`) REFERENCES `tag` (`tagId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `propertytype`
---
-ALTER TABLE `propertytype`
-  ADD CONSTRAINT `propertytype_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `reservation`
