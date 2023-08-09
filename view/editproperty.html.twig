@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-	<section id="editpropertyform">
+	<section class="propertyform" id="editpropertyform">
 		{% if message %}
 			<p>{{ message }}</p>
 		{% endif %}
@@ -12,7 +12,7 @@
 
 		<form method="POST" enctype="multipart/form-data" action="{{ router.generate('propertyEdit', {'id': property.id}) }}">
 
-			<div class="edit-form">
+			<div class="addedit-form">
 				<div class="input-flex">
 					<div class="property-title">
 						<h4>Titre de la propriété</h4>
@@ -185,10 +185,11 @@
 
 				<h4>Choisissez votre tag :</h4>
 				<p>Veuillez sélectionner un seul tag</p>
-				<div class="selection-tag">
+				<div class="selection-tags">
 					<label for="tags"></label>
-					<div class="tag-element">
+					
 					{% for tag in tags %}
+					<div class="tag-element">
 							<input type="checkbox" id="{{ tag.picto }}" name="tags[]" value="{{ tag.tagId }}" {% if tag.tagId in selectedTags %} checked {% endif %}/>
 							<label for="{{ tag.picto }}">
 								<img src="{{ asset('/media/icons/tag/' ~ tag.picto) }}" alt="{{ tag.type }}"/>
@@ -197,9 +198,8 @@
 						</div>
 					{% endfor %}
 				</div>
-			</div>
-
-			<section id="addgooglemaps-property-section">
+				
+				<div id="addgooglemaps-property-section">
 							<div class="card-container">
 								<div class="panel">
 									<div>
@@ -221,8 +221,13 @@
 								</div>
 								<div class="map" id="gmp-map"></div>
 							</div>
-			</section>
-			<input type="submit" name="submit" value="Modifier"/>
+				</div>
+			</div>
+
+			<button class="main-button-style" type="submit" name="submit">
+				<span>Modifier ma location</span>
+			</button>
+
 		</form>
 	</section>
 {% endblock %}

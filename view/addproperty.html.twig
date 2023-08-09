@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<section id="addpropertyForm">
+<section class="propertyform" id="addpropertyForm">
 	{% if message %}
 		<p>{{ message }}</p>
 	{% endif %}
@@ -15,7 +15,7 @@
 
 		<input type="hidden" name="idUser" value="<?php echo $_SESSION['idUser']; ?>">
 
-		<div class="add-form">
+		<div class="addedit-form">
 			<div class="input-flex">
 				<div class="property-title">
 						<h4>Titre de la propriété</h4>
