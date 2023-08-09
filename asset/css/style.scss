@@ -752,13 +752,23 @@ h3 {
     }
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 650px) {
     .search-dashboard {
       display: none;
     }
 
     .right-menu {
       width: 90%;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .right-menu {
+      width: 100%;
+
+      .app{
+        display: none;
+      }
     }
   }
 }

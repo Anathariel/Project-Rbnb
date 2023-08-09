@@ -24,10 +24,10 @@
 	</div>
 
 	<div class="limit-size footer-mobile">
-		<a href="#">
+		<a href="{{ path('catalogue') }}">
 			<img src="{{ asset('/media/icons/catalog.svg') }}" alt="">
 		</a>
-		<a href="#">
+		<a href="{{ path('dashboard') }}">
 			<img src="{{ asset('/media/icons/heart-footer.svg') }}" alt="">
 		</a>
 		{% if session.connect %}

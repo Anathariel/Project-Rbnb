@@ -557,12 +557,20 @@ h3 {
 .dashboard-header .right-menu .user-menu .submenu-dashboard.show {
   display: block;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
   .dashboard-header .search-dashboard {
     display: none;
   }
   .dashboard-header .right-menu {
     width: 90%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .dashboard-header .right-menu {
+    width: 100%;
+  }
+  .dashboard-header .right-menu .app {
+    display: none;
   }
 }
 
