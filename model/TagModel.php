@@ -78,6 +78,19 @@ class TagModel extends Model
         return $tagIds;
     }
 
+    public function getPropertyIdByTagId($tagId)
+    {
+        $sql = 'SELECT `propertyId` FROM `propertytag` WHERE `tagId` = :tagId';
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':tagId', $tagId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Récupérer tous les résultats en tant que tableau d'identifiants de tags
+        $propertyIds = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+
+        return $propertyIds;
+    }
+
     public function editSelectedTagsForProperty($propertyId, $newTags)
     {
         // Récupération des tags existants
