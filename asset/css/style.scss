@@ -826,6 +826,7 @@ footer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    min-height: 100px;
 
     a {
       font-size: 1rem;
@@ -844,11 +845,21 @@ footer {
   }
 
   .footer-mobile {
-    display: flex;
     justify-content: center;
+    display: none;
 
     a {
       margin: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .footer-mobile {
+      display: flex;
+    }
+
+    .footer-desktop {
+      display: none;
     }
   }
 }
@@ -2354,7 +2365,7 @@ section#googlemaps-property-section {
           background-color: #f8f8f8ba;
           border-radius: .5rem;
         }
-    
+
         input:hover,
         input:focus {
           background-color: $white;
@@ -2492,7 +2503,7 @@ section#googlemaps-property-section {
         background-color: #f8f8f8ba;
         border-radius: .5rem;
       }
-  
+
       input:hover,
       input:focus {
         background-color: $white;
@@ -2811,7 +2822,7 @@ section#section-blog {
 
 section#article-section {
   text-align: center;
-  margin: 30px auto; 
+  margin: 30px auto;
 }
 
 div#article-flex-images figure.article-flex-images {
@@ -2826,23 +2837,23 @@ div#article-flex-images .right-aligned {
 section#article-section h1,
 section#article-section h2 {
   color: #92AAD3;
-  margin-top: 30px; 
-  margin-bottom: 30px; 
+  margin-top: 30px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
-  div#article-flex-images {
-    figure.article-flex-images {
-      display: flex;
+div#article-flex-images {
+  figure.article-flex-images {
+    display: flex;
 
-        section#article-section h3 {
-          color: #92AAD3;
+    section#article-section h3 {
+      color: #92AAD3;
 
 
-          section#article-section h4 {
-            color: #92AAD3;
-            text-align: center;
-          }
-        }
+      section#article-section h4 {
+        color: #92AAD3;
+        text-align: center;
       }
     }
+  }
+}

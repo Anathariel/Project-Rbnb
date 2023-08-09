@@ -621,6 +621,7 @@ footer .footer-desktop {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  min-height: 100px;
 }
 footer .footer-desktop a {
   font-size: 1rem;
@@ -635,11 +636,19 @@ footer .footer-desktop .social-media a {
   margin: 0 0.6rem;
 }
 footer .footer-mobile {
-  display: flex;
   justify-content: center;
+  display: none;
 }
 footer .footer-mobile a {
   margin: 2rem;
+}
+@media screen and (max-width: 650px) {
+  footer .footer-mobile {
+    display: flex;
+  }
+  footer .footer-desktop {
+    display: none;
+  }
 }
 
 #hero {
