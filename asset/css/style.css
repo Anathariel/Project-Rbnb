@@ -242,6 +242,9 @@ h3 {
 .card .card-details button.main-button-style {
   width: 90%;
   min-width: 150px;
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
 }
 .card .card-details .dashboard-property-buttons {
   display: flex;
@@ -1180,6 +1183,10 @@ section#property-section {
 section#property-section h1 {
   font-size: 55px;
 }
+section#property-section .average-stars-rating figure {
+  display: flex;
+  flex-direction: row;
+}
 section#property-section .property-images {
   width: 100%;
   overflow: hidden;
@@ -1516,15 +1523,16 @@ section#property-section .add-comment-form form .rating-input .rating-stars {
   display: flex;
   flex-direction: row;
 }
-section#property-section .add-comment-form form .rating-input .rating-stars label img {
-  width: 25px;
-  cursor: pointer;
-  opacity: 0.6;
-}
 section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio] {
   position: absolute;
   opacity: 0;
   pointer-events: none;
+}
+section#property-section .add-comment-form form .rating-input .rating-stars .star-label {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  cursor: pointer;
 }
 section#property-section .add-comment-form form .comment-input {
   display: flex;

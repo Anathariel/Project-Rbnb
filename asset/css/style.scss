@@ -288,6 +288,9 @@ h3 {
     button.main-button-style {
       width: 90%;
       min-width: 150px;
+      position: absolute;
+      bottom: 0;
+      right: 1rem;
     }
 
     .dashboard-property-buttons {
@@ -1414,6 +1417,13 @@ section#property-section {
     font-size: 55px;
   }
 
+  .average-stars-rating{
+    figure{
+     display: flex;
+    flex-direction: row;
+    }
+  }
+
   .property-images {
     width: 100%;
     overflow: hidden;
@@ -1808,7 +1818,6 @@ section#property-section {
 
   .add-comment-form {
     width: 50%;
-
     form {
       .rating-input {
         display: flex;
@@ -1818,20 +1827,21 @@ section#property-section {
           display: flex;
           flex-direction: row;
 
-          label img {
-            width: 25px;
-            cursor: pointer;
-            opacity: 0.6;
-          }
-
           input[type="radio"] {
             position: absolute;
             opacity: 0;
             pointer-events: none;
           }
+
+          .star-label {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            cursor: pointer;
+          }
         }
       }
-
+      
       .comment-input {
         display: flex;
         flex-direction: column;

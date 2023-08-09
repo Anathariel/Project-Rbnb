@@ -8,8 +8,25 @@
 	{# ---------- property-section ---------- #}
 	<section id="property-section">
 		<h1>{{ property.title }}</h1>
-		<p>{{ averageRating }} étoiles • {{ property.city }},{{ property.region }},{{ property.country }}</p>
-
+		<div class="average-stars-rating">
+			<figure>
+				{% set intPart = averageRating|split('.')[0] %}
+				{% set hasHalfStar = (averageRating * 10) % 10 >= 5 %}
+				
+				{% for i in 1..5 %}
+					{% if i <= intPart %}
+						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Full Star rating">
+					{% elseif hasHalfStar and i == intPart + 1 %}
+						<img src="{{ asset('/media/icons/rating-halfstar.svg') }}" alt="Half Star rating">
+					{% else %}
+						<img src="{{ asset('/media/icons/rating-emptystar.svg') }}" alt="Empty Star rating">
+					{% endif %}
+				{% endfor %}
+				<figcaption>
+					<p>• {{ property.city }}, {{ property.region }}, {{ property.country }}</p>
+				</figcaption>
+			</figure>
+		</div>
 		<div class="property-images">
 			<figure class="property-main-image">
 				{% if propertyImages.imageMainURL %}
@@ -268,14 +285,14 @@
 						{% for comment in comments %}
 						<div class="container-comment">
 							<div class="stars-rating">
-								<p>{{ comment.rating }}
-									étoiles</p>
 								<figure>
-									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									{% for i in 1..5 %}
+										{% if i <= comment.rating %}
+											<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+										{% else %}
+											<img src="{{ asset('/media/icons/rating-emptystar.svg') }}" alt="Star rating">
+										{% endif %}
+									{% endfor %}
 								</figure>
 							</div>
 							<p>{{ comment.commentText }}</p>
@@ -461,19 +478,20 @@
 				<div class="rating-input">
 					<input type="hidden" id="rating" name="rating" required>
 					<label for="rating">Votre note :</label>
-					<div class="rating-stars">
+					<div class="rating-stars" data-empty-star="{{ asset('/media/icons/rating-emptystar.svg') }}"
+     				data-full-star="{{ asset('/media/icons/rating-fullstar.svg') }}">
 						<input type="radio" id="star1" name="rating" value="1">
-						<label for="star1"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}" data-hover="{{ asset('/media/icons/rating-fullstar.svg')}}"></label>
+						<label for="star1" class="star-label" data-rating="1"></label>
 						<input type="radio" id="star2" name="rating" value="2">
-						<label for="star2"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
+						<label for="star2" class="star-label" data-rating="2"></label>
 						<input type="radio" id="star3" name="rating" value="3">
-						<label for="star3"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
+						<label for="star3" class="star-label" data-rating="3"></label>
 						<input type="radio" id="star4" name="rating" value="4">
-						<label for="star4"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
+						<label for="star4" class="star-label" data-rating="4"></label>
 						<input type="radio" id="star5" name="rating" value="5">
-						<label for="star5"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
+						<label for="star5" class="star-label" data-rating="5"></label>
 					</div>
-				</div>
+
 				<div class="comment-input">
 					<label for="comment">Votre commentaire :</label>
 					<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
