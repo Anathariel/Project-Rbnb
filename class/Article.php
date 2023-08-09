@@ -7,6 +7,8 @@ class Article
     private $title;
     private $content;
     private $date;
+    private $idArticle;
+
 
   
   
@@ -30,7 +32,10 @@ class Article
  {
      return $this->uid;
  }
-
+ public function getIdArticle()
+ {
+     return $this->idArticle;
+ }
  public function getImage()
  {
      return $this->image;
@@ -51,10 +56,15 @@ class Article
      return $this->date;
  }
 
+
  //SETTERS
  public function setUid(int $uid)
  {
      $this->uid = $uid;
+ }
+ public function setIdArticle(int $idArticle)
+ {
+     $this->date = $idArticle;
  }
 
  public function setImage(String $image)
@@ -62,7 +72,7 @@ class Article
      $this->image = $image;
  }
 
- public function setTItle(string $title)
+ public function setTitle(string $title)
  {
      $this->title = $title;
  }
