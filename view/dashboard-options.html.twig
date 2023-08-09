@@ -4,48 +4,41 @@
 {% endblock %}
 
 {% block content %}
-	<section id="user-edit">
-		<h2>Mon Compte</h2>
-		<form method="POST" action="{{ router.generate('editUser',{'id': user.uid}) }}" enctype="multipart/form-data">
-			<p>Nom Légal</p>
-			<div class="user-names">
-				<input type="text" name="firstName" value="{{ user.firstName }}">
-				<input type="text" name="lastName" value="{{ user.lastName }}">
-			</div>
-            <p>Mot de passe</p>
-			<input type="password" name="password">
-            <p>Confirmation</p>
-			<input type="password" name="confirmation">
+<section id="user-edit">
+    <h2>Mon Compte</h2>
+    <form method="POST" action="{{ router.generate('editUser',{'id': user.uid}) }}" enctype="multipart/form-data">
+        <h3>Nom Légal</h3>
+        <div class="user-names">
+            <input type="text" name="firstName" value="{{ user.firstName }}">
+            <input type="text" name="lastName" value="{{ user.lastName }}">
+        </div>
+        {# <h3>Mot de passe</h3>
+        <input type="password" name="password">
+        <p>Confirmation</p>
+        <input type="password" name="confirmation"> #}
 
-			<p>E-mail</p>
-			<input type="text" name="email" value="{{ user.email }}">
+        <h3>E-mail</h3>
+        <input type="text" name="email" value="{{ user.email }}">
 
-			<p>Numéro de Téléphone</p>
-			<input type="text" name="phoneNumber"  value="{{ user.phoneNumber }}">
+        <h3>Numéro de Téléphone</h3>
+        <input type="text" name="phoneNumber" value="{{ user.phoneNumber }}">
 
-			<p>Date de Naissance</p>
-			<input type="date" name="birthDate" value="{{ user.birthDate }}">
+        <h3>Date de Naissance</h3>
+        <input type="date" name="birthDate" value="{{ user.birthDate }}">
 
-			
-			<p>Choisissez votre photo</p>
-			<label for="picture"></label>
-			<input type="file"  name="picture" id="previewId" onchange="previewImage(event, 'imageMainPreview')">
-			<img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 150px; display: none;">
-			<input type="hidden"  name="picture" accept="image/*"  />
-			
-			<div class="account-buttons">
-				<input type="submit" name="submit" value="Modifier">
-		</form>
 
-        <form action="{{ path('deleteUser') }}" method="POST">
-		{# "{{ router.generate('deleteUser', {'id': user.id}) }}"  #}
-			<input type="submit" name="delete" value="DELETE">
-    	    
-        </form>
+        <h3>Choisissez votre photo</h3>
+        <label for="picture"></label>
+        <input type="file" name="picture" id="previewId" onchange="previewImage(event, 'imageMainPreview')">
+        <img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 150px; display: none;">
+        <input type="hidden" name="picture" accept="image/*" />
 
-	
-
-		    </div>
-
-	</section>
+        <div class="account-buttons">
+            <input type="submit" name="submit" value="Modifier">
+    </form>
+            <form action="{{ path('deleteUser') }}" method="POST">
+                <input type="submit" name="delete" value="DELETE" id="delete-account">
+            </form>
+        </div>
+</section>
 {% endblock %}
