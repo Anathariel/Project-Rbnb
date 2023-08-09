@@ -8,9 +8,9 @@ $router->setBasePath('/projet/project-rbnb');
 
 // MAIN ROUTES
 $router->map('GET', '/', 'HomeController#home', 'home');
-$router->map('GET', '/blog', 'HomeController#blog', 'blog');
+// $router->map('GET', '/blog', 'HomeController#blog', 'blog');
 $router->map('GET', '/article', 'HomeController#article', 'baseArticle');
-$router->map('GET', '/article/[i:id]', 'HomeController#article', 'article');
+// $router->map('GET', '/article/[i:id]', 'HomeController#article', 'article');
 
 // $router->map('GET', '/blog', 'HomeController#blog', 'blog');
 // $router->map('GET', '/article', 'HomeController#article', 'article');
@@ -65,7 +65,7 @@ $router->map('POST', '/account/reservation/delete', 'ReservationController#delet
 
 // blog
 $router->map('GET', '/blog', 'BlogController#showAllArticles', 'blog');
-$router->map('GET', '/blog/[i:id]', 'BlogController#showOneArticle', 'article');
+$router->map('GET', '/blog/', 'BlogController#showOneArticle', 'article');
 
 
 // MATCH :
