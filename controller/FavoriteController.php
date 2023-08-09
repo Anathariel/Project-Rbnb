@@ -30,7 +30,7 @@ class FavoriteController extends Controller
     public function deleteFavorite()
     {
         $userId = $_SESSION['uid'];
-        
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['method'] === 'DELETE') {
             if (isset($_POST['propertyId'])) {
                 $propertyId = $_POST['propertyId'];

@@ -1,14 +1,32 @@
 $(document).ready(function () {
-  // Gestionnaire d'événements pour le formulaire de favoris
+  var isNotificationShowing = false;
+
+  function showNotification(message) {
+    if (isNotificationShowing) {
+      return;
+    }
+
+    isNotificationShowing = true;
+
+    const notificationContainer = $("<div></div>")
+      .addClass("notification-container")
+      .text(message);
+    $("body").append(notificationContainer);
+
+    setTimeout(function () {
+      notificationContainer.remove();
+      isNotificationShowing = false;
+    }, 1500);
+  }
+
   $(".favorite-form").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
     var propertyId = form.find("input[name='propertyId']").val();
 
     if (form.hasClass("favorite-active")) {
-      // Suppression de la propriété des favoris
       $.ajax({
-        url: "/projet/project-rbnb/account/favorite/delete", // Mettez l'URL correcte pour la suppression
+        url: "/projet/project-rbnb/account/favorite/delete",
         type: "POST",
         data: {
           propertyId: propertyId,
@@ -21,13 +39,14 @@ $(document).ready(function () {
             "/projet/project-rbnb/asset/media/icons/heart.svg"
           );
           form.removeClass("favorite-active");
+
+          showNotification("Propriété retirée des favoris");
         },
         error: function () {
           // Traitement en cas d'erreur
         },
       });
     } else {
-      // Ajout de la propriété aux favoris
       $.ajax({
         url: form.attr("action"),
         type: "POST",
@@ -39,6 +58,8 @@ $(document).ready(function () {
             "/projet/project-rbnb/asset/media/icons/heart-solid.svg"
           );
           form.addClass("favorite-active");
+
+          showNotification("Propriété ajoutée aux favoris");
         },
         error: function () {
           // Traitement en cas d'erreur
@@ -47,7 +68,6 @@ $(document).ready(function () {
     }
   });
 
-  // Gestionnaire d'événements pour le clic sur le bouton de favori
   $(".favorite-form button").on("click", function (e) {
     e.preventDefault();
     $(this).closest(".favorite-form").submit();
