@@ -158,9 +158,6 @@ h3 {
   width: 30px;
   height: 30px;
 }
-.card figure figcaption button input {
-  display: none;
-}
 .card .card-details {
   width: 100%;
 }
@@ -241,43 +238,9 @@ h3 {
   width: 50%;
   padding: 0.5rem;
 }
-.card .card-details button {
-  margin: 0.5rem 0;
+.card .card-details button.main-button-style {
   width: 90%;
-  position: relative;
-  border: solid 1px #404e87;
-  background-color: transparent;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-.card .card-details button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1.2rem;
-  width: 100%;
-  padding: 0.3rem 0;
-  color: #404e87;
-  position: relative;
-  z-index: 1;
-}
-.card .card-details button span:hover {
-  color: #f8f8f8;
-}
-.card .card-details button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #404e87;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-.card .card-details button:hover:before {
-  width: 100%;
+  min-width: 200px;
 }
 .card .card-details .dashboard-property-buttons {
   display: flex;
@@ -318,44 +281,6 @@ h3 {
   border: 1px solid red;
   border-radius: 0.5rem;
 }
-.card .card-details .dashboard-property-buttons button {
-  margin: 0.5rem 0;
-  width: 90%;
-  position: relative;
-  border: solid 1px #0e9384;
-  background-color: transparent;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-.card .card-details .dashboard-property-buttons button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1.2rem;
-  width: 100%;
-  padding: 0.3rem 0;
-  color: #0e9384;
-  position: relative;
-  z-index: 1;
-}
-.card .card-details .dashboard-property-buttons button span:hover {
-  color: #f8f8f8;
-}
-.card .card-details .dashboard-property-buttons button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #0e9384;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-.card .card-details .dashboard-property-buttons button:hover:before {
-  width: 100%;
-}
 
 @media screen and (max-width: 800px) {
   .dashboard-cards .card {
@@ -369,6 +294,89 @@ h3 {
 
 .medium-card {
   height: 355px;
+}
+
+button.main-button-style {
+  margin: 0.5rem 0;
+  width: 100%;
+  min-width: 300px;
+  position: relative;
+  border: solid 1px #404e87;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+button.main-button-style > span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #404e87;
+  position: relative;
+  z-index: 1;
+}
+button.main-button-style > span:hover {
+  color: #f8f8f8;
+}
+
+button.main-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #404e87;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+
+button.main-button-style:hover:before {
+  width: 100%;
+}
+
+button.main-dash-button-style {
+  margin: 0.5rem 0;
+  width: 90%;
+  position: relative;
+  border: solid 1px #0e9384;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+button.main-dash-button-style > span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #0e9384;
+  position: relative;
+  z-index: 1;
+}
+button.main-dash-button-style > span:hover {
+  color: #f8f8f8;
+}
+
+button.main-dash-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0e9384;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+
+button.main-dash-button-style:hover:before {
+  width: 100%;
 }
 
 .header-main {
@@ -1385,43 +1393,6 @@ section#property-section .property-details .container-description-property .prop
   display: flex;
   justify-content: center;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button {
-  width: 15rem;
-  position: relative;
-  border: solid 1px #404e87;
-  background-color: transparent;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1.2rem;
-  width: 100%;
-  padding: 0.3rem 0;
-  color: #404e87;
-  position: relative;
-  z-index: 1;
-}
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span:hover {
-  color: #f8f8f8;
-}
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #404e87;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:hover:before {
-  width: 100%;
-}
 section#property-section .property-details .container-description-property .property-conditions {
   display: flex;
   flex-direction: row;
@@ -1516,49 +1487,8 @@ section#property-section .property-details .container-pricing .container-calenda
   border: none;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler button {
-  width: 100%;
-  min-width: 300px;
-  position: relative;
-  margin: 0.5rem;
-  border: solid 1px #404e87;
-  background-color: transparent;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-section#property-section .property-details .container-pricing .container-calendar-traveler button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1.5rem;
-  width: 100%;
-  padding: 1rem 0;
-  color: #404e87;
-  position: relative;
-  z-index: 1;
-}
-section#property-section .property-details .container-pricing .container-calendar-traveler button span:hover {
-  color: #f8f8f8;
-}
-section#property-section .property-details .container-pricing .container-calendar-traveler button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #404e87;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-section#property-section .property-details .container-pricing .container-calendar-traveler button:hover:before {
-  width: 100%;
-}
 section#property-section .property-details .container-pricing .container-calendar-traveler p {
   font-size: 0.7rem;
-}
-section#property-section .property-details .container-pricing .container-calendar-traveler input[type=submit] {
-  display: none;
 }
 section#property-section .property-details .container-pricing .price-details {
   display: flex;
@@ -1587,18 +1517,8 @@ section#property-section .add-comment-form form .rating-input .rating-stars {
 }
 section#property-section .add-comment-form form .rating-input .rating-stars label img {
   width: 25px;
-  /* Adjust the size of the stars as needed */
   cursor: pointer;
   opacity: 0.6;
-  /* Set the initial opacity for non-active stars */
-}
-section#property-section .add-comment-form form .rating-input .rating-stars label img:hover {
-  opacity: 0.8;
-  /* Set the opacity on hover */
-}
-section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio]:checked + label img {
-  opacity: 1;
-  /* Set the opacity to 1 for the checked (active) star */
 }
 section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio] {
   position: absolute;
@@ -1608,46 +1528,6 @@ section#property-section .add-comment-form form .rating-input .rating-stars inpu
 section#property-section .add-comment-form form .comment-input {
   display: flex;
   flex-direction: column;
-}
-section#property-section .add-comment-form form button {
-  width: 100%;
-  position: relative;
-  margin: 0.5rem 0;
-  border: solid 1px #404e87;
-  background-color: transparent;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-section#property-section .add-comment-form form button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1.5rem;
-  width: 100%;
-  padding: 1rem 0;
-  color: #404e87;
-  position: relative;
-  z-index: 1;
-}
-section#property-section .add-comment-form form button span:hover {
-  color: #f8f8f8;
-}
-section#property-section .add-comment-form form button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #404e87;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-section#property-section .add-comment-form form button:hover:before {
-  width: 100%;
-}
-section#property-section .add-comment-form form input[type=submit] {
-  display: none;
 }
 section#property-section div {
   margin-bottom: 1rem;

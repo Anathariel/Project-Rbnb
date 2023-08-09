@@ -144,6 +144,7 @@ h3 {
 
 //~ -------------------- STYLING -------------------- //
 //^ ---------  DEFAULT STYLE --------- //
+//* --------- CARDs --------- //
 .card {
   position: relative;
   display: flex;
@@ -185,10 +186,6 @@ h3 {
         img {
           width: 30px;
           height: 30px;
-        }
-
-        input {
-          display: none;
         }
       }
     }
@@ -287,47 +284,9 @@ h3 {
       }
     }
 
-    button {
-      margin: .5rem 0;
+    button.main-button-style {
       width: 90%;
-      position: relative;
-      border: solid 1px $accent;
-      background-color: transparent;
-      padding: .5rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      overflow: hidden;
-
-      span {
-        display: block;
-        font-family: "Quicksand";
-        font-size: 1.2rem;
-        width: 100%;
-        padding: 0.3rem 0;
-        color: $accent;
-        position: relative;
-        z-index: 1;
-      }
-
-      span:hover {
-        color: $white;
-      }
-    }
-
-    button:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background-color: $accent;
-      transition: all 0.5s ease-out;
-      z-index: 0;
-    }
-
-    button:hover:before {
-      width: 100%;
+      min-width: 200px;
     }
 
     .dashboard-property-buttons {
@@ -373,49 +332,6 @@ h3 {
         border: 1px solid red;
         border-radius: 0.5rem;
       }
-
-      button {
-        margin: .5rem 0;
-        width: 90%;
-        position: relative;
-        border: solid 1px $dash-maincolor;
-        background-color: transparent;
-        padding: .5rem;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        overflow: hidden;
-
-        span {
-          display: block;
-          font-family: "Quicksand";
-          font-size: 1.2rem;
-          width: 100%;
-          padding: 0.3rem 0;
-          color: $dash-maincolor;
-          position: relative;
-          z-index: 1;
-        }
-
-        span:hover {
-          color: $white;
-        }
-      }
-
-      button:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 100%;
-        background-color: $dash-maincolor;
-        transition: all 0.5s ease-out;
-        z-index: 0;
-      }
-
-      button:hover:before {
-        width: 100%;
-      }
     }
   }
 }
@@ -437,54 +353,96 @@ h3 {
   height: 355px;
 }
 
-// .main-button-style {
-//   button {
-//     margin: .5rem 0;
-//     width: 90%;
-//     position: relative;
-//     border: solid 1px $accent;
-//     background-color: transparent;
-//     padding: .5rem;
-//     border-radius: 0.5rem;
-//     cursor: pointer;
-//     overflow: hidden;
+//* --------- BUTTON ACCENT COLOR --------- //
 
-//     span {
-//       display: block;
-//       font-family: "Quicksand";
-//       font-size: 1.2rem;
-//       width: 100%;
-//       padding: 0.3rem 0;
-//       color: $accent;
-//       position: relative;
-//       z-index: 1;
-//     }
+button.main-button-style {
+  margin: .5rem 0;
+  width: 100%;
+  min-width: 300px;
+  position: relative;
+  border: solid 1px $accent;
+  background-color: transparent;
+  padding: .5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
 
-//     span:hover {
-//       color: $white;
-//     }
-//   }
+  &>span {
+    display: block;
+    font-family: "Quicksand";
+    font-size: 1.5rem;
+    width: 100%;
+    padding: .3rem 0;
+    color: $accent;
+    position: relative;
+    z-index: 1;
+  }
 
-//   button:before {
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 0%;
-//     height: 100%;
-//     background-color: $accent;
-//     transition: all 0.5s ease-out;
-//     z-index: 0;
-//   }
+  &>span:hover {
+    color: $white;
+  }
+}
 
-//   button:hover:before {
-//     width: 100%;
-//   }
+button.main-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: $accent;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
 
-//   input {
-//     display: none;
-//   }
-// }
+button.main-button-style:hover:before {
+  width: 100%;
+}
+
+//* --------- BUTTON DASHBOARD COLOR --------- //
+
+button.main-dash-button-style {
+  margin: .5rem 0;
+  width: 90%;
+  position: relative;
+  border: solid 1px $dash-maincolor;
+  background-color: transparent;
+  padding: .5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+
+  &>span {
+    display: block;
+    font-family: "Quicksand";
+    font-size: 1.2rem;
+    width: 100%;
+    padding: .3rem 0;
+    color: $dash-maincolor;
+    position: relative;
+    z-index: 1;
+  }
+
+  &>span:hover {
+    color: $white;
+  }
+}
+
+button.main-dash-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: $dash-maincolor;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+
+button.main-dash-button-style:hover:before {
+  width: 100%;
+}
 
 //? --------- HEADERS --------- //
 
@@ -565,46 +523,6 @@ h3 {
           background: $gradient;
         }
       }
-
-      // #container-mobile-searchbar {
-      //   display: flex;
-      //   align-items: center;
-      //   justify-content: center;
-      //   margin: 0 5rem;
-      //   display: none;
-      //   visibility: hidden;
-
-      //   #mobile-searchbar {
-      //     display: flex;
-      //     flex-direction: row;
-      //     align-items: center;
-      //     border-radius: 5rem;
-      //     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-      //     padding: 0 2rem;
-      //     background-color: $white;
-      //     color: $darkerblue;
-
-      //     .mobile-element {
-      //       margin: .2rem 1rem;
-      //     }
-
-      //     .filter-icon {
-      //       button {
-      //         width: 30px;
-      //         padding: .5rem;
-      //         background-color: transparent;
-      //         border: 1px solid $darkerblue;
-      //         border-radius: 5rem;
-      //       }
-      //     }
-      //   }
-
-      //   @media screen and (min-width: 701px) {
-      //     #container-mobile-searchbar {
-      //       display: none;
-      //     }
-      //   }
-      // }
     }
 
     #user {
@@ -766,7 +684,7 @@ h3 {
     .right-menu {
       width: 100%;
 
-      .app{
+      .app {
         display: none;
       }
     }
@@ -1753,48 +1671,6 @@ section#property-section {
           .center-button {
             display: flex;
             justify-content: center;
-
-            button {
-              width: 15rem;
-              position: relative;
-              border: solid 1px $accent;
-              background-color: transparent;
-              padding: 1rem;
-              border-radius: 0.5rem;
-              cursor: pointer;
-              overflow: hidden;
-
-              span {
-                display: block;
-                font-family: "Quicksand";
-                font-size: 1.2rem;
-                width: 100%;
-                padding: 0.3rem 0;
-                color: $accent;
-                position: relative;
-                z-index: 1;
-              }
-
-              span:hover {
-                color: $white;
-              }
-            }
-
-            button:before {
-              content: "";
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 0%;
-              height: 100%;
-              background-color: $accent;
-              transition: all 0.5s ease-out;
-              z-index: 0;
-            }
-
-            button:hover:before {
-              width: 100%;
-            }
           }
         }
       }
@@ -1905,55 +1781,8 @@ section#property-section {
           }
         }
 
-        button {
-          width: 100%;
-          min-width: 300px;
-          position: relative;
-          margin: 0.5rem;
-          border: solid 1px $accent;
-          background-color: transparent;
-          border-radius: 0.5rem;
-          cursor: pointer;
-          overflow: hidden;
-
-          span {
-            display: block;
-            font-family: "Quicksand";
-            font-size: 1.5rem;
-            width: 100%;
-            padding: 1rem 0;
-            color: $accent;
-            position: relative;
-            z-index: 1;
-          }
-
-          span:hover {
-            color: $white;
-          }
-        }
-
-        button:before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 0%;
-          height: 100%;
-          background-color: $accent;
-          transition: all 0.5s ease-out;
-          z-index: 0;
-        }
-
-        button:hover:before {
-          width: 100%;
-        }
-
         p {
           font-size: 0.7rem;
-        }
-
-        input[type="submit"] {
-          display: none;
         }
       }
 
@@ -1990,20 +1819,8 @@ section#property-section {
 
           label img {
             width: 25px;
-            /* Adjust the size of the stars as needed */
             cursor: pointer;
             opacity: 0.6;
-            /* Set the initial opacity for non-active stars */
-          }
-
-          label img:hover {
-            opacity: 0.8;
-            /* Set the opacity on hover */
-          }
-
-          input[type="radio"]:checked+label img {
-            opacity: 1;
-            /* Set the opacity to 1 for the checked (active) star */
           }
 
           input[type="radio"] {
@@ -2017,52 +1834,6 @@ section#property-section {
       .comment-input {
         display: flex;
         flex-direction: column;
-      }
-
-      button {
-        width: 100%;
-        position: relative;
-        margin: 0.5rem 0;
-        border: solid 1px $accent;
-        background-color: transparent;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        overflow: hidden;
-
-        span {
-          display: block;
-          font-family: "Quicksand";
-          font-size: 1.5rem;
-          width: 100%;
-          padding: 1rem 0;
-          color: $accent;
-          position: relative;
-          z-index: 1;
-        }
-
-        span:hover {
-          color: $white;
-        }
-      }
-
-      button:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 100%;
-        background-color: $accent;
-        transition: all 0.5s ease-out;
-        z-index: 0;
-      }
-
-      button:hover:before {
-        width: 100%;
-      }
-
-      input[type="submit"] {
-        display: none;
       }
     }
   }

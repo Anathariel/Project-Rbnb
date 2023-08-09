@@ -8,8 +8,7 @@
 	{# ---------- property-section ---------- #}
 	<section id="property-section">
 		<h1>{{ property.title }}</h1>
-		<p>{{ averageRating }}
-			étoiles • {{ property.city }},{{ property.region }},{{ property.country }}</p>
+		<p>{{ averageRating }} étoiles • {{ property.city }},{{ property.region }},{{ property.country }}</p>
 
 		<div class="property-images">
 			<figure class="property-main-image">
@@ -356,8 +355,9 @@
 						</div>
 
 						<div class="center-button">
-							<button class="hote-contact">
-								<span>Contacter l'Hôte<span></button>
+							<button class="main-button-style" type="submit" name="submit">
+								<span>Contacter l'Hôte<span>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -430,7 +430,8 @@
 						<input type="hidden" name="endDate" id="endDateInput" value="">
 						<input type="hidden" name="numTravelers" id="numTravelersInput" value="1">
 						<input type="hidden" name="totalPrice" id="totalPriceInput" value="">
-						<button><input type="submit" value="" class="submit"><span>Réserver</span>
+						<button class="main-button-style" type="submit" name="submit">
+							<span>Réserver</span>
 						</button>
 					</form>
 					<p>Aucun montant ne vous sera débité pour le moment</p>
@@ -462,7 +463,7 @@
 					<label for="rating">Votre note :</label>
 					<div class="rating-stars">
 						<input type="radio" id="star1" name="rating" value="1">
-						<label for="star1"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
+						<label for="star1"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}" data-hover="{{ asset('/media/icons/rating-fullstar.svg')}}"></label>
 						<input type="radio" id="star2" name="rating" value="2">
 						<label for="star2"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
 						<input type="radio" id="star3" name="rating" value="3">
@@ -478,7 +479,8 @@
 					<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
 				</div>
 				<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-				<button><input type="submit" name="submit" class="comment-submit"><span>Poster mon commentaire</span>
+				<button class="main-button-style comment-submit" type="submit" name="submit">
+					<span>Poster mon commentaire</span>
 				</button>
 			</form>
 		</div>
