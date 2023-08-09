@@ -17,8 +17,6 @@
 	{% if result is empty %}
 		<p>Votre recherche ne donne aucun résultat.</p>
 	{% else %}
-
-
 		<section id="catalog-cards">
 			{% for property in result %}
 				<a href="{{ path('baseProperty') }}{{ property.propertyId }}">
@@ -31,13 +29,18 @@
 								{% endif %}
 							{% endif %}
 							<figcaption>
-								<form method="POST" action="{{ path('favorite') }}">
+								<form method="POST" action="{{ path('favorite') }}" class="favorite-form {% if property.isFavorite %}favorite-active{% endif %}">
 									<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-									<button><img src="{{ asset('/media/icons/heart.svg') }}" alt=""><input type="submit" name="submit"></button>
+									<button>
+										{% if property.isFavorite %}
+											<img src="{{ asset('/media/icons/heart-solid.svg') }}" alt="" id="heart-img-{{ property.propertyId }}">
+										{% else %}
+											<img src="{{ asset('/media/icons/heart.svg') }}" alt="" id="heart-img-{{ property.propertyId }}">
+										{% endif %}
+									</button>
 								</form>
 							</figcaption>
 						</figure>
-
 						<div class="card-details">
 							<div class="pricing">
 								<h3>

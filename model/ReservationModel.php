@@ -24,6 +24,7 @@
         {
             $req = $this->getDb()->prepare('SELECT `reservation`.`reservationId`, `reservation`.`propertyId`, `reservation`.`uid`, `reservation`.`checkInDate`, `reservation`.`checkoutDate`, `reservation`.`totalPrice`, `property`.`propertyId`, `property`.`title`, `property`.`priceNight`, `property`.`address`, `property`.`city`, `property`.`postalCode`, `property`.`department`, `property`.`region`, `property`.`country`, `property`.`description` FROM `reservation` JOIN `property` ON `reservation`.`propertyId` = `property`.`propertyId` WHERE `reservation`.`uid` = :uid');
             $req->bindParam(':uid', $userId, PDO::PARAM_INT);
+
             $req->execute();
 
             $reservations = [];

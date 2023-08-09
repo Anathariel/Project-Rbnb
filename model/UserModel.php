@@ -8,7 +8,7 @@ class UserModel extends Model
         $password = $user->getPassword();
         $email = $user->getEmail();
 
-        $req = $this->getDb()->prepare("INSERT INTO `user` (`firstName`, `lastName`, `email`, `password`,`registrationDate`) VALUES (:firstName, :lastName, :email, :password,NOW())");
+        $req = $this->getDb()->prepare("INSERT INTO `user` (`firstName`, `lastName`, `email`, `password`,`registrationDate`,`picture`) VALUES (:firstName, :lastName, :email, :password,NOW(), 'user.png')");
         $req->bindParam(":firstName", $firstName, PDO::PARAM_STR);
         $req->bindParam(":lastName", $lastName, PDO::PARAM_STR);
         $req->bindParam(":password", $password, PDO::PARAM_STR);
@@ -28,7 +28,7 @@ class UserModel extends Model
 
     public function getUserById($userId)
     {
-        $req = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `email`, `password`, `picture` FROM `user` WHERE `uid` = :userId');
+        $req = $this->getDb()->prepare('SELECT `uid`, `firstName`, `lastName`, `email`, `password`,`birthDate`,`phoneNumber`, `picture` FROM `user` WHERE `uid` = :userId');
         $req->bindParam('userId', $userId, PDO::PARAM_INT);
         $req->execute();
 
@@ -71,6 +71,7 @@ class UserModel extends Model
         return $querryResult;
         
     }
+    
     public function delete($uid){
 
         $req = $this->getDb()->prepare('DELETE FROM `user` WHERE `uid` = :uid');
