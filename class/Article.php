@@ -9,8 +9,7 @@ class Article
     private $extract;
     private $content;
     private $date;
-
-
+  
     public function __construct(array $post)
     {
         $this->hydrate($post);
