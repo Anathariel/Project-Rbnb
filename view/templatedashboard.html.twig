@@ -14,15 +14,11 @@
 	</head>
 
 	<body>
+	{% include 'headerdashboard.html.twig' %}
+	<div id="full-width-background"></div>
 		<main class="limit-size">
-			{% include 'headerdashboard.html.twig' %}
-
 			{% block content %}{% endblock %}
 		</main>
-
-
-
-
 		<!-- Google Maps API -->
 		{% block googleAPI %}
 			<script>
