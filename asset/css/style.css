@@ -120,12 +120,13 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 420px;
+  height: 440px;
   max-width: 280px;
   margin: 0 auto;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 2rem;
 }
 .card figure {
   position: relative;
@@ -157,9 +158,6 @@ h3 {
 .card figure figcaption button img {
   width: 30px;
   height: 30px;
-}
-.card figure figcaption button input {
-  display: none;
 }
 .card .card-details {
   width: 100%;
@@ -241,43 +239,12 @@ h3 {
   width: 50%;
   padding: 0.5rem;
 }
-.card .card-details button {
-  margin: 0.5rem 0;
+.card .card-details button.main-button-style {
   width: 90%;
-  position: relative;
-  border: solid 1px #404e87;
-  background-color: transparent;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-.card .card-details button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1.2rem;
-  width: 100%;
-  padding: 0.3rem 0;
-  color: #404e87;
-  position: relative;
-  z-index: 1;
-}
-.card .card-details button span:hover {
-  color: #f8f8f8;
-}
-.card .card-details button:before {
-  content: "";
+  min-width: 150px;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #404e87;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-.card .card-details button:hover:before {
-  width: 100%;
+  bottom: 0;
+  right: 1rem;
 }
 .card .card-details .dashboard-property-buttons {
   display: flex;
@@ -318,44 +285,6 @@ h3 {
   border: 1px solid red;
   border-radius: 0.5rem;
 }
-.card .card-details .dashboard-property-buttons button {
-  margin: 0.5rem 0;
-  width: 90%;
-  position: relative;
-  border: solid 1px #0e9384;
-  background-color: transparent;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-.card .card-details .dashboard-property-buttons button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1.2rem;
-  width: 100%;
-  padding: 0.3rem 0;
-  color: #0e9384;
-  position: relative;
-  z-index: 1;
-}
-.card .card-details .dashboard-property-buttons button span:hover {
-  color: #f8f8f8;
-}
-.card .card-details .dashboard-property-buttons button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #0e9384;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-.card .card-details .dashboard-property-buttons button:hover:before {
-  width: 100%;
-}
 
 @media screen and (max-width: 800px) {
   .dashboard-cards .card {
@@ -369,6 +298,89 @@ h3 {
 
 .medium-card {
   height: 355px;
+}
+
+button.main-button-style {
+  margin: 0.5rem 0;
+  width: 100%;
+  min-width: 300px;
+  position: relative;
+  border: solid 1px #404e87;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+button.main-button-style > span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #404e87;
+  position: relative;
+  z-index: 1;
+}
+button.main-button-style > span:hover {
+  color: #f8f8f8;
+}
+
+button.main-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #404e87;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+
+button.main-button-style:hover:before {
+  width: 100%;
+}
+
+button.main-dash-button-style {
+  margin: 0.5rem 0;
+  width: 90%;
+  position: relative;
+  border: solid 1px #0e9384;
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+button.main-dash-button-style > span {
+  display: block;
+  font-family: "Quicksand";
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 0.3rem 0;
+  color: #0e9384;
+  position: relative;
+  z-index: 1;
+}
+button.main-dash-button-style > span:hover {
+  color: #f8f8f8;
+}
+
+button.main-dash-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0e9384;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+
+button.main-dash-button-style:hover:before {
+  width: 100%;
 }
 
 .header-main {
@@ -557,12 +569,20 @@ h3 {
 .dashboard-header .right-menu .user-menu .submenu-dashboard.show {
   display: block;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
   .dashboard-header .search-dashboard {
     display: none;
   }
   .dashboard-header .right-menu {
     width: 90%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .dashboard-header .right-menu {
+    width: 100%;
+  }
+  .dashboard-header .right-menu .app {
+    display: none;
   }
 }
 
@@ -621,6 +641,7 @@ footer .footer-desktop {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  min-height: 100px;
 }
 footer .footer-desktop a {
   font-size: 1rem;
@@ -635,11 +656,19 @@ footer .footer-desktop .social-media a {
   margin: 0 0.6rem;
 }
 footer .footer-mobile {
-  display: flex;
   justify-content: center;
+  display: none;
 }
 footer .footer-mobile a {
   margin: 2rem;
+}
+@media screen and (max-width: 650px) {
+  footer .footer-mobile {
+    display: flex;
+  }
+  footer .footer-desktop {
+    display: none;
+  }
 }
 
 #hero {
@@ -1154,6 +1183,10 @@ section#property-section {
 section#property-section h1 {
   font-size: 55px;
 }
+section#property-section .average-stars-rating figure {
+  display: flex;
+  flex-direction: row;
+}
 section#property-section .property-images {
   width: 100%;
   overflow: hidden;
@@ -1368,43 +1401,6 @@ section#property-section .property-details .container-description-property .prop
   display: flex;
   justify-content: center;
 }
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button {
-  width: 15rem;
-  position: relative;
-  border: solid 1px #404e87;
-  background-color: transparent;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1.2rem;
-  width: 100%;
-  padding: 0.3rem 0;
-  color: #404e87;
-  position: relative;
-  z-index: 1;
-}
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button span:hover {
-  color: #f8f8f8;
-}
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #404e87;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-section#property-section .property-details .container-description-property .property-host .container-host-info .center-button button:hover:before {
-  width: 100%;
-}
 section#property-section .property-details .container-description-property .property-conditions {
   display: flex;
   flex-direction: row;
@@ -1499,49 +1495,8 @@ section#property-section .property-details .container-pricing .container-calenda
   border: none;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler button {
-  width: 100%;
-  min-width: 300px;
-  position: relative;
-  margin: 0.5rem;
-  border: solid 1px #404e87;
-  background-color: transparent;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-section#property-section .property-details .container-pricing .container-calendar-traveler button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1.5rem;
-  width: 100%;
-  padding: 1rem 0;
-  color: #404e87;
-  position: relative;
-  z-index: 1;
-}
-section#property-section .property-details .container-pricing .container-calendar-traveler button span:hover {
-  color: #f8f8f8;
-}
-section#property-section .property-details .container-pricing .container-calendar-traveler button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #404e87;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-section#property-section .property-details .container-pricing .container-calendar-traveler button:hover:before {
-  width: 100%;
-}
 section#property-section .property-details .container-pricing .container-calendar-traveler p {
   font-size: 0.7rem;
-}
-section#property-section .property-details .container-pricing .container-calendar-traveler input[type=submit] {
-  display: none;
 }
 section#property-section .property-details .container-pricing .price-details {
   display: flex;
@@ -1568,69 +1523,20 @@ section#property-section .add-comment-form form .rating-input .rating-stars {
   display: flex;
   flex-direction: row;
 }
-section#property-section .add-comment-form form .rating-input .rating-stars label img {
-  width: 25px;
-  /* Adjust the size of the stars as needed */
-  cursor: pointer;
-  opacity: 0.6;
-  /* Set the initial opacity for non-active stars */
-}
-section#property-section .add-comment-form form .rating-input .rating-stars label img:hover {
-  opacity: 0.8;
-  /* Set the opacity on hover */
-}
-section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio]:checked + label img {
-  opacity: 1;
-  /* Set the opacity to 1 for the checked (active) star */
-}
 section#property-section .add-comment-form form .rating-input .rating-stars input[type=radio] {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
+section#property-section .add-comment-form form .rating-input .rating-stars .star-label {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  cursor: pointer;
+}
 section#property-section .add-comment-form form .comment-input {
   display: flex;
   flex-direction: column;
-}
-section#property-section .add-comment-form form button {
-  width: 100%;
-  position: relative;
-  margin: 0.5rem 0;
-  border: solid 1px #404e87;
-  background-color: transparent;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-section#property-section .add-comment-form form button span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1.5rem;
-  width: 100%;
-  padding: 1rem 0;
-  color: #404e87;
-  position: relative;
-  z-index: 1;
-}
-section#property-section .add-comment-form form button span:hover {
-  color: #f8f8f8;
-}
-section#property-section .add-comment-form form button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #404e87;
-  transition: all 0.5s ease-out;
-  z-index: 0;
-}
-section#property-section .add-comment-form form button:hover:before {
-  width: 100%;
-}
-section#property-section .add-comment-form form input[type=submit] {
-  display: none;
 }
 section#property-section div {
   margin-bottom: 1rem;
@@ -1762,44 +1668,44 @@ section#googlemaps-property-section div#map {
   margin: 1rem 3rem;
 }
 
-#addpropertyForm {
+.propertyform {
   background-color: #e1e7ea;
   text-align: center;
   padding: 1rem;
 }
-#addpropertyForm h1 {
+.propertyform h1 {
   color: #0e9384;
   font-size: 2rem;
 }
-#addpropertyForm .add-form {
+.propertyform .addedit-form {
   padding: 1rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-#addpropertyForm .add-form h4 {
+.propertyform .addedit-form h4 {
   color: #0e9384;
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
-#addpropertyForm .add-form h5 {
+.propertyform .addedit-form h5 {
   color: #0e9384;
   font-size: 1rem;
 }
-#addpropertyForm .add-form input[type=text] {
+.propertyform .addedit-form input[type=text] {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-#addpropertyForm .add-form input[type=text]:focus,
-#addpropertyForm .add-form input[type=text]:focus {
+.propertyform .addedit-form input[type=text]:focus,
+.propertyform .addedit-form input[type=text]:focus {
   color: #0e9384;
   outline: transparent;
   background-color: #ffffff;
 }
-#addpropertyForm .add-form select {
+.propertyform .addedit-form select {
   background-color: rgba(255, 255, 255, 0.6470588235);
   border: 1px solid #0e9384;
   font-family: "Quicksand";
@@ -1807,14 +1713,14 @@ section#googlemaps-property-section div#map {
   font-size: 0.8rem;
   padding: 0.5rem;
 }
-#addpropertyForm .add-form textarea {
+.propertyform .addedit-form textarea {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-#addpropertyForm .add-form input[type=checkbox] {
+.propertyform .addedit-form input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -1831,7 +1737,7 @@ section#googlemaps-property-section div#map {
   place-content: center;
   cursor: pointer;
 }
-#addpropertyForm .add-form input[type=checkbox]::before {
+.propertyform .addedit-form input[type=checkbox]::before {
   content: "";
   width: 0.8rem;
   height: 0.8rem;
@@ -1843,12 +1749,12 @@ section#googlemaps-property-section div#map {
   -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
           clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
-#addpropertyForm .add-form input[type=checkbox]:checked::before {
+.propertyform .addedit-form input[type=checkbox]:checked::before {
   transform: scale(1);
   color: #0e9384;
   background-color: #0e9384;
 }
-#addpropertyForm .add-form input[type=radio] {
+.propertyform .addedit-form input[type=radio] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -1865,7 +1771,7 @@ section#googlemaps-property-section div#map {
   place-content: center;
   cursor: pointer;
 }
-#addpropertyForm .add-form input[type=radio]::before {
+.propertyform .addedit-form input[type=radio]::before {
   content: "";
   width: 0.65em;
   height: 0.65em;
@@ -1875,25 +1781,25 @@ section#googlemaps-property-section div#map {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: #0e9384;
 }
-#addpropertyForm .add-form input[type=radio]:checked::before {
+.propertyform .addedit-form input[type=radio]:checked::before {
   transform: scale(1);
 }
-#addpropertyForm .add-form .input-flex {
+.propertyform .addedit-form .input-flex {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 1rem 0;
 }
-#addpropertyForm .add-form .input-flex .property-title,
-#addpropertyForm .add-form .input-flex .property-price,
-#addpropertyForm .add-form .input-flex .property-type {
+.propertyform .addedit-form .input-flex .property-title,
+.propertyform .addedit-form .input-flex .property-price,
+.propertyform .addedit-form .input-flex .property-type {
   display: flex;
   flex-direction: column;
 }
-#addpropertyForm .add-form .input-flex .property-title input,
-#addpropertyForm .add-form .input-flex .property-price input,
-#addpropertyForm .add-form .input-flex .property-type input {
+.propertyform .addedit-form .input-flex .property-title input,
+.propertyform .addedit-form .input-flex .property-price input,
+.propertyform .addedit-form .input-flex .property-type input {
   border: 1px solid #0e9384;
   padding: 0.5rem;
   font-family: "Quicksand-bold";
@@ -1901,35 +1807,35 @@ section#googlemaps-property-section div#map {
   background-color: rgba(248, 248, 248, 0.7294117647);
   border-radius: 0.5rem;
 }
-#addpropertyForm .add-form .input-flex .property-title input:hover,
-#addpropertyForm .add-form .input-flex .property-title input:focus,
-#addpropertyForm .add-form .input-flex .property-price input:hover,
-#addpropertyForm .add-form .input-flex .property-price input:focus,
-#addpropertyForm .add-form .input-flex .property-type input:hover,
-#addpropertyForm .add-form .input-flex .property-type input:focus {
+.propertyform .addedit-form .input-flex .property-title input:hover,
+.propertyform .addedit-form .input-flex .property-title input:focus,
+.propertyform .addedit-form .input-flex .property-price input:hover,
+.propertyform .addedit-form .input-flex .property-price input:focus,
+.propertyform .addedit-form .input-flex .property-type input:hover,
+.propertyform .addedit-form .input-flex .property-type input:focus {
   background-color: #f8f8f8;
   outline: max(2px, 0.15em) solid #f8f8f8;
   outline-offset: max(2px, 0.15em);
 }
-#addpropertyForm .add-form .property-images {
+.propertyform .addedit-form .property-images {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
 }
-#addpropertyForm .add-form .property-images p {
+.propertyform .addedit-form .property-images p {
   font-size: 0.8rem;
 }
-#addpropertyForm .add-form .property-images .images-container {
+.propertyform .addedit-form .property-images .images-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-#addpropertyForm .add-form .property-images .images-container .image-input {
+.propertyform .addedit-form .property-images .images-container .image-input {
   display: flex;
   flex-direction: column;
 }
-#addpropertyForm .add-form .property-images input::file-selector-button {
+.propertyform .addedit-form .property-images input::file-selector-button {
   border: 1px solid #0e9384;
   background-color: #e1e7ea;
   border-radius: 0.5rem;
@@ -1937,12 +1843,12 @@ section#googlemaps-property-section div#map {
   margin: 0.5rem;
   padding: 0.3rem;
 }
-#addpropertyForm .add-form .property-images input::file-selector-button:hover {
+.propertyform .addedit-form .property-images input::file-selector-button:hover {
   cursor: pointer;
   color: #f8f8f8;
   background-color: #0e9384;
 }
-#addpropertyForm .add-form .host-languages {
+.propertyform .addedit-form .host-languages {
   margin: 1rem 0;
   display: flex;
   flex-direction: row;
@@ -1950,17 +1856,17 @@ section#googlemaps-property-section div#map {
   align-items: center;
   justify-content: center;
 }
-#addpropertyForm .add-form .host-languages label {
+.propertyform .addedit-form .host-languages label {
   margin: 1.5rem;
 }
-#addpropertyForm .add-form .selection-accomodation {
+.propertyform .addedit-form .selection-accomodation {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin: 1rem 0;
 }
-#addpropertyForm .add-form .selection-accomodation .equipement {
+.propertyform .addedit-form .selection-accomodation .equipement {
   width: 200px;
   height: 120px;
   display: flex;
@@ -1969,51 +1875,51 @@ section#googlemaps-property-section div#map {
   align-items: center;
   text-align: center;
 }
-#addpropertyForm .add-form .selection-accomodation .equipement label {
+.propertyform .addedit-form .selection-accomodation .equipement label {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0.5rem;
 }
-#addpropertyForm .add-form .selection-accomodation .equipement label img {
+.propertyform .addedit-form .selection-accomodation .equipement label img {
   width: 20px;
 }
-#addpropertyForm .add-form .selection-accomodation .equipement label:hover {
+.propertyform .addedit-form .selection-accomodation .equipement label:hover {
   cursor: pointer;
 }
-#addpropertyForm .add-form .selection-accomodation .equipement:hover {
+.propertyform .addedit-form .selection-accomodation .equipement:hover {
   background-color: rgba(128, 128, 128, 0.252);
   border-bottom: 1px solid #f8f8f8;
 }
-#addpropertyForm .add-form .container-flex {
+.propertyform .addedit-form .container-flex {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
 }
-#addpropertyForm .add-form .container-flex .add-rules {
+.propertyform .addedit-form .container-flex .add-rules {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-#addpropertyForm .add-form .container-flex .add-amenities {
+.propertyform .addedit-form .container-flex .add-amenities {
   display: flex;
   flex-direction: column;
 }
-#addpropertyForm .add-form .container-flex .add-amenities .amenity {
+.propertyform .addedit-form .container-flex .add-amenities .amenity {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-#addpropertyForm .add-form .container-flex .add-amenities .amenity label {
+.propertyform .addedit-form .container-flex .add-amenities .amenity label {
   margin: 0.5rem;
 }
-#addpropertyForm .add-form .container-flex input {
+.propertyform .addedit-form .container-flex input {
   border: 1px solid #0e9384;
   padding: 0.5rem;
   font-family: "Quicksand-bold";
@@ -2021,30 +1927,30 @@ section#googlemaps-property-section div#map {
   background-color: rgba(248, 248, 248, 0.7294117647);
   border-radius: 0.5rem;
 }
-#addpropertyForm .add-form .container-flex input:hover,
-#addpropertyForm .add-form .container-flex input:focus {
+.propertyform .addedit-form .container-flex input:hover,
+.propertyform .addedit-form .container-flex input:focus {
   background-color: #f8f8f8;
   outline: max(2px, 0.15em) solid #f8f8f8;
   outline-offset: max(2px, 0.15em);
 }
-#addpropertyForm .add-form .selection-tags {
+.propertyform .addedit-form .selection-tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 1rem;
 }
-#addpropertyForm .add-form .selection-tags .tag-element {
+.propertyform .addedit-form .selection-tags .tag-element {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#addpropertyForm .add-form .selection-tags .tag-element:hover {
+.propertyform .addedit-form .selection-tags .tag-element:hover {
   background-color: rgba(128, 128, 128, 0.252);
   border-bottom: 1px solid #f8f8f8;
 }
-#addpropertyForm .add-form .selection-tags label {
+.propertyform .addedit-form .selection-tags label {
   width: 70px;
   margin: 1rem;
   display: flex;
@@ -2053,10 +1959,10 @@ section#googlemaps-property-section div#map {
   align-items: center;
   cursor: pointer;
 }
-#addpropertyForm .add-form .selection-tags label img {
+.propertyform .addedit-form .selection-tags label img {
   width: 25px;
 }
-#addpropertyForm button.main-button-style {
+.propertyform button.main-button-style {
   margin: 0.5rem 0;
   width: 90%;
   position: relative;
@@ -2067,7 +1973,7 @@ section#googlemaps-property-section div#map {
   cursor: pointer;
   overflow: hidden;
 }
-#addpropertyForm button.main-button-style span {
+.propertyform button.main-button-style span {
   display: block;
   font-family: "Quicksand";
   font-size: 1.2rem;
@@ -2077,13 +1983,13 @@ section#googlemaps-property-section div#map {
   position: relative;
   z-index: 1;
 }
-#addpropertyForm button.main-button-style span:hover {
+.propertyform button.main-button-style span:hover {
   color: #f8f8f8;
 }
-#addpropertyForm button.main-button-style > input {
+.propertyform button.main-button-style > input {
   display: none;
 }
-#addpropertyForm button.main-button-style:before {
+.propertyform button.main-button-style:before {
   content: "";
   position: absolute;
   top: 0;
@@ -2094,343 +2000,7 @@ section#googlemaps-property-section div#map {
   transition: all 1s ease-out;
   z-index: 0;
 }
-#addpropertyForm button.main-button-style:hover:before {
-  width: 100%;
-}
-
-#editpropertyform {
-  background-color: #e1e7ea;
-  text-align: center;
-  padding: 1rem;
-}
-#editpropertyform h1 {
-  color: #0e9384;
-  font-size: 2rem;
-}
-#editpropertyform .edit-form {
-  padding: 1rem 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-#editpropertyform .edit-form h4 {
-  color: #0e9384;
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-#editpropertyform .edit-form h5 {
-  color: #0e9384;
-  font-size: 1rem;
-}
-#editpropertyform .edit-form input[type=text] {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid #0e9384;
-  font-family: "Quicksand";
-  background-color: rgba(255, 255, 255, 0.6470588235);
-}
-#editpropertyform .edit-form input[type=text]:focus,
-#editpropertyform .edit-form input[type=text]:focus {
-  color: #0e9384;
-  outline: transparent;
-  background-color: #ffffff;
-}
-#editpropertyform .edit-form select {
-  background-color: rgba(255, 255, 255, 0.6470588235);
-  border: 1px solid #0e9384;
-  font-family: "Quicksand";
-  border-radius: 0.3rem;
-  font-size: 0.8rem;
-  padding: 0.5rem;
-}
-#editpropertyform .edit-form textarea {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid #0e9384;
-  font-family: "Quicksand";
-  background-color: rgba(255, 255, 255, 0.6470588235);
-}
-#editpropertyform .edit-form input[type=checkbox] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-  background-color: #fff;
-  margin: 0;
-  font: inherit;
-  color: #0e9384;
-  width: 1.2rem;
-  height: 1.2rem;
-  border: 1px solid #0e9384;
-  border-radius: 0.3rem;
-  transform: translateY(-0.075em);
-  display: grid;
-  place-content: center;
-  cursor: pointer;
-}
-#editpropertyform .edit-form input[type=checkbox]::before {
-  content: "";
-  width: 0.8rem;
-  height: 0.8rem;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  background-color: #0e9384;
-  transform-origin: bottom left;
-  -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-          clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-}
-#editpropertyform .edit-form input[type=checkbox]:checked::before {
-  transform: scale(1);
-  color: #0e9384;
-  background-color: #0e9384;
-}
-#editpropertyform .edit-form input[type=radio] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-  background-color: #fff;
-  margin: 0;
-  font: inherit;
-  color: #0e9384;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid #0e9384;
-  border-radius: 50%;
-  transform: translateY(-0.075em);
-  display: grid;
-  place-content: center;
-  cursor: pointer;
-}
-#editpropertyform .edit-form input[type=radio]::before {
-  content: "";
-  width: 0.65em;
-  height: 0.65em;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  background-color: #0e9384;
-}
-#editpropertyform .edit-form input[type=radio]:checked::before {
-  transform: scale(1);
-}
-#editpropertyform .edit-form .input-flex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin: 1rem 0;
-}
-#editpropertyform .edit-form .input-flex .property-title,
-#editpropertyform .edit-form .input-flex .property-price,
-#editpropertyform .edit-form .input-flex .property-type {
-  display: flex;
-  flex-direction: column;
-}
-#editpropertyform .edit-form .input-flex .property-title input,
-#editpropertyform .edit-form .input-flex .property-price input,
-#editpropertyform .edit-form .input-flex .property-type input {
-  border: 1px solid #0e9384;
-  padding: 0.5rem;
-  font-family: "Quicksand-bold";
-  font-size: 1rem;
-  background-color: rgba(248, 248, 248, 0.7294117647);
-  border-radius: 0.5rem;
-}
-#editpropertyform .edit-form .input-flex .property-title input:hover,
-#editpropertyform .edit-form .input-flex .property-title input:focus,
-#editpropertyform .edit-form .input-flex .property-price input:hover,
-#editpropertyform .edit-form .input-flex .property-price input:focus,
-#editpropertyform .edit-form .input-flex .property-type input:hover,
-#editpropertyform .edit-form .input-flex .property-type input:focus {
-  background-color: #f8f8f8;
-  outline: max(2px, 0.15em) solid #f8f8f8;
-  outline-offset: max(2px, 0.15em);
-}
-#editpropertyform .edit-form .property-images {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  margin: 1rem 0;
-}
-#editpropertyform .edit-form .property-images p {
-  font-size: 0.8rem;
-}
-#editpropertyform .edit-form .property-images .images-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-#editpropertyform .edit-form .property-images .images-container .image-input {
-  display: flex;
-  flex-direction: column;
-}
-#editpropertyform .edit-form .property-images input::file-selector-button {
-  border: 1px solid #0e9384;
-  background-color: #e1e7ea;
-  border-radius: 0.5rem;
-  font-family: "Quicksand-bold";
-  margin: 0.5rem;
-  padding: 0.3rem;
-}
-#editpropertyform .edit-form .property-images input::file-selector-button:hover {
-  cursor: pointer;
-  color: #f8f8f8;
-  background-color: #0e9384;
-}
-#editpropertyform .edit-form .host-languages {
-  margin: 1rem 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-#editpropertyform .edit-form .host-languages label {
-  margin: 1.5rem;
-}
-#editpropertyform .edit-form .selection-accomodation {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1rem 0;
-}
-#editpropertyform .edit-form .selection-accomodation .equipement {
-  width: 200px;
-  height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-#editpropertyform .edit-form .selection-accomodation .equipement label {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0.5rem;
-}
-#editpropertyform .edit-form .selection-accomodation .equipement label img {
-  width: 20px;
-}
-#editpropertyform .edit-form .selection-accomodation .equipement label:hover {
-  cursor: pointer;
-}
-#editpropertyform .edit-form .selection-accomodation .equipement:hover {
-  background-color: rgba(128, 128, 128, 0.252);
-  border-bottom: 1px solid #f8f8f8;
-}
-#editpropertyform .edit-form .container-flex {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  align-items: center;
-}
-#editpropertyform .edit-form .container-flex .add-rules {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-#editpropertyform .edit-form .container-flex .add-amenities {
-  display: flex;
-  flex-direction: column;
-}
-#editpropertyform .edit-form .container-flex .add-amenities .amenity {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-#editpropertyform .edit-form .container-flex .add-amenities .amenity label {
-  margin: 0.5rem;
-}
-#editpropertyform .edit-form .container-flex input {
-  border: 1px solid #0e9384;
-  padding: 0.5rem;
-  font-family: "Quicksand-bold";
-  font-size: 1rem;
-  background-color: rgba(248, 248, 248, 0.7294117647);
-  border-radius: 0.5rem;
-}
-#editpropertyform .edit-form .container-flex input:hover,
-#editpropertyform .edit-form .container-flex input:focus {
-  background-color: #f8f8f8;
-  outline: max(2px, 0.15em) solid #f8f8f8;
-  outline-offset: max(2px, 0.15em);
-}
-#editpropertyform .edit-form .selection-tags {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-#editpropertyform .edit-form .selection-tags .tag-element {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-#editpropertyform .edit-form .selection-tags .tag-element:hover {
-  background-color: rgba(128, 128, 128, 0.252);
-  border-bottom: 1px solid #f8f8f8;
-}
-#editpropertyform .edit-form .selection-tags label {
-  width: 70px;
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-#editpropertyform .edit-form .selection-tags label img {
-  width: 25px;
-}
-#editpropertyform button.main-button-style {
-  margin: 0.5rem 0;
-  width: 90%;
-  position: relative;
-  border: solid 1px #0e9384;
-  background-color: transparent;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-}
-#editpropertyform button.main-button-style span {
-  display: block;
-  font-family: "Quicksand";
-  font-size: 1.2rem;
-  width: 100%;
-  padding: 0.3rem 0;
-  color: #0e9384;
-  position: relative;
-  z-index: 1;
-}
-#editpropertyform button.main-button-style span:hover {
-  color: #f8f8f8;
-}
-#editpropertyform button.main-button-style > input {
-  display: none;
-}
-#editpropertyform button.main-button-style:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #0e9384;
-  transition: all 1s ease-out;
-  z-index: 0;
-}
-#editpropertyform button.main-button-style:hover:before {
+.propertyform button.main-button-style:hover:before {
   width: 100%;
 }
 
@@ -2545,7 +2115,8 @@ section#googlemaps-property-section div#map {
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-evenly;
-  margin: 1rem 5rem;
+  align-items: center;
+  margin: 5rem;
 }
 
 section#section-blog {

@@ -144,17 +144,19 @@ h3 {
 
 //~ -------------------- STYLING -------------------- //
 //^ ---------  DEFAULT STYLE --------- //
+//* --------- CARDs --------- //
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 420px;
+  height: 440px;
   max-width: 280px;
   margin: 0 auto;
   background-color: $white;
   border-radius: 0.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 2rem;
 
   figure {
     position: relative;
@@ -185,10 +187,6 @@ h3 {
         img {
           width: 30px;
           height: 30px;
-        }
-
-        input {
-          display: none;
         }
       }
     }
@@ -287,47 +285,12 @@ h3 {
       }
     }
 
-    button {
-      margin: .5rem 0;
+    button.main-button-style {
       width: 90%;
-      position: relative;
-      border: solid 1px $accent;
-      background-color: transparent;
-      padding: .5rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      overflow: hidden;
-
-      span {
-        display: block;
-        font-family: "Quicksand";
-        font-size: 1.2rem;
-        width: 100%;
-        padding: 0.3rem 0;
-        color: $accent;
-        position: relative;
-        z-index: 1;
-      }
-
-      span:hover {
-        color: $white;
-      }
-    }
-
-    button:before {
-      content: "";
+      min-width: 150px;
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background-color: $accent;
-      transition: all 0.5s ease-out;
-      z-index: 0;
-    }
-
-    button:hover:before {
-      width: 100%;
+      bottom: 0;
+      right: 1rem;
     }
 
     .dashboard-property-buttons {
@@ -373,49 +336,6 @@ h3 {
         border: 1px solid red;
         border-radius: 0.5rem;
       }
-
-      button {
-        margin: .5rem 0;
-        width: 90%;
-        position: relative;
-        border: solid 1px $dash-maincolor;
-        background-color: transparent;
-        padding: .5rem;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        overflow: hidden;
-
-        span {
-          display: block;
-          font-family: "Quicksand";
-          font-size: 1.2rem;
-          width: 100%;
-          padding: 0.3rem 0;
-          color: $dash-maincolor;
-          position: relative;
-          z-index: 1;
-        }
-
-        span:hover {
-          color: $white;
-        }
-      }
-
-      button:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 100%;
-        background-color: $dash-maincolor;
-        transition: all 0.5s ease-out;
-        z-index: 0;
-      }
-
-      button:hover:before {
-        width: 100%;
-      }
     }
   }
 }
@@ -437,54 +357,96 @@ h3 {
   height: 355px;
 }
 
-// .main-button-style {
-//   button {
-//     margin: .5rem 0;
-//     width: 90%;
-//     position: relative;
-//     border: solid 1px $accent;
-//     background-color: transparent;
-//     padding: .5rem;
-//     border-radius: 0.5rem;
-//     cursor: pointer;
-//     overflow: hidden;
+//* --------- BUTTON ACCENT COLOR --------- //
 
-//     span {
-//       display: block;
-//       font-family: "Quicksand";
-//       font-size: 1.2rem;
-//       width: 100%;
-//       padding: 0.3rem 0;
-//       color: $accent;
-//       position: relative;
-//       z-index: 1;
-//     }
+button.main-button-style {
+  margin: .5rem 0;
+  width: 100%;
+  min-width: 300px;
+  position: relative;
+  border: solid 1px $accent;
+  background-color: transparent;
+  padding: .5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
 
-//     span:hover {
-//       color: $white;
-//     }
-//   }
+  &>span {
+    display: block;
+    font-family: "Quicksand";
+    font-size: 1.5rem;
+    width: 100%;
+    padding: .3rem 0;
+    color: $accent;
+    position: relative;
+    z-index: 1;
+  }
 
-//   button:before {
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 0%;
-//     height: 100%;
-//     background-color: $accent;
-//     transition: all 0.5s ease-out;
-//     z-index: 0;
-//   }
+  &>span:hover {
+    color: $white;
+  }
+}
 
-//   button:hover:before {
-//     width: 100%;
-//   }
+button.main-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: $accent;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
 
-//   input {
-//     display: none;
-//   }
-// }
+button.main-button-style:hover:before {
+  width: 100%;
+}
+
+//* --------- BUTTON DASHBOARD COLOR --------- //
+
+button.main-dash-button-style {
+  margin: .5rem 0;
+  width: 90%;
+  position: relative;
+  border: solid 1px $dash-maincolor;
+  background-color: transparent;
+  padding: .5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+
+  &>span {
+    display: block;
+    font-family: "Quicksand";
+    font-size: 1.2rem;
+    width: 100%;
+    padding: .3rem 0;
+    color: $dash-maincolor;
+    position: relative;
+    z-index: 1;
+  }
+
+  &>span:hover {
+    color: $white;
+  }
+}
+
+button.main-dash-button-style:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: $dash-maincolor;
+  transition: all 0.5s ease-out;
+  z-index: 0;
+}
+
+button.main-dash-button-style:hover:before {
+  width: 100%;
+}
 
 //? --------- HEADERS --------- //
 
@@ -565,46 +527,6 @@ h3 {
           background: $gradient;
         }
       }
-
-      // #container-mobile-searchbar {
-      //   display: flex;
-      //   align-items: center;
-      //   justify-content: center;
-      //   margin: 0 5rem;
-      //   display: none;
-      //   visibility: hidden;
-
-      //   #mobile-searchbar {
-      //     display: flex;
-      //     flex-direction: row;
-      //     align-items: center;
-      //     border-radius: 5rem;
-      //     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-      //     padding: 0 2rem;
-      //     background-color: $white;
-      //     color: $darkerblue;
-
-      //     .mobile-element {
-      //       margin: .2rem 1rem;
-      //     }
-
-      //     .filter-icon {
-      //       button {
-      //         width: 30px;
-      //         padding: .5rem;
-      //         background-color: transparent;
-      //         border: 1px solid $darkerblue;
-      //         border-radius: 5rem;
-      //       }
-      //     }
-      //   }
-
-      //   @media screen and (min-width: 701px) {
-      //     #container-mobile-searchbar {
-      //       display: none;
-      //     }
-      //   }
-      // }
     }
 
     #user {
@@ -752,13 +674,23 @@ h3 {
     }
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 650px) {
     .search-dashboard {
       display: none;
     }
 
     .right-menu {
       width: 90%;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .right-menu {
+      width: 100%;
+
+      .app {
+        display: none;
+      }
     }
   }
 }
@@ -826,6 +758,7 @@ footer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    min-height: 100px;
 
     a {
       font-size: 1rem;
@@ -844,11 +777,21 @@ footer {
   }
 
   .footer-mobile {
-    display: flex;
     justify-content: center;
+    display: none;
 
     a {
       margin: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .footer-mobile {
+      display: flex;
+    }
+
+    .footer-desktop {
+      display: none;
     }
   }
 }
@@ -1474,6 +1417,13 @@ section#property-section {
     font-size: 55px;
   }
 
+  .average-stars-rating{
+    figure{
+     display: flex;
+    flex-direction: row;
+    }
+  }
+
   .property-images {
     width: 100%;
     overflow: hidden;
@@ -1732,48 +1682,6 @@ section#property-section {
           .center-button {
             display: flex;
             justify-content: center;
-
-            button {
-              width: 15rem;
-              position: relative;
-              border: solid 1px $accent;
-              background-color: transparent;
-              padding: 1rem;
-              border-radius: 0.5rem;
-              cursor: pointer;
-              overflow: hidden;
-
-              span {
-                display: block;
-                font-family: "Quicksand";
-                font-size: 1.2rem;
-                width: 100%;
-                padding: 0.3rem 0;
-                color: $accent;
-                position: relative;
-                z-index: 1;
-              }
-
-              span:hover {
-                color: $white;
-              }
-            }
-
-            button:before {
-              content: "";
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 0%;
-              height: 100%;
-              background-color: $accent;
-              transition: all 0.5s ease-out;
-              z-index: 0;
-            }
-
-            button:hover:before {
-              width: 100%;
-            }
           }
         }
       }
@@ -1884,55 +1792,8 @@ section#property-section {
           }
         }
 
-        button {
-          width: 100%;
-          min-width: 300px;
-          position: relative;
-          margin: 0.5rem;
-          border: solid 1px $accent;
-          background-color: transparent;
-          border-radius: 0.5rem;
-          cursor: pointer;
-          overflow: hidden;
-
-          span {
-            display: block;
-            font-family: "Quicksand";
-            font-size: 1.5rem;
-            width: 100%;
-            padding: 1rem 0;
-            color: $accent;
-            position: relative;
-            z-index: 1;
-          }
-
-          span:hover {
-            color: $white;
-          }
-        }
-
-        button:before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 0%;
-          height: 100%;
-          background-color: $accent;
-          transition: all 0.5s ease-out;
-          z-index: 0;
-        }
-
-        button:hover:before {
-          width: 100%;
-        }
-
         p {
           font-size: 0.7rem;
-        }
-
-        input[type="submit"] {
-          display: none;
         }
       }
 
@@ -1957,7 +1818,6 @@ section#property-section {
 
   .add-comment-form {
     width: 50%;
-
     form {
       .rating-input {
         display: flex;
@@ -1967,81 +1827,24 @@ section#property-section {
           display: flex;
           flex-direction: row;
 
-          label img {
-            width: 25px;
-            /* Adjust the size of the stars as needed */
-            cursor: pointer;
-            opacity: 0.6;
-            /* Set the initial opacity for non-active stars */
-          }
-
-          label img:hover {
-            opacity: 0.8;
-            /* Set the opacity on hover */
-          }
-
-          input[type="radio"]:checked+label img {
-            opacity: 1;
-            /* Set the opacity to 1 for the checked (active) star */
-          }
-
           input[type="radio"] {
             position: absolute;
             opacity: 0;
             pointer-events: none;
           }
+
+          .star-label {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            cursor: pointer;
+          }
         }
       }
-
+      
       .comment-input {
         display: flex;
         flex-direction: column;
-      }
-
-      button {
-        width: 100%;
-        position: relative;
-        margin: 0.5rem 0;
-        border: solid 1px $accent;
-        background-color: transparent;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        overflow: hidden;
-
-        span {
-          display: block;
-          font-family: "Quicksand";
-          font-size: 1.5rem;
-          width: 100%;
-          padding: 1rem 0;
-          color: $accent;
-          position: relative;
-          z-index: 1;
-        }
-
-        span:hover {
-          color: $white;
-        }
-      }
-
-      button:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 100%;
-        background-color: $accent;
-        transition: all 0.5s ease-out;
-        z-index: 0;
-      }
-
-      button:hover:before {
-        width: 100%;
-      }
-
-      input[type="submit"] {
-        display: none;
       }
     }
   }
@@ -2204,7 +2007,7 @@ section#googlemaps-property-section {
   }
 }
 
-#addpropertyForm {
+.propertyform {
   background-color: $dashboard-brg;
   text-align: center;
   padding: 1rem;
@@ -2214,7 +2017,7 @@ section#googlemaps-property-section {
     font-size: 2rem;
   }
 
-  .add-form {
+  .addedit-form {
     padding: 1rem 3rem;
     display: flex;
     flex-direction: column;
@@ -2354,7 +2157,7 @@ section#googlemaps-property-section {
           background-color: #f8f8f8ba;
           border-radius: .5rem;
         }
-    
+
         input:hover,
         input:focus {
           background-color: $white;
@@ -2492,387 +2295,7 @@ section#googlemaps-property-section {
         background-color: #f8f8f8ba;
         border-radius: .5rem;
       }
-  
-      input:hover,
-      input:focus {
-        background-color: $white;
-        outline: max(2px, 0.15em) solid $white;
-        outline-offset: max(2px, 0.15em);
-      }
-    }
 
-    .selection-tags {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 1rem;
-
-      .tag-element {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .tag-element:hover {
-        background-color: rgba(128, 128, 128, 0.252);
-        border-bottom: 1px solid $white;
-      }
-
-      label {
-        width: 70px;
-        margin: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-
-        img {
-          width: 25px;
-        }
-      }
-    }
-  }
-
-  button.main-button-style {
-    margin: .5rem 0;
-    width: 90%;
-    position: relative;
-    border: solid 1px $dash-maincolor;
-    background-color: transparent;
-    padding: .5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    overflow: hidden;
-
-    span {
-      display: block;
-      font-family: "Quicksand";
-      font-size: 1.2rem;
-      width: 100%;
-      padding: 0.3rem 0;
-      color: $dash-maincolor;
-      position: relative;
-      z-index: 1;
-    }
-
-    span:hover {
-      color: $white;
-    }
-
-    &>input {
-      display: none;
-    }
-  }
-
-  button.main-button-style:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: $dash-maincolor;
-    transition: all 1s ease-out;
-    z-index: 0;
-  }
-
-  button.main-button-style:hover:before {
-    width: 100%;
-  }
-}
-
-#editpropertyform {
-  background-color: $dashboard-brg;
-  text-align: center;
-  padding: 1rem;
-
-  h1 {
-    color: $dash-maincolor;
-    font-size: 2rem;
-  }
-
-  .edit-form {
-    padding: 1rem 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    //* --------- Default Styles --------- //
-    h4 {
-      color: $dash-maincolor;
-      font-size: 1.2rem;
-      margin: .5rem 0;
-    }
-
-    h5 {
-      color: $dash-maincolor;
-      font-size: 1rem;
-    }
-
-    //* --------- Input Styles --------- //
-    input[type=text] {
-      padding: .5rem;
-      border-radius: .5rem;
-      border: 1px solid $dash-maincolor;
-      font-family: $font;
-      background-color: #ffffffa5;
-    }
-
-    input[type=text]:focus,
-    input[type=text]:focus {
-      color: $dash-maincolor;
-      outline: transparent;
-      background-color: $white-default;
-    }
-
-    select {
-      background-color: #ffffffa5;
-      border: 1px solid $dash-maincolor;
-      font-family: $font;
-      border-radius: .3rem;
-      font-size: .8rem;
-      padding: .5rem;
-    }
-
-    textarea {
-      padding: .5rem;
-      border-radius: .5rem;
-      border: 1px solid $dash-maincolor;
-      font-family: $font;
-      background-color: #ffffffa5;
-    }
-
-    input[type="checkbox"] {
-      -webkit-appearance: none;
-      appearance: none;
-      background-color: #fff;
-      margin: 0;
-      font: inherit;
-      color: $dash-maincolor;
-      width: 1.2rem;
-      height: 1.2rem;
-      border: 1px solid $dash-maincolor;
-      border-radius: .3rem;
-      transform: translateY(-0.075em);
-      display: grid;
-      place-content: center;
-      cursor: pointer;
-    }
-
-    input[type="checkbox"]::before {
-      content: "";
-      width: 0.8rem;
-      height: 0.8rem;
-      transform: scale(0);
-      transition: 120ms transform ease-in-out;
-      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-      background-color: $dash-maincolor;
-      transform-origin: bottom left;
-      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-    }
-
-    input[type="checkbox"]:checked::before {
-      transform: scale(1);
-      color: $dash-maincolor;
-      background-color: $dash-maincolor;
-    }
-
-    input[type="radio"] {
-      -webkit-appearance: none;
-      appearance: none;
-      background-color: #fff;
-      margin: 0;
-      font: inherit;
-      color: $dash-maincolor;
-      width: 1.15em;
-      height: 1.15em;
-      border: 0.15em solid $dash-maincolor;
-      border-radius: 50%;
-      transform: translateY(-0.075em);
-      display: grid;
-      place-content: center;
-      cursor: pointer;
-    }
-
-    input[type="radio"]::before {
-      content: "";
-      width: 0.65em;
-      height: 0.65em;
-      border-radius: 50%;
-      transform: scale(0);
-      transition: 120ms transform ease-in-out;
-      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-      background-color: $dash-maincolor;
-    }
-
-    input[type="radio"]:checked::before {
-      transform: scale(1);
-    }
-
-    //^ --------- Structure --------- //
-    .input-flex {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      margin: 1rem 0;
-
-      .property-title,
-      .property-price,
-      .property-type {
-        display: flex;
-        flex-direction: column;
-
-        input {
-          border: 1px solid $dash-maincolor;
-          padding: .5rem;
-          font-family: $bold;
-          font-size: 1rem;
-          background-color: #f8f8f8ba;
-          border-radius: .5rem;
-        }
-    
-        input:hover,
-        input:focus {
-          background-color: $white;
-          outline: max(2px, 0.15em) solid $white;
-          outline-offset: max(2px, 0.15em);
-        }
-      }
-    }
-
-    .property-images {
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      margin: 1rem 0;
-
-      p {
-        font-size: .8rem;
-      }
-
-      .images-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-
-        .image-input {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-
-      input::file-selector-button {
-        border: 1px solid $dash-maincolor;
-        background-color: $dashboard-brg;
-        border-radius: .5rem;
-        font-family: $bold;
-        margin: .5rem;
-        padding: .3rem;
-      }
-
-      input::file-selector-button:hover {
-        cursor: pointer;
-        color: $white;
-        background-color: $dash-maincolor;
-      }
-    }
-
-    .host-languages {
-      margin: 1rem 0;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-
-      label {
-        margin: 1.5rem;
-      }
-    }
-
-    .selection-accomodation {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 1rem 0;
-
-      .equipement {
-        width: 200px;
-        height: 120px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-
-        label {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          margin: .5rem;
-
-          img {
-            width: 20px;
-          }
-        }
-
-        label:hover {
-          cursor: pointer;
-        }
-      }
-
-      .equipement:hover {
-        background-color: rgba(128, 128, 128, 0.252);
-        border-bottom: 1px solid $white;
-      }
-    }
-
-    .container-flex {
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      align-items: center;
-
-      .add-rules {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .add-amenities {
-        display: flex;
-        flex-direction: column;
-
-        .amenity {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-items: center;
-
-          label {
-            margin: .5rem;
-          }
-        }
-      }
-
-      input {
-        border: 1px solid $dash-maincolor;
-        padding: .5rem;
-        font-family: $bold;
-        font-size: 1rem;
-        background-color: #f8f8f8ba;
-        border-radius: .5rem;
-      }
-  
       input:hover,
       input:focus {
         background-color: $white;
@@ -3097,7 +2520,8 @@ section#googlemaps-property-section {
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-evenly;
-  margin: 1rem 5rem;
+  align-items: center;
+  margin: 5rem;
 }
 
 //~ -------------------- BLOG -------------------- //
@@ -3190,7 +2614,7 @@ section#section-blog {
 
 section#article-section {
   text-align: center;
-  margin: 30px auto; 
+  margin: 30px auto;
 }
 
 div#article-flex-images figure.article-flex-images {
@@ -3205,39 +2629,23 @@ div#article-flex-images .right-aligned {
 section#article-section h1,
 section#article-section h2 {
   color: #92AAD3;
-  margin-top: 30px; 
-  margin-bottom: 30px; 
+  margin-top: 30px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
-  div#article-flex-images {
-    figure.article-flex-images {
-      display: flex;
+div#article-flex-images {
+  figure.article-flex-images {
+    display: flex;
 
-        section#article-section h3 {
-          color: #92AAD3;
+    section#article-section h3 {
+      color: #92AAD3;
 
 
-          section#article-section h4 {
-            color: #92AAD3;
-            text-align: center;
-          }
-        }
+      section#article-section h4 {
+        color: #92AAD3;
+        text-align: center;
       }
-<<<<<<< HEAD
     }
   }
-
-
-
-section#article-section {
-  font-family: "Quicksand";
 }
-
-
- 
-
-
-=======
-    }
->>>>>>> 690b73d2e22fed33fdc1a489d1bf5bb9b4f8b530

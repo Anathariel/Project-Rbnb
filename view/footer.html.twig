@@ -23,11 +23,11 @@
 		{# <a href="#"><img src="{{ asset('/media/icons/arrow-top.svg') }}" alt=""></a> #}
 	</div>
 
-	{# <div class="limit-size footer-mobile">
-		<a href="#">
+	<div class="limit-size footer-mobile">
+		<a href="{{ path('catalogue') }}">
 			<img src="{{ asset('/media/icons/catalog.svg') }}" alt="">
 		</a>
-		<a href="#">
+		<a href="{{ path('dashboard') }}">
 			<img src="{{ asset('/media/icons/heart-footer.svg') }}" alt="">
 		</a>
 		{% if session.connect %}
@@ -37,6 +37,6 @@
 		{% else %}
 			<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/user-footer.svg') }}" alt="Se connecter ou s'inscrire">
 			{% endif %}
-	</div> #}
+	</div>
 
 	</footer>

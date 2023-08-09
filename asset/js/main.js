@@ -150,21 +150,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// PROPERTY COMMENT RATING
-
-// function setRating(rating) {
-//   const stars = document.querySelectorAll('.rating-input label img');
-
-//   for (let i = 0; i < stars.length; i++) {
-//     if (i < rating) {
-//       stars[i].src = '{{ asset('/media/icons/rating-fullstar.svg') }}';
-//     } else {
-//       stars[i].src = '{{ asset('/media/icons/rating-emptystar.svg') }}';
-//     }
-//   }
-
-//   const ratingInput = document.getElementById('rating');
-//   ratingInput.value = rating;
-// }
-
 });

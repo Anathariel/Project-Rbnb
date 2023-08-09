@@ -8,107 +8,119 @@
 	{# ---------- property-section ---------- #}
 	<section id="property-section">
 		<h1>{{ property.title }}</h1>
-		<span>{{ averageRating }}
-			étoiles</span>○{{ property.city }},{{ property.region }},{{ property.country }}</span>
+		<div class="average-stars-rating">
+			<figure>
+				{% set intPart = averageRating|split('.')[0] %}
+				{% set hasHalfStar = (averageRating * 10) % 10 >= 5 %}
+				
+				{% for i in 1..5 %}
+					{% if i <= intPart %}
+						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Full Star rating">
+					{% elseif hasHalfStar and i == intPart + 1 %}
+						<img src="{{ asset('/media/icons/rating-halfstar.svg') }}" alt="Half Star rating">
+					{% else %}
+						<img src="{{ asset('/media/icons/rating-emptystar.svg') }}" alt="Empty Star rating">
+					{% endif %}
+				{% endfor %}
+				<figcaption>
+					<p>• {{ property.city }}, {{ property.region }}, {{ property.country }}</p>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="property-images">
+			<figure class="property-main-image">
+				{% if propertyImages.imageMainURL %}
+				<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}" />
+				{% endif %}
+			</figure>
+			<figure class="property-flex-images">
+				{% if propertyImages.image1URL %}
+				<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}" />
+				{% endif %}
+				{% if propertyImages.image2URL %}
+				<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}" />
+				{% endif %}
+				{% if propertyImages.image3URL %}
+				<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}" />
+				{% endif %}
+				{% if propertyImages.image4URL %}
+				<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}" />
+				{% endif %}
+			</figure>
+		</div>
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+			<!-- The Close Button -->
+			<span class="close">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="modal-content" id="img01">
+			<!-- Modal Caption (Image Text) -->
+			<div id="caption"></div>
+		</div>
+		{# -------------- CONTAINER DESCRIPTION -------------- #}
+		<div class="property-details">
+			{# -------------- LEFT SIDE DESCRIPTION -------------- #}
+			<div class="container-description-property">
+				<h3>Chez @{{ property.owner.firstName }}</h3>
 
-	<div class="property-images">
-		<figure class="property-main-image">
-			{% if propertyImages.imageMainURL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-		</figure>
-		<figure class="property-flex-images">
-			{% if propertyImages.image1URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image1URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image2URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image2URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image3URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image3URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-			{% if propertyImages.image4URL %}
-				<img src="{{ asset('/media/locations/' ~ propertyImages.image4URL) }}" alt="{{ property.title }}"/>
-			{% endif %}
-		</figure>
-	</div>
-	<!-- The Modal -->
-	<div
-		id="myModal" class="modal">
-		<!-- The Close Button -->
-		<span class="close">&times;</span>
-		<!-- Modal Content (The Image) -->
-		<img
-		class="modal-content" id="img01">
-		<!-- Modal Caption (Image Text) -->
-		<div id="caption"></div>
-	</div>
-	{# -------------- CONTAINER DESCRIPTION -------------- #}
-	<div
-		class="property-details">
-		{# -------------- LEFT SIDE DESCRIPTION -------------- #}
-		<div class="container-description-property">
-			<h3>Chez @{{ property.owner.firstName }}</h3>
-
-			<div
-				class="property-amenities">
-				{# ---------- Amenities ---------- #}
-				{% if propertyAmenities.beds > 0 %}
+				<div class="property-amenities">
+					{# ---------- Amenities ---------- #}
+					{% if propertyAmenities.beds > 0 %}
 					<p>{{ propertyAmenities.beds }}
 						{{ propertyAmenities.beds == 1 ? "lit" : "lits" }}</p>
-				{% endif %}
+					{% endif %}
 
-				{% if propertyAmenities.bedrooms > 0 %}
+					{% if propertyAmenities.bedrooms > 0 %}
 					<p>{{ propertyAmenities.bedrooms }}
 						{{ propertyAmenities.bedrooms == 1 ? "chambre" : "chambres" }}</p>
-				{% endif %}
+					{% endif %}
 
-				{% if propertyAmenities.bathrooms > 0 %}
+					{% if propertyAmenities.bathrooms > 0 %}
 					<p>{{ propertyAmenities.bathrooms }}
 						{{ propertyAmenities.bathrooms == 1 ? "salle de bain" : "salles de
-                    bain" }}</p>
-				{% endif %}
+						bain" }}</p>
+					{% endif %}
 
-				{% if propertyAmenities.toilets > 0 %}
+					{% if propertyAmenities.toilets > 0 %}
 					<p>{{ propertyAmenities.toilets }}
 						{{ propertyAmenities.toilets == 1 ? "toilette" : "toilettes" }}</p>
-				{% endif %}
-			</div>
+					{% endif %}
+				</div>
 
-			<div class="property-description">
-				<p>{{ property.description }}</p>
+				<div class="property-description">
+					<p>{{ property.description }}</p>
 
-				<a id="description-details" href="#">En savoir plus →</a>
-			</div>
+					<a id="description-details" href="#">En savoir plus →</a>
+				</div>
 
-			<div class="property-equipment">
-				<h3>Ce que propose ce logement :</h3>
-				<div class="equipment-list">
-					{% if accommodationType.piscine == 1 %}
+				<div class="property-equipment">
+					<h3>Ce que propose ce logement :</h3>
+					<div class="equipment-list">
+						{% if accommodationType.piscine == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/piscine.svg') }}" alt="Icon piscine">
 							<figcaption>
 								<p>Piscine</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.parkingGratuit == 1 %}
+						{% endif %}
+						{% if accommodationType.parkingGratuit == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/parking.svg') }}" alt="Icon Parking">
 							<figcaption>
 								<p>Parking gratuit</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.jacuzzi == 1 %}
+						{% endif %}
+						{% if accommodationType.jacuzzi == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/jacuzzi.svg') }}" alt="Icon Jacuzzi">
 							<figcaption>
 								<p>Jacuzzi</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.wifi == 1 %}
+						{% endif %}
+						{% if accommodationType.wifi == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/wifi.svg') }}" alt="Icon Wi-Fi">
 
@@ -116,370 +128,379 @@
 								<p>Wifi</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.laveLinge == 1 %}
+						{% endif %}
+						{% if accommodationType.laveLinge == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/lave-linge.svg') }}" alt="Icon lage-linge">
 							<figcaption>
 								<p>Lave-linge</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.secheLinge == 1 %}
+						{% endif %}
+						{% if accommodationType.secheLinge == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/seche-linge.svg') }}" alt="Icon Sèche-linge">
 							<figcaption>
 								<p>Sèche-linge</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.climatisation == 1 %}
+						{% endif %}
+						{% if accommodationType.climatisation == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/climatisation.svg') }}" alt="Icon climatisation">
 							<figcaption>
 								<p>Climatisation</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.chauffage == 1 %}
+						{% endif %}
+						{% if accommodationType.chauffage == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/chauffage.svg') }}" alt="Icon chauffage">
 							<figcaption>
 								<p>Chauffage</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.espaceTravailDedie == 1 %}
+						{% endif %}
+						{% if accommodationType.espaceTravailDedie == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/espace-travail.svg') }}" alt="Icon espace de travail">
 							<figcaption>
 								<p>Espace de travail dédié</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.television == 1 %}
+						{% endif %}
+						{% if accommodationType.television == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/television.svg') }}" alt="Icon Télévision">
 							<figcaption>
 								<p>Télévision</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.secheCheveux == 1 %}
+						{% endif %}
+						{% if accommodationType.secheCheveux == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/seche-cheveux.svg') }}" alt="Icon Sèche-cheveux">
 							<figcaption>
 								<p>Sèche-cheveux</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.ferRepasser == 1 %}
+						{% endif %}
+						{% if accommodationType.ferRepasser == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/fer-repasser.svg') }}" alt="Icon Fer à repasser">
 							<figcaption>
 								<p>Fer à repasser</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.stationRechargeVehiElectriques == 1 %}
+						{% endif %}
+						{% if accommodationType.stationRechargeVehiElectriques == 1 %}
 						<figure>
-							<img src="{{ asset('/media/icons/recharge-vehicule.svg') }}" alt="Icon de station de recharge pour véhicules électrique">
+							<img src="{{ asset('/media/icons/recharge-vehicule.svg') }}"
+								alt="Icon de station de recharge pour véhicules électrique">
 							<figcaption>
 								<p>Station de recharge pour véhicules électriques</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.litBebe == 1 %}
+						{% endif %}
+						{% if accommodationType.litBebe == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/lit-bebe.svg') }}" alt="Icon de lit pour bébé">
 							<figcaption>
 								<p>Lit pour bébé</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.salleSport == 1 %}
+						{% endif %}
+						{% if accommodationType.salleSport == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/salle-sport.svg') }}" alt="Icon de salle de sport">
 							<figcaption>
 								<p>Salle de sport</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.barbecue == 1 %}
+						{% endif %}
+						{% if accommodationType.barbecue == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/barbecue.svg') }}" alt="Icon barbecue">
 							<figcaption>
 								<p>Barbecue</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.petitDejeuner == 1 %}
+						{% endif %}
+						{% if accommodationType.petitDejeuner == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/breakfast.svg') }}" alt="Icon petit déjeuner">
 							<figcaption>
 								<p>Petit déjeuner</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.cheminee == 1 %}
+						{% endif %}
+						{% if accommodationType.cheminee == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/cheminee.svg') }}" alt="Icon cheminée">
 							<figcaption>
 								<p>Cheminée</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.logementFumeur == 1 %}
+						{% endif %}
+						{% if accommodationType.logementFumeur == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/logement-fumeur.svg') }}" alt="Icon logement fumeur">
 							<figcaption>
 								<p>Logement fumeur</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.detecteurFumee == 1 %}
+						{% endif %}
+						{% if accommodationType.detecteurFumee == 1 %}
 						<figure>
 							<img src="{{ asset('/media/icons/detecteur-fumee.svg') }}" alt="Icon détecteur de fumée">
 							<figcaption>
 								<p>Détecteur de fumée</p>
 							</figcaption>
 						</figure>
-					{% endif %}
-					{% if accommodationType.detecteurMonoxyDeCarbone == 1 %}
+						{% endif %}
+						{% if accommodationType.detecteurMonoxyDeCarbone == 1 %}
 						<figure>
-							<img src="{{ asset('/media/icons/detecteur-carbone.svg') }}" alt="Icon de détecteur de monoxyde de carbone">
+							<img src="{{ asset('/media/icons/detecteur-carbone.svg') }}"
+								alt="Icon de détecteur de monoxyde de carbone">
 							<figcaption>
 								<p>Détecteur de monoxyde de carbone</p>
 							</figcaption>
 						</figure>
-					{% endif %}
+						{% endif %}
+					</div>
 				</div>
-			</div>
 
-			<div class="property-comments">
-				<h3>Ce qu'ils en disent :</h3>
-				{% if comments is empty %}
+				<div class="property-comments">
+					<h3>Ce qu'ils en disent :</h3>
+					{% if comments is empty %}
 					<p>Pas encore de commentaire pour cette location.</p>
-				{% else %}
+					{% else %}
 					<div class="nav-arrows">
 						<button class="comment-leftarrow"><img src="{{ asset('/media/icons/arrow.svg') }}" alt=""></button>
-						<button class="comment-rightarrow"><img src="{{ asset('/media/icons/arrowleft.svg') }}" alt=""></button>
+						<button class="comment-rightarrow"><img src="{{ asset('/media/icons/arrowleft.svg') }}"
+								alt=""></button>
 					</div>
-				{% endif %}
-				<div class="container-comments-row">
-					{% for comment in comments %}
+					{% endif %}
+					<div class="container-comments-row">
+						{% for comment in comments %}
 						<div class="container-comment">
 							<div class="stars-rating">
-								<p>{{ comment.rating }}
-									étoiles</p>
 								<figure>
-									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-									<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+									{% for i in 1..5 %}
+										{% if i <= comment.rating %}
+											<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+										{% else %}
+											<img src="{{ asset('/media/icons/rating-emptystar.svg') }}" alt="Star rating">
+										{% endif %}
+									{% endfor %}
 								</figure>
 							</div>
 							<p>{{ comment.commentText }}</p>
 							<figure>
 								<div id="profile-picture">
-									<img src="{{ asset('/media/profils/') }}{{ comment.picture }}" alt="{{ comment.picture }}">
+									<img src="{{ asset('/media/profils/') }}{{ comment.picture }}"
+										alt="{{ comment.picture }}">
 								</div>
 								<figcaption>
 									<p>{{ comment.firstname }}</p>
 								</figcaption>
 							</figure>
 						</div>
-					{% endfor %}
+						{% endfor %}
+					</div>
 				</div>
-			</div>
 
-			{# ---------- Google maps ---------- #}
-			<h3>Où se situe ce logement</h3>
+				{# ---------- Google maps ---------- #}
+				<h3>Où se situe ce logement</h3>
 
-			{% include 'googlemaps.html.twig' %}
-			<p>{{ property.address }},
-				{{ property.city }},
-				{{ property.region }},
-				{{ property.country }}
-			</p>
-			{# ----------------------------------- #}
+				{% include 'googlemaps.html.twig' %}
+				<p>{{ property.address }},
+					{{ property.city }},
+					{{ property.region }},
+					{{ property.country }}
+				</p>
+				{# ----------------------------------- #}
 
-			<div class="property-host">
-				<h3>A propos de votre Hôte</h3>
+				<div class="property-host">
+					<h3>A propos de votre Hôte</h3>
 
-				<div class="container-host-info">
-					<figure>
-						<div class="profile-picture">
-							<img src="{{ asset('/media/profils/') }}{{ property.owner.picture }}" alt="{{ property.owner.picture }}">
-						</div>
-						<figcaption>
-							<h4>@{{ property.owner.firstName }}</h4>
-							<p>Membre depuis : 2020 • Particulier</p>
-							<div class="host-rating">
-								<div class="stars-rating">
-									<figure>
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-										<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
-									</figure>
-								</div>
+					<div class="container-host-info">
+						<figure>
+							<div class="profile-picture">
+								<img src="{{ asset('/media/profils/') }}{{ property.owner.picture }}"
+									alt="{{ property.owner.picture }}">
 							</div>
-						</figcaption>
-					</figure>
+							<figcaption>
+								<h4>@{{ property.owner.firstName }}</h4>
+								<p>Membre depuis : 2020 • Particulier</p>
+								<div class="host-rating">
+									<div class="stars-rating">
+										<figure>
+											<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+											<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+											<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+											<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+											<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Star rating">
+										</figure>
+									</div>
+								</div>
+							</figcaption>
+						</figure>
 
-					<div class="host-details">
-						<div class="host-language">
-							<p>Langues parlées par l'hôte :</p>
-							{% set languages = {
-                            'english': 'Anglais',
-                            'french': 'Français',
-                            'german': 'Allemand',
-                            'japanese': 'Japonais',
-                            'italian': 'Italien',
-                            'russian': 'Russe',
-                            'spanish': 'Espagnol',
-                            'chinese': 'Chinois',
-                            'arabic': 'Arabe'
-                            } %}
-							{% for key, language in languages %}
+						<div class="host-details">
+							<div class="host-language">
+								<p>Langues parlées par l'hôte :</p>
+								{% set languages = {
+								'english': 'Anglais',
+								'french': 'Français',
+								'german': 'Allemand',
+								'japanese': 'Japonais',
+								'italian': 'Italien',
+								'russian': 'Russe',
+								'spanish': 'Espagnol',
+								'chinese': 'Chinois',
+								'arabic': 'Arabe'
+								} %}
+								{% for key, language in languages %}
 								{% if hostLanguage[key] == 1 %}
-									<p>{{ language }}</p>
+								<p>{{ language }}</p>
 								{% endif %}
-							{% endfor %}
-						</div>
-
-						<p>Nombre de Logements :{{ propertyCount }}</p>
-					</div>
-
-					<div class="center-button">
-						<button class="hote-contact">
-							<span>Contacter l'Hôte<span></button>
+								{% endfor %}
 							</div>
-						</div>
-					</div>
 
-					<div class="property-conditions">
-
-						<div class="reglement">
-							<h4>Règlement intérieur :</h4>
-							<p>Arrivée à partir de
-								{{ houseRules.checkInTime|slice(0, 5) }}</p>
-							<p>Départ avant
-								{{ houseRules.checkOutTime|slice(0, 5) }}</p>
-							<p id="maxGuests">{{ houseRules.maxGuests }}
-								voyageurs maximum</p>
-							<a id="description-details" href="#">En savoir plus →</a>
+							<p>Nombre de Logements :{{ propertyCount }}</p>
 						</div>
 
-						<div class="annulation">
-							<h4>Conditions d'annulation :</h4>
-							{% if cancellationPolicy %}
-								<p>Annulation gratuite avant
-									{{ cancellationPolicy.cancellationTime }}</p>
-								<p>Politique de remboursement :
-									{{ cancellationPolicy.refundPolicy }}</p>
-								<p>Frais d'annulation :
-									{{ cancellationPolicy.cancellationFees }}€</p>
-								<a id="description-details" href="#">En savoir plus →</a>
-							{% else %}
-								<p>Aucune politique d'annulation définie pour cette propriété.</p>
-							{% endif %}
+						<div class="center-button">
+							<button class="main-button-style" type="submit" name="submit">
+								<span>Contacter l'Hôte<span>
+							</button>
 						</div>
 					</div>
 				</div>
-				{# --------------- RIGHT SIDE PRICE BOX -------------- #}
-				<div class="container-pricing">
-					<p>
-						<span id="pricePerNight">{{ property.PriceNight }}€</span>
-						par nuit
-					</p>
-					<div class="container-calendar-traveler">
-						<div class="reservation-options">
-							<div class="calendar">
-								<div class="arrival">
-									<h4>Arrivée</h4>
-									<input type="date" id="arrivalDate" format="YYYY-MM-DD">
-								</div>
-								<div class="departure">
-									<h4>Départ</h4>
-									<input type="date" id="departureDate" format="YYYY-MM-DD">
-								</div>
-							</div>
 
-							<div class="traveler">
-								<h4>Voyageurs</h4>
-								<select name="numTravelers" id="traveler-select">
-									<option value="1">1 Voyageur</option>
-									<option value="2">2 Voyageurs</option>
-									<option value="3">3 Voyageurs</option>
-									<option value="4">4 Voyageurs</option>
-									<option value="5">5 Voyageurs</option>
-									<option value="6">6 Voyageurs</option>
-									<option value="7">7 Voyageurs</option>
-									<option value="8">8+ Voyageurs</option>
-								</select>
-							</div>
-						</div>
-						<form action="{{ path('reservation') }}" method="POST">
-							<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-							<input type="hidden" name="startDate" id="startDateInput" value="">
-							<input type="hidden" name="endDate" id="endDateInput" value="">
-							<input type="hidden" name="numTravelers" id="numTravelersInput" value="1">
-							<input type="hidden" name="totalPrice" id="totalPriceInput" value="">
-							<button><input type="submit" value="" class="submit"><span>Réserver</span>
-					</button>
-						</form>
-						<p>Aucun montant ne vous sera débité pour le moment</p>
+				<div class="property-conditions">
+
+					<div class="reglement">
+						<h4>Règlement intérieur :</h4>
+						<p>Arrivée à partir de
+							{{ houseRules.checkInTime|slice(0, 5) }}</p>
+						<p>Départ avant
+							{{ houseRules.checkOutTime|slice(0, 5) }}</p>
+						<p id="maxGuests">{{ houseRules.maxGuests }}
+							voyageurs maximum</p>
+						<a id="description-details" href="#">En savoir plus →</a>
 					</div>
-					<div class="price-details hidden">
-						<div class="details">
-							<p>{{ property.PriceNight }}€ x
-								<span id="nb-day"></span>
-							</p>
-							<p>Frais de service Loca'R</p>
-							<p>Taxes</p>
-							<h4>Total du séjour</h4>
-						</div>
-						<div class="prices">
-							<p id="totalPrice">{{ totalPrice }}€</p>
-							<p id="serviceFee">{{ serviceFee }}€</p>
-							<p id="taxes">{{ taxes }}€</p>
-							<h4 id="totalPriceWithFees">{{ totalPriceWithFees }}€</h4>
-						</div>
+
+					<div class="annulation">
+						<h4>Conditions d'annulation :</h4>
+						{% if cancellationPolicy %}
+						<p>Annulation gratuite avant
+							{{ cancellationPolicy.cancellationTime }}</p>
+						<p>Politique de remboursement :
+							{{ cancellationPolicy.refundPolicy }}</p>
+						<p>Frais d'annulation :
+							{{ cancellationPolicy.cancellationFees }}€</p>
+						<a id="description-details" href="#">En savoir plus →</a>
+						{% else %}
+						<p>Aucune politique d'annulation définie pour cette propriété.</p>
+						{% endif %}
 					</div>
 				</div>
 			</div>
+			{# --------------- RIGHT SIDE PRICE BOX -------------- #}
+			<div class="container-pricing">
+				<p>
+					<span id="pricePerNight">{{ property.PriceNight }}€</span>
+					par nuit
+				</p>
+				<div class="container-calendar-traveler">
+					<div class="reservation-options">
+						<div class="calendar">
+							<div class="arrival">
+								<h4>Arrivée</h4>
+								<input type="date" id="arrivalDate" format="YYYY-MM-DD">
+							</div>
+							<div class="departure">
+								<h4>Départ</h4>
+								<input type="date" id="departureDate" format="YYYY-MM-DD">
+							</div>
+						</div>
 
-			<h3>Laisser votre commentaire</h3>
-			<div class="add-comment-form">
-				<form action="{{ path('commentAdd') }}" method="POST">
-					<div class="rating-input">
-						<input type="hidden" id="rating" name="rating" required>
-						<label for="rating">Votre note :</label>
-						<div class="rating-stars">
-							<input type="radio" id="star1" name="rating" value="1">
-							<label for="star1"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
-							<input type="radio" id="star2" name="rating" value="2">
-							<label for="star2"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
-							<input type="radio" id="star3" name="rating" value="3">
-							<label for="star3"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
-							<input type="radio" id="star4" name="rating" value="4">
-							<label for="star4"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
-							<input type="radio" id="star5" name="rating" value="5">
-							<label for="star5"><img src="{{ asset('/media/icons/rating-emptystar.svg') }}"></label>
+						<div class="traveler">
+							<h4>Voyageurs</h4>
+							<select name="numTravelers" id="traveler-select">
+								<option value="1">1 Voyageur</option>
+								<option value="2">2 Voyageurs</option>
+								<option value="3">3 Voyageurs</option>
+								<option value="4">4 Voyageurs</option>
+								<option value="5">5 Voyageurs</option>
+								<option value="6">6 Voyageurs</option>
+								<option value="7">7 Voyageurs</option>
+								<option value="8">8+ Voyageurs</option>
+							</select>
 						</div>
 					</div>
-					<div class="comment-input">
-						<label for="comment">Votre commentaire :</label>
-						<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
+					<form action="{{ path('reservation') }}" method="POST">
+						<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+						<input type="hidden" name="startDate" id="startDateInput" value="">
+						<input type="hidden" name="endDate" id="endDateInput" value="">
+						<input type="hidden" name="numTravelers" id="numTravelersInput" value="1">
+						<input type="hidden" name="totalPrice" id="totalPriceInput" value="">
+						<button class="main-button-style" type="submit" name="submit">
+							<span>Réserver</span>
+						</button>
+					</form>
+					<p>Aucun montant ne vous sera débité pour le moment</p>
+				</div>
+				<div class="price-details hidden">
+					<div class="details">
+						<p>{{ property.PriceNight }}€ x
+							<span id="nb-day"></span>
+						</p>
+						<p>Frais de service Loca'R</p>
+						<p>Taxes</p>
+						<h4>Total du séjour</h4>
 					</div>
-					<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-					<button><input type="submit" name="submit" class="comment-submit"><span>Poster mon commentaire</span>
-					</button>
-				</form>
+					<div class="prices">
+						<p id="totalPrice">{{ totalPrice }}€</p>
+						<p id="serviceFee">{{ serviceFee }}€</p>
+						<p id="taxes">{{ taxes }}€</p>
+						<h4 id="totalPriceWithFees">{{ totalPriceWithFees }}€</h4>
+					</div>
+				</div>
 			</div>
-		</section>
+		</div>
+
+		<h3>Laisser votre commentaire</h3>
+		<div class="add-comment-form">
+			<form action="{{ path('commentAdd') }}" method="POST">
+				<div class="rating-input">
+					<input type="hidden" id="rating" name="rating" required>
+					<label for="rating">Votre note :</label>
+					<div class="rating-stars" data-empty-star="{{ asset('/media/icons/rating-emptystar.svg') }}"
+     				data-full-star="{{ asset('/media/icons/rating-fullstar.svg') }}">
+						<input type="radio" id="star1" name="rating" value="1">
+						<label for="star1" class="star-label" data-rating="1"></label>
+						<input type="radio" id="star2" name="rating" value="2">
+						<label for="star2" class="star-label" data-rating="2"></label>
+						<input type="radio" id="star3" name="rating" value="3">
+						<label for="star3" class="star-label" data-rating="3"></label>
+						<input type="radio" id="star4" name="rating" value="4">
+						<label for="star4" class="star-label" data-rating="4"></label>
+						<input type="radio" id="star5" name="rating" value="5">
+						<label for="star5" class="star-label" data-rating="5"></label>
+					</div>
+
+				<div class="comment-input">
+					<label for="comment">Votre commentaire :</label>
+					<textarea name="commentText" id="comment" cols="60" rows="10" required></textarea>
+				</div>
+				<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+				<button class="main-button-style comment-submit" type="submit" name="submit">
+					<span>Poster mon commentaire</span>
+				</button>
+			</form>
+		</div>
+	</section>
 	{% endblock %}
