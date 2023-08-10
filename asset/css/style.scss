@@ -501,6 +501,7 @@ button.main-dash-button-style:hover:before {
       justify-content: center;
       align-items: center;
       margin: 0 1rem;
+      cursor: pointer;
 
       #desktop-searchbar {
         #searchbar {
@@ -586,15 +587,11 @@ button.main-dash-button-style:hover:before {
   }
 }
 
-.default-state {
-  display: none;
-}
-
 .expanded-state {
   align-self: center;
   display: flex;
   flex-direction: row;
-  background-color: #404e87;
+  display: none;
 
   #searchbar {
     width: 80%;
@@ -609,9 +606,9 @@ button.main-dash-button-style:hover:before {
     background-color: $white;
 
     .search-element {
-      margin: 1rem;
+      padding: 1rem;
+      border-radius: 5rem;
       color: rgb(48, 46, 46);
-      background-color: #404e87;
 
       p {
         font-size: 0.8rem;
@@ -632,10 +629,10 @@ button.main-dash-button-style:hover:before {
       border-left: 1px solid rgba(48, 46, 46, 0.306);
     }
 
-    .destination-searchbar{
+    .destination-searchbar {
       width: 100%;
-      
-      input[type=text]{
+
+      input[type=text] {
         width: 100%;
       }
     }
@@ -645,19 +642,50 @@ button.main-dash-button-style:hover:before {
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      text-align: center;
       width: 100%;
 
       input[type=text] {
         text-align: center;
       }
+
+      .arrival-searchbar,
+      .departure-searchbar {
+        padding: 1rem .5rem;
+        border-radius: 5rem;
+      }
+
+      .arrival-searchbar:hover,
+      .departure-searchbar:hover {
+        cursor: pointer;
+        background-color: #e4e4e4aa;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      }
     }
 
-    .traveller-searchbar{
+    .end-searchbar{
       width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-left: 1.5rem;
+    }
 
-      input[type=text]{
+    .traveller-searchbar {
+      width: 100%;
+      border-radius: 5rem;
+      padding: 1rem;
+
+      input[type=text] {
         width: 100%;
       }
+    }
+
+    .destination-searchbar:hover,
+    .end-searchbar:hover {
+      cursor: pointer;
+      background-color: #e4e4e4aa;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     }
 
     input[type=text] {
@@ -676,7 +704,10 @@ button.main-dash-button-style:hover:before {
 
   button {
     display: flex;
-    width: 30%;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    max-height: 50px;
     background-color: $accent;
     border-radius: 5rem;
     padding: 1rem;

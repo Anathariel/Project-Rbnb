@@ -16,7 +16,10 @@ Back-end :
 • Hamid Achahboune @ https://www.linkedin.com/in/hamid-achahboune-0332b9226/ & https://github.com/achahbounehamid
 
 Front-end & Maquetting :
-• Angéline Gillot https://www.linkedin.com/in/ang%C3%A9line-gillot/ @ & https://github.com/Anathariel
+• Angéline Gillot @ https://www.linkedin.com/in/ang%C3%A9line-gillot/ & https://github.com/Anathariel
+
+Front Blog :
+• Elisa Ravinet @ https://github.com/elisa-1987
 
 _________
 

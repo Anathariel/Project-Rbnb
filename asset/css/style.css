@@ -428,6 +428,7 @@ button.main-dash-button-style:hover:before {
   justify-content: center;
   align-items: center;
   margin: 0 1rem;
+  cursor: pointer;
 }
 .header-main .header-content #container-searchbar #desktop-searchbar #searchbar {
   display: flex;
@@ -495,15 +496,11 @@ button.main-dash-button-style:hover:before {
   }
 }
 
-.default-state {
-  display: none;
-}
-
 .expanded-state {
   align-self: center;
   display: flex;
   flex-direction: row;
-  background-color: #404e87;
+  display: none;
 }
 .expanded-state #searchbar {
   width: 80%;
@@ -518,9 +515,9 @@ button.main-dash-button-style:hover:before {
   background-color: #f8f8f8;
 }
 .expanded-state #searchbar .search-element {
-  margin: 1rem;
+  padding: 1rem;
+  border-radius: 5rem;
   color: rgb(48, 46, 46);
-  background-color: #404e87;
 }
 .expanded-state #searchbar .search-element p {
   font-size: 0.8rem;
@@ -548,16 +545,43 @@ button.main-dash-button-style:hover:before {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  text-align: center;
   width: 100%;
 }
 .expanded-state #searchbar .calendar input[type=text] {
   text-align: center;
 }
+.expanded-state #searchbar .calendar .arrival-searchbar,
+.expanded-state #searchbar .calendar .departure-searchbar {
+  padding: 1rem 0.5rem;
+  border-radius: 5rem;
+}
+.expanded-state #searchbar .calendar .arrival-searchbar:hover,
+.expanded-state #searchbar .calendar .departure-searchbar:hover {
+  cursor: pointer;
+  background-color: rgba(228, 228, 228, 0.6666666667);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.expanded-state #searchbar .end-searchbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 1.5rem;
+}
 .expanded-state #searchbar .traveller-searchbar {
   width: 100%;
+  border-radius: 5rem;
+  padding: 1rem;
 }
 .expanded-state #searchbar .traveller-searchbar input[type=text] {
   width: 100%;
+}
+.expanded-state #searchbar .destination-searchbar:hover,
+.expanded-state #searchbar .end-searchbar:hover {
+  cursor: pointer;
+  background-color: rgba(228, 228, 228, 0.6666666667);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .expanded-state #searchbar input[type=text] {
   outline: none;
@@ -572,7 +596,10 @@ button.main-dash-button-style:hover:before {
 }
 .expanded-state button {
   display: flex;
-  width: 30%;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  max-height: 50px;
   background-color: #404e87;
   border-radius: 5rem;
   padding: 1rem;

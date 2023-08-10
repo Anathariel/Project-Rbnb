@@ -8,7 +8,6 @@
 
 		<div id="container-searchbar">
 			<div id="desktop-searchbar" class="default-state">
-				<a href="{{ path('catalogue') }}">
 					<div id="searchbar">
 						<div class="search-element separation">
 							<p>N'importe où</p>
@@ -23,7 +22,6 @@
 							<img src="{{ asset('/media/icons/search.svg') }}" alt="Icône recherche">
 						</button>
 					</div>
-				</a>
 			</div>
 
 
@@ -58,32 +56,34 @@
 			{% endif %}
 		</div>
 	</div>
-<form action="{{ path('search') }}" method="GET" id="search-form">	
-	<div class="expanded-state">
-		<div id="searchbar">
-			<div class="search-element destination-searchbar separation">
-				<p>Destination</p>
-				<input type="text" name="search" placeholder="Rechercher une destination" id="input-search">
-			</div>
-			<div class="search-element separation calendar">
-				<div class="arrival-searchbar">
-								<p>Arrivée</p>
-								<input type="text" name="" placeholder="Quand ?">
+	<form action="{{ path('search') }}" method="GET" id="search-form">	
+		<div class="expanded-state">
+			<div id="searchbar">
+				<div class="search-element destination-searchbar separation">
+					<p>Destination</p>
+					<input type="text" name="search" placeholder="Rechercher une destination" id="input-search">
 				</div>
-				<div class="departure-searchbar">
-								<p>Départ</p>
-								<input type="text" name="" placeholder="Quand ?">
+				<div class="search-element separation calendar">
+					<div class="arrival-searchbar">
+									<p>Arrivée</p>
+									<input type="text" name="" placeholder="Quand ?">
+					</div>
+					<div class="departure-searchbar">
+									<p>Départ</p>
+									<input type="text" name="" placeholder="Quand ?">
+					</div>
+				</div>
+				<div class="search-element end-searchbar">
+					<div class="traveller-searchbar">
+						<p>Voyageurs</p>
+						<input type="text" name="" placeholder="Ajouter des voyageurs">
+					</div>			
+					<button type="submit" name="submit">
+						<img src="{{ asset('/media/icons/search.svg') }}" alt="Icône recherche">
+						<p>Rechercher</p>
+					</button>
 				</div>
 			</div>
-			<div class="search-element traveller-searchbar">
-							<p>Voyageurs</p>
-							<input type="text" name="" placeholder="Ajouter des voyageurs">
-			</div>
-			<button type="submit" name="submit">
-				<img src="{{ asset('/media/icons/search.svg') }}" alt="Icône recherche">
-				<p>Rechercher</p>
-			</button>
 		</div>
-	</div>
-</form>
+	</form>
 </header>
