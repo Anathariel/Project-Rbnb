@@ -411,7 +411,7 @@ button.main-dash-button-style:hover:before {
 .header-main {
   position: sticky;
   top: 0;
-  z-index: 99;
+  z-index: 9999;
   background-color: #92aad3;
   padding: 1rem;
   display: flex;
@@ -738,7 +738,7 @@ button.main-dash-button-style:hover:before {
 }
 #registration .container {
   background-color: #f8f8f8;
-  border-radius: 5rem;
+  border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   height: 800px;
   overflow: hidden;
@@ -830,7 +830,7 @@ button.main-dash-button-style:hover:before {
 }
 #registration .btn {
   background-color: #404e87;
-  background-image: linear-gradient(90deg, #1b1d21 0%, #404e87 74%);
+  background-image: conic-gradient(from 90deg at bottom right, cyan, #0e9384);
   border-radius: 20px;
   border: none;
   color: #f8f8f8;
