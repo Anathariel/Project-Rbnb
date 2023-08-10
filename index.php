@@ -68,7 +68,7 @@ $router->map('GET', '/blog', 'BlogController#showAllArticles', 'blog');
 $router->map('GET', '/article/[i:id]', 'ArticleController#showOneArticle', 'article');
 
 //CRUD ARTICLE
-$router->map('GET', '/creatArticle/', 'ArticleController#createArticle', 'editArticle');
+$router->map('GET', '/publier/', 'ArticleController#createArticle', 'addarticle');
 
 
 // MATCH :
