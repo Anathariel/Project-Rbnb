@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-<section id="user-edit">
+<section id="user-edit" class="update-form-dashboard">
     <h2>Mon Compte</h2>
     <form method="POST" action="{{ router.generate('editUser',{'id': user.uid}) }}" enctype="multipart/form-data">
         <h3>Nom Légal</h3>
