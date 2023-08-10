@@ -13,7 +13,7 @@ $router->map('GET', '/article', 'HomeController#article', 'baseArticle');
 // $router->map('GET', '/article/[i:id]', 'HomeController#article', 'article');
 
 // $router->map('GET', '/blog', 'HomeController#blog', 'blog');
-// $router->map('GET', '/article', 'HomeController#article', 'article');
+$router->map('GET', '/article', '', 'basearticle');
 $router->map('GET', '/catalogue', 'HomeController#catalogue', 'catalogue');
 $router->map('GET', '/tags', '', 'baseTags');
 
@@ -65,7 +65,7 @@ $router->map('POST', '/account/reservation/delete', 'ReservationController#delet
 
 // blog
 $router->map('GET', '/blog', 'BlogController#showAllArticles', 'blog');
-$router->map('GET', '/blog/', 'BlogController#showOneArticle', 'article');
+$router->map('GET', '/article/[i:id]', 'ArticleController#showOneArticle', 'article');
 
 
 // MATCH :

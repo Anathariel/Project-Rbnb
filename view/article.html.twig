@@ -1,121 +1,35 @@
 {% extends "template.html.twig" %}
 
-{% block title %}Rajouter une article{% endblock %}
-
-
 {% block title %}Bienvenue sur Loca'R
 {% endblock %}
 
 {% block content %}
-    {# <h1>{{ article.getTitle() }}</h1>
-    <p>{{ article.getDescription() }}</p> #}
-<section id="article-section">
-    <h2>Notre Blog</h2>
-    <h1>
-        Maison au coeur du village<br>
-        Chevannes, France
-    </h1>
-    <p> Niché au sein de paysages enchanteurs, le village offre un décor digne des plus belles cartes postales. <br>
-        Ruelles pavées, maisons en pierre, places ombragées par des platanes centenaires, l'ambiance respire le charme
-        authentique d'une époque révolue. <br> Ici, pas de bruits assourdissants ni d'effervescence démesurée ; le calme
-        et la sérénité règnent en maîtres. <br>Chaque coin de rue révèle un trésor architectural, une église ancienne ou
-        une
-        fontaine traditionnelle, témoignant de l'histoire riche du village. </p>
-    <p>Cet été, oubliez les hordes de touristes pour aller à la découverte de quartiers typiques, plus authentiques
-        et abordables.</p>
-
-	   {# {% for data in datas %} #}
-    <h1>{{ datas.title }}</h1>
-    <p><em>{{ datas.date }}</em></p>
-    <img src="{{ datas.image }}" alt="{{ datas.title }}" width="300">
-    <p>{{ datas.content }}</p>
-    {# {% endfor %} #}
-	
-
-        <h1> À l’échelle mondiale, les annonces sur Airbnb sont plus dispersées que jamais.</h1>
-    </div>
-
-    <div id="article-flex-images">
-        <figure class="article-flex-images">
-
-            <img src="{{ asset('/media/blog/articles/blogarticle2.webp') }}">
-            <img src="{{ asset('/media/blog/articles/blogarticle3.webp') }}" class="right-aligned">
-        </figure>
-
-        <h1>L'élégance de la location de maison.</h1>
-        Pour vivre pleinement l'expérience du village, il n'y a rien de mieux que de séjourner dans une maison de
-        caractère. <br> Ces locations pleines de charme sont souvent restaurées avec soin, alliant subtilement
-        l'authenticité des matériaux anciens au confort moderne.<br> De belles poutres apparentes, des cheminées
-        d'époque, des sols en tommettes, chaque détail évoque l'histoire de la région et crée une atmosphère
-        accueillante et élégante.</p>
-
-        <h1> Plaisir de la proximité </h1>
-        L'un des atouts majeurs de cette location de maison est sa proximité avec la vie locale.<br> Vous vous
-        levez aux
-        côtés des villageois, découvrez les petits commerces familiaux et partagez des moments de convivialité
-        autour
-        d'un café ou d'un verre de vin à la terrasse d'un café. <br> Le village devient votre quotidien, et vous
-        vous
-        intégrez doucement à son rythme tranquille et enchanteur.
-        Des expériences authentiques</p>
-
-        <p>Outre la beauté du cadre, la location de maison au cœur du village offre également la possibilité de
-            participer
-            à des activités traditionnelles et festives.<br> Selon les saisons, vous pourrez prendre part à des
-            fêtes locales,
-            des marchés animés, des dégustations de produits régionaux et des ateliers artisanaux. <br>Vous vous
-            imprégnez ainsi
-            des coutumes de la région, et vous tissez des liens avec les habitants.
-        </p>
-
-        <h1>Échappez à la Routine</h1>
-        Située dans un cadre pittoresque loin de l'agitation de la ville, cette maison de location offre une
-        échappatoire parfaite pour ceux qui cherchent à se ressourcer. Immergez-vous dans la nature environnante,:
-        respirez l'air frais et éloignez-vous du stress quotidien. Ici, chaque coin est conçu pour vous offrir un moment
-        de détente et de calme.
-        <h1> Un Cocon de Confort </h1>
-        Dès que vous franchissez la porte, vous êtes enveloppé par une ambiance chaleureuse et accueillante. Les espaces
-        spacieux et soigneusement aménagés sont imprégnés d'une esthétique unique qui allie élégance moderne et charme
-        rustique. <br>Chaque chambre est une invitation à la détente, tandis que les coins salon invitent aux conversations
-        chaleureuses et aux moments inoubliables.
-
-        <h1>Cuisine de Chef, Repas Mémorables</h1>
-        La cuisine entièrement équipée est un paradis pour les gastronomes en herbe. Que vous souhaitiez préparer un
-        festin pour vos proches ou simplement savourer un café matinal en contemplant le lever du soleil depuis la
-        cuisine, cet espace répond à toutes vos envies culinaires.
-
-        <h1>Évasion en Plein Air</h1>
-        Le jardin luxuriant qui entoure la maison est votre oasis personnelle. Profitez de déjeuners en plein air, de
-        séances de lecture sous les arbres ou de bains de soleil relaxants. Les soirées étoilées se prêtent à des dîners
-        romantiques à la lueur des bougies ou à des instants partagés avec vos proches autour d'un feu de camp.
-
-        <h1>Proximité et Aventures</h1>
-        Bien que cette maison offre une intimité totale, elle est également stratégiquement située pour que vous
-        puissiez explorer les attractions locales.<br> Des sentiers de randonnée pittoresques aux boutiques artisanales du
-        village voisin, chaque jour peut être une nouvelle aventure.
-
-        <h1>Réservez votre Évasion </h1>
-        Cette maison de location est bien plus qu'un simple logement, c'est une invitation à l'expérience. Réservez dès
-        maintenant votre séjour et préparez-vous à créer des souvenirs qui dureront toute une vie. Que vous soyez en
-        quête d'une pause paisible ou d'une aventure captivante, cette maison est prête à vous accueillir dans son
-        confort douillet et son charme irrésistible.
-
-        <h1>Merci de faire partie de notre histoire</h1>
-        Nos locations de vacances ne sont pas simplement des endroits pour se reposer, mais des portes ouvertes vers des
-        expériences inoubliables.<br>Que vous soyez en quête d'aventure, de détente ou de moments précieux en famille,
-        nos maisons ont été soigneusement conçues pour répondre à tous vos désirs.<br>
-        Chaque détail est pris en compte pour garantir que votre séjour soit sans souci, vous permettant de vous
-        concentrer sur l'essentiel: profiter au maximum de vos vacances.
-        <br> Le monde vous attend, et nos locations de vacances sont prêtes à vous accueillir.<br>
-
-        <h1>Nous vous remercions de votre confiance et votre enthousiasme.<br> Nous sommes impatients de contribuer à
-            rendre vos vacances aussi spéciales que posssible.</h1>
 
 
-    </div>
+<section id="section-blog">
+  <h2>Notre Journal</h2>
 
-    <div id="">
+  
+  <p class="sub-title-section">Les clients partagent leur expérience, leur télétravail et le choix de leur location.</p>
+  
+  <div id="container-section-blog">
+	{# {% for article in article %}   #}
+    	<div class="card-blog">
+      		<div class="card-blog-top">
+        		<figure id="pict-aticle-1">
+          			<img src="{{ asset('/media/blog/' ~ article.image) }}" alt="{{ article.title }}">
+        		</figure>
+      		</div>
 
-    </div>
+      		<div class="card-blog-bottom">
+        		<h4>{{ article.title }}</h4>
+        		<p>{{ article.content }}</p>
+        		<p class="date-article-blog">
+				<i>{{ article.date }}</i></p>
+        		<a href="{{ path('article') }}{{ article.articleId}}"> ↗</a>
+      		</div>
+    	</div>
+	{# {% endfor %} #}
+  </div>
 </section>
 {% endblock %}
