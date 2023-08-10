@@ -14,4 +14,5 @@ class BlogController extends Controller
     {
         echo self::getRender('article.html.twig', []);
     }
+
 }

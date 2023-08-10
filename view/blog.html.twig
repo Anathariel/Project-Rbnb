@@ -27,7 +27,7 @@
         		<p>{{ article.content }}</p>
         		<p class="date-article-blog">
 				<i>{{ article.date }}</i></p>
-        		<a href="{{ path('article') }}{{ article.articleId}}"> ↗</a>
+        		<a href="{{ path('basearticle') }}/{{ article.articleId}}"> ↗</a>
       		</div>
     	</div>
 	{% endfor %}

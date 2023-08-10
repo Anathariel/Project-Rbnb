@@ -10,6 +10,8 @@ return array(
     'AccomodationTypeModel' => $baseDir . '/model/AccomodationTypeModel.php',
     'AltoRouter' => $vendorDir . '/altorouter/altorouter/AltoRouter.php',
     'Article' => $baseDir . '/class/Article.php',
+    'ArticleController' => $baseDir . '/controller/ArticleController.php',
+    'ArticleModel' => $baseDir . '/model/ArticleModel.php',
     'BlogController' => $baseDir . '/controller/BlogController.php',
     'BlogModel' => $baseDir . '/model/BlogModel.php',
     'CancellationPolicy' => $baseDir . '/class/CancellationPolicy.php',
