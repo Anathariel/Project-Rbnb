@@ -48,6 +48,8 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
         'AccomodationTypeModel' => __DIR__ . '/../..' . '/model/AccomodationTypeModel.php',
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'Article' => __DIR__ . '/../..' . '/class/Article.php',
+        'ArticleController' => __DIR__ . '/../..' . '/controller/ArticleController.php',
+        'ArticleModel' => __DIR__ . '/../..' . '/model/ArticleModel.php',
         'BlogController' => __DIR__ . '/../..' . '/controller/BlogController.php',
         'BlogModel' => __DIR__ . '/../..' . '/model/BlogModel.php',
         'CancellationPolicy' => __DIR__ . '/../..' . '/class/CancellationPolicy.php',
