@@ -67,6 +67,9 @@ $router->map('POST', '/account/reservation/delete', 'ReservationController#delet
 $router->map('GET', '/blog', 'BlogController#showAllArticles', 'blog');
 $router->map('GET', '/article/[i:id]', 'ArticleController#showOneArticle', 'article');
 
+//CRUD ARTICLE
+$router->map('GET', '/creatArticle/', 'ArticleController#createArticle', 'editArticle');
+
 
 // MATCH :
 $match = $router->match();
