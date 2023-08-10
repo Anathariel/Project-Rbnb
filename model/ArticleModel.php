@@ -12,7 +12,32 @@ class ArticleModel extends Model{
 
         return $article;
 
-
 }
+    //CRUD ARTICLE
+    public function editArticle($article){
+
+        $articleId = $article->getArticleId();
+        $author = $article->getAuthor();
+        $image = $article->getImage();
+        $title = $article->getTitle();  
+        $extract = $article->getExtract(); 
+        $content = $article->getContent();
+        $date = $article->getDate();
+
+        $req = $this->getDb()->prepare('UPDATE `article` SET `articleId` =:articleId, `author`=:author, `image` =:image, `title` =:title, `extract` =:extract, `content`=:content, `date`=:date) WHERE `articleId` = :articleId');
+
+        $req->bindParam(":articleId", $articleId, PDO::PARAM_INT);
+        $req->bindParam(":author", $author, PDO::PARAM_INT);
+        $req->bindParam(":image", $image, PDO::PARAM_STR);
+        $req->bindParam(":title", $title, PDO::PARAM_STR);
+        $req->bindParam(":extract", $extract, PDO::PARAM_STR);
+        $req->bindParam(":content", $content, PDO::PARAM_STR);
+        $req->bindParam(":date", $date, PDO::PARAM_STR);
+
+      
+        $resultCrud = $req->execute();
+
+        return  $resultCrud;
+    }
 
 }

@@ -1,0 +1,26 @@
+{% extends "templatedashboard.html.twig" %}
+
+{% block title %}Mes articles
+{% endblock %}
+
+{% block content %}
+
+<h1>Créer un nouvel article</h1>
+
+<form  method="post" action="{{ router.generate('editArticle',{'articleId': article.articleId}) }}" enctype="multipart/form-data">
+    <label for="author">Auteur :</label>
+    <input type="text" name="author" id="author" required><br>
+    <label for="title">Titre :</label>
+    <input type="text" name="title" id="title" required><br>
+    <label for="image">Image :</label>
+    <input type="text" name="image" id="image"><br>
+    <label for="extract">Extrait :</label>
+    <textarea name="extract" id="extract" required></textarea><br>
+    <label for="content">Contenu :</label>
+    <textarea name="content" id="content" required></textarea><br>
+    <label for="date">Date :</label>
+    <input type="date" name="date" id="date" required><br>
+    <input type="submit" value="Créer">
+</form>
+
+{% endblock %}
