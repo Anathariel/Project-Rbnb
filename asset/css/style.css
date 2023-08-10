@@ -739,12 +739,11 @@ button.main-dash-button-style:hover:before {
 #registration .container {
   background-color: #f8f8f8;
   border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
   height: 800px;
   overflow: hidden;
   position: relative;
   width: 100%;
-  margin: 1rem 0;
 }
 #registration .container__form {
   height: 100%;
@@ -828,27 +827,59 @@ button.main-dash-button-style:hover:before {
 #registration .container.right-panel-active .overlay--right {
   transform: translateX(20%);
 }
-#registration .btn {
-  background-color: #404e87;
-  background-image: conic-gradient(from 90deg at bottom right, cyan, #0e9384);
-  border-radius: 20px;
-  border: none;
+#registration .button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   color: #f8f8f8;
-  cursor: pointer;
-  font-size: 0.8rem;
-  font-weight: bold;
-  letter-spacing: 0.1rem;
-  padding: 0.9rem 4rem;
   text-transform: uppercase;
-  transition: transform 80ms ease-in;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  outline: transparent;
+  font-family: "Quicksand";
+  z-index: 1;
 }
-#registration .form > .btn {
+#registration .button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #404e87;
+  border-radius: 10rem;
+  z-index: -2;
+}
+#registration .button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #273053;
+  transition: all 0.5s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+#registration .button:hover {
+  color: #fff;
+}
+#registration .button:hover:before {
+  width: 100%;
+}
+#registration .form > .button {
   margin-top: 1.5rem;
 }
-#registration .btn:active {
+#registration .button:active {
   transform: scale(0.95);
 }
-#registration .btn:focus {
+#registration .button:focus {
   outline: none;
 }
 #registration .form {
@@ -864,6 +895,10 @@ button.main-dash-button-style:hover:before {
 #registration .input {
   background-color: #fff;
   border: none;
+  outline: #404e87;
+  color: #404e87;
+  font-family: "Quicksand";
+  border-radius: 0.5rem;
   padding: 0.9rem 0.9rem;
   margin: 0.5rem 0;
   width: 100%;
