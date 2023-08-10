@@ -2243,45 +2243,52 @@ section#googlemaps-property-section div#map {
   width: 25px;
 }
 
-#user-edit {
+.update-form-dashboard {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#user-edit h2 {
+.update-form-dashboard form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.update-form-dashboard h2 {
   color: #0e9384;
   margin: 2rem;
 }
-#user-edit h3 {
+.update-form-dashboard h3 {
   color: #0e9384;
   margin: 1rem;
 }
-#user-edit input[type=text] {
+.update-form-dashboard input[type=text] {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-#user-edit input[type=text]:focus {
+.update-form-dashboard input[type=text]:focus {
   color: #0e9384;
   outline: transparent;
   background-color: #ffffff;
 }
-#user-edit input[type=date] {
+.update-form-dashboard input[type=date] {
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #0e9384;
   font-family: "Quicksand";
   background-color: rgba(255, 255, 255, 0.6470588235);
 }
-#user-edit input[type=date]:focus {
+.update-form-dashboard input[type=date]:focus {
   color: #0e9384;
   outline: transparent;
   background-color: #ffffff;
 }
-#user-edit input::file-selector-button {
+.update-form-dashboard input::file-selector-button {
   border: 1px solid #0e9384;
   background-color: #e1e7ea;
   border-radius: 0.5rem;
@@ -2289,23 +2296,36 @@ section#googlemaps-property-section div#map {
   margin: 0.5rem;
   padding: 0.3rem;
 }
-#user-edit input::file-selector-button:hover {
+.update-form-dashboard input::file-selector-button:hover {
   cursor: pointer;
   color: #f8f8f8;
   background-color: #0e9384;
 }
-#user-edit .user-names {
+.update-form-dashboard textarea {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #0e9384;
+  font-family: "Quicksand";
+  background-color: rgba(255, 255, 255, 0.6470588235);
+  outline: transparent;
+}
+.update-form-dashboard textarea:hover {
+  color: #0e9384;
+  outline: transparent;
+  background-color: #ffffff;
+}
+.update-form-dashboard .user-names {
   display: flex;
   flex-direction: row;
 }
-#user-edit .user-names input[type=text] {
+.update-form-dashboard .user-names input[type=text] {
   margin: 0 0.2rem;
 }
-#user-edit .account-buttons {
+.update-form-dashboard .account-buttons {
   display: flex;
   justify-content: center;
 }
-#user-edit .account-buttons input[type=submit] {
+.update-form-dashboard .account-buttons input[type=submit] {
   border: none;
   background-color: transparent;
   outline: transparent;
@@ -2316,7 +2336,7 @@ section#googlemaps-property-section div#map {
   border-radius: 0.5rem;
   color: #0e9384;
 }
-#user-edit .account-buttons #delete-account {
+.update-form-dashboard .account-buttons #delete-account {
   border: none;
   background-color: transparent;
   outline: transparent;
