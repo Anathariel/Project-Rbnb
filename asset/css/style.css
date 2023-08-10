@@ -2336,7 +2336,7 @@ section#section-blog div#container-section-blog div.card-blog div.card-blog {
   align-items: flex-start;
 }
 
-section#article-section {
+section#section-article {
   text-align: center;
   margin: 30px auto;
 }
@@ -2350,8 +2350,8 @@ div#article-flex-images .right-aligned {
   margin-left: 5px;
 }
 
-section#article-section h1,
-section#article-section h2 {
+section#section-article h1,
+section#section-article h2 {
   color: #92AAD3;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -2361,10 +2361,10 @@ section#article-section h2 {
 div#article-flex-images figure.article-flex-images {
   display: flex;
 }
-div#article-flex-images figure.article-flex-images section#article-section h3 {
+div#article-flex-images figure.article-flex-images section#section-article h3 {
   color: #92AAD3;
 }
-div#article-flex-images figure.article-flex-images section#article-section h3 section#article-section h4 {
+div#article-flex-images figure.article-flex-images section#section-article h3 section#section-article h4 {
   color: #92AAD3;
   text-align: center;
 }/*# sourceMappingURL=style.css.map */
