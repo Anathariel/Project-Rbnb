@@ -1,13 +1,13 @@
 $(document).ready(function () {
     // Default star path
-    var emptyStar = $('.rating-stars').data('empty-star');
+    let emptyStar = $('.rating-stars').data('empty-star');
     $('.star-label').css('background-image', 'url(' + emptyStar + ')');
 
     // Hover effect
     $('.star-label').hover(
         function () {
-            var rating = $(this).data('rating');
-            var fullStar = $('.rating-stars').data('full-star');
+            let rating = $(this).data('rating');
+            let fullStar = $('.rating-stars').data('full-star');
             $('.star-label').each(function (index) {
                 if (index < rating) {
                     $(this).css('background-image', 'url(' + fullStar + ')');
@@ -25,8 +25,8 @@ $(document).ready(function () {
 
     // Click event
     $('.star-label').on('click', function () {
-        var rating = $(this).data('rating');
-        var fullStar = $('.rating-stars').data('full-star');
+        let rating = $(this).data('rating');
+        let fullStar = $('.rating-stars').data('full-star');
         $('.star-label').removeClass('star-checked');
         $('.star-label').each(function (index) {
             if (index < rating) {

@@ -1,8 +1,8 @@
 //Dashboard Sous-menu
 document.addEventListener('DOMContentLoaded', function () {
-    var submenuLink = document.getElementById('submenu');
-    var userMenu = document.getElementById('user-menu');
-    var submenu = document.querySelector('.submenu-dashboard');
+    let submenuLink = document.getElementById('submenu');
+    let userMenu = document.getElementById('user-menu');
+    let submenu = document.querySelector('.submenu-dashboard');
   
     submenuLink.addEventListener('click', function (event) {
       event.preventDefault();
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   
     function positionSubmenu() {
-      var userMenuRect = userMenu.getBoundingClientRect();
+      let userMenuRect = userMenu.getBoundingClientRect();
       submenu.style.top = userMenuRect.bottom + 'px';
       submenu.style.left = userMenuRect.left + 'px';
       submenu.style.width = userMenuRect.width + 'px';

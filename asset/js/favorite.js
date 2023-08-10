@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var isNotificationShowing = false;
+  let isNotificationShowing = false;
 
   function showNotification(message) {
     if (isNotificationShowing) {
@@ -21,8 +21,8 @@ $(document).ready(function () {
 
   $(".favorite-form").on("submit", function (e) {
     e.preventDefault();
-    var form = $(this);
-    var propertyId = form.find("input[name='propertyId']").val();
+    let form = $(this);
+    let propertyId = form.find("input[name='propertyId']").val();
 
     if (form.hasClass("favorite-active")) {
       $.ajax({
@@ -33,7 +33,7 @@ $(document).ready(function () {
           method: "DELETE",
         },
         success: function (data) {
-          var heartImg = $("#heart-img-" + propertyId);
+          let heartImg = $("#heart-img-" + propertyId);
           heartImg.attr(
             "src",
             "/projet/project-rbnb/asset/media/icons/heart.svg"
@@ -52,7 +52,7 @@ $(document).ready(function () {
         type: "POST",
         data: form.serialize(),
         success: function (data) {
-          var heartImg = $("#heart-img-" + propertyId);
+          let heartImg = $("#heart-img-" + propertyId);
           heartImg.attr(
             "src",
             "/projet/project-rbnb/asset/media/icons/heart-solid.svg"
