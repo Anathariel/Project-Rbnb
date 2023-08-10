@@ -497,24 +497,22 @@ button.main-dash-button-style:hover:before {
 }
 
 .expanded-state {
-  align-self: center;
-  display: flex;
-  flex-direction: row;
   display: none;
 }
 .expanded-state #searchbar {
-  width: 80%;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   border: 1px solid #1b1d21;
   border-radius: 5rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  padding: 0 1.5rem;
   margin: 0 auto;
   background-color: #f8f8f8;
 }
 .expanded-state #searchbar .search-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
   padding: 1rem;
   border-radius: 5rem;
   color: rgb(48, 46, 46);
@@ -522,6 +520,13 @@ button.main-dash-button-style:hover:before {
 .expanded-state #searchbar .search-element p {
   font-size: 0.8rem;
   font-family: "Quicksand-bold";
+}
+.expanded-state #searchbar .search-element input[type=text] {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-family: "Quicksand";
+  width: 100%;
 }
 .expanded-state #searchbar .separation {
   position: relative;
@@ -534,71 +539,46 @@ button.main-dash-button-style:hover:before {
   height: 80%;
   border-left: 1px solid rgba(48, 46, 46, 0.306);
 }
-.expanded-state #searchbar .destination-searchbar {
-  width: 100%;
-}
-.expanded-state #searchbar .destination-searchbar input[type=text] {
-  width: 100%;
-}
 .expanded-state #searchbar .calendar {
+  width: 50%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  margin-left: 2rem;
   text-align: center;
-  width: 100%;
 }
 .expanded-state #searchbar .calendar input[type=text] {
   text-align: center;
-}
-.expanded-state #searchbar .calendar .arrival-searchbar,
-.expanded-state #searchbar .calendar .departure-searchbar {
-  padding: 1rem 0.5rem;
-  border-radius: 5rem;
-}
-.expanded-state #searchbar .calendar .arrival-searchbar:hover,
-.expanded-state #searchbar .calendar .departure-searchbar:hover {
-  cursor: pointer;
-  background-color: rgba(228, 228, 228, 0.6666666667);
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-.expanded-state #searchbar .end-searchbar {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 1.5rem;
-}
-.expanded-state #searchbar .traveller-searchbar {
-  width: 100%;
-  border-radius: 5rem;
-  padding: 1rem;
-}
-.expanded-state #searchbar .traveller-searchbar input[type=text] {
-  width: 100%;
-}
-.expanded-state #searchbar .destination-searchbar:hover,
-.expanded-state #searchbar .end-searchbar:hover {
-  cursor: pointer;
-  background-color: rgba(228, 228, 228, 0.6666666667);
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-.expanded-state #searchbar input[type=text] {
   outline: none;
   border: none;
   background-color: transparent;
   font-family: "Quicksand";
+  width: 100%;
 }
-.expanded-state #searchbar:hover {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  transition: background 250ms ease;
-  background: hsl(0, 0%, 94%);
+.expanded-state #searchbar .calendar .arrival-searchbar,
+.expanded-state #searchbar .calendar .departure-searchbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5rem;
+  padding: 1rem;
 }
-.expanded-state button {
+.expanded-state #searchbar .end-searchbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  margin-left: 1rem;
+}
+.expanded-state #searchbar .end-searchbar .traveller-searchbar {
+  position: absolute;
+  left: 2rem;
+}
+.expanded-state #searchbar .end-searchbar button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  position: absolute;
+  right: 1rem;
   max-height: 50px;
   background-color: #404e87;
   border-radius: 5rem;
@@ -607,15 +587,23 @@ button.main-dash-button-style:hover:before {
   border: none;
   transition: background 250ms ease-in-out;
 }
-.expanded-state button img {
+.expanded-state #searchbar .end-searchbar button img {
   margin-right: 0.5rem;
 }
-.expanded-state button p {
+.expanded-state #searchbar .end-searchbar button p {
   color: #f8f8f8;
 }
-.expanded-state button:hover {
+.expanded-state #searchbar .end-searchbar button:hover {
   cursor: pointer;
   background: conic-gradient(from 90deg at bottom right, cyan, #0e9384);
+}
+.expanded-state #searchbar .destination-searchbar:hover,
+.expanded-state #searchbar .end-searchbar:hover,
+.expanded-state #searchbar .arrival-searchbar:hover,
+.expanded-state #searchbar .departure-searchbar:hover {
+  cursor: pointer;
+  background-color: rgba(228, 228, 228, 0.6666666667);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .dashboard-header {
