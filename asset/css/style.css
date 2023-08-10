@@ -830,7 +830,7 @@ button.main-dash-button-style:hover:before {
 #registration .button {
   display: inline-block;
   padding: 0.75rem 1.25rem;
-  border-radius: 10rem;
+  border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   color: #f8f8f8;
   text-transform: uppercase;
@@ -852,7 +852,7 @@ button.main-dash-button-style:hover:before {
   width: 100%;
   height: 100%;
   background-color: #404e87;
-  border-radius: 10rem;
+  border-radius: 1rem;
   z-index: -2;
 }
 #registration .button:before {
@@ -864,7 +864,7 @@ button.main-dash-button-style:hover:before {
   height: 100%;
   background-color: #273053;
   transition: all 0.5s;
-  border-radius: 10rem;
+  border-radius: 1rem;
   z-index: -1;
 }
 #registration .button:hover {
