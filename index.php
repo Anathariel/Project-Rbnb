@@ -70,7 +70,7 @@ $router->map('GET', '/article/[i:id]', 'ArticleController#showOneArticle', 'arti
 //CRUD ARTICLE
 $router->map('GET|POST', '/publier/', 'ArticleController#createArticle', 'articleAdd');
 
-$router->map('GET|POST', '/edit/', '', 'baseEditArticle');
+$router->map('GET|POST', '/edit', '', 'baseEditArticle');
 $router->map('GET|POST', '/edit/[i:id]', 'ArticleController#edit', 'editArticle');
 
 
