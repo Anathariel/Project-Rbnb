@@ -3,78 +3,67 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        // Vérifiez si l'utilisateur est connecté
+        // Check if the user is logged in
         if (!isset($_SESSION['connect']) || $_SESSION['connect'] !== true) {
-            // Redirigez l'utilisateur vers la page de connexion si nécessaire
             global $router;
             header('Location: ' . $router->generate('login'));
             exit();
         }
 
-        // Récupérez le prénom de l'utilisateur à partir de la base de données
+        // Get the user's first name from the database
         $userId = $_SESSION['uid'];
 
+        // Initialize $averageRating at the start
+        $averageRating = null;
 
-        // Récupérez les propriétés de l'utilisateur à partir de la base de données
+        // Get the user's properties from the database
         $propertyModel = new PropertyModel();
         $userProperties = $propertyModel->getUserProperties($userId);
 
-        // Récupérez les favoris de l'utilisateur à partir de la base de données
+        // Get the user's favorites from the database
         $favoriteModel = new FavoriteModel();
         $userFavorites = $favoriteModel->getFavoriteByUidModel($userId);
 
-        // Récupérez les articles blog de l'utilisateur à partir de la base de données
+        // Get the user's blog posts from the database
         $articleModel = new ArticleModel();
         $userArticles = $articleModel->getArticlesByUid($userId);
 
-        // Récupérez les moyennes des commentaires des propriétés favorites à partir de la base de données
+        // Get the average ratings of favorite properties from the database
         $commentModel = new CommentModel();
         foreach ($userFavorites as $favorite) {
             $propertyId = $favorite->getPropertyId();
             $averageRating = $commentModel->getAverageRating($propertyId);
-            $favorite->getProperty()->setAverageRating($averageRating);
+            if ($favorite->getProperty()) {
+                $favorite->getProperty()->setAverageRating($averageRating);
+            }
         }
 
-        // Récupérez les réservations de l'utilisateur à partir de la base de données
+        // Get the user's reservations from the database
         $reservationModel = new ReservationModel();
         $userReservations = $reservationModel->getReservationModel($userId);
 
-        // Récupérez les réservations de l'utilisateur à partir de la base de données
-        $reservationModel = new ReservationModel();
-        $userReservations = $reservationModel->getReservationModel($userId);
-
-        // Récupérez les moyennes des commentaires des propriétés réservées à partir de la base de données
-        $commentModel = new CommentModel();
+        // Get the average ratings of booked properties from the database
         foreach ($userReservations as $reservation) {
             $propertyId = $reservation->getPropertyId();
             $averageRating = $commentModel->getAverageRating($propertyId);
-            $reservation->getProperty()->setAverageRating($averageRating);
+            if ($reservation->getProperty()) {
+                $reservation->getProperty()->setAverageRating($averageRating);
+            }
         }
 
-        // Récupérez la note moyenne de l'utilisateur à partir de la base de données
-        $commentModel = new CommentModel();
-
-        // Récupérez les propriétés louées par l'utilisateur (propriétaire)
+        // Get the properties rented by the user (owner)
         $userRentedProperties = [];
-
         foreach ($userProperties as $property) {
             $propertyId = $property->getPropertyId();
             $reservations = $reservationModel->getReservationsByProperty($propertyId);
-
-            // Si la propriété a des réservations, ajoutez-la à la liste des propriétés louées par l'utilisateur
             if (!empty($reservations)) {
                 $userRentedProperties[] = $property;
             }
-
-            // Récupérez la moyenne des notes pour cette propriété
             $averageRating = $commentModel->getAverageRating($propertyId);
-
-            // Ajoutez la moyenne des notes à la propriété actuelle
             $property->setAverageRating($averageRating);
         }
 
-
-        // Récupérez les images liées à chaque propriété du propriétaire
+        // Get the images related to each property of the owner
         $propertyImagesModel = new PropertyImagesModel();
         foreach ($userProperties as $property) {
             $propertyId = $property->getPropertyId();
@@ -82,27 +71,25 @@ class DashboardController extends Controller
             $property->setPropertyImages($propertyImages);
         }
 
-        // Récupérez les images liées à chaque propriété favorite
-        $propertyImagesModel = new PropertyImagesModel();
+        // Get the images related to each favorite property
         foreach ($userFavorites as $favorite) {
             $propertyId = $favorite->getPropertyId();
             $propertyImages = $propertyImagesModel->getPropertyImagesModel($propertyId);
-            $favorite->getProperty()->setPropertyImages($propertyImages);
+            if ($favorite->getProperty()) {
+                $favorite->getProperty()->setPropertyImages($propertyImages);
+            }
         }
 
-        // Récupérez les images liées à chaque propriété réservée
-        $propertyImagesModel = new PropertyImagesModel();
+        // Get the images related to each booked property
         foreach ($userReservations as $reservation) {
             $propertyId = $reservation->getPropertyId();
             $propertyImages = $propertyImagesModel->getPropertyImagesModel($propertyId);
-
-            // Check if the property is set before calling setPropertyImages()
             if ($reservation->getProperty()) {
                 $reservation->getProperty()->setPropertyImages($propertyImages);
             }
         }
 
-        // Préparez les données à envoyer à la vue
+        // Prepare the data to send to the view
         $data = [
             'userProperties' => $userProperties,
             'userFavorites' => $userFavorites,
@@ -112,7 +99,7 @@ class DashboardController extends Controller
             'userArticles' => $userArticles
         ];
 
-        // Affichez la vue avec les données
+        // Display the view with the data
         echo self::getRender('dashboard.html.twig', $data);
     }
 }

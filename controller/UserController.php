@@ -29,7 +29,7 @@ class UserController extends Controller
     public function login()
     {
         if (!$_POST) {
-            echo self::getRender('login.html.twig', []);
+            echo self::getRender('register.html.twig', []);
         } else {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -48,7 +48,7 @@ class UserController extends Controller
                     exit();
                 } else {
                     $message = "Email / mot de passe incorrect!";
-                    echo self::getRender('login.html.twig', ['message' => $message]);
+                    echo self::getRender('register.html.twig', ['message' => $message]);
                 }
             } else {
                 $message = "Email / mot de passe incorrect!";
@@ -200,7 +200,7 @@ class UserController extends Controller
 
     // Récupérer le fichier photo
     public function delete()
-    {   
+    {
         global $router;
         $uid = $_SESSION['uid'];
         // Vérifie si la méthode de la requête HTTP est POST et si le paramètre "_method" est défini à "DELETE"
