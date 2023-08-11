@@ -271,7 +271,7 @@
         <h2>Mes Articles Blog</h2>
         <div class="cards-container">
             {% if userArticles is empty %}
-            <p>Vous ne disposez pas de pubications pour le moment.</p>
+            <a href="{{ path('blog') }}">Vous n'avez rien publier pour le moment.</a>
             {% else %}
             {% for userArticle in userArticles %}
             <a href="{{ path('article') ~ userArticle.articleId }}">
@@ -286,8 +286,10 @@
                     <div class="card-details">
                         <div class="description">
                             <h3>{{ userArticle.title }}</h3>
-                            <p>{{ userArticle.extract }}</p>
-                            <p>{{ userArticle.date }}</p>
+                            <q>{{ userArticle.extract }}</q>
+                            <div class="date-article">
+                                <p>{{ userArticle.date }}</p>
+                            </div>
                         </div>
                         <div class="dashboard-property-buttons">
                             {# <a href="{{ path('editArticle') ~ userArticle.articleId }}">
