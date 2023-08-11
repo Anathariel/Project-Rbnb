@@ -35,9 +35,9 @@ class ArticleModel extends Model{
         $req->bindParam(":date", $date, PDO::PARAM_STR);
 
       
-        $resultCrud = $req->execute();
+       $req->execute();
 
-        return  $resultCrud;
+       
     }
 
 }
