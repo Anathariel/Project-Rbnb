@@ -5,16 +5,21 @@
 
 {% block content %}
 <section id="article-add" class="update-form-dashboard">
+{% if message %} <p> {{ message }} </p> {% endif %}
     <h2>Créer un nouvel article</h2>
     <form  method="post" action="{{ path('addarticle') }}" enctype="multipart/form-data">
+
         <label for="title">Titre :</label>
-        <input type="text" name="title" id="title" required>
-        <label for="image">Image :</label>
-        <input type="file" name="image" id="image">
+        <input type="text" name="title" id="title" placeholder="Entrer le titre de votre article" required>
+
+        {# <label for="image">Image :</label>
+        <input type="file" name="image" id="image"> #}
+
         <label for="extract">Extrait :</label>
-        <textarea name="extract" id="extract" cols="50" rows="5" required></textarea>
+        <textarea name="extract" id="extract" cols="50" rows="5" placeholder="Entrer un résumé de votre article" required></textarea>
+
         <label for="content">Contenu :</label>
-        <textarea name="content" id="content" cols="100" rows="10" required></textarea>
+        <textarea name="content" id="content" cols="100" rows="10" placeholder="Ecriver votre article" required></textarea>
         <button type="submit" name="submit" class="main-dash-button-style">
         <span>Créer</span>
         </button>

@@ -2357,6 +2357,21 @@ section#googlemaps-property-section div#map {
   color: red;
 }
 
+.user-info-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.user-info-container .profile-picture {
+  margin: 5rem;
+}
+.user-info-container .profile-picture #imageMainPreview {
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+}
+
 #full-width-background {
   background-color: #e1e7ea;
   width: 100%;
