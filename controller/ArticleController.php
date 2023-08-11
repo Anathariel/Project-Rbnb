@@ -38,8 +38,13 @@ class ArticleController extends Controller
         //         echo self::getRender('addarticle.html.twig', ['article' => $article]);
         //     }
         // }
+    }
 
-        //Hamid; tu te mélanges dans le nommage de tes fonctions. Entre edit & add je n'étais plus sûre duquel tu cherchais à faire ? Mais vue la position du bouton en dehors des boucles d'articles j'ai donc juger pour l'ajout. Je t'ai donc corriger tout en tant que "add".
-        // J'ai commenter ta fonctions et enlever les champs inutile à ton formulaire (la date sera un NOW() rentrer en SQL et l'auteur récupérer via SESSION !)
+    public function editArticle()
+    {
+    }
+
+    public function deleteArticle()
+    {
     }
 }

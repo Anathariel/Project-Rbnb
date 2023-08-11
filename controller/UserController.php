@@ -92,6 +92,10 @@ class UserController extends Controller
         $favoriteModel = new FavoriteModel();
         $userFavorites = $favoriteModel->getFavoriteByUidModel($userId);
 
+        // Récupérez les articles blog de l'utilisateur à partir de la base de données
+        $articleModel = new ArticleModel();
+        $userArticles = $articleModel->getArticlesByUid($userId);
+
         // Récupérez les moyennes des commentaires des propriétés favorites à partir de la base de données
         $commentModel = new CommentModel();
         foreach ($userFavorites as $favorite) {
@@ -175,7 +179,8 @@ class UserController extends Controller
             'userFavorites' => $userFavorites,
             'userReservations' => $userReservations,
             'userRentedProperties' => $userRentedProperties,
-            'averageRating' => $averageRating
+            'averageRating' => $averageRating,
+            'userArticles'=> $userArticles
         ];
 
         // Affichez la vue avec les données
@@ -282,6 +287,7 @@ class UserController extends Controller
             }
         }
     }
+
     // Récupérer le fichier photo
     public function delete()
     {

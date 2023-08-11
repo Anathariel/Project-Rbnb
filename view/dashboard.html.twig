@@ -44,10 +44,10 @@
                 </a>
             </div>
 
-            <div class="add filter">
+            <div class="add blog">
                 <a href="#">
-                    <img src="{{ asset('/media/icons/filter-dashboard.svg') }}" alt="Mes Propriétés">
-                    <p>Filtrer</p>
+                    <img src="{{ asset('/media/icons/blog.svg') }}" alt="Mes Articles Blog">
+                    <p>Blog</p>
                 </a>
             </div>
         </div>
@@ -258,6 +258,48 @@
                                 <input type="hidden" name="propertyId" value="{{ property.propertyId }}">
                                 <input type="submit" value="Annuler" class="delete">
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="dashboard-cards-my-articles" id="my-articles">
+        <h2>Mes Articles Blog</h2>
+        <div class="cards-container">
+            {% if userArticles is empty %}
+            <p>Vous ne disposez pas de pubications pour le moment.</p>
+            {% else %}
+            {% for userArticle in userArticles %}
+            <a href="{{ path('article') ~ userArticle.articleId }}">
+                <div class="card smaller-card">
+                    <figure>
+                        {% if userArticle.image %}
+                        <img src="{{ asset('/media/blog/' ~ userArticle.image) }}"
+                            alt="{{ userArticle.title }}" />
+                        {% endif %}
+                    </figure>
+
+                    <div class="card-details">
+                        <div class="description">
+                            <h3>{{ userArticle.title }}</h3>
+                            <p>{{ userArticle.extract }}</p>
+                            <p>{{ userArticle.date }}</p>
+                        </div>
+                        <div class="dashboard-property-buttons">
+                            {# <a href="{{ path('editArticle') ~ userArticle.articleId }}">
+                                <div class="button">
+                                    <p>Modifier</p>
+                                </div>
+                            </a>
+                            <form action="{{ path('deleteArticle') }}" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="articleId" value="{{ userArticle.articleId }}">
+                                <input type="submit" value="Annuler" class="delete">
+                            </form> #}
                         </div>
                     </div>
                 </div>

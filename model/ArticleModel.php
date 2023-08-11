@@ -1,5 +1,6 @@
 <?php
-class ArticleModel extends Model{
+class ArticleModel extends Model
+{
     public function getShowOneArticle($articleId)
     {
         $req = $this->getDb()->prepare('SELECT `articleId`, `title`, `extract`, `image`, `content`, `author`, `date` FROM `article` WHERE `articleId` = :articleId');
@@ -11,16 +12,30 @@ class ArticleModel extends Model{
         $article = $req->fetch(PDO::FETCH_ASSOC);
 
         return $article;
+    }
 
-}
+    public function getArticlesByUid($uid)
+    {
+        $articles = [];
+
+        $req = $this->getDb()->prepare('SELECT `articleId`, `author`, `image`, `title`, `extract`, `content`, `date` FROM `article` WHERE `author` = :uid');
+        $req->bindParam('uid', $uid, PDO::PARAM_INT);
+        $req->execute();
+
+        while ($article = $req->fetch(PDO::FETCH_ASSOC)) {
+            $articles[] = new Article($article);
+        }
+        return $articles;
+    }
     //CRUD ARTICLE
-    public function editArticle($article){
+    public function editArticle($article)
+    {
 
         $articleId = $article->getArticleId();
         $author = $article->getAuthor();
         $image = $article->getImage();
-        $title = $article->getTitle();  
-        $extract = $article->getExtract(); 
+        $title = $article->getTitle();
+        $extract = $article->getExtract();
         $content = $article->getContent();
         $date = $article->getDate();
 
@@ -34,10 +49,9 @@ class ArticleModel extends Model{
         $req->bindParam(":content", $content, PDO::PARAM_STR);
         $req->bindParam(":date", $date, PDO::PARAM_STR);
 
-      
+
         $resultCrud = $req->execute();
 
         return  $resultCrud;
     }
-
 }
