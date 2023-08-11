@@ -6,7 +6,7 @@
 {% block content %}
 
 	<!-- ---------- SECTION - BLOG ---------- -->
-	<a href="{{ path('editArticle')}}">Modifier mon article</a>
+	<a href="{{ path('addarticle')}}">Créer un article</a>
 
 <section id="section-blog">
   <h2>Notre Journal</h2>
@@ -25,7 +25,7 @@
 
       		<div class="card-blog-bottom">
         		<h4>{{ article.title }}</h4>
-        		<p>{{ article.content }}</p>
+        		<p>{{ article.extract }}</p>
         		<p class="date-article-blog">
 				<i>{{ article.date }}</i></p>
         		<a href="{{ path('basearticle') }}/{{ article.articleId}}"> ↗</a>
