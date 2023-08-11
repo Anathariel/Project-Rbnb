@@ -1,0 +1,24 @@
+{% extends "templatedashboard.html.twig" %}
+
+{% block title %}Mes articles
+{% endblock %}
+
+{% block content %}
+
+<h1>Modifier un nouvel article</h1>
+
+<form  method="POST" action="{{ path('editArticle') }}" enctype="multipart/form-data">
+{# action="{{ router.generate('editArticle', {'uid': article.articleId}) }}" #}
+
+    <label for="title">Titre :</label>
+    <input type="text" name="title" id="title" required><br>
+    {# <label for="image">Image :</label>
+    <input type="text" name="image" id="image"><br> #}
+    <label for="extract">Extrait :</label>
+    <textarea name="extract" id="extract" required></textarea><br>
+    <label for="content">Contenu :</label>
+    <textarea name="content" id="content" required></textarea><br>
+    <input type="submit" name="submit" value="Modifier">
+</form>
+
+{% endblock %}

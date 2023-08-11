@@ -10,36 +10,73 @@ class ArticleController extends Controller
 
     //CRUD ARTICLE
 
+
+
     public function createArticle()
     {
-        echo self::getRender('addarticle.html.twig', []);
-        // $article = new ArticleModel();
+        if (!$_POST) {
 
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST') { {
+            echo self::getRender('articleAdd.html.twig', []);
+        } else {
 
-        //         $articleId = $_SESSION['articleId'];
-        //         $author = $_POST['author'];
-        //         $title = $_POST['title'];
-        //         $content = $_POST['content'];
-        //         $extract = $_POST['extract'];
-        //         $date = $_POST['date'];
+            $model = new ArticleModel();
 
-        //         $article = new Article([
+            if (isset($_POST['submit'])) {
 
-        //             'articleId' => $articleId,
-        //             'author' => $author,
-        //             'title' => $title,
-        //             'content' => $content,
-        //             'extract' => $extract,
-        //             'date' => $date,
+                $author = $_SESSION['uid'];
 
-        //         ]);
-        //         // $article->editArticle($article);
-        //         echo self::getRender('addarticle.html.twig', ['article' => $article]);
-        //     }
-        // }
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                // $image = $_FILES['image']['name'];
+                $extract = $_POST['extract'];
 
-        //Hamid; tu te mélanges dans le nommage de tes fonctions. Entre edit & add je n'étais plus sûre duquel tu cherchais à faire ? Mais vue la position du bouton en dehors des boucles d'articles j'ai donc juger pour l'ajout. Je t'ai donc corriger tout en tant que "add".
-        // J'ai commenter ta fonctions et enlever les champs inutile à ton formulaire (la date sera un NOW() rentrer en SQL et l'auteur récupérer via SESSION !)
+                $article = new Article([
+
+                    'author' => $author,
+                    'title' => $title,
+                    'content' => $content,
+                    // 'image' => $image,
+                    'extract' => $extract
+
+                ]);
+
+
+                $model->addArticle($article);
+              
+            } else {
+                $message = 'Oops,Try again later';
+                echo self::getrender('articleAdd.html.twig', ['message' => $message]);
+            }
+        }
+    }
+
+    public function edit($articleId)
+    {
+        if (!$_POST) {
+
+        $model = new ArticleModel();
+        $article = $model->editArticle($articleId);
+        echo self::getrender('editArticle.html.twig', []);
+        } else {
+
+        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        //     // $articleId = $_POST['articleId'];
+            $title = $_POST['title'];
+            $content = $_POST['content'];
+            // $image = $_FILES['image']['name'];
+            $extract = $_POST['extract'];
+
+            $article = new Article([
+
+                // 'articleId' => $articleId,
+                'title' => $title,
+                'content' => $content,
+                // 'image' => $image,
+                'extract' => $extract
+            ]);
+           }
+        
+
     }
 }

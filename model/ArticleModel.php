@@ -1,5 +1,6 @@
 <?php
-class ArticleModel extends Model{
+class ArticleModel extends Model
+{
     public function getShowOneArticle($articleId)
     {
         $req = $this->getDb()->prepare('SELECT `articleId`, `title`, `extract`, `image`, `content`, `author`, `date` FROM `article` WHERE `articleId` = :articleId');
@@ -11,33 +12,45 @@ class ArticleModel extends Model{
         $article = $req->fetch(PDO::FETCH_ASSOC);
 
         return $article;
-
-}
+    }
     //CRUD ARTICLE
-    public function editArticle($article){
+    public function addArticle(Article $article)
+    {
 
-        $articleId = $article->getArticleId();
         $author = $article->getAuthor();
-        $image = $article->getImage();
-        $title = $article->getTitle();  
-        $extract = $article->getExtract(); 
+        // $image = $article->getImage();
+        $title = $article->getTitle();
+        $extract = $article->getExtract();
         $content = $article->getContent();
-        $date = $article->getDate();
 
-        $req = $this->getDb()->prepare('UPDATE `article` SET `articleId` =:articleId, `author`=:author, `image` =:image, `title` =:title, `extract` =:extract, `content`=:content, `date`=:date) WHERE `articleId` = :articleId');
+        $req = $this->getDb()->prepare('INSERT INTO `article` (`author`,  `title`, `extract`, `content`, `date`) VALUES (:author,  :title, :extract, :content, NOW())');
 
-        $req->bindParam(":articleId", $articleId, PDO::PARAM_INT);
         $req->bindParam(":author", $author, PDO::PARAM_INT);
-        $req->bindParam(":image", $image, PDO::PARAM_STR);
+        // $req->bindParam(":image", $image, PDO::PARAM_STR);
         $req->bindParam(":title", $title, PDO::PARAM_STR);
         $req->bindParam(":extract", $extract, PDO::PARAM_STR);
         $req->bindParam(":content", $content, PDO::PARAM_STR);
-        $req->bindParam(":date", $date, PDO::PARAM_STR);
 
-      
-       $req->execute();
-
-       
+        $req->execute();
     }
+    public function editArticle($articleId)
+    {
 
+        $author = $articleId->getAuthor();
+        // $image = $article->getImage();
+        $title = $articleId->getTitle();
+        $extract = $articleId->getExtract();
+        $content = $articleId->getContent();
+
+
+        $req = $this->getDb()->prepare('UPDATE `article` SET `articleId` =:articleId, `author`=:author, `title` =:title, `extract` =:extract, `content`=:content) WHERE `articleId` = :articleId');
+
+        $req->bindParam(":author", $author, PDO::PARAM_INT);
+        // $req->bindParam(":image", $image, PDO::PARAM_STR);
+        $req->bindParam(":title", $title, PDO::PARAM_STR);
+        $req->bindParam(":extract", $extract, PDO::PARAM_STR);
+        $req->bindParam(":content", $content, PDO::PARAM_STR);
+
+        $req->execute();
+    }
 }

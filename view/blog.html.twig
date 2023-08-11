@@ -6,7 +6,7 @@
 {% block content %}
 
 	<!-- ---------- SECTION - BLOG ---------- -->
-	<a href="{{ path('addarticle')}}">Créer un article</a>
+	
 
 <section id="section-blog">
   <h2>Notre Journal</h2>
@@ -16,7 +16,12 @@
   
   <div id="container-section-blog">
 	{% for article in allArticles %}  
+
+       <a href="{{ path('articleAdd')}}">Créer un article</a>
+
+	    <a href="{{ path('baseEditArticle')}}/{{ article.articleId}}">Modifier un article</a>
     	<div class="card-blog">
+
       		<div class="card-blog-top">
         		<figure id="pict-aticle-1">
           			<img src="{{ asset('/media/blog/' ~ article.image) }}" alt="{{ article.title }}">
