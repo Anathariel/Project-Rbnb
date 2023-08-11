@@ -320,6 +320,16 @@ h3 {
 .smaller-card {
   height: 300px;
 }
+.smaller-card .description {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 135px;
+}
+.smaller-card .description .date-article {
+  position: absolute;
+  bottom: 0;
+}
 
 .medium-card {
   height: 355px;

@@ -381,6 +381,18 @@ h3 {
 
 .smaller-card {
   height: 300px;
+
+  .description{
+position: relative;
+display: flex;
+align-items: center;
+height: 135px;
+
+.date-article{
+  position: absolute;
+  bottom: 0;
+}
+  }  
 }
 
 .medium-card {
