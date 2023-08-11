@@ -18,7 +18,7 @@
 
 		<div class="user-menu" id="user-menu">
 			<a href="{{ path('dashboard') }}">
-				<img src="{{ asset('/media/profils/') }}{{ user.picture }}"  alt="Image de profil" class="profilepic">
+				<img src="{{ asset('/media/profils/') }}{{ user.picture }}"  alt="Image de profil {{ user.firstName }}" class="profilepic">
 			</a>
 			<div class="user-data">
     			<h3>{{ user.firstName }}</h3>
@@ -31,7 +31,7 @@
 
 			<div class="submenu-dashboard">
 				<ul>
-					<li><a href="{{ path('propertyAdd') }}"><img class="submenu-icon"src="{{ asset('/media/icons/plus.svg') }}" alt="Icône Ajouter">Ajouter</a></li>
+					<li><a href="{{ path('dashboard') }}"><img class="submenu-icon"src="{{ asset('/media/icons/dashboard.svg') }}" alt="Icône Dashboard">Dashboard</a></li>
 					<li><a href="#"><img class="submenu-icon"src="{{ asset('/media/icons/notification.svg') }}" alt="Icône Notification">Mes alertes</a></li>
 					<li><a href="#"><img class="submenu-icon"src="{{ asset('/media/icons/messagerie.svg') }}" alt="Icône Messagerie">Ma messagerie</a></li>
 					<li><a href="{{ path('options') }}"><img class="submenu-icon"src="{{ asset('/media/icons/setting.svg') }}" alt="Icône Option">Options</a></li>

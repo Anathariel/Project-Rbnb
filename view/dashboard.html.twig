@@ -274,7 +274,7 @@
             <a href="{{ path('blog') }}">Vous n'avez rien publier pour le moment.</a>
             {% else %}
             {% for userArticle in userArticles %}
-            <a href="{{ path('article') ~ userArticle.articleId }}">
+            <a href="{{ path('basearticle') }}/{{ userArticle.articleId }}">
                 <div class="card smaller-card">
                     <figure>
                         {% if userArticle.image %}

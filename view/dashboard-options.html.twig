@@ -7,31 +7,37 @@
 <section id="user-edit" class="update-form-dashboard">
     <h2>Mon Compte</h2>
     <form method="POST" action="{{ router.generate('editUser',{'id': user.uid}) }}" enctype="multipart/form-data">
-        <h3>Nom Légal</h3>
-        <div class="user-names">
-            <input type="text" name="firstName" value="{{ user.firstName }}">
-            <input type="text" name="lastName" value="{{ user.lastName }}">
+
+        <div class="user-info-container">
+            <div class="user-info">
+                <h3>Nom Légal</h3>
+                <div class="user-names">
+                    <input type="text" name="firstName" value="{{ user.firstName }}">
+                    <input type="text" name="lastName" value="{{ user.lastName }}">
+                </div>
+                {# <h3>Mot de passe</h3>
+                <input type="password" name="password">
+                <p>Confirmation</p>
+                <input type="password" name="confirmation"> #}
+
+                <h3>E-mail</h3>
+                <input type="text" name="email" value="{{ user.email }}">
+
+                <h3>Numéro de Téléphone</h3>
+                <input type="text" name="phoneNumber" value="{{ user.phoneNumber }}">
+
+                <h3>Date de Naissance</h3>
+                <input type="date" name="birthDate" value="{{ user.birthDate }}">
+            </div>     
+
+            <div class="profile-picture">
+                <h3>Choisissez votre photo</h3>
+                <img id="imageMainPreview" src="{{ asset('/media/profils/') }}{{ user.picture }}" alt="Aperçu de l'image principale"> 
+                <label for="picture"></label>
+                <input type="file" name="picture" id="previewId" onchange="previewImage(event, 'imageMainPreview')" accept="image/*">
+                    
+            </div>    
         </div>
-        {# <h3>Mot de passe</h3>
-        <input type="password" name="password">
-        <p>Confirmation</p>
-        <input type="password" name="confirmation"> #}
-
-        <h3>E-mail</h3>
-        <input type="text" name="email" value="{{ user.email }}">
-
-        <h3>Numéro de Téléphone</h3>
-        <input type="text" name="phoneNumber" value="{{ user.phoneNumber }}">
-
-        <h3>Date de Naissance</h3>
-        <input type="date" name="birthDate" value="{{ user.birthDate }}">
-
-
-        <h3>Choisissez votre photo</h3>
-        <label for="picture"></label>
-        <input type="file" name="picture" id="previewId" onchange="previewImage(event, 'imageMainPreview')">
-        <img id="imageMainPreview" src="#" alt="Aperçu de l'image principale" style="max-width: 150px; display: none;">
-        <input type="hidden" name="picture" accept="image/*" />
 
         <div class="account-buttons">
             <input type="submit" name="submit" value="Modifier">

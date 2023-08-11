@@ -382,17 +382,17 @@ h3 {
 .smaller-card {
   height: 300px;
 
-  .description{
-position: relative;
-display: flex;
-align-items: center;
-height: 135px;
+  .description {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 135px;
 
-.date-article{
-  position: absolute;
-  bottom: 0;
-}
-  }  
+    .date-article {
+      position: absolute;
+      bottom: 0;
+    }
+  }
 }
 
 .medium-card {
@@ -2686,7 +2686,7 @@ section#googlemaps-property-section {
   align-items: center;
   justify-content: center;
 
-  form{
+  form {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -2747,7 +2747,7 @@ section#googlemaps-property-section {
     background-color: $dash-maincolor;
   }
 
-  textarea{
+  textarea {
     padding: .5rem;
     border-radius: .5rem;
     border: 1px solid $dash-maincolor;
@@ -2756,7 +2756,7 @@ section#googlemaps-property-section {
     outline: transparent;
   }
 
-  textarea:hover{
+  textarea:hover {
     color: $dash-maincolor;
     outline: transparent;
     background-color: $white-default;
@@ -2797,6 +2797,23 @@ section#googlemaps-property-section {
       cursor: pointer;
       border-radius: 0.5rem;
       color: red;
+    }
+  }
+}
+
+.user-info-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+
+  .profile-picture{
+    margin: 5rem;
+
+    #imageMainPreview {
+      width: 250px;
+      height: 250px;
+      border-radius: 100%;
     }
   }
 }
