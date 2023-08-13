@@ -33,24 +33,27 @@ class ArticleModel extends Model
 
         $req->execute();
     }
-    public function editArticle($articleId)
-    {
+    public function editArticle($article)
+{
+    $articleId = $article->getArticleId(); // Supposons que vous ayez une méthode pour obtenir l'ID de l'article
 
-        $author = $articleId->getAuthor();
-        // $image = $article->getImage();
-        $title = $articleId->getTitle();
-        $extract = $articleId->getExtract();
-        $content = $articleId->getContent();
+    $author = $article->getAuthor();
+    // $image = $article->getImage();
+    $title = $article->getTitle();
+    $extract = $article->getExtract();
+    $content = $article->getContent();
 
+    $req = $this->getDb()->prepare('UPDATE `article` SET `articleId`=:articleId,`author`=:author, `title` =:title, `extract` =:extract, `content`=:content WHERE `articleId` = :articleId');
 
-        $req = $this->getDb()->prepare('UPDATE `article` SET `articleId` =:articleId, `author`=:author, `title` =:title, `extract` =:extract, `content`=:content) WHERE `articleId` = :articleId');
+    // Liez les paramètres comme précédemment
+    $req->bindParam(":articleId", $articleId, PDO::PARAM_INT);
+    $req->bindParam(":author", $author, PDO::PARAM_INT);
+    // $req->bindParam(":image", $image, PDO::PARAM_STR);
+    $req->bindParam(":title", $title, PDO::PARAM_STR);
+    $req->bindParam(":extract", $extract, PDO::PARAM_STR);
+    $req->bindParam(":content", $content, PDO::PARAM_STR);
 
-        $req->bindParam(":author", $author, PDO::PARAM_INT);
-        // $req->bindParam(":image", $image, PDO::PARAM_STR);
-        $req->bindParam(":title", $title, PDO::PARAM_STR);
-        $req->bindParam(":extract", $extract, PDO::PARAM_STR);
-        $req->bindParam(":content", $content, PDO::PARAM_STR);
+    $req->execute();
+}
 
-        $req->execute();
-    }
 }

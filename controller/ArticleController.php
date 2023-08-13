@@ -42,7 +42,6 @@ class ArticleController extends Controller
 
 
                 $model->addArticle($article);
-              
             } else {
                 $message = 'Oops,Try again later';
                 echo self::getrender('articleAdd.html.twig', ['message' => $message]);
@@ -52,31 +51,29 @@ class ArticleController extends Controller
 
     public function edit($articleId)
     {
-        if (!$_POST) {
-
         $model = new ArticleModel();
-        $article = $model->editArticle($articleId);
-        echo self::getrender('editArticle.html.twig', []);
-        } else {
-
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-        //     // $articleId = $_POST['articleId'];
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+            $articleId = $_POST['articleId'];
             $title = $_POST['title'];
             $content = $_POST['content'];
             // $image = $_FILES['image']['name'];
             $extract = $_POST['extract'];
-
+    
             $article = new Article([
-
-                // 'articleId' => $articleId,
+                'articleId' => $articleId,
                 'title' => $title,
                 'content' => $content,
                 // 'image' => $image,
                 'extract' => $extract
             ]);
-           }
-        
-
+    
+            // Transmettez l'objet $article à la méthode editArticle
+            $article = $model->editArticle($articleId);
+    
+            echo self::getrender('editArticle.html.twig', ['article' => $article]);
+        }
     }
+    
 }
