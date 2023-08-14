@@ -47,17 +47,7 @@ class PropertyController extends Controller
     {
         global $router;
         if (!$_POST) {
-            $userId = $_SESSION['uid'];
-            $userModel = new UserModel();
-            $user = $userModel->getUserById($userId);
-            $firstName = $user->getFirstName();
-            $email = $user->getEmail();
-
-            echo self::getRender('addproperty.html.twig', [
-                'id' => $user,
-                'firstName' => $firstName,
-                'email' => $email,
-            ]);
+            echo self::getRender('addproperty.html.twig', []);
         } else {
             if (isset($_POST['submit'])) {
                 $title = isset($_POST['title']) ? $_POST['title'] : '';
@@ -226,7 +216,7 @@ class PropertyController extends Controller
                 $tagModel->setTagsModel($lastInsertedId, $tags);
 
 
-                header('Location: ' . $router->generate('home'));
+                header('Location: ' . $router->generate('dashboard'));
             } else {
                 $message = 'Oops, something went wrong sorry. Try again later';
                 echo self::getRender('addproperty.html.twig', ['message' => $message]);
@@ -259,17 +249,9 @@ class PropertyController extends Controller
 
         if ($property instanceof Property) {
             if (!$_POST) {
-                $userId = $_SESSION['uid'];
-                $userModel = new UserModel();
-                $user = $userModel->getUserById($userId);
-                $firstName = $user->getFirstName();
-                $email = $user->getEmail();
-
                 echo self::getRender('editproperty.html.twig', [
                     'property' => $property,
                     'id' => $id,
-                    'firstName' => $firstName,
-                    'email' => $email,
                     'oldHostLanguage' => $oldHostLanguage,
                     'propertyType' => $propertyType,
                     'accommodationType' => $accommodationType,
@@ -464,7 +446,7 @@ class PropertyController extends Controller
                     $tagModel->editSelectedTagsForProperty($id, $tags);
 
 
-                    header('Location: ' . $router->generate('home'));
+                    header('Location: ' . $router->generate('dashboard'));
                 } else {
                     echo self::getRender('editproperty.html.twig', [
                         'property' => $property,
@@ -485,7 +467,7 @@ class PropertyController extends Controller
             $propertyModel->deletePropertyModel($id);
 
             global $router;
-            header('Location: ' . $router->generate('home'));
+            header('Location: ' . $router->generate('dashboard'));
             exit;
         }
     }

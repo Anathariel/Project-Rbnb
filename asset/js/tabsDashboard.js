@@ -1,7 +1,7 @@
 window.onload = function () {
   // Cacher toutes les sections au chargement de la page
   const sections = document.querySelectorAll(
-    ".dashboard-cards-my-proprieties,.dashboard-cards-my-favs,.dashboard-cards-my-locations,.dashboard-cards-my-reservations"
+    ".dashboard-cards-my-proprieties,.dashboard-cards-my-favs,.dashboard-cards-my-locations,.dashboard-cards-my-reservations,.dashboard-cards-my-articles"
   );
   sections.forEach((section) => {
     section.style.display = "none";

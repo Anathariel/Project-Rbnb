@@ -22,6 +22,7 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Controller' => $baseDir . '/controller/Controller.php',
     'Conversation' => $baseDir . '/class/Conversation.php',
+    'DashboardController' => $baseDir . '/controller/DashboardController.php',
     'ErrorController' => $baseDir . '/controller/ErrorController.php',
     'Favorite' => $baseDir . '/class/Favorite.php',
     'FavoriteController' => $baseDir . '/controller/FavoriteController.php',

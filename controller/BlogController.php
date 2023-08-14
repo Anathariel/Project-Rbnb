@@ -10,9 +10,4 @@ class BlogController extends Controller
         echo self::getRender('blog.html.twig', ['allArticles' => $allArticles]);
     }
 
-    public function showOneArticle()
-    {
-        echo self::getRender('article.html.twig', []);
-    }
-
 }

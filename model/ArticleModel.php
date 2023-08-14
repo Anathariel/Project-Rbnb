@@ -1,6 +1,5 @@
 <?php
-class ArticleModel extends Model
-{
+class ArticleModel extends Model{
     public function getShowOneArticle($articleId)
     {
         $req = $this->getDb()->prepare('SELECT `articleId`, `title`, `extract`, `image`, `content`, `author`, `date` FROM `article` WHERE `articleId` = :articleId');
@@ -12,6 +11,20 @@ class ArticleModel extends Model
         $article = $req->fetch(PDO::FETCH_ASSOC);
 
         return $article;
+    }
+
+    public function getArticlesByUid($uid)
+    {
+        $articles = [];
+
+        $req = $this->getDb()->prepare('SELECT `articleId`, `author`, `image`, `title`, `extract`, `content`, `date` FROM `article` WHERE `author` = :uid');
+        $req->bindParam('uid', $uid, PDO::PARAM_INT);
+        $req->execute();
+
+        while ($article = $req->fetch(PDO::FETCH_ASSOC)) {
+            $articles[] = new Article($article);
+        }
+        return $articles;
     }
     //CRUD ARTICLE
     public function addArticle(Article $article)

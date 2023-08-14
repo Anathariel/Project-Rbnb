@@ -4,8 +4,6 @@ class FavoriteController extends Controller
 {
     public function addFavorite()
     {
-        global $router;
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userId = $_SESSION['uid'];
             $propertyId = isset($_POST['propertyId']) ? $_POST['propertyId'] : '';
@@ -38,8 +36,6 @@ class FavoriteController extends Controller
 
                 $favoriteModel->deleteFavoriteModel($propertyId, $userId);
 
-                global $router;
-                // header('Location: ' . $router->generate('dashboard'));
                 exit();
             }
         } else {

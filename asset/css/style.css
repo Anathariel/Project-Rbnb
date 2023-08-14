@@ -320,6 +320,16 @@ h3 {
 .smaller-card {
   height: 300px;
 }
+.smaller-card .description {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 135px;
+}
+.smaller-card .description .date-article {
+  position: absolute;
+  bottom: 0;
+}
 
 .medium-card {
   height: 355px;
@@ -842,6 +852,7 @@ button.main-dash-button-style:hover:before {
   border: none;
   outline: transparent;
   font-family: "Quicksand";
+  cursor: pointer;
   z-index: 1;
 }
 #registration .button:after {
@@ -1919,16 +1930,14 @@ section#googlemaps-property-section div#map {
 .dashboard .welcome-dashboard .user-menu .add a img {
   padding: 0.5rem;
   margin: 0 0.5rem 0 0;
+  width: 24px;
+  height: 24px;
   background-color: #f3f3f3;
   border-radius: 5rem;
 }
 .dashboard .welcome-dashboard .user-menu .add.first-link a {
   background-color: #0e9384;
   color: #f8f8f8;
-}
-.dashboard .welcome-dashboard .user-menu .add.filter {
-  margin-left: auto;
-  align-self: flex-end;
 }
 .dashboard .welcome-dashboard .user-menu .add a:hover {
   background: rgba(14, 147, 131, 0.5803921569);
@@ -2346,6 +2355,21 @@ section#googlemaps-property-section div#map {
   cursor: pointer;
   border-radius: 0.5rem;
   color: red;
+}
+
+.user-info-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.user-info-container .profile-picture {
+  margin: 5rem;
+}
+.user-info-container .profile-picture #imageMainPreview {
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
 }
 
 #full-width-background {
