@@ -8,8 +8,6 @@ $router->setBasePath('/projet/project-rbnb');
 
 // MAIN ROUTES
 $router->map('GET', '/', 'HomeController#home', 'home');
-$router->map('GET', '/article', 'HomeController#article', 'baseArticle');
-$router->map('GET', '/article', '', 'basearticle');
 $router->map('GET', '/catalogue', 'HomeController#catalogue', 'catalogue');
 $router->map('GET', '/tags', '', 'baseTags');
 
