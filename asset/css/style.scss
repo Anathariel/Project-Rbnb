@@ -2799,21 +2799,21 @@ section#googlemaps-property-section {
       color: red;
     }
   }
-}
 
-.user-info-container {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: center;
+  .user-info-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
 
-  .profile-picture{
-    margin: 5rem;
+    .profile-picture {
+      margin: 5rem;
 
-    #imageMainPreview {
-      width: 250px;
-      height: 250px;
-      border-radius: 100%;
+      #imageMainPreview {
+        width: 250px;
+        height: 250px;
+        border-radius: 100%;
+      }
     }
   }
 }

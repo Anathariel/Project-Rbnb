@@ -1,24 +1,33 @@
 {% extends "templatedashboard.html.twig" %}
 
-{% block title %}Mes articles
+{% block title %}Modifier {{ article.title }}
 {% endblock %}
 
 {% block content %}
+<section id="article-add" class="update-form-dashboard">
+{% if message %} <p> {{ message }} </p> {% endif %}
 
-<h1>Modifier un nouvel article</h1>
+    <h2>Modifier votre article : {{ article.title }}</h2>
 
-<form  method="POST" action="{{ path('editArticle') }}" enctype="multipart/form-data">
-{# action="{{ router.generate('editArticle', {'uid': article.articleId}) }}" #}
+    <form  method="post" action="action="{{ router.generate('editArticle', {'id': article.articleId}) }}"" enctype="multipart/form-data">
+    {# action="{{ router.generate('editArticle', {'uid': article.articleId}) }}" #}
+    {# {{ path('editArticle') }} #}
 
-    <label for="title">Titre :</label>
-    <input type="text" name="title" id="title" value="{{ article.title }}" required><br>
-    {# <label for="image">Image :</label>
-    <input type="text" name="image" id="image"><br> #}
-    <label for="extract">Extrait :</label>
-    <textarea name="extract" id="extract" value="{{ article.extract }}" required></textarea><br>
-    <label for="content">Contenu :</label>
-    <textarea name="content" id="content" required>{{ article.content }}</textarea><br>
-    <input type="submit" name="submit" value="Modifier">
-</form>
+        <label for="title">Titre :</label>
+        <input type="text" name="title" id="title" value="{{ article.title}}" required>
 
+        {# <label for="image">Image :</label>
+        <input type="file" name="image" id="image"> #}
+
+        <label for="extract">Extrait :</label>
+        <textarea name="extract" id="extract" cols="50" rows="5" value="{{ article.extract }}" required></textarea>
+
+        <label for="content">Contenu :</label>
+        <textarea name="content" id="content" cols="100" rows="10" value="{{ article.content }}" required></textarea>
+
+        <button type="submit" name="submit" class="main-dash-button-style">
+        <span>Créer</span>
+        </button>
+    </form>
+</section>
 {% endblock %}

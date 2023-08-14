@@ -2356,17 +2356,16 @@ section#googlemaps-property-section div#map {
   border-radius: 0.5rem;
   color: red;
 }
-
-.user-info-container {
+.update-form-dashboard .user-info-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
 }
-.user-info-container .profile-picture {
+.update-form-dashboard .user-info-container .profile-picture {
   margin: 5rem;
 }
-.user-info-container .profile-picture #imageMainPreview {
+.update-form-dashboard .user-info-container .profile-picture #imageMainPreview {
   width: 250px;
   height: 250px;
   border-radius: 100%;

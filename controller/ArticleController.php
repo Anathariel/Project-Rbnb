@@ -14,9 +14,10 @@ class ArticleController extends Controller
 
     public function createArticle()
     {
+        global $router;
         if (!$_POST) {
 
-            echo self::getRender('articleAdd.html.twig', []);
+            echo self::getRender('addarticle.html.twig', []);
         } else {
 
             $model = new ArticleModel();
@@ -42,25 +43,28 @@ class ArticleController extends Controller
 
 
                 $model->addArticle($article);
+                header('Location: ' . $router->generate('dashboard'));
             } else {
                 $message = 'Oops,Try again later';
-                echo self::getrender('articleAdd.html.twig', ['message' => $message]);
+                echo self::getrender('addarticle.html.twig', ['message' => $message]);
             }
         }
     }
 
     public function edit($id)
     {
+        global $router;
+
         $model = new ArticleModel();
-        echo self::getrender('editArticle.html.twig',[]);
+        echo self::getrender('editArticle.html.twig', []);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+
             $id = $_POST['articleId'];
             $title = $_POST['title'];
             $content = $_POST['content'];
             // $image = $_FILES['image']['name'];
             $extract = $_POST['extract'];
-    
+
             $article = new Article([
                 'articleId' => $id,
                 'title' => $title,
@@ -68,12 +72,11 @@ class ArticleController extends Controller
                 // 'image' => $image,
                 'extract' => $extract
             ]);
-    
+
             // Transmettez l'objet $article à la méthode editArticle
             $article = $model->editArticle($id);
-    
-            echo self::getrender('editArticle.html.twig', ['article' => $article]);
+
+            header('Location: ' . $router->generate('dashboard'));
         }
     }
-    
 }

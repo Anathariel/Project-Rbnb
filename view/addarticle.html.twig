@@ -7,7 +7,7 @@
 <section id="article-add" class="update-form-dashboard">
 {% if message %} <p> {{ message }} </p> {% endif %}
     <h2>Créer un nouvel article</h2>
-    <form  method="post" action="{{ path('addarticle') }}" enctype="multipart/form-data">
+    <form  method="post" action="{{ path('articleAdd') }}" enctype="multipart/form-data">
 
         <label for="title">Titre :</label>
         <input type="text" name="title" id="title" placeholder="Entrer le titre de votre article" required>
