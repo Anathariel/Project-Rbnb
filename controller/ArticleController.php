@@ -49,20 +49,20 @@ class ArticleController extends Controller
         }
     }
 
-    public function edit($articleId)
+    public function edit($id)
     {
         $model = new ArticleModel();
-    
+        echo self::getrender('editArticle.html.twig',[]);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-            $articleId = $_POST['articleId'];
+            $id = $_POST['articleId'];
             $title = $_POST['title'];
             $content = $_POST['content'];
             // $image = $_FILES['image']['name'];
             $extract = $_POST['extract'];
     
             $article = new Article([
-                'articleId' => $articleId,
+                'articleId' => $id,
                 'title' => $title,
                 'content' => $content,
                 // 'image' => $image,
@@ -70,7 +70,7 @@ class ArticleController extends Controller
             ]);
     
             // Transmettez l'objet $article à la méthode editArticle
-            $article = $model->editArticle($articleId);
+            $article = $model->editArticle($id);
     
             echo self::getrender('editArticle.html.twig', ['article' => $article]);
         }

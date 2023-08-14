@@ -8,11 +8,7 @@ $router->setBasePath('/projet/project-rbnb');
 
 // MAIN ROUTES
 $router->map('GET', '/', 'HomeController#home', 'home');
-// $router->map('GET', '/blog', 'HomeController#blog', 'blog');
 $router->map('GET', '/article', 'HomeController#article', 'baseArticle');
-// $router->map('GET', '/article/[i:id]', 'HomeController#article', 'article');
-
-// $router->map('GET', '/blog', 'HomeController#blog', 'blog');
 $router->map('GET', '/article', '', 'basearticle');
 $router->map('GET', '/catalogue', 'HomeController#catalogue', 'catalogue');
 $router->map('GET', '/tags', '', 'baseTags');
@@ -70,7 +66,7 @@ $router->map('GET', '/article/[i:id]', 'ArticleController#showOneArticle', 'arti
 //CRUD ARTICLE
 $router->map('GET|POST', '/publier/', 'ArticleController#createArticle', 'articleAdd');
 
-$router->map('GET|POST', '/edit', '', 'baseEditArticle');
+$router->map('GET|POST', '/edit/', '', 'baseEditArticle');
 $router->map('GET|POST', '/edit/[i:id]', 'ArticleController#edit', 'editArticle');
 
 
