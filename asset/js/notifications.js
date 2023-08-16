@@ -1,5 +1,4 @@
 jQuery(document).ready(function() {
-    console.log("showNotification called with message:", message);
     let isNotificationShowing = false;
     let messageQueue = [];
 
@@ -15,12 +14,12 @@ jQuery(document).ready(function() {
 
         const notificationContainer = $("<div></div>")
             .addClass("notification-container")
-            .text(currentMessage);
+            .text(currentMessage)
+            .on("animationend", function() {
+                $(this).remove();
+                showNextNotification(); // Proceed to next message if any
+            });
         $("body").append(notificationContainer);
-
-        setTimeout(function () {
-            notificationContainer.css('opacity', '1');  // this line is crucial
-        }, 50);
     }
 
     function showNotification(message) {
@@ -30,14 +29,10 @@ jQuery(document).ready(function() {
             showNextNotification();
         }
     }
+
     const messageElement = $("#message");
     if (messageElement.length) {  // Check if element exists
         const messageContent = messageElement.data("content");  // Get the message from the data attribute
         showNotification(messageContent);  // Show the notification with the message
     }
-
-
-    // For testing purposes
-    showNotification("First Message");
-    showNotification("Second Message");
-});  
+});
