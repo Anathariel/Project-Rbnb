@@ -1915,6 +1915,9 @@ section#googlemaps-property-section div#map {
   padding-top: 1rem;
   font-size: 2rem;
 }
+.dashboard .welcome-dashboard h1 span {
+  color: #0e9384;
+}
 .dashboard .welcome-dashboard .user-menu {
   display: flex;
   flex-wrap: wrap;

@@ -15,7 +15,7 @@
 		</title>
 	</head>
 
-	<body>
+	<body data-user-logged-in="{{ session.uid is defined ? 'true' : 'false' }}">
 		{% include 'header.html.twig' %}
 		<main class="limit-size"> {% block content %}{% endblock %}
 			</main>

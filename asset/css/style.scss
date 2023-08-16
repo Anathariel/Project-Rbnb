@@ -2294,6 +2294,10 @@ section#googlemaps-property-section {
       margin: 0 5rem;
       padding-top: 1rem;
       font-size: 2rem;
+
+      span{
+        color: $dash-maincolor;
+      }
     }
 
     .user-menu {
