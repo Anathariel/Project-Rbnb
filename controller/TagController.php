@@ -4,7 +4,6 @@ class TagController extends Controller
 {
     public function showAllTags()
     {
-
         $tagModel = new TagModel();
         $tags = $tagModel->getAllTags();
 

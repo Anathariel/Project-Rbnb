@@ -52,7 +52,9 @@
             </div>
         </div>
     </section>
-
+    {% if message %}
+        <div id="message" data-content="{{ message }}"></div>
+    {% endif %}
     <section class="dashboard-cards-my-proprieties" id="my-proprieties">
 
         <h2>Mes propriétés</h2>
