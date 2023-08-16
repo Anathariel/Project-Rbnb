@@ -578,6 +578,12 @@ button.main-dash-button-style:hover:before {
 
     #user {
       margin-right: 3rem;
+
+      .profilepic {
+        height: 50px;
+        width: 50px;
+        border-radius: 5rem;
+      }
     }
 
     @media screen and (max-width: 900px) {
@@ -591,7 +597,7 @@ button.main-dash-button-style:hover:before {
       }
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 750px) {
 
       #logo,
       #user,

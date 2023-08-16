@@ -492,6 +492,11 @@ button.main-dash-button-style:hover:before {
 .header-main .header-content #user {
   margin-right: 3rem;
 }
+.header-main .header-content #user .profilepic {
+  height: 50px;
+  width: 50px;
+  border-radius: 5rem;
+}
 @media screen and (max-width: 900px) {
   .header-main .header-content #logo {
     margin-right: auto;
@@ -501,7 +506,7 @@ button.main-dash-button-style:hover:before {
     margin-right: 0;
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
   .header-main .header-content #logo,
   .header-main .header-content #user,
   .header-main .header-content #desktop-searchbar {
