@@ -35,10 +35,11 @@ class ArticleModel extends Model
     }
     public function editArticle($article)
 {
-    $articleId = $article->getArticleId(); // Supposons que vous ayez une méthode pour obtenir l'ID de l'article
+    // $articleId = $article->getArticleId(); 
+    // Supposons que vous ayez une méthode pour obtenir l'ID de l'article
 
     $author = $article->getAuthor();
-    // $image = $article->getImage();
+    // $image = $article->getImage();   
     $title = $article->getTitle();
     $extract = $article->getExtract();
     $content = $article->getContent();
