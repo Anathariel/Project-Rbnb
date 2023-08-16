@@ -8,6 +8,6 @@ class TagController extends Controller
         $tagModel = new TagModel();
         $tags = $tagModel->getAllTags();
 
-        echo self::getRender('header.html.twig', ['toto' => 'toto','tags' => $tags]);
+        echo self::getRender('header.html.twig', ['tags' => $tags]);
     }
 }

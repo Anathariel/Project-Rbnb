@@ -11,7 +11,7 @@
     <div class="container-tag-list">
       {% for tag in tags %}
       <div class="tag-item">
-        <a href="#">
+        <a href="{{ path('home') }}catalogue/tag/{{ tag.tagId }}">
           <img id="icon-tag" src="{{ asset('/media/icons/tag/' ~ tag.picto ~ '.jpg') }}" alt="{{ tag.type }}">
           <p>{{ tag.type }}</p>
         </a>

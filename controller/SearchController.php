@@ -51,4 +51,17 @@ class SearchController extends Controller
 
         echo json_encode($results);
     }
+
+    public function filterByTag($id) {
+        $tagModel = new TagModel();
+        $propertyIds = $tagModel->getPropertyIdByTagId($id);
+        
+        // Assuming you have a PropertyModel to fetch details using propertyIds
+        $propertyModel = new PropertyModel();
+        $properties = $propertyModel->getPropertiesByIds($propertyIds);
+        
+        // Render the catalogue with the filtered properties
+        echo self::getRender('catalog.html.twig', ['result' => $properties]);
+    }
+    
 }

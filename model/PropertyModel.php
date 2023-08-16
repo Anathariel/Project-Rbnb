@@ -87,6 +87,15 @@ class PropertyModel extends Model
         return $req->fetchColumn();
     }
 
+    public function getPropertiesByIds($propertyIds) {
+        if(empty($propertyIds)) return [];
+    
+        $placeholders = implode(',', array_fill(0, count($propertyIds), '?'));
+        $sql = "SELECT * FROM `property` WHERE `propertyId` IN ($placeholders)";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute($propertyIds);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function addProperty(Property $property)
     {
