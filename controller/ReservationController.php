@@ -22,11 +22,12 @@ class ReservationController extends Controller
                 'numTravelers' => $numTravelers,
                 'totalPrice' => $totalPrice
             ]);
-            var_dump($reservation);
+            // var_dump($reservation);
 
             $reservationModel = new ReservationModel();
             $reservationModel->addReservationModel($reservation);
 
+            $_SESSION['flash_message'] = 'Votre réservation à bien été pris en compte.';
             header('Location: ' . $router->generate('dashboard'));
         }
     }
@@ -57,11 +58,13 @@ class ReservationController extends Controller
                 $reservationModel->deleteReservationModel($propertyId, $userId);
 
                 global $router;
+                $_SESSION['flash_message'] = 'Votre réservation à été annulé avec succès.';
                 header('Location: ' . $router->generate('dashboard'));
                 exit();
             }
         } else {
-            echo self::getRender('dashboard.html.twig', []);
+            $message = 'Une erreur est survenue. Réessayer plus tard.';
+            echo self::getRender('dashboard.html.twig', ['message' => $message]);
         }
     }
 }

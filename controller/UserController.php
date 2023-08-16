@@ -66,77 +66,9 @@ class UserController extends Controller
         exit();
     }
 
-    //DEPRECATED CODE
-    // public function editUser()
-    // {
-    //     if (!$_POST) {
-    //         echo self::getRender('dashboard-options.html.twig', []); //info: user est un objet
-    //     } else {
-    //         // Récupérer les information du  formulaire
-    //         $uid = $_SESSION['uid'];
-    //         $firstName = $_POST['firstName'];
-    //         $lastName = $_POST['lastName'];
-    //         $email = $_POST['email'];
-    //         $birthDate = $_POST['birthDate'];
-    //         $phoneNumber = $_POST['phoneNumber'];
-    //         // $picture = $_FILES['picture'];
-    //         $pictureName = $_FILES['picture']['name'];
-    //         // $password = $_POST['password'];
-    //         // $confirmation = $_POST['confirmation'];
-
-    //         // condition pour verifier le mot de passe
-    //         // if ($password != $confirmation) {
-    //         //     $message = 'Mot de passe incorrecte';
-    //         //     echo self::getrender('dashboard-options.html.twig', ['message' => $message]);
-    //         // } else {
-
-    //         if (isset($_POST['submit']) && $_FILES['picture']) {
-
-    //             //explode: la premier valeur c'est le séparteur et le deuxieme après la point 
-    //             $tabExtension = explode('.', $_FILES['picture']['name']);
-    //             //Tableau des extensions que l'on accepte
-    //             $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-    //             $extension = strtolower(end($tabExtension));
-
-    //             if (in_array($extension, $extensions)) {
-    //                 $userModel = new UserModel();
-    //                 $user = $userModel->getUserById($uid);
-    //                 $user->setFirstName($firstName);
-    //                 $user->setLastName($lastName);
-    //                 $user->setUid($uid);
-    //                 $user->setFirstName($firstName);
-    //                 $user->setLastName($lastName);
-    //                 $user->setEmail($email);
-    //                 $user->setPhoneNumber($phoneNumber);
-    //                 $user->setBirthDate($birthDate);
-    //                 $user->setBirthDate($birthDate);
-    //                 $user->setPicture($pictureName);
-
-    //                 $querryResult = $userModel->editUser($user);
-
-    //                 if ($querryResult) {
-    //                     $uploadDir = 'asset/media/profils/';
-    //                     $uploadFile = $uploadDir . $_FILES['picture']['name'];
-
-    //                     // Déplacer le fichier temporaire vers le dossier final
-    //                     $controleUpload = move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile);
-    //                     echo self::getRender('dashboard-options.html.twig', ['user' => $user]);
-    //                     exit();
-    //                     if (!$controleUpload) {
-    //                         $message = "Une erreur est survenue lors du téléchargement de l'image. Veuillez réessayer.";
-    //                         echo self::getRender('dashboard-option.html.twig', ['message' => $message]);
-    //                     }
-    //                 }
-    //             } else {
-    //                 $message = "Cette extension n'est pas autorisée.";
-    //                 echo self::getRender('dashboard-options.html.twig', ['message' => $message]);
-    //             }
-    //         }
-    //     }
-    // }
-
     public function editUser()
-    {
+    {   
+        global $router;
         if (!$_POST) {
             echo self::getRender('dashboard-options.html.twig', []);
         } else {
@@ -188,11 +120,12 @@ class UserController extends Controller
 
                         if (!$controleUpload) {
                             $message = "Une erreur est survenue lors du téléchargement de l'image. Veuillez réessayer.";
-                            echo self::getRender('dashboard-option.html.twig', ['message' => $message]);
+                            echo self::getRender('dashboard-options.html.twig', ['message' => $message]);
                         }
                     }
-
-                    echo self::getRender('dashboard-options.html.twig', ['user' => $user]);
+                    $_SESSION['flash_message'] = "Modification réussie";
+                    header('Location: ' . $router->generate('dashboard'));
+                    // echo self::getRender('dashboard-options.html.twig', ['message' => $message]);
                 }
             }
         }

@@ -215,10 +215,10 @@ class PropertyController extends Controller
                 $tagModel = new TagModel();
                 $tagModel->setTagsModel($lastInsertedId, $tags);
 
-
+                $_SESSION['flash_message'] = 'Votre propriété à été ajouter avec succès.';
                 header('Location: ' . $router->generate('dashboard'));
             } else {
-                $message = 'Oops, something went wrong sorry. Try again later';
+                $message = 'Une erreur est survenue. Réessayer plus tard.';
                 echo self::getRender('addproperty.html.twig', ['message' => $message]);
             }
         }
@@ -445,17 +445,19 @@ class PropertyController extends Controller
                     $tags = array_filter($tags); // Supprime les valeurs vides
                     $tagModel->editSelectedTagsForProperty($id, $tags);
 
-
+                    $_SESSION['flash_message'] = 'Votre propriété à été modifier avec succès.';
                     header('Location: ' . $router->generate('dashboard'));
                 } else {
+                    $message = 'Une erreur est survenue. Réessayer plus tard.';
                     echo self::getRender('editproperty.html.twig', [
                         'property' => $property,
                         'id' => $id,
+                        'message' => $message
                     ]);
                 }
             }
         } else {
-            $message = 'Oops, something went wrong sorry. Try again later';
+            $message = 'Une erreur est survenue. Réessayer plus tard.';
             echo self::getRender('editproperty.html.twig', ['message' => $message]);
         }
     }
@@ -467,8 +469,12 @@ class PropertyController extends Controller
             $propertyModel->deletePropertyModel($id);
 
             global $router;
+            $_SESSION['flash_message'] = 'Votre propriété à été supprimer avec succès.';
             header('Location: ' . $router->generate('dashboard'));
             exit;
+        }else{
+            $message = 'Une erreur est survenue. Réessayer plus tard.';
+            echo self::getRender('dashboard.html.twig', ['message' => $message]);
         }
     }
 }

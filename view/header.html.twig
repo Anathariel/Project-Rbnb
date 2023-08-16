@@ -27,7 +27,9 @@
 
 		<div id="user">
 			{% if session.connect %}
-				<a href="{{ path('dashboard') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Dashboard utilisateur"></a>
+				<a href="{{ path('dashboard') }}">
+					<img src="{{ asset('/media/profils/') }}{{ user.picture }}"  alt="Image de profil {{ user.firstName }}" class="profilepic">
+				</a>
 			{% else %}
 				<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Se connecter ou s'inscrire "></a>
 			{% endif %}

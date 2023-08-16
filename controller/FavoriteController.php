@@ -36,7 +36,10 @@ class FavoriteController extends Controller
 
                 $favoriteModel->deleteFavoriteModel($propertyId, $userId);
 
-                exit();
+                global $router;
+                $_SESSION['flash_message'] = 'Propriété retirer de vos favoris.';
+                header('Location: ' . $router->generate('dashboard'));
+                exit;
             }
         } else {
             echo self::getRender('dashboard.html.twig', []);

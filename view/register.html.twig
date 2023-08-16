@@ -6,7 +6,9 @@
 
 {% block content %}
 <section id="registration">
-{% if message %} <p> {{ message }} </p> {% endif %}
+{% if message %}
+    <div id="message" data-content="{{ message }}"></div>
+{% endif %}
     <div class="container right-panel-active">
         <div class="container__form container--signup">
             <form method="POST" action="{{ path('register') }}" class="form" id="form1">
