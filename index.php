@@ -8,31 +8,25 @@ $router->setBasePath('/projet/project-rbnb');
 
 // MAIN ROUTES
 $router->map('GET', '/', 'HomeController#home', 'home');
-// $router->map('GET', '/blog', 'HomeController#blog', 'blog');
-$router->map('GET', '/article', 'HomeController#article', 'baseArticle');
-// $router->map('GET', '/article/[i:id]', 'HomeController#article', 'article');
-
-// $router->map('GET', '/blog', 'HomeController#blog', 'blog');
-$router->map('GET', '/article', '', 'basearticle');
 $router->map('GET', '/catalogue', 'HomeController#catalogue', 'catalogue');
 $router->map('GET', '/tags', '', 'baseTags');
 
+//PROPERTY
 $router->map('GET|POST', '/property/', 'PropertyController#getOne', 'baseProperty');
 $router->map('GET|POST', '/property/[i:id]', 'PropertyController#getOne', 'propertyOne');
 
-// comment
+// COMMENT
 $router->map('GET|POST', '/property/comment', 'CommentController#addComment', 'commentAdd');
 
-// Register
+// REGISTER
 $router->map('GET|POST', '/registration', 'UserController#register', 'register');
 
-// Log-in/out form route
+// LOGIN/OUT
 $router->map('GET|POST', '/login', 'UserController#login', 'loginForm');
 $router->map('GET', '/logout', 'UserController#logout', 'logout');
 
-// Dashboard Utilisateur
-$router->map('GET', '/account', 'UserController#dashboard', 'dashboard');
-
+// DASHBOARD
+$router->map('GET', '/account', 'DashboardController#dashboard', 'dashboard');
 
 // FAVORITES
 $router->map('GET|POST', '/account', 'FavoriteController#addFavorite', 'favorite');
@@ -43,7 +37,7 @@ $router->map('GET|POST', '/account/options', 'UserController#editUser', 'options
 $router->map('POST', '/account/delete', 'UserController#delete', 'deleteUser',);
 
 
-// CRUD Property
+// CRUD PROPERTY
 $router->map('GET|POST', '/addproperty', 'PropertyController#createProperty',  'propertyAdd');
 
 $router->map('GET|POST', '/editproperty/', '', 'baseEditproperty');
@@ -52,31 +46,37 @@ $router->map('GET|POST', '/editproperty/[i:id]', 'PropertyController#editPropert
 $router->map('GET|POST', '/deleteproperty/', '', 'baseDeleteproperty');
 $router->map('POST', '/deleteproperty/[i:id]', 'PropertyController#deleteProperty', 'propertyDelete');
 
-
 // SEARCH
 $router->map('GET|POST', '/search', 'SearchController#searchResult', 'search');
 $router->map('GET', '/autocomplete', 'SearchController#searchResultAjax', 'autocomplete');
 
-
-// Reservation
+// RESERVATION
 $router->map('GET|POST', '/reservation', 'ReservationController#addReservation', 'reservation');
 $router->map('GET|POST', '/account/reservation', 'ReservationController#getReservation', 'reservationGet');
 $router->map('POST', '/account/reservation/delete', 'ReservationController#deleteReservation', 'reservationDelete');
 
-// blog
+// BLOG
 $router->map('GET', '/blog', 'BlogController#showAllArticles', 'blog');
+$router->map('GET', '/article', '', 'basearticle');
 $router->map('GET', '/article/[i:id]', 'ArticleController#showOneArticle', 'article');
 
 //CRUD ARTICLE
 $router->map('GET|POST', '/publier/', 'ArticleController#createArticle', 'articleAdd');
 
-$router->map('GET|POST', '/edit', '', 'baseEditArticle');
+$router->map('GET|POST', '/edit/', '', 'baseEditArticle');
 $router->map('GET|POST', '/edit/[i:id]', 'ArticleController#edit', 'editArticle');
+
+$router->map('GET|POST', '/article/update', '', 'baseUpdateArticle');
+$router->map('GET|POST', '/article/update/[i:idUpdate]', 'ArticleController#update', 'updateArticle');
+
+$router->map('POST|DELETE','/delete/','','baseDeletetArticle');
+$router->map('POST|DELETE','/delete/[i:id]','ArticleController#delete','deleteArticle');
 
 
 // MATCH :
 $match = $router->match();
 // var_dump($match);
+// var_dump($_FILES);
 if (is_array($match)) {
     list($controller, $action) = explode('#', $match['target']);
     $obj = new $controller();

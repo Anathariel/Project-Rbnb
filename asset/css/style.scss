@@ -381,6 +381,18 @@ h3 {
 
 .smaller-card {
   height: 300px;
+
+  .description {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 135px;
+
+    .date-article {
+      position: absolute;
+      bottom: 0;
+    }
+  }
 }
 
 .medium-card {
@@ -992,6 +1004,7 @@ button.main-dash-button-style:hover:before {
     border: none;
     outline: transparent;
     font-family: $font;
+    cursor: pointer;
     z-index: 1;
 
     &:after {
@@ -2297,6 +2310,8 @@ section#googlemaps-property-section {
         img {
           padding: 0.5rem;
           margin: 0 0.5rem 0 0;
+          width: 24px;
+          height: 24px;
           background-color: #f3f3f3;
           border-radius: 5rem;
         }
@@ -2305,11 +2320,6 @@ section#googlemaps-property-section {
       .add.first-link a {
         background-color: #0e9384;
         color: $white;
-      }
-
-      .add.filter {
-        margin-left: auto;
-        align-self: flex-end;
       }
 
       .add a:hover {
@@ -2338,7 +2348,6 @@ section#googlemaps-property-section {
 }
 
 .propertyform {
-  // background-color: $dashboard-brg;
   text-align: center;
   padding: 1rem;
 
@@ -2677,7 +2686,7 @@ section#googlemaps-property-section {
   align-items: center;
   justify-content: center;
 
-  form{
+  form {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -2738,7 +2747,7 @@ section#googlemaps-property-section {
     background-color: $dash-maincolor;
   }
 
-  textarea{
+  textarea {
     padding: .5rem;
     border-radius: .5rem;
     border: 1px solid $dash-maincolor;
@@ -2747,7 +2756,7 @@ section#googlemaps-property-section {
     outline: transparent;
   }
 
-  textarea:hover{
+  textarea:hover {
     color: $dash-maincolor;
     outline: transparent;
     background-color: $white-default;
@@ -2788,6 +2797,23 @@ section#googlemaps-property-section {
       cursor: pointer;
       border-radius: 0.5rem;
       color: red;
+    }
+  }
+
+  .user-info-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+
+    .profile-picture {
+      margin: 5rem;
+
+      #imageMainPreview {
+        width: 250px;
+        height: 250px;
+        border-radius: 100%;
+      }
     }
   }
 }
