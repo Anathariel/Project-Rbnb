@@ -11,24 +11,24 @@
 
     <h2>Modifier votre article : {{ article.title }}</h2>
 
-    <form  method="post" action="action="{{ router.generate('editArticle', {'id': article.articleId}) }}"" enctype="multipart/form-data">
+    <form  method="post" action="{{ router.generate('updateArticle', {'idUpdate': article.articleId}) }}" enctype="multipart/form-data">
     {# action="{{ router.generate('editArticle', {'uid': article.articleId}) }}" #}
     {# {{ path('editArticle') }} #}
 
         <label for="title">Titre :</label>
         <input type="text" name="title" id="title" value="{{ article.title}}" required>
 
-        {# <label for="image">Image :</label>
-        <input type="file" name="image" id="image"> #}
+        <label for="image">Image :</label>
+        <input type="file" name="image" id="image">
 
         <label for="extract">Extrait :</label>
-        <textarea name="extract" id="extract" cols="50" rows="5" value="{{ article.extract }}" required></textarea>
+        <textarea name="extract" id="extract" cols="50" rows="5" required>{{ article.extract }}</textarea>
 
         <label for="content">Contenu :</label>
-        <textarea name="content" id="content" cols="100" rows="10" value="{{ article.content }}" required></textarea>
+        <textarea name="content" id="content" cols="100" rows="10" value="" required>{{ article.content }}</textarea>
 
         <button type="submit" name="submit" class="main-dash-button-style">
-        <span>Créer</span>
+        <span>Modifier</span>
         </button>
     </form>
 </section>

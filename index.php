@@ -68,10 +68,17 @@ $router->map('GET|POST', '/publier/', 'ArticleController#createArticle', 'articl
 $router->map('GET|POST', '/edit/', '', 'baseEditArticle');
 $router->map('GET|POST', '/edit/[i:id]', 'ArticleController#edit', 'editArticle');
 
+$router->map('GET|POST', '/article/update', '', 'baseUpdateArticle');
+$router->map('GET|POST', '/article/update/[i:idUpdate]', 'ArticleController#update', 'updateArticle');
+
+$router->map('POST|DELETE','/delete/','','baseDeletetArticle');
+$router->map('POST|DELETE','/delete/[i:id]','ArticleController#delete','deleteArticle');
+
 
 // MATCH :
 $match = $router->match();
 // var_dump($match);
+// var_dump($_FILES);
 if (is_array($match)) {
     list($controller, $action) = explode('#', $match['target']);
     $obj = new $controller();
