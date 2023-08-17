@@ -9,9 +9,6 @@ class ArticleController extends Controller
     }
 
     //CRUD ARTICLE
-
-
-
     public function createArticle()
     {
         global $router;
@@ -20,24 +17,32 @@ class ArticleController extends Controller
         } else {
             $model = new ArticleModel();
             if (isset($_POST['submit'])) {
-                
-                $author = $_SESSION['uid'];
-                $title = $_POST['title'];
-                $content = $_POST['content'];
-                $image = $_FILES['image']['name'];
-                $extract = $_POST['extract'];
+                $uploadDir = 'asset/media/blog/'; // This is the directory to save the uploaded file.
+                $uploadFile = $uploadDir . basename($_FILES['image']['name']);
 
-                $article = new Article([
-                    'author' => $author,
-                    'title' => $title,
-                    'content' => $content,
-                    'image' => $image,
-                    'extract' => $extract
-                ]);
+                // Check if the file was moved successfully.
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+                    $author = $_SESSION['uid'];
+                    $title = $_POST['title'];
+                    $content = $_POST['content'];
+                    $imageName = $_FILES['image']['name']; // Save the original name of the image to the database.
+                    $extract = $_POST['extract'];
 
-                $model->addArticle($article);
-                $_SESSION['flash_message'] = 'Votre article à été publier avec succès.';
-                header('Location: ' . $router->generate('dashboard'));
+                    $article = new Article([
+                        'author' => $author,
+                        'title' => $title,
+                        'content' => $content,
+                        'image' => $imageName,
+                        'extract' => $extract
+                    ]);
+
+                    $model->addArticle($article);
+                    $_SESSION['flash_message'] = 'Votre article à été publier avec succès.';
+                    header('Location: ' . $router->generate('dashboard'));
+                } else {
+                    $message = 'Erreur lors de l\'upload de l\'image.';
+                    echo self::getRender('addarticle.html.twig', ['message' => $message]);
+                }
             } else {
                 $message = 'Une erreur est survenue. Réessayer plus tard.';
                 echo self::getrender('addarticle.html.twig', ['message' => $message]);
@@ -47,6 +52,8 @@ class ArticleController extends Controller
 
     public function update($idUpdate)
     {
+        global $router;
+
         if (!$_POST) {
             $model = new ArticleModel();
             $article = $model->getShowOneArticle($idUpdate);
@@ -54,28 +61,45 @@ class ArticleController extends Controller
         } else {
             $model = new ArticleModel();
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $articleId = $idUpdate;
-                $author = $_SESSION['uid'];
-                $title = $_POST['title'];
-                $content = $_POST['content'];
-                $image = $_FILES['image']['name'];
-                $extract = $_POST['extract'];
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+                $uploadDir = 'asset/media/blog/';
+                $uploadFile = $uploadDir . basename($_FILES['image']['name']);
 
-                $article = new Article([
-                    'articleId' => $articleId,
-                    'author' => $author,
-                    'title' => $title,
-                    'content' => $content,
-                    'image' => $image,
-                    'extract' => $extract
-                ]);
-                // Transmettez l'objet $article à la méthode editArticle
-                $model->updateArticle($article);
+                // Check if the file was moved successfully.
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+                    $author = $_SESSION['uid'];
+                    $title = $_POST['title'];
+                    $content = $_POST['content'];
+                    $imageName = $_FILES['image']['name'];
+                    $extract = $_POST['extract'];
 
-                global $router;
-                $_SESSION['flash_message'] = 'Votre article à été modifier avec succès.';
-                header('Location: ' . $router->generate('dashboard'));
+                    $oldImage = $model->getImagePathById($idUpdate);
+
+                    // Delete the old image from the server
+                    if ($oldImage && file_exists($uploadDir . $oldImage)) {
+                        unlink($uploadDir . $oldImage);
+                    }
+
+                    $article = new Article([
+                        'articleId' => $idUpdate,
+                        'author' => $author,
+                        'title' => $title,
+                        'content' => $content,
+                        'image' => $imageName,
+                        'extract' => $extract
+                    ]);
+
+                    $model->updateArticle($article);
+
+                    $_SESSION['flash_message'] = 'Votre article à été modifier avec succès.';
+                    header('Location: ' . $router->generate('dashboard'));
+                } else {
+                    $message = 'Erreur lors de l\'upload de l\'image.';
+                    echo self::getRender('editArticle.html.twig', ['message' => $message]);
+                }
+            } else {
+                $message = 'Une erreur est survenue. Réessayer plus tard.';
+                echo self::getrender('editArticle.html.twig', ['message' => $message]);
             }
         }
     }
