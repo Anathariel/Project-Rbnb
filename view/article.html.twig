@@ -5,14 +5,25 @@
 {% block content %}
 
 <section id="section-article">
-	<h1>{{ article.title }}</h1>
-	{# Manque les données de l'auteur pour le moment, faire à la dure pour l'instant, on remplira une fois la requête modifier.#}
-	<p>{{ article.extract }}</p>
-    <figure>
-        <img src="{{ asset('/media/blog/' ~ article.image) }}" alt="{{ article.title }}">
-    </figure>
-    <p>{{ article.content }}</p>
+    <div class="intro-article">
+        <h1>{{ article.title }}</h1>
+        <p>{{ article.extract }}</p>
+        <figure class="author-infos">
+            <img src="{{ asset('/media/profils/') }}{{ article.authorImage }}" alt="Image de profil de {{ article.authorName }}">
+            <figcaption>
+                <p>{{ article.authorName }}</p>
+            </figcaption>
+        </figure>
+    </div>
+    <div class="main-content-article">
+        <figure>
+            <img src="{{ asset('/media/blog/' ~ article.image) }}" alt="{{ article.title }}">
+        </figure>
 
+        <div class="content-text">
+            <p>{{ article.content }}</p>    
+        </div>
+    </div>
 </section>
 
 {% endblock %}

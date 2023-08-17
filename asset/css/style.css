@@ -152,6 +152,7 @@ h3 {
   border-radius: 0.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card figure {
   position: relative;
@@ -247,10 +248,6 @@ h3 {
   line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-.card .card-details .description .date-article {
-  text-align: right;
-  margin: 0.5rem;
-}
 .card .card-details .calendar {
   display: flex;
   flex-direction: row;
@@ -267,6 +264,20 @@ h3 {
 .card .card-details .calendar .departure {
   width: 50%;
   padding: 0.5rem;
+}
+.card .card-details .date-author {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  text-align: right;
+  position: absolute;
+  margin: 1rem;
+  width: 90%;
+  bottom: 0;
+}
+.card .card-details .date-author h4 {
+  color: #92aad3;
+  font-family: "Quicksand-bold";
 }
 .card .card-details button.main-button-style {
   width: 90%;
@@ -313,6 +324,10 @@ h3 {
 .card .card-details .dashboard-property-buttons input:hover {
   border: 1px solid red;
   border-radius: 0.5rem;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: rgba(99, 99, 99, 0.3) 0px 4px 12px 0px;
 }
 
 @media screen and (max-width: 800px) {
@@ -2489,99 +2504,68 @@ section#googlemaps-property-section div#map {
 }
 
 section#section-blog {
-  margin-top: 20px;
-}
-section#section-blog p.sub-title-section {
-  color: black;
+  margin-top: 1rem;
   text-align: center;
-  padding: 30px;
 }
-section#section-blog div#container-section-blog {
-  width: 90%;
+section#section-blog h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+section#section-blog p.sub-title-blog {
+  font-size: 1rem;
+}
+section#section-blog #container-cards-section-blog {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  margin: 0 auto;
-}
-section#section-blog div#container-section-blog div.card-blog {
-  width: 100%;
-  max-width: 420px;
-  height: 540px;
-  background-color: #f8f8f8;
-  border-radius: 8px 8px 0 0;
-  overflow: hidden;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  margin: 0 5px 40px 5px;
-  transition: all 0.5s ease;
-}
-@media screen and (min-width: 950px) {
-  section#section-blog div#container-section-blog div.card-blog {
-    width: 384px;
-    height: 456px;
-  }
-  section#section-blog div#container-section-blog div.card-blog:hover .bg-image {
-    transform: scale(1.1);
-  }
-}
-section#section-blog div#container-section-blog div.card-blog div.card-blog-top {
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 0 auto;
-}
-section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom {
-  position: relative;
-  padding: 30px 40px;
-  text-align: center;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-section#section-blog div#container-section-blog div.card-blog div.card-blog-bottom p {
-  margin-top: 15px;
-}
-section#section-blog div#container-section-blog div.card-blog div.card-blog {
-  position: relative;
-  text-align: center;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  margin-top: 1rem;
 }
 
 section#section-article {
   text-align: center;
-  margin: 30px auto;
 }
-
-div#article-flex-images figure.article-flex-images {
+section#section-article .intro-article {
+  background-color: #92aad3;
+  margin: 1rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  height: 350px;
+}
+section#section-article .intro-article h1,
+section#section-article .intro-article p {
+  color: #f8f8f8;
+}
+section#section-article .intro-article h1 {
+  font-size: 2.5rem;
+}
+section#section-article .intro-article figure.author-infos {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem;
 }
-
-div#article-flex-images .right-aligned {
-  float: right;
-  margin-left: 5px;
+section#section-article .intro-article figure.author-infos img {
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  margin: 1rem;
 }
-
-section#section-article h1,
-section#section-article h2 {
-  color: #92AAD3;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
+section#section-article .intro-article figure.author-infos figcaption {
+  margin: 1rem;
 }
-
-div#article-flex-images figure.article-flex-images {
+section#section-article .intro-article figure.author-infos figcaption p {
+  font-size: 1.2rem;
+}
+section#section-article .main-content-article {
   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
 }
-div#article-flex-images figure.article-flex-images section#section-article h3 {
-  color: #92AAD3;
+section#section-article .main-content-article figure img {
+  transform: translateY(-20%);
 }
-div#article-flex-images figure.article-flex-images section#section-article h3 section#section-article h4 {
-  color: #92AAD3;
-  text-align: center;
+section#section-article .main-content-article .content-text {
+  max-width: 1000px;
+  margin: 1rem;
 }/*# sourceMappingURL=style.css.map */
