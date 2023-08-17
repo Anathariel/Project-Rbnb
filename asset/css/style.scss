@@ -1467,6 +1467,12 @@ section#new-destinations-section {
             background-color: $white;
           }
         }
+        transition: transform 0.3s, box-shadow 0.3s;  // Add this line for smooth transitions
+  
+        &:hover {
+          transform: scale(1.05);  // Slightly increase the card's size on hover
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; // Enhanced box-shadow on hover
+        }
       }
     }
 
@@ -1608,6 +1614,12 @@ section#best-tags-section {
           &:hover figcaption {
             background-color: $white;
           }
+        }
+        transition: transform 0.3s, box-shadow 0.3s;  // Add this line for smooth transitions
+  
+        &:hover {
+          transform: scale(1.05);  // Slightly increase the card's size on hover
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; // Enhanced box-shadow on hover
         }
       }
     }
