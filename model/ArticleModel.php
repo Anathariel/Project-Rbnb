@@ -11,6 +11,7 @@ class ArticleModel extends Model
                 `article`.`image`, 
                 `article`.`content`, 
                 CONCAT(`user`.`firstName`, " ", `user`.`lastName`) as `authorName`, 
+                `user`.`picture` as `authorImage`,
                 `article`.`date` 
             FROM `article` 
             JOIN `user` ON `article`.`author` = `user`.`uid`
@@ -18,10 +19,10 @@ class ArticleModel extends Model
         );
         $req->bindParam('articleId', $articleId, PDO::PARAM_INT);
         $req->execute();
-
+    
         $article = $req->fetch(PDO::FETCH_ASSOC);
         return $article;
-    }
+    }    
 
     public function getAuthorNameById($authorId)
     {

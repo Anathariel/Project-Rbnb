@@ -325,7 +325,7 @@ h3 {
       width: 90%;
       bottom: 0;
 
-      h4{
+      h4 {
         color: $maincolor;
         font-family: $bold;
       }
@@ -385,7 +385,8 @@ h3 {
     }
   }
 
-  transition: transform 0.3s ease, box-shadow 0.3s ease; // Smoothing out the effect
+  transition: transform 0.3s ease,
+  box-shadow 0.3s ease; // Smoothing out the effect
 
   &:hover {
     transform: scale(1.05); // Subtle scaling effect
@@ -2979,15 +2980,16 @@ section#section-blog {
   margin-top: 1rem;
   text-align: center;
 
-  h2{
+  h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
-  p.sub-title-blog{
+
+  p.sub-title-blog {
     font-size: 1rem;
   }
 
-  #container-cards-section-blog{
+  #container-cards-section-blog {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -2998,5 +3000,62 @@ section#section-blog {
 //~ -------------------- ARTICLE -------------------- //
 
 section#section-article {
- 
+  text-align: center;
+
+  .intro-article {
+    background-color: $maincolor;
+    margin: 1rem;
+    border-radius: .5rem .5rem 0 0;
+    height: 350px;
+
+    h1,
+    p {
+      color: $white;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    figure.author-infos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem;
+
+      img {
+        border-radius: 100%;
+        width: 80px;
+        height: 80px;
+        margin: 1rem;
+      }
+
+      figcaption {
+        margin: 1rem;
+
+        p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  .main-content-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+
+    figure {
+      img {
+        transform: translateY(-20%);
+      }
+    }
+
+    .content-text{
+      max-width: 1000px;
+      margin: 1rem;
+    }
+  }
 }
