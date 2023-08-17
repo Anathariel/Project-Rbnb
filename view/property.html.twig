@@ -456,20 +456,27 @@
 							{% endif %}
 							<p>Aucun montant ne vous sera débité pour le moment</p>
 						</div>
-						<div class="price-details hidden">
+						<div class="price-details">
 							<div class="details">
-								<p>{{ property.PriceNight }}€ x
-									<span id="nb-day"></span>
+								<p>
+									<span id="pricePerNight">{{ property.PriceNight }}€</span>
+									x
+									<span id="nb-day">0</span>
 								</p>
-								<p>Frais de service Loca'R</p>
-								<p>Taxes</p>
-								<h4>Total du séjour</h4>
+								<p>Frais de service Loca'R:
+									<span id="serviceFee">0€</span>
+								</p>
+								<p>Taxes:
+									<span id="taxes">0€</span>
+								</p>
+								<h4>Total du séjour : 
+									<span id="totalPriceWithFees">0€</span>
+								</h4>
 							</div>
 							<div class="prices">
-								<p id="totalPrice">{{ totalPrice }}€</p>
-								<p id="serviceFee">{{ serviceFee }}€</p>
-								<p id="taxes">{{ taxes }}€</p>
-								<h4 id="totalPriceWithFees">{{ totalPriceWithFees }}€</h4>
+								<p>Total de base:
+									<span id="totalPrice">0€</span>
+								</p>
 							</div>
 						</div>
 					</div>
