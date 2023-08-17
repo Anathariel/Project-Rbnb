@@ -1,15 +1,14 @@
 {% extends "templatedashboard.html.twig" %}
 
 {% block title %}
-	Bienvenue,
-	{{ firstName }}
+	Dashboard
 {% endblock %}
 
 {% block content %}
 <section class="dashboard">
     <section class="welcome-dashboard">
         <h1>Bienvenue,
-            {{ firstName }}
+            <span>{{ user.firstName }}</span>
             !</h1>
 
         <div class="user-menu">
@@ -19,16 +18,16 @@
                     <p>Ajouter une propriété</p>
                 </a>
             </div>
-            <div class="add favoris tab">
-                <a href="#my-favs">
-                    <img src="{{ asset('/media/icons/heart.svg') }}" alt="Mes Favoris">
-                    <p>Mes Favoris</p>
-                </a>
-            </div>
             <div class="add property tab">
                 <a href="#my-proprieties">
                     <img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
                     <p>Mes Propriétés</p>
+                </a>
+            </div>
+            <div class="add favoris tab">
+                <a href="#my-favs">
+                    <img src="{{ asset('/media/icons/heart.svg') }}" alt="Mes Favoris">
+                    <p>Mes Favoris</p>
                 </a>
             </div>
             <div class="add locations tab">
@@ -52,7 +51,9 @@
             </div>
         </div>
     </section>
-
+    {% if message %}
+        <div id="message" data-content="{{ message }}"></div>
+    {% endif %}
     <section class="dashboard-cards-my-proprieties" id="my-proprieties">
 
         <h2>Mes propriétés</h2>

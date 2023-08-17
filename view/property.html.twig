@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block content %}
+{% if message %}
+    <div id="message" data-content="{{ message }}"></div>
+{% endif %}
 	{# ---------- property-section ---------- #}
 	<section id="property-section">
 		<h1>{{ property.title }}</h1>

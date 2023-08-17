@@ -6,7 +6,7 @@
 {% block content %}
 	<section class="propertyform" id="editpropertyform">
 		{% if message %}
-			<p>{{ message }}</p>
+    		<div id="message" data-content="{{ message }}"></div>
 		{% endif %}
 		<h1>Modification de votre propriété</h1>
 
