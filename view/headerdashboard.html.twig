@@ -12,8 +12,12 @@
 
 	<div class="right-menu">
 		<div class="app">
-			<img src="{{ asset('/media/icons/notification.svg') }}" alt="Icon de notification">
-			<img src="{{ asset('/media/icons/messagerie.svg') }}" alt="Icon Messagerie">
+			{% if hasNotifications %}
+				<img src="{{ asset('/media/icons/notifications.svg') }}" alt="Icône de notification">
+			{% else %}
+				<img src="{{ asset('/media/icons/no-notification.svg') }}" alt="Icône de notification">
+			{% endif %}
+			<img src="{{ asset('/media/icons/messagerie.svg') }}" alt="Icône Messagerie">
 		</div>
 
 		<div class="user-menu" id="user-menu">
@@ -32,7 +36,7 @@
 			<div class="submenu-dashboard">
 				<ul>
 					<li><a href="{{ path('dashboard') }}"><img class="submenu-icon"src="{{ asset('/media/icons/dashboard.svg') }}" alt="Icône Dashboard">Dashboard</a></li>
-					<li><a href="#"><img class="submenu-icon"src="{{ asset('/media/icons/notification.svg') }}" alt="Icône Notification">Mes alertes</a></li>
+					<li><a href="#"><img class="submenu-icon"src="{{ asset('/media/icons/no-notification.svg') }}" alt="Icône Notification">Mes alertes</a></li>
 					<li><a href="#"><img class="submenu-icon"src="{{ asset('/media/icons/messagerie.svg') }}" alt="Icône Messagerie">Ma messagerie</a></li>
 					<li><a href="{{ path('options') }}"><img class="submenu-icon"src="{{ asset('/media/icons/setting.svg') }}" alt="Icône Option">Options</a></li>
 					<li><a href="{{ path('logout') }}"><img class="submenu-icon"src="{{ asset('/media/icons/logout.svg') }}" alt="Icône se déconnecter">Se déconnecter</a></li>

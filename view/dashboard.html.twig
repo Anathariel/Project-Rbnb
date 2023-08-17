@@ -1,34 +1,40 @@
 {% extends "templatedashboard.html.twig" %}
 
 {% block title %}
-	Bienvenue,
-	{{ firstName }}
+	Dashboard
 {% endblock %}
 
 {% block content %}
 <section class="dashboard">
     <section class="welcome-dashboard">
         <h1>Bienvenue,
-            {{ firstName }}
+            <span>{{ user.firstName }}</span>
             !</h1>
 
         <div class="user-menu">
             <div class="add first-link">
-                <a href="{{ path('propertyAdd') }}">
-                    <img src="{{ asset('/media/icons/plus.svg') }}" alt="Ajouter une propriété">
-                    <p>Ajouter une propriété</p>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">
+                        <img src="{{ asset('/media/icons/plus.svg') }}" alt="Menu">
+                        Ajouter . . .
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="{{ path('propertyAdd') }}">
+                        <img src="{{ asset('/media/icons/property.svg') }}" alt="Propriétés"> une propriété</a>
+                        <a href="{{ path('articleAdd') }}"><img src="{{ asset('/media/icons/blog.svg') }}" alt="Articles Blog"> un article</a>
+                    </div>
+                </div>
+            </div>
+            <div class="add property tab">
+                <a href="#my-proprieties">
+                    <img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
+                    <p>Mes Propriétés</p>
                 </a>
             </div>
             <div class="add favoris tab">
                 <a href="#my-favs">
                     <img src="{{ asset('/media/icons/heart.svg') }}" alt="Mes Favoris">
                     <p>Mes Favoris</p>
-                </a>
-            </div>
-            <div class="add property tab">
-                <a href="#my-proprieties">
-                    <img src="{{ asset('/media/icons/property.svg') }}" alt="Mes Propriétés">
-                    <p>Mes Propriétés</p>
                 </a>
             </div>
             <div class="add locations tab">
@@ -43,7 +49,6 @@
                     <p>Mes Réservations</p>
                 </a>
             </div>
-
             <div class="add blog tab">
                 <a href="#my-articles">
                     <img src="{{ asset('/media/icons/blog.svg') }}" alt="Mes Articles Blog">
@@ -52,7 +57,9 @@
             </div>
         </div>
     </section>
-
+    {% if message %}
+        <div id="message" data-content="{{ message }}"></div>
+    {% endif %}
     <section class="dashboard-cards-my-proprieties" id="my-proprieties">
 
         <h2>Mes propriétés</h2>
@@ -98,6 +105,59 @@
                             <form action="{{ path('baseDeleteproperty') }}{{ property.propertyId }}" method="POST">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="submit" value="Supprimer" class="delete">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="dashboard-cards-my-favs" id="my-favs">
+
+        <h2>Mes Favoris</h2>
+        <div class="cards-container">
+            {% if userFavorites is empty %}
+            <p>Vous ne disposez pas de favori.</p>
+            {% else %}
+            {% for favorite in userFavorites %}
+            {% set property = favorite.property %}
+            {% if property %}
+            {% set averageRating = property.averageRating|number_format(1, '.', '') %}
+            <a href="{{ path('baseProperty') ~ property.propertyId }}">
+                <div class="card">
+                    <figure>
+                        {% if property.propertyImages %}
+                        <img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}"
+                            alt="{{ property.title }}" />
+                        {% endif %}
+                    </figure>
+
+                    <div class="card-details">
+                        <div class="pricing">
+                            <h3>
+                                <span>{{ property.priceNight }}€</span>/nuit
+                            </h3>
+                            <div class="rating">
+                                <img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Étoiles de notation">
+                                <p>{{ averageRating }}</p>
+                            </div>
+                        </div>
+                        <div class="location">
+                            <img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
+                            <p>{{ property.address }}</p>
+                        </div>
+                        <div class="description">
+                            <h3>{{ property.title }}</h3>
+                            <p class="card-descriptions-limit">{{ property.description }}</p>
+                        </div>
+                        <div class="dashboard-property-buttons">
+                            <form action="{{ path('favoriteDelete') }}" method="POST">
+                                <input type="submit" value="Supprimer" class="delete delete-favorite"
+                                    data-method="DELETE" data-property-id="{{ property.propertyId }}">
                             </form>
                         </div>
                     </div>
@@ -164,59 +224,6 @@
         </div>
     </section>
 
-    <section class="dashboard-cards-my-favs" id="my-favs">
-
-        <h2>Mes Favoris</h2>
-        <div class="cards-container">
-            {% if userFavorites is empty %}
-            <p>Vous ne disposez pas de favori.</p>
-            {% else %}
-            {% for favorite in userFavorites %}
-            {% set property = favorite.property %}
-            {% if property %}
-            {% set averageRating = property.averageRating|number_format(1, '.', '') %}
-            <a href="{{ path('baseProperty') ~ property.propertyId }}">
-                <div class="card">
-                    <figure>
-                        {% if property.propertyImages %}
-                        <img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}"
-                            alt="{{ property.title }}" />
-                        {% endif %}
-                    </figure>
-
-                    <div class="card-details">
-                        <div class="pricing">
-                            <h3>
-                                <span>{{ property.priceNight }}€</span>/nuit
-                            </h3>
-                            <div class="rating">
-                                <img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Étoiles de notation">
-                                <p>{{ averageRating }}</p>
-                            </div>
-                        </div>
-                        <div class="location">
-                            <img src="{{ asset('/media/icons/map-pin.svg') }}" alt="Location pin">
-                            <p>{{ property.address }}</p>
-                        </div>
-                        <div class="description">
-                            <h3>{{ property.title }}</h3>
-                            <p class="card-descriptions-limit">{{ property.description }}</p>
-                        </div>
-                        <div class="dashboard-property-buttons">
-                            <form action="{{ path('favoriteDelete') }}" method="POST">
-                                <input type="submit" value="Supprimer" class="delete delete-favorite"
-                                    data-method="DELETE" data-property-id="{{ property.propertyId }}">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            {% endif %}
-            {% endfor %}
-            {% endif %}
-        </div>
-    </section>
-
     <section class="dashboard-cards-my-reservations" id="my-reservations">
         <h2>Mes réservations</h2>
         <div class="cards-container">
@@ -275,7 +282,7 @@
             {% else %}
             {% for userArticle in userArticles %}
             <a href="{{ path('basearticle') }}/{{ userArticle.articleId }}">
-                <div class="card smaller-card">
+                <div class="card medium-card">
                     <figure>
                         {% if userArticle.image %}
                         <img src="{{ asset('/media/blog/' ~ userArticle.image) }}"
@@ -286,22 +293,20 @@
                     <div class="card-details">
                         <div class="description">
                             <h3>{{ userArticle.title }}</h3>
-                            <q>{{ userArticle.extract }}</q>
+                            <q class="card-descriptions-limit">{{ userArticle.extract }}</q>
                             <div class="date-article">
                                 <p>{{ userArticle.date }}</p>
                             </div>
                         </div>
                         <div class="dashboard-property-buttons">
-                            {# <a href="{{ path('editArticle') ~ userArticle.articleId }}">
+                            <a href="{{ path('baseUpdateArticle')}}{{ userArticle.articleId}}">
                                 <div class="button">
                                     <p>Modifier</p>
                                 </div>
                             </a>
-                            <form action="{{ path('deleteArticle') }}" method="POST">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="articleId" value="{{ userArticle.articleId }}">
-                                <input type="submit" value="Annuler" class="delete">
-                            </form> #}
+                            <form action="{{ path('baseDeletetArticle') }}{{ userArticle.articleId}}" method="POST">
+				                <input type="submit" name="delete" value="DELETE" id="delete-article">
+                            </form>
                         </div>
                     </div>
                 </div>

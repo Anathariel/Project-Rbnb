@@ -6,9 +6,9 @@
 {% block content %}
 
 <section class="propertyform" id="addpropertyForm">
-	{% if message %}
-		<p>{{ message }}</p>
-	{% endif %}
+{% if message %}
+    <div id="message" data-content="{{ message }}"></div>
+{% endif %}
 	<h1>Ajout d'une propriété</h1>
 
 	<form method="POST" enctype="multipart/form-data" action="{{ path('propertyAdd') }}">

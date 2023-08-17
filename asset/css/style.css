@@ -247,6 +247,10 @@ h3 {
   line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+.card .card-details .description .date-article {
+  text-align: right;
+  margin: 0.5rem;
+}
 .card .card-details .calendar {
   display: flex;
   flex-direction: row;
@@ -319,16 +323,6 @@ h3 {
 }
 .smaller-card {
   height: 300px;
-}
-.smaller-card .description {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 135px;
-}
-.smaller-card .description .date-article {
-  position: absolute;
-  bottom: 0;
 }
 
 .medium-card {
@@ -492,6 +486,11 @@ button.main-dash-button-style:hover:before {
 .header-main .header-content #user {
   margin-right: 3rem;
 }
+.header-main .header-content #user .profilepic {
+  height: 50px;
+  width: 50px;
+  border-radius: 5rem;
+}
 @media screen and (max-width: 900px) {
   .header-main .header-content #logo {
     margin-right: auto;
@@ -501,7 +500,7 @@ button.main-dash-button-style:hover:before {
     margin-right: 0;
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
   .header-main .header-content #logo,
   .header-main .header-content #user,
   .header-main .header-content #desktop-searchbar {
@@ -1473,11 +1472,33 @@ section#property-section {
   /* The Modal (background) */
 }
 section#property-section h1 {
-  font-size: 55px;
+  font-size: 3.5em;
+}
+section#property-section .average-stars-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 section#property-section .average-stars-rating figure {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  margin: 0;
+  flex-grow: 1;
+}
+section#property-section .average-stars-rating figure img {
+  margin-right: 5px;
+}
+section#property-section .average-stars-rating figure figcaption {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  justify-content: space-between;
+  width: 100%;
+}
+section#property-section .average-stars-rating figure figcaption p {
+  margin-right: 10px;
 }
 section#property-section .property-images {
   width: 100%;
@@ -1910,6 +1931,9 @@ section#googlemaps-property-section div#map {
   padding-top: 1rem;
   font-size: 2rem;
 }
+.dashboard .welcome-dashboard h1 span {
+  color: #0e9384;
+}
 .dashboard .welcome-dashboard .user-menu {
   display: flex;
   flex-wrap: wrap;
@@ -1937,7 +1961,26 @@ section#googlemaps-property-section div#map {
 }
 .dashboard .welcome-dashboard .user-menu .add.first-link a {
   background-color: #0e9384;
-  color: #f8f8f8;
+  min-width: 160px;
+  border-radius: 0.5rem;
+}
+.dashboard .welcome-dashboard .user-menu .dropdown {
+  position: relative;
+}
+.dashboard .welcome-dashboard .user-menu .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  z-index: 2;
+  margin: 1px;
+}
+.dashboard .welcome-dashboard .user-menu .dropdown .dropdown-content a {
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 0.5rem;
+  margin: 0.2rem 0;
 }
 .dashboard .welcome-dashboard .user-menu .add a:hover {
   background: rgba(14, 147, 131, 0.5803921569);

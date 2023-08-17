@@ -49,6 +49,8 @@ $router->map('POST', '/deleteproperty/[i:id]', 'PropertyController#deletePropert
 // SEARCH
 $router->map('GET|POST', '/search', 'SearchController#searchResult', 'search');
 $router->map('GET', '/autocomplete', 'SearchController#searchResultAjax', 'autocomplete');
+$router->map('GET', '/catalogue/tag/[i:id]', 'SearchController#filterByTag', 'filterByTag');
+
 
 // RESERVATION
 $router->map('GET|POST', '/reservation', 'ReservationController#addReservation', 'reservation');
@@ -63,10 +65,7 @@ $router->map('GET', '/article/[i:id]', 'ArticleController#showOneArticle', 'arti
 //CRUD ARTICLE
 $router->map('GET|POST', '/publier/', 'ArticleController#createArticle', 'articleAdd');
 
-$router->map('GET|POST', '/edit/', '', 'baseEditArticle');
-$router->map('GET|POST', '/edit/[i:id]', 'ArticleController#edit', 'editArticle');
-
-$router->map('GET|POST', '/article/update', '', 'baseUpdateArticle');
+$router->map('GET|POST', '/article/update/', '', 'baseUpdateArticle');
 $router->map('GET|POST', '/article/update/[i:idUpdate]', 'ArticleController#update', 'updateArticle');
 
 $router->map('POST|DELETE','/delete/','','baseDeletetArticle');

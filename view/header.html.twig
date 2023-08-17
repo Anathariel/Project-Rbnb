@@ -8,33 +8,35 @@
 
 		<div id="container-searchbar">
 			<div id="desktop-searchbar" class="default-state">
-					<div id="searchbar">
-						<div class="search-element separation">
-							<p>N'importe où</p>
-						</div>
-						<div class="search-element separation">
-							<p>Une semaine</p>
-						</div>
-						<div class="search-element">
-							<p>Ajouter des voyageurs</p>
-						</div>
-						<button>
-							<img src="{{ asset('/media/icons/search.svg') }}" alt="Icône recherche">
-						</button>
+				<div id="searchbar">
+					<div class="search-element separation">
+						<p>N'importe où</p>
 					</div>
+					<div class="search-element separation">
+						<p>Une semaine</p>
+					</div>
+					<div class="search-element">
+						<p>Ajouter des voyageurs</p>
+					</div>
+					<button>
+						<img src="{{ asset('/media/icons/search.svg') }}" alt="Icône recherche">
+					</button>
+				</div>
 			</div>
 		</div>
 
 		<div id="user">
 			{% if session.connect %}
-				<a href="{{ path('dashboard') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Dashboard utilisateur"></a>
+				<a href="{{ path('dashboard') }}">
+					<img src="{{ asset('/media/profils/') }}{{ user.picture }}" alt="Image de profil {{ user.firstName }}" class="profilepic">
+				</a>
 			{% else %}
 				<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/user.svg') }}" alt="Se connecter ou s'inscrire "></a>
 			{% endif %}
 		</div>
 	</div>
 
-	<form action="{{ path('search') }}" method="GET" id="search-form">	
+	<form action="{{ path('search') }}" method="GET" id="search-form">
 		<div class="expanded-state limit-size">
 			<div id="searchbar">
 				<div class="search-element destination-searchbar separation">
@@ -43,19 +45,19 @@
 				</div>
 				<div class="separation calendar">
 					<div class="arrival-searchbar">
-									<p>Arrivée</p>
-									<input type="text" name="" placeholder="Quand ?">
+						<p>Arrivée</p>
+						<input type="text" name="arrival_date" placeholder="Quand ?">
 					</div>
 					<div class="departure-searchbar">
-									<p>Départ</p>
-									<input type="text" name="" placeholder="Quand ?">
+						<p>Départ</p>
+						<input type="text" name="departure_date" placeholder="Quand ?">
 					</div>
 				</div>
 				<div class="search-element end-searchbar">
 					<div class="traveller-searchbar">
 						<p>Voyageurs</p>
-						<input type="text" name="" placeholder="Ajouter des voyageurs">
-					</div>			
+						<input type="text" name="travelers" placeholder="Ajouter des voyageurs">
+					</div>
 					<button type="submit" name="submit">
 						<img src="{{ asset('/media/icons/search.svg') }}" alt="Icône recherche">
 						<p>Rechercher</p>

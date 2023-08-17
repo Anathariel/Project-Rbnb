@@ -6,9 +6,9 @@
 {% block content %}
 	{% include 'category-menu.html.twig' %}
 	{# <form action="{{ path('search') }}" method="GET" id="search-form">
-		<input type="text" name="search" placeholder="Rechercher une location . . ." id="input-search">
-		<input type="submit" value="Rechercher">
-	</form> #}
+								<input type="text" name="search" placeholder="Rechercher une location . . ." id="input-search">
+								<input type="submit" value="Rechercher">
+							</form> #}
 	<h2>Résultat de votre recherche</h2>
 
 	{% if result is empty %}
@@ -26,16 +26,20 @@
 								{% endif %}
 							{% endif %}
 							<figcaption>
-								<form method="POST" action="{{ path('favorite') }}" class="favorite-form {% if property.isFavorite %}favorite-active{% endif %}">
-									<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-									<button>
-										{% if property.isFavorite %}
-											<img src="{{ asset('/media/icons/heart-solid.svg') }}" alt="" id="heart-img-{{ property.propertyId }}">
-										{% else %}
-											<img src="{{ asset('/media/icons/heart.svg') }}" alt="" id="heart-img-{{ property.propertyId }}">
-										{% endif %}
-									</button>
-								</form>
+								{% if user is defined %}
+									<form method="POST" action="{{ path('favorite') }}" class="favorite-form {% if property.isFavorite %}favorite-active{% endif %}">
+										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+										<button>
+											{% if property.isFavorite %}
+												<img src="{{ asset('/media/icons/heart-solid.svg') }}" alt="" id="heart-img-{{ property.propertyId }}">
+											{% else %}
+												<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/heart.svg') }}" alt="" id="heart-img-{{ property.propertyId }}"></a>
+											{% endif %}
+										</button>
+									</form>
+								{% else %}
+									<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/heart.svg') }}" alt="" id="heart-img-{{ property.propertyId }}"></a>
+								{% endif %}
 							</figcaption>
 						</figure>
 						<div class="card-details">

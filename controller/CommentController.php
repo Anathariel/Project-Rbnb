@@ -21,10 +21,10 @@ class CommentController extends Controller
 
             $commentModel = new CommentModel();
             $commentModel->addCommentModel($comment);
-
+            $_SESSION['flash_message'] = 'Votre commentaire à été ajouter.';
             header('Location: ' . $router->generate('propertyOne', ['id' => $propertyId]));
         } else {
-            $message = 'Oops, something went wrong. Please try again later.';
+            $message = 'Une erreur est survenue. Réessayer plus tard.';
             echo self::getRender('home.html.twig', ['message' => $message]);
         }
     }

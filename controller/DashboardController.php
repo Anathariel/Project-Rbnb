@@ -88,6 +88,12 @@ class DashboardController extends Controller
                 $reservation->getProperty()->setPropertyImages($propertyImages);
             }
         }
+        $message = "";
+
+        if (isset($_SESSION['flash_message'])) {
+            $message = $_SESSION['flash_message'];
+            unset($_SESSION['flash_message']);
+        }        
 
         // Prepare the data to send to the view
         $data = [
@@ -96,9 +102,9 @@ class DashboardController extends Controller
             'userReservations' => $userReservations,
             'userRentedProperties' => $userRentedProperties,
             'averageRating' => $averageRating,
-            'userArticles' => $userArticles
+            'userArticles' => $userArticles,
+            'message' => $message
         ];
-
         // Display the view with the data
         echo self::getRender('dashboard.html.twig', $data);
     }

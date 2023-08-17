@@ -5,7 +5,9 @@
 
 {% block content %}
 <section id="article-add" class="update-form-dashboard">
-{% if message %} <p> {{ message }} </p> {% endif %}
+{% if message %}
+    <div id="message" data-content="{{ message }}"></div>
+{% endif %}
     <h2>Créer un nouvel article</h2>
     <form  method="post" action="{{ path('articleAdd') }}" enctype="multipart/form-data">
 
@@ -13,7 +15,7 @@
         <input type="text" name="title" id="title" placeholder="Entrer le titre de votre article" required>
 
         <label for="image">Image :</label>
-        <input type="file" name="image" id="image" accept="image/*>
+        <input type="file" name="image" id="image" accept="image/*">
  
         <label for="extract">Extrait :</label>
         <textarea name="extract" id="extract" cols="50" rows="5" placeholder="Entrer un résumé de votre article" required></textarea>

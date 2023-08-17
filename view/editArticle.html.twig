@@ -5,7 +5,9 @@
 
 {% block content %}
 <section id="article-add" class="update-form-dashboard">
-{% if message %} <p> {{ message }} </p> {% endif %}
+{% if message %}
+    <div id="message" data-content="{{ message }}"></div>
+{% endif %}
 
     <h2>Modifier votre article : {{ article.title }}</h2>
 

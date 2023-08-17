@@ -15,10 +15,7 @@
   <p class="sub-title-section">Les clients partagent leur expérience, leur télétravail et le choix de leur location.</p>
   
   <div id="container-section-blog">
-  
-  <a href="{{ path('articleAdd')}}">Créer un article</a>
-	{% for article in allArticles %}  
-	    
+  	{% for article in allArticles %}  
     	<div class="card-blog">
       		<div class="card-blog-top">
         		<figure id="pict-aticle-1">
@@ -32,13 +29,7 @@
         		<p class="date-article-blog">
 				<i>{{ article.date }}</i></p>
         		<a href="{{ path('basearticle') }}/{{ article.articleId}}"> ↗</a>
-				<a href="{{ path('baseEditArticle')}}{{ article.articleId}}">Modifier un article</a>
-
-				<form action="{{ path('baseDeletetArticle') }}{{ article.articleId}}" method="POST">
-				<input type="submit" name="delete" value="DELETE" id="delete-article">
-            </form>
       		</div>
-
     	</div>
 	{% endfor %}
   </div>

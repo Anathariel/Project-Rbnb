@@ -293,6 +293,11 @@ h3 {
         line-clamp: 3;
         -webkit-box-orient: vertical;
       }
+
+      .date-article{
+        text-align: right;
+        margin: .5rem;
+      }
     }
 
     .calendar {
@@ -381,18 +386,6 @@ h3 {
 
 .smaller-card {
   height: 300px;
-
-  .description {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 135px;
-
-    .date-article {
-      position: absolute;
-      bottom: 0;
-    }
-  }
 }
 
 .medium-card {
@@ -578,6 +571,12 @@ button.main-dash-button-style:hover:before {
 
     #user {
       margin-right: 3rem;
+
+      .profilepic {
+        height: 50px;
+        width: 50px;
+        border-radius: 5rem;
+      }
     }
 
     @media screen and (max-width: 900px) {
@@ -591,7 +590,7 @@ button.main-dash-button-style:hover:before {
       }
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 750px) {
 
       #logo,
       #user,
@@ -1757,13 +1756,36 @@ section#property-section {
   text-align: left;
 
   h1 {
-    font-size: 55px;
+    font-size: 3.5em;
   }
 
   .average-stars-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
     figure {
       display: flex;
       flex-direction: row;
+      align-items: center;
+      margin: 0;
+        flex-grow: 1;
+      img{
+        margin-right: 5px;
+      }
+
+      figcaption{
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        justify-content: space-between;
+        width: 100%;
+
+        p{
+          margin-right: 10px;
+        }
+      }
     }
   }
 
@@ -2288,6 +2310,10 @@ section#googlemaps-property-section {
       margin: 0 5rem;
       padding-top: 1rem;
       font-size: 2rem;
+
+      span {
+        color: $dash-maincolor;
+      }
     }
 
     .user-menu {
@@ -2319,7 +2345,29 @@ section#googlemaps-property-section {
 
       .add.first-link a {
         background-color: #0e9384;
-        color: $white;
+        min-width: 160px;
+        border-radius: .5rem;
+      }
+
+      .dropdown{
+        position: relative;
+
+        .dropdown-content {
+          display: none; 
+          position: absolute;
+          top: 100%;
+          left: 0;
+          min-width: 160px;
+          z-index: 2;
+          margin: 1px;
+
+          a{
+            background-color: transparent;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            border-radius: .5rem;
+            margin: .2rem 0;
+          }
+        }
       }
 
       .add a:hover {
