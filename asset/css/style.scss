@@ -293,11 +293,6 @@ h3 {
         line-clamp: 3;
         -webkit-box-orient: vertical;
       }
-
-      .date-article{
-        text-align: right;
-        margin: .5rem;
-      }
     }
 
     .calendar {
@@ -317,6 +312,22 @@ h3 {
       .departure {
         width: 50%;
         padding: 0.5rem;
+      }
+    }
+
+    .date-author {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      text-align: right;
+      position: absolute;
+      margin: 1rem;
+      width: 90%;
+      bottom: 0;
+
+      h4{
+        color: $maincolor;
+        font-family: $bold;
       }
     }
 
@@ -372,6 +383,13 @@ h3 {
         border-radius: 0.5rem;
       }
     }
+  }
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease; // Smoothing out the effect
+
+  &:hover {
+    transform: scale(1.05); // Subtle scaling effect
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 4px 12px 0px; // Deeper shadow on hover for lift effect
   }
 }
 
@@ -1770,19 +1788,20 @@ section#property-section {
       flex-direction: row;
       align-items: center;
       margin: 0;
-        flex-grow: 1;
-      img{
+      flex-grow: 1;
+
+      img {
         margin-right: 5px;
       }
 
-      figcaption{
+      figcaption {
         display: flex;
         align-items: center;
         margin-left: 10px;
         justify-content: space-between;
         width: 100%;
 
-        p{
+        p {
           margin-right: 10px;
         }
       }
@@ -2349,11 +2368,11 @@ section#googlemaps-property-section {
         border-radius: .5rem;
       }
 
-      .dropdown{
+      .dropdown {
         position: relative;
 
         .dropdown-content {
-          display: none; 
+          display: none;
           position: absolute;
           top: 100%;
           left: 0;
@@ -2361,7 +2380,7 @@ section#googlemaps-property-section {
           z-index: 2;
           margin: 1px;
 
-          a{
+          a {
             background-color: transparent;
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
             border-radius: .5rem;
@@ -2957,125 +2976,27 @@ section#googlemaps-property-section {
 //~ -------------------- BLOG -------------------- //
 
 section#section-blog {
-  // # car id //
-  margin-top: 20px;
+  margin-top: 1rem;
+  text-align: center;
 
-  p.sub-title-section {
-    // couleur du texte //
-    color: black;
-    text-align: center;
-    padding: 30px;
+  h2{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  p.sub-title-blog{
+    font-size: 1rem;
   }
 
-  div#container-section-blog {
-    // # car id //
-    width: 90%;
+  #container-cards-section-blog{
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    margin: 0 auto;
-
-
-    div.card-blog {
-      // # car class L14 //
-      width: 100%;
-      max-width: 420px;
-      height: 540px;
-      background-color: $white;
-      border-radius: 8px 8px 0 0;
-      overflow: hidden;
-      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-      margin: 0 5px 40px 5px;
-      transition: all 0.5s ease;
-
-      @media screen and (min-width: 950px) {
-        // responsive //
-        width: 384px;
-        height: 456px;
-
-        &:hover {
-          .bg-image {
-            transform: scale(1.1);
-          }
-        }
-      }
-
-      div.card-blog-top {
-        width: 90%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: center;
-        margin: 0 auto;
-
-
-      }
-
-      div.card-blog-bottom {
-        position: relative;
-        padding: 30px 40px;
-        text-align: center;
-        height: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        p {
-          margin-top: 15px;
-        }
-      }
-
-      div.card-blog {
-        position: relative;
-        text-align: center;
-        height: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-      }
-    }
+    margin-top: 1rem;
   }
 }
 
 //~ -------------------- ARTICLE -------------------- //
 
 section#section-article {
-  text-align: center;
-  margin: 30px auto;
-}
-
-div#article-flex-images figure.article-flex-images {
-  display: flex;
-}
-
-div#article-flex-images .right-aligned {
-  float: right;
-  margin-left: 5px;
-}
-
-section#section-article h1,
-section#section-article h2 {
-  color: #92AAD3;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-div#article-flex-images {
-  figure.article-flex-images {
-    display: flex;
-
-    section#section-article h3 {
-      color: #92AAD3;
-
-
-      section#section-article h4 {
-        color: #92AAD3;
-        text-align: center;
-      }
-    }
-  }
+ 
 }

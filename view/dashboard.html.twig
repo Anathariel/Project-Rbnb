@@ -60,6 +60,7 @@
     {% if message %}
         <div id="message" data-content="{{ message }}"></div>
     {% endif %}
+
     <section class="dashboard-cards-my-proprieties" id="my-proprieties">
 
         <h2>Mes propriétés</h2>
@@ -294,9 +295,6 @@
                         <div class="description">
                             <h3>{{ userArticle.title }}</h3>
                             <q class="card-descriptions-limit">{{ userArticle.extract }}</q>
-                            <div class="date-article">
-                                <p>{{ userArticle.date }}</p>
-                            </div>
                         </div>
                         <div class="dashboard-property-buttons">
                             <a href="{{ path('baseUpdateArticle')}}{{ userArticle.articleId}}">

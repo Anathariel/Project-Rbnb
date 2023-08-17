@@ -3,15 +3,33 @@ class ArticleModel extends Model
 {
     public function getShowOneArticle($articleId)
     {
-        $req = $this->getDb()->prepare('SELECT `articleId`, `title`, `extract`, `image`, `content`, `author`, `date` FROM `article` WHERE `articleId` = :articleId');
-
+        $req = $this->getDb()->prepare(
+            'SELECT 
+                `article`.`articleId`, 
+                `article`.`title`, 
+                `article`.`extract`, 
+                `article`.`image`, 
+                `article`.`content`, 
+                CONCAT(`user`.`firstName`, " ", `user`.`lastName`) as `authorName`, 
+                `article`.`date` 
+            FROM `article` 
+            JOIN `user` ON `article`.`author` = `user`.`uid`
+            WHERE `article`.`articleId` = :articleId'
+        );
         $req->bindParam('articleId', $articleId, PDO::PARAM_INT);
-
         $req->execute();
 
         $article = $req->fetch(PDO::FETCH_ASSOC);
-
         return $article;
+    }
+
+    public function getAuthorNameById($authorId)
+    {
+        $req = $this->getDb()->prepare('SELECT CONCAT(firstname, " ", lastname) AS fullname FROM users WHERE id = :authorId');
+        $req->bindParam('authorId', $authorId, PDO::PARAM_INT);
+        $req->execute();
+
+        return $req->fetch(PDO::FETCH_ASSOC)['fullname'];
     }
 
     public function getArticlesByUid($uid)
@@ -43,7 +61,7 @@ class ArticleModel extends Model
         $req->bindParam(":title", $title, PDO::PARAM_STR);
         $req->bindParam(":extract", $extract, PDO::PARAM_STR);
         $req->bindParam(":content", $content, PDO::PARAM_STR);
-        
+
         $req->execute();
     }
 
@@ -69,17 +87,17 @@ class ArticleModel extends Model
         $req->execute();
     }
 
-    public function getImagePathById($id) {
+    public function getImagePathById($id)
+    {
         $req = $this->getDb()->prepare('SELECT image FROM `article` WHERE `articleId` = :id');
         $req->bindParam(':id', $id, PDO::PARAM_INT);
         $req->execute();
-        
+
         return $req->fetchColumn();
     }
 
     public function deleteArticle($id)
     {
-
         $req = $this->getDb()->prepare('DELETE FROM `article` WHERE `articleId` = :articleId');
         $req->bindParam('articleId', $id, PDO::PARAM_INT);
 
