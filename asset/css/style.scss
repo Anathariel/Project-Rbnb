@@ -1763,13 +1763,36 @@ section#property-section {
   text-align: left;
 
   h1 {
-    font-size: 55px;
+    font-size: 3.5em;
   }
 
   .average-stars-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
     figure {
       display: flex;
       flex-direction: row;
+      align-items: center;
+      margin: 0;
+        flex-grow: 1;
+      img{
+        margin-right: 5px;
+      }
+
+      figcaption{
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        justify-content: space-between;
+        width: 100%;
+
+        p{
+          margin-right: 10px;
+        }
+      }
     }
   }
 
