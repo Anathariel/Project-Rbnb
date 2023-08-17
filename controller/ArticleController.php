@@ -20,8 +20,7 @@ class ArticleController extends Controller
         } else {
             $model = new ArticleModel();
             if (isset($_POST['submit'])) {
-
-
+                
                 $author = $_SESSION['uid'];
                 $title = $_POST['title'];
                 $content = $_POST['content'];
@@ -29,8 +28,6 @@ class ArticleController extends Controller
                 $extract = $_POST['extract'];
 
                 $article = new Article([
-
-
                     'author' => $author,
                     'title' => $title,
                     'content' => $content,
@@ -48,65 +45,38 @@ class ArticleController extends Controller
         }
     }
 
-    public function edit($id)
-    {
-        global $router;
-        $model = new ArticleModel();
-        $article = $model->getShowOneArticle($id);
-        var_dump($article);
-        echo self::getrender('editArticle.html.twig', ['router' => $router, 'article' => $article]);
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        //     $title = $_POST['title'];
-        //     $content = $_POST['content'];
-        //     $image = $_FILES['image']['name'];
-        //     var_dump($_FILES);
-
-        //     $extract = $_POST['extract'];
-
-        //     $article = new Article([
-        //         'articleId' => $id,
-        //         'title' => $title,
-        //         'content' => $content,
-        //         'image' => $image,
-        //         'extract' => $extract
-        //     ]);
-
-        //     // Transmettez l'objet $article à la méthode editArticle
-        //     $article = $model->editArticle($article);
-
-        //     echo self::getrender('editArticle.html.twig', ['article' => $article]);
-        // }
-    }
     public function update($idUpdate)
     {
+        if (!$_POST) {
+            $model = new ArticleModel();
+            $article = $model->getShowOneArticle($idUpdate);
+            echo self::getrender('editArticle.html.twig', ['article' => $article]);
+        } else {
+            $model = new ArticleModel();
 
-        $model = new ArticleModel();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $articleId = $idUpdate;
+                $author = $_SESSION['uid'];
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                $image = $_FILES['image']['name'];
+                $extract = $_POST['extract'];
 
+                $article = new Article([
+                    'articleId' => $articleId,
+                    'author' => $author,
+                    'title' => $title,
+                    'content' => $content,
+                    'image' => $image,
+                    'extract' => $extract
+                ]);
+                // Transmettez l'objet $article à la méthode editArticle
+                $model->updateArticle($article);
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $articleId = $idUpdate;
-            $author = $_SESSION['uid'];
-            $title = $_POST['title'];
-            $content = $_POST['content'];
-            $image = $_FILES['image']['name'];
-            $extract = $_POST['extract'];
-
-            $article = new Article([
-
-                'articleId' => $articleId,
-                'author' => $author,
-                'title' => $title,
-                'content' => $content,
-                'image' => $image,
-                'extract' => $extract
-            ]);
-            var_dump($article);
-
-            // Transmettez l'objet $article à la méthode editArticle
-            $model->updateArticle($article);
-
-            echo self::getrender('blog.html.twig', ['article' => $article]);
+                global $router;
+                $_SESSION['flash_message'] = 'Votre article à été modifier avec succès.';
+                header('Location: ' . $router->generate('dashboard'));
+            }
         }
     }
 

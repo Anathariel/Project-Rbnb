@@ -33,7 +33,7 @@
 				<i>{{ article.date }}</i></p>
         		<a href="{{ path('basearticle') }}/{{ article.articleId}}"> ↗</a>
 				
-				<a href="{{ path('baseEditArticle')}}{{ article.articleId}}">Modifier un article</a>
+				<a href="{{ path('baseUpdateArticle')}}{{ article.articleId}}">Modifier un article</a>
 
 				<form action="{{ path('baseDeletetArticle') }}{{ article.articleId}}" method="POST">
 				<input type="submit" name="delete" value="DELETE" id="delete-article">
