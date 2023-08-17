@@ -2295,7 +2295,7 @@ section#googlemaps-property-section {
       padding-top: 1rem;
       font-size: 2rem;
 
-      span{
+      span {
         color: $dash-maincolor;
       }
     }
@@ -2329,7 +2329,28 @@ section#googlemaps-property-section {
 
       .add.first-link a {
         background-color: #0e9384;
-        color: $white;
+        min-width: 150px;
+      }
+
+      .dropdown{
+        position: relative;
+
+        .dropdown-content {
+          display: none; 
+          position: absolute;
+          top: 100%;
+          left: 0;
+          min-width: 160px;
+          z-index: 2;
+          margin: 1px;
+
+          a{
+            background-color: transparent;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            border-radius: .5rem;
+            margin: .2rem 0;
+          }
+        }
       }
 
       .add a:hover {

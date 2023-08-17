@@ -32,6 +32,7 @@
         		<p class="date-article-blog">
 				<i>{{ article.date }}</i></p>
         		<a href="{{ path('basearticle') }}/{{ article.articleId}}"> ↗</a>
+				
 				<a href="{{ path('baseEditArticle')}}{{ article.articleId}}">Modifier un article</a>
 
 				<form action="{{ path('baseDeletetArticle') }}{{ article.articleId}}" method="POST">

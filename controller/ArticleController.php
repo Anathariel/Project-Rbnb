@@ -21,7 +21,7 @@ class ArticleController extends Controller
             $model = new ArticleModel();
             if (isset($_POST['submit'])) {
 
-              
+
                 $author = $_SESSION['uid'];
                 $title = $_POST['title'];
                 $content = $_POST['content'];
@@ -30,7 +30,7 @@ class ArticleController extends Controller
 
                 $article = new Article([
 
-                    
+
                     'author' => $author,
                     'title' => $title,
                     'content' => $content,
@@ -60,7 +60,7 @@ class ArticleController extends Controller
         //     $content = $_POST['content'];
         //     $image = $_FILES['image']['name'];
         //     var_dump($_FILES);
-            
+
         //     $extract = $_POST['extract'];
 
         //     $article = new Article([
@@ -73,19 +73,20 @@ class ArticleController extends Controller
 
         //     // Transmettez l'objet $article à la méthode editArticle
         //     $article = $model->editArticle($article);
-    
+
         //     echo self::getrender('editArticle.html.twig', ['article' => $article]);
         // }
     }
-    public function update($idUpdate){
+    public function update($idUpdate)
+    {
 
         $model = new ArticleModel();
 
 
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $articleId = $idUpdate;
-            $author =$_SESSION['uid'];
+            $author = $_SESSION['uid'];
             $title = $_POST['title'];
             $content = $_POST['content'];
             $image = $_FILES['image']['name'];
@@ -93,8 +94,8 @@ class ArticleController extends Controller
 
             $article = new Article([
 
-                'articleId' =>$articleId,
-                'author' =>$author,
+                'articleId' => $articleId,
+                'author' => $author,
                 'title' => $title,
                 'content' => $content,
                 'image' => $image,
@@ -103,24 +104,22 @@ class ArticleController extends Controller
             var_dump($article);
 
             // Transmettez l'objet $article à la méthode editArticle
-          $model->updateArticle($article);
-    
-            echo self::getrender('blog.html.twig', ['article' => $article]);
+            $model->updateArticle($article);
 
+            echo self::getrender('blog.html.twig', ['article' => $article]);
+        }
     }
-}
-    public function delete($id){
-    
+
+    public function delete($id)
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-                $model = new ArticleModel();
-                $model->deleteArticle($id);
+            $model = new ArticleModel();
+            $model->deleteArticle($id);
 
-
-                global $router;
-                
-             echo self::getrender('editArticle.html.twig', ['router' => $router]);
-            }
-         
+            global $router;
+            $_SESSION['flash_message'] = 'Votre article à été supprimer avec succès.';
+            header('Location: ' . $router->generate('dashboard'));
+        }
     }
 }

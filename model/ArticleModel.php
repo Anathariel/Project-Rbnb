@@ -36,7 +36,7 @@ class ArticleModel extends Model{
         $extract = $article->getExtract();
         $content = $article->getContent();
 
-        $req = $this->getDb()->prepare('INSERT INTO `article` (`author`, `image,` `title`, `extract`, `content`, `date`) VALUES (:author, :image,  :title, :extract, :content, NOW())');
+        $req = $this->getDb()->prepare('INSERT INTO `article` (`author`, `image`, `title`, `extract`, `content`, `date`) VALUES (:author, :image,  :title, :extract, :content, NOW())');
 
         $req->bindParam(":author", $author, PDO::PARAM_INT);
         $req->bindParam(":image", $image, PDO::PARAM_STR);
