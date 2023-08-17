@@ -3033,8 +3033,12 @@ section#section-article {
       figcaption {
         margin: 1rem;
 
-        p {
+        h4{
           font-size: 1.2rem;
+          color: $white;
+        }
+        p {
+          font-size: .9rem;
         }
       }
     }
@@ -3053,9 +3057,13 @@ section#section-article {
       }
     }
 
-    .content-text{
+    .content-text {
       max-width: 1000px;
       margin: 1rem;
     }
+  }
+
+  .sharethis-inline-share-buttons{
+    margin: 2rem;
   }
 }
