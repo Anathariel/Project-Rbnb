@@ -36,7 +36,7 @@ class ArticleModel extends Model{
         $extract = $article->getExtract();
         $content = $article->getContent();
 
-        $req = $this->getDb()->prepare('INSERT INTO `article` (`author`, `image,` `title`, `extract`, `content`, `date`) VALUES (:author, :image,  :title, :extract, :content, NOW())');
+        $req = $this->getDb()->prepare('INSERT INTO `article` (`author`, `image`, `title`, `extract`, `content`, `date`) VALUES (:author, :image,  :title, :extract, :content, NOW())');
 
         $req->bindParam(":author", $author, PDO::PARAM_INT);
         $req->bindParam(":image", $image, PDO::PARAM_STR);
@@ -70,29 +70,7 @@ class ArticleModel extends Model{
 
     // return $updateArticle;
 }
-// public function updateArticle(Article $article){
 
-//     $author = $article->getAuthor();
-//     $image = $article->getImage();   
-//     $title = $article->getTitle();
-//     $extract = $article->getExtract();
-//     $content = $article->getContent();
-
-//     $req = $this->getDb()->prepare('UPDATE `article` SET `articleId`=:articleId,`author`=:author, `title` =:title, `image` =:image,`extract` =:extract, `content`=:content WHERE `articleId` = :articleId');
-
-//     // Liez les paramètres comme précédemment
-//     $req->bindParam(":articleId", $articleId, PDO::PARAM_INT);
-//     $req->bindParam(":author", $author, PDO::PARAM_INT);
-//     $req->bindParam(":image", $image, PDO::PARAM_STR);
-//     $req->bindParam(":title", $title, PDO::PARAM_STR);
-//     $req->bindParam(":extract", $extract, PDO::PARAM_STR);
-//     $req->bindParam(":content", $content, PDO::PARAM_STR);
-
-//     $req->execute();
-
-
-
-// }
     public function deleteArticle($id){
 
         $req = $this->getDb()->prepare('DELETE FROM `article` WHERE `articleId` = :articleId');

@@ -280,6 +280,7 @@
 						<button class="comment-rightarrow"><img src="{{ asset('/media/icons/arrowleft.svg') }}"
 								alt=""></button>
 					</div>
+
 					{% endif %}
 					<div class="container-comments-row">
 						{% for comment in comments %}
@@ -298,8 +299,11 @@
 							<p>{{ comment.commentText }}</p>
 							<figure>
 								<div id="profile-picture">
-									<img src="{{ asset('/media/profils/') }}{{ comment.picture }}"
-										alt="{{ comment.picture }}">
+									 <img src="{{ asset('/media/profils/') }}{{ comment.picture }}" 
+										alt="{{ comment.picture }}"> 
+
+										{# <img src="{{ asset('/media/profils/' ~ comment.picture) }}" alt="{{ comment.picture }}"> #}
+
 								</div>
 								<figcaption>
 									<p>{{ comment.firstname }}</p>

@@ -10,8 +10,6 @@ class ArticleController extends Controller
 
     //CRUD ARTICLE
 
-
-
     public function createArticle()
     {
         global $router;
@@ -24,7 +22,6 @@ class ArticleController extends Controller
 
             if (isset($_POST['submit'])) {
 
-              
                 $author = $_SESSION['uid'];
 
                 $title = $_POST['title'];
@@ -34,7 +31,6 @@ class ArticleController extends Controller
 
                 $article = new Article([
 
-                    
                     'author' => $author,
                     'title' => $title,
                     'content' => $content,
@@ -42,17 +38,21 @@ class ArticleController extends Controller
                     'extract' => $extract
 
                 ]);
+            }
+            $createArticle = $model->addArticle($article);
 
+            if ($createArticle) {
 
-                $model->addArticle($article);
-                header('Location: ' . $router->generate('dashboard'));
-            } else {
-                $message = 'Oops,Try again later';
+                $message = 'Article created successfully!';
                 echo self::getrender('addarticle.html.twig', ['message' => $message]);
+            } else {
+
+                $message = 'Oops,Try again later';
+                header('Location: ' . $router->generate('dashboard'));
             }
         }
     }
-
+    
     public function edit($id)
     {
         global $router;
@@ -61,37 +61,16 @@ class ArticleController extends Controller
         $article = $model->getShowOneArticle($id);
         var_dump($article);
         echo self::getrender('editArticle.html.twig', ['router' => $router, 'article' => $article]);
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        //     $title = $_POST['title'];
-        //     $content = $_POST['content'];
-        //     $image = $_FILES['image']['name'];
-        //     var_dump($_FILES);
-            
-        //     $extract = $_POST['extract'];
-
-        //     $article = new Article([
-        //         'articleId' => $id,
-        //         'title' => $title,
-        //         'content' => $content,
-        //         'image' => $image,
-        //         'extract' => $extract
-        //     ]);
-
-        //     // Transmettez l'objet $article à la méthode editArticle
-        //     $article = $model->editArticle($article);
-    
-        //     echo self::getrender('editArticle.html.twig', ['article' => $article]);
-        // }
     }
-    public function update($idUpdate){
+    public function update($idUpdate)
+    {
 
         $model = new ArticleModel();
 
-
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $articleId = $idUpdate;
-            $author =$_SESSION['uid'];
+            $author = $_SESSION['uid'];
             $title = $_POST['title'];
             $content = $_POST['content'];
             $image = $_FILES['image']['name'];
@@ -99,34 +78,31 @@ class ArticleController extends Controller
 
             $article = new Article([
 
-                'articleId' =>$articleId,
-                'author' =>$author,
+                'articleId' => $articleId,
+                'author' => $author,
                 'title' => $title,
                 'content' => $content,
                 'image' => $image,
                 'extract' => $extract
             ]);
-            var_dump($article);
-
             // Transmettez l'objet $article à la méthode editArticle
-          $model->updateArticle($article);
-    
-            echo self::getrender('blog.html.twig', ['article' => $article]);
+            $model->updateArticle($article);
 
+            echo self::getrender('blog.html.twig', ['article' => $article]);
+        }
     }
-}
-    public function delete($id){
-    
+    public function delete($id)
+    {
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-                $model = new ArticleModel();
-                $model->deleteArticle($id);
+            $model = new ArticleModel();
+            $model->deleteArticle($id);
 
 
-                global $router;
-                
-             echo self::getrender('editArticle.html.twig', ['router' => $router]);
-            }
-         
+            global $router;
+
+            echo self::getrender('editArticle.html.twig', ['router' => $router]);
+        }
     }
 }
