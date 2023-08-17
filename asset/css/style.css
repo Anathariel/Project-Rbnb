@@ -247,6 +247,10 @@ h3 {
   line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+.card .card-details .description .date-article {
+  text-align: right;
+  margin: 0.5rem;
+}
 .card .card-details .calendar {
   display: flex;
   flex-direction: row;
@@ -319,16 +323,6 @@ h3 {
 }
 .smaller-card {
   height: 300px;
-}
-.smaller-card .description {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 135px;
-}
-.smaller-card .description .date-article {
-  position: absolute;
-  bottom: 0;
 }
 
 .medium-card {
@@ -1967,7 +1961,8 @@ section#googlemaps-property-section div#map {
 }
 .dashboard .welcome-dashboard .user-menu .add.first-link a {
   background-color: #0e9384;
-  min-width: 150px;
+  min-width: 160px;
+  border-radius: 0.5rem;
 }
 .dashboard .welcome-dashboard .user-menu .dropdown {
   position: relative;

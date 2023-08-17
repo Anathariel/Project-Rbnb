@@ -282,7 +282,7 @@
             {% else %}
             {% for userArticle in userArticles %}
             <a href="{{ path('basearticle') }}/{{ userArticle.articleId }}">
-                <div class="card smaller-card">
+                <div class="card medium-card">
                     <figure>
                         {% if userArticle.image %}
                         <img src="{{ asset('/media/blog/' ~ userArticle.image) }}"
@@ -293,7 +293,7 @@
                     <div class="card-details">
                         <div class="description">
                             <h3>{{ userArticle.title }}</h3>
-                            <q>{{ userArticle.extract }}</q>
+                            <q class="card-descriptions-limit">{{ userArticle.extract }}</q>
                             <div class="date-article">
                                 <p>{{ userArticle.date }}</p>
                             </div>
