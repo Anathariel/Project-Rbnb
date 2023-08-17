@@ -11,7 +11,8 @@
         <figure class="author-infos">
             <img src="{{ asset('/media/profils/') }}{{ article.authorImage }}" alt="Image de profil de {{ article.authorName }}">
             <figcaption>
-                <p>{{ article.authorName }}</p>
+                <h4>{{ article.authorName }}</h4>
+                <p>{{ article.date|date("d M Y") }}</p>
             </figcaption>
         </figure>
     </div>
@@ -24,6 +25,8 @@
             <p>{{ article.content }}</p>    
         </div>
     </div>
+
+    <div class="sharethis-inline-share-buttons"></div>
 </section>
 
 {% endblock %}
