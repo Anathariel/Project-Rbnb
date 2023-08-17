@@ -38,8 +38,10 @@ class PropertyController extends Controller
             $isAvailable = null;
         }
 
+        $maxGuests = $houseRules ? $houseRules->getMaxGuests() : 1;
+
         $oneProperty = $router->generate('baseProperty');
-        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyCount' => $propertyCount, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comments' => $comments, 'propertyType' => $propertyType, 'averageRating' => $averageRating, 'isAvailable' => $isAvailable]);
+        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyCount' => $propertyCount, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comments' => $comments, 'propertyType' => $propertyType, 'averageRating' => $averageRating, 'maxGuests' => $maxGuests, 'isAvailable' => $isAvailable]);
     }
 
     // C R U D

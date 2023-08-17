@@ -6,8 +6,13 @@ class SearchController extends Controller
     {
         if ($_GET) {
             $searchTerm = $_GET['search'];
+            $arrivalDate = $_GET['arrival_date'];
+            $departureDate = $_GET['departure_date'];
+            $travelers = $_GET['travelers'];
+            
             $model = new SearchModel();
-            $datas = $model->getSearchResult($searchTerm);
+            $datas = $model->getSearchResult($searchTerm, $arrivalDate, $departureDate, $travelers);
+
 
             $propertyImagesModel = new PropertyImagesModel();
             $averageRatingModel = new CommentModel();
@@ -35,22 +40,22 @@ class SearchController extends Controller
         echo self::getRender('catalog.html.twig', ['result' => $datas]);
     }
 
-    public function searchResultAjax()
-    {
-        $searchTerm = $_GET['term'];
-        $model = new SearchModel();
-        $datas = $model->getSearchResult($searchTerm);
+    // public function searchResultAjax()
+    // {
+    //     $searchTerm = $_GET['term'];
+    //     $model = new SearchModel();
+    //     $datas = $model->getSearchResult($searchTerm);
 
-        $results = [];
-        foreach ($datas as $data) {
-            $results[] = [
-                'label' => $data['city'] . ', ' . $data['postalCode'] . ', ' . $data['department'] . ', ' . $data['region'] . ', ' . $data['country'],
-                'value' => $data['title'],
-            ];
-        }
+    //     $results = [];
+    //     foreach ($datas as $data) {
+    //         $results[] = [
+    //             'label' => $data['city'] . ', ' . $data['postalCode'] . ', ' . $data['department'] . ', ' . $data['region'] . ', ' . $data['country'],
+    //             'value' => $data['title'],
+    //         ];
+    //     }
 
-        echo json_encode($results);
-    }
+    //     echo json_encode($results);
+    // }
 
     public function filterByTag($id)
     {

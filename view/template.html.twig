@@ -6,8 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 		{% block stylesheet %}{% endblock %}
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 		<link rel="stylesheet" href="{{ asset('/css/font.css') }}"/>
 		<link rel="stylesheet" href="{{ asset('/css/style.css') }}"/>
+		
 
 		<title>
 			{% block title %}Loca'R
@@ -31,6 +33,7 @@
 			{% block javascript %}
 				<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 				<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+				<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 				<script src="{{ asset('/js/notifications.js') }}"></script>
 				<script src="{{ asset('/js/search.js') }}"></script>
 				<script src="{{ asset('/js/register.js') }}"></script>

@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block content %}
-{% if message %}
-    <div id="message" data-content="{{ message }}"></div>
-{% endif %}
+	{% if message %}
+		<div id="message" data-content="{{ message }}"></div>
+	{% endif %}
 	{# ---------- property-section ---------- #}
 	<section id="property-section">
 		<h1>{{ property.title }}</h1>
@@ -421,25 +421,20 @@
 								<div class="calendar">
 									<div class="arrival">
 										<h4>Arrivée</h4>
-										<input type="date" id="arrivalDate" format="YYYY-MM-DD">
+										<input type="text" id="arrivalDate" name="arrivalDate" placeholder="Sélectionnez la date d'arrivée">
 									</div>
 									<div class="departure">
 										<h4>Départ</h4>
-										<input type="date" id="departureDate" format="YYYY-MM-DD">
+										<input type="text" id="departureDate" name="departureDate" placeholder="Sélectionnez la date de départ">
 									</div>
 								</div>
-
 								<div class="traveler">
 									<h4>Voyageurs</h4>
 									<select name="numTravelers" id="traveler-select">
-										<option value="1">1 Voyageur</option>
-										<option value="2">2 Voyageurs</option>
-										<option value="3">3 Voyageurs</option>
-										<option value="4">4 Voyageurs</option>
-										<option value="5">5 Voyageurs</option>
-										<option value="6">6 Voyageurs</option>
-										<option value="7">7 Voyageurs</option>
-										<option value="8">8+ Voyageurs</option>
+										{% for i in 1..maxGuests %}
+											<option value="{{ i }}">{{ i }}
+												Voyageur{{ i > 1 ? 's' : '' }}</option>
+										{% endfor %}
 									</select>
 								</div>
 							</div>

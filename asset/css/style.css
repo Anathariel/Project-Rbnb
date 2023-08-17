@@ -1967,7 +1967,25 @@ section#googlemaps-property-section div#map {
 }
 .dashboard .welcome-dashboard .user-menu .add.first-link a {
   background-color: #0e9384;
-  color: #f8f8f8;
+  min-width: 150px;
+}
+.dashboard .welcome-dashboard .user-menu .dropdown {
+  position: relative;
+}
+.dashboard .welcome-dashboard .user-menu .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  z-index: 2;
+  margin: 1px;
+}
+.dashboard .welcome-dashboard .user-menu .dropdown .dropdown-content a {
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 0.5rem;
+  margin: 0.2rem 0;
 }
 .dashboard .welcome-dashboard .user-menu .add a:hover {
   background: rgba(14, 147, 131, 0.5803921569);
