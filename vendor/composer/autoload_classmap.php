@@ -36,6 +36,7 @@ return array(
     'Message' => $baseDir . '/class/Message.php',
     'MessageStatus' => $baseDir . '/class/MessageStatus.php',
     'Model' => $baseDir . '/model/Model.php',
+    'NotificationController' => $baseDir . '/controller/NotificationController.php',
     'Payment' => $baseDir . '/class/Payment.php',
     'Property' => $baseDir . '/class/Property.php',
     'PropertyAmenities' => $baseDir . '/class/PropertyAmenities.php',

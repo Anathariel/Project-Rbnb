@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		{% block stylesheet %}{% endblock %}
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block stylesheet %}{% endblock %}
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 		<link rel="stylesheet" href="{{ asset('/css/font.css') }}">
 		<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
@@ -15,129 +15,130 @@
 	</head>
 
 	<body>
-	{% include 'headerdashboard.html.twig' %}
-	<div id="full-width-background"></div>
-		<main class="limit-size">
-			{% block content %}{% endblock %}
-		</main>
-		<!-- Google Maps API -->
-		{% block googleAPI %}
-			<script>
-				function initMap() {
-			const CONFIGURATION = {
-			"ctaTitle": "Checkout",
-			"mapOptions": {
-			"center": {
-			"lat": 37.4221,
-			"lng": -122.0841
-			},
-			"fullscreenControl": true,
-			"mapTypeControl": false,
-			"streetViewControl": true,
-			"zoom": 9,
-			"zoomControl": true,
-			"maxZoom": 22,
-			"mapId": ""
-			},
-			"mapsApiKey": "AIzaSyBOcambCQedSWiOWZsYd7LKrNoA8lXdCFk",
-			"capabilities": {
-			"addressAutocompleteControl": true,
-			"mapDisplayControl": true,
-			"ctaControl": false
-			}
-			};
-			const componentForm = [
-			'location',
-			'locality',
-			'administrative_area_level_1',
-			'country',
-			'postal_code',
-			];
+		{% include 'headerdashboard.html.twig' %}
+		<div id="full-width-background"></div>
+		<main class="limit-size"> {% block content %}{% endblock %}
+			</main>
+			<!-- Google Maps API -->
+			{% block googleAPI %}
+				<script>
+					function initMap() {
+const CONFIGURATION = {
+"ctaTitle": "Checkout",
+"mapOptions": {
+"center": {
+"lat": 37.4221,
+"lng": -122.0841
+},
+"fullscreenControl": true,
+"mapTypeControl": false,
+"streetViewControl": true,
+"zoom": 9,
+"zoomControl": true,
+"maxZoom": 22,
+"mapId": ""
+},
+"mapsApiKey": "AIzaSyBOcambCQedSWiOWZsYd7LKrNoA8lXdCFk",
+"capabilities": {
+"addressAutocompleteControl": true,
+"mapDisplayControl": true,
+"ctaControl": false
+}
+};
+const componentForm = [
+'location',
+'locality',
+'administrative_area_level_1',
+'country',
+'postal_code',
+];
 
-			const getFormInputElement = (component) => document.getElementById(component + '-input');
-			const map = new google.maps.Map(document.getElementById("gmp-map"), {
-			zoom: CONFIGURATION.mapOptions.zoom,
-			center: {
-			lat: 37.4221,
-			lng: -122.0841
-			},
-			mapTypeControl: false,
-			fullscreenControl: CONFIGURATION.mapOptions.fullscreenControl,
-			zoomControl: CONFIGURATION.mapOptions.zoomControl,
-			streetViewControl: CONFIGURATION.mapOptions.streetViewControl
-			});
-			const marker = new google.maps.Marker({map: map, draggable: false});
-			const autocompleteInput = getFormInputElement('location');
-			const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, {
-			fields: [
-			"address_components", "geometry", "name"
-			],
-			types: ["address"]
-			});
-			autocomplete.addListener('place_changed', function () {
-			marker.setVisible(false);
-			const place = autocomplete.getPlace();
-			if (! place.geometry) {
-			// User entered the name of a Place that was not suggested and
-			// pressed the Enter key, or the Place Details request failed.
-			window.alert('No details available for input: \'' + place.name + '\'');
-			return;
-			}
-			renderAddress(place);
-			fillInAddress(place);
-			});
+const getFormInputElement = (component) => document.getElementById(component + '-input');
+const map = new google.maps.Map(document.getElementById("gmp-map"), {
+zoom: CONFIGURATION.mapOptions.zoom,
+center: {
+lat: 37.4221,
+lng: -122.0841
+},
+mapTypeControl: false,
+fullscreenControl: CONFIGURATION.mapOptions.fullscreenControl,
+zoomControl: CONFIGURATION.mapOptions.zoomControl,
+streetViewControl: CONFIGURATION.mapOptions.streetViewControl
+});
+const marker = new google.maps.Marker({map: map, draggable: false});
+const autocompleteInput = getFormInputElement('location');
+const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, {
+fields: [
+"address_components", "geometry", "name"
+],
+types: ["address"]
+});
+autocomplete.addListener('place_changed', function () {
+marker.setVisible(false);
+const place = autocomplete.getPlace();
+if (! place.geometry) {
+// User entered the name of a Place that was not suggested and
+// pressed the Enter key, or the Place Details request failed.
+window.alert('No details available for input: \'' + place.name + '\'');
+return;
+}
+renderAddress(place);
+fillInAddress(place);
+});
 
-			function fillInAddress(place) { // optional parameter
-			const addressNameFormat = {
-			'street_number': 'short_name',
-			'route': 'long_name',
-			'locality': 'long_name',
-			'administrative_area_level_1': 'short_name',
-			'country': 'long_name',
-			'postal_code': 'short_name'
-			};
+function fillInAddress(place) { // optional parameter
+const addressNameFormat = {
+'street_number': 'short_name',
+'route': 'long_name',
+'locality': 'long_name',
+'administrative_area_level_1': 'short_name',
+'country': 'long_name',
+'postal_code': 'short_name'
+};
 
-			const latitude = place.geometry.location.lat();
-    		const longitude = place.geometry.location.lng();
+const latitude = place.geometry.location.lat();
+const longitude = place.geometry.location.lng();
 
-			document.getElementById('latitude-input').value = latitude;
-    		document.getElementById('longitude-input').value = longitude;
-	
-			const getAddressComp = function (type) {
-			for (const component of place.address_components) {
-			if (component.types[0] === type) {
-			return component[addressNameFormat[type]];
-			}
-			}
-			return '';
-			};
-			getFormInputElement('location').value = getAddressComp('street_number') + ' ' + getAddressComp('route');
-			for (const component of componentForm) { // Location field is handled separately above as it has different logic.
-			if (component !== 'location') {
-			getFormInputElement(component).value = getAddressComp(component);
-			}
-			}
-			}
+document.getElementById('latitude-input').value = latitude;
+document.getElementById('longitude-input').value = longitude;
 
-			function renderAddress(place) {
-			map.setCenter(place.geometry.location);
-			marker.setPosition(place.geometry.location);
-			marker.setVisible(true);
-			}
-			}
-			</script>
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOcambCQedSWiOWZsYd7LKrNoA8lXdCFk&libraries=places&callback=initMap&solution_channel=GMP_QB_addressselection_v1_cAB" async defer></script>
-		{% endblock %}
+const getAddressComp = function (type) {
+for (const component of place.address_components) {
+if (component.types[0] === type) {
+return component[addressNameFormat[type]];
+}
+}
+return '';
+};
+getFormInputElement('location').value = getAddressComp('street_number') + ' ' + getAddressComp('route');
+for (const component of componentForm) { // Location field is handled separately above as it has different logic.
+if (component !== 'location') {
+getFormInputElement(component).value = getAddressComp(component);
+}
+}
+}
 
-		{% block javascript %}
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-		<script src="{{ asset('/js/notifications.js') }}"></script>
-		<script src="{{ asset('/js/tabsDashboard.js') }}"></script>
-		<script src="{{ asset('/js/dashboard.js') }}"></script>
-		<script src="{{ asset('/js/map.js') }}"></script>
-		<script src="{{ asset('/js/fred.js') }}"></script>
-		<script src="{{ asset('/js/rating.js') }}"></script>
-		{% endblock %}
-	</body>
-</html>
+function renderAddress(place) {
+map.setCenter(place.geometry.location);
+marker.setPosition(place.geometry.location);
+marker.setVisible(true);
+}
+}
+				</script>
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOcambCQedSWiOWZsYd7LKrNoA8lXdCFk&libraries=places&callback=initMap&solution_channel=GMP_QB_addressselection_v1_cAB" async defer></script>
+			{% endblock %}
+
+			{% block javascript %}
+				<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+				<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+				<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+				<script src="{{ asset('/js/notifications.js') }}"></script>
+				<script src="{{ asset('/js/tabsDashboard.js') }}"></script>
+				<script src="{{ asset('/js/dashboard.js') }}"></script>
+				<script src="{{ asset('/js/map.js') }}"></script>
+				<script src="{{ asset('/js/fred.js') }}"></script>
+				<script src="{{ asset('/js/rating.js') }}"></script>
+				<script src="{{ asset('/js/calendar.js') }}"></script>
+			{% endblock %}
+		</body>
+	</html>

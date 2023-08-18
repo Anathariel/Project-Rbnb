@@ -20,6 +20,8 @@ class Property
     private $owner;
     public $propertyImages;
     public $averageRating;
+    private $checkInDate;
+    private $checkoutDate;
 
 
     public function __construct(array $data)
@@ -129,6 +131,16 @@ class Property
         return $this->averageRating;
     }
 
+    public function getCheckInDate()
+    {
+        return $this->checkInDate;
+    }
+
+    public function getCheckoutDate()
+    {
+        return $this->checkoutDate;
+    }
+
 
     // SETTERS
     public function setPropertyId(int $propertyId)
@@ -219,5 +231,15 @@ class Property
     public function setAverageRating($averageRating)
     {
         $this->averageRating = $averageRating;
+    }
+
+    public function setCheckInDate($checkInDate)
+    {
+        $this->checkInDate = $checkInDate;
+    }
+
+    public function setCheckoutDate($checkoutDate)
+    {
+        $this->checkoutDate = $checkoutDate;
     }
 }
