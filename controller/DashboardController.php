@@ -58,6 +58,7 @@ class DashboardController extends Controller
             $reservations = $reservationModel->getReservationsByProperty($propertyId);
             if (!empty($reservations)) {
                 $reservation = $reservations[0]; // Si une propriété a plusieurs réservations, choisissez la première (ou adaptez selon votre logique).
+                $property->setUserFirstName($reservation->getUserFirstName());
                 $property->setCheckInDate($reservation->getCheckInDate());
                 $property->setCheckoutDate($reservation->getCheckoutDate());
                 $userRentedProperties[] = $property;
@@ -99,6 +100,7 @@ class DashboardController extends Controller
             unset($_SESSION['flash_message']);
         }
 
+
         // Prepare the data to send to the view
         $data = [
             'userProperties' => $userProperties,
@@ -107,7 +109,7 @@ class DashboardController extends Controller
             'userRentedProperties' => $userRentedProperties,
             'averageRating' => $averageRating,
             'userArticles' => $userArticles,
-            'message' => $message
+            'message' => $message,
         ];
         // Display the view with the data
         echo self::getRender('dashboard.html.twig', $data);

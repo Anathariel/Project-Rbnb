@@ -22,6 +22,8 @@ class Property
     public $averageRating;
     private $checkInDate;
     private $checkoutDate;
+    private $userFirstName;
+
 
 
     public function __construct(array $data)
@@ -141,6 +143,11 @@ class Property
         return $this->checkoutDate;
     }
 
+    public function getUserFirstName()
+    {
+        return $this->userFirstName;
+    }
+
 
     // SETTERS
     public function setPropertyId(int $propertyId)
@@ -241,5 +248,10 @@ class Property
     public function setCheckoutDate($checkoutDate)
     {
         $this->checkoutDate = $checkoutDate;
+    }
+
+    public function setUserFirstName($userFirstName)
+    {
+        $this->userFirstName = $userFirstName;
     }
 }
