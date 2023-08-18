@@ -130,26 +130,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // PROPERTY ZOOM IN PICTURES
-  window.addEventListener('DOMContentLoaded', (event) => {
-    let imgs = document.querySelectorAll('.property-images img');
-    let modal = document.getElementById('myModal');
-    let modalImg = document.getElementById('img01');
-    let span = document.getElementsByClassName('close')[0];
+// PROPERTY ZOOM IN PICTURES
+window.addEventListener('DOMContentLoaded', (event) => {
+  let imgs = document.querySelectorAll('.property-images img');
+  let modal = document.getElementById('myModal');
+  let modalImg = document.getElementById('img01');
+  let span = document.getElementsByClassName('close')[0];
 
-    // Check if the necessary elements exist
-    if (imgs && modal && modalImg && span) {
-        imgs.forEach(img => {
-            img.onclick = function() {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-            }
-        });
+  // Check if the necessary elements exist
+  if (imgs && modal && modalImg && span) {
+      imgs.forEach(img => {
+          img.onclick = function() {
+              modal.style.display = "block";
+              modalImg.src = this.src;
+          }
+      });
 
-        span.onclick = function() { 
-            modal.style.display = "none";
-        }
-    }
+      span.onclick = function() { 
+          modal.style.display = "none";
+      }
+
+      // Add this part to close the modal when clicking outside of the image
+      modal.onclick = function(event) {
+          if (event.target === modal) {
+              modal.style.display = "none";
+          }
+      }
+  }
 });
 
 });
