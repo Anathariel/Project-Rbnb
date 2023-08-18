@@ -16,6 +16,12 @@ $dash-maincolor: #0e9384;
 
 $gradient: conic-gradient(from 90deg at bottom right, cyan, $dash-maincolor);
 
+$border-color-default: #e9e9e9;
+$selected-border-color: #f64747;
+$selected-background: #4f99ff;
+$day-color: #404848;
+$bg-hover: #f1f1f1;
+
 //* --------- FONT --------- //
 
 $font: "Quicksand";
@@ -499,6 +505,81 @@ button.main-dash-button-style:before {
 
 button.main-dash-button-style:hover:before {
   width: 100%;
+}
+
+//* --------- FLATPICKR CALENDAR --------- //
+.flatpickr-calendar {
+  background: $white-default;
+  border: 1px solid $border-color-default;
+  font-size: 14px;
+  line-height: 24px;
+  border-radius: 5px;
+  font-family: $font;
+  box-shadow: 1px 0 0 lighten($darkerblue, 40%), -1px 0 0 lighten($darkerblue, 40%), 0 1px 0 lighten($darkerblue, 40%), 0 -1px 0 lighten($darkerblue, 40%), 0 3px 13px rgba($darkerblue, 0.08);
+}
+
+span.flatpickr-day {
+  background: none;
+  border-radius: 150px;
+  box-sizing: border-box;
+  color: $day-color;
+  cursor: pointer;
+  max-width: 39px;
+  height: 39px;
+  line-height: 39px;
+  margin: 0;
+
+  &.prevMonthDay,
+  &.nextMonthDay {
+    display: none;
+  }
+
+  &.today:not(.selected) {
+    border-color: $border-color-default;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: $maincolor;
+
+    &:hover {
+      border: 1px solid $maincolor;
+    }
+  }
+}
+
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover {
+  cursor: not-allowed;
+  color: rgba(64, 72, 72, 0.1);
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+  background: $maincolor;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+  border-color: transparent;
+}
+
+.flatpickr-months .flatpickr-prev-month:hover svg,
+.flatpickr-months .flatpickr-next-month:hover svg {
+  fill: $maincolor;
 }
 
 //? --------- HEADERS --------- //
@@ -2121,9 +2202,9 @@ section#property-section {
       flex-direction: column;
       margin: 1rem 5rem;
       background-color: #d9d9d960;
-      width: 30%;
+      width: 35%;
       height: fit-content;
-      max-height: 550px;
+      max-height: 580px;
       padding: 1.5rem;
       border-radius: 1.5rem;
 
@@ -2154,7 +2235,8 @@ section#property-section {
             flex-direction: row;
             justify-content: space-around;
 
-            #arrivalDate,#departureDate {
+            #arrivalDateDisplay,
+            #departureDateDisplay {
               border: none;
               outline: transparent;
               font-family: "Quicksand";
@@ -2197,23 +2279,30 @@ section#property-section {
 
       .price-details {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $darkerblue;
+
+        .details,
+        .prices {
+          p {
+            font-size: .8rem;
+          }
+        }
+      }
+
+      .total-price {
+        display: flex;
         justify-content: space-between;
         align-items: center;
 
-        p {
-          width: 90%;
-          font-size: 1rem;
-        }
-
         h4 {
-          font-size: 1.3rem;
-          margin: 1rem 0;
-          padding-top: 0.5rem;
+          font-size: 2rem;
         }
 
-        .prices{
-          border-top: 1px solid $darkerblue;
+        p.base-price {
+          font-size: .8rem;
         }
       }
     }

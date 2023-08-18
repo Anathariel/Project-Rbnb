@@ -419,13 +419,17 @@
 					<div class="reservation-options">
 						<div class="calendar">
 							<div class="arrival">
-								<h4>Arrivée</h4>
-								<input type="text" id="arrivalDate" name="arrivalDate" placeholder="Date d'arrivée">
+							<h4>Arrivée</h4>
+							<input type="text" id="arrivalDateDisplay" placeholder="Date d'arrivée" readonly>
+							<input type="hidden" id="arrivalDate" name="arrivalDate" placeholder="Date d'arrivée">
 							</div>
 							<div class="departure">
-								<h4>Départ</h4>
-								<input type="text" id="departureDate" name="departureDate" placeholder="Date de départ">
+							<h4>Départ</h4>
+							<input type="text" id="departureDateDisplay" placeholder="Date de départ" readonly>
+							<input type="hidden" id="departureDate" name="departureDate" placeholder="Date de départ">
 							</div>
+							<!-- Hidden input for the range -->
+							<input type="text" id="dateRangeHidden" style="display:none;">
 						</div>
 						<div class="traveler">
 							<h4>Voyageurs</h4>
@@ -456,12 +460,23 @@
 				<div class="price-details">
 					<div class="details">
 						<p><span id="pricePerNight">{{ property.PriceNight }}€ </span>x <span id="nb-day">0</span></p>
-						<p>Frais de service Loca'R :<span id="serviceFee">0€</span></p>
-						<p>Taxes :<span id="taxes">0€</span></p>
+						<p>Frais de service Loca'R :</p>
+						<p>Taxes :</p>
 					</div>
 					<div class="prices">
-						<h4>Total du séjour :<span id="totalPriceWithFees">0€</span></h4>
-						<p>Total de base:<span id="totalPrice">0€</span></p>
+						<p id="calculatedTotal">0€</p>
+						<p id="serviceFee">0€</p>
+						<p id="taxes">0€</p>
+					</div>
+				</div>
+				<div class="total-price">
+					<div class="details">
+						<h4>Total du séjour :</h4>
+						<p class="base-price">Total de base :</p>
+					</div>
+					<div class="prices">
+						<p id="totalPriceWithFees">0€</p>
+						<p id="totalPrice" class="base-price">0€</p>
 					</div>
 				</div>
 			</div>
