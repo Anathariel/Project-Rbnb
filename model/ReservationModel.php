@@ -62,17 +62,20 @@
 
         public function getReservationsByProperty($propertyId)
         {
-            $req = $this->getDb()->prepare('SELECT `uid`, `reservationId`, `propertyId`, `checkInDate`, `checkoutDate`, `numTravelers`,`totalPrice` FROM `reservation` WHERE `propertyId` = :propertyId');
+            $req = $this->getDb()->prepare('SELECT `reservation`.`reservationId`, `reservation`.`uid`, `user`.`firstName`, `reservation`.`propertyId`, `reservation`.`checkInDate`, `reservation`.`checkoutDate`, `reservation`.`numTravelers`, `reservation`.`totalPrice` FROM `reservation` INNER JOIN `user` ON `reservation`.`uid` = `user`.`uid` WHERE `reservation`.`propertyId` = :propertyId');
             $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
             $req->execute();
 
             $reservations = [];
             while ($reservation = $req->fetch(PDO::FETCH_ASSOC)) {
-                $reservations[] = new Reservation($reservation);
+                $reservationObj = new Reservation($reservation);
+                $reservationObj->setUserFirstname($reservation['firstName']);
+                $reservations[] = $reservationObj;
             }
 
             return $reservations;
         }
+
 
         public function isDateAvailableModel($propertyId, $date)
         {
@@ -80,9 +83,9 @@
             $req->bindParam(':propertyId', $propertyId, PDO::PARAM_INT);
             $req->bindParam(':date', $date, PDO::PARAM_STR);
             $req->execute();
-        
+
             $count = $req->fetchColumn();
-        
+
             return $count == 0;
         }
 
