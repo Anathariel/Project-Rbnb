@@ -1919,6 +1919,7 @@ section#property-section .property-details .container-pricing .price-details {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #1b1d21;
+  display: none;
 }
 section#property-section .property-details .container-pricing .price-details .details p,
 section#property-section .property-details .container-pricing .price-details .prices p {
@@ -1928,6 +1929,7 @@ section#property-section .property-details .container-pricing .total-price {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  display: none;
 }
 section#property-section .property-details .container-pricing .total-price h4 {
   font-size: 2rem;
