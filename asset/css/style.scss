@@ -261,7 +261,6 @@ h3 {
     }
 
     .description {
-      margin: 0 1rem;
       display: flex;
       flex-direction: column;
       text-align: left;
@@ -279,7 +278,8 @@ h3 {
 
       .locataire {
         display: inline-flex;
-        align-items: flex-end;
+        align-items: center;
+        justify-content: center;
 
         .img-profile {
           background-color: grey;
@@ -297,29 +297,34 @@ h3 {
         /* number of lines to show */
         line-clamp: 3;
         -webkit-box-orient: vertical;
+        margin: 0 1rem;
       }
-    }
 
-    .calendar {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-      text-align: center;
-
-      input[type="text"] {
-        border: none;
-        outline: transparent;
-        font-family: "Quicksand";
-        text-transform: uppercase;
-        background-color: transparent;
+      .calendar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
         text-align: center;
+
+        input[type="text"] {
+          border: none;
+          outline: transparent;
+          font-family: "Quicksand";
+          text-transform: uppercase;
+          background-color: transparent;
+          text-align: center;
+        }
+
+        .arrival,
+        .departure {
+          width: 50%;
+          padding: 0.5rem;
+        }
       }
 
-      .arrival,
-      .departure {
-        width: 50%;
-        padding: 0.5rem;
+      #blog-title-card{
+        margin: 0.5rem 1rem;
       }
     }
 
