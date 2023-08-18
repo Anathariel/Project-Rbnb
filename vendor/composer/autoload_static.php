@@ -74,6 +74,7 @@ class ComposerStaticInit9b1244647aa5adce49683bb910b74572
         'Message' => __DIR__ . '/../..' . '/class/Message.php',
         'MessageStatus' => __DIR__ . '/../..' . '/class/MessageStatus.php',
         'Model' => __DIR__ . '/../..' . '/model/Model.php',
+        'NotificationController' => __DIR__ . '/../..' . '/controller/NotificationController.php',
         'Payment' => __DIR__ . '/../..' . '/class/Payment.php',
         'Property' => __DIR__ . '/../..' . '/class/Property.php',
         'PropertyAmenities' => __DIR__ . '/../..' . '/class/PropertyAmenities.php',

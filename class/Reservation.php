@@ -11,6 +11,7 @@ class Reservation
     private $totalPrice;
     private $property;
     private $propertyImages;
+    private $userFirstName;
 
     public function __construct(array $post)
     {
@@ -74,6 +75,11 @@ class Reservation
         return $this->propertyImages;
     }
 
+    public function getUserFirstName()
+    {
+        return $this->userFirstName;
+    }
+
     //SETTERS
     public function setReservationId(int $reservationId)
     {
@@ -118,5 +124,10 @@ class Reservation
     public function setPropertyImages(array $propertyImages)
     {
         $this->propertyImages = $propertyImages;
+    }
+
+    public function setUserFirstName(string $userFirstName)
+    {
+        $this->userFirstName = $userFirstName;
     }
 }
