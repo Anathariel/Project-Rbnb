@@ -7,23 +7,25 @@ document.addEventListener('DOMContentLoaded', function() {
   const rightArrow = document.querySelector('.right-arrow');
 
   if (containerTagList && leftArrow && rightArrow) {
+    const halfContainerWidth = containerTagList.clientWidth / 2;
+
     function scrollToLeft() {
-      containerTagList.scrollTo({
-        left: containerTagList.scrollLeft - containerTagList.clientWidth,
-        behavior: 'smooth',
-      });
+        containerTagList.scrollTo({
+            left: containerTagList.scrollLeft - halfContainerWidth,
+            behavior: 'smooth',
+        });
     }
 
     function scrollToRight() {
-      containerTagList.scrollTo({
-        left: containerTagList.scrollLeft + containerTagList.clientWidth,
-        behavior: 'smooth',
-      });
+        containerTagList.scrollTo({
+            left: containerTagList.scrollLeft + halfContainerWidth,
+            behavior: 'smooth',
+        });
     }
 
     leftArrow.addEventListener('click', scrollToLeft);
     rightArrow.addEventListener('click', scrollToRight);
-  }
+}
 
   // HERO SLIDER HOMEPAGE
   const sliderImages = document.querySelectorAll('.slider-image');

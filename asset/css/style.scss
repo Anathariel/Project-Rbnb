@@ -314,6 +314,22 @@ h3 {
       }
     }
 
+    .date-author {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      text-align: right;
+      position: absolute;
+      margin: 1rem;
+      width: 90%;
+      bottom: 0;
+
+      h4 {
+        color: $maincolor;
+        font-family: $bold;
+      }
+    }
+
     button.main-button-style {
       width: 90%;
       min-width: 150px;
@@ -367,6 +383,14 @@ h3 {
       }
     }
   }
+
+  transition: transform 0.3s ease,
+  box-shadow 0.3s ease; // Smoothing out the effect
+
+  &:hover {
+    transform: scale(1.05); // Subtle scaling effect
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 4px 12px 0px; // Deeper shadow on hover for lift effect
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -380,18 +404,6 @@ h3 {
 
 .smaller-card {
   height: 300px;
-
-  .description {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 135px;
-
-    .date-article {
-      position: absolute;
-      bottom: 0;
-    }
-  }
 }
 
 .medium-card {
@@ -1457,6 +1469,12 @@ section#new-destinations-section {
             background-color: $white;
           }
         }
+        transition: transform 0.3s, box-shadow 0.3s;  // Add this line for smooth transitions
+  
+        &:hover {
+          transform: scale(1.05);  // Slightly increase the card's size on hover
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; // Enhanced box-shadow on hover
+        }
       }
     }
 
@@ -1598,6 +1616,12 @@ section#best-tags-section {
           &:hover figcaption {
             background-color: $white;
           }
+        }
+        transition: transform 0.3s, box-shadow 0.3s;  // Add this line for smooth transitions
+  
+        &:hover {
+          transform: scale(1.05);  // Slightly increase the card's size on hover
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; // Enhanced box-shadow on hover
         }
       }
     }
@@ -1764,13 +1788,37 @@ section#property-section {
   text-align: left;
 
   h1 {
-    font-size: 55px;
+    font-size: 3.5em;
   }
 
   .average-stars-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
     figure {
       display: flex;
       flex-direction: row;
+      align-items: center;
+      margin: 0;
+      flex-grow: 1;
+
+      img {
+        margin-right: 5px;
+      }
+
+      figcaption {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        justify-content: space-between;
+        width: 100%;
+
+        p {
+          margin-right: 10px;
+        }
+      }
     }
   }
 
@@ -2330,7 +2378,8 @@ section#googlemaps-property-section {
 
       .add.first-link a {
         background-color: #0e9384;
-        min-width: 150px;
+        min-width: 160px;
+        border-radius: .5rem;
       }
 
       .dropdown {
@@ -2941,23 +2990,23 @@ section#googlemaps-property-section {
 //~ -------------------- BLOG -------------------- //
 
 section#section-blog {
-  // # car id //
-  margin-top: 20px;
+  margin-top: 1rem;
+  text-align: center;
 
-  p.sub-title-section {
-    // couleur du texte //
-    color: black;
-    text-align: center;
-    padding: 30px;
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
 
-  div#container-section-blog {
-    // # car id //
-    width: 90%;
+  p.sub-title-blog {
+    font-size: 1rem;
+  }
+
+  #container-cards-section-blog {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+<<<<<<< HEAD
     margin: 0 auto;
 
     div.card-blog {
@@ -3017,6 +3066,9 @@ section#section-blog {
         align-items: flex-start;
       }
     }
+=======
+    margin-top: 1rem;
+>>>>>>> 3e1101e0abce54b356a95a1761e73a22fa8db172
   }
 }
 
@@ -3024,18 +3076,19 @@ section#section-blog {
 
 section#section-article {
   text-align: center;
-  margin: 30px auto;
-}
 
-div#article-flex-images figure.article-flex-images {
-  display: flex;
-}
+  .intro-article {
+    background-color: $maincolor;
+    margin: 1rem;
+    border-radius: .5rem .5rem 0 0;
+    height: 350px;
 
-div#article-flex-images .right-aligned {
-  float: right;
-  margin-left: 5px;
-}
+    h1,
+    p {
+      color: $white;
+    }
 
+<<<<<<< HEAD
 section#section-article h1,
 section#section-article h2 {
   color: #92aad3;
@@ -3043,11 +3096,19 @@ section#section-article h2 {
   margin-bottom: 30px;
   text-align: center;
 }
+=======
+    h1 {
+      font-size: 2.5rem;
+    }
+>>>>>>> 3e1101e0abce54b356a95a1761e73a22fa8db172
 
-div#article-flex-images {
-  figure.article-flex-images {
-    display: flex;
+    figure.author-infos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem;
 
+<<<<<<< HEAD
     section#section-article h3 {
       color: #92aad3;
 
@@ -3058,3 +3119,49 @@ div#article-flex-images {
     }
   }
 }
+=======
+      img {
+        border-radius: 100%;
+        width: 80px;
+        height: 80px;
+        margin: 1rem;
+      }
+
+      figcaption {
+        margin: 1rem;
+
+        h4{
+          font-size: 1.2rem;
+          color: $white;
+        }
+        p {
+          font-size: .9rem;
+        }
+      }
+    }
+  }
+
+  .main-content-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+
+    figure {
+      img {
+        transform: translateY(-20%);
+      }
+    }
+
+    .content-text {
+      max-width: 1000px;
+      margin: 1rem;
+    }
+  }
+
+  .sharethis-inline-share-buttons{
+    margin: 2rem;
+  }
+}
+>>>>>>> 3e1101e0abce54b356a95a1761e73a22fa8db172

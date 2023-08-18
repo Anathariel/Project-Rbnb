@@ -60,6 +60,7 @@
     {% if message %}
         <div id="message" data-content="{{ message }}"></div>
     {% endif %}
+
     <section class="dashboard-cards-my-proprieties" id="my-proprieties">
 
         <h2>Mes propriétés</h2>
@@ -282,7 +283,7 @@
             {% else %}
             {% for userArticle in userArticles %}
             <a href="{{ path('basearticle') }}/{{ userArticle.articleId }}">
-                <div class="card smaller-card">
+                <div class="card medium-card">
                     <figure>
                         {% if userArticle.image %}
                         <img src="{{ asset('/media/blog/' ~ userArticle.image) }}"
@@ -293,10 +294,7 @@
                     <div class="card-details">
                         <div class="description">
                             <h3>{{ userArticle.title }}</h3>
-                            <q>{{ userArticle.extract }}</q>
-                            <div class="date-article">
-                                <p>{{ userArticle.date }}</p>
-                            </div>
+                            <q class="card-descriptions-limit">{{ userArticle.extract }}</q>
                         </div>
                         <div class="dashboard-property-buttons">
                             <a href="{{ path('baseUpdateArticle')}}{{ userArticle.articleId}}">
