@@ -122,7 +122,6 @@ h3 {
   }
 }
 
-
 // -------------------- class connum search -------------------- //
 
 /* CSS pour cacher l'élément d'autocomplétion généré par jQuery UI */
@@ -192,7 +191,7 @@ h3 {
     position: relative;
 
     img {
-      margin: .5rem;
+      margin: 0.5rem;
       margin-bottom: 0;
       width: 250px;
       height: 150px;
@@ -226,7 +225,7 @@ h3 {
     width: 100%;
 
     .pricing {
-      margin: .5rem 1rem;
+      margin: 0.5rem 1rem;
       display: flex;
       flex-direction: row;
       margin-right: auto;
@@ -248,7 +247,7 @@ h3 {
       display: flex;
       flex-direction: row;
       align-items: center;
-      margin: .5rem;
+      margin: 0.5rem;
 
       img {
         margin: 0.2rem;
@@ -281,7 +280,7 @@ h3 {
           border-radius: 50%;
           width: 50px;
           height: 50px;
-          margin: .5rem;
+          margin: 0.5rem;
         }
       }
 
@@ -352,7 +351,7 @@ h3 {
 
       .button {
         width: 6rem;
-        padding: .5rem;
+        padding: 0.5rem;
 
         p {
           color: $dash-maincolor;
@@ -368,7 +367,7 @@ h3 {
 
       input {
         width: 7rem;
-        padding: .5rem;
+        padding: 0.5rem;
         color: red;
         font-family: $bold;
         font-size: 1rem;
@@ -414,29 +413,29 @@ h3 {
 //* --------- BUTTON ACCENT COLOR --------- //
 
 button.main-button-style {
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   width: 100%;
   min-width: 300px;
   position: relative;
   border: solid 1px $accent;
   background-color: transparent;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
   overflow: hidden;
 
-  &>span {
+  & > span {
     display: block;
     font-family: "Quicksand";
     font-size: 1.5rem;
     width: 100%;
-    padding: .3rem 0;
+    padding: 0.3rem 0;
     color: $accent;
     position: relative;
     z-index: 1;
   }
 
-  &>span:hover {
+  & > span:hover {
     color: $white;
   }
 }
@@ -460,28 +459,28 @@ button.main-button-style:hover:before {
 //* --------- BUTTON DASHBOARD COLOR --------- //
 
 button.main-dash-button-style {
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   width: 90%;
   position: relative;
   border: solid 1px $dash-maincolor;
   background-color: transparent;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
   overflow: hidden;
 
-  &>span {
+  & > span {
     display: block;
     font-family: "Quicksand";
     font-size: 1.2rem;
     width: 100%;
-    padding: .3rem 0;
+    padding: 0.3rem 0;
     color: $dash-maincolor;
     position: relative;
     z-index: 1;
   }
 
-  &>span:hover {
+  & > span:hover {
     color: $white;
   }
 }
@@ -578,7 +577,6 @@ button.main-dash-button-style:hover:before {
           outline: transparent;
           border: none;
           transition: background 250ms ease-in-out;
-
         }
 
         button:hover {
@@ -610,7 +608,6 @@ button.main-dash-button-style:hover:before {
     }
 
     @media screen and (max-width: 750px) {
-
       #logo,
       #user,
       #desktop-searchbar {
@@ -646,7 +643,7 @@ button.main-dash-button-style:hover:before {
         font-family: $bold;
       }
 
-      input[type=text] {
+      input[type="text"] {
         outline: none;
         border: none;
         background-color: transparent;
@@ -675,7 +672,7 @@ button.main-dash-button-style:hover:before {
       margin-left: 2rem;
       text-align: center;
 
-      input[type=text] {
+      input[type="text"] {
         text-align: center;
         outline: none;
         border: none;
@@ -721,7 +718,7 @@ button.main-dash-button-style:hover:before {
         transition: background 250ms ease-in-out;
 
         img {
-          margin-right: .5rem;
+          margin-right: 0.5rem;
         }
 
         p {
@@ -843,7 +840,7 @@ button.main-dash-button-style:hover:before {
               width: 18px;
             }
 
-            &>a {
+            & > a {
               display: flex;
               justify-content: center;
               align-items: center;
@@ -853,7 +850,7 @@ button.main-dash-button-style:hover:before {
               cursor: pointer;
             }
 
-            &>a:hover {
+            & > a:hover {
               background-color: #0e938343;
               color: $white;
             }
@@ -1009,14 +1006,14 @@ button.main-dash-button-style:hover:before {
 
   .button {
     display: inline-block;
-    padding: .75rem 1.25rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     color: $white;
     text-transform: uppercase;
     font-size: 1rem;
-    letter-spacing: .15rem;
-    transition: all .3s;
+    letter-spacing: 0.15rem;
+    transition: all 0.3s;
     position: relative;
     overflow: hidden;
     border: none;
@@ -1026,7 +1023,7 @@ button.main-dash-button-style:hover:before {
     z-index: 1;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: 0;
@@ -1038,14 +1035,14 @@ button.main-dash-button-style:hover:before {
     }
 
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: 0;
       width: 0%;
       height: 100%;
       background-color: darken($accent, 15%);
-      transition: all .5s;
+      transition: all 0.5s;
       border-radius: 1rem;
       z-index: -1;
     }
@@ -1059,7 +1056,7 @@ button.main-dash-button-style:hover:before {
     }
   }
 
-  .form>.button {
+  .form > .button {
     margin-top: 1.5rem;
   }
 
@@ -1088,14 +1085,13 @@ button.main-dash-button-style:hover:before {
     outline: $accent;
     color: $accent;
     font-family: $font;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     padding: 0.9rem 0.9rem;
     margin: 0.5rem 0;
     width: 100%;
   }
 
   @keyframes show {
-
     0%,
     49.99% {
       opacity: 0;
@@ -1196,9 +1192,11 @@ footer {
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(to bottom,
-          transparentize(#0e1d33, 0.2),
-          transparentize(#0e1d33, 0.8));
+      background: linear-gradient(
+        to bottom,
+        transparentize(#0e1d33, 0.2),
+        transparentize(#0e1d33, 0.8)
+      );
       z-index: 3;
     }
 
@@ -1263,9 +1261,11 @@ footer {
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(to right,
-              rgba(248, 248, 248),
-              rgba(248, 248, 248, 0.8));
+          background: linear-gradient(
+            to right,
+            rgba(248, 248, 248),
+            rgba(248, 248, 248, 0.8)
+          );
           pointer-events: none;
         }
       }
@@ -1286,9 +1286,11 @@ footer {
           right: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(to left,
-              rgba(248, 248, 248),
-              rgba(248, 248, 248, 0.8));
+          background: linear-gradient(
+            to left,
+            rgba(248, 248, 248),
+            rgba(248, 248, 248, 0.8)
+          );
           pointer-events: none;
         }
       }
@@ -1701,7 +1703,6 @@ section#features-section {
   }
 
   @media screen and (min-width: 950px) {
-
     div#container-card-features {
       display: flex;
       flex-direction: column;
@@ -2287,7 +2288,7 @@ section#googlemaps-property-section {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
   }
 
   .half-input-container {
@@ -2396,8 +2397,8 @@ section#googlemaps-property-section {
           a {
             background-color: transparent;
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-            border-radius: .5rem;
-            margin: .2rem 0;
+            border-radius: 0.5rem;
+            margin: 0.2rem 0;
           }
         }
       }
@@ -2446,7 +2447,7 @@ section#googlemaps-property-section {
     h4 {
       color: $dash-maincolor;
       font-size: 1.2rem;
-      margin: .5rem 0;
+      margin: 0.5rem 0;
     }
 
     h5 {
@@ -2455,16 +2456,16 @@ section#googlemaps-property-section {
     }
 
     //* --------- Input Styles --------- //
-    input[type=text] {
-      padding: .5rem;
-      border-radius: .5rem;
+    input[type="text"] {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
       border: 1px solid $dash-maincolor;
       font-family: $font;
       background-color: #ffffffa5;
     }
 
-    input[type=text]:focus,
-    input[type=text]:focus {
+    input[type="text"]:focus,
+    input[type="text"]:focus {
       color: $dash-maincolor;
       outline: transparent;
       background-color: $white-default;
@@ -2474,14 +2475,14 @@ section#googlemaps-property-section {
       background-color: #ffffffa5;
       border: 1px solid $dash-maincolor;
       font-family: $font;
-      border-radius: .3rem;
-      font-size: .8rem;
-      padding: .5rem;
+      border-radius: 0.3rem;
+      font-size: 0.8rem;
+      padding: 0.5rem;
     }
 
     textarea {
-      padding: .5rem;
-      border-radius: .5rem;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
       border: 1px solid $dash-maincolor;
       font-family: $font;
       background-color: #ffffffa5;
@@ -2497,7 +2498,7 @@ section#googlemaps-property-section {
       width: 1.2rem;
       height: 1.2rem;
       border: 1px solid $dash-maincolor;
-      border-radius: .3rem;
+      border-radius: 0.3rem;
       transform: translateY(-0.075em);
       display: grid;
       place-content: center;
@@ -2570,11 +2571,11 @@ section#googlemaps-property-section {
 
         input {
           border: 1px solid $dash-maincolor;
-          padding: .5rem;
+          padding: 0.5rem;
           font-family: $bold;
           font-size: 1rem;
           background-color: #f8f8f8ba;
-          border-radius: .5rem;
+          border-radius: 0.5rem;
         }
 
         input:hover,
@@ -2593,7 +2594,7 @@ section#googlemaps-property-section {
       margin: 1rem 0;
 
       p {
-        font-size: .8rem;
+        font-size: 0.8rem;
       }
 
       .images-container {
@@ -2610,10 +2611,10 @@ section#googlemaps-property-section {
       input::file-selector-button {
         border: 1px solid $dash-maincolor;
         background-color: $dashboard-brg;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
         font-family: $bold;
-        margin: .5rem;
-        padding: .3rem;
+        margin: 0.5rem;
+        padding: 0.3rem;
       }
 
       input::file-selector-button:hover {
@@ -2657,7 +2658,7 @@ section#googlemaps-property-section {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          margin: .5rem;
+          margin: 0.5rem;
 
           img {
             width: 20px;
@@ -2701,18 +2702,18 @@ section#googlemaps-property-section {
           align-items: center;
 
           label {
-            margin: .5rem;
+            margin: 0.5rem;
           }
         }
       }
 
       input {
         border: 1px solid $dash-maincolor;
-        padding: .5rem;
+        padding: 0.5rem;
         font-family: $bold;
         font-size: 1rem;
         background-color: #f8f8f8ba;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
       }
 
       input:hover,
@@ -2784,29 +2785,29 @@ section#googlemaps-property-section {
     margin: 1rem;
   }
 
-  input[type=text] {
-    padding: .5rem;
-    border-radius: .5rem;
+  input[type="text"] {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     border: 1px solid $dash-maincolor;
     font-family: $font;
     background-color: #ffffffa5;
   }
 
-  input[type=text]:focus {
+  input[type="text"]:focus {
     color: $dash-maincolor;
     outline: transparent;
     background-color: $white-default;
   }
 
-  input[type=date] {
-    padding: .5rem;
-    border-radius: .5rem;
+  input[type="date"] {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     border: 1px solid $dash-maincolor;
     font-family: $font;
     background-color: #ffffffa5;
   }
 
-  input[type=date]:focus {
+  input[type="date"]:focus {
     color: $dash-maincolor;
     outline: transparent;
     background-color: $white-default;
@@ -2815,10 +2816,10 @@ section#googlemaps-property-section {
   input::file-selector-button {
     border: 1px solid $dash-maincolor;
     background-color: $dashboard-brg;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     font-family: $bold;
-    margin: .5rem;
-    padding: .3rem;
+    margin: 0.5rem;
+    padding: 0.3rem;
   }
 
   input::file-selector-button:hover {
@@ -2828,8 +2829,8 @@ section#googlemaps-property-section {
   }
 
   textarea {
-    padding: .5rem;
-    border-radius: .5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     border: 1px solid $dash-maincolor;
     font-family: $font;
     background-color: #ffffffa5;
@@ -3005,7 +3006,69 @@ section#section-blog {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+<<<<<<< HEAD
+    margin: 0 auto;
+
+    div.card-blog {
+      // # car class L14 //
+      width: 100%;
+      max-width: 420px;
+      height: 540px;
+      background-color: $white;
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      margin: 0 5px 40px 5px;
+      transition: all 0.5s ease;
+
+      @media screen and (min-width: 950px) {
+        // responsive //
+        width: 384px;
+        height: 456px;
+
+        &:hover {
+          .bg-image {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      div.card-blog-top {
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0 auto;
+      }
+
+      div.card-blog-bottom {
+        position: relative;
+        padding: 30px 40px;
+        text-align: center;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        p {
+          margin-top: 15px;
+        }
+      }
+
+      div.card-blog {
+        position: relative;
+        text-align: center;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+=======
     margin-top: 1rem;
+>>>>>>> 3e1101e0abce54b356a95a1761e73a22fa8db172
   }
 }
 
@@ -3025,9 +3088,19 @@ section#section-article {
       color: $white;
     }
 
+<<<<<<< HEAD
+section#section-article h1,
+section#section-article h2 {
+  color: #92aad3;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+=======
     h1 {
       font-size: 2.5rem;
     }
+>>>>>>> 3e1101e0abce54b356a95a1761e73a22fa8db172
 
     figure.author-infos {
       display: flex;
@@ -3035,6 +3108,18 @@ section#section-article {
       justify-content: center;
       margin: 1.5rem;
 
+<<<<<<< HEAD
+    section#section-article h3 {
+      color: #92aad3;
+
+      section#section-article h4 {
+        color: #92aad3;
+        text-align: center;
+      }
+    }
+  }
+}
+=======
       img {
         border-radius: 100%;
         width: 80px;
@@ -3079,3 +3164,4 @@ section#section-article {
     margin: 2rem;
   }
 }
+>>>>>>> 3e1101e0abce54b356a95a1761e73a22fa8db172
