@@ -176,7 +176,6 @@
 					<p>Vous ne disposer pas de location.</p>
 				{% else %}
 					{% for property in userRentedProperties %}
-						<a href="{{ path('baseProperty') ~ property.propertyId }}">
 							<div class="card medium-card">
 								<figure>
 									{% if property.propertyImages %}
@@ -197,11 +196,11 @@
 									<div class="calendar">
 										<div class="arrival">
 											<h4>Arrivée</h4>
-											<input type="text" class="date-picker" id="arrivalDate-{{ property.propertyId }}" value="{{ property.checkInDate|date('Y-m-d') }}" readonly>
+											<input type="text" id="arrivalDate-{{ property.propertyId }}" value="{{ property.checkInDate|date('d M Y') }}" readonly>
 										</div>
 										<div class="departure">
 											<h4>Départ</h4>
-											<input type="text" class="date-picker" id="departureDate-{{ property.propertyId }}" value="{{ property.checkoutDate|date('Y-m-d') }}" readonly>
+											<input type="text" id="departureDate-{{ property.propertyId }}" value="{{ property.checkoutDate|date('d M Y') }}" readonly>
 										</div>
 									</div>
 
@@ -213,7 +212,6 @@
 								</div>
 							</div>
 						</div>
-					</a>
 				{% endfor %}
 			{% endif %}
 		</div>
@@ -227,7 +225,6 @@
 			{% else %}
 				{% for reservation in userReservations %}
 					{% set property = reservation.property %}
-					<a href="{{ path('baseProperty') ~ property.propertyId }}">
 						<div class="card smaller-card">
 							<figure>
 								{% if property.propertyImages %}
@@ -240,20 +237,15 @@
 									<div class="calendar">
 										<div class="arrival">
 											<h4>Arrivée</h4>
-											<input type="text" class="date-picker" id="arrivalDate-{{ reservation.reservationId }}" value="{{ reservation.checkInDate|date('Y-m-d') }}" readonly>
+											<input type="text" id="arrivalDate-{{ reservation.reservationId }}" value="{{ reservation.checkInDate|date('d M Y') }}" readonly>
 										</div>
 										<div class="departure">
 											<h4>Départ</h4>
-											<input type="text" class="date-picker" id="departureDate-{{ reservation.reservationId }}" value="{{ reservation.checkoutDate|date('Y-m-d') }}" readonly>
+											<input type="text" id="departureDate-{{ reservation.reservationId }}" value="{{ reservation.checkoutDate|date('d M Y') }}" readonly>
 										</div>
 									</div>
 								</div>
 								<div class="dashboard-property-buttons">
-									<a href="{{ path('favoriteDelete') ~ property.propertyId }}">
-										<div class="button">
-											<p>Modifier</p>
-										</div>
-									</a>
 									<form action="{{ path('reservationDelete') }}" method="POST">
 										<input type="hidden" name="_method" value="DELETE">
 										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
@@ -262,7 +254,6 @@
 								</div>
 							</div>
 						</div>
-					</a>
 				{% endfor %}
 			{% endif %}
 		</div>

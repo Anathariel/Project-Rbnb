@@ -253,12 +253,15 @@ h3 {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  text-align: center;
 }
-.card .card-details .calendar input[type=date] {
+.card .card-details .calendar input[type=text] {
   border: none;
   outline: transparent;
   font-family: "Quicksand";
   text-transform: uppercase;
+  background-color: transparent;
+  text-align: center;
 }
 .card .card-details .calendar .arrival,
 .card .card-details .calendar .departure {

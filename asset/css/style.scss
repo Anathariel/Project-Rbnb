@@ -305,12 +305,15 @@ h3 {
       flex-direction: row;
       justify-content: space-evenly;
       align-items: center;
+      text-align: center;
 
-      input[type="date"] {
+      input[type="text"] {
         border: none;
         outline: transparent;
         font-family: "Quicksand";
         text-transform: uppercase;
+        background-color: transparent;
+        text-align: center;
       }
 
       .arrival,
