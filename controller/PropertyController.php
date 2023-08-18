@@ -18,6 +18,7 @@ class PropertyController extends Controller
         $propertyTypeModel = new PropertyTypeModel();
         $reservationModel = new ReservationModel();
 
+
         $property = $propertyModel->getOneProperty($id);
         $propertyAmenities = $propertyAmenitiesModel->getPropertyAmenities($id);
         $houseRules = $houseRulesModel->getHouseRules($id);
@@ -30,18 +31,26 @@ class PropertyController extends Controller
         $averageRating = $commentModel->getAverageRating($id);
         $propertyCount = $propertyModel->countUserProperties($property->getOwner()['uid']);
 
-        // Vérifier si la date est disponible pour cette propriété
-        if (isset($_GET['date'])) {
-            $date = $_GET['date'];
-            $isAvailable = $reservationModel->isDateAvailableModel($id, $date);
-        } else {
-            $isAvailable = null;
+        $reservations = $reservationModel->getReservationsByProperty($id);
+        $reservedDates = [];
+        foreach ($reservations as $reservation) {
+            $startDate = $reservation->getCheckInDate();
+            $endDate = $reservation->getCheckoutDate();
+            $period = new DatePeriod(
+                new DateTime($startDate),
+                new DateInterval('P1D'),
+                new DateTime($endDate)
+            );
+            foreach ($period as $date) {
+                $reservedDates[] = $date->format("Y-m-d");
+            }
         }
+
 
         $maxGuests = $houseRules ? $houseRules->getMaxGuests() : 1;
 
         $oneProperty = $router->generate('baseProperty');
-        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyCount' => $propertyCount, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comments' => $comments, 'propertyType' => $propertyType, 'averageRating' => $averageRating, 'maxGuests' => $maxGuests, 'isAvailable' => $isAvailable]);
+        echo self::getRender('property.html.twig', ['property' => $property, 'oneProperty' => $oneProperty, 'propertyCount' => $propertyCount, 'propertyAmenities' => $propertyAmenities, 'houseRules' => $houseRules, 'accommodationType' => $accommodationType, 'hostLanguage' => $hostLanguage, 'propertyImages' => $propertyImages, 'cancellationPolicy' => $cancellationPolicy, 'comments' => $comments, 'propertyType' => $propertyType, 'averageRating' => $averageRating, 'maxGuests' => $maxGuests, 'reservedDates' => $reservedDates]);
     }
 
     // C R U D
@@ -474,7 +483,7 @@ class PropertyController extends Controller
             $_SESSION['flash_message'] = 'Votre propriété à été supprimer avec succès.';
             header('Location: ' . $router->generate('dashboard'));
             exit;
-        }else{
+        } else {
             $message = 'Une erreur est survenue. Réessayer plus tard.';
             echo self::getRender('dashboard.html.twig', ['message' => $message]);
         }
