@@ -1805,11 +1805,11 @@ section#property-section .property-details .container-pricing .container-calenda
   flex-direction: row;
   justify-content: space-around;
 }
-section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar input[type=date] {
+section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar #arrivalDate, section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar #departureDate {
   border: none;
   outline: transparent;
   font-family: "Quicksand";
-  text-transform: uppercase;
+  text-align: center;
 }
 section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .arrival,
 section#property-section .property-details .container-pricing .container-calendar-traveler .reservation-options .calendar .departure {
@@ -1838,16 +1838,20 @@ section#property-section .property-details .container-pricing .container-calenda
 }
 section#property-section .property-details .container-pricing .price-details {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 section#property-section .property-details .container-pricing .price-details p {
+  width: 90%;
   font-size: 1rem;
 }
 section#property-section .property-details .container-pricing .price-details h4 {
   font-size: 1.3rem;
   margin: 1rem 0;
   padding-top: 0.5rem;
+}
+section#property-section .property-details .container-pricing .price-details .prices {
   border-top: 1px solid #1b1d21;
 }
 section#property-section .add-comment-form {
@@ -2559,18 +2563,8 @@ section#section-article .intro-article figure.author-infos img {
   height: 80px;
   margin: 1rem;
 }
-<<<<<<< HEAD
-
-section#section-article h1,
-section#section-article h2 {
-  color: #92aad3;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
-=======
 section#section-article .intro-article figure.author-infos figcaption {
   margin: 1rem;
->>>>>>> 3e1101e0abce54b356a95a1761e73a22fa8db172
 }
 section#section-article .intro-article figure.author-infos figcaption h4 {
   font-size: 1.2rem;
@@ -2586,14 +2580,6 @@ section#section-article .main-content-article {
   align-items: center;
   width: 100%;
 }
-<<<<<<< HEAD
-div#article-flex-images figure.article-flex-images section#section-article h3 {
-  color: #92aad3;
-}
-div#article-flex-images figure.article-flex-images section#section-article h3 section#section-article h4 {
-  color: #92aad3;
-  text-align: center;
-=======
 section#section-article .main-content-article figure img {
   transform: translateY(-20%);
 }
@@ -2603,5 +2589,4 @@ section#section-article .main-content-article .content-text {
 }
 section#section-article .sharethis-inline-share-buttons {
   margin: 2rem;
->>>>>>> 3e1101e0abce54b356a95a1761e73a22fa8db172
 }/*# sourceMappingURL=style.css.map */

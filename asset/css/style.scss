@@ -424,7 +424,7 @@ button.main-button-style {
   cursor: pointer;
   overflow: hidden;
 
-  & > span {
+  &>span {
     display: block;
     font-family: "Quicksand";
     font-size: 1.5rem;
@@ -435,7 +435,7 @@ button.main-button-style {
     z-index: 1;
   }
 
-  & > span:hover {
+  &>span:hover {
     color: $white;
   }
 }
@@ -469,7 +469,7 @@ button.main-dash-button-style {
   cursor: pointer;
   overflow: hidden;
 
-  & > span {
+  &>span {
     display: block;
     font-family: "Quicksand";
     font-size: 1.2rem;
@@ -480,7 +480,7 @@ button.main-dash-button-style {
     z-index: 1;
   }
 
-  & > span:hover {
+  &>span:hover {
     color: $white;
   }
 }
@@ -608,6 +608,7 @@ button.main-dash-button-style:hover:before {
     }
 
     @media screen and (max-width: 750px) {
+
       #logo,
       #user,
       #desktop-searchbar {
@@ -840,7 +841,7 @@ button.main-dash-button-style:hover:before {
               width: 18px;
             }
 
-            & > a {
+            &>a {
               display: flex;
               justify-content: center;
               align-items: center;
@@ -850,7 +851,7 @@ button.main-dash-button-style:hover:before {
               cursor: pointer;
             }
 
-            & > a:hover {
+            &>a:hover {
               background-color: #0e938343;
               color: $white;
             }
@@ -1056,7 +1057,7 @@ button.main-dash-button-style:hover:before {
     }
   }
 
-  .form > .button {
+  .form>.button {
     margin-top: 1.5rem;
   }
 
@@ -1092,6 +1093,7 @@ button.main-dash-button-style:hover:before {
   }
 
   @keyframes show {
+
     0%,
     49.99% {
       opacity: 0;
@@ -1192,11 +1194,9 @@ footer {
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(
-        to bottom,
-        transparentize(#0e1d33, 0.2),
-        transparentize(#0e1d33, 0.8)
-      );
+      background: linear-gradient(to bottom,
+          transparentize(#0e1d33, 0.2),
+          transparentize(#0e1d33, 0.8));
       z-index: 3;
     }
 
@@ -1261,11 +1261,9 @@ footer {
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(
-            to right,
-            rgba(248, 248, 248),
-            rgba(248, 248, 248, 0.8)
-          );
+          background: linear-gradient(to right,
+              rgba(248, 248, 248),
+              rgba(248, 248, 248, 0.8));
           pointer-events: none;
         }
       }
@@ -1286,11 +1284,9 @@ footer {
           right: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(
-            to left,
-            rgba(248, 248, 248),
-            rgba(248, 248, 248, 0.8)
-          );
+          background: linear-gradient(to left,
+              rgba(248, 248, 248),
+              rgba(248, 248, 248, 0.8));
           pointer-events: none;
         }
       }
@@ -1469,10 +1465,12 @@ section#new-destinations-section {
             background-color: $white;
           }
         }
-        transition: transform 0.3s, box-shadow 0.3s;  // Add this line for smooth transitions
-  
+
+        transition: transform 0.3s,
+        box-shadow 0.3s; // Add this line for smooth transitions
+
         &:hover {
-          transform: scale(1.05);  // Slightly increase the card's size on hover
+          transform: scale(1.05); // Slightly increase the card's size on hover
           box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; // Enhanced box-shadow on hover
         }
       }
@@ -1617,10 +1615,12 @@ section#best-tags-section {
             background-color: $white;
           }
         }
-        transition: transform 0.3s, box-shadow 0.3s;  // Add this line for smooth transitions
-  
+
+        transition: transform 0.3s,
+        box-shadow 0.3s; // Add this line for smooth transitions
+
         &:hover {
-          transform: scale(1.05);  // Slightly increase the card's size on hover
+          transform: scale(1.05); // Slightly increase the card's size on hover
           box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; // Enhanced box-shadow on hover
         }
       }
@@ -2154,11 +2154,11 @@ section#property-section {
             flex-direction: row;
             justify-content: space-around;
 
-            input[type="date"] {
+            #arrivalDate,#departureDate {
               border: none;
               outline: transparent;
               font-family: "Quicksand";
-              text-transform: uppercase;
+              text-align: center;
             }
 
             .arrival,
@@ -2197,10 +2197,12 @@ section#property-section {
 
       .price-details {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
+        align-items: center;
 
         p {
+          width: 90%;
           font-size: 1rem;
         }
 
@@ -2208,6 +2210,9 @@ section#property-section {
           font-size: 1.3rem;
           margin: 1rem 0;
           padding-top: 0.5rem;
+        }
+
+        .prices{
           border-top: 1px solid $darkerblue;
         }
       }
@@ -3006,69 +3011,7 @@ section#section-blog {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-<<<<<<< HEAD
-    margin: 0 auto;
-
-    div.card-blog {
-      // # car class L14 //
-      width: 100%;
-      max-width: 420px;
-      height: 540px;
-      background-color: $white;
-      border-radius: 8px 8px 0 0;
-      overflow: hidden;
-      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-      margin: 0 5px 40px 5px;
-      transition: all 0.5s ease;
-
-      @media screen and (min-width: 950px) {
-        // responsive //
-        width: 384px;
-        height: 456px;
-
-        &:hover {
-          .bg-image {
-            transform: scale(1.1);
-          }
-        }
-      }
-
-      div.card-blog-top {
-        width: 90%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: center;
-        margin: 0 auto;
-      }
-
-      div.card-blog-bottom {
-        position: relative;
-        padding: 30px 40px;
-        text-align: center;
-        height: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        p {
-          margin-top: 15px;
-        }
-      }
-
-      div.card-blog {
-        position: relative;
-        text-align: center;
-        height: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-=======
     margin-top: 1rem;
->>>>>>> 3e1101e0abce54b356a95a1761e73a22fa8db172
   }
 }
 
@@ -3088,19 +3031,9 @@ section#section-article {
       color: $white;
     }
 
-<<<<<<< HEAD
-section#section-article h1,
-section#section-article h2 {
-  color: #92aad3;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-=======
     h1 {
       font-size: 2.5rem;
     }
->>>>>>> 3e1101e0abce54b356a95a1761e73a22fa8db172
 
     figure.author-infos {
       display: flex;
@@ -3108,18 +3041,6 @@ section#section-article h2 {
       justify-content: center;
       margin: 1.5rem;
 
-<<<<<<< HEAD
-    section#section-article h3 {
-      color: #92aad3;
-
-      section#section-article h4 {
-        color: #92aad3;
-        text-align: center;
-      }
-    }
-  }
-}
-=======
       img {
         border-radius: 100%;
         width: 80px;
@@ -3130,10 +3051,11 @@ section#section-article h2 {
       figcaption {
         margin: 1rem;
 
-        h4{
+        h4 {
           font-size: 1.2rem;
           color: $white;
         }
+
         p {
           font-size: .9rem;
         }
@@ -3160,8 +3082,7 @@ section#section-article h2 {
     }
   }
 
-  .sharethis-inline-share-buttons{
+  .sharethis-inline-share-buttons {
     margin: 2rem;
   }
 }
->>>>>>> 3e1101e0abce54b356a95a1761e73a22fa8db172
