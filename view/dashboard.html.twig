@@ -182,28 +182,23 @@
 										<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
 									{% endif %}
 								</figure>
-
 								<div class="card-details">
 									<div class="description">
 										<div class="locataire">
-											<div class="img-profile">
-												<img src="" alt="">
-											</div>
+											<img src="" alt="">
 											<h3>Loué par {{ property.userFirstname }}</h3>
 										</div>
-									</div>
-
-									<div class="calendar">
-										<div class="arrival">
-											<h4>Arrivée</h4>
-											<input type="text" id="arrivalDate-{{ property.propertyId }}" value="{{ property.checkInDate|date('d M Y') }}" readonly>
+										<div class="calendar">
+											<div class="arrival">
+												<h4>Arrivée</h4>
+												<input type="text" id="arrivalDate-{{ property.propertyId }}" value="{{ property.checkInDate|date('d M Y') }}" readonly>
+											</div>
+											<div class="departure">
+												<h4>Départ</h4>
+												<input type="text" id="departureDate-{{ property.propertyId }}" value="{{ property.checkoutDate|date('d M Y') }}" readonly>
+											</div>
 										</div>
-										<div class="departure">
-											<h4>Départ</h4>
-											<input type="text" id="departureDate-{{ property.propertyId }}" value="{{ property.checkoutDate|date('d M Y') }}" readonly>
-										</div>
 									</div>
-
 									<div class="dashboard-property-buttons">
 										<button class="main-dash-button-style" type="submit" name="submit">
 											<span>Contacter</span>
@@ -213,87 +208,86 @@
 							</div>
 						</div>
 				{% endfor %}
-			{% endif %}
-		</div>
-	</section>
+				{% endif %}
+			</div>
+		</section>
 
-	<section class="dashboard-cards-my-reservations" id="my-reservations">
-		<h2>Mes réservations</h2>
-		<div class="cards-container">
-			{% if userReservations is empty %}
-				<p>Vous ne disposez pas de réservation.</p>
-			{% else %}
-				{% for reservation in userReservations %}
-					{% set property = reservation.property %}
-						<div class="card smaller-card">
-							<figure>
-								{% if property.propertyImages %}
-									<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
-								{% endif %}
-							</figure>
-
-							<div class="card-details">
-								<div class="description">
-									<div class="calendar">
-										<div class="arrival">
-											<h4>Arrivée</h4>
-											<input type="text" id="arrivalDate-{{ reservation.reservationId }}" value="{{ reservation.checkInDate|date('d M Y') }}" readonly>
-										</div>
-										<div class="departure">
-											<h4>Départ</h4>
-											<input type="text" id="departureDate-{{ reservation.reservationId }}" value="{{ reservation.checkoutDate|date('d M Y') }}" readonly>
+		<section class="dashboard-cards-my-reservations" id="my-reservations">
+			<h2>Mes réservations</h2>
+			<div class="cards-container">
+				{% if userReservations is empty %}
+					<p>Vous ne disposez pas de réservation.</p>
+				{% else %}
+					{% for reservation in userReservations %}
+						{% set property = reservation.property %}
+							<div class="card smaller-card">
+								<figure>
+									{% if property.propertyImages %}
+										<img src="{{ asset('/media/locations/' ~ property.propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
+									{% endif %}
+								</figure>
+								<div class="card-details">
+									<div class="description">
+										<div class="calendar">
+											<div class="arrival">
+												<h4>Arrivée</h4>
+												<input type="text" id="arrivalDate-{{ reservation.reservationId }}" value="{{ reservation.checkInDate|date('d M Y') }}" readonly>
+											</div>
+											<div class="departure">
+												<h4>Départ</h4>
+												<input type="text" id="departureDate-{{ reservation.reservationId }}" value="{{ reservation.checkoutDate|date('d M Y') }}" readonly>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="dashboard-property-buttons">
-									<form action="{{ path('reservationDelete') }}" method="POST">
-										<input type="hidden" name="_method" value="DELETE">
-										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
-										<input type="submit" value="Annuler" class="delete">
-									</form>
-								</div>
-							</div>
-						</div>
-				{% endfor %}
-			{% endif %}
-		</div>
-	</section>
-
-	<section class="dashboard-cards-my-articles" id="my-articles">
-		<h2>Mes Articles Blog</h2>
-		<div class="cards-container">
-			{% if userArticles is empty %}
-				<a href="{{ path('blog') }}">Vous n'avez rien publier pour le moment.</a>
-			{% else %}
-				{% for userArticle in userArticles %}
-					<a href="{{ path('basearticle') }}/{{ userArticle.articleId }}">
-						<div class="card medium-card">
-							<figure>
-								{% if userArticle.image %}
-									<img src="{{ asset('/media/blog/' ~ userArticle.image) }}" alt="{{ userArticle.title }}"/>
-								{% endif %}
-							</figure>
-
-							<div class="card-details">
-								<div class="description">
-									<h3>{{ userArticle.title }}</h3>
-									<q class="card-descriptions-limit">{{ userArticle.extract }}</q>
-								</div>
-								<div class="dashboard-property-buttons">
-									<a href="{{ path('baseUpdateArticle')}}{{ userArticle.articleId}}">
-										<div class="button">
-											<p>Modifier</p>
-										</div>
-									</a>
-									<form action="{{ path('baseDeletetArticle') }}{{ userArticle.articleId}}" method="POST">
-										<input type="submit" name="delete" value="DELETE" id="delete-article">
-									</form>
+									<div class="dashboard-property-buttons">
+										<form action="{{ path('reservationDelete') }}" method="POST">
+											<input type="hidden" name="_method" value="DELETE">
+											<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
+											<input type="submit" value="Annuler" class="delete">
+										</form>
+									</div>
 								</div>
 							</div>
-						</div>
-					</a>
-				{% endfor %}
-			{% endif %}
-		</div>
-	</section>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</section>
+
+		<section class="dashboard-cards-my-articles" id="my-articles">
+			<h2>Mes Articles Blog</h2>
+			<div class="cards-container">
+				{% if userArticles is empty %}
+					<a href="{{ path('blog') }}">Vous n'avez rien publier pour le moment.</a>
+				{% else %}
+					{% for userArticle in userArticles %}
+						<a href="{{ path('basearticle') }}/{{ userArticle.articleId }}">
+							<div class="card medium-card">
+								<figure>
+									{% if userArticle.image %}
+										<img src="{{ asset('/media/blog/' ~ userArticle.image) }}" alt="{{ userArticle.title }}"/>
+									{% endif %}
+								</figure>
+
+								<div class="card-details">
+									<div class="description">
+										<h3 id="blog-title-card">{{ userArticle.title }}</h3>
+										<q class="card-descriptions-limit">{{ userArticle.extract }}</q>
+									</div>
+									<div class="dashboard-property-buttons">
+										<a href="{{ path('baseUpdateArticle')}}{{ userArticle.articleId}}">
+											<div class="button">
+												<p>Modifier</p>
+											</div>
+										</a>
+										<form action="{{ path('baseDeletetArticle') }}{{ userArticle.articleId}}" method="POST">
+											<input type="submit" name="delete" value="DELETE" id="delete-article">
+										</form>
+									</div>
+								</div>
+							</div>
+						</a>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</section>
 </section>{% endblock %}
