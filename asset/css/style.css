@@ -631,6 +631,13 @@ span.flatpickr-day.today:not(.selected):hover {
   font-family: "Quicksand";
   width: 100%;
 }
+.expanded-state #searchbar .search-element input[type=number] {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-family: "Quicksand";
+  width: 100%;
+}
 .expanded-state #searchbar .separation {
   position: relative;
 }

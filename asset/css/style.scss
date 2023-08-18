@@ -740,6 +740,13 @@ span.flatpickr-day {
         font-family: $font;
         width: 100%;
       }
+      input[type="number"] {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        font-family: $font;
+        width: 100%;
+      }
     }
 
     .separation {
