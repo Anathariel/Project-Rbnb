@@ -2109,7 +2109,7 @@ section#googlemaps-property-section div#map {
   margin: 0.2rem 0;
 }
 .dashboard .welcome-dashboard .user-menu .add a:hover {
-  background: rgba(14, 147, 131, 0.5803921569);
+  background: rgba(14, 147, 131, 0.8588235294);
   transition: all 0.5s ease-out;
 }
 @media screen and (max-width: 800px) {
