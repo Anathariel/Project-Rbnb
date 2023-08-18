@@ -1,28 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
   flatpickr("#arrivalDateDisplay", {
-      mode: "range",
-      dateFormat: "Y-m-d",
-      altFormat: "d M Y",
-      minDate: "today",
-      onChange: function(selectedDates, dateStr, instance) {
-          if (selectedDates.length == 2) {
-              // Set the visible inputs
-              document.querySelector("#arrivalDateDisplay").value = flatpickr.formatDate(selectedDates[0], instance.config.altFormat);
-              document.querySelector("#departureDateDisplay").value = flatpickr.formatDate(selectedDates[1], instance.config.altFormat);
-              document.querySelector("#arrivalDate").value = flatpickr.formatDate(selectedDates[0], instance.config.dateFormat);
-              document.querySelector("#departureDate").value = flatpickr.formatDate(selectedDates[1], instance.config.dateFormat);
-              
-              // Call the updatePrices function after setting input values
-              updatePrices();
-          }
-      }
-  });
-
-  // Function to check if a date is available
-  function isDateAvailable(date) {
-    // Implement your logic to check date availability here
-    return true;
-  }
+    mode: "range",
+    dateFormat: "Y-m-d",
+    altFormat: "d M Y",
+    minDate: "today",
+    onChange: function(selectedDates, dateStr, instance) {
+        if (selectedDates.length == 2) {
+            // Set the visible inputs
+            document.querySelector("#arrivalDateDisplay").value = flatpickr.formatDate(selectedDates[0], instance.config.altFormat);
+            document.querySelector("#departureDateDisplay").value = flatpickr.formatDate(selectedDates[1], instance.config.altFormat);
+            document.querySelector("#arrivalDate").value = flatpickr.formatDate(selectedDates[0], instance.config.dateFormat);
+            document.querySelector("#departureDate").value = flatpickr.formatDate(selectedDates[1], instance.config.dateFormat);
+            
+            // Call the updatePrices function after setting input values
+            updatePrices();
+            
+            // Display the price-details and total-price divs
+            document.querySelector(".price-details").style.display = "flex";
+            document.querySelector(".total-price").style.display = "flex";
+        } else {
+            // If dates are not valid, keep the divs hidden
+            document.querySelector(".price-details").style.display = "none";
+            document.querySelector(".total-price").style.display = "none";
+        }
+    }
+});
 
   // Function to calculate and update the prices
   function updatePrices() {
@@ -59,36 +61,45 @@ document.addEventListener("DOMContentLoaded", function () {
     totalPriceElem.innerText = totalBasePrice.toFixed(2) + "€";
     totalPriceWithFeesElem.innerText = totalPriceWithFees.toFixed(2) + "€";
     
-
     // Update hidden form fields for submission
     document.getElementById("startDateInput").value = arrivalDate.toISOString();
     document.getElementById("endDateInput").value = departureDate.toISOString();
     document.getElementById("numTravelersInput").value = numTravelers;
     document.getElementById("totalPriceInput").value = totalPriceWithFees.toFixed(2);
   }
+});
 
-  // Event listeners
-  const travelerSelectElem = document.getElementById("traveler-select");
-  if (travelerSelectElem) {
-      travelerSelectElem.addEventListener("change", updatePrices);
-  }
 
-  // Function to update the visibility of the price details box
-  function updatePriceDetailsVisibility() {
-    const arrivalDate = document.getElementById("arrivalDate").value;
-    const departureDate = document.getElementById("departureDate").value;
-    const numberOfDays = parseInt(document.getElementById("nb-day").innerText);
-    const priceDetailsElem = document.querySelector(".price-details");
 
-    if ((!arrivalDate || !departureDate) && numberOfDays === 0) {
-      priceDetailsElem.classList.add("hidden");
-    } else {
-      priceDetailsElem.classList.remove("hidden");
-    }
-  }
+//Deprecated Code
+
+  // Function to check if a date is available
+  // function isDateAvailable(date) {
+  //   // Implement your logic to check date availability here
+  //   return true;
+  // }
+
+  // // Event listeners
+  // const travelerSelectElem = document.getElementById("traveler-select");
+  // if (travelerSelectElem) {
+  //     travelerSelectElem.addEventListener("change", updatePrices);
+  // }
+
+  // // Function to update the visibility of the price details box
+  // function updatePriceDetailsVisibility() {
+  //   const arrivalDate = document.getElementById("arrivalDate").value;
+  //   const departureDate = document.getElementById("departureDate").value;
+  //   const numberOfDays = parseInt(document.getElementById("nb-day").innerText);
+  //   const priceDetailsElem = document.querySelector(".price-details");
+
+  //   if ((!arrivalDate || !departureDate) && numberOfDays === 0) {
+  //     priceDetailsElem.classList.add("hidden");
+  //   } else {
+  //     priceDetailsElem.classList.remove("hidden");
+  //   }
+  // }
 
   // Initialize the prices and traveler options on page load
-  updatePrices();
-  updatePriceDetailsVisibility();
+  // updatePrices();
+  // updatePriceDetailsVisibility();
   // updateTravelerOptions(); // Uncomment this if you've defined this function elsewhere
-});
