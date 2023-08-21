@@ -31,11 +31,11 @@
 										<input type="hidden" name="propertyId" value="{{ property.propertyId }}">
 										<button>
 											{% if property.isFavorite %}
-												<img src="{{ asset('/media/icons/heart-solid.svg') }}" alt="" id="heart-img-{{ property.propertyId }}">
+												<img src="{{ asset('/media/icons/heart-solid.svg') }}" alt="" id="heart-img-{{ property.propertyId }}"></button>
 											{% else %}
-												<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/heart.svg') }}" alt="" id="heart-img-{{ property.propertyId }}"></a>
+												<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/heart-footer.svg') }}" alt="Ajouter aux favoris" class="add-favorite-redirect" id="heart-img-{{ property.propertyId }}"></a>
 											{% endif %}
-										</button>
+										
 									</form>
 								{% else %}
 									<a href="{{ path('register') }}"><img src="{{ asset('/media/icons/heart.svg') }}" alt="" id="heart-img-{{ property.propertyId }}"></a>

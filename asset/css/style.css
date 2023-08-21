@@ -175,13 +175,13 @@ h3 {
   top: 2rem;
   right: 1.5rem;
 }
-.card figure figcaption button {
+.card figure figcaption a, .card figure figcaption button {
   outline: transparent;
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
-.card figure figcaption button img {
+.card figure figcaption a img, .card figure figcaption button img {
   width: 30px;
   height: 30px;
 }

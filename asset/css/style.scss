@@ -213,7 +213,7 @@ h3 {
       top: 2rem;
       right: 1.5rem;
 
-      button {
+      a,button {
         outline: transparent;
         border: none;
         background-color: transparent;
@@ -399,11 +399,11 @@ h3 {
   }
 
   transition: transform 0.3s ease,
-  box-shadow 0.3s ease; // Smoothing out the effect
+  box-shadow 0.3s ease;
 
   &:hover {
-    transform: scale(1.05); // Subtle scaling effect
-    box-shadow: rgba(99, 99, 99, 0.3) 0px 4px 12px 0px; // Deeper shadow on hover for lift effect
+    transform: scale(1.05);
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 4px 12px 0px;
   }
 }
 
