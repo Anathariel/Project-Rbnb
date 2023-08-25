@@ -213,7 +213,8 @@ h3 {
       top: 2rem;
       right: 1.5rem;
 
-      a,button {
+      a,
+      button {
         outline: transparent;
         border: none;
         background-color: transparent;
@@ -1919,7 +1920,7 @@ section#property-section {
     }
   }
 
-  .sharethis-inline-share-buttons{
+  .sharethis-inline-share-buttons {
     z-index: 0;
   }
 
@@ -3183,9 +3184,13 @@ section#section-article {
     align-items: center;
     width: 100%;
 
-    figure {
-      img {
+    &>figure {
+      &>img {
         transform: translateY(-20%);
+        width: 1400px;
+        height: 500px;
+        object-fit: cover;
+        border-radius: .5rem;
       }
     }
 
