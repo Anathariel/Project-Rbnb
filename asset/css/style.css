@@ -175,13 +175,15 @@ h3 {
   top: 2rem;
   right: 1.5rem;
 }
-.card figure figcaption a, .card figure figcaption button {
+.card figure figcaption a,
+.card figure figcaption button {
   outline: transparent;
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
-.card figure figcaption a img, .card figure figcaption button img {
+.card figure figcaption a img,
+.card figure figcaption button img {
   width: 30px;
   height: 30px;
 }
@@ -2677,8 +2679,13 @@ section#section-article .main-content-article {
   align-items: center;
   width: 100%;
 }
-section#section-article .main-content-article figure img {
+section#section-article .main-content-article > figure > img {
   transform: translateY(-20%);
+  width: 1400px;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
 }
 section#section-article .main-content-article .content-text {
   max-width: 1000px;
