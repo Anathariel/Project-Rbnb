@@ -8,14 +8,14 @@
 	{% if message %}
 		<div id="message" data-content="{{ message }}"></div>
 	{% endif %}
-	{# ---------- property-section ---------- #}
+	{# ---------- PROPERTY PAGE ---------- #}
 	<section id="property-section">
 		<h1>{{ property.title }}</h1>
 		<div class="average-stars-rating">
 			<figure>
+				{# ---------- AVERAGE RATING ---------- #}
 				{% set intPart = averageRating|split('.')[0] %}
 				{% set hasHalfStar = (averageRating * 10) % 10 >= 5 %}
-
 				{% for i in 1..5 %}
 					{% if i <= intPart %}
 						<img src="{{ asset('/media/icons/rating-fullstar.svg') }}" alt="Full Star rating">
@@ -26,12 +26,15 @@
 					{% endif %}
 				{% endfor %}
 				<figcaption>
+					{# ---------- ADRESS + SHARE ---------- #}
 					<p>{{ property.city }},{{ property.region }},{{ property.country }}</p>
 					<div class="sharethis-inline-share-buttons"></div>
 				</figcaption>
 			</figure>
 		</div>
-		<div class="property-images">
+		<div
+			class="property-images">
+			{# ---------- PROPERTY IMAGES ---------- #}
 			<figure class="property-main-image">
 				{% if propertyImages.imageMainURL %}
 					<img src="{{ asset('/media/locations/' ~ propertyImages.imageMainURL) }}" alt="{{ property.title }}"/>
@@ -52,7 +55,7 @@
 				{% endif %}
 			</figure>
 		</div>
-		<!-- The Modal -->
+		{# ---------- MODAL IMAGES ---------- #}
 		<div
 			id="myModal" class="modal">
 			<!-- The Close Button -->
@@ -417,20 +420,23 @@
 					{# --------------- RIGHT SIDE PRICE BOX -------------- #}
 					<div class="container-pricing">
 						<p>
-							<span id="pricePerNight">{{ property.PriceNight }}€</span>
-							par nuit
-						</p>
-						<div class="container-calendar-traveler">
+							<span id="pricePerNight">{{ property.PriceNight }}€
+							</span>par nuit</p>
+						<div class="container-calendar-traveler" data-reserved-dates="{{ reservedDates|join(',') }}">
 							<div class="reservation-options">
 								<div class="calendar">
 									<div class="arrival">
 										<h4>Arrivée</h4>
-										<input type="text" id="arrivalDate" name="arrivalDate" placeholder="Sélectionnez la date d'arrivée">
+										<input type="text" id="arrivalDateDisplay" placeholder="Date d'arrivée" readonly>
+										<input type="hidden" id="arrivalDate" name="arrivalDate" placeholder="Date d'arrivée">
 									</div>
 									<div class="departure">
 										<h4>Départ</h4>
-										<input type="text" id="departureDate" name="departureDate" placeholder="Sélectionnez la date de départ">
+										<input type="text" id="departureDateDisplay" placeholder="Date de départ" readonly>
+										<input type="hidden" id="departureDate" name="departureDate" placeholder="Date de départ">
 									</div>
+									<!-- Hidden input for the range -->
+									<input type="text" id="dateRangeHidden" style="display:none;">
 								</div>
 								<div class="traveler">
 									<h4>Voyageurs</h4>
@@ -458,20 +464,30 @@
 							{% endif %}
 							<p>Aucun montant ne vous sera débité pour le moment</p>
 						</div>
-						<div class="price-details hidden">
+						<div class="price-details">
 							<div class="details">
-								<p>{{ property.PriceNight }}€ x
-									<span id="nb-day"></span>
+								<p>
+									<span id="pricePerNight">{{ property.PriceNight }}€
+									</span>x
+									<span id="nb-day">0</span>
 								</p>
-								<p>Frais de service Loca'R</p>
-								<p>Taxes</p>
-								<h4>Total du séjour</h4>
+								<p>Frais de service Loca'R :</p>
+								<p>Taxes :</p>
 							</div>
 							<div class="prices">
-								<p id="totalPrice">{{ totalPrice }}€</p>
-								<p id="serviceFee">{{ serviceFee }}€</p>
-								<p id="taxes">{{ taxes }}€</p>
-								<h4 id="totalPriceWithFees">{{ totalPriceWithFees }}€</h4>
+								<p id="calculatedTotal">0€</p>
+								<p id="serviceFee">0€</p>
+								<p id="taxes">0€</p>
+							</div>
+						</div>
+						<div class="total-price">
+							<div class="details">
+								<h4>Total du séjour :</h4>
+								<p class="base-price">Total de base :</p>
+							</div>
+							<div class="prices">
+								<p id="totalPriceWithFees">0€</p>
+								<p id="totalPrice" class="base-price">0€</p>
 							</div>
 						</div>
 					</div>

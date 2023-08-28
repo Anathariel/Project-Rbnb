@@ -56,6 +56,8 @@ $router->map('GET', '/catalogue/tag/[i:id]', 'SearchController#filterByTag', 'fi
 $router->map('GET|POST', '/reservation', 'ReservationController#addReservation', 'reservation');
 $router->map('GET|POST', '/account/reservation', 'ReservationController#getReservation', 'reservationGet');
 $router->map('POST', '/account/reservation/delete', 'ReservationController#deleteReservation', 'reservationDelete');
+$router->map('GET', '/check-date-availability', 'ReservationController#checkAvailability', 'checkDateAvailability');
+
 
 // BLOG
 $router->map('GET', '/blog', 'BlogController#showAllArticles', 'blog');

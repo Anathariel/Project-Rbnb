@@ -9,7 +9,6 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 		<link rel="stylesheet" href="{{ asset('/css/font.css') }}"/>
 		<link rel="stylesheet" href="{{ asset('/css/style.css') }}"/>
-		
 
 		<title>
 			{% block title %}Loca'R
@@ -34,15 +33,17 @@
 				<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 				<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
 				<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+				<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/plugins/rangePlugin.js"></script>
+				<script src="{{ asset('/js/reservation.js') }}"></script>
 				<script src="{{ asset('/js/notifications.js') }}"></script>
 				<script src="{{ asset('/js/search.js') }}"></script>
 				<script src="{{ asset('/js/register.js') }}"></script>
 				<script src="{{ asset('/js/searchbar.js') }}"></script>
 				<script src="{{ asset('/js/main.js') }}"></script>
-				<script src="{{ asset('/js/reservation.js') }}"></script>
 				<script src="{{ asset('/js/favorite.js') }}"></script>
 				<script src="{{ asset('/js/rating.js') }}"></script>
+				<script src="{{ asset('/js/calendar.js') }}"></script>
+				<script src="{{ asset('/js/reservedDates.js') }}"></script>
 			{% endblock %}
-
 		</body>
 	</html>

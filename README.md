@@ -18,9 +18,6 @@ Back-end :
 Front-end & Maquetting :
 • Angéline Gillot @ https://www.linkedin.com/in/ang%C3%A9line-gillot/ & https://github.com/Anathariel
 
-Front Blog :
-• Elisa Ravinet @ https://github.com/elisa-1987
-
 _________
 
 ○ Lien maquette FIGMA : https://www.figma.com/file/x4gSVuXZE54CPA5N7oPb9z/Maquettes?type=design&node-id=505-2&t=iDTNDo0C1scuAUvB-0

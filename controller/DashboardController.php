@@ -57,11 +57,16 @@ class DashboardController extends Controller
             $propertyId = $property->getPropertyId();
             $reservations = $reservationModel->getReservationsByProperty($propertyId);
             if (!empty($reservations)) {
+                $reservation = $reservations[0]; // Si une propriété a plusieurs réservations, choisissez la première (ou adaptez selon votre logique).
+                $property->setUserFirstName($reservation->getUserFirstName());
+                $property->setCheckInDate($reservation->getCheckInDate());
+                $property->setCheckoutDate($reservation->getCheckoutDate());
                 $userRentedProperties[] = $property;
             }
             $averageRating = $commentModel->getAverageRating($propertyId);
             $property->setAverageRating($averageRating);
         }
+
 
         // Get the images related to each property of the owner
         $propertyImagesModel = new PropertyImagesModel();
@@ -93,7 +98,8 @@ class DashboardController extends Controller
         if (isset($_SESSION['flash_message'])) {
             $message = $_SESSION['flash_message'];
             unset($_SESSION['flash_message']);
-        }        
+        }
+
 
         // Prepare the data to send to the view
         $data = [
@@ -103,7 +109,7 @@ class DashboardController extends Controller
             'userRentedProperties' => $userRentedProperties,
             'averageRating' => $averageRating,
             'userArticles' => $userArticles,
-            'message' => $message
+            'message' => $message,
         ];
         // Display the view with the data
         echo self::getRender('dashboard.html.twig', $data);

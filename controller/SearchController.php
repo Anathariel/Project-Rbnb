@@ -9,7 +9,7 @@ class SearchController extends Controller
             $arrivalDate = $_GET['arrival_date'];
             $departureDate = $_GET['departure_date'];
             $travelers = $_GET['travelers'];
-            
+
             $model = new SearchModel();
             $datas = $model->getSearchResult($searchTerm, $arrivalDate, $departureDate, $travelers);
 

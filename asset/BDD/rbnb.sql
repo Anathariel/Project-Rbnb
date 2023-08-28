@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 09 août 2023 à 12:49
--- Version du serveur : 8.0.31
--- Version de PHP : 8.0.26
+-- Host: 127.0.0.1:3306
+-- Generation Time: Aug 21, 2023 at 05:48 AM
+-- Server version: 8.0.31
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `rbnb`
+-- Database: `rbnb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `accommodationtype`
+-- Table structure for table `accommodationtype`
 --
 
 DROP TABLE IF EXISTS `accommodationtype`;
@@ -54,10 +54,10 @@ CREATE TABLE IF NOT EXISTS `accommodationtype` (
   `detecteurMonoxyDeCarbone` tinyint(1) NOT NULL,
   PRIMARY KEY (`accommodationTypeId`),
   KEY `PROPERTY` (`propertyId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `accommodationtype`
+-- Dumping data for table `accommodationtype`
 --
 
 INSERT INTO `accommodationtype` (`accommodationTypeId`, `propertyId`, `piscine`, `parkingGratuit`, `jacuzzi`, `wifi`, `laveLinge`, `secheLinge`, `climatisation`, `chauffage`, `espaceTravailDedie`, `television`, `secheCheveux`, `ferRepasser`, `stationRechargeVehiElectriques`, `litBebe`, `salleSport`, `barbecue`, `petitDejeuner`, `cheminee`, `logementFumeur`, `detecteurFumee`, `detecteurMonoxyDeCarbone`) VALUES
@@ -73,12 +73,43 @@ INSERT INTO `accommodationtype` (`accommodationTypeId`, `propertyId`, `piscine`,
 (91, 120, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (92, 121, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (96, 125, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(97, 126, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(97, 126, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(98, 127, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(99, 128, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(100, 129, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(101, 130, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(102, 131, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(103, 132, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(104, 133, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(105, 134, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(106, 135, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(107, 136, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(108, 137, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(109, 138, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(110, 139, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(111, 140, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(112, 141, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(113, 142, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(114, 143, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(115, 144, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(116, 145, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(117, 146, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(118, 147, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(119, 148, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(120, 149, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(121, 150, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(122, 151, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(123, 152, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(124, 153, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(125, 154, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(126, 155, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(127, 156, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(128, 157, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `article`
+-- Table structure for table `article`
 --
 
 DROP TABLE IF EXISTS `article`;
@@ -87,25 +118,26 @@ CREATE TABLE IF NOT EXISTS `article` (
   `author` int NOT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `extract` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `extract` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`articleId`),
   KEY `user` (`author`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `article`
+-- Dumping data for table `article`
 --
 
 INSERT INTO `article` (`articleId`, `author`, `image`, `title`, `extract`, `content`, `date`) VALUES
-(1, 15, 'bateau.png', 'Maldives', '', 'Les Maldives sont un paradis tropical situé dans l’océan Indien, au sud-ouest du Sri Lanka et de l’Inde. C’est un archipel composé de plus de 1 000 îles coralliennes, dont environ 200 sont habitées. Les Maldives sont connues pour leurs plages de sable bla', '2023-08-08'),
-(2, 10, 'bateau.png', 'premier acticle', 'ceci est un test', 'bla bla bla', '0000-00-00');
+(24, 14, 'pexels-kristina-snowasp-9956592.jpg', 'Airbnb : Redéfinir les Voyages au 21ème Siècle', 'Découvrez comment Airbnb a transformé la façon dont nous voyageons et pourquoi il est devenu le choix préféré de millions de voyageurs à travers le mo', 'Dans un monde de plus en plus globalisé, la quête d\'authenticité devient cruciale pour de nombreux voyageurs. Plutôt que de séjourner dans un hôtel impersonnel, ils cherchent à s\'immerger dans la culture locale. Airbnb, avec son modèle basé sur le partage de domiciles privés, répond parfaitement à cette demande. Imaginez prendre votre petit déjeuner dans une boulangerie locale recommandée par votre hôte, ou explorer un marché caché que seul un résident connaîtrait. Ces expériences, bien que simples, enrichissent notre compréhension du monde et créent des connexions durables avec les lieux que nous visitons.', '2023-08-21'),
+(25, 8, 'pexels-alex-azabache-3214968.jpg', 'Voyager Local : L\'Essence d\'Airbnb', 'Oubliez les hôtels et les circuits touristiques génériques. Avec Airbnb, découvrez le charme de vivre comme un local lors de vos voyages.', 'Dans un monde de plus en plus globalisé, la quête d\'authenticité devient cruciale pour de nombreux voyageurs. Plutôt que de séjourner dans un hôtel impersonnel, ils cherchent à s\'immerger dans la culture locale. Airbnb, avec son modèle basé sur le partage de domiciles privés, répond parfaitement à cette demande. Imaginez prendre votre petit déjeuner dans une boulangerie locale recommandée par votre hôte, ou explorer un marché caché que seul un résident connaîtrait. Ces expériences, bien que simples, enrichissent notre compréhension du monde et créent des connexions durables avec les lieux que nous visitons.', '2023-08-21'),
+(26, 15, 'sandra-kaas-BDlz85DMHBc-unsplash.jpg', 'Comment Assurer un Séjour Inoubliable à vos Hôtes Airbnb', 'Vous êtes un hôte Airbnb ou envisagez de le devenir ? Voici nos meilleures astuces pour garantir que vos invités passent un séjour mémorable.', 'L\'hospitalité va au-delà de fournir un lit confortable. C\'est l\'art de faire en sorte que vos invités se sentent accueillis et choyés. En tant qu\'hôte Airbnb, chaque détail compte. De la propreté de l\'espace à l\'attention aux besoins individuels de vos invités, tout contribue à créer une expérience mémorable. Commencez par personnaliser leur séjour: demandez-leur leurs préférences avant leur arrivée. Peut-être aiment-ils un type particulier de café ou sont-ils intéressés par l\'histoire locale ? Fournir des touches personnelles, comme un guide des endroits préférés du quartier ou des recommandations sur les événements locaux, peut vraiment faire la différence. Rappelez-vous, le bouche-à-oreille est puissant, et un invité heureux partagera certainement son expérience positive avec d\'autres.', '2023-08-21');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cancellationpolicy`
+-- Table structure for table `cancellationpolicy`
 --
 
 DROP TABLE IF EXISTS `cancellationpolicy`;
@@ -122,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `cancellationpolicy` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comment`
+-- Table structure for table `comment`
 --
 
 DROP TABLE IF EXISTS `comment`;
@@ -135,10 +167,10 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`commentId`),
   KEY `USER` (`uid`),
   KEY `property` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `comment`
+-- Dumping data for table `comment`
 --
 
 INSERT INTO `comment` (`commentId`, `uid`, `propertyId`, `rating`, `commentText`) VALUES
@@ -149,12 +181,14 @@ INSERT INTO `comment` (`commentId`, `uid`, `propertyId`, `rating`, `commentText`
 (9, 14, 125, 5, '2test'),
 (10, 10, 120, 5, 'top'),
 (11, 10, 119, 5, '4'),
-(12, 10, 126, 5, '5');
+(12, 10, 126, 5, '5'),
+(13, 25, 130, 1, 'meh'),
+(14, 14, 106, 3, 'eazeazeaz');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `conversation`
+-- Table structure for table `conversation`
 --
 
 DROP TABLE IF EXISTS `conversation`;
@@ -171,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `conversation` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `favorite`
+-- Table structure for table `favorite`
 --
 
 DROP TABLE IF EXISTS `favorite`;
@@ -183,23 +217,22 @@ CREATE TABLE IF NOT EXISTS `favorite` (
   PRIMARY KEY (`favoriteId`),
   KEY `USER` (`uid`),
   KEY `PROPERTY` (`propertyId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `favorite`
+-- Dumping data for table `favorite`
 --
 
 INSERT INTO `favorite` (`favoriteId`, `uid`, `propertyId`, `addedDate`) VALUES
-(1, 14, 100, '2023-07-20 09:17:50'),
-(2, 14, 101, '2023-07-20 09:50:11'),
-(3, 14, 101, '2023-07-20 10:12:33'),
-(4, 14, 92, '2023-07-20 10:34:59'),
-(57, 10, 120, '2023-07-27 06:22:29');
+(101, 14, 103, '2023-08-21 07:16:55'),
+(102, 14, 104, '2023-08-21 07:16:57'),
+(108, 14, 101, '2023-08-21 07:22:19'),
+(109, 14, 102, '2023-08-21 07:25:03');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `hostlanguage`
+-- Table structure for table `hostlanguage`
 --
 
 DROP TABLE IF EXISTS `hostlanguage`;
@@ -217,10 +250,10 @@ CREATE TABLE IF NOT EXISTS `hostlanguage` (
   `arabe` tinyint(1) NOT NULL,
   PRIMARY KEY (`hostLanguageId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `hostlanguage`
+-- Dumping data for table `hostlanguage`
 --
 
 INSERT INTO `hostlanguage` (`hostLanguageId`, `propertyId`, `anglais`, `français`, `allemand`, `japonais`, `italien`, `russe`, `espagnol`, `chinois`, `arabe`) VALUES
@@ -236,12 +269,43 @@ INSERT INTO `hostlanguage` (`hostLanguageId`, `propertyId`, `anglais`, `françai
 (78, 120, 0, 1, 0, 0, 0, 0, 0, 0, 0),
 (79, 121, 1, 0, 0, 0, 0, 0, 0, 0, 0),
 (83, 125, 1, 1, 1, 0, 0, 0, 0, 0, 0),
-(84, 126, 1, 1, 0, 0, 0, 0, 0, 0, 1);
+(84, 126, 1, 1, 0, 0, 0, 0, 0, 0, 1),
+(85, 127, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+(86, 128, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(87, 129, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(88, 130, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(89, 131, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(90, 132, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(91, 133, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(92, 134, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(93, 135, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(94, 136, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(95, 137, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(96, 138, 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(97, 139, 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(98, 140, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(99, 141, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(100, 142, 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(101, 143, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(102, 144, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(103, 145, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(104, 146, 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(105, 147, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(106, 148, 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(107, 149, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(108, 150, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(109, 151, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(110, 152, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(111, 153, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(112, 154, 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(113, 155, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+(114, 156, 0, 0, 1, 0, 0, 0, 0, 0, 0),
+(115, 157, 0, 0, 0, 1, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `houserules`
+-- Table structure for table `houserules`
 --
 
 DROP TABLE IF EXISTS `houserules`;
@@ -253,10 +317,10 @@ CREATE TABLE IF NOT EXISTS `houserules` (
   `maxGuests` int NOT NULL,
   PRIMARY KEY (`houseRulesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `houserules`
+-- Dumping data for table `houserules`
 --
 
 INSERT INTO `houserules` (`houseRulesId`, `propertyId`, `checkInTime`, `checkOutTime`, `maxGuests`) VALUES
@@ -272,12 +336,43 @@ INSERT INTO `houserules` (`houseRulesId`, `propertyId`, `checkInTime`, `checkOut
 (62, 120, '14:51:00', '14:51:00', 1),
 (63, 121, '14:59:00', '14:59:00', 4),
 (67, 125, '09:32:00', '13:36:00', 3),
-(68, 126, '06:06:00', '06:06:00', 4);
+(68, 126, '06:06:00', '06:06:00', 4),
+(69, 127, '19:51:00', '13:51:00', 2),
+(70, 128, '19:57:00', '19:57:00', 1),
+(71, 129, '09:46:00', '10:46:00', 5),
+(72, 130, '15:09:00', '15:09:00', 2),
+(73, 131, '19:31:00', '14:31:00', 1),
+(74, 132, '19:31:00', '14:31:00', 1),
+(75, 133, '20:34:00', '18:34:00', 1),
+(76, 134, '15:36:00', '17:36:00', 2),
+(77, 135, '14:38:00', '15:39:00', 1),
+(78, 136, '17:49:00', '17:49:00', 1),
+(79, 137, '14:52:00', '15:52:00', 2),
+(80, 138, '16:56:00', '18:56:00', 1),
+(81, 139, '15:07:00', '16:07:00', 1),
+(82, 140, '09:33:00', '13:33:00', -1),
+(83, 141, '20:10:00', '18:10:00', 1),
+(84, 142, '14:20:00', '17:20:00', 1),
+(85, 143, '14:32:00', '16:32:00', 1),
+(86, 144, '20:21:00', '21:21:00', 2),
+(87, 145, '15:22:00', '16:22:00', 1),
+(88, 146, '15:32:00', '21:32:00', 2),
+(89, 147, '15:41:00', '18:41:00', 1),
+(90, 148, '15:43:00', '17:43:00', 2),
+(91, 149, '15:53:00', '21:53:00', 2),
+(92, 150, '15:54:00', '16:54:00', 2),
+(93, 151, '15:58:00', '15:58:00', 1),
+(94, 152, '16:01:00', '16:01:00', 1),
+(95, 153, '22:07:00', '19:07:00', -1),
+(96, 154, '16:08:00', '21:08:00', 1),
+(97, 155, '22:09:00', '19:09:00', 3),
+(98, 156, '16:09:00', '17:09:00', 1),
+(99, 157, '21:10:00', '21:10:00', 4);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `invoice`
+-- Table structure for table `invoice`
 --
 
 DROP TABLE IF EXISTS `invoice`;
@@ -297,7 +392,7 @@ CREATE TABLE IF NOT EXISTS `invoice` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `message`
+-- Table structure for table `message`
 --
 
 DROP TABLE IF EXISTS `message`;
@@ -315,7 +410,7 @@ CREATE TABLE IF NOT EXISTS `message` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `messagestatus`
+-- Table structure for table `messagestatus`
 --
 
 DROP TABLE IF EXISTS `messagestatus`;
@@ -332,7 +427,7 @@ CREATE TABLE IF NOT EXISTS `messagestatus` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `payment`
+-- Table structure for table `payment`
 --
 
 DROP TABLE IF EXISTS `payment`;
@@ -351,7 +446,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `property`
+-- Table structure for table `property`
 --
 
 DROP TABLE IF EXISTS `property`;
@@ -374,31 +469,26 @@ CREATE TABLE IF NOT EXISTS `property` (
   `owner` int NOT NULL,
   PRIMARY KEY (`propertyId`),
   KEY `USER` (`owner`)
-) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `property`
+-- Dumping data for table `property`
 --
 
 INSERT INTO `property` (`propertyId`, `title`, `description`, `priceNight`, `address`, `city`, `postalCode`, `department`, `region`, `country`, `latitude`, `longitude`, `availability`, `publicationdate`, `reservationOption`, `owner`) VALUES
-(92, 'Card dashboard', 'Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.', '50.00', '', '', 0, '', '', '', '0.000000000', '0.000000000', 0, '2023-07-05 16:19:51', '', 13),
-(100, 'Château de conte de fées : luxe et élégance', 'Bienvenue dans ce château majestueux, symbole d\'élégance et de raffinement. Niché au cœur d\'un domaine verdoyant, cet hébergement vous transporte dans un univers féérique où l\'histoire et le luxe se rencontrent.  Le château est entièrement rénové et réaménagé, offrant des chambres spacieuses et richement décorées qui vous plongent dans une atmosphère unique. Les jardins à la française soigneusement entretenus ajoutent une touche de charme supplémentaire à cet endroit enchanteur.  Vous pourrez profiter des vastes jardins paysagers, de la piscine extérieure et des terrasses offrant une vue panoramique sur les environs. Les activités ne manquent pas : promenades à cheval, visites de châteaux voisins et découvertes culinaires vous promettent des moments uniques et mémorables.  Réservez dès maintenant votre séjour dans ce château d\'exception, et laissez-vous envoûter par l\'atmosphère enchanteresse qui règne en ces lieux. Une expérience hors du commun vous attend, où vous serez les héros d\'un conte de fées moderne, plongés dans l\'histoire et le luxe d\'un château majestueux.', '222.00', '', '', 0, '', '', '', '0.000000000', '0.000000000', 0, '2023-07-11 18:20:37', '', 8),
-(101, 'Château de charme au cœur de la campagne', 'Bienvenue dans ce château exceptionnel qui vous transporte dans un univers hors du temps. Niché au milieu d\'un paysage pittoresque, ce château de charme respire l\'histoire et la tranquillité. Son architecture élégante et ses jardins verdoyants créent une atmosphère enchanteresse dès votre arrivée.  Les intérieurs sont luxueusement aménagés avec un mélange subtil d\'éléments d\'époque et de touches contemporaines. Les chambres spacieuses et raffinées vous offrent un confort absolu pour un séjour des plus agréables. Les vastes salles de réception sont parfaites pour les rassemblements en famille ou entre amis, créant ainsi des souvenirs précieux.  Laissez-vous séduire par les jardins soigneusement entretenus qui entourent le château. Vous pourrez flâner le long des allées bordées d\'arbres centenaires, vous détendre dans des espaces de repos paisibles ou vous divertir avec une partie de croquet sur la pelouse impeccablement entretenue.  La campagne environnante vous invite à de belles excursions, que ce soit pour des promenades à vélo à travers les paysages pittoresques, des visites de villages charmants ou des dégustations de vins dans les vignobles locaux. Les activités de plein air, comme la pêche, la randonnée et l\'équitation, sont également accessibles à proximité.  Réservez dès maintenant votre séjour dans ce château de charme et laissez-vous envoûter par son atmosphère romantique et paisible. Une expérience inoubliable vous attend, où vous pourrez vous évader du quotidien et vous immerger dans l\'élégance intemporelle d\'un château de campagne enchanteur.', '100.00', '', '', 0, '', '', '', '0.000000000', '0.000000000', 0, '2023-07-11 18:31:11', '', 8),
-(102, 'Château historique : plongez dans le passé', 'Bienvenue dans ce château chargé d\'histoire, véritable joyau architectural qui vous transporte à travers les siècles. Imprégnez-vous de l\'atmosphère authentique de ses murs et laissez-vous envoûter par son charme intemporel.  Ce château magnifiquement restauré est un véritable témoin du passé. Les pièces sont décorées avec soin, mettant en valeur les détails d\'époque et créant une ambiance chaleureuse et raffinée. Les chambres spacieuses et élégantes vous accueillent dans un confort absolu, vous invitant à vous détendre et à vous ressourcer.  Les vastes jardins qui entourent le château sont un véritable havre de paix. Promenez-vous le long des allées bordées de fleurs parfumées, reposez-vous à l\'ombre des arbres centenaires ou profitez d\'un pique-nique romantique dans un coin tranquille. Les vues panoramiques sur la campagne environnante ajoutent une dimension magique à cet écrin historique.  Les amateurs d\'histoire seront comblés par les nombreuses possibilités d\'exploration à proximité. Visitez les sites historiques locaux, découvrez les anecdotes fascinantes du château lors de visites guidées ou partez à la découverte des villages pittoresques environnants.  Réservez dès maintenant votre séjour dans ce château historique et laissez-vous transporter dans le passé. Une expérience unique vous attend, où vous pourrez vous plonger dans l\'histoire et profiter de l\'élégance intemporelle d\'un château chargé d\'émotions.', '150.00', '', '', 0, '', '', '', '0.000000000', '0.000000000', 0, '2023-07-11 18:35:08', '', 8),
-(103, 'Château de luxe : l\'art de vivre à son apogée', 'Bienvenue dans ce château d\'exception, véritable paradis du luxe et du raffinement. Dès votre arrivée, vous serez captivé par l\'atmosphère grandiose et la beauté architecturale de cet édifice majestueux.  Les intérieurs sont un mélange harmonieux de design contemporain et de touches classiques, créant ainsi une ambiance à la fois sophistiquée et chaleureuse. Les chambres sont somptueusement aménagées, offrant des espaces spacieux où le confort et l\'élégance se marient à la perfection.  Les espaces extérieurs ne sont pas en reste. Les jardins magnifiquement entretenus, agrémentés de fontaines et de sculptures, vous invitent à des moments de détente et de contemplation. Profitez d\'une piscine privée, détendez-vous sur les terrasses ensoleillées ou promenez-vous dans les allées parfumées.  Ce château offre une expérience gastronomique d\'exception. Un chef privé peut être mis à votre disposition pour créer des repas raffinés, mettant en valeur les délices culinaires de la région. Vous pourrez également vous adonner à des dégustations de vins fins dans la cave à vins du château.  Pour agrémenter votre séjour, une multitude d\'activités vous sont proposées : spa, salle de sport, salle de jeux, courts de tennis, et bien plus encore. Vous aurez également la possibilité d\'explorer les environs en hélicoptère pour admirer les paysages à couper le souffle.  Réservez dès maintenant votre séjour dans ce château de luxe et laissez-vous envoûter par l\'art de vivre à son apogée. Une expérience inoubliable vous attend, où chaque instant sera empreint de glamour, de confort et de sophistication.', '300.00', '', '', 0, '', '', '', '0.000000000', '0.000000000', 0, '2023-07-11 18:38:25', '', 8),
-(104, 'Château romantique : une évasion amoureuse', 'Bienvenue dans ce château romantique, niché au cœur d\'un paysage pittoresque, offrant une escapade parfaite pour les amoureux en quête de moments précieux. Dès votre arrivée, vous serez transporté dans un univers de douceur et de passion.  Le château dégage une aura romantique indéniable avec ses tours élancées, ses jardins fleuris et ses intérieurs élégants. Les chambres sont décorées avec goût, alliant charme d\'époque et confort moderne, pour une ambiance intime et chaleureuse propice à la romance.  Les jardins romantiques qui entourent le château sont parfaits pour des promenades main dans la main. Découvrez des recoins secrets, des bancs ombragés et des points de vue panoramiques, créant ainsi des instants de complicité inoubliables.  Pour une expérience romantique ultime, profitez des services exclusifs tels que des dîners aux chandelles dans des salles de réception privées, des massages relaxants en duo ou des moments de détente dans un bain à remous avec vue sur le paysage enchanteur.  Vous aurez également la possibilité de partir à la découverte des alentours, en explorant des villages pittoresques, en dégustant des vins régionaux ou en partageant des activités romantiques telles que des balades en calèche ou des pique-niques dans des sites romantiques.  Réservez dès maintenant votre séjour dans ce château romantique et laissez-vous emporter par la magie de l\'amour. Une évasion amoureuse vous attend, où vous pourrez créer des souvenirs inoubliables et vivre des moments de passion et de complicité dans un cadre enchanteur.', '400.00', '', '', 0, '', '', '', '0.000000000', '0.000000000', 0, '2023-07-11 18:41:05', '', 8),
-(105, 'Chalet alpin : ressourcez-vous en pleine nature', 'Bienvenue dans ce chalet alpin pittoresque, un véritable refuge de montagne qui vous invite à vous ressourcer et à vous reconnecter avec la nature. Situé au cœur d\'un paysage montagneux à couper le souffle, ce chalet offre une expérience authentique et chaleureuse.  L\'intérieur du chalet allie avec harmonie le bois traditionnel et des touches de modernité. Les espaces de vie sont accueillants et confortables, créant une atmosphère conviviale pour des moments de détente en famille ou entre amis. Les grandes baies vitrées offrent des vues panoramiques sur les sommets enneigés ou les paysages verdoyants, selon la saison.  Le chalet dispose de tout le confort nécessaire pour rendre votre séjour agréable. Profitez d\'une soirée près de la cheminée, détendez-vous dans le jacuzzi extérieur ou dégustez un délicieux repas dans la cuisine entièrement équipée. Les chambres confortables vous invitent à des nuits paisibles, bercées par le calme de la montagne.  Les activités ne manquent pas, été comme hiver. En hiver, vous pourrez dévaler les pistes de ski à proximité, faire de la raquette ou vous initier à la glisse sur la patinoire du village. En été, partez en randonnée à travers des sentiers magnifiques, explorez les lacs alpins environnants ou faites du VTT sur des pistes pittoresques.  Réservez dès maintenant votre séjour dans ce chalet alpin et laissez-vous séduire par l\'atmosphère chaleureuse et l\'authenticité de la montagne. Une escapade en pleine nature vous attend, où vous pourrez vous ressourcer, vous amuser et profiter des merveilles de l\'environnement alpin.', '70.00', '', '', 0, '', '', '', '0.000000000', '0.000000000', 0, '2023-07-11 18:45:12', '', 13),
-(106, 'Château de caractère : une immersion dans l\'histoire', 'Bienvenue dans ce château de caractère, véritable vestige du temps qui vous transporte dans une époque révolue. Imprégnez-vous de l\'atmosphère chargée d\'histoire dès votre arrivée et laissez-vous emporter par son charme envoûtant.  Le château, magnifiquement restauré, est le reflet d\'une architecture remarquable et de détails d\'époque préservés avec soin. Les salles majestueuses, les galeries aux voûtes imposantes et les chambres richement décorées vous plongent dans une ambiance digne des contes de fées.  Chaque coin du château raconte une histoire. Promenez-vous dans les jardins à la française, admirez les fresques murales et les tapisseries anciennes, et explorez les pièces secrètes qui recèlent des trésors cachés.  Votre séjour au château sera agrémenté d\'expériences uniques. Vous pourrez déguster des mets raffinés dans une salle à manger d\'époque, assister à des concerts de musique classique dans la salle de bal somptueuse ou vous détendre dans un salon confortable en dégustant un verre de vin sélectionné parmi la cave du château.  Pour une immersion totale, des visites guidées vous permettront de découvrir les secrets et les légendes du château, vous transportant ainsi dans une époque révolue. Vous pourrez également profiter des activités de loisirs proposées, telles que des balades à cheval dans le parc environnant ou des soirées costumées à thème.  Réservez dès maintenant votre séjour dans ce château de caractère et plongez dans une immersion passionnante dans l\'histoire. Une expérience inoubliable vous attend, où vous pourrez vivre une vie de châtelain et vous émerveiller devant la grandeur et la beauté d\'un château chargé de mystères.', '450.00', '', '', 0, '', '', '', '47.688617500', '2.629934600', 0, '2023-07-12 09:04:46', '', 13),
-(119, 'gigi', 'test', '222.00', '52 Rue de Noé', 'Gien', 45500, '', 'Centre-Val de Loire', 'France', '47.688656000', '2.629954400', 0, '2023-07-18 14:47:53', '', 13),
-(120, 'Karim', 'coucou', '100.00', '45 Grande Rue', 'Sault-Brénaz', 1150, '', 'Auvergne-Rhône-Alpes', 'France', '45.861916600', '5.398418200', 0, '2023-07-18 14:51:51', '', 13),
-(121, 'coucou', 'eefefe', '222.00', '52 Rue de Noé', 'Gien', 45500, '', 'Centre-Val de Loire', 'France', '47.688656000', '2.629954400', 0, '2023-07-18 15:00:01', '', 13),
-(125, 'Ghiggeri', 'Yes', '80.00', '7 Allée du Buisson Sarrazin', 'Bétheny', 51450, '', 'Grand Est', 'France', '49.275652000', '4.055309300', 0, '2023-07-20 09:33:08', '', 14),
-(126, 'Ma maison', 'zefzfzfz', '70.00', '215 Rue Chaudouet', 'Péronnas', 1960, '', 'Auvergne-Rhône-Alpes', 'France', '46.190496000', '5.207475500', 0, '2023-07-27 06:07:16', '', 10);
+(92, 'Card dashboard', 'Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.', '50.00', '14 Allée des Mélèzes', 'Embrun', 5200, 'Hautes-Alpes', 'Provence-Alpes-Côte d\'Azur', 'France', '0.000000000', '0.000000000', 0, '2023-07-05 16:19:51', '', 13),
+(100, 'Château de conte de fées : luxe et élégance', 'Bienvenue dans ce château majestueux, symbole d\'élégance et de raffinement. Niché au cœur d\'un domaine verdoyant, cet hébergement vous transporte dans un univers féérique où l\'histoire et le luxe se rencontrent.  Le château est entièrement rénové et réaménagé, offrant des chambres spacieuses et richement décorées qui vous plongent dans une atmosphère unique. Les jardins à la française soigneusement entretenus ajoutent une touche de charme supplémentaire à cet endroit enchanteur.  Vous pourrez profiter des vastes jardins paysagers, de la piscine extérieure et des terrasses offrant une vue panoramique sur les environs. Les activités ne manquent pas : promenades à cheval, visites de châteaux voisins et découvertes culinaires vous promettent des moments uniques et mémorables.  Réservez dès maintenant votre séjour dans ce château d\'exception, et laissez-vous envoûter par l\'atmosphère enchanteresse qui règne en ces lieux. Une expérience hors du commun vous attend, où vous serez les héros d\'un conte de fées moderne, plongés dans l\'histoire et le luxe d\'un château majestueux.', '222.00', '89 Route des Bois', 'Remiremont', 88200, 'Vosges', 'Grand Est', 'France', '46.212939400', '6.282479400', 0, '2023-07-11 18:20:37', '', 8),
+(101, 'Château de charme au cœur de la campagne', 'Bienvenue dans ce château exceptionnel qui vous transporte dans un univers hors du temps. Niché au milieu d\'un paysage pittoresque, ce château de charme respire l\'histoire et la tranquillité. Son architecture élégante et ses jardins verdoyants créent une atmosphère enchanteresse dès votre arrivée.  Les intérieurs sont luxueusement aménagés avec un mélange subtil d\'éléments d\'époque et de touches contemporaines. Les chambres spacieuses et raffinées vous offrent un confort absolu pour un séjour des plus agréables. Les vastes salles de réception sont parfaites pour les rassemblements en famille ou entre amis, créant ainsi des souvenirs précieux.  Laissez-vous séduire par les jardins soigneusement entretenus qui entourent le château. Vous pourrez flâner le long des allées bordées d\'arbres centenaires, vous détendre dans des espaces de repos paisibles ou vous divertir avec une partie de croquet sur la pelouse impeccablement entretenue.  La campagne environnante vous invite à de belles excursions, que ce soit pour des promenades à vélo à travers les paysages pittoresques, des visites de villages charmants ou des dégustations de vins dans les vignobles locaux. Les activités de plein air, comme la pêche, la randonnée et l\'équitation, sont également accessibles à proximité.  Réservez dès maintenant votre séjour dans ce château de charme et laissez-vous envoûter par son atmosphère romantique et paisible. Une expérience inoubliable vous attend, où vous pourrez vous évader du quotidien et vous immerger dans l\'élégance intemporelle d\'un château de campagne enchanteur.', '100.00', '3 Place de l\'Église', 'Pont-l\'Abbé', 29120, 'Finistère', 'Bretagne', 'France', '0.000000000', '0.000000000', 0, '2023-07-11 18:31:11', '', 8),
+(102, 'Château historique : plongez dans le passé', 'Bienvenue dans ce château chargé d\'histoire, véritable joyau architectural qui vous transporte à travers les siècles. Imprégnez-vous de l\'atmosphère authentique de ses murs et laissez-vous envoûter par son charme intemporel.  Ce château magnifiquement restauré est un véritable témoin du passé. Les pièces sont décorées avec soin, mettant en valeur les détails d\'époque et créant une ambiance chaleureuse et raffinée. Les chambres spacieuses et élégantes vous accueillent dans un confort absolu, vous invitant à vous détendre et à vous ressourcer.  Les vastes jardins qui entourent le château sont un véritable havre de paix. Promenez-vous le long des allées bordées de fleurs parfumées, reposez-vous à l\'ombre des arbres centenaires ou profitez d\'un pique-nique romantique dans un coin tranquille. Les vues panoramiques sur la campagne environnante ajoutent une dimension magique à cet écrin historique.  Les amateurs d\'histoire seront comblés par les nombreuses possibilités d\'exploration à proximité. Visitez les sites historiques locaux, découvrez les anecdotes fascinantes du château lors de visites guidées ou partez à la découverte des villages pittoresques environnants.  Réservez dès maintenant votre séjour dans ce château historique et laissez-vous transporter dans le passé. Une expérience unique vous attend, où vous pourrez vous plonger dans l\'histoire et profiter de l\'élégance intemporelle d\'un château chargé d\'émotions.', '150.00', '64 Chemin du Roy', 'Nice', 6300, 'Alpes-Maritimes', 'Provence-Alpes-Côte d\'Azur', 'France', '44.808123400', '6.575133000', 0, '2023-07-11 18:35:08', '', 8),
+(103, 'Château de luxe : l\'art de vivre à son apogée', 'Bienvenue dans ce château d\'exception, véritable paradis du luxe et du raffinement. Dès votre arrivée, vous serez captivé par l\'atmosphère grandiose et la beauté architecturale de cet édifice majestueux.  Les intérieurs sont un mélange harmonieux de design contemporain et de touches classiques, créant ainsi une ambiance à la fois sophistiquée et chaleureuse. Les chambres sont somptueusement aménagées, offrant des espaces spacieux où le confort et l\'élégance se marient à la perfection.  Les espaces extérieurs ne sont pas en reste. Les jardins magnifiquement entretenus, agrémentés de fontaines et de sculptures, vous invitent à des moments de détente et de contemplation. Profitez d\'une piscine privée, détendez-vous sur les terrasses ensoleillées ou promenez-vous dans les allées parfumées.  Ce château offre une expérience gastronomique d\'exception. Un chef privé peut être mis à votre disposition pour créer des repas raffinés, mettant en valeur les délices culinaires de la région. Vous pourrez également vous adonner à des dégustations de vins fins dans la cave à vins du château.  Pour agrémenter votre séjour, une multitude d\'activités vous sont proposées : spa, salle de sport, salle de jeux, courts de tennis, et bien plus encore. Vous aurez également la possibilité d\'explorer les environs en hélicoptère pour admirer les paysages à couper le souffle.  Réservez dès maintenant votre séjour dans ce château de luxe et laissez-vous envoûter par l\'art de vivre à son apogée. Une expérience inoubliable vous attend, où chaque instant sera empreint de glamour, de confort et de sophistication.', '300.00', '15 Allée des Chênes', 'Montargis', 45200, 'Centre-Val de Loire', 'Loiret', 'France', '0.000000000', '0.000000000', 0, '2023-07-11 18:38:25', '', 8),
+(104, 'Château romantique : une évasion amoureuse', 'Bienvenue dans ce château romantique, niché au cœur d\'un paysage pittoresque, offrant une escapade parfaite pour les amoureux en quête de moments précieux. Dès votre arrivée, vous serez transporté dans un univers de douceur et de passion.  Le château dégage une aura romantique indéniable avec ses tours élancées, ses jardins fleuris et ses intérieurs élégants. Les chambres sont décorées avec goût, alliant charme d\'époque et confort moderne, pour une ambiance intime et chaleureuse propice à la romance.  Les jardins romantiques qui entourent le château sont parfaits pour des promenades main dans la main. Découvrez des recoins secrets, des bancs ombragés et des points de vue panoramiques, créant ainsi des instants de complicité inoubliables.  Pour une expérience romantique ultime, profitez des services exclusifs tels que des dîners aux chandelles dans des salles de réception privées, des massages relaxants en duo ou des moments de détente dans un bain à remous avec vue sur le paysage enchanteur.  Vous aurez également la possibilité de partir à la découverte des alentours, en explorant des villages pittoresques, en dégustant des vins régionaux ou en partageant des activités romantiques telles que des balades en calèche ou des pique-niques dans des sites romantiques.  Réservez dès maintenant votre séjour dans ce château romantique et laissez-vous emporter par la magie de l\'amour. Une évasion amoureuse vous attend, où vous pourrez créer des souvenirs inoubliables et vivre des moments de passion et de complicité dans un cadre enchanteur.', '400.00', '27 Rue des Vignes', 'La Rochelle', 17000, 'Charente-Maritime', 'Nouvelle-Aquitaine', 'France', '48.855324100', '2.276443100', 0, '2023-07-11 18:41:05', '', 8),
+(105, 'Chalet alpin : ressourcez-vous en pleine nature', 'Bienvenue dans ce chalet alpin pittoresque, un véritable refuge de montagne qui vous invite à vous ressourcer et à vous reconnecter avec la nature. Situé au cœur d\'un paysage montagneux à couper le souffle, ce chalet offre une expérience authentique et chaleureuse.  L\'intérieur du chalet allie avec harmonie le bois traditionnel et des touches de modernité. Les espaces de vie sont accueillants et confortables, créant une atmosphère conviviale pour des moments de détente en famille ou entre amis. Les grandes baies vitrées offrent des vues panoramiques sur les sommets enneigés ou les paysages verdoyants, selon la saison.  Le chalet dispose de tout le confort nécessaire pour rendre votre séjour agréable. Profitez d\'une soirée près de la cheminée, détendez-vous dans le jacuzzi extérieur ou dégustez un délicieux repas dans la cuisine entièrement équipée. Les chambres confortables vous invitent à des nuits paisibles, bercées par le calme de la montagne.  Les activités ne manquent pas, été comme hiver. En hiver, vous pourrez dévaler les pistes de ski à proximité, faire de la raquette ou vous initier à la glisse sur la patinoire du village. En été, partez en randonnée à travers des sentiers magnifiques, explorez les lacs alpins environnants ou faites du VTT sur des pistes pittoresques.  Réservez dès maintenant votre séjour dans ce chalet alpin et laissez-vous séduire par l\'atmosphère chaleureuse et l\'authenticité de la montagne. Une escapade en pleine nature vous attend, où vous pourrez vous ressourcer, vous amuser et profiter des merveilles de l\'environnement alpin.', '70.00', '5 Chemin des Sapins', 'Chamonix-Mont-Blanc', 74400, 'Haute-Savoie Auvergne-Rhône-Al', 'Auvergne-Rhône-Alpes', 'France', '0.000000000', '0.000000000', 0, '2023-07-11 18:45:12', '', 13),
+(106, 'Château de caractère : une immersion dans l\'histoire', 'Bienvenue dans ce château de caractère, véritable vestige du temps qui vous transporte dans une époque révolue. Imprégnez-vous de l\'atmosphère chargée d\'histoire dès votre arrivée et laissez-vous emporter par son charme envoûtant.  Le château, magnifiquement restauré, est le reflet d\'une architecture remarquable et de détails d\'époque préservés avec soin. Les salles majestueuses, les galeries aux voûtes imposantes et les chambres richement décorées vous plongent dans une ambiance digne des contes de fées.  Chaque coin du château raconte une histoire. Promenez-vous dans les jardins à la française, admirez les fresques murales et les tapisseries anciennes, et explorez les pièces secrètes qui recèlent des trésors cachés.  Votre séjour au château sera agrémenté d\'expériences uniques. Vous pourrez déguster des mets raffinés dans une salle à manger d\'époque, assister à des concerts de musique classique dans la salle de bal somptueuse ou vous détendre dans un salon confortable en dégustant un verre de vin sélectionné parmi la cave du château.  Pour une immersion totale, des visites guidées vous permettront de découvrir les secrets et les légendes du château, vous transportant ainsi dans une époque révolue. Vous pourrez également profiter des activités de loisirs proposées, telles que des balades à cheval dans le parc environnant ou des soirées costumées à thème.  Réservez dès maintenant votre séjour dans ce château de caractère et plongez dans une immersion passionnante dans l\'histoire. Une expérience inoubliable vous attend, où vous pourrez vivre une vie de châtelain et vous émerveiller devant la grandeur et la beauté d\'un château chargé de mystères.', '400.00', '12 Rue du Chateau d\'Eau', 'Montmirail', 51210, 'Marne', 'Grand Est', 'France', '49.564106000', '6.076458300', 0, '2023-07-12 09:04:46', '', 13);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `propertyamenities`
+-- Table structure for table `propertyamenities`
 --
 
 DROP TABLE IF EXISTS `propertyamenities`;
@@ -411,10 +501,10 @@ CREATE TABLE IF NOT EXISTS `propertyamenities` (
   `toilets` int NOT NULL,
   PRIMARY KEY (`propertyAmenitiesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `propertyamenities`
+-- Dumping data for table `propertyamenities`
 --
 
 INSERT INTO `propertyamenities` (`propertyAmenitiesId`, `propertyId`, `bedrooms`, `beds`, `bathrooms`, `toilets`) VALUES
@@ -430,12 +520,43 @@ INSERT INTO `propertyamenities` (`propertyAmenitiesId`, `propertyId`, `bedrooms`
 (56, 120, 1, 1, 1, 1),
 (57, 121, 8, 8, 8, 8),
 (61, 125, 3, 4, 2, 2),
-(62, 126, 3, 3, 1, 1);
+(62, 126, 3, 3, 1, 1),
+(63, 127, 2, 2, 2, 2),
+(64, 128, 1, 1, 1, 1),
+(65, 129, 2, 2, 2, 2),
+(66, 130, 2, 2, 1, 2),
+(67, 131, 1, 1, 1, 1),
+(68, 132, 1, 1, 1, 1),
+(69, 133, 2, 2, 2, 2),
+(70, 134, 2, 2, 2, 2),
+(71, 135, 1, 1, 1, 1),
+(72, 136, 1, 1, 1, 1),
+(73, 137, 1, 1, 1, 1),
+(74, 138, 1, 1, 1, 1),
+(75, 139, 1, 1, 1, 1),
+(76, 140, 2, 2, 2, 2),
+(77, 141, 1, 1, 1, 1),
+(78, 142, 1, 1, 1, 1),
+(79, 143, 1, 1, 1, 1),
+(80, 144, 2, 2, 2, 2),
+(81, 145, 1, 1, 1, 1),
+(82, 146, 2, 2, 2, 2),
+(83, 147, 1, 1, 1, 1),
+(84, 148, 2, 2, 2, 2),
+(85, 149, 2, 2, 2, 2),
+(86, 150, 2, 2, 2, 2),
+(87, 151, 1, 1, 1, 1),
+(88, 152, 2, 2, 2, 2),
+(89, 153, 2, 2, 2, 2),
+(90, 154, 1, 1, 1, 1),
+(91, 155, 3, 2, 5, 3),
+(92, 156, 1, 1, 1, 1),
+(93, 157, 1, 8, 7, 8);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `propertyimages`
+-- Table structure for table `propertyimages`
 --
 
 DROP TABLE IF EXISTS `propertyimages`;
@@ -449,10 +570,10 @@ CREATE TABLE IF NOT EXISTS `propertyimages` (
   `image4URL` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`propertyImagesId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `propertyimages`
+-- Dumping data for table `propertyimages`
 --
 
 INSERT INTO `propertyimages` (`propertyImagesId`, `propertyId`, `imageMainURL`, `image1URL`, `image2URL`, `image3URL`, `image4URL`) VALUES
@@ -464,16 +585,18 @@ INSERT INTO `propertyimages` (`propertyImagesId`, `propertyId`, `imageMainURL`, 
 (38, 104, '64ad86217d184.jpg', '64ad86217d395.jpg', '64ad86217d4e5.jpg', '64ad86217d6ae.jpg', '64ad86217e0db.jpg'),
 (39, 105, '64ad8718d2ac2.jpg', '64ad8718d2ca4.jpg', '64ad8718d2e13.jpg', '64ad8718d2f6b.jpg', '64ad8718d319d.jpg'),
 (40, 106, '64aeabe6beadc.jpg', '64aeabe6becb2.jpg', '64aeabe6bee88.jpg', '64aeabe6bf007.jpg', '64aeabe6bf1ea.jpg'),
-(53, 119, '64b689f9e2e1e.jpg', '64b689f9e30c4.jpg', '64b689f9e328d.jpg', '64b689f9e33f4.jpg', '64b689f9e356d.jpg'),
-(54, 120, '64b68ae718f25.jpg', '', '', '', ''),
-(55, 121, '64b68cd1bd43d.jpg', '', '', '', ''),
-(59, 125, '64b8e3346b42a.jpg', '64b8e3346b55d.jpg', '', '', ''),
-(60, 126, '64c1ed74f0112.jpg', '', '', '', '');
+(73, 139, '64dcca23649be.jpg', '', '', '', ''),
+(74, 140, '64ddcd5f7cf83.jpg', '', '', '', ''),
+(87, 153, '64df7b34860c2.jpg', '', '', '', ''),
+(88, 154, '64df7b6910769.jpg', '64df7b69109f0.jpg', '', '', ''),
+(89, 155, '64df7b91a28bf.png', '64df7b91a2adf.png', '64df7b91a2c69.png', '', ''),
+(90, 156, '64df7bba58eff.png', '64df7bba59187.png', '64df7bba593ab.jpg', '64df7bba59513.png', ''),
+(91, 157, '64df7be3228e6.jpg', '64df7be322d27.jpg', '64df7be32322d.jpg', '64df7be3233b4.jpg', '64df7be3234f9.png');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `propertytag`
+-- Table structure for table `propertytag`
 --
 
 DROP TABLE IF EXISTS `propertytag`;
@@ -485,7 +608,7 @@ CREATE TABLE IF NOT EXISTS `propertytag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `propertytag`
+-- Dumping data for table `propertytag`
 --
 
 INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES
@@ -508,12 +631,45 @@ INSERT INTO `propertytag` (`propertyId`, `tagId`) VALUES
 (121, 376),
 (125, 376),
 (126, 376),
-(126, 377);
+(126, 377),
+(127, 417),
+(128, 381),
+(129, 376),
+(130, 391),
+(131, 376),
+(132, 376),
+(133, 377),
+(134, 382),
+(135, 389),
+(136, 376),
+(137, 376),
+(138, 404),
+(139, 379),
+(140, 376),
+(141, 400),
+(142, 393),
+(143, 382),
+(144, 379),
+(145, 376),
+(146, 382),
+(147, 381),
+(148, 384),
+(149, 382),
+(150, 376),
+(150, 380),
+(151, 382),
+(152, 377),
+(153, 379),
+(154, 378),
+(155, 382),
+(156, 382),
+(157, 379),
+(157, 415);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `propertytype`
+-- Table structure for table `propertytype`
 --
 
 DROP TABLE IF EXISTS `propertytype`;
@@ -526,12 +682,49 @@ CREATE TABLE IF NOT EXISTS `propertytype` (
   `hotel` tinyint(1) NOT NULL,
   PRIMARY KEY (`PropertyTypeId`),
   KEY `PROPERTY` (`propertyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `propertytype`
+--
+
+INSERT INTO `propertytype` (`PropertyTypeId`, `propertyId`, `house`, `flat`, `guesthouse`, `hotel`) VALUES
+(107, 127, 1, 0, 0, 0),
+(108, 128, 1, 0, 0, 0),
+(109, 129, 0, 0, 1, 0),
+(110, 130, 1, 0, 0, 0),
+(111, 131, 1, 0, 0, 0),
+(112, 132, 1, 0, 0, 0),
+(113, 133, 1, 0, 0, 0),
+(114, 134, 1, 0, 0, 0),
+(115, 135, 1, 0, 0, 0),
+(116, 136, 1, 0, 0, 0),
+(117, 137, 1, 0, 0, 0),
+(118, 138, 0, 1, 0, 0),
+(119, 139, 1, 0, 0, 0),
+(120, 140, 1, 0, 0, 0),
+(121, 141, 1, 0, 0, 0),
+(122, 142, 1, 0, 0, 0),
+(123, 143, 1, 0, 0, 0),
+(124, 144, 1, 0, 0, 0),
+(125, 145, 1, 0, 0, 0),
+(126, 146, 1, 0, 0, 0),
+(127, 147, 1, 0, 0, 0),
+(128, 148, 1, 0, 0, 0),
+(129, 149, 1, 0, 0, 0),
+(130, 150, 1, 0, 0, 0),
+(131, 151, 0, 0, 0, 1),
+(132, 152, 1, 0, 0, 0),
+(133, 153, 0, 1, 0, 0),
+(134, 154, 0, 1, 0, 0),
+(135, 155, 1, 0, 0, 0),
+(136, 156, 0, 0, 1, 0),
+(137, 157, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reservation`
+-- Table structure for table `reservation`
 --
 
 DROP TABLE IF EXISTS `reservation`;
@@ -546,20 +739,20 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   PRIMARY KEY (`reservationId`),
   KEY `PROPERTY` (`propertyId`),
   KEY `USER` (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `reservation`
+-- Dumping data for table `reservation`
 --
 
 INSERT INTO `reservation` (`reservationId`, `uid`, `propertyId`, `checkInDate`, `checkoutDate`, `numTravelers`, `totalPrice`) VALUES
-(4, 10, 119, '2023-07-26', '2023-07-27', 5, '235.32'),
-(5, 8, 106, '2023-07-26', '2023-07-30', 4, '1908.00');
+(5, 8, 106, '2023-07-26', '2023-07-30', 4, '1908.00'),
+(12, 14, 106, '2023-08-18', '2023-08-21', 1, '1444.50');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `role`
+-- Table structure for table `role`
 --
 
 DROP TABLE IF EXISTS `role`;
@@ -575,7 +768,7 @@ CREATE TABLE IF NOT EXISTS `role` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tag`
+-- Table structure for table `tag`
 --
 
 DROP TABLE IF EXISTS `tag`;
@@ -587,7 +780,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
 ) ENGINE=InnoDB AUTO_INCREMENT=428 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `tag`
+-- Dumping data for table `tag`
 --
 
 INSERT INTO `tag` (`tagId`, `type`, `picto`) VALUES
@@ -647,7 +840,7 @@ INSERT INTO `tag` (`tagId`, `type`, `picto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -660,27 +853,26 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `phoneNumber` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `picture` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `registrationDate` date NOT NULL,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`uid`, `firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`, `picture`) VALUES
-(8, 'Frédéric', 'Favreau', '0000-00-00', 'fred@gmail.com', '$2y$10$GaZ/gznrAdDs9Ax9NUc7Q.782X9AzSevwHe5D78txYhFnxhFKu9b.', '', 'user.png'),
-(9, 'demo', 'demo', '0000-00-00', 'demo@rbnb.com', '$2y$10$YpOsI8takAJZtp.B5phhZO./N0aL9FFsT4T3N6ltIl/UvGNmCHl8K', '', 'user.png'),
-(10, 'toto', 'robert', '0000-00-00', 'toto@gmail.com', '$2y$10$E8SiOsulhDiZuQXCRgm1xe8a1i2O0cRa5/K79aHTooVtSa9YXbwti', '', 'user.png'),
-(11, 'session', 'robert', '0000-00-00', 'session@gmail.com', '$2y$10$rjq1fFDlPURcJ59Px4XgVO6B5g/mpx0tRjvq8F/izBPeFJsvLfeUm', '', 'user.png'),
-(12, 'debug', 'lol', '0000-00-00', 'debug@gmail.com', '$2y$10$2lkCyvCBDvsGO02MCPvtWueNgqZOtixFyhJ7j/i2bZ1WWEKlhmDES', '', 'user.png'),
-(13, 'zaza', 'zaza', '0000-00-00', 'zaza@gmail.com', '$2y$10$3.2nyNMAMJX1hcE/W7AqOOQSUF1Vy/FZG4X7FPzxDF6Eq3k5/lw32', '', 'user.png'),
-(14, 'Walesca', 'MissU', '0000-00-00', 'Walescat@gmail.com', '$2y$10$E5QchFZpZSDgFyqvJlKqueHsH6nTfBu7cQyyZhWTRVQGWWCzxKx0q', '', 'WaNom.png'),
-(15, 'Hamid', 'Ham', '0000-00-00', 'hamid@gmail.com', '$2y$10$tBZT.QziDePhCenELfdqaeLXOfv6vaok5biEKkvIBl3.hxCvfrwtq', '', 'user.png');
+INSERT INTO `user` (`uid`, `firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`, `picture`, `registrationDate`) VALUES
+(8, 'Frédéric', 'Favreau', '0000-00-00', 'fred@gmail.com', '$2y$10$GaZ/gznrAdDs9Ax9NUc7Q.782X9AzSevwHe5D78txYhFnxhFKu9b.', '', 'user.png', '0000-00-00'),
+(10, 'Roberto', 'Toto', '2023-08-11', 'toto@gmail.com', '$2y$10$E8SiOsulhDiZuQXCRgm1xe8a1i2O0cRa5/K79aHTooVtSa9YXbwti', '0607080910', '2vdapi.jpg', '0000-00-00'),
+(13, 'zaza', 'zaza', '2023-08-18', 'zaza@gmail.com', '$2y$10$3.2nyNMAMJX1hcE/W7AqOOQSUF1Vy/FZG4X7FPzxDF6Eq3k5/lw32', '050600708', 'user.png', '0000-00-00'),
+(14, 'Walesca', 'MissU', '1995-05-11', 'Walescat@gmail.com', '$2y$10$E5QchFZpZSDgFyqvJlKqueHsH6nTfBu7cQyyZhWTRVQGWWCzxKx0q', '06 66 66 66 69', 'WaNom.png', '0000-00-00'),
+(15, 'Hamid', 'Ham', '0000-00-00', 'hamid@gmail.com', '$2y$10$tBZT.QziDePhCenELfdqaeLXOfv6vaok5biEKkvIBl3.hxCvfrwtq', '', 'user.png', '0000-00-00'),
+(25, 'Bug', 'Finder', '2023-08-11', 'bugger@gmail.com', '$2y$10$owWNy7kLz3uf/M.h6GV7Zew.wshLQk/bcRA6XcdlAdGQlWaI5qz8y', '666666', '4b487d40edcb2c597ec9db18537c117e.jpg', '2023-08-11');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user_properties`
+-- Table structure for table `user_properties`
 --
 
 DROP TABLE IF EXISTS `user_properties`;
@@ -694,42 +886,42 @@ CREATE TABLE IF NOT EXISTS `user_properties` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `article`
+-- Constraints for table `article`
 --
 ALTER TABLE `article`
   ADD CONSTRAINT `article_ibfk_1` FOREIGN KEY (`author`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `message`
+-- Constraints for table `message`
 --
 ALTER TABLE `message`
   ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`conversationId`) REFERENCES `conversation` (`conversationId`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Contraintes pour la table `property`
+-- Constraints for table `property`
 --
 ALTER TABLE `property`
   ADD CONSTRAINT `property_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `reservation`
+-- Constraints for table `reservation`
 --
 ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `property` (`propertyId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `role`
+-- Constraints for table `role`
 --
 ALTER TABLE `role`
   ADD CONSTRAINT `role_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `user_properties`
+-- Constraints for table `user_properties`
 --
 ALTER TABLE `user_properties`
   ADD CONSTRAINT `user_properties_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,

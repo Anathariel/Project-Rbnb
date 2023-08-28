@@ -24,4 +24,22 @@ document.getElementById('desktop-searchbar').addEventListener('click', function(
   // Optional: To prevent clicks within the expanded-state from reverting to the default state
   document.querySelector('.expanded-state').addEventListener('click', function(event) {
     event.stopPropagation();
-  });  
+  });
+
+//attach input to whole div
+  document.addEventListener("DOMContentLoaded", function() {
+    // For arrival date
+    document.querySelector('.arrival-searchbar').addEventListener('click', function() {
+        this.querySelector('input.date-picker[name="arrival_date"]').focus();
+    });
+
+    // For departure date
+    document.querySelector('.departure-searchbar').addEventListener('click', function() {
+        this.querySelector('input.date-picker[name="departure_date"]').focus();
+    });
+
+    // For travelers
+    document.querySelector('.traveller-searchbar').addEventListener('click', function() {
+        this.querySelector('input[name="travelers"]').focus();
+    });
+});

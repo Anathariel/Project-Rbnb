@@ -43,18 +43,14 @@ document.addEventListener('DOMContentLoaded', function () {
     var dropdownButton = document.querySelector(".dropbtn");
     var dropdownContent = document.querySelector(".dropdown-content");
 
-    dropdownButton.addEventListener('click', function(event) {
-        event.preventDefault();
-        if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
-            dropdownContent.style.display = "block";
-        } else {
-            dropdownContent.style.display = "none";
-        }
-    });
-
-    window.addEventListener('click', function(event) {
-        if (!dropdownButton.contains(event.target)) {
-            dropdownContent.style.display = "none";
-        }
-    });
+    if(dropdownButton) {
+      dropdownButton.addEventListener('click', function(event) {
+          event.preventDefault();
+          if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+              dropdownContent.style.display = "block";
+          } else {
+              dropdownContent.style.display = "none";
+          }
+      });
+  }  
 });

@@ -46,17 +46,17 @@
 				<div class="separation calendar">
 					<div class="arrival-searchbar">
 						<p>Arrivée</p>
-						<input type="text" name="arrival_date" placeholder="Quand ?">
+						<input type="text" class="date-picker" name="arrival_date" placeholder="Quand ?">
 					</div>
 					<div class="departure-searchbar">
 						<p>Départ</p>
-						<input type="text" name="departure_date" placeholder="Quand ?">
+						<input type="text" class="date-picker" name="departure_date" placeholder="Quand ?">
 					</div>
 				</div>
 				<div class="search-element end-searchbar">
 					<div class="traveller-searchbar">
 						<p>Voyageurs</p>
-						<input type="text" name="travelers" placeholder="Ajouter des voyageurs">
+						<input type="number" name="travelers" placeholder="Ajouter des voyageurs" value="1" min="1">
 					</div>
 					<button type="submit" name="submit">
 						<img src="{{ asset('/media/icons/search.svg') }}" alt="Icône recherche">

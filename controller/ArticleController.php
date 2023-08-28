@@ -6,7 +6,7 @@ class ArticleController extends Controller
         $articleModel = new ArticleModel();
         $article = $articleModel->getShowOneArticle($id);
         echo self::getRender('article.html.twig', ['article' => $article]);
-    }
+    }  
 
     //CRUD ARTICLE
     public function createArticle()
