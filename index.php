@@ -66,10 +66,8 @@ $router->map('GET', '/article/[i:id]', 'ArticleController#showOneArticle', 'arti
 
 //CRUD ARTICLE
 $router->map('GET|POST', '/publier/', 'ArticleController#createArticle', 'articleAdd');
-
 $router->map('GET|POST', '/article/update/', '', 'baseUpdateArticle');
 $router->map('GET|POST', '/article/update/[i:idUpdate]', 'ArticleController#update', 'updateArticle');
-
 $router->map('POST|DELETE','/delete/','','baseDeletetArticle');
 $router->map('POST|DELETE','/delete/[i:id]','ArticleController#delete','deleteArticle');
 

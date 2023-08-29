@@ -3,19 +3,12 @@ class ArticleModel extends Model
 {
     public function getShowOneArticle($articleId)
     {
-        $req = $this->getDb()->prepare(
-            'SELECT 
-                `article`.`articleId`, 
-                `article`.`title`, 
-                `article`.`extract`, 
-                `article`.`image`, 
-                `article`.`content`, 
+        $req = $this->getDb()->prepare('SELECT  `article`.`articleId`, `article`.`title`, `article`.`extract`,`article`.`image`, `article`.`content`, 
                 CONCAT(`user`.`firstName`, " ", `user`.`lastName`) as `authorName`, 
                 `user`.`picture` as `authorImage`,
-                `article`.`date` 
-            FROM `article` 
-            JOIN `user` ON `article`.`author` = `user`.`uid`
-            WHERE `article`.`articleId` = :articleId'
+                `article`.`date` FROM `article` 
+                 JOIN `user` ON `article`.`author` = `user`.`uid`
+                 WHERE `article`.`articleId` = :articleId'
         );
         $req->bindParam('articleId', $articleId, PDO::PARAM_INT);
         $req->execute();
@@ -55,7 +48,8 @@ class ArticleModel extends Model
         $extract = $article->getExtract();
         $content = $article->getContent();
 
-        $req = $this->getDb()->prepare('INSERT INTO `article` (`author`, `image`, `title`, `extract`, `content`, `date`) VALUES (:author, :image,  :title, :extract, :content, NOW())');
+        $req = $this->getDb()->prepare('INSERT INTO `article` (`author`, `image`, `title`, `extract`, `content`, `date`)
+         VALUES (:author, :image,  :title, :extract, :content, NOW())');
 
         $req->bindParam(":author", $author, PDO::PARAM_INT);
         $req->bindParam(":image", $image, PDO::PARAM_STR);

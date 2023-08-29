@@ -3,29 +3,43 @@ class UserController extends Controller
 {
     public function register()
     {
-        global $router;
-        $model = new UserModel();
+        global $router; // On importe la variable $router définie ailleurs dans le code (probablement pour la gestion des routes)
+
+        $model = new UserModel(); // Instanciation du modèle utilisateur
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Si la requête est de type POST, cela signifie qu'un formulaire a été soumis
+
+            // Récupération des données du formulaire
             $firstName = $_POST['firstName'];
             $lastName = $_POST['lastName'];
             $rawPass = $_POST['password'];
+
+            // Hachage du mot de passe à l'aide de la fonction password_hash
             $password = password_hash($rawPass, PASSWORD_DEFAULT);
+
+            // Validation et nettoyage de l'adresse e-mail à l'aide de filter_var
             $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
+
+            // Création d'un nouvel objet User avec les données du formulaire
             $user = new User([
                 'firstName' => $firstName,
                 'lastName' => $lastName,
                 'password' => $password,
                 'email' => $email,
-
             ]);
 
+            // Appel de la méthode createUser() du modèle pour créer un nouvel utilisateur dans la base de données
             $model->createUser($user);
+
+            // Redirection vers la page d'inscription après avoir créé l'utilisateur
             header('Location: ' . $router->generate('register'));
         } else {
+            // Si la requête n'est pas de type POST, afficher le formulaire d'inscription
             echo self::getRender('register.html.twig', []);
         }
     }
+
     public function login()
     {
         if (!$_POST) {
@@ -65,13 +79,19 @@ class UserController extends Controller
         header('Location: ' . $router->generate('home'));
         exit();
     }
+    //CRUD USER
 
     public function editUser()
-    {   
-        global $router;
+    {
+        global $router; // On importe la variable $router définie ailleurs dans le code (probablement pour la gestion des routes)
+
         if (!$_POST) {
+            // Si aucune donnée POST n'est reçue, afficher le formulaire de modification
             echo self::getRender('dashboard-options.html.twig', []);
         } else {
+            // Si des données POST sont reçues, procéder à la mise à jour de l'utilisateur
+
+            // Récupération des données POST
             $uid = $_SESSION['uid'];
             $firstName = $_POST['firstName'];
             $lastName = $_POST['lastName'];
@@ -79,6 +99,7 @@ class UserController extends Controller
             $birthDate = $_POST['birthDate'];
             $phoneNumber = $_POST['phoneNumber'];
 
+            // Vérification si une image a été envoyée
             $hasPicture = isset($_FILES['picture']) && $_FILES['picture']['error'] == 0;
             $pictureName = $hasPicture ? $_FILES['picture']['name'] : null;
 
@@ -86,21 +107,29 @@ class UserController extends Controller
                 $isValidPicture = false;
 
                 if ($hasPicture) {
+                    // Sépare le nom du fichier en segments en utilisant le point comme séparateur
                     $tabExtension = explode('.', $_FILES['picture']['name']);
+
+                    // Liste des extensions de fichiers image autorisées
                     $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+
+                    // Récupère la dernière partie du tableau d'extensions, qui devrait être l'extension du fichier
                     $extension = strtolower(end($tabExtension));
+
+                    // Vérifie si l'extension extraite du nom de fichier est dans la liste des extensions autorisées
                     $isValidPicture = in_array($extension, $extensions);
                 }
 
                 if ($hasPicture && !$isValidPicture) {
+                    // Si l'extension de l'image n'est pas autorisée, afficher un message d'erreur
                     $message = "Cette extension n'est pas autorisée.";
                     echo self::getRender('dashboard-options.html.twig', ['message' => $message]);
                 } else {
+                    // Instanciation du modèle utilisateur
                     $userModel = new UserModel();
                     $user = $userModel->getUserById($uid);
-                    $user->setFirstName($firstName);
-                    $user->setLastName($lastName);
-                    $user->setUid($uid);
+
+                    // Mise à jour des informations de l'utilisateur
                     $user->setFirstName($firstName);
                     $user->setLastName($lastName);
                     $user->setEmail($email);
@@ -108,28 +137,34 @@ class UserController extends Controller
                     $user->setBirthDate($birthDate);
 
                     if ($hasPicture) {
+                        // Si une nouvelle image est fournie, mettre à jour le nom de l'image dans les données utilisateur
                         $user->setPicture($pictureName);
                     }
 
+                    // Appel de la méthode editUser() du modèle pour effectuer la mise à jour dans la base de données
                     $querryResult = $userModel->editUser($user);
 
                     if ($querryResult && $hasPicture) {
+                        // Si la mise à jour a réussi et qu'une image a été fournie, tenter de télécharger l'image
                         $uploadDir = 'asset/media/profils/';
                         $uploadFile = $uploadDir . $_FILES['picture']['name'];
                         $controleUpload = move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile);
 
                         if (!$controleUpload) {
+                            // Si le téléchargement de l'image échoue, afficher un message d'erreur
                             $message = "Une erreur est survenue lors du téléchargement de l'image. Veuillez réessayer.";
                             echo self::getRender('dashboard-options.html.twig', ['message' => $message]);
                         }
                     }
+
+                    // Une fois la mise à jour réussie, rediriger l'utilisateur vers le tableau de bord
                     $_SESSION['flash_message'] = "Modification réussie";
                     header('Location: ' . $router->generate('dashboard'));
-                    // echo self::getRender('dashboard-options.html.twig', ['message' => $message]);
                 }
             }
         }
     }
+
 
     // Récupérer le fichier photo
     public function delete()
@@ -150,3 +185,8 @@ class UserController extends Controller
         }
     }
 }
+
+
+
+
+           

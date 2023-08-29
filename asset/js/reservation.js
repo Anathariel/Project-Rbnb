@@ -1,24 +1,27 @@
+// Attend que le DOM soit prêt
 document.addEventListener("DOMContentLoaded", function () {
-  // Les dates déjà réservées
+  // Récupère les dates déjà réservées depuis l'attribut 'data-reserved-dates'
   var bookedDatesString = document
     .querySelector(".container-calendar-traveler")
     .getAttribute("data-reserved-dates");
   var unavailableDates = bookedDatesString.split(",");
 
+  // Récupère également les dates déjà réservées en tant que tableau
   var bookedDatesString = document
     .querySelector(".container-calendar-traveler")
     .getAttribute("data-reserved-dates");
   var bookedDates = bookedDatesString.split(",");
 
+  // Initialise le sélecteur de dates avec la bibliothèque flatpickr
   flatpickr("#arrivalDateDisplay", {
-    mode: "range",
-    dateFormat: "Y-m-d",
-    altFormat: "d M Y",
-    minDate: "today",
-    disable: unavailableDates,
+    mode: "range", // Permet de sélectionner une plage de dates
+    dateFormat: "Y-m-d", // Format de date pour le backend
+    altFormat: "d M Y", // Format de date pour l'affichage
+    minDate: "today", // Empêche de sélectionner des dates antérieures à aujourd'hui
+    disable: unavailableDates, // Désactive les dates déjà réservées
     onChange: function (selectedDates, dateStr, instance) {
       if (selectedDates.length == 2) {
-        // Set the visible inputs
+        // Met à jour les champs d'entrée visibles avec les dates sélectionnées
         document.querySelector("#arrivalDateDisplay").value =
           flatpickr.formatDate(selectedDates[0], instance.config.altFormat);
         document.querySelector("#departureDateDisplay").value =
@@ -32,22 +35,23 @@ document.addEventListener("DOMContentLoaded", function () {
           instance.config.dateFormat
         );
 
-        // Call the updatePrices function after setting input values
+        // Appelle la fonction updatePrices après avoir défini les valeurs d'entrée
         updatePrices();
 
-        // Display the price-details and total-price divs
+        // Affiche les éléments div de détails de prix
         document.querySelector(".price-details").style.display = "flex";
         document.querySelector(".total-price").style.display = "flex";
       } else {
-        // If dates are not valid, keep the divs hidden
+        // Si les dates ne sont pas valides, garde les éléments div masqués
         document.querySelector(".price-details").style.display = "none";
         document.querySelector(".total-price").style.display = "none";
       }
     },
   });
 
-  // Function to calculate and update the prices
+  // Fonction pour calculer et mettre à jour les prix
   function updatePrices() {
+    // Récupère les éléments HTML nécessaires
     const pricePerNightElem = document.getElementById("pricePerNight");
     const nbDayElem = document.getElementById("nb-day");
     const totalPriceElem = document.getElementById("totalPrice");
@@ -57,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("totalPriceWithFees");
     const calculatedTotalElem = document.getElementById("calculatedTotal");
 
+    // Sort de la fonction si certains éléments n'existent pas
     if (
       !pricePerNightElem ||
       !nbDayElem ||
@@ -69,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    // Convertit les données textuelles en nombres pour les calculs
     const pricePerNight = parseFloat(pricePerNightElem.innerText);
     const arrivalDate = new Date(document.getElementById("arrivalDate").value);
     const departureDate = new Date(
@@ -81,15 +87,15 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("traveler-select").value
     );
 
-    // Calculate prices and fees
+    // Calcule les prix et frais
     const totalBasePrice = pricePerNight * numberOfDays;
-    const serviceFee = totalBasePrice * 0.05; // 5% service fee
-    const taxes = totalBasePrice * 0.02; // 2% taxes
+    const serviceFee = totalBasePrice * 0.05; // Frais de service de 5%
+    const taxes = totalBasePrice * 0.02; // Taxes de 2%
     const totalPriceWithFees = totalBasePrice + serviceFee + taxes;
     const totalForDays = pricePerNight * numberOfDays;
-    calculatedTotalElem.innerText = totalForDays.toFixed(2) + "€";
 
-    // Update the price elements
+    // Met à jour les éléments d'affichage des prix
+    calculatedTotalElem.innerText = totalForDays.toFixed(2) + "€";
     nbDayElem.innerText =
       numberOfDays + " nuit" + (numberOfDays > 1 ? "s" : "");
     serviceFeeElem.innerText = serviceFee.toFixed(2) + "€";
@@ -97,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
     totalPriceElem.innerText = totalBasePrice.toFixed(2) + "€";
     totalPriceWithFeesElem.innerText = totalPriceWithFees.toFixed(2) + "€";
 
-    // Update hidden form fields for submission
+    // Met à jour les champs de formulaire cachés pour la soumission
     document.getElementById("startDateInput").value = arrivalDate.toISOString();
     document.getElementById("endDateInput").value = departureDate.toISOString();
     document.getElementById("numTravelersInput").value = numTravelers;
@@ -105,12 +111,12 @@ document.addEventListener("DOMContentLoaded", function () {
       totalPriceWithFees.toFixed(2);
   }
 
-  // Initialize the prices and traveler options on load
+  // Initialise les prix et les options de voyageurs au chargement
   updatePrices();
   updatePriceDetailsVisibility();
 });
 
-// Function to update the visibility of the price details box
+// Fonction pour mettre à jour la visibilité de la boîte de détails de prix
 function updatePriceDetailsVisibility() {
   const arrivalDate = document.getElementById("arrivalDate").value;
   const departureDate = document.getElementById("departureDate").value;
@@ -123,36 +129,3 @@ function updatePriceDetailsVisibility() {
     priceDetailsElem.classList.remove("hidden");
   }
 }
-
-//Deprecated Code
-
-// Function to check if a date is available
-// function isDateAvailable(date) {
-//   // Implement your logic to check date availability here
-//   return true;
-// }
-
-// // Event listeners
-// const travelerSelectElem = document.getElementById("traveler-select");
-// if (travelerSelectElem) {
-//     travelerSelectElem.addEventListener("change", updatePrices);
-// }
-
-// // Function to update the visibility of the price details box
-// function updatePriceDetailsVisibility() {
-//   const arrivalDate = document.getElementById("arrivalDate").value;
-//   const departureDate = document.getElementById("departureDate").value;
-//   const numberOfDays = parseInt(document.getElementById("nb-day").innerText);
-//   const priceDetailsElem = document.querySelector(".price-details");
-
-//   if ((!arrivalDate || !departureDate) && numberOfDays === 0) {
-//     priceDetailsElem.classList.add("hidden");
-//   } else {
-//     priceDetailsElem.classList.remove("hidden");
-//   }
-// }
-
-// Initialize the prices and traveler options on page load
-// updatePrices();
-// updatePriceDetailsVisibility();
-// updateTravelerOptions(); // Uncomment this if you've defined this function elsewhere
