@@ -20,7 +20,7 @@ Front-end & Maquetting :
 
 _________
 
-○ Lien maquette FIGMA : https://www.figma.com/file/x4gSVuXZE54CPA5N7oPb9z/Maquettes?type=design&node-id=505-2&t=iDTNDo0C1scuAUvB-0
+○ Lien maquette FIGMA : https://www.figma.com/file/SFxH8M3s02UgfQBktVT9WN/Projet-Loca'R?type=design&node-id=0%3A1&mode=design&t=3uPf7ejTlYfjcmAE-1
 
 ○ Schéma MLD/MCD : https://lucid.app/lucidchart/475b5a62-e828-432e-8885-31b211453981/edit?viewport_loc=278%2C98%2C2518%2C1197%2CL.BeP2~polPs&invitationId=inv_29ba67eb-9245-4a4c-8b38-329fc9d40b66
 
